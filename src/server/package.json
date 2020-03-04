@@ -1,0 +1,20 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Backend for MyChat app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "backend": "nodemon node index.js"
+  },
+  "author": "Adam Belkalai",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.10.1",
+    "dotenv": "^8.2.0",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.9.3",
+    "mongoose-unique-validator": "^2.0.3",
+    "nodemon": "^2.0.2"
+  }
+}
