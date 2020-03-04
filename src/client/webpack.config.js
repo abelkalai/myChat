@@ -2,7 +2,8 @@ let path = require("path");
 
 module.exports = {
   mode: "development",
-  entry: path.join(__dirname, "./index.jsx"),
+  entry: [path.join(__dirname, "./index.jsx"), "babel-polyfill"],
+  watch: true,
   output: {
     path: __dirname,
     filename: "indexBundle.js"

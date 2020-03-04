@@ -1,18 +1,36 @@
-import React  from "react";
+import React from "react";
 import { fieldInput } from "../hooks/customHooks";
 
-const Signup = () => {
-  const firstNameSign = fieldInput("string");
-  const lastNameSign = fieldInput("string");
-  const emailSign = fieldInput("string");
-  const userSign = fieldInput("string");
-  const passSign = fieldInput("String");
-  const confirmPassSign = fieldInput("string");
+const Signup = props => {
+  const firstNameSign = fieldInput();
+  const lastNameSign = fieldInput();
+  const emailSign = fieldInput();
+  const userSign = fieldInput();
+  const passSign = fieldInput();
+  const confirmPassSign = fieldInput();
+
+  const submit = async event => {
+    event.preventDefault();
+    let firstName = firstNameSign.value;
+    let lastName = lastNameSign.value;
+    let email = emailSign.value;
+    let username = userSign.value;
+    let password = passSign.value;
+    await props.addUser({
+      variables: { firstName, lastName, email, username, password }
+    });
+    firstNameSign.clear();
+    lastNameSign.clear();
+    emailSign.clear();
+    userSign.clear();
+    passSign.clear();
+    confirmPassSign.clear();
+  };
 
   return (
     <div>
       <h1> Signup for an account!</h1>
-      <form>
+      <form onSubmit={submit}>
         <div>
           First Name:{""}
           <input
@@ -25,11 +43,11 @@ const Signup = () => {
           <input value={lastNameSign.value} onChange={lastNameSign.onChange} />
         </div>
         <div>
-          Email:{""}
+          emailSign:{""}
           <input value={emailSign.value} onChange={emailSign.onChange} />
         </div>
         <div>
-          Username:{""}
+          userSign:{""}
           <input value={userSign.value} onChange={userSign.onChange} />
         </div>
         <div>
