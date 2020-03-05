@@ -34,6 +34,7 @@ const ADD_USER = gql`
 const ALL_USERS = gql`
   {
     allUsers {
+      _id
       firstName
       lastName
       email

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const {ApolloServer, gql } = require("apollo-server");
+const { ApolloServer, gql } = require("apollo-server");
 const User = require("./models/user");
 const config = require("./utils/config");
 
@@ -20,6 +20,7 @@ mongoose.set("useCreateIndex", true);
 
 const typeDefs = gql`
   type User {
+    _id: String!
     firstName: String!
     lastName: String!
     email: String!
@@ -27,7 +28,7 @@ const typeDefs = gql`
     password: String!
   }
 
-  type addUserResp{
+  type addUserResp {
     User: User
     errorList: [String]
   }
@@ -44,7 +45,6 @@ const typeDefs = gql`
       username: String!
       password: String!
     ): addUserResp
-
   }
 `;
 
@@ -55,8 +55,8 @@ const resolvers = {
     }
   },
   Mutation: {
-    addUser: async (placeHolder, args) => {
-      const user = new User({ ...args });
+    addUser: async (placeHolder, args, response) => {
+      let user = new User({ ...args });
       try {
         await user.save();
       } catch (error) {
@@ -72,10 +72,10 @@ const resolvers = {
           })) > 0
             ? "Email Already Exists"
             : null;
-        return {errorList: [userError,emailError]};
+        return { errorList: [userError, emailError] };
       }
 
-      return {User: user};
+      return { User: user };
     }
   }
 };
