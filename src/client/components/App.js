@@ -21,9 +21,12 @@ const ADD_USER = gql`
       username: $username
       password: $password
     ) {
-      firstName
-      lastName
-      email
+      User {
+        firstName
+        lastName
+        email
+      }
+      errorList
     }
   }
 `;
@@ -47,9 +50,9 @@ const App = () => {
     refetchQueries: [{ query: ALL_USERS }]
   });
   return (
-    <div className="center">
-      <h1>Welcome to MyChat!</h1>
-      {showLogin ? <Login /> : <Signup addUser={addUser}/>}
+    <div>
+      <h1 className="center">Welcome to MyChat!</h1>
+      {showLogin ? <Login /> : <Signup addUser={addUser} />}
       <div className="center">
         <button onClick={() => setShowLogin(!showLogin)}>
           {showLogin ? `SignUp` : `Back to Login`}

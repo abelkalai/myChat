@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { fieldInput } from "../hooks/customHooks";
+import "../styles/all.css";
 
 const Login = () => {
   const [activeUser, setActiveUser] = useState(false);
@@ -8,7 +9,7 @@ const Login = () => {
 
   const loginForm = () => {
     return (
-      <div>
+      <div className="center">
         <h1> Login</h1>
         <form>
           <div>

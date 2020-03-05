@@ -1,7 +1,7 @@
 import {useState} from 'react'
 
 export const fieldInput = () => {
-    const [value, setValue] = useState("")
+    const [value, setValue] = useState("s")
   
     const onChange = (event) => {
       setValue(event.target.value)

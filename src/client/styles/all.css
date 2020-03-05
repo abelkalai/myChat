@@ -1,3 +1,26 @@
 .center {
   text-align: center;
 }
+
+.sign-up{
+  display: inline-block;
+  flex-direction: column;
+  align-items: center;
+  width: 15%
+}
+
+.sign-up-input{
+  display: flex;
+  flex-direction: column;
+  padding: 7.5px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  display: relative;
+}
+
+.submit {
+  padding: 2px;
+}
