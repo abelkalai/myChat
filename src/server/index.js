@@ -1,9 +1,13 @@
 const mongoose = require("mongoose");
-const { ApolloServer, gql } = require("apollo-server");
+const { ApolloServer, gql } = require("apollo-server-express");
 const User = require("./models/user");
 const config = require("./utils/config");
-
+const express = require('express')
+const cors = require('cors')
 const MONGODB_URI = config.MONGODB_URI;
+const JWT_SECRET_KEY = config.JSON_SECRET_KEY;
+const bcrypt = require('bcryptjs')
+const JWT = require("jsonwebtoken");
 
 mongoose
   .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -37,6 +41,10 @@ const typeDefs = gql`
     allUsers: [User!]!
   }
 
+  type loginResp {
+    Token: String!
+  }
+
   type Mutation {
     addUser(
       firstName: String!
@@ -45,6 +53,8 @@ const typeDefs = gql`
       username: String!
       password: String!
     ): addUserResp
+
+    login(username: String!, password: String!): loginResp
   }
 `;
 
@@ -76,6 +86,24 @@ const resolvers = {
       }
 
       return { User: user };
+    },
+
+    login: async (placeHolder, args) => {
+      const user = await User.find({ username: args.username });
+      if (user[0].password != args.password) {
+        return { errorList: "Username or Password is incorrect" };
+      }
+
+      const userSign = {
+        _id: user[0]._id,
+        firstName: user[0].firstName,
+        lastName: user[0].lastName,
+        email: user[0].email
+      };
+
+      return {
+        Token: JWT.sign(userSign, JWT_SECRET_KEY)
+      };
     }
   }
 };
@@ -85,6 +113,13 @@ const server = new ApolloServer({
   resolvers
 });
 
-server.listen().then(({ url }) => {
-  console.log(`Backend Server at this URL: ${url}`);
-});
+const app = express()
+app.use(cors())
+server.applyMiddleware({app})
+
+app.listen({port: 4000}, ()=>
+  console.log(`Backend server ready at http:localhost:4000${server.graphqlPath}`)
+)
+// server.listen().then(({ url }) => {
+//   console.log(`Backend Server at this URL: ${url}`);
+// });

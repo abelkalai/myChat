@@ -10,7 +10,8 @@ App that lets users connect and send messages to one another
 ## Technologies
 
 * React for the frontend to have a single page site
-* Uses GraphQL along with Apollo-Server to serve and handle requests
+* Uses Apollo Server to connect to the GraphQL Schema
+* Uses Express as the HTTP server
 * Uses MongoDB as the database
 
 
