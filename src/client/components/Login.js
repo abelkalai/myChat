@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { fieldInput } from "../hooks/customHooks";
 import "../styles/all.css";
 
@@ -6,7 +6,8 @@ const Login = props => {
   const [forgotUser, setForgotUser] = useState(false);
   const [forgotPass, setForgotPass] = useState(false);
   const [loginError, setLoginError] = useState(null);
-  const [activeUser, setactiveUser] = useState(null);
+  const [activeUser, setActiveUser] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(props.loggedInQuery.data.loggedIn);
   const user = fieldInput();
   const pass = fieldInput();
   const email = fieldInput();
@@ -24,12 +25,16 @@ const Login = props => {
         user.clear();
         pass.clear();
         setLoginError(null);
-        setactiveUser(true);
-        document.cookie=`token=${result.data.login.Token}`
-
+        let date = new Date();
+        date.setDate(date.getDate() + 1);
+        document.cookie = `token=${
+          result.data.login.Token
+        }; expires=${date.toGMTString()} ;path=/`;
       } else {
         setLoginError(result.data.login.errorList);
+        return;
       }
+      setActiveUser(result.data.login.User);
     };
 
     return (
@@ -99,18 +104,21 @@ const Login = props => {
     );
   };
 
-  const loggedIn = () => {
-    const logOut = async event  => {
-      event.preventDefault()
-      setactiveUser(false)
+  const userActive = () => {
+    const logOut = async event => {
+      event.preventDefault();
+      document.cookie =
+        "token=;expires = Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
+      setActiveUser(null);
+      setLoggedIn(null)
     };
+
+    const userInfo = activeUser ? activeUser : loggedIn;
 
     return (
       <div className="center">
-        <h1>Hi </h1>
-        <form>
-          <button onClick={logOut}> Log Out</button>
-        </form>
+        <h1>Hi {`${userInfo.firstName} ${userInfo.lastName}`} </h1>
+        <button onClick={logOut}> Log Out</button>
       </div>
     );
   };
@@ -121,10 +129,14 @@ const Login = props => {
         My Chat is a platform used to connect with friends and family and
         message one another!
       </p>
-      {!activeUser && !forgotUser && !forgotPass && loginForm()}
-      {!activeUser && forgotUser && forgotUserForm()}
-      {!activeUser && forgotPass && forgotPassForm()}
-      {!activeUser && (forgotUser || forgotPass) && (
+      {loggedIn == null &&
+        !activeUser &&
+        !forgotUser &&
+        !forgotPass &&
+        loginForm()}
+      {loggedIn == null && !activeUser && forgotUser && forgotUserForm()}
+      {loggedIn == null && !activeUser && forgotPass && forgotPassForm()}
+      {loggedIn == null && !activeUser && (forgotUser || forgotPass) && (
         <button
           onClick={() => {
             setForgotUser(false), setForgotPass(false);
@@ -134,7 +146,7 @@ const Login = props => {
         </button>
       )}
 
-      {activeUser && loggedIn()}
+      {(activeUser || loggedIn != null) && userActive()}
     </div>
   );
 };

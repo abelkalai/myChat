@@ -39,10 +39,11 @@ const typeDefs = gql`
 
   type Query {
     allUsers: [User!]!
-    loggedInUser: User
+    loggedIn: User
   }
 
   type loginResp {
+    User: User
     Token: String
     errorList: String
   }
@@ -64,11 +65,16 @@ const resolvers = {
   Query: {
     allUsers: () => {
       return User.find({});
+    },
+
+    loggedIn: async (placeHolder, args, context) => {
+      let activeUser= await (context.currentUser != null ? context.currentUser : null)
+      return activeUser
     }
   },
   Mutation: {
     addUser: async (placeHolder, args) => {
-      args.password=await bcrypt.hash(args.password, 10)
+      args.password = await bcrypt.hash(args.password, 10);
       let user = new User({ ...args });
       try {
         await user.save();
@@ -94,7 +100,8 @@ const resolvers = {
     login: async (placeHolder, args) => {
       try {
         const user = await User.find({ username: args.username });
-        if (!await bcrypt.compare(args.password, user[0].password)) {
+  
+        if (!(await bcrypt.compare(args.password, user[0].password))) {
           return { errorList: "Username or Password is incorrect" };
         }
         const userSign = {
@@ -103,9 +110,7 @@ const resolvers = {
           lastName: user[0].lastName,
           email: user[0].email
         };
-        return {
-          Token: jwt.sign(userSign, JWT_SECRET_KEY)
-        };
+        return { User: user[0], Token: jwt.sign(userSign, JWT_SECRET_KEY) };
       } catch (error) {
         return { errorList: "Username or Password is incorrect" };
       }
@@ -117,30 +122,34 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: async ({ req }) => {
-    const auth = req ? req.headers.authorization : null;
-    if (auth && auth.toLowerCase().startsWith("bearer ")) {
-      const decodedToken = jwt.verify(auth.substring(7), JWT_SECRET_KEY);
-      const currentUser = await User.findById(decodedToken._id);
-      return { currentUser };
+    const cookie = req ? req.headers.cookie : null;
+    if (cookie && cookie.toLowerCase().startsWith("token")) {
+      try {
+        const decodedToken = jwt.verify(cookie.substring(6), JWT_SECRET_KEY);
+        const currentUser = await User.findById(decodedToken._id);
+        return { currentUser };
+      } catch (error) {
+        return null;
+      }
     }
+
+    return null;
   }
 });
 
-
 const app = express();
 app.use(cors());
-app.use('/',express.static(__dirname+'/../client/'))
-app.get('/',function(response){
-  response.sendFile(path.join(__dirname+'/../client/index.html'))
-})
+app.use("/", express.static(__dirname + "/../client/"));
+app.get("/", function(response) {
+  response.sendFile(path.join(__dirname + "/../client/index.html"));
+});
 server.applyMiddleware({ app });
 
-const PORT = process.env.PORT || 4000
+const port = process.env.PORT || 4000;
 
-app.listen({ port: PORT }, () =>
+app.listen({ port }, () =>
   console.log(
-    `Client application ready at http:localhost:${PORT}`,
-    `Backend server ready at http:localhost:${PORT,server.graphqlPath}`
+    `Client application ready at http:localhost:${port},`,
+    `Backend server ready at http:localhost:${(port, server.graphqlPath)}`
   )
 );
-
