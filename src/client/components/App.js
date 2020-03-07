@@ -31,6 +31,21 @@ const ADD_USER = gql`
   }
 `;
 
+const LOGIN = gql`
+mutation login(
+    $username: String!
+    $password: String!
+  ){
+  login(
+    username: $username
+    password: $password
+  ){
+    Token
+    errorList
+  }
+}
+`;
+
 const ALL_USERS = gql`
   {
     allUsers {
@@ -44,16 +59,19 @@ const ALL_USERS = gql`
   }
 `;
 
+
 const App = () => {
   const [showLogin, setShowLogin] = useState(true);
   const userQuery = useQuery(ALL_USERS);
   const [addUser] = useMutation(ADD_USER, {
     refetchQueries: [{ query: ALL_USERS }]
   });
+  const [login] = useMutation(LOGIN)
+
   return (
     <div>
       <h1 className="center">Welcome to MyChat!</h1>
-      {showLogin ? <Login /> : <Signup addUser={addUser} />}
+      {showLogin ? <Login login={login} /> : <Signup addUser={addUser} />}
       <div className="center">
         <button onClick={() => setShowLogin(!showLogin)}>
           {showLogin ? `SignUp` : `Back to Login`}

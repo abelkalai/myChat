@@ -2,7 +2,7 @@ let path = require("path");
 
 module.exports = {
   mode: "development",
-  entry: [path.join(__dirname, "./index.jsx"), "babel-polyfill"],
+  entry: [path.join(__dirname, "./index.jsx")],
   watch: true,
   output: {
     path: __dirname,

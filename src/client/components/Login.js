@@ -1,29 +1,47 @@
 import React, { useState } from "react";
 import { fieldInput } from "../hooks/customHooks";
-import { useQuery, useMutation } from "@apollo/react-hooks";
-import { gql } from "apollo-boost";
 import "../styles/all.css";
 
-// const LOGIN=gql`
-//   mutation()`
-
-
-const Login = () => {
-  const [activeUser, setActiveUser] = useState(false);
+const Login = props => {
   const [forgotUser, setForgotUser] = useState(false);
   const [forgotPass, setForgotPass] = useState(false);
+  const [loginError, setLoginError] = useState(null);
+  const [activeUser, setactiveUser] = useState(null);
   const user = fieldInput();
   const pass = fieldInput();
   const email = fieldInput();
 
   const loginForm = () => {
+    const submitLogin = async event => {
+      event.preventDefault();
+      let username = user.value;
+      let password = pass.value;
+      let result = await props.login({
+        variables: { username, password }
+      });
+
+      if (result.data.login.errorList == null) {
+        user.clear();
+        pass.clear();
+        setLoginError(null);
+        setactiveUser(true);
+        document.cookie=`token=${result.data.login.Token}`
+
+      } else {
+        setLoginError(result.data.login.errorList);
+      }
+    };
+
     return (
       <div className="center">
         <h1> Login</h1>
-        <form>
+        <form onSubmit={submitLogin}>
           <div>
             username:
             <input value={user.value} onChange={user.onChange} required />
+            {loginError == null ? null : (
+              <span className="error">{loginError}</span>
+            )}
             <button onClick={() => setForgotUser(true)} className="forgotLabel">
               Forgot Username
             </button>
@@ -36,6 +54,9 @@ const Login = () => {
               required
               type="password"
             />
+            {loginError == null ? null : (
+              <span className="error">{loginError}</span>
+            )}
             <button onClick={() => setForgotPass(true)} className="forgotLabel">
               Forgot Password
             </button>
@@ -78,6 +99,22 @@ const Login = () => {
     );
   };
 
+  const loggedIn = () => {
+    const logOut = async event  => {
+      event.preventDefault()
+      setactiveUser(false)
+    };
+
+    return (
+      <div className="center">
+        <h1>Hi </h1>
+        <form>
+          <button onClick={logOut}> Log Out</button>
+        </form>
+      </div>
+    );
+  };
+
   return (
     <div className="center">
       <p>
@@ -85,9 +122,9 @@ const Login = () => {
         message one another!
       </p>
       {!activeUser && !forgotUser && !forgotPass && loginForm()}
-      {forgotUser && forgotUserForm()}
-      {forgotPass && forgotPassForm()}
-      {(forgotUser || forgotPass) && (
+      {!activeUser && forgotUser && forgotUserForm()}
+      {!activeUser && forgotPass && forgotPassForm()}
+      {!activeUser && (forgotUser || forgotPass) && (
         <button
           onClick={() => {
             setForgotUser(false), setForgotPass(false);
@@ -96,6 +133,8 @@ const Login = () => {
           Back to Login
         </button>
       )}
+
+      {activeUser && loggedIn()}
     </div>
   );
 };

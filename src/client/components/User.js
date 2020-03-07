@@ -11,7 +11,7 @@ const User = ({ result }) => {
       <h2>Users</h2>
       {result.data.allUsers.map(a => (
         <p key={a._id}>
-          {a.firstName} {a.lastName} {a.email} {a._id}
+          {a.firstName} {a.lastName} {a.email} {a.username} {a.password}
         </p>
       ))}
     </div>

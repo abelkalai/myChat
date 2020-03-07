@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 const { ApolloServer, gql } = require("apollo-server-express");
 const User = require("./models/user");
 const config = require("./utils/config");
-const express = require('express')
-const cors = require('cors')
+const express = require("express");
+const cors = require("cors");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 const MONGODB_URI = config.MONGODB_URI;
 const JWT_SECRET_KEY = config.JSON_SECRET_KEY;
-const bcrypt = require('bcryptjs')
-const JWT = require("jsonwebtoken");
 
 mongoose
   .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -39,10 +39,12 @@ const typeDefs = gql`
 
   type Query {
     allUsers: [User!]!
+    loggedInUser: User
   }
 
   type loginResp {
-    Token: String!
+    Token: String
+    errorList: String
   }
 
   type Mutation {
@@ -65,7 +67,8 @@ const resolvers = {
     }
   },
   Mutation: {
-    addUser: async (placeHolder, args, response) => {
+    addUser: async (placeHolder, args) => {
+      args.password=await bcrypt.hash(args.password, 10)
       let user = new User({ ...args });
       try {
         await user.save();
@@ -89,37 +92,55 @@ const resolvers = {
     },
 
     login: async (placeHolder, args) => {
-      const user = await User.find({ username: args.username });
-      if (user[0].password != args.password) {
+      try {
+        const user = await User.find({ username: args.username });
+        if (!await bcrypt.compare(args.password, user[0].password)) {
+          return { errorList: "Username or Password is incorrect" };
+        }
+        const userSign = {
+          _id: user[0]._id,
+          firstName: user[0].firstName,
+          lastName: user[0].lastName,
+          email: user[0].email
+        };
+        return {
+          Token: jwt.sign(userSign, JWT_SECRET_KEY)
+        };
+      } catch (error) {
         return { errorList: "Username or Password is incorrect" };
       }
-
-      const userSign = {
-        _id: user[0]._id,
-        firstName: user[0].firstName,
-        lastName: user[0].lastName,
-        email: user[0].email
-      };
-
-      return {
-        Token: JWT.sign(userSign, JWT_SECRET_KEY)
-      };
     }
   }
 };
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  context: async ({ req }) => {
+    const auth = req ? req.headers.authorization : null;
+    if (auth && auth.toLowerCase().startsWith("bearer ")) {
+      const decodedToken = jwt.verify(auth.substring(7), JWT_SECRET_KEY);
+      const currentUser = await User.findById(decodedToken._id);
+      return { currentUser };
+    }
+  }
 });
 
-const app = express()
-app.use(cors())
-server.applyMiddleware({app})
 
-app.listen({port: 4000}, ()=>
-  console.log(`Backend server ready at http:localhost:4000${server.graphqlPath}`)
-)
-// server.listen().then(({ url }) => {
-//   console.log(`Backend Server at this URL: ${url}`);
-// });
+const app = express();
+app.use(cors());
+app.use('/',express.static(__dirname+'/../client/'))
+app.get('/',function(response){
+  response.sendFile(path.join(__dirname+'/../client/index.html'))
+})
+server.applyMiddleware({ app });
+
+const PORT = process.env.PORT || 4000
+
+app.listen({ port: PORT }, () =>
+  console.log(
+    `Client application ready at http:localhost:${PORT}`,
+    `Backend server ready at http:localhost:${PORT,server.graphqlPath}`
+  )
+);
+

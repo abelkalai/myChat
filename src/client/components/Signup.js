@@ -10,9 +10,14 @@ const Signup = props => {
   const confirmPassSign = fieldInput();
   const [userError, setUserError] = useState(null);
   const [emailError, setEmailError] = useState(null);
+  const [passError, setPassError] = useState(null);
 
   const submit = async event => {
     event.preventDefault();
+    if (passSign.value !== confirmPassSign.value) {
+      setPassError("Passwords don't match");
+      return;
+    }
     let firstName = firstNameSign.value;
     let lastName = lastNameSign.value;
     let email = emailSign.value;
@@ -24,18 +29,18 @@ const Signup = props => {
     });
 
     if (result.data.addUser.errorList == null) {
-      setUserError(null)
-      setEmailError(null)
+      setUserError(null);
+      setEmailError(null);
+      setPassError(null);
       firstNameSign.clear();
       lastNameSign.clear();
       emailSign.clear();
       userSign.clear();
       passSign.clear();
       confirmPassSign.clear();
-    }
-    else{
-      setUserError(result.data.addUser.errorList[0])
-      setEmailError(result.data.addUser.errorList[1])
+    } else {
+      setUserError(result.data.addUser.errorList[0]);
+      setEmailError(result.data.addUser.errorList[1]);
     }
   };
 
@@ -90,6 +95,9 @@ const Signup = props => {
               type="password"
               required
             />
+            {passError == null ? null : (
+              <span className="error">{passError}</span>
+            )}
           </div>
 
           <div className="sign-up-input">
@@ -100,6 +108,9 @@ const Signup = props => {
               type="password"
               required
             />
+            {passError == null ? null : (
+              <span className="error">{passError}</span>
+            )}
           </div>
           <div className="submit">
             <button type="submit">Signup</button>
