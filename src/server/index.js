@@ -9,6 +9,14 @@ const jwt = require("jsonwebtoken");
 const MONGODB_URI = config.MONGODB_URI;
 const JWT_SECRET_KEY = config.JSON_SECRET_KEY;
 
+const mailService = require("./services/emailService");
+
+const sendMail = async () => {
+  await mailService.sendEmail("CONFIRM", "Adam", "Belk", "abelkalai@gmail.com");
+};
+
+//sendMail()
+
 mongoose
   .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
@@ -30,6 +38,7 @@ const typeDefs = gql`
     email: String!
     username: String!
     password: String!
+    confirmed: Boolean!
   }
 
   type addUserResp {
@@ -40,6 +49,7 @@ const typeDefs = gql`
   type Query {
     allUsers: [User!]!
     loggedIn: User
+    checkEmail(email: String): String
   }
 
   type loginResp {
@@ -68,13 +78,23 @@ const resolvers = {
     },
 
     loggedIn: async (placeHolder, args, context) => {
-      let activeUser= await (context.currentUser != null ? context.currentUser : null)
-      return activeUser
+      let activeUser = await (context.currentUser != null
+        ? context.currentUser
+        : null);
+      return activeUser;
+    },
+
+    checkEmail: (placeHolder, args) => {
+      return User.collection
+        .countDocuments({ email: args.email })
+        .then(result => (result > 0 ? "validEmail" : "No associated email found"))
+      
     }
   },
   Mutation: {
     addUser: async (placeHolder, args) => {
       args.password = await bcrypt.hash(args.password, 10);
+      args.confirmed = false;
       let user = new User({ ...args });
       try {
         await user.save();
@@ -97,18 +117,19 @@ const resolvers = {
       return { User: user };
     },
 
-    login: async (placeHolder, args) => {
+    login: (placeHolder, args) => {
       try {
-        const user = await User.find({ username: args.username });
-  
-        if (!(await bcrypt.compare(args.password, user[0].password))) {
+        const user = User.find({ username: args.username });
+
+        if (!(bcrypt.compare(args.password, user[0].password))) {
           return { errorList: "Username or Password is incorrect" };
         }
         const userSign = {
           _id: user[0]._id,
           firstName: user[0].firstName,
           lastName: user[0].lastName,
-          email: user[0].email
+          email: user[0].email,
+          confirmed: user[0].confirmed
         };
         return { User: user[0], Token: jwt.sign(userSign, JWT_SECRET_KEY) };
       } catch (error) {
@@ -150,6 +171,6 @@ const port = process.env.PORT || 4000;
 app.listen({ port }, () =>
   console.log(
     `Client application ready at http:localhost:${port},`,
-    `Backend server ready at http:localhost:${(port, server.graphqlPath)}`
+    `Backend server ready at http:localhost:${port}${server.graphqlPath}`
   )
 );

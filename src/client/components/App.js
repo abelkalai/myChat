@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Login from "./Login";
+import Login from "./login/Login";
 import Signup from "./Signup";
-import User from "./User";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
+
 import "../styles/all.css";
 
 const ADD_USER = gql`
@@ -40,22 +40,10 @@ const LOGIN = gql`
         lastName
         email
         username
+        confirmed
       }
       Token
       errorList
-    }
-  }
-`;
-
-const ALL_USERS = gql`
-  {
-    allUsers {
-      _id
-      firstName
-      lastName
-      email
-      username
-      password
     }
   }
 `;
@@ -68,16 +56,15 @@ const LOGGED_IN = gql`
       lastName
       email
       username
+      confirmed
     }
   }
 `;
 
+
 const App = () => {
   const [showLogin, setShowLogin] = useState(true);
-  const userQuery = useQuery(ALL_USERS);
-  const [addUser] = useMutation(ADD_USER, {
-    refetchQueries: [{ query: ALL_USERS }]
-  });
+  const [addUser] = useMutation(ADD_USER);
   const [login] = useMutation(LOGIN, {
     refetchQueries: [{ query: LOGGED_IN }]
   });
@@ -89,16 +76,18 @@ const App = () => {
       <div>
         <h1 className="center">Welcome to MyChat!</h1>
         {showLogin ? (
-          <Login login={login} loggedInQuery={loggedInQuery} />
+          <Login
+            login={login}
+            loggedInQuery={loggedInQuery}
+          />
         ) : (
-          <Signup addUser={addUser} />
+          <Signup addUser={addUser}/>
         )}
         <div className="center">
-          <button onClick={() => setShowLogin(!showLogin)}>
+          <button type="button" onClick={() => setShowLogin(!showLogin)}>
             {showLogin ? `SignUp` : `Back to Login`}
           </button>
         </div>
-        <User result={userQuery} />
       </div>
     )
   );

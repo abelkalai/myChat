@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { fieldInput } from "../hooks/customHooks";
-import "../styles/all.css";
+import React, { useState } from "react";
+import { fieldInput } from "../../hooks/customHooks";
+import Forgot from "./Forgot";
+import "../../styles/all.css";
 
 const Login = props => {
-  const [forgotUser, setForgotUser] = useState(false);
-  const [forgotPass, setForgotPass] = useState(false);
   const [loginError, setLoginError] = useState(null);
   const [activeUser, setActiveUser] = useState(null);
+  const [forgot, setForgot] = useState("");
   const [loggedIn, setLoggedIn] = useState(props.loggedInQuery.data.loggedIn);
   const user = fieldInput();
   const pass = fieldInput();
-  const email = fieldInput();
 
   const loginForm = () => {
     const submitLogin = async event => {
@@ -47,7 +46,11 @@ const Login = props => {
             {loginError == null ? null : (
               <span className="error">{loginError}</span>
             )}
-            <button onClick={() => setForgotUser(true)} className="forgotLabel">
+            <button
+              type="button"
+              onClick={() => setForgot("Username")}
+              className="forgotLabel"
+            >
               Forgot Username
             </button>
           </div>
@@ -62,42 +65,16 @@ const Login = props => {
             {loginError == null ? null : (
               <span className="error">{loginError}</span>
             )}
-            <button onClick={() => setForgotPass(true)} className="forgotLabel">
+            <button
+              type="button"
+              onClick={() => setForgot("Password")}
+              className="forgotLabel"
+            >
               Forgot Password
             </button>
           </div>
           <div>
             <button type="submit">login</button>
-          </div>
-        </form>
-      </div>
-    );
-  };
-
-  const forgotUserForm = () => {
-    return (
-      <div className="center">
-        <h1> Forgot Username</h1>
-        <form>
-          <div>
-            Enter Email Address:{" "}
-            <input value={email.value} onChange={email.onChange} required />
-            <button type="submit">Submit</button>{" "}
-          </div>
-        </form>
-      </div>
-    );
-  };
-
-  const forgotPassForm = () => {
-    return (
-      <div className="center">
-        <h1> Forgot Password</h1>
-        <form>
-          <div>
-            Enter Email Address:{" "}
-            <input value={email.value} onChange={email.onChange} required />
-            <button type="submit">Submit</button>
           </div>
         </form>
       </div>
@@ -110,7 +87,7 @@ const Login = props => {
       document.cookie =
         "token=;expires = Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
       setActiveUser(null);
-      setLoggedIn(null)
+      setLoggedIn(null);
     };
 
     const userInfo = activeUser ? activeUser : loggedIn;
@@ -123,29 +100,25 @@ const Login = props => {
     );
   };
 
+  
   return (
     <div className="center">
       <p>
         My Chat is a platform used to connect with friends and family and
         message one another!
       </p>
-      {loggedIn == null &&
-        !activeUser &&
-        !forgotUser &&
-        !forgotPass &&
-        loginForm()}
-      {loggedIn == null && !activeUser && forgotUser && forgotUserForm()}
-      {loggedIn == null && !activeUser && forgotPass && forgotPassForm()}
-      {loggedIn == null && !activeUser && (forgotUser || forgotPass) && (
+      {loggedIn == null && forgot == "" && !activeUser && loginForm()}
+      {forgot != "" && <Forgot type={forgot}/>}
+      {loggedIn == null && forgot != "" && !activeUser && (
         <button
+          type="button"
           onClick={() => {
-            setForgotUser(false), setForgotPass(false);
+            setForgot("");
           }}
         >
           Back to Login
         </button>
       )}
-
       {(activeUser || loggedIn != null) && userActive()}
     </div>
   );
