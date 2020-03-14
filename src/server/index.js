@@ -3,19 +3,15 @@ const { ApolloServer, gql } = require("apollo-server-express");
 const User = require("./models/user");
 const config = require("./utils/config");
 const express = require("express");
+const generator = require('generate-password')
 const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+
 const MONGODB_URI = config.MONGODB_URI;
 const JWT_SECRET_KEY = config.JSON_SECRET_KEY;
 
 const mailService = require("./services/emailService");
-
-const sendMail = async () => {
-  await mailService.sendEmail("CONFIRM", "Adam", "Belk", "abelkalai@gmail.com");
-};
-
-//sendMail()
 
 mongoose
   .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -29,6 +25,7 @@ mongoose
 //Fix mongoose methods
 mongoose.set("useNewUrlParser", true);
 mongoose.set("useCreateIndex", true);
+mongoose.set("useFindAndModify",false)
 
 const typeDefs = gql`
   type User {
@@ -39,6 +36,7 @@ const typeDefs = gql`
     username: String!
     password: String!
     confirmed: Boolean!
+    validationCode: String
   }
 
   type addUserResp {
@@ -49,7 +47,7 @@ const typeDefs = gql`
   type Query {
     allUsers: [User!]!
     loggedIn: User
-    checkEmail(email: String): String
+    checkEmail(email: String type: String): String
   }
 
   type loginResp {
@@ -68,6 +66,7 @@ const typeDefs = gql`
     ): addUserResp
 
     login(username: String!, password: String!): loginResp
+    validateAccount(email: String! validationCode: String!): String!
   }
 `;
 
@@ -84,17 +83,40 @@ const resolvers = {
       return activeUser;
     },
 
-    checkEmail: (placeHolder, args) => {
-      return User.collection
-        .countDocuments({ email: args.email })
-        .then(result => (result > 0 ? "validEmail" : "No associated email found"))
-      
+    checkEmail: async (placeHolder, args) => {
+      let user = await User.findOne({ email: args.email.toLowerCase() });
+      let result = user.length>0 ? "validEmail" : "No associated email found";
+      if (result == "validEmail") {
+        if (args.type == "Username") {
+          await mailService.sendEmail('USERNAME', {
+            toFName: user.firstName,
+            toLName: user.lastName,
+            toEmail: user.email,
+            username: user.username
+          });
+        }
+        else if (args.type=="Password"){
+          let newPass=generator.generate({length: 10, numbers: true})
+          let bcryptPass = await bcrypt.hash(newPass, 10)
+          await User.findByIdAndUpdate(user._id,{password: bcryptPass})
+          await mailService.sendEmail('PASSWORD', {
+            toFName: user.firstName,
+            toLName: user.lastName,
+            toEmail: user.email,
+            password: newPass,
+          });
+        }
+      }
+      return result;
     }
   },
   Mutation: {
     addUser: async (placeHolder, args) => {
       args.password = await bcrypt.hash(args.password, 10);
       args.confirmed = false;
+      args.username= args.username.toLowerCase()
+      args.email=args.email.toLowerCase()
+      args.validationCode=generator.generate({length: 10, numbers: false})
       let user = new User({ ...args });
       try {
         await user.save();
@@ -113,27 +135,46 @@ const resolvers = {
             : null;
         return { errorList: [userError, emailError] };
       }
-
+      await mailService.sendEmail("CONFIRM", {
+        toFName: args.firstName,
+        toLName: args.lastName,
+        toEmail: args.email,
+        code: args.validationCode
+      });
       return { User: user };
     },
 
-    login: (placeHolder, args) => {
+    login: async(placeHolder, args) => {
       try {
-        const user = User.find({ username: args.username });
+        const user = await User.findOne({ username: args.username.toLowerCase() });
 
-        if (!(bcrypt.compare(args.password, user[0].password))) {
+        if (!await bcrypt.compare(args.password, user.password)) {
           return { errorList: "Username or Password is incorrect" };
         }
+        else if(!user.confirmed){
+          return { errorList: "Please confirm your email address to login" };
+        }
         const userSign = {
-          _id: user[0]._id,
-          firstName: user[0].firstName,
-          lastName: user[0].lastName,
-          email: user[0].email,
-          confirmed: user[0].confirmed
+          _id: user._id,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: user.email,
+          confirmed: user.confirmed
         };
-        return { User: user[0], Token: jwt.sign(userSign, JWT_SECRET_KEY) };
+        return { User: user, Token: jwt.sign(userSign, JWT_SECRET_KEY) };
       } catch (error) {
         return { errorList: "Username or Password is incorrect" };
+      }
+    },
+
+    validateAccount: async(placeholder, args)=>{
+      const user = await User.findOne({email: args.email})
+      if(user.validationCode!=args.validationCode.trim()){
+        return "Invalid Validation Code"
+      }
+      else{
+        await User.findByIdAndUpdate(user._id,{validationCode: null, confirmed: true})
+        return "Account verified"
       }
     }
   }
@@ -165,6 +206,7 @@ app.get("/", function(response) {
   response.sendFile(path.join(__dirname + "/../client/index.html"));
 });
 server.applyMiddleware({ app });
+
 
 const port = process.env.PORT || 4000;
 

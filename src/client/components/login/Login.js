@@ -41,40 +41,36 @@ const Login = props => {
         <h1> Login</h1>
         <form onSubmit={submitLogin}>
           <div>
-            username:
+            Username:
             <input value={user.value} onChange={user.onChange} required />
-            {loginError == null ? null : (
-              <span className="error">{loginError}</span>
-            )}
+            {<span className="error">{loginError}</span>}
             <button
               type="button"
-              onClick={() => setForgot("Username")}
+              onClick={() => {setForgot("Username"),setLoginError(null), user.clear(),pass.clear()}}
               className="forgotLabel"
             >
               Forgot Username
             </button>
           </div>
           <div>
-            password:
+            Password:
             <input
               value={pass.value}
               onChange={pass.onChange}
               required
               type="password"
             />
-            {loginError == null ? null : (
-              <span className="error">{loginError}</span>
-            )}
+            {<span className="error">{loginError}</span>}
             <button
               type="button"
-              onClick={() => setForgot("Password")}
+              onClick={() => {setForgot("Password"), setLoginError(null), user.clear(),pass.clear()}}
               className="forgotLabel"
             >
               Forgot Password
             </button>
           </div>
           <div>
-            <button type="submit">login</button>
+            <button type="submit">Login</button>
           </div>
         </form>
       </div>

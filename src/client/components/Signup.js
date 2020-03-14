@@ -12,6 +12,7 @@ const Signup = props => {
   const confirmNumber = fieldInput();
   const [userError, setUserError] = useState(null);
   const [emailError, setEmailError] = useState(null);
+  const [validateError, setValidateError] =useState(null)
   const [passError, setPassError] = useState(null);
   const [confirmation, setConfirmation] = useState(null);
   const [confirmMsg, setConfirmMsg] = useState(null);
@@ -101,9 +102,7 @@ const Signup = props => {
                 type="password"
                 required
               />
-              {passError == null ? null : (
-                <span className="error">{passError}</span>
-              )}
+              {<span className="error">{passError}</span>}
             </div>
 
             <div className="sign-up-input">
@@ -114,9 +113,7 @@ const Signup = props => {
                 type="password"
                 required
               />
-              {passError == null ? null : (
-                <span className="error">{passError}</span>
-              )}
+              {<span className="error">{passError}</span>}
             </div>
             <div className="submit">
               <button type="submit">Signup</button>
@@ -132,8 +129,8 @@ const Signup = props => {
       <div className="center">
         <h1>Thanks for signing up </h1>
         <h2>{`Welcome to MyChat, ${firstNameSign.value} ${lastNameSign.value}`}</h2>
-        <p>{`Please check your email at: ${emailSign.value}. Click the button below to re-send the email confirmation`}</p>
-        <button> Re-Send Email Confirmation</button>
+        <p>{`Please check your email at: ${emailSign.value} 
+          Please don't leave this page until you have confirmed your email address.`}</p>
         <form onSubmit={confirmEmail}>
           <label>Enter your confirmation code here:</label>
           <input
@@ -146,8 +143,12 @@ const Signup = props => {
     );
   };
 
-  const confirmEmail = event => {
+  const confirmEmail = async event => {
     event.preventDefault();
+    let validationCode= confirmNumber.value
+    let email= emailSign.value
+    let result= await props.validateEmail({variables: {email, validationCode}})
+    console.log(result)
     setConfirmation(null);
     setConfirmMsg("Email Confirmation");
   };

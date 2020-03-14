@@ -1,20 +1,17 @@
 import React, { useState } from "react";
 import { fieldInput } from "../../hooks/customHooks";
 import Confirmation from "../Confirmation";
-import { useLazyQuery, useMutation } from "@apollo/react-hooks";
+import { useLazyQuery} from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
 const CHECK_EMAIL = gql`
-  query checkEmail($email: String) {
-    checkEmail(email: $email)
+  query checkEmail($email: String, $type: String) {
+    checkEmail(email: $email, type: $type)
   }
 `;
 
 const Forgot = props => {
-  const [validate, setValidate] = useState(null);
-  const [confirm, setConfirm] = useState(null);
   const emailForm = fieldInput();
-  const validationCode = fieldInput();
   const [error, setError] = useState(null);
   const [emailCheck] = useLazyQuery(
     CHECK_EMAIL  , {onCompleted: data=>{setError(data.checkEmail)}})
@@ -29,6 +26,7 @@ const Forgot = props => {
             <input
               value={emailForm.value}
               onChange={emailForm.onChange}
+              type="email"
               required
             />
             <span className="error">{error}</span>
@@ -42,41 +40,14 @@ const Forgot = props => {
   const emailCall = event => {
     event.preventDefault();
     let email=emailForm.value
-    emailCheck({ variables: { email } });
-    console.log(error)
-  };
-
-  const validateForm = () => {
-    return (
-      <div className="center">
-        <h1>
-          {`Please check your email for a validation code to change your ${props.type}`}
-        </h1>
-        <form
-          onSubmit={() => {
-            setConfirm(true), setValidate(false);
-          }}
-        >
-          <div>
-            Enter the validation code sent to your email
-            <input
-              value={validationCode.value}
-              onChange={validationCode.onChange}
-              required
-            ></input>
-            <button type="submit"> Verify Code </button>
-          </div>
-        </form>
-        <button type="button"> Re-Send Validtion Code</button>
-      </div>
-    );
+    let type= props.type
+    emailCheck({ variables: { email, type } });
   };
 
   return (
     <div className="center">
-      {error!="validEmail" && !confirm && forgotForm()}
-      {error=="validEmail" && validateForm()}
-      {confirm && <Confirmation confirmMsg={`${props.type} Change`} />}
+      {error!="validEmail" && forgotForm()}
+      {error=="validEmail" && <Confirmation confirmMsg={`Please check your email to find your ${props.type} `} />}
     </div>
   );
 };

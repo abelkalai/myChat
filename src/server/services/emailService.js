@@ -1,9 +1,11 @@
 const nodemailer = require("nodemailer");
-const config = require('../utils/config')
+const config = require("../utils/config");
 const emailUsername = config.EMAIL_USERNAME;
 const emailPassword = config.EMAIL_PASSWORD;
 
-const sendEmail = async (type, toFName, toLName, toEmail ,code) => {
+//toFName, toLName, toEmail ,code, username, password
+const sendEmail = async (type, options) => {
+  console.log(type, options);
   let transporter = await nodemailer.createTransport({
     service: "gmail",
     port: 465,
@@ -17,21 +19,36 @@ const sendEmail = async (type, toFName, toLName, toEmail ,code) => {
     }
   });
 
-  let mailContent=null
+  let mailContent = null;
 
-  switch (type){
-    case 'CONFIRM':
+  switch (type) {
+    case "CONFIRM":
       mailContent = {
         from: `"My Chat" <${emailUsername}>`,
-        to: `${toFName} ${toLName} <${toEmail}>`,
+        to: `${options.toFName} ${options.toLName} <${options.toEmail}>`,
         subject: "Welcome to MyChat | Email Validation",
-        text: "Please provide the verification below to MyChat to validate your email!"
+        html: `<p> Please provide this verification code <b> ${options.code} </b> to MyChat to validate your email! </p>`
       };
+      break;
+    case "USERNAME":
+      mailContent = {
+        from: `"My Chat" <${emailUsername}>`,
+        to: `${options.toFName} ${options.toLName} <${options.toEmail}>`,
+        subject: "My Chat | Forgot Username",
+        html: `Your Username is: ${options.username}`
+      };
+      break;
+    case "PASSWORD":
+      mailContent = {
+        from: `"My Chat" <${emailUsername}>`,
+        to: `${options.toFName} ${options.toLName} <${options.toEmail}>`,
+        subject: "My Chat | Forgot Password",
+        html: `<p> Your temporary password is <b>${options.password} </b> Please go into the MyChat app and change your password </p>`
+      };
+      break;
   }
-  
 
-  transporter.sendMail(mailContent)
-  
+
 };
 
 module.exports = { sendEmail };

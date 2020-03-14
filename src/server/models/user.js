@@ -27,7 +27,11 @@ const schema = new mongoose.Schema({
         type: Boolean,
         required: true,
         defaultValue: false
+    },
+    validationCode:{
+        type: String
     }
+    
 
 })
 

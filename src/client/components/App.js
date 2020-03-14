@@ -61,10 +61,17 @@ const LOGGED_IN = gql`
   }
 `;
 
+const VALIDATE_EMAIL = gql`
+mutation validateAccount($email: String!, $validationCode: String!) {
+  validateAccount(email: $email, validationCode: $validationCode) 
+}
+`;
+
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(true);
   const [addUser] = useMutation(ADD_USER);
+  const [validateEmail] = useMutation(VALIDATE_EMAIL)
   const [login] = useMutation(LOGIN, {
     refetchQueries: [{ query: LOGGED_IN }]
   });
@@ -81,7 +88,7 @@ const App = () => {
             loggedInQuery={loggedInQuery}
           />
         ) : (
-          <Signup addUser={addUser}/>
+          <Signup addUser={addUser} validateEmail={validateEmail}/>
         )}
         <div className="center">
           <button type="button" onClick={() => setShowLogin(!showLogin)}>
