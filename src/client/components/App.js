@@ -62,39 +62,66 @@ const LOGGED_IN = gql`
 `;
 
 const VALIDATE_EMAIL = gql`
-mutation validateAccount($email: String!, $validationCode: String!) {
-  validateAccount(email: $email, validationCode: $validationCode) 
-}
+  mutation validateAccount($email: String!, $validationCode: String!) {
+    validateAccount(email: $email, validationCode: $validationCode)
+  }
 `;
-
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(true);
   const [addUser] = useMutation(ADD_USER);
-  const [validateEmail] = useMutation(VALIDATE_EMAIL)
+  const [validateEmail] = useMutation(VALIDATE_EMAIL);
   const [login] = useMutation(LOGIN, {
     refetchQueries: [{ query: LOGGED_IN }]
   });
 
   const loggedInQuery = useQuery(LOGGED_IN);
+  const [showWelcome, setShowWelcome] = useState(true);
+  const [showLoginButton, setShowLoginButton] = useState(true);
+
+  const welcomeText = () => {
+    return (
+      <div className="center">
+        <h1>Welcome to MyChat!</h1>
+        <p>
+          My Chat is a platform used to connect with friends and family and
+          message one another!
+        </p>
+      </div>
+    );
+  };
 
   return (
     !loggedInQuery.loading && (
       <div>
-        <h1 className="center">Welcome to MyChat!</h1>
+        {showWelcome && welcomeText()}
         {showLogin ? (
           <Login
             login={login}
             loggedInQuery={loggedInQuery}
+            setShowWelcome={setShowWelcome}
+            setShowLogin={setShowLoginButton}
           />
         ) : (
-          <Signup addUser={addUser} validateEmail={validateEmail}/>
+          <Signup
+            addUser={addUser}
+            validateEmail={validateEmail}
+            setShowWelcome={setShowWelcome}
+            setShowLogin={setShowLoginButton}
+          />
         )}
-        <div className="center">
-          <button type="button" onClick={() => setShowLogin(!showLogin)}>
-            {showLogin ? `SignUp` : `Back to Login`}
-          </button>
-        </div>
+        {showLoginButton && (
+          <div className="center">
+            <button
+              type="button"
+              onClick={() => {
+                setShowLogin(!showLogin)
+              }}
+            >
+              {showLogin ? `SignUp` : `Back to Login`}
+            </button>
+          </div>
+        )}
       </div>
     )
   );

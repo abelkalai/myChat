@@ -5,7 +5,6 @@ const emailPassword = config.EMAIL_PASSWORD;
 
 //toFName, toLName, toEmail ,code, username, password
 const sendEmail = async (type, options) => {
-  console.log(type, options);
   let transporter = await nodemailer.createTransport({
     service: "gmail",
     port: 465,
@@ -19,11 +18,11 @@ const sendEmail = async (type, options) => {
     }
   });
 
-  let mailContent = null;
+  let mailOptions = null;
 
   switch (type) {
     case "CONFIRM":
-      mailContent = {
+      mailOptions = {
         from: `"My Chat" <${emailUsername}>`,
         to: `${options.toFName} ${options.toLName} <${options.toEmail}>`,
         subject: "Welcome to MyChat | Email Validation",
@@ -31,7 +30,7 @@ const sendEmail = async (type, options) => {
       };
       break;
     case "USERNAME":
-      mailContent = {
+      mailOptions = {
         from: `"My Chat" <${emailUsername}>`,
         to: `${options.toFName} ${options.toLName} <${options.toEmail}>`,
         subject: "My Chat | Forgot Username",
@@ -39,7 +38,7 @@ const sendEmail = async (type, options) => {
       };
       break;
     case "PASSWORD":
-      mailContent = {
+      mailOptions = {
         from: `"My Chat" <${emailUsername}>`,
         to: `${options.toFName} ${options.toLName} <${options.toEmail}>`,
         subject: "My Chat | Forgot Password",
@@ -47,7 +46,7 @@ const sendEmail = async (type, options) => {
       };
       break;
   }
-
+  transporter.sendMail(mailOptions)
 
 };
 

@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { fieldInput } from "../../hooks/customHooks";
 import Forgot from "./Forgot";
-import "../../styles/all.css";
+import Home from "../main/Home";
 
 const Login = props => {
   const [loginError, setLoginError] = useState(null);
   const [activeUser, setActiveUser] = useState(null);
   const [forgot, setForgot] = useState("");
-  const [loggedIn, setLoggedIn] = useState(props.loggedInQuery.data.loggedIn);
   const user = fieldInput();
   const pass = fieldInput();
+
+  const [page, setPage] = useState(
+    props.loggedInQuery.data.loggedIn == null ? "login" : "loggedIn"
+  );
 
   const loginForm = () => {
     const submitLogin = async event => {
@@ -34,6 +37,8 @@ const Login = props => {
         return;
       }
       setActiveUser(result.data.login.User);
+      props.setShowWelcome(false)
+      setPage("loggedIn")
     };
 
     return (
@@ -46,7 +51,13 @@ const Login = props => {
             {<span className="error">{loginError}</span>}
             <button
               type="button"
-              onClick={() => {setForgot("Username"),setLoginError(null), user.clear(),pass.clear()}}
+              onClick={() => {
+                setForgot("Username"),
+                  setPage("forgot"),
+                  setLoginError(null),
+                  user.clear(),
+                  pass.clear();
+              }}
               className="forgotLabel"
             >
               Forgot Username
@@ -63,7 +74,13 @@ const Login = props => {
             {<span className="error">{loginError}</span>}
             <button
               type="button"
-              onClick={() => {setForgot("Password"), setLoginError(null), user.clear(),pass.clear()}}
+              onClick={() => {
+                setForgot("Password"),
+                  setPage("forgot"),
+                  setLoginError(null),
+                  user.clear(),
+                  pass.clear();
+              }}
               className="forgotLabel"
             >
               Forgot Password
@@ -77,45 +94,30 @@ const Login = props => {
     );
   };
 
-  const userActive = () => {
-    const logOut = async event => {
-      event.preventDefault();
-      document.cookie =
-        "token=;expires = Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
-      setActiveUser(null);
-      setLoggedIn(null);
-    };
-
-    const userInfo = activeUser ? activeUser : loggedIn;
-
-    return (
-      <div className="center">
-        <h1>Hi {`${userInfo.firstName} ${userInfo.lastName}`} </h1>
-        <button onClick={logOut}> Log Out</button>
-      </div>
-    );
-  };
-
-  
   return (
     <div className="center">
-      <p>
-        My Chat is a platform used to connect with friends and family and
-        message one another!
-      </p>
-      {loggedIn == null && forgot == "" && !activeUser && loginForm()}
-      {forgot != "" && <Forgot type={forgot}/>}
-      {loggedIn == null && forgot != "" && !activeUser && (
+      {page == "login" && loginForm()}
+      {page == "forgot" && <Forgot type={forgot} />}
+      {page=="forgot" && !activeUser && (
         <button
           type="button"
           onClick={() => {
-            setForgot("");
+            setPage("login")
           }}
         >
           Back to Login
         </button>
       )}
-      {(activeUser || loggedIn != null) && userActive()}
+      {(activeUser || page == "loggedIn") && (
+        <Home
+          activeUser={activeUser}
+          setActiveUser={setActiveUser}
+          setPage={setPage}
+          loggedIn={props.loggedInQuery.data.loggedIn}
+          setShowLogin={props.setShowLogin}
+          setShowWelcome={props.setShowWelcome}
+        />
+      )}
     </div>
   );
 };

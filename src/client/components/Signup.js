@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { fieldInput } from "../hooks/customHooks";
 import Confirmation from "./Confirmation";
 
@@ -14,8 +14,10 @@ const Signup = props => {
   const [emailError, setEmailError] = useState(null);
   const [validateError, setValidateError] =useState(null)
   const [passError, setPassError] = useState(null);
-  const [confirmation, setConfirmation] = useState(null);
   const [confirmMsg, setConfirmMsg] = useState(null);
+
+
+  const[page,setPage]=useState("signUpForm")
 
   const submit = async event => {
     event.preventDefault();
@@ -40,10 +42,12 @@ const Signup = props => {
     });
 
     if (result.data.addUser.errorList == null) {
-      setConfirmation(true);
       setUserError(null);
       setEmailError(null);
       setPassError(null);
+      setPage("signUpValidate")
+      props.setShowWelcome(false)
+      props.setShowLogin(false)
     } else {
       setUserError(result.data.addUser.errorList[0]);
       setEmailError(result.data.addUser.errorList[1]);
@@ -137,6 +141,7 @@ const Signup = props => {
             value={confirmNumber.value}
             onChange={confirmNumber.onChange}
           ></input>
+          {<span className="error">{validateError}</span>}
           <button type="submit"> Confirm Confirmation Code</button>
         </form>
       </div>
@@ -148,16 +153,21 @@ const Signup = props => {
     let validationCode= confirmNumber.value
     let email= emailSign.value
     let result= await props.validateEmail({variables: {email, validationCode}})
-    console.log(result)
-    setConfirmation(null);
-    setConfirmMsg("Email Confirmation");
+    if(result.data.validateAccount=="Account verified"){
+      setPage("signUpConfirm")
+      props.setShowLogin(true)
+      setConfirmMsg("Email Successfully Confirmed");      
+    }
+    else{
+      setValidateError("Invalid Validation Code")
+    }
   };
 
   return (
     <div>
-      {!confirmation && !confirmMsg && signUpForm()}
-      {confirmation && !confirmMsg && signUpConfirm()}
-      {confirmMsg && <Confirmation confirmMsg={confirmMsg} />}
+      {page=="signUpForm" && signUpForm()}
+      {page=="signUpValidate" && signUpConfirm()}
+      {page=="signUpConfirm" && <Confirmation confirmMsg={confirmMsg} />}
     </div>
   );
 };
