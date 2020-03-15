@@ -18,7 +18,7 @@ const Forgot = props => {
   
   const forgotForm = () => {
     return (
-      <div>
+      <div className="center">
         <h1> Forgot {props.type}</h1>
         <div>
           <form onSubmit={emailCall}>

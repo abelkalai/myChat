@@ -11,9 +11,9 @@ const Login = props => {
   const pass = fieldInput();
 
   const [page, setPage] = useState(
-    props.loggedInQuery.data.loggedIn == null ? "login" : "loggedIn"
+    props.loggedInQuery.data.loggedIn != null && !props.ignoreCookie ? "loggedIn" : "login"
   );
-
+  console.log(page)
   const loginForm = () => {
     const submitLogin = async event => {
       event.preventDefault();
@@ -38,6 +38,7 @@ const Login = props => {
       }
       setActiveUser(result.data.login.User);
       props.setShowWelcome(false)
+      props.setIgnoreCookie(false)
       setPage("loggedIn")
     };
 
@@ -95,7 +96,7 @@ const Login = props => {
   };
 
   return (
-    <div className="center">
+    <div>
       {page == "login" && loginForm()}
       {page == "forgot" && <Forgot type={forgot} />}
       {page=="forgot" && !activeUser && (
@@ -108,7 +109,7 @@ const Login = props => {
           Back to Login
         </button>
       )}
-      {(activeUser || page == "loggedIn") && (
+      {(activeUser || page == "loggedIn") && !props.ignoreCookie && (
         <Home
           activeUser={activeUser}
           setActiveUser={setActiveUser}
@@ -116,6 +117,7 @@ const Login = props => {
           loggedIn={props.loggedInQuery.data.loggedIn}
           setShowLogin={props.setShowLogin}
           setShowWelcome={props.setShowWelcome}
+          setIgnoreCookie={props.setIgnoreCookie}
         />
       )}
     </div>

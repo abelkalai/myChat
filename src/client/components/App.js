@@ -4,7 +4,8 @@ import Signup from "./Signup";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 
-import "../styles/all.css";
+import "../assets/stylesheets/all.css";
+
 
 const ADD_USER = gql`
   mutation addUser(
@@ -71,6 +72,7 @@ const App = () => {
   const [showLogin, setShowLogin] = useState(true);
   const [addUser] = useMutation(ADD_USER);
   const [validateEmail] = useMutation(VALIDATE_EMAIL);
+  const [ignoreCookie, setIgnoreCookie] = useState(false)
   const [login] = useMutation(LOGIN, {
     refetchQueries: [{ query: LOGGED_IN }]
   });
@@ -101,6 +103,8 @@ const App = () => {
             loggedInQuery={loggedInQuery}
             setShowWelcome={setShowWelcome}
             setShowLogin={setShowLoginButton}
+            ignoreCookie={ignoreCookie}
+            setIgnoreCookie={setIgnoreCookie}
           />
         ) : (
           <Signup
@@ -115,7 +119,7 @@ const App = () => {
             <button
               type="button"
               onClick={() => {
-                setShowLogin(!showLogin)
+                setShowLogin(!showLogin), setShowWelcome(true)
               }}
             >
               {showLogin ? `SignUp` : `Back to Login`}
