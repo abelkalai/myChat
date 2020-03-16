@@ -13,7 +13,7 @@ const Login = props => {
   const [page, setPage] = useState(
     props.loggedInQuery.data.loggedIn != null && !props.ignoreCookie ? "loggedIn" : "login"
   );
-  console.log(page)
+ 
   const loginForm = () => {
     const submitLogin = async event => {
       event.preventDefault();

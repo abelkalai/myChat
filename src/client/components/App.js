@@ -3,6 +3,7 @@ import Login from "./login/Login";
 import Signup from "./Signup";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
+import { Switch, Route } from 'react-router-dom';
 
 import "../assets/stylesheets/all.css";
 

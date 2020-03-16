@@ -18,7 +18,7 @@ const sendEmail = async (type, options) => {
     }
   });
 
-  let mailOptions = null;
+  let mailOptions
 
   switch (type) {
     case "CONFIRM":

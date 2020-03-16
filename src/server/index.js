@@ -200,11 +200,13 @@ const server = new ApolloServer({
 });
 
 const app = express();
+const path = require("path");
 app.use(cors());
 app.use("/", express.static(__dirname + "/../client/"));
 app.get("/", function(response) {
   response.sendFile(path.join(__dirname + "/../client/index.html"));
 });
+
 server.applyMiddleware({ app });
 
 
