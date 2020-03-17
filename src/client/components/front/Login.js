@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { fieldInput } from "../../hooks/customHooks";
+import { fieldInput } from "../hooks/customHooks";
 import Forgot from "./Forgot";
-import Home from "../main/Home";
+import { Redirect} from "react-router-dom";
 
 const Login = props => {
   const [loginError, setLoginError] = useState(null);
-  const [activeUser, setActiveUser] = useState(null);
   const [forgot, setForgot] = useState("");
   const user = fieldInput();
   const pass = fieldInput();
 
   const [page, setPage] = useState(
-    props.loggedInQuery.data.loggedIn != null && !props.ignoreCookie ? "loggedIn" : "login"
+    props.loggedInQuery.data.loggedIn != null && !props.ignoreCookie
+      ? "loggedIn"
+      : "login"
   );
- 
+
   const loginForm = () => {
     const submitLogin = async event => {
       event.preventDefault();
@@ -31,15 +32,15 @@ const Login = props => {
         date.setDate(date.getDate() + 1);
         document.cookie = `token=${
           result.data.login.Token
-        }; expires=${date.toGMTString()} ;path=/`;
+        }; expires=${date.toGMTString()} path=/;`;
       } else {
         setLoginError(result.data.login.errorList);
         return;
       }
-      setActiveUser(result.data.login.User);
-      props.setShowWelcome(false)
-      props.setIgnoreCookie(false)
-      setPage("loggedIn")
+      props.setActiveUser(result.data.login.User);
+      props.setIgnoreCookie(false);
+      props.setShowLogin(false);
+      setPage("loggedIn");
     };
 
     return (
@@ -88,7 +89,7 @@ const Login = props => {
             </button>
           </div>
           <div>
-            <button type="submit">Login</button>
+          <button type="submit">Login</button>
           </div>
         </form>
       </div>
@@ -96,29 +97,19 @@ const Login = props => {
   };
 
   return (
-    <div>
+    <div className="center">
+      {page=="loggedIn" && <Redirect to="/home"/>}
       {page == "login" && loginForm()}
       {page == "forgot" && <Forgot type={forgot} />}
-      {page=="forgot" && !activeUser && (
+      {page == "forgot" && (
         <button
           type="button"
           onClick={() => {
-            setPage("login")
+            setPage("login");
           }}
         >
           Back to Login
         </button>
-      )}
-      {(activeUser || page == "loggedIn") && !props.ignoreCookie && (
-        <Home
-          activeUser={activeUser}
-          setActiveUser={setActiveUser}
-          setPage={setPage}
-          loggedIn={props.loggedInQuery.data.loggedIn}
-          setShowLogin={props.setShowLogin}
-          setShowWelcome={props.setShowWelcome}
-          setIgnoreCookie={props.setIgnoreCookie}
-        />
       )}
     </div>
   );

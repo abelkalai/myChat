@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { fieldInput } from "../../hooks/customHooks";
-import Confirmation from "../Confirmation";
+import { fieldInput } from "../hooks/customHooks";
+import Confirmation from "./Confirmation";
 import { useLazyQuery} from "@apollo/react-hooks";
 import gql from "graphql-tag";
 

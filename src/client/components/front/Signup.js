@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fieldInput } from "../hooks/customHooks";
+import { fieldInput } from "../hooks/customHooks"
 import Confirmation from "./Confirmation";
 
 const Signup = props => {
@@ -46,7 +46,6 @@ const Signup = props => {
       setEmailError(null);
       setPassError(null);
       setPage("signUpValidate")
-      props.setShowWelcome(false)
       props.setShowLogin(false)
     } else {
       setUserError(result.data.addUser.errorList[0]);

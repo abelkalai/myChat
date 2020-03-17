@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import Login from "./login/Login";
-import Signup from "./Signup";
+import Frontpage from "./front/Frontpage";
+import Home from "./main/Home";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
-import { Switch, Route } from 'react-router-dom';
-
+import { Route} from "react-router-dom";
+import { OutRoute } from "../util/util_route";
 import "../assets/stylesheets/all.css";
-
 
 const ADD_USER = gql`
   mutation addUser(
@@ -70,63 +69,47 @@ const VALIDATE_EMAIL = gql`
 `;
 
 const App = () => {
-  const [showLogin, setShowLogin] = useState(true);
   const [addUser] = useMutation(ADD_USER);
   const [validateEmail] = useMutation(VALIDATE_EMAIL);
-  const [ignoreCookie, setIgnoreCookie] = useState(false)
-  const [login] = useMutation(LOGIN, {
+  const [loginQuery] = useMutation(LOGIN, {
     refetchQueries: [{ query: LOGGED_IN }]
   });
 
   const loggedInQuery = useQuery(LOGGED_IN);
-  const [showWelcome, setShowWelcome] = useState(true);
-  const [showLoginButton, setShowLoginButton] = useState(true);
-
-  const welcomeText = () => {
-    return (
-      <div className="center">
-        <h1>Welcome to MyChat!</h1>
-        <p>
-          My Chat is a platform used to connect with friends and family and
-          message one another!
-        </p>
-      </div>
-    );
-  };
+  const [ignoreCookie, setIgnoreCookie] = useState(false);
+  const [activeUser, setActiveUser] = useState(null);
 
   return (
     !loggedInQuery.loading && (
       <div>
-        {showWelcome && welcomeText()}
-        {showLogin ? (
-          <Login
-            login={login}
-            loggedInQuery={loggedInQuery}
-            setShowWelcome={setShowWelcome}
-            setShowLogin={setShowLoginButton}
-            ignoreCookie={ignoreCookie}
-            setIgnoreCookie={setIgnoreCookie}
-          />
-        ) : (
-          <Signup
+        <OutRoute
+          path="/"
+          loggedIn={loggedInQuery.data.loggedIn}
+          ignoreCookie={ignoreCookie}
+        >
+          <Frontpage
             addUser={addUser}
             validateEmail={validateEmail}
-            setShowWelcome={setShowWelcome}
-            setShowLogin={setShowLoginButton}
+            loginQuery={loginQuery}
+            loggedInQuery={loggedInQuery}
+            ignoreCookie={ignoreCookie}
+            setIgnoreCookie={setIgnoreCookie}
+            activeUser={activeUser}
+            setActiveUser={setActiveUser}
           />
-        )}
-        {showLoginButton && (
-          <div className="center">
-            <button
-              type="button"
-              onClick={() => {
-                setShowLogin(!showLogin), setShowWelcome(true)
-              }}
-            >
-              {showLogin ? `SignUp` : `Back to Login`}
-            </button>
-          </div>
-        )}
+        </OutRoute>
+        <Route
+          path="/home"
+          render={() => (
+            <Home
+              ignoreCookie={ignoreCookie}
+              setIgnoreCookie={setIgnoreCookie}
+              loggedIn={loggedInQuery.data.loggedIn}
+              activeUser={activeUser}
+              setActiveUser={setActiveUser}
+            />
+          )}
+        />
       </div>
     )
   );

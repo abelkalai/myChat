@@ -1,0 +1,144 @@
+* {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  padding: 0px;
+  margin: 0px;
+}
+
+.banner {
+  position: absolute;
+  width: 100%;
+  height: px;
+  top: 0px;
+  left: 0px;
+  background-color: #00a8f3;
+  display: inline-grid;
+  grid-template-areas: "left center right";
+  grid-template-columns: 7.5% 81% 12%;
+  align-items: center;
+}
+
+.home-title {
+  color: white;
+  font-size: 32px;
+  grid-area: left;
+  justify-content: left;
+  cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.searchName {
+  height: 10%;
+  width: 15%;
+  padding: 10px;
+  grid-area: center;
+  background-image: url("../../../images/search.png");
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding-left: 25px;
+}
+
+.user {
+  padding: 10px;
+  grid-area: right;
+}
+
+.dropdown {
+  color: white;
+  font-size: 18px;
+  display: inline-block;
+}
+
+.dropdown:hover {
+  cursor: pointer;
+}
+
+.dropdown-content {
+  margin-right: 10px;
+  display: none;
+  position: absolute;
+  color: black;
+  background-color: white;
+  min-width: 125px;
+  box-shadow: 0px 5px 5px 0px black;
+  padding: 10px 15px;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content div {
+  padding: 10px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: block;
+}
+
+
+
+.dropdown-profile{
+  background-position: 0px 6px;
+  background-image: url("../../../images/profile.png");
+  background-repeat: no-repeat;
+  padding-right: 10px;
+}
+
+.dropdown-profile:hover {
+  color: white;
+  background-image: url("../../../images/profileW.png");
+  background-repeat: no-repeat;
+  background-color: #00a8f3;
+  background-position: 0px 6px;
+  z-index: 1;
+}
+
+.dropdown-profile-content{
+  padding-left: 17.5px;
+}
+
+
+.dropdown-settings{
+  background-position: 0px 6px;
+  background-image: url("../../../images/settings.png");
+  background-repeat: no-repeat;
+  padding-right: 10px;
+}
+
+.dropdown-settings:hover {
+  color: white;
+  background-image: url("../../../images/settingsW.png");
+  background-repeat: no-repeat;
+  background-color: #00a8f3;
+  background-position: 0px 6px;
+  z-index: 1;
+}
+
+.dropdown-settings-content{
+  padding-left: 20px;
+}
+
+.dropdown-logout{
+  background-position: 0px 6px;
+  background-image: url("../../../images/logout.png");
+  background-repeat: no-repeat;
+  padding-right: 10px;
+}
+
+.dropdown-logout:hover {
+  color: white;
+  background-image: url("../../../images/logoutW.png");
+  background-repeat: no-repeat;
+  background-color: #00a8f3;
+  background-position: 0px 6px;
+  z-index: 1;
+}
+
+.dropdown-logout-content{
+  padding-left: 20px;
+}

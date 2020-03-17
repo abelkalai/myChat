@@ -1,24 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { fieldInput } from "../../hooks/customHooks";
-import { HashRouter as Router, Route, Switch, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { fieldInput } from "../hooks/customHooks";
+import { Link, Route, Redirect } from "react-router-dom";
+import Profile from "./account/Profile";
 import Settings from "./account/Settings";
-import "../../assets/stylesheets/components/main/main.css";
+import "../../assets/stylesheets/components/main/home.css";
 
 const Home = props => {
   const userInfo = props.activeUser ? props.activeUser : props.loggedIn;
+  const [frontpage, setFrontPage] = useState(false);
   const search = fieldInput();
-  useEffect(() => {
-    props.setShowWelcome(false);
-  });
-  useEffect(() => {
-    props.setShowLogin(false);
-  });
 
   const topBanner = () => {
     return (
       <div className="banner">
-        <Link to="/" className="link">
-          <div className="home-title">MyChat</div>{" "}
+        <Link to="/home" className="link">
+          <div className="home-title">MyChat</div>
         </Link>
         <input
           className="searchName"
@@ -30,13 +26,19 @@ const Home = props => {
           <span className="dropdown">
             {`${userInfo.firstName} ${userInfo.lastName}`}
             <div className="dropdown-content">
-              <span> Profile </span>
-              <Link to={`/settings`} className="link">
-                <span> Settings </span>
+              <Link to={`/home/profile`} className="link">
+                <div className="dropdown-profile">
+                  <span className="dropdown-profile-content">Profile</span>
+                </div>
               </Link>
-              <Link to="/" className="link" onClick={logOut}>
-                <span> Log Out </span>
+              <Link to={`/home/settings`} className="link">
+                <div className="dropdown-settings">
+                  <span className="dropdown-settings-content">Settings</span>
+                </div>
               </Link>
+              <div className="dropdown-logout" onClick={logOut}>
+                <span className="dropdown-logout-content">Log Out</span>
+              </div>
             </div>
           </span>
         </div>
@@ -47,25 +49,19 @@ const Home = props => {
   const logOut = async event => {
     event.preventDefault();
     document.cookie = "token=;expires = Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
-    props.setActiveUser(null);
-    props.setPage("login");
     props.setIgnoreCookie(true);
-    props.setShowWelcome(true);
-    props.setShowLogin(true);
+    setFrontPage(true);
   };
 
   return (
     <div>
       {topBanner()}
-      <Route path="/" />
-      <Switch>
-        <Route
-          path={`/settings`}
-          render={() => {
-            <Settings user={userInfo} />;
-          }}
-        />
-      </Switch>
+      {frontpage && <Redirect path="/" />}
+      <Route path="/home/profile" render={() => <Profile user={userInfo} />} />
+      <Route
+        path="/home/settings"
+        render={() => <Settings user={userInfo} />}
+      />
     </div>
   );
 };

@@ -85,7 +85,7 @@ const resolvers = {
 
     checkEmail: async (placeHolder, args) => {
       let user = await User.findOne({ email: args.email.toLowerCase() });
-      let result = user.length > 0 ? "validEmail" : "No associated email found";
+      let result = user!=null ? "validEmail" : "No associated email found";
       if (result == "validEmail") {
         if (args.type == "Username") {
           await mailService.sendEmail('USERNAME', {
