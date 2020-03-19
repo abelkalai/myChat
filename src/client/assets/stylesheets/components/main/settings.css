@@ -1,0 +1,54 @@
+* {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  padding: 0px;
+  margin: 0px;
+}
+
+.main {
+  margin: 65px 0 0 65px;
+  font-size: 22px;
+  display: grid;
+  grid-template-columns: 22.5% 70%;
+  grid-template-areas: "left right";
+}
+
+.main-left {
+  grid-area: left;
+}
+
+.settings-dropdown {
+  font-size: 22px;
+  margin: 15px 0 0 40px;
+  cursor: pointer;
+}
+
+.settings-dropdown div {
+  margin: 10px 10px;
+  padding: 10px;
+}
+
+.settings-dropdown div:hover {
+  background-color: grey;
+}
+
+.main-right{
+    grid-area: right;
+}
+
+.main-right div{
+    grid-area: right;
+    padding: 10px;
+}
+
+.form{
+  display: inline-block;
+  flex-direction: column;
+  align-items: center;
+  width: 40%
+}
+
+.form div{
+  display: flex;
+  flex-direction: column;
+  padding: 7.5px;
+}

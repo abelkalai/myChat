@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { fieldInput } from "../hooks/customHooks";
 import { Link, Route, Redirect } from "react-router-dom";
-import Profile from "./account/Profile";
-import Settings from "./account/Settings";
+import Profile from "./account/profile/Profile";
+import Settings from "./account/settings/Settings";
 import "../../assets/stylesheets/components/main/home.css";
 
 const Home = props => {
-  const userInfo = props.activeUser ? props.activeUser : props.loggedIn;
+  const [userInfo, setUserInfo] = useState(props.activeUser ? props.activeUser : props.loggedIn)
   const [frontpage, setFrontPage] = useState(false);
   const search = fieldInput();
 
@@ -31,7 +31,7 @@ const Home = props => {
                   <span className="dropdown-profile-content">Profile</span>
                 </div>
               </Link>
-              <Link to={`/home/settings`} className="link">
+              <Link to={`/home/settings/general`} className="link">
                 <div className="dropdown-settings">
                   <span className="dropdown-settings-content">Settings</span>
                 </div>
@@ -56,12 +56,9 @@ const Home = props => {
   return (
     <div>
       {topBanner()}
-      {frontpage && <Redirect path="/" />}
-      <Route path="/home/profile" render={() => <Profile user={userInfo} />} />
-      <Route
-        path="/home/settings"
-        render={() => <Settings user={userInfo} />}
-      />
+      {frontpage && <Redirect to="/" />}
+      <Route path="/home/profile" render={() => <Profile userInfo={userInfo} setUserInfo={setUserInfo}/>} />
+      <Route path="/home/settings/" render={() => <Settings userInfo={userInfo} setUserInfo={setUserInfo}/>} />
     </div>
   );
 };
