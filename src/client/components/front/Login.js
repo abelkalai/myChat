@@ -25,8 +25,6 @@ const Login = props => {
       });
 
       if (result.data.login.errorList == null) {
-        user.clear();
-        pass.clear();
         setLoginError(null);
         let date = new Date();
         date.setDate(date.getDate() + 1);

@@ -33,7 +33,7 @@ const Settings = props => {
       <Route
         path="/home/settings/security"
         render={() => 
-          <Security userInfo={props.userInfo} setUserInfo={props.setUserInfo} />
+          <Security userInfo={props.userInfo} setUserInfo={props.setUserInfo} setIgnoreCookie={props.setIgnoreCookie}/>
         }
       />
     </div>

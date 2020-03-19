@@ -725,30 +725,28 @@ var Login = function Login(props) {
                 result = _context.sent;
 
                 if (!(result.data.login.errorList == null)) {
-                  _context.next = 15;
+                  _context.next = 13;
                   break;
                 }
 
-                user.clear();
-                pass.clear();
                 setLoginError(null);
                 date = new Date();
                 date.setDate(date.getDate() + 1);
                 document.cookie = "token=".concat(result.data.login.Token, "; expires=").concat(date.toGMTString(), " path=/;");
-                _context.next = 17;
+                _context.next = 15;
                 break;
 
-              case 15:
+              case 13:
                 setLoginError(result.data.login.errorList);
                 return _context.abrupt("return");
 
-              case 17:
+              case 15:
                 props.setActiveUser(result.data.login.User);
                 props.setIgnoreCookie(false);
                 props.setShowLogin(false);
                 setPage("loggedIn");
 
-              case 21:
+              case 19:
               case "end":
                 return _context.stop();
             }
@@ -1242,7 +1240,8 @@ var Home = function Home(props) {
     render: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_account_settings_Settings__WEBPACK_IMPORTED_MODULE_4__["default"], {
         userInfo: userInfo,
-        setUserInfo: setUserInfo
+        setUserInfo: setUserInfo,
+        setIgnoreCookie: props.setIgnoreCookie
       });
     }
   }));
@@ -1310,7 +1309,14 @@ var General = function General(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../hooks/customHooks */ "./components/hooks/customHooks.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../hooks/customHooks */ "./components/hooks/customHooks.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -1319,30 +1325,110 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  mutation changePassword(\n    $_id: String!\n    $password: String!\n  ) {\n    changePassword(\n      _id: $_id\n      password: $password\n    ) \n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
+
+
+
+
+var CHANGE_PASSWORD = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_4__["gql"])(_templateObject());
 
 var Security = function Security(props) {
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(CHANGE_PASSWORD),
+      _useMutation2 = _slicedToArray(_useMutation, 1),
+      changePassword = _useMutation2[0];
+
+  var newPassword = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["fieldInput"])();
+  var newPasswordConfirm = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["fieldInput"])();
+
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState2 = _slicedToArray(_useState, 2),
       passwordError = _useState2[0],
       setPasswordError = _useState2[1];
 
-  var oldPassword = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
-  var newPassword = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
-  var newPasswordConfirm = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
-  var changedPassword = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      sendHome = _useState4[0],
+      setSendHome = _useState4[1];
 
-  var changePassword = function changePassword(event) {
-    event.preventDefault();
-  };
+  var changePasswordCallBack = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
+      var password, _id;
+
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              event.preventDefault();
+
+              if (!(newPassword.value != newPasswordConfirm.value)) {
+                _context.next = 4;
+                break;
+              }
+
+              setPasswordError("Passwords do not match");
+              return _context.abrupt("return");
+
+            case 4:
+              password = newPassword.value;
+              _id = props.userInfo._id;
+              _context.next = 8;
+              return changePassword({
+                variables: {
+                  _id: _id,
+                  password: password
+                }
+              });
+
+            case 8:
+              props.setIgnoreCookie(true);
+              document.cookie = "token=;expires = Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
+              setSendHome(true);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function changePasswordCallBack(_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main-right"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Security "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Change Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    onSubmit: changePassword,
+  }, sendHome && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+    to: "/"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Security "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Change Password (You'll be required to re-login upon changing your password)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    onSubmit: changePasswordCallBack,
     className: "form"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Current Passoword"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " New Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Confirm New Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " New Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "password",
+    value: newPassword.value,
+    onChange: newPassword.onChange
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "error"
+  }, passwordError)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Confirm New Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "password",
+    value: newPasswordConfirm.value,
+    onChange: newPasswordConfirm.onChange
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "error"
+  }, passwordError)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "submit"
   }, " Change Password"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Make sure you change your password if you used recently forgot password."));
 };
@@ -1407,7 +1493,8 @@ var Settings = function Settings(props) {
     render: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Security__WEBPACK_IMPORTED_MODULE_2__["default"], {
         userInfo: props.userInfo,
-        setUserInfo: props.setUserInfo
+        setUserInfo: props.setUserInfo,
+        setIgnoreCookie: props.setIgnoreCookie
       });
     }
   }));
@@ -18844,7 +18931,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "* {\r\n  font-family: Georgia, \"Times New Roman\", Times, serif;\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\n.main {\r\n  margin: 65px 0 0 65px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 22.5% 70%;\r\n  grid-template-areas: \"left right\";\r\n}\r\n\r\n.main-left {\r\n  grid-area: left;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-dropdown div {\r\n  margin: 10px 10px;\r\n  padding: 10px;\r\n}\r\n\r\n.settings-dropdown div:hover {\r\n  background-color: grey;\r\n}\r\n\r\n.main-right{\r\n    grid-area: right;\r\n}\r\n\r\n.main-right div{\r\n    grid-area: right;\r\n    padding: 10px;\r\n}\r\n\r\n.form{\r\n  display: inline-block;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  width: 40%\r\n}\r\n\r\n.form div{\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding: 7.5px;\r\n}\r\n", ""]);
+exports.push([module.i, "* {\r\n  font-family: Georgia, \"Times New Roman\", Times, serif;\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\n.main {\r\n  margin: 65px 0 0 65px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 22.5% 70%;\r\n  grid-template-areas: \"left right\";\r\n}\r\n\r\n.main-left {\r\n  grid-area: left;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-dropdown div {\r\n  margin: 10px 10px;\r\n  padding: 10px;\r\n}\r\n\r\n.settings-dropdown div:hover {\r\n  background-color: grey;\r\n}\r\n\r\n.main-right{\r\n    grid-area: right;\r\n}\r\n\r\n.main-right div{\r\n    grid-area: right;\r\n    padding: 10px;\r\n}\r\n\r\n.form{\r\n  display: inline-block;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  width: 25%\r\n}\r\n\r\n.form div{\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding: 7.5px;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 

@@ -67,6 +67,7 @@ const typeDefs = gql`
 
     login(username: String!, password: String!): loginResp
     validateAccount(email: String! validationCode: String!): String!
+    changePassword(_id: String! password: String!): String!
   }
 `;
 
@@ -158,6 +159,7 @@ const resolvers = {
           _id: user._id,
           firstName: user.firstName,
           lastName: user.lastName,
+          username: user.username,
           email: user.email,
           confirmed: user.confirmed
         };
@@ -167,7 +169,7 @@ const resolvers = {
       }
     },
 
-    validateAccount: async(placeholder, args)=>{
+    validateAccount: async(placeHolder, args)=>{
       const user = await User.findOne({email: args.email})
       if(user.validationCode!=args.validationCode.trim()){
         return "Invalid Validation Code"
@@ -176,6 +178,12 @@ const resolvers = {
         await User.findByIdAndUpdate(user._id,{validationCode: null, confirmed: true})
         return "Account verified"
       }
+    },
+
+    changePassword: async(placeHolder,args)=>{
+      let hashPassword = await bcrypt.hash(args.password, 10);
+      await User.findByIdAndUpdate(args._id, {password: hashPassword})
+      return "Success"
     }
   }
 };

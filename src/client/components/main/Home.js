@@ -6,7 +6,9 @@ import Settings from "./account/settings/Settings";
 import "../../assets/stylesheets/components/main/home.css";
 
 const Home = props => {
-  const [userInfo, setUserInfo] = useState(props.activeUser ? props.activeUser : props.loggedIn)
+  const [userInfo, setUserInfo] = useState(
+    props.activeUser ? props.activeUser : props.loggedIn
+  );
   const [frontpage, setFrontPage] = useState(false);
   const search = fieldInput();
 
@@ -57,8 +59,20 @@ const Home = props => {
     <div>
       {topBanner()}
       {frontpage && <Redirect to="/" />}
-      <Route path="/home/profile" render={() => <Profile userInfo={userInfo} setUserInfo={setUserInfo}/>} />
-      <Route path="/home/settings/" render={() => <Settings userInfo={userInfo} setUserInfo={setUserInfo}/>} />
+      <Route
+        path="/home/profile"
+        render={() => <Profile userInfo={userInfo} setUserInfo={setUserInfo} />}
+      />
+      <Route
+        path="/home/settings/"
+        render={() => (
+          <Settings
+            userInfo={userInfo}
+            setUserInfo={setUserInfo}
+            setIgnoreCookie={props.setIgnoreCookie}
+          />
+        )}
+      />
     </div>
   );
 };
