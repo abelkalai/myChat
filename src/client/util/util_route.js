@@ -1,10 +1,10 @@
 import React from "react";
-import { Route, Redirect} from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 
 const Out = ({ path, loggedIn, ignoreCookie, ...props }) => (
   <Route
-    path={path}
     exact
+    path={path}
     render={() =>
       loggedIn != null && !ignoreCookie ? (
         <Redirect to="/home" />
@@ -15,5 +15,4 @@ const Out = ({ path, loggedIn, ignoreCookie, ...props }) => (
   />
 );
 
-export const OutRoute = Out 
-
+export const OutRoute = Out;

@@ -67,7 +67,7 @@ const typeDefs = gql`
 
     login(username: String!, password: String!): loginResp
     validateAccount(email: String! validationCode: String!): String!
-    changePassword(_id: String! password: String!): String!
+    changePassword(_id: String! currentPassword: String! newPassword: String!): String!
   }
 `;
 
@@ -97,7 +97,7 @@ const resolvers = {
           });
         }
         else if (args.type=="Password"){
-          let newPass=generator.generate({length: 10, numbers: true})
+          let newPass=generator.generate({length: 8, numbers: true})
           let bcryptPass = await bcrypt.hash(newPass, 10)
           await User.findByIdAndUpdate(user._id,{password: bcryptPass})
           await mailService.sendEmail('PASSWORD', {
@@ -117,7 +117,8 @@ const resolvers = {
       args.confirmed = false;
       args.username= args.username.toLowerCase()
       args.email=args.email.toLowerCase()
-      args.validationCode=generator.generate({length: 10, numbers: false})
+      const verificationCode=generator.generate({length: 8, numbers: true})
+      args.validationCode=await bcrypt.hash(verificationCode, 10)
       let user = new User({ ...args });
       try {
         await user.save();
@@ -126,13 +127,13 @@ const resolvers = {
           (await User.collection.countDocuments({
             username: args.username
           })) > 0
-            ? "User Already Exists"
+            ? "User Already Used"
             : null;
         let emailError =
           (await User.collection.countDocuments({
             email: args.email
           })) > 0
-            ? "Email Already Exists"
+            ? "Email Already Used"
             : null;
         return { errorList: [userError, emailError] };
       }
@@ -140,7 +141,7 @@ const resolvers = {
         toFName: args.firstName,
         toLName: args.lastName,
         toEmail: args.email,
-        code: args.validationCode
+        code: verificationCode
       });
       return { User: user };
     },
@@ -171,7 +172,7 @@ const resolvers = {
 
     validateAccount: async(placeHolder, args)=>{
       const user = await User.findOne({email: args.email})
-      if(user.validationCode!=args.validationCode.trim()){
+      if(!await bcrypt.compare(args.validationCode.trim(), user.validationCode)){
         return "Invalid Validation Code"
       }
       else{
@@ -181,7 +182,14 @@ const resolvers = {
     },
 
     changePassword: async(placeHolder,args)=>{
-      let hashPassword = await bcrypt.hash(args.password, 10);
+      user = await User.findById(args._id)
+      if(!await bcrypt.compare(args.currentPassword, user.password)){
+        return "Incorrect Current password"
+      }
+      else if(await bcrypt.compare(args.newPassword, user.password)){
+        return "You're currently using this password"
+      }
+      let hashPassword = await bcrypt.hash(args.newPassword, 10);
       await User.findByIdAndUpdate(args._id, {password: hashPassword})
       return "Success"
     }

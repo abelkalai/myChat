@@ -6,6 +6,7 @@ import Settings from "./account/settings/Settings";
 import "../../assets/stylesheets/components/main/home.css";
 
 const Home = props => {
+  document.title="MyChat"
   const [userInfo, setUserInfo] = useState(
     props.activeUser ? props.activeUser : props.loggedIn
   );
@@ -60,7 +61,7 @@ const Home = props => {
       {topBanner()}
       {frontpage && <Redirect to="/" />}
       <Route
-        path="/home/profile"
+        path="/home/profile/"
         render={() => <Profile userInfo={userInfo} setUserInfo={setUserInfo} />}
       />
       <Route

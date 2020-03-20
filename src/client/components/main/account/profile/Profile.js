@@ -2,6 +2,7 @@ import React from "react";
 import "../../../../assets/stylesheets/components/main/profile.css";
 
 const Profile = props => {
+  document.title = "Profile | MyChat"
   return (
     <div>
       <h1>Blank</h1>

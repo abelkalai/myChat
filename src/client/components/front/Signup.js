@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { fieldInput } from "../hooks/customHooks"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { fieldInput } from "../hooks/customHooks";
 import Confirmation from "./Confirmation";
 
 const Signup = props => {
+  document.title="Signup | MyChat"
   const firstNameSign = fieldInput();
   const lastNameSign = fieldInput();
   const emailSign = fieldInput();
@@ -12,12 +14,11 @@ const Signup = props => {
   const confirmNumber = fieldInput();
   const [userError, setUserError] = useState(null);
   const [emailError, setEmailError] = useState(null);
-  const [validateError, setValidateError] =useState(null)
+  const [validateError, setValidateError] = useState(null);
   const [passError, setPassError] = useState(null);
   const [confirmMsg, setConfirmMsg] = useState(null);
 
-
-  const[page,setPage]=useState("signUpForm")
+  const [page, setPage] = useState("signUpForm");
 
   const submit = async event => {
     event.preventDefault();
@@ -45,8 +46,7 @@ const Signup = props => {
       setUserError(null);
       setEmailError(null);
       setPassError(null);
-      setPage("signUpValidate")
-      props.setShowLogin(false)
+      setPage("signUpValidate");
     } else {
       setUserError(result.data.addUser.errorList[0]);
       setEmailError(result.data.addUser.errorList[1]);
@@ -122,6 +122,9 @@ const Signup = props => {
               <button type="submit">Signup</button>
             </div>
           </form>
+          <Link to="/" className="link">
+            <button type="button"> Back to Login </button>
+          </Link>
         </div>
       </div>
     );
@@ -149,24 +152,24 @@ const Signup = props => {
 
   const confirmEmail = async event => {
     event.preventDefault();
-    let validationCode= confirmNumber.value
-    let email= emailSign.value
-    let result= await props.validateEmail({variables: {email, validationCode}})
-    if(result.data.validateAccount=="Account verified"){
-      setPage("signUpConfirm")
-      props.setShowLogin(true)
-      setConfirmMsg("Email Successfully Confirmed");      
-    }
-    else{
-      setValidateError("Invalid Validation Code")
+    let validationCode = confirmNumber.value;
+    let email = emailSign.value;
+    let result = await props.validateEmail({
+      variables: { email, validationCode }
+    });
+    if (result.data.validateAccount == "Account verified") {
+      setPage("signUpConfirm");
+      setConfirmMsg("Email Successfully Confirmed");
+    } else {
+      setValidateError("Invalid Validation Code");
     }
   };
 
   return (
     <div>
-      {page=="signUpForm" && signUpForm()}
-      {page=="signUpValidate" && signUpConfirm()}
-      {page=="signUpConfirm" && <Confirmation confirmMsg={confirmMsg} />}
+      {page == "signUpForm" && signUpForm()}
+      {page == "signUpValidate" && signUpConfirm()}
+      {page == "signUpConfirm" && <Confirmation confirmMsg={confirmMsg} />}
     </div>
   );
 };

@@ -1,20 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { fieldInput } from "../hooks/customHooks";
-import Forgot from "./Forgot";
-import { Redirect} from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 const Login = props => {
+  document.title="Login | MyChat"
   const [loginError, setLoginError] = useState(null);
-  const [forgot, setForgot] = useState("");
   const user = fieldInput();
   const pass = fieldInput();
 
-  const [page, setPage] = useState(
-    props.loggedInQuery.data.loggedIn != null && !props.ignoreCookie
-      ? "loggedIn"
-      : "login"
-  );
-
+  const [page, setPage] = useState("login");
   const loginForm = () => {
     const submitLogin = async event => {
       event.preventDefault();
@@ -35,10 +29,9 @@ const Login = props => {
         setLoginError(result.data.login.errorList);
         return;
       }
-      props.setActiveUser(result.data.login.User);
-      props.setIgnoreCookie(false);
-      props.setShowLogin(false);
-      setPage("loggedIn");
+      props.setActiveUser(result.data.login.User)
+      props.setIgnoreCookie(false)
+      setTimeout(()=>{setPage("loggedIn")},25)
     };
 
     return (
@@ -52,8 +45,7 @@ const Login = props => {
             <button
               type="button"
               onClick={() => {
-                setForgot("Username"),
-                  setPage("forgot"),
+                setPage("forgotUsername"),
                   setLoginError(null),
                   user.clear(),
                   pass.clear();
@@ -75,8 +67,7 @@ const Login = props => {
             <button
               type="button"
               onClick={() => {
-                setForgot("Password"),
-                  setPage("forgot"),
+                setPage("forgotPassword"),
                   setLoginError(null),
                   user.clear(),
                   pass.clear();
@@ -87,7 +78,10 @@ const Login = props => {
             </button>
           </div>
           <div>
-          <button type="submit">Login</button>
+            <button type="submit">Login</button>
+            <Link className="link" to="/signup">
+              <button type="button"> Signup</button>
+            </Link>
           </div>
         </form>
       </div>
@@ -96,19 +90,10 @@ const Login = props => {
 
   return (
     <div className="center">
-      {page=="loggedIn" && <Redirect to="/home"/>}
+      {page == "loggedIn" && <Redirect to="/home" />}
       {page == "login" && loginForm()}
-      {page == "forgot" && <Forgot type={forgot} />}
-      {page == "forgot" && (
-        <button
-          type="button"
-          onClick={() => {
-            setPage("login");
-          }}
-        >
-          Back to Login
-        </button>
-      )}
+      {page == "forgotUsername" && <Redirect to="/forgotUsername" />}
+      {page == "forgotPassword" && <Redirect to="/forgotPassword" />}
     </div>
   );
 };

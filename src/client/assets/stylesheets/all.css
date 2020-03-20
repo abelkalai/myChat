@@ -21,6 +21,14 @@
   display: relative;
 }
 
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.button:hover{
+  cursor: pointer
+} 
 
 
 

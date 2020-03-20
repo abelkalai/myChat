@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { fieldInput } from "../hooks/customHooks";
 import Confirmation from "./Confirmation";
-import { useLazyQuery} from "@apollo/react-hooks";
+import { useLazyQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
 const CHECK_EMAIL = gql`
@@ -11,11 +12,15 @@ const CHECK_EMAIL = gql`
 `;
 
 const Forgot = props => {
+  document.title=`Forgot ${props.type} | MyChat`
   const emailForm = fieldInput();
   const [error, setError] = useState(null);
-  const [emailCheck] = useLazyQuery(
-    CHECK_EMAIL  , {onCompleted: data=>{setError(data.checkEmail)}})
-  
+  const [emailCheck] = useLazyQuery(CHECK_EMAIL, {
+    onCompleted: data => {
+      setError(data.checkEmail);
+    }
+  });
+
   const forgotForm = () => {
     return (
       <div className="center">
@@ -32,6 +37,7 @@ const Forgot = props => {
             <span className="error">{error}</span>
             <button type="submit">Submit</button>
           </form>
+          <Link to="/" className="link"><button type="button"> Back to Login</button> </Link>
         </div>
       </div>
     );
@@ -39,15 +45,19 @@ const Forgot = props => {
 
   const emailCall = event => {
     event.preventDefault();
-    let email=emailForm.value
-    let type= props.type
+    let email = emailForm.value;
+    let type = props.type;
     emailCheck({ variables: { email, type } });
   };
 
   return (
     <div className="center">
-      {error!="validEmail" && forgotForm()}
-      {error=="validEmail" && <Confirmation confirmMsg={`Please check your email to find your ${props.type} `} />}
+      {error != "validEmail" && forgotForm()}
+      {error == "validEmail" && (
+        <Confirmation
+          confirmMsg={`Please check your email to find your ${props.type} `}
+        />
+      )}
     </div>
   );
 };

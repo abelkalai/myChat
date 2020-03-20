@@ -5,6 +5,7 @@ import { Link, Route } from "react-router-dom";
 import "../../../../assets/stylesheets/components/main/settings.css";
 
 const Settings = props => {
+  document.title="Settings | MyChat"
   return (
     <div className="main">
       <div className="main-left">
@@ -26,15 +27,19 @@ const Settings = props => {
       </div>
       <Route
         path="/home/settings/general"
-        render={() => 
+        render={() => (
           <General userInfo={props.userInfo} setUserInfo={props.setUserInfo} />
-        }
+        )}
       />
       <Route
         path="/home/settings/security"
-        render={() => 
-          <Security userInfo={props.userInfo} setUserInfo={props.setUserInfo} setIgnoreCookie={props.setIgnoreCookie}/>
-        }
+        render={() => (
+          <Security
+            userInfo={props.userInfo}
+            setUserInfo={props.setUserInfo}
+            setIgnoreCookie={props.setIgnoreCookie}
+          />
+        )}
       />
     </div>
   );

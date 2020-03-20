@@ -3,7 +3,7 @@ import Frontpage from "./front/Frontpage";
 import Home from "./main/Home";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
-import { Route} from "react-router-dom";
+import { Route } from "react-router-dom";
 import { OutRoute } from "../util/util_route";
 import "../assets/stylesheets/all.css";
 
@@ -83,23 +83,23 @@ const App = () => {
     !loggedInQuery.loading && (
       <div>
         <OutRoute
+          exact
           path="/"
           loggedIn={loggedInQuery.data.loggedIn}
           ignoreCookie={ignoreCookie}
         >
-          <Frontpage
-            addUser={addUser}
-            validateEmail={validateEmail}
-            loginQuery={loginQuery}
-            loggedInQuery={loggedInQuery}
-            ignoreCookie={ignoreCookie}
-            setIgnoreCookie={setIgnoreCookie}
-            activeUser={activeUser}
-            setActiveUser={setActiveUser}
-          />
+        <Frontpage
+          addUser={addUser}
+          validateEmail={validateEmail}
+          loginQuery={loginQuery}
+          ignoreCookie={ignoreCookie}
+          setIgnoreCookie={setIgnoreCookie}
+          activeUser={activeUser}
+          setActiveUser={setActiveUser}
+        />
         </OutRoute>
         <Route
-          path="/home"
+          path="/home/"
           render={() => (
             <Home
               ignoreCookie={ignoreCookie}

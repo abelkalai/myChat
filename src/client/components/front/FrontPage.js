@@ -1,44 +1,47 @@
-import React, {useState} from "react";
-import Header from "./Header"
-import Login from "./Login"
-import Signup from "./Signup"
+import React from "react";
+import { Route } from "react-router-dom";
+import Login from "./Login";
+import Forgot from "./Forgot";
+import Signup from "./Signup";
 
 const FrontPage = props => {
-  const [showLogin, setShowLogin] = useState(true);
-  const [showLoginButton, setShowLoginButton] = useState(true);
-
   return (
-    <div>
-      <Header />
-      {showLogin ? (
-        <Login
-          login={props.loginQuery}
-          loggedInQuery={props.loggedInQuery}
-          setShowLogin={setShowLoginButton}
-          ignoreCookie={props.ignoreCookie}
-          setIgnoreCookie={props.setIgnoreCookie}
-          activeUser={props.activeUser}
-          setActiveUser={props.setActiveUser}
-        />
-      ) : (
-        <Signup
-          addUser={props.addUser}
-          validateEmail={props.validateEmail}
-          setShowLogin={setShowLoginButton}
-        />
-      )}
-      {showLoginButton && (
-        <div className="center">
-          <button
-            type="button"
-            onClick={() => {
-              setShowLogin(!showLogin)
-            }}
-          >
-            {showLogin ? `SignUp` : `Back to Login`}
-          </button>
-        </div>
-      )}
+    <div className="center">
+      <h1>Welcome to MyChat!</h1>
+      <p>
+        My Chat is a platform used to connect with friends and family and
+        message one another!
+      </p>
+      <Route
+      exact
+        path="/"
+        render={() => (
+          <Login
+            login={props.loginQuery}
+            ignoreCookie={props.ignoreCookie}
+            setIgnoreCookie={props.setIgnoreCookie}
+            activeUser={props.activeUser}
+            setActiveUser={props.setActiveUser}
+          />
+        )}
+      />
+
+      <Route
+        path="/forgotUsername"
+        render={() => <Forgot type={"Username"} />}
+      />
+
+      <Route
+        path="/forgotPassword"
+        render={() => <Forgot type={"Password"} />}
+      />
+
+      <Route
+        path="/signup"
+        render={() => (
+          <Signup addUser={props.addUser} validateEmail={props.validateEmail} />
+        )}
+      />
     </div>
   );
 };
