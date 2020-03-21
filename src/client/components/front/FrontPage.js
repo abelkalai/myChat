@@ -5,6 +5,7 @@ import Forgot from "./Forgot";
 import Signup from "./Signup";
 
 const FrontPage = props => {
+  
   return (
     <div className="center">
       <h1>Welcome to MyChat!</h1>
@@ -13,7 +14,7 @@ const FrontPage = props => {
         message one another!
       </p>
       <Route
-      exact
+        exact
         path="/"
         render={() => (
           <Login
@@ -36,12 +37,7 @@ const FrontPage = props => {
         render={() => <Forgot type={"Password"} />}
       />
 
-      <Route
-        path="/signup"
-        render={() => (
-          <Signup addUser={props.addUser} validateEmail={props.validateEmail} />
-        )}
-      />
+      <Route path="/signup" render={() => <Signup />} />
     </div>
   );
 };

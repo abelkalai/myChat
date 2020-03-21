@@ -53,6 +53,7 @@ const Home = props => {
     event.preventDefault();
     document.cookie = "token=;expires = Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
     props.setIgnoreCookie(true);
+    props.setActiveUser(null)
     setFrontPage(true);
   };
 

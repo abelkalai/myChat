@@ -31,7 +31,7 @@ const Login = props => {
       }
       props.setActiveUser(result.data.login.User)
       props.setIgnoreCookie(false)
-      setTimeout(()=>{setPage("loggedIn")},25)
+      setPage("loggedIn")
     };
 
     return (

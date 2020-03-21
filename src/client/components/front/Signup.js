@@ -1,9 +1,42 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { gql } from "apollo-boost";
+import {useMutation } from "@apollo/react-hooks";
 import { fieldInput } from "../hooks/customHooks";
 import Confirmation from "./Confirmation";
 
-const Signup = props => {
+const ADD_USER = gql`
+  mutation addUser(
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+    $username: String!
+    $password: String!
+  ) {
+    addUser(
+      firstName: $firstName
+      lastName: $lastName
+      email: $email
+      username: $username
+      password: $password
+    ) {
+      User {
+        firstName
+        lastName
+        email
+      }
+      errorList
+    }
+  }
+`;
+
+const VALIDATE_ACCOUNT = gql`
+  mutation validateAccount($email: String!, $validationCode: String!) {
+    validateAccount(email: $email, validationCode: $validationCode)
+  }
+`;
+
+const Signup =() => {
   document.title="Signup | MyChat"
   const firstNameSign = fieldInput();
   const lastNameSign = fieldInput();
@@ -17,9 +50,11 @@ const Signup = props => {
   const [validateError, setValidateError] = useState(null);
   const [passError, setPassError] = useState(null);
   const [confirmMsg, setConfirmMsg] = useState(null);
-
+  const [addUser] = useMutation(ADD_USER);
+  const [validateAccount] = useMutation(VALIDATE_ACCOUNT);
   const [page, setPage] = useState("signUpForm");
 
+  
   const submit = async event => {
     event.preventDefault();
     if (passSign.value !== confirmPassSign.value) {
@@ -32,7 +67,7 @@ const Signup = props => {
     let username = userSign.value;
     let password = passSign.value;
 
-    let result = await props.addUser({
+    let result = await addUser({
       variables: {
         firstName,
         lastName,
@@ -154,7 +189,7 @@ const Signup = props => {
     event.preventDefault();
     let validationCode = confirmNumber.value;
     let email = emailSign.value;
-    let result = await props.validateEmail({
+    let result = await validateAccount({
       variables: { email, validationCode }
     });
     if (result.data.validateAccount == "Account verified") {

@@ -4,6 +4,7 @@ import Security from "./Security";
 import { Link, Route } from "react-router-dom";
 import "../../../../assets/stylesheets/components/main/settings.css";
 
+
 const Settings = props => {
   document.title="Settings | MyChat"
   return (
@@ -36,7 +37,6 @@ const Settings = props => {
         render={() => (
           <Security
             userInfo={props.userInfo}
-            setUserInfo={props.setUserInfo}
             setIgnoreCookie={props.setIgnoreCookie}
           />
         )}

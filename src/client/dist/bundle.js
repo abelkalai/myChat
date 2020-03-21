@@ -328,28 +328,8 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  mutation validateAccount($email: String!, $validationCode: String!) {\n    validateAccount(email: $email, validationCode: $validationCode)\n  }\n"]);
-
-  _templateObject4 = function _templateObject4() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  {\n    loggedIn {\n      _id\n      firstName\n      lastName\n      email\n      username\n      confirmed\n    }\n  }\n"]);
-
-  _templateObject3 = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  mutation login($username: String!, $password: String!) {\n    login(username: $username, password: $password) {\n      User {\n        _id\n        firstName\n        lastName\n        email\n        username\n        confirmed\n      }\n      Token\n      errorList\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  {\n    loggedIn {\n      _id\n      firstName\n      lastName\n      email\n      username\n      confirmed\n    }\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -359,7 +339,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  mutation addUser(\n    $firstName: String!\n    $lastName: String!\n    $email: String!\n    $username: String!\n    $password: String!\n  ) {\n    addUser(\n      firstName: $firstName\n      lastName: $lastName\n      email: $email\n      username: $username\n      password: $password\n    ) {\n      User {\n        firstName\n        lastName\n        email\n      }\n      errorList\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  mutation login($username: String!, $password: String!) {\n    login(username: $username, password: $password) {\n      User {\n        _id\n        firstName\n        lastName\n        email\n        username\n        confirmed\n      }\n      Token\n      errorList\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -378,27 +358,13 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var ADD_USER = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_4__["gql"])(_templateObject());
-var LOGIN = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_4__["gql"])(_templateObject2());
-var LOGGED_IN = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_4__["gql"])(_templateObject3());
-var VALIDATE_EMAIL = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_4__["gql"])(_templateObject4());
+var LOGIN = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_4__["gql"])(_templateObject());
+var LOGGED_IN = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_4__["gql"])(_templateObject2());
 
 var App = function App() {
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(ADD_USER),
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(LOGIN),
       _useMutation2 = _slicedToArray(_useMutation, 1),
-      addUser = _useMutation2[0];
-
-  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(VALIDATE_EMAIL),
-      _useMutation4 = _slicedToArray(_useMutation3, 1),
-      validateEmail = _useMutation4[0];
-
-  var _useMutation5 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(LOGIN, {
-    refetchQueries: [{
-      query: LOGGED_IN
-    }]
-  }),
-      _useMutation6 = _slicedToArray(_useMutation5, 1),
-      loginQuery = _useMutation6[0];
+      loginQuery = _useMutation2[0];
 
   var loggedInQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(LOGGED_IN);
 
@@ -413,20 +379,18 @@ var App = function App() {
       setActiveUser = _useState4[1];
 
   return !loggedInQuery.loading && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_util_route__WEBPACK_IMPORTED_MODULE_6__["OutRoute"], {
-    exact: true,
     path: "/",
     loggedIn: loggedInQuery.data.loggedIn,
-    ignoreCookie: ignoreCookie
+    ignoreCookie: ignoreCookie,
+    activeUser: activeUser
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_front_Frontpage__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    addUser: addUser,
-    validateEmail: validateEmail,
     loginQuery: loginQuery,
     ignoreCookie: ignoreCookie,
     setIgnoreCookie: setIgnoreCookie,
     activeUser: activeUser,
     setActiveUser: setActiveUser
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Route"], {
-    path: "/home/",
+    path: "/home",
     render: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_Home__WEBPACK_IMPORTED_MODULE_2__["default"], {
         ignoreCookie: ignoreCookie,
@@ -633,10 +597,7 @@ var FrontPage = function FrontPage(props) {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/signup",
     render: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signup__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        addUser: props.addUser,
-        validateEmail: props.validateEmail
-      });
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signup__WEBPACK_IMPORTED_MODULE_4__["default"], null);
     }
   }));
 };
@@ -731,9 +692,7 @@ var Login = function Login(props) {
               case 15:
                 props.setActiveUser(result.data.login.User);
                 props.setIgnoreCookie(false);
-                setTimeout(function () {
-                  setPage("loggedIn");
-                }, 25);
+                setPage("loggedIn");
 
               case 18:
               case "end":
@@ -814,8 +773,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../hooks/customHooks */ "./components/hooks/customHooks.js");
-/* harmony import */ var _Confirmation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Confirmation */ "./components/front/Confirmation.js");
+/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../hooks/customHooks */ "./components/hooks/customHooks.js");
+/* harmony import */ var _Confirmation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Confirmation */ "./components/front/Confirmation.js");
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -828,20 +789,46 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  mutation validateAccount($email: String!, $validationCode: String!) {\n    validateAccount(email: $email, validationCode: $validationCode)\n  }\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  mutation addUser(\n    $firstName: String!\n    $lastName: String!\n    $email: String!\n    $username: String!\n    $password: String!\n  ) {\n    addUser(\n      firstName: $firstName\n      lastName: $lastName\n      email: $email\n      username: $username\n      password: $password\n    ) {\n      User {\n        firstName\n        lastName\n        email\n      }\n      errorList\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
 
 
-var Signup = function Signup(props) {
+
+
+var ADD_USER = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_2__["gql"])(_templateObject());
+var VALIDATE_ACCOUNT = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_2__["gql"])(_templateObject2());
+
+var Signup = function Signup() {
   document.title = "Signup | MyChat";
-  var firstNameSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["fieldInput"])();
-  var lastNameSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["fieldInput"])();
-  var emailSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["fieldInput"])();
-  var userSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["fieldInput"])();
-  var passSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["fieldInput"])();
-  var confirmPassSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["fieldInput"])();
-  var confirmNumber = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["fieldInput"])();
+  var firstNameSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
+  var lastNameSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
+  var emailSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
+  var userSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
+  var passSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
+  var confirmPassSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
+  var confirmNumber = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState2 = _slicedToArray(_useState, 2),
@@ -867,6 +854,14 @@ var Signup = function Signup(props) {
       _useState10 = _slicedToArray(_useState9, 2),
       confirmMsg = _useState10[0],
       setConfirmMsg = _useState10[1];
+
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(ADD_USER),
+      _useMutation2 = _slicedToArray(_useMutation, 1),
+      addUser = _useMutation2[0];
+
+  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(VALIDATE_ACCOUNT),
+      _useMutation4 = _slicedToArray(_useMutation3, 1),
+      validateAccount = _useMutation4[0];
 
   var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("signUpForm"),
       _useState12 = _slicedToArray(_useState11, 2),
@@ -897,7 +892,7 @@ var Signup = function Signup(props) {
               username = userSign.value;
               password = passSign.value;
               _context.next = 11;
-              return props.addUser({
+              return addUser({
                 variables: {
                   firstName: firstName,
                   lastName: lastName,
@@ -1025,7 +1020,7 @@ var Signup = function Signup(props) {
               validationCode = confirmNumber.value;
               email = emailSign.value;
               _context2.next = 5;
-              return props.validateEmail({
+              return validateAccount({
                 variables: {
                   email: email,
                   validationCode: validationCode
@@ -1055,7 +1050,7 @@ var Signup = function Signup(props) {
     };
   }();
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, page == "signUpForm" && signUpForm(), page == "signUpValidate" && signUpConfirm(), page == "signUpConfirm" && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Confirmation__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, page == "signUpForm" && signUpForm(), page == "signUpValidate" && signUpConfirm(), page == "signUpConfirm" && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Confirmation__WEBPACK_IMPORTED_MODULE_5__["default"], {
     confirmMsg: confirmMsg
   }));
 };
@@ -1209,9 +1204,10 @@ var Home = function Home(props) {
               event.preventDefault();
               document.cookie = "token=;expires = Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
               props.setIgnoreCookie(true);
+              props.setActiveUser(null);
               setFrontPage(true);
 
-            case 4:
+            case 5:
             case "end":
               return _context.stop();
           }
@@ -1286,20 +1282,245 @@ var Profile = function Profile(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../hooks/customHooks */ "./components/hooks/customHooks.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+/* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/settings.css */ "./assets/stylesheets/components/main/settings.css");
+/* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_4__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  mutation changeUserName($_id: String!, $username: String!) {\n    changeUserName(_id: $_id, username: $username)\n  }\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  mutation changeName($_id: String!, $firstName: String!, $lastName: String!) {\n    changeName(_id: $_id, firstName: $firstName, lastName: $lastName)\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+
+var CHANGE_NAME = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject());
+var CHANGE_USERNAME = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject2());
 
 var General = function General(props) {
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(CHANGE_NAME),
+      _useMutation2 = _slicedToArray(_useMutation, 1),
+      changeName = _useMutation2[0];
+
+  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(CHANGE_USERNAME),
+      _useMutation4 = _slicedToArray(_useMutation3, 1),
+      changeUserName = _useMutation4[0];
+
+  var firstNamefield = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
+  var lastNameField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      showNameForm = _useState2[0],
+      setShowNameForm = _useState2[1];
+
+  var userField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      showUserForm = _useState4[0],
+      setShowUserForm = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+      _useState6 = _slicedToArray(_useState5, 2),
+      userError = _useState6[0],
+      setUserError = _useState6[1];
+
   var nameSection = function nameSection() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name: ", "".concat(props.userInfo.firstName, " ").concat(props.userInfo.lastName));
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name: ", "".concat(props.userInfo.firstName, " ").concat(props.userInfo.lastName), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      type: "button",
+      className: "button",
+      onClick: function onClick() {
+        setShowNameForm(!showNameForm);
+      }
+    }, !showNameForm ? "Edit" : "Close"));
   };
 
-  var usernameSection = function usernameSection() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Username: ", "".concat(props.userInfo.username));
+  var nameForm = function nameForm() {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      className: "form",
+      onSubmit: changeNameCallBack
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " First Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      required: true,
+      value: firstNamefield.value,
+      onChange: firstNamefield.onChange
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Last Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      required: true,
+      value: lastNameField.value,
+      onChange: lastNameField.onChange
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      type: "submit"
+    }, " Save Changes ")));
   };
+
+  var changeNameCallBack = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
+      var _id, firstName, lastName;
+
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              event.preventDefault();
+              _id = props.userInfo._id;
+              firstName = firstNamefield.value;
+              lastName = lastNameField.value;
+              _context.next = 6;
+              return changeName({
+                variables: {
+                  _id: _id,
+                  firstName: firstName,
+                  lastName: lastName
+                }
+              });
+
+            case 6:
+              props.setUserInfo(_objectSpread({}, props.userInfo, {
+                firstName: firstName,
+                lastName: lastName
+              }));
+              firstNamefield.clear();
+              lastNameField.clear();
+
+            case 9:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function changeNameCallBack(_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  var usernameSection = function usernameSection() {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Username: ", "".concat(props.userInfo.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      type: "button",
+      className: "button",
+      onClick: function onClick() {
+        setShowUserForm(!showUserForm);
+      }
+    }, !showUserForm ? "Edit" : "Close"));
+  };
+
+  var userNameForm = function userNameForm() {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      className: "form",
+      onSubmit: changeUserCallBack
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Username"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      required: true,
+      value: userField.value,
+      onChange: userField.onChange
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "error"
+    }, userError)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      type: "submit"
+    }, " Save Changes ")));
+  };
+
+  var changeUserCallBack = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(event) {
+      var _id, username, result;
+
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              event.preventDefault();
+
+              if (!(userField.value == props.userInfo.username)) {
+                _context2.next = 4;
+                break;
+              }
+
+              setUserError("You're currently using this username");
+              return _context2.abrupt("return");
+
+            case 4:
+              _id = props.userInfo._id;
+              username = userField.value;
+              _context2.next = 8;
+              return changeUserName({
+                variables: {
+                  _id: _id,
+                  username: username
+                }
+              });
+
+            case 8:
+              result = _context2.sent;
+
+              if (!(result.data.changeUserName != "Success")) {
+                _context2.next = 12;
+                break;
+              }
+
+              setUserError(result.data.changeUserName);
+              return _context2.abrupt("return");
+
+            case 12:
+              setUserError(null);
+              props.setUserInfo(_objectSpread({}, props.userInfo, {
+                username: username
+              }));
+              userField.clear();
+
+            case 15:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function changeUserCallBack(_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main-right"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "General Settings"), nameSection(), usernameSection(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Email: ", "".concat(props.userInfo.email)));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "General Settings"), nameSection(), showNameForm && nameForm(), usernameSection(), showUserForm && userNameForm(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Email: ", "".concat(props.userInfo.email)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (General);
@@ -1321,6 +1542,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../hooks/customHooks */ "./components/hooks/customHooks.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 /* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+/* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/settings.css */ "./assets/stylesheets/components/main/settings.css");
+/* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_5__);
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -1344,6 +1567,7 @@ function _templateObject() {
 }
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 
 
 
@@ -1375,6 +1599,41 @@ var Security = function Security(props) {
       _useState6 = _slicedToArray(_useState5, 2),
       sendHome = _useState6[0],
       setSendHome = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      showForm = _useState8[0],
+      setShowForm = _useState8[1];
+
+  var passwordForm = function passwordForm() {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      onSubmit: changePasswordCallBack,
+      className: "form"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Current Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      required: true,
+      type: "password",
+      value: currentPass.value,
+      onChange: currentPass.onChange
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "error"
+    }, currentPasswordError)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " New Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      required: true,
+      type: "password",
+      value: newPass.value,
+      onChange: newPass.onChange
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "error"
+    }, newPasswordError)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Confirm New Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      required: true,
+      type: "password",
+      value: newPassConfirm.value,
+      onChange: newPassConfirm.onChange
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "error"
+    }, newPasswordError)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      type: "submit"
+    }, " Save Changes ")));
+  };
 
   var changePasswordCallBack = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
@@ -1451,34 +1710,14 @@ var Security = function Security(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main-right"
   }, sendHome && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
-    to: "/front/login"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Security "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Change Password (You'll be required to re-login upon changing your password)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    onSubmit: changePasswordCallBack,
-    className: "form"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Current Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    required: true,
-    type: "password",
-    value: currentPass.value,
-    onChange: currentPass.onChange
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "error"
-  }, currentPasswordError)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " New Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    required: true,
-    type: "password",
-    value: newPass.value,
-    onChange: newPass.onChange
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "error"
-  }, newPasswordError)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Confirm New Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    required: true,
-    type: "password",
-    value: newPassConfirm.value,
-    onChange: newPassConfirm.onChange
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "error"
-  }, newPasswordError)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    type: "submit"
-  }, " Change Password"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Make sure you change your password if you used recently forgot password."));
+    to: "/"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Security "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Change Password (You'll be required to re-login upon changing your password)", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "button",
+    className: "button",
+    onClick: function onClick() {
+      setShowForm(!showForm);
+    }
+  }, !showForm ? "Edit" : "Close")), showForm && passwordForm(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Make sure you change your password if you used recently forgot password."));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Security);
@@ -1542,7 +1781,6 @@ var Settings = function Settings(props) {
     render: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Security__WEBPACK_IMPORTED_MODULE_2__["default"], {
         userInfo: props.userInfo,
-        setUserInfo: props.setUserInfo,
         setIgnoreCookie: props.setIgnoreCookie
       });
     }
@@ -18980,7 +19218,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "* {\r\n  font-family: Georgia, \"Times New Roman\", Times, serif;\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\n.main {\r\n  margin: 65px 0 0 65px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 22.5% 70%;\r\n  grid-template-areas: \"left right\";\r\n}\r\n\r\n.main-left {\r\n  grid-area: left;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-dropdown div {\r\n  margin: 10px 10px;\r\n  padding: 10px;\r\n}\r\n\r\n.settings-dropdown div:hover {\r\n  background-color: grey;\r\n}\r\n\r\n.main-right{\r\n    grid-area: right;\r\n}\r\n\r\n.main-right div{\r\n    grid-area: right;\r\n    padding: 10px;\r\n}\r\n\r\n.form{\r\n  display: inline-block;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  width: 25%\r\n}\r\n\r\n.form div{\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding: 7.5px;\r\n}\r\n", ""]);
+exports.push([module.i, "* {\r\n  font-family: Georgia, \"Times New Roman\", Times, serif;\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\n.main {\r\n  margin: 65px 0 0 65px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 22.5% 70%;\r\n  grid-template-areas: \"left right\";\r\n}\r\n\r\n.main-left {\r\n  grid-area: left;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-dropdown div {\r\n  margin: 10px 10px;\r\n  padding: 10px;\r\n}\r\n\r\n.settings-dropdown div:hover {\r\n  background-color: grey;\r\n}\r\n\r\n.main-right{\r\n    grid-area: right;\r\n}\r\n\r\n.main-right div{\r\n    grid-area: right;\r\n    padding: 10px;\r\n}\r\n\r\n.form{\r\n  display: inline-block;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  width: 25%\r\n}\r\n\r\n.form div{\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding: 7.5px;\r\n}\r\n\r\n.button{\r\n  font-size: 20px\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -62739,15 +62977,21 @@ var Out = function Out(_ref) {
   var path = _ref.path,
       loggedIn = _ref.loggedIn,
       ignoreCookie = _ref.ignoreCookie,
-      props = _objectWithoutProperties(_ref, ["path", "loggedIn", "ignoreCookie"]);
+      activeUser = _ref.activeUser,
+      props = _objectWithoutProperties(_ref, ["path", "loggedIn", "ignoreCookie", "activeUser"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+  return loggedIn != null && !ignoreCookie || activeUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: path,
     render: function render() {
-      return loggedIn != null && !ignoreCookie ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
         to: "/home"
-      }) : props.children;
+      });
+    }
+  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: path,
+    render: function render() {
+      return props.children;
     }
   });
 };
@@ -62769,4 +63013,4 @@ module.exports = __webpack_require__(/*! C:\Users\abelk\OneDrive\Desktop\Career\
 /***/ })
 
 /******/ });
-//# sourceMappingURL=indexBundle.js.map
+//# sourceMappingURL=bundle.js.map

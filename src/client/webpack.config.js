@@ -5,8 +5,8 @@ module.exports = {
   entry: [path.join(__dirname, "./index.jsx")],
   watch: true,
   output: {
-    path: __dirname,
-    filename: "indexBundle.js"
+    path: path.resolve(__dirname, 'dist'),
+    filename: "bundle.js"
   },
   module: {
     rules: [

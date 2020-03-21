@@ -3,7 +3,7 @@ const { ApolloServer, gql } = require("apollo-server-express");
 const User = require("./models/user");
 const config = require("./utils/config");
 const express = require("express");
-const generator = require('generate-password')
+const generator = require("generate-password");
 const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -25,7 +25,7 @@ mongoose
 //Fix mongoose methods
 mongoose.set("useNewUrlParser", true);
 mongoose.set("useCreateIndex", true);
-mongoose.set("useFindAndModify",false)
+mongoose.set("useFindAndModify", false);
 
 const typeDefs = gql`
   type User {
@@ -47,7 +47,7 @@ const typeDefs = gql`
   type Query {
     allUsers: [User!]!
     loggedIn: User
-    checkEmail(email: String type: String): String
+    checkEmail(email: String, type: String): String
   }
 
   type loginResp {
@@ -66,8 +66,14 @@ const typeDefs = gql`
     ): addUserResp
 
     login(username: String!, password: String!): loginResp
-    validateAccount(email: String! validationCode: String!): String!
-    changePassword(_id: String! currentPassword: String! newPassword: String!): String!
+    validateAccount(email: String!, validationCode: String!): String!
+    changeName(_id: String!, firstName: String!, lastName: String!): String
+    changeUserName(_id: String, username: String!): String
+    changePassword(
+      _id: String!
+      currentPassword: String!
+      newPassword: String!
+    ): String!
   }
 `;
 
@@ -77,34 +83,33 @@ const resolvers = {
       return User.find({});
     },
 
-    loggedIn: async (placeHolder, args, context) => {
+    loggedIn: async (root, args, context) => {
       let activeUser = await (context.currentUser != null
         ? context.currentUser
         : null);
       return activeUser;
     },
 
-    checkEmail: async (placeHolder, args) => {
+    checkEmail: async (root, args) => {
       let user = await User.findOne({ email: args.email.toLowerCase() });
-      let result = user!=null ? "validEmail" : "No associated email found";
+      let result = user != null ? "validEmail" : "No associated email found";
       if (result == "validEmail") {
         if (args.type == "Username") {
-          await mailService.sendEmail('USERNAME', {
+          await mailService.sendEmail("USERNAME", {
             toFName: user.firstName,
             toLName: user.lastName,
             toEmail: user.email,
             username: user.username
           });
-        }
-        else if (args.type=="Password"){
-          let newPass=generator.generate({length: 8, numbers: true})
-          let bcryptPass = await bcrypt.hash(newPass, 10)
-          await User.findByIdAndUpdate(user._id,{password: bcryptPass})
-          await mailService.sendEmail('PASSWORD', {
+        } else if (args.type == "Password") {
+          let newPass = generator.generate({ length: 8, numbers: true });
+          let bcryptPass = await bcrypt.hash(newPass, 10);
+          await User.findByIdAndUpdate(user._id, { password: bcryptPass });
+          await mailService.sendEmail("PASSWORD", {
             toFName: user.firstName,
             toLName: user.lastName,
             toEmail: user.email,
-            password: newPass,
+            password: newPass
           });
         }
       }
@@ -112,13 +117,13 @@ const resolvers = {
     }
   },
   Mutation: {
-    addUser: async (placeHolder, args) => {
+    addUser: async (root, args) => {
       args.password = await bcrypt.hash(args.password, 10);
       args.confirmed = false;
-      args.username= args.username.toLowerCase()
-      args.email=args.email.toLowerCase()
-      const verificationCode=generator.generate({length: 8, numbers: true})
-      args.validationCode=await bcrypt.hash(verificationCode, 10)
+      args.username = args.username.toLowerCase();
+      args.email = args.email.toLowerCase();
+      const verificationCode = generator.generate({ length: 8, numbers: true });
+      args.validationCode = await bcrypt.hash(verificationCode, 10);
       let user = new User({ ...args });
       try {
         await user.save();
@@ -146,14 +151,15 @@ const resolvers = {
       return { User: user };
     },
 
-    login: async(placeHolder, args) => {
+    login: async (root, args) => {
       try {
-        const user = await User.findOne({ username: args.username.toLowerCase() });
+        const user = await User.findOne({
+          username: args.username.toLowerCase()
+        });
 
-        if (!await bcrypt.compare(args.password, user.password)) {
+        if (!(await bcrypt.compare(args.password, user.password))) {
           return { errorList: "Username or Password is incorrect" };
-        }
-        else if(!user.confirmed){
+        } else if (!user.confirmed) {
           return { errorList: "Please confirm your email address to login" };
         }
         const userSign = {
@@ -170,28 +176,51 @@ const resolvers = {
       }
     },
 
-    validateAccount: async(placeHolder, args)=>{
-      const user = await User.findOne({email: args.email})
-      if(!await bcrypt.compare(args.validationCode.trim(), user.validationCode)){
-        return "Invalid Validation Code"
-      }
-      else{
-        await User.findByIdAndUpdate(user._id,{validationCode: null, confirmed: true})
-        return "Account verified"
+    validateAccount: async (root, args) => {
+      const user = await User.findOne({ email: args.email });
+      if (
+        !(await bcrypt.compare(args.validationCode.trim(), user.validationCode))
+      ) {
+        return "Invalid Validation Code";
+      } else {
+        await User.findByIdAndUpdate(user._id, {
+          validationCode: null,
+          confirmed: true
+        });
+        return "Account verified";
       }
     },
 
-    changePassword: async(placeHolder,args)=>{
-      user = await User.findById(args._id)
-      if(!await bcrypt.compare(args.currentPassword, user.password)){
-        return "Incorrect Current password"
+    changeName: async (root, args) => {
+      await User.findByIdAndUpdate(args._id, {
+        firstName: args.firstName,
+        lastName: args.lastName
+      });
+      return "Success";
+    },
+
+    changeUserName: async (root, args) => {
+      if (
+        (await User.collection.countDocuments({
+          username: args.username
+        })) > 0
+      ){
+        return "Username is already in use"
       }
-      else if(await bcrypt.compare(args.newPassword, user.password)){
-        return "You're currently using this password"
+        await User.findByIdAndUpdate(args._id, { username: args.username });
+      return "Success";
+    },
+
+    changePassword: async (root, args) => {
+      user = await User.findById(args._id);
+      if (!(await bcrypt.compare(args.currentPassword, user.password))) {
+        return "Incorrect Current password";
+      } else if (await bcrypt.compare(args.newPassword, user.password)) {
+        return "You're currently using this password";
       }
       let hashPassword = await bcrypt.hash(args.newPassword, 10);
-      await User.findByIdAndUpdate(args._id, {password: hashPassword})
-      return "Success"
+      await User.findByIdAndUpdate(args._id, { password: hashPassword });
+      return "Success";
     }
   }
 };
@@ -224,7 +253,6 @@ app.get("/", function(response) {
 });
 
 server.applyMiddleware({ app });
-
 
 const port = process.env.PORT || 4000;
 
