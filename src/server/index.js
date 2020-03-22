@@ -154,7 +154,7 @@ const resolvers = {
     login: async (root, args) => {
       try {
         const user = await User.findOne({
-          username: args.username.toLowerCase()
+          username: args.username.toLowerCase().replace(/ /g,'')
         });
 
         if (!(await bcrypt.compare(args.password, user.password))) {

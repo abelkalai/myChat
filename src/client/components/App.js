@@ -3,8 +3,7 @@ import Frontpage from "./front/Frontpage";
 import Home from "./main/Home";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
-import { Route } from "react-router-dom";
-import { OutRoute } from "../util/util_route";
+import { OutRoute, InRoute } from "../utilities/util_route";
 import "../assets/stylesheets/all.css";
 
 const LOGIN = gql`
@@ -38,7 +37,7 @@ const LOGGED_IN = gql`
 `;
 
 const App = () => {
-  const [loginQuery] = useMutation(LOGIN)
+  const [loginQuery] = useMutation(LOGIN);
   const loggedInQuery = useQuery(LOGGED_IN);
   const [ignoreCookie, setIgnoreCookie] = useState(false);
   const [activeUser, setActiveUser] = useState(null);
@@ -46,23 +45,26 @@ const App = () => {
   return (
     !loggedInQuery.loading && (
       <div>
-        <OutRoute
-          path="/"
-          loggedIn={loggedInQuery.data.loggedIn}
-          ignoreCookie={ignoreCookie}
-          activeUser={activeUser}
-        >
-          <Frontpage
-            loginQuery={loginQuery}
+          <OutRoute
+            path="/"
+            loggedIn={loggedInQuery.data.loggedIn}
             ignoreCookie={ignoreCookie}
-            setIgnoreCookie={setIgnoreCookie}
             activeUser={activeUser}
-            setActiveUser={setActiveUser}
-          />
-        </OutRoute>
-        <Route
-          path="/home"
-          render={() => (
+          >
+            <Frontpage
+              loginQuery={loginQuery}
+              ignoreCookie={ignoreCookie}
+              setIgnoreCookie={setIgnoreCookie}
+              activeUser={activeUser}
+              setActiveUser={setActiveUser}
+            />
+          </OutRoute>
+          <InRoute
+            path="/home"
+            loggedIn={loggedInQuery.data.loggedIn}
+            ignoreCookie={ignoreCookie}
+            activeUser={activeUser}
+          >
             <Home
               ignoreCookie={ignoreCookie}
               setIgnoreCookie={setIgnoreCookie}
@@ -70,8 +72,7 @@ const App = () => {
               activeUser={activeUser}
               setActiveUser={setActiveUser}
             />
-          )}
-        />
+          </InRoute>
       </div>
     )
   );

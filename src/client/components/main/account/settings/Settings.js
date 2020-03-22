@@ -38,6 +38,7 @@ const Settings = props => {
           <Security
             userInfo={props.userInfo}
             setIgnoreCookie={props.setIgnoreCookie}
+            setActiveUser={props.setActiveUser}
           />
         )}
       />

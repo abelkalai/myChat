@@ -3,7 +3,7 @@ import { fieldInput } from "../hooks/customHooks";
 import { Link, Redirect } from "react-router-dom";
 
 const Login = props => {
-  document.title="Login | MyChat"
+  document.title = "Login | MyChat";
   const [loginError, setLoginError] = useState(null);
   const user = fieldInput();
   const pass = fieldInput();
@@ -29,9 +29,9 @@ const Login = props => {
         setLoginError(result.data.login.errorList);
         return;
       }
-      props.setActiveUser(result.data.login.User)
-      props.setIgnoreCookie(false)
-      setPage("loggedIn")
+      props.setActiveUser(result.data.login.User);
+      props.setIgnoreCookie(false);
+      setPage("loggedIn");
     };
 
     return (

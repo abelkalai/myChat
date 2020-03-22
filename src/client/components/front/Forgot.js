@@ -12,7 +12,7 @@ const CHECK_EMAIL = gql`
 `;
 
 const Forgot = props => {
-  document.title=`Forgot ${props.type} | MyChat`
+  document.title = `Forgot ${props.type} | MyChat`;
   const emailForm = fieldInput();
   const [error, setError] = useState(null);
   const [emailCheck] = useLazyQuery(CHECK_EMAIL, {
@@ -37,7 +37,9 @@ const Forgot = props => {
             <span className="error">{error}</span>
             <button type="submit">Submit</button>
           </form>
-          <Link to="/" className="link"><button type="button"> Back to Login</button> </Link>
+          <Link to="/" className="link">
+            <button type="button"> Back to Login</button>{" "}
+          </Link>
         </div>
       </div>
     );
@@ -52,6 +54,7 @@ const Forgot = props => {
 
   return (
     <div className="center">
+
       {error != "validEmail" && forgotForm()}
       {error == "validEmail" && (
         <Confirmation
