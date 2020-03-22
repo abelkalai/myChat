@@ -1,25 +1,47 @@
 const nodemailer = require("nodemailer");
-const config = require("../utils/config");
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
+const config = require("../../../utils/config");
 const emailUsername = config.EMAIL_USERNAME;
 const emailPassword = config.EMAIL_PASSWORD;
+const clientID = config.CLIENT_ID;
+const clientSecret = config.CLIENT_SECRET;
+const refreshToken = config.REFRESH_TOKEN;
 
-//toFName, toLName, toEmail ,code, username, password
-const sendEmail = async (type, options) => {
-  let transporter = await nodemailer.createTransport({
+const oauth2Client = new OAuth2(
+  clientID,
+  clientSecret,
+  "https://developers.google.com/oauthplayground"
+);
+
+oauth2Client.credentials = {
+  refresh_token: refreshToken
+};
+
+let accessToken;
+oauth2Client.getAccessToken().then(function(value) {
+  accessToken = value.token;
+});
+
+const sendEmail = (type, options) => {
+  let transporter = nodemailer.createTransport({
     service: "gmail",
-    port: 465,
-    secure: true,
+    host: "smtp.gmail.com",
     auth: {
+      type: "OAuth2",
       user: emailUsername,
-      pass: emailPassword
+      password: emailPassword,
+      clientId: clientID,
+      clientSecret: clientSecret,
+      refreshToken: refreshToken,
+      accessToken: accessToken
     },
     tls: {
       rejectUnauthorized: false
     }
   });
 
-  let mailOptions
-
+  let mailOptions;
   switch (type) {
     case "CONFIRM":
       mailOptions = {
@@ -46,8 +68,13 @@ const sendEmail = async (type, options) => {
       };
       break;
   }
-  transporter.sendMail(mailOptions)
-
+  transporter.sendMail(mailOptions, function(error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Message sent: " + info.response);
+    }
+  });
 };
 
 module.exports = { sendEmail };

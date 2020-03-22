@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { ApolloServer, gql } = require("apollo-server-express");
 const User = require("./models/user");
-const config = require("./utils/config");
+const config = require("../../utils/config");
 const express = require("express");
 const generator = require("generate-password");
 const cors = require("cors");
