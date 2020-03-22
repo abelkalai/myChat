@@ -2,10 +2,10 @@ let path = require("path");
 
 module.exports = {
   mode: "development",
-  entry: [path.join(__dirname, "./index.jsx")],
+  entry: [path.join(__dirname, "./src/client/index.jsx")],
   watch: true,
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, './src/client/dist'),
     filename: "bundle.js"
   },
   module: {
