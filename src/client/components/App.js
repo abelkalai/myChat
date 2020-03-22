@@ -3,7 +3,7 @@ import Frontpage from "./front/Frontpage";
 import Home from "./main/Home";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
-import { OutRoute, InRoute } from "../utilities/util_route";
+import { OutRoute, InRoute } from "../utils/util_route";
 import "../assets/stylesheets/all.css";
 
 const LOGIN = gql`
@@ -15,6 +15,7 @@ const LOGIN = gql`
         lastName
         email
         username
+        about
         confirmed
       }
       Token
@@ -31,6 +32,7 @@ const LOGGED_IN = gql`
       lastName
       email
       username
+      about
       confirmed
     }
   }

@@ -34,7 +34,8 @@ const typeDefs = gql`
     lastName: String!
     email: String!
     username: String!
-    password: String!
+    password: String
+    about: String!
     confirmed: Boolean!
     validationCode: String
   }
@@ -67,6 +68,7 @@ const typeDefs = gql`
 
     login(username: String!, password: String!): loginResp
     validateAccount(email: String!, validationCode: String!): String!
+    editAbout(_id: String!, about: String!): String!
     changeName(_id: String!, firstName: String!, lastName: String!): String
     changeUserName(_id: String, username: String!): String
     changePassword(
@@ -120,6 +122,7 @@ const resolvers = {
     addUser: async (root, args) => {
       args.password = await bcrypt.hash(args.password, 10);
       args.confirmed = false;
+      args.about = "";
       args.username = args.username.toLowerCase();
       args.email = args.email.toLowerCase();
       const verificationCode = generator.generate({ length: 8, numbers: true });
@@ -154,7 +157,7 @@ const resolvers = {
     login: async (root, args) => {
       try {
         const user = await User.findOne({
-          username: args.username.toLowerCase().replace(/ /g,'')
+          username: args.username.toLowerCase().replace(/ /g, "")
         });
 
         if (!(await bcrypt.compare(args.password, user.password))) {
@@ -168,6 +171,7 @@ const resolvers = {
           lastName: user.lastName,
           username: user.username,
           email: user.email,
+          about: user.about,
           confirmed: user.confirmed
         };
         return { User: user, Token: jwt.sign(userSign, JWT_SECRET_KEY) };
@@ -191,6 +195,12 @@ const resolvers = {
       }
     },
 
+    editAbout: async(root,args)=>{
+
+      await User.findByIdAndUpdate(args._id,{about:args.about})
+      return "Success"
+    },
+
     changeName: async (root, args) => {
       await User.findByIdAndUpdate(args._id, {
         firstName: args.firstName,
@@ -204,10 +214,10 @@ const resolvers = {
         (await User.collection.countDocuments({
           username: args.username
         })) > 0
-      ){
-        return "Username is already in use"
+      ) {
+        return "Username is already in use";
       }
-        await User.findByIdAndUpdate(args._id, { username: args.username });
+      await User.findByIdAndUpdate(args._id, { username: args.username });
       return "Success";
     },
 

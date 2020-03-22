@@ -1,0 +1,20 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+.profile-main {
+  display: grid;
+  margin-top: 65px;
+  width: 100%;
+  justify-content: center;
+}
+
+.about-button{
+  width: 100px;
+}
+
+.about-input{
+  height: 200 px;
+  width: 400px;
+}

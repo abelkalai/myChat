@@ -31,7 +31,6 @@ const Login = props => {
       }
       props.setActiveUser(result.data.login.User);
       props.setIgnoreCookie(false);
-      setPage("loggedIn");
     };
 
     return (
@@ -90,7 +89,6 @@ const Login = props => {
 
   return (
     <div className="center">
-      {page == "loggedIn" && <Redirect to="/home" />}
       {page == "login" && loginForm()}
       {page == "forgotUsername" && <Redirect to="/forgotUsername" />}
       {page == "forgotPassword" && <Redirect to="/forgotPassword" />}

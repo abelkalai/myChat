@@ -6,7 +6,7 @@ import ApolloClient from "apollo-boost";
 import { HashRouter as Router } from "react-router-dom";
 require("babel-polyfill");
 
-const client = new ApolloClient({ uri: "http://localhost:4000/graphql" });
+const client = new ApolloClient({ uri: "/graphql" });
 
 ReactDOM.render(
   <ApolloProvider client={client}>

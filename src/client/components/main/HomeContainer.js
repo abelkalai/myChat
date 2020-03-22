@@ -73,7 +73,6 @@ const HomeContainer = props => {
             <Profile
               userInfo={userInfo}
               setUserInfo={setUserInfo}
-           
             />
           )}
         />

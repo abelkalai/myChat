@@ -20,5 +20,6 @@ App that lets users connect and send messages to one another
 * Password hashing with bcrypt
 * Login and Account Sign Up built from the ground up
     * Features Email Validation, Forgot Username, Forgot Password 
+    * Can change first name, last name, username and password
 
 ## Future Plans
