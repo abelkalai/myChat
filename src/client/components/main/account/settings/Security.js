@@ -82,12 +82,12 @@ const Security = props => {
     let result = await changePassword({
       variables: { _id, currentPassword, newPassword }
     });
-    if (result.data.changePassword == "Incorrect Current password") {
+    if (result.data.changePassword === "Incorrect Current password") {
       setCurrentPasswordError("Wrong Current Password");
       return;
     }
     setCurrentPasswordError(null);
-    if (result.data.changePassword == "You're currently using this password") {
+    if (result.data.changePassword === "You're currently using this password") {
       setNewPasswordError("You're currently using this password");
       return;
     }

@@ -7,7 +7,7 @@ export const fieldInput = () => {
       setValue(event.target.value)
     }
 
-    const clear=()=>{
+    const clear = ()=>{
         setValue("")
     }
   

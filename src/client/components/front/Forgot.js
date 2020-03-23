@@ -23,22 +23,22 @@ const Forgot = props => {
 
   const forgotForm = () => {
     return (
-      <div className="center">
+      <div className = "center">
         <h1> Forgot {props.type}</h1>
         <div>
-          <form onSubmit={emailCall}>
+          <form onSubmit = {emailCall}>
             Enter Email Address:
             <input
-              value={emailForm.value}
-              onChange={emailForm.onChange}
+              value = {emailForm.value}
+              onChange = {emailForm.onChange}
               type="email"
               required
             />
-            <span className="error">{error}</span>
-            <button type="submit">Submit</button>
+            <span className = "error">{error}</span>
+            <button type = "submit">Submit</button>
           </form>
-          <Link to="/" className="link">
-            <button type="button"> Back to Login</button>{" "}
+          <Link to = "/" className = "link">
+            <button type = "button"> Back to Login </button>{" "}
           </Link>
         </div>
       </div>
@@ -56,9 +56,9 @@ const Forgot = props => {
     <div className="center">
 
       {error != "validEmail" && forgotForm()}
-      {error == "validEmail" && (
+      {error === "validEmail" && (
         <Confirmation
-          confirmMsg={`Please check your email to find your ${props.type} `}
+          confirmMsg = {`Please check your email to find your ${props.type} `}
         />
       )}
     </div>

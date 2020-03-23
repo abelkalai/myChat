@@ -9,18 +9,23 @@ const FrontPage = props => {
       <Switch>
         <Route
           exact
-          path={["/", "/forgotUsername", "/forgotPassword", "/signup"]}
-          render={() => (
+          path = {[
+            "/",
+            "/forgotUsername",
+            "/forgotPassword",
+            "/signup"
+          ]}
+          render = {() => (
             <FrontPageContainer
-              loginQuery={props.loginQuery}
-              ignoreCookie={props.ignoreCookie}
-              setIgnoreCookie={props.setIgnoreCookie}
-              activeUser={props.activeUser}
-              setActiveUser={props.setActiveUser}
+              loginQuery = {props.loginQuery}
+              ignoreCookie = {props.ignoreCookie}
+              setIgnoreCookie = {props.setIgnoreCookie}
+              activeUser = {props.activeUser}
+              setActiveUser = {props.setActiveUser}
             />
           )}
         />
-        <Route path="*" render={() => <InvalidLink type="Login" />} />
+        <Route path = "*" render = {() => <InvalidLink type = "Login" />} />
       </Switch>
     </div>
   );

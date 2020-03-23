@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Frontpage from "./front/Frontpage";
-import Home from "./main/Home";
+import Home from "./main/home/Home";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 import { OutRoute, InRoute } from "../utils/util_route";
@@ -15,7 +15,6 @@ const LOGIN = gql`
         lastName
         email
         username
-        about
         confirmed
       }
       Token
@@ -32,7 +31,6 @@ const LOGGED_IN = gql`
       lastName
       email
       username
-      about
       confirmed
     }
   }
@@ -49,30 +47,30 @@ const App = () => {
       <div>
           <OutRoute
             path="/"
-            loggedIn={loggedInQuery.data.loggedIn}
-            ignoreCookie={ignoreCookie}
-            activeUser={activeUser}
+            loggedIn = {loggedInQuery.data.loggedIn}
+            ignoreCookie = {ignoreCookie}
+            activeUser = {activeUser}
           >
             <Frontpage
-              loginQuery={loginQuery}
-              ignoreCookie={ignoreCookie}
-              setIgnoreCookie={setIgnoreCookie}
-              activeUser={activeUser}
-              setActiveUser={setActiveUser}
+              loginQuery = {loginQuery}
+              ignoreCookie = {ignoreCookie}
+              setIgnoreCookie = {setIgnoreCookie}
+              activeUser = {activeUser}
+              setActiveUser = {setActiveUser}
             />
           </OutRoute>
           <InRoute
             path="/home"
-            loggedIn={loggedInQuery.data.loggedIn}
-            ignoreCookie={ignoreCookie}
-            activeUser={activeUser}
+            loggedIn = {loggedInQuery.data.loggedIn}
+            ignoreCookie = {ignoreCookie}
+            activeUser = {activeUser}
           >
             <Home
-              ignoreCookie={ignoreCookie}
-              setIgnoreCookie={setIgnoreCookie}
-              loggedIn={loggedInQuery.data.loggedIn}
-              activeUser={activeUser}
-              setActiveUser={setActiveUser}
+              ignoreCookie = {ignoreCookie}
+              setIgnoreCookie = {setIgnoreCookie}
+              loggedIn = {loggedInQuery.data.loggedIn}
+              activeUser = {activeUser}
+              setActiveUser = {setActiveUser}
             />
           </InRoute>
       </div>

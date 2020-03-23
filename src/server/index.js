@@ -2,12 +2,14 @@ const mongoose = require("mongoose");
 const { ApolloServer, gql } = require("apollo-server-express");
 const User = require("./models/user");
 const config = require("../../utils/config");
+const imageStore = require("./utils/imageStore");
 const express = require("express");
 const generator = require("generate-password");
 const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+const DEFAULT_IMAGE = imageStore.DEFAULT_IMAGE;
 const MONGODB_URI = config.MONGODB_URI;
 const JWT_SECRET_KEY = config.JSON_SECRET_KEY;
 
@@ -35,7 +37,6 @@ const typeDefs = gql`
     email: String!
     username: String!
     password: String
-    about: String!
     confirmed: Boolean!
     validationCode: String
   }
@@ -45,10 +46,16 @@ const typeDefs = gql`
     errorList: [String]
   }
 
+  type userDetails {
+    about: String
+    profilePicture: String
+  }
+
   type Query {
     allUsers: [User!]!
     loggedIn: User
     checkEmail(email: String, type: String): String
+    getUserDetails(_id: String!): userDetails
   }
 
   type loginResp {
@@ -92,18 +99,25 @@ const resolvers = {
       return activeUser;
     },
 
+    getUserDetails: async (root, args) => {
+      let user = await User.findById(args._id);
+      let about = user.about;
+      let profilePicture = user.profilePicture;
+      return { about: about, profilePicture: profilePicture };
+    },
+
     checkEmail: async (root, args) => {
       let user = await User.findOne({ email: args.email.toLowerCase() });
       let result = user != null ? "validEmail" : "No associated email found";
-      if (result == "validEmail") {
-        if (args.type == "Username") {
+      if (result === "validEmail") {
+        if (args.type === "Username") {
           await mailService.sendEmail("USERNAME", {
             toFName: user.firstName,
             toLName: user.lastName,
             toEmail: user.email,
             username: user.username
           });
-        } else if (args.type == "Password") {
+        } else if (args.type === "Password") {
           let newPass = generator.generate({ length: 8, numbers: true });
           let bcryptPass = await bcrypt.hash(newPass, 10);
           await User.findByIdAndUpdate(user._id, { password: bcryptPass });
@@ -123,6 +137,7 @@ const resolvers = {
       args.password = await bcrypt.hash(args.password, 10);
       args.confirmed = false;
       args.about = "";
+      args.profilePicture = DEFAULT_IMAGE;
       args.username = args.username.toLowerCase();
       args.email = args.email.toLowerCase();
       const verificationCode = generator.generate({ length: 8, numbers: true });
@@ -171,7 +186,6 @@ const resolvers = {
           lastName: user.lastName,
           username: user.username,
           email: user.email,
-          about: user.about,
           confirmed: user.confirmed
         };
         return { User: user, Token: jwt.sign(userSign, JWT_SECRET_KEY) };
@@ -195,10 +209,9 @@ const resolvers = {
       }
     },
 
-    editAbout: async(root,args)=>{
-
-      await User.findByIdAndUpdate(args._id,{about:args.about})
-      return "Success"
+    editAbout: async (root, args) => {
+      await User.findByIdAndUpdate(args._id, { about: args.about });
+      return "Success";
     },
 
     changeName: async (root, args) => {

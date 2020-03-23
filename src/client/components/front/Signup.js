@@ -77,7 +77,7 @@ const Signup =() => {
       }
     });
 
-    if (result.data.addUser.errorList == null) {
+    if (result.data.addUser.errorList === null) {
       setUserError(null);
       setEmailError(null);
       setPassError(null);
@@ -90,75 +90,75 @@ const Signup =() => {
 
   const signUpForm = () => {
     return (
-      <div className="center">
+      <div className = "center">
         <h1> Signup for an account!</h1>
-        <div className="sign-up">
-          <form onSubmit={submit}>
-            <div className="sign-up-input">
-              <label>First Name: </label>
+        <div className = "sign-up">
+          <form onSubmit = {submit}>
+            <div className = "sign-up-input">
+              <label> First Name: </label>
               <input
-                value={firstNameSign.value}
-                onChange={firstNameSign.onChange}
+                value = {firstNameSign.value}
+                onChange = {firstNameSign.onChange}
                 required
               />
             </div>
-            <div className="sign-up-input">
-              <label>Last Name: </label>
+            <div className = "sign-up-input">
+              <label> Last Name: </label>
               <input
-                value={lastNameSign.value}
-                onChange={lastNameSign.onChange}
+                value = {lastNameSign.value}
+                onChange = {lastNameSign.onChange}
                 required
               />
             </div>
-            <div className="sign-up-input">
-              <label>Email: </label>
+            <div className = "sign-up-input">
+              <label> Email: </label>
               <input
-                value={emailSign.value}
-                onChange={emailSign.onChange}
-                type="email"
+                value = {emailSign.value}
+                onChange = {emailSign.onChange}
+                type = "email"
                 required
               />
-              {emailError == null ? null : (
-                <span className="error">{emailError}</span>
+              {emailError === null ? null : (
+                <span className="error"> {emailError} </span>
               )}
             </div>
-            <div className="sign-up-input">
+            <div className = "sign-up-input">
               <label>Username: </label>
               <input
-                value={userSign.value}
-                onChange={userSign.onChange}
+                value = {userSign.value}
+                onChange = {userSign.onChange}
                 required
               />
-              {userError == null ? null : (
-                <span className="error">{userError}</span>
+              {userError === null ? null : (
+                <span className="error"> {userError} </span>
               )}
-              <div className="sign-up-input"></div>
-              <label>Password: </label>
+              <div className = "sign-up-input"></div>
+              <label> Password: </label>
               <input
-                value={passSign.value}
-                onChange={passSign.onChange}
-                type="password"
+                value = {passSign.value}
+                onChange = {passSign.onChange}
+                type = "password"
                 required
               />
-              {<span className="error">{passError}</span>}
+              {<span className = "error">{passError}</span>}
             </div>
 
-            <div className="sign-up-input">
-              <label>Confirm Password: </label>
+            <div className = "sign-up-input">
+              <label> Confirm Password: </label>
               <input
-                value={confirmPassSign.value}
-                onChange={confirmPassSign.onChange}
+                value = {confirmPassSign.value}
+                onChange = {confirmPassSign.onChange}
                 type="password"
                 required
               />
-              {<span className="error">{passError}</span>}
+              {<span className = "error"> {passError} </span>}
             </div>
-            <div className="submit">
-              <button type="submit">Signup</button>
+            <div className = "submit">
+              <button type = "submit"> Signup</button>
             </div>
           </form>
-          <Link to="/" className="link">
-            <button type="button"> Back to Login </button>
+          <Link to = "/" className = "link">
+            <button type = "button"> Back to Login </button>
           </Link>
         </div>
       </div>
@@ -167,19 +167,18 @@ const Signup =() => {
 
   const signUpConfirm = () => {
     return (
-      <div className="center">
-        <h1>Thanks for signing up </h1>
-        <h2>{`Welcome to MyChat, ${firstNameSign.value} ${lastNameSign.value}`}</h2>
+      <div className = "center">
+        <h2>{`Thanks for signing up, ${firstNameSign.value} ${lastNameSign.value}`}</h2>
         <p>{`Please check your email at: ${emailSign.value} 
           Please don't leave this page until you have confirmed your email address.`}</p>
-        <form onSubmit={confirmEmail}>
+        <form onSubmit = {confirmEmail}>
           <label>Enter your confirmation code here:</label>
           <input
-            value={confirmNumber.value}
-            onChange={confirmNumber.onChange}
+            value = {confirmNumber.value}
+            onChange = {confirmNumber.onChange}
           ></input>
-          {<span className="error">{validateError}</span>}
-          <button type="submit"> Confirm Confirmation Code</button>
+          {<span className = "error"> {validateError} </span>}
+          <button type = "submit"> Confirm Confirmation Code</button>
         </form>
       </div>
     );
@@ -192,7 +191,7 @@ const Signup =() => {
     let result = await validateAccount({
       variables: { email, validationCode }
     });
-    if (result.data.validateAccount == "Account verified") {
+    if (result.data.validateAccount === "Account verified") {
       setPage("signUpConfirm");
       setConfirmMsg("Email Successfully Confirmed");
     } else {
@@ -202,9 +201,9 @@ const Signup =() => {
 
   return (
     <div>
-      {page == "signUpForm" && signUpForm()}
-      {page == "signUpValidate" && signUpConfirm()}
-      {page == "signUpConfirm" && <Confirmation confirmMsg={confirmMsg} />}
+      {page === "signUpForm" && signUpForm()}
+      {page === "signUpValidate" && signUpConfirm()}
+      {page === "signUpConfirm" && <Confirmation confirmMsg = {confirmMsg} />}
     </div>
   );
 };

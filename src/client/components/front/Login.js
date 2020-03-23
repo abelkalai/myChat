@@ -24,7 +24,7 @@ const Login = props => {
         date.setDate(date.getDate() + 1);
         document.cookie = `token=${
           result.data.login.Token
-        }; expires=${date.toGMTString()} path=/;`;
+        }; expires= ${date.toGMTString()} path = /;`;
       } else {
         setLoginError(result.data.login.errorList);
         return;
@@ -34,13 +34,13 @@ const Login = props => {
     };
 
     return (
-      <div className="center">
-        <h1> Login</h1>
-        <form onSubmit={submitLogin}>
+      <div className = "center">
+        <h1> Login </h1>
+        <form onSubmit = {submitLogin}>
           <div>
             Username:
-            <input value={user.value} onChange={user.onChange} required />
-            {<span className="error">{loginError}</span>}
+            <input value = {user.value} onChange = {user.onChange} required />
+            {<span className="error"> {loginError} </span>}
             <button
               type="button"
               onClick={() => {
@@ -49,7 +49,7 @@ const Login = props => {
                   user.clear(),
                   pass.clear();
               }}
-              className="forgotLabel"
+              className = "forgotLabel"
             >
               Forgot Username
             </button>
@@ -57,29 +57,29 @@ const Login = props => {
           <div>
             Password:
             <input
-              value={pass.value}
-              onChange={pass.onChange}
+              value = {pass.value}
+              onChange = {pass.onChange}
               required
-              type="password"
+              type = "password"
             />
-            {<span className="error">{loginError}</span>}
+            {<span className = "error"> {loginError} </span>}
             <button
-              type="button"
+              type = "button"
               onClick={() => {
                 setPage("forgotPassword"),
                   setLoginError(null),
                   user.clear(),
                   pass.clear();
               }}
-              className="forgotLabel"
+              className = "forgotLabel"
             >
               Forgot Password
             </button>
           </div>
           <div>
-            <button type="submit">Login</button>
-            <Link className="link" to="/signup">
-              <button type="button"> Signup</button>
+            <button type = "submit">Login </button>
+            <Link className = "link" to = "/signup">
+              <button type = "button"> Signup </button>
             </Link>
           </div>
         </form>
@@ -89,9 +89,9 @@ const Login = props => {
 
   return (
     <div className="center">
-      {page == "login" && loginForm()}
-      {page == "forgotUsername" && <Redirect to="/forgotUsername" />}
-      {page == "forgotPassword" && <Redirect to="/forgotPassword" />}
+      {page === "login" && loginForm()}
+      {page === "forgotUsername" && <Redirect to = "/forgotUsername" />}
+      {page === "forgotPassword" && <Redirect to = "/forgotPassword" />}
     </div>
   );
 };

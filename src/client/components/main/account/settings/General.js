@@ -125,7 +125,7 @@ const General = props => {
 
   const changeUserCallBack = async event => {
     event.preventDefault();
-    if(userField.value==props.userInfo.username){
+    if(userField.value===props.userInfo.username){
       setUserError("You're currently using this username")
       return
     }

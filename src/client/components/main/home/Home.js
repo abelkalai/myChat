@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import InvalidLink from "../utilities/InvalidLink";
+import InvalidLink from "../../utilities/InvalidLink";
 import HomeContainer from "./HomeContainer";
-import "../../assets/stylesheets/components/main/home.css";
+import "../../../assets/stylesheets/components/main/home.css";
 
 const Home = props => {
   return (

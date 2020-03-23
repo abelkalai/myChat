@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { fieldInput } from "../hooks/customHooks";
+import { fieldInput } from "../../hooks/customHooks";
 import { Link, Route, Redirect } from "react-router-dom";
 import HomeMain from "./HomeMain";
-import Profile from "./account/profile/Profile";
-import Settings from "./account/settings/Settings";
-import "../../assets/stylesheets/components/main/home.css";
+import Profile from "../account/profile/Profile";
+import Settings from "../account/settings/Settings";
+import "../../../assets/stylesheets/components/main/home.css";
 
 const HomeContainer = props => {
   document.title = "MyChat";
@@ -53,7 +53,8 @@ const HomeContainer = props => {
 
   const logOut = async event => {
     event.preventDefault();
-    document.cookie = "token=;expires = Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
+    document.cookie =
+      "token = ;expires = Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
     props.setIgnoreCookie(true);
     props.setActiveUser(null);
     setFrontPage(true);
@@ -61,33 +62,23 @@ const HomeContainer = props => {
 
   return (
     <div>
-        {topBanner()}
-        <Route
-          exact
-          path="/home"
-          render={() => <HomeMain />}
-        />
-        <Route
-          path="/home/profile"
-          render={() => (
-            <Profile
-              userInfo={userInfo}
-              setUserInfo={setUserInfo}
-            />
-          )}
-        />
-        <Route
-          path="/home/settings/"
-          render={() => (
-            <Settings
-              userInfo={userInfo}
-              setUserInfo={setUserInfo}
-              setIgnoreCookie={props.setIgnoreCookie}
-              setActiveUser={props.setActiveUser}
-            />
-          )}
-        />
-
+      {topBanner()}
+      <Route exact path="/home" render={() => <HomeMain />} />
+      <Route
+        path="/home/profile"
+        render={() => <Profile userInfo={userInfo} setUserInfo={setUserInfo} />}
+      />
+      <Route
+        path="/home/settings/"
+        render={() => (
+          <Settings
+            userInfo={userInfo}
+            setUserInfo={setUserInfo}
+            setIgnoreCookie={props.setIgnoreCookie}
+            setActiveUser={props.setActiveUser}
+          />
+        )}
+      />
     </div>
   );
 };

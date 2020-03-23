@@ -34,6 +34,9 @@ const schema = new mongoose.Schema({
   },
   validationCode: {
     type: String
+  },
+  profilePicture:{
+    type: String
   }
 });
 
