@@ -2,6 +2,7 @@ import React from "react"
 import {Link} from "react-router-dom"
 
 const Confirmation = props => {
+  document.title = "Confirm | Mychat"
   return (
     <div className = "center">
       <h1> {props.confirmMsg}</h1>

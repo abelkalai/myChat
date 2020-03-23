@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { fieldInput } from "../hooks/customHooks";
-import { Link, Redirect } from "react-router-dom";
+import {Redirect } from "react-router-dom";
 
 const Login = props => {
   document.title = "Login | MyChat";
   const [loginError, setLoginError] = useState(null);
+  const [validateButton, showValidateButton] = useState(false);
+  const [sendUser, setSendUser] = useState(null);
   const user = fieldInput();
   const pass = fieldInput();
 
@@ -27,6 +29,13 @@ const Login = props => {
         }; expires= ${date.toGMTString()} path = /;`;
       } else {
         setLoginError(result.data.login.errorList);
+        if (
+          result.data.login.errorList ===
+          "Please confirm your email address to login"
+        ) {
+          setSendUser(username);
+          showValidateButton(true);
+        }
         return;
       }
       props.setActiveUser(result.data.login.User);
@@ -34,12 +43,18 @@ const Login = props => {
     };
 
     return (
-      <div className = "center">
+      <div className="center">
         <h1> Login </h1>
-        <form onSubmit = {submitLogin}>
+        {validateButton ? (
+          <h2 className="error">
+            Your account is not validate click the button to go to the
+            validation page
+          </h2>
+        ) : null}
+        <form onSubmit={submitLogin}>
           <div>
             Username:
-            <input value = {user.value} onChange = {user.onChange} required />
+            <input value={user.value} onChange={user.onChange} required />
             {<span className="error"> {loginError} </span>}
             <button
               type="button"
@@ -49,7 +64,7 @@ const Login = props => {
                   user.clear(),
                   pass.clear();
               }}
-              className = "forgotLabel"
+              className="forgotLabel"
             >
               Forgot Username
             </button>
@@ -57,30 +72,45 @@ const Login = props => {
           <div>
             Password:
             <input
-              value = {pass.value}
-              onChange = {pass.onChange}
+              value={pass.value}
+              onChange={pass.onChange}
               required
-              type = "password"
+              type="password"
             />
-            {<span className = "error"> {loginError} </span>}
+            {<span className="error"> {loginError} </span>}
             <button
-              type = "button"
+              type="button"
               onClick={() => {
                 setPage("forgotPassword"),
                   setLoginError(null),
                   user.clear(),
                   pass.clear();
               }}
-              className = "forgotLabel"
+              className="forgotLabel"
             >
               Forgot Password
             </button>
           </div>
           <div>
-            <button type = "submit">Login </button>
-            <Link className = "link" to = "/signup">
-              <button type = "button"> Signup </button>
-            </Link>
+            <button type="submit">Login </button>
+            <button
+              type="button"
+              onClick={() => {
+                setPage("signup"), props.setFromLogin(true);
+              }}
+            >
+              Signup
+            </button>
+            {validateButton ? (
+              <button
+                type="button"
+                onClick={() => {
+                  props.setVerifyUsername(sendUser), setPage("validate");
+                }}
+              >
+                Validate Account
+              </button>
+            ) : null}
           </div>
         </form>
       </div>
@@ -90,8 +120,10 @@ const Login = props => {
   return (
     <div className="center">
       {page === "login" && loginForm()}
-      {page === "forgotUsername" && <Redirect to = "/forgotUsername" />}
-      {page === "forgotPassword" && <Redirect to = "/forgotPassword" />}
+      {page === "forgotUsername" && <Redirect to="/forgotUsername" />}
+      {page === "forgotPassword" && <Redirect to="/forgotPassword" />}
+      {page === "signup" && <Redirect to="/signup" />}
+      {page === "validate" && <Redirect to="/signup/validate" />}
     </div>
   );
 };

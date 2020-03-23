@@ -52,7 +52,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    allUsers: [User!]!
+    getEmail(username: String): String
     loggedIn: User
     checkEmail(email: String, type: String): String
     getUserDetails(_id: String!): userDetails
@@ -74,7 +74,7 @@ const typeDefs = gql`
     ): addUserResp
 
     login(username: String!, password: String!): loginResp
-    validateAccount(email: String!, validationCode: String!): String!
+    validateAccount(username: String!, validationCode: String!): String!
     editAbout(_id: String!, about: String!): String!
     changeName(_id: String!, firstName: String!, lastName: String!): String
     changeUserName(_id: String, username: String!): String
@@ -88,8 +88,21 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    allUsers: () => {
-      return User.find({});
+    getEmail: async (root, args) => {
+      if (args.username === "") return "";
+      let user = await User.findOne({ username: args.username });
+      let verificationCode = generator.generate({ length: 8, numbers: true });
+      let validationCodeHash = await bcrypt.hash(verificationCode, 10);
+      await User.findByIdAndUpdate(user._id, {
+        validationCode: validationCodeHash
+      });
+      await mailService.sendEmail("CONFIRM", {
+        toFName: user.firstName,
+        toLName: user.lastName,
+        toEmail: user.email,
+        code: verificationCode
+      });
+      return user.email;
     },
 
     loggedIn: async (root, args, context) => {
@@ -195,7 +208,7 @@ const resolvers = {
     },
 
     validateAccount: async (root, args) => {
-      const user = await User.findOne({ email: args.email });
+      const user = await User.findOne({ username: args.username });
       if (
         !(await bcrypt.compare(args.validationCode.trim(), user.validationCode))
       ) {

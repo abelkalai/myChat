@@ -13,7 +13,9 @@ const FrontPage = props => {
             "/",
             "/forgotUsername",
             "/forgotPassword",
-            "/signup"
+            "/signup",
+            "/signup/validate",
+            "/signup/confirm"
           ]}
           render = {() => (
             <FrontPageContainer

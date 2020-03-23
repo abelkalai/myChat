@@ -61518,6 +61518,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Confirmation = function Confirmation(props) {
+  document.title = "Confirm | Mychat";
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " ", props.confirmMsg), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -61658,6 +61659,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Login */ "./src/client/components/front/Login.js");
 /* harmony import */ var _Forgot__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Forgot */ "./src/client/components/front/Forgot.js");
 /* harmony import */ var _Signup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Signup */ "./src/client/components/front/Signup.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -61665,6 +61678,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var FrontPageContainer = function FrontPageContainer(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      verifyUsername = _useState2[0],
+      setVerifyUsername = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      fromLogin = _useState4[0],
+      setFromLogin = _useState4[1];
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to MyChat!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "My Chat is a platform used to connect with friends and family and message one another!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
@@ -61676,7 +61699,9 @@ var FrontPageContainer = function FrontPageContainer(props) {
         ignoreCookie: props.ignoreCookie,
         setIgnoreCookie: props.setIgnoreCookie,
         activeUser: props.activeUser,
-        setActiveUser: props.setActiveUser
+        setActiveUser: props.setActiveUser,
+        setVerifyUsername: setVerifyUsername,
+        setFromLogin: setFromLogin
       });
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
@@ -61696,7 +61721,10 @@ var FrontPageContainer = function FrontPageContainer(props) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/signup",
     render: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signup__WEBPACK_IMPORTED_MODULE_4__["default"], null);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signup__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        verifyUsername: verifyUsername,
+        fromLogin: fromLogin
+      });
     }
   }));
 };
@@ -61729,7 +61757,7 @@ var FrontPage = function FrontPage(props) {
     className: "center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
-    path: ["/", "/forgotUsername", "/forgotPassword", "/signup"],
+    path: ["/", "/forgotUsername", "/forgotPassword", "/signup", "/signup/validate", "/signup/confirm"],
     render: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FrontPageContainer__WEBPACK_IMPORTED_MODULE_2__["default"], {
         loginQuery: props.loginQuery,
@@ -61794,13 +61822,23 @@ var Login = function Login(props) {
       loginError = _useState2[0],
       setLoginError = _useState2[1];
 
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      validateButton = _useState4[0],
+      showValidateButton = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+      _useState6 = _slicedToArray(_useState5, 2),
+      sendUser = _useState6[0],
+      setSendUser = _useState6[1];
+
   var user = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
   var pass = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("login"),
-      _useState4 = _slicedToArray(_useState3, 2),
-      page = _useState4[0],
-      setPage = _useState4[1];
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("login"),
+      _useState8 = _slicedToArray(_useState7, 2),
+      page = _useState8[0],
+      setPage = _useState8[1];
 
   var loginForm = function loginForm() {
     var submitLogin = /*#__PURE__*/function () {
@@ -61833,18 +61871,24 @@ var Login = function Login(props) {
                 date = new Date();
                 date.setDate(date.getDate() + 1);
                 document.cookie = "token=".concat(result.data.login.Token, "; expires= ").concat(date.toGMTString(), " path = /;");
-                _context.next = 15;
+                _context.next = 16;
                 break;
 
               case 13:
                 setLoginError(result.data.login.errorList);
+
+                if (result.data.login.errorList === "Please confirm your email address to login") {
+                  setSendUser(username);
+                  showValidateButton(true);
+                }
+
                 return _context.abrupt("return");
 
-              case 15:
+              case 16:
                 props.setActiveUser(result.data.login.User);
                 props.setIgnoreCookie(false);
 
-              case 17:
+              case 18:
               case "end":
                 return _context.stop();
             }
@@ -61859,7 +61903,9 @@ var Login = function Login(props) {
 
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "center"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " Login "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " Login "), validateButton ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      className: "error"
+    }, "Your account is not validate click the button to go to the validation page") : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       onSubmit: submitLogin
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Username:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       value: user.value,
@@ -61888,12 +61934,17 @@ var Login = function Login(props) {
       className: "forgotLabel"
     }, "Forgot Password")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "submit"
-    }, "Login "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-      className: "link",
-      to: "/signup"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      type: "button"
-    }, " Signup ")))));
+    }, "Login "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      type: "button",
+      onClick: function onClick() {
+        setPage("signup"), props.setFromLogin(true);
+      }
+    }, "Signup"), validateButton ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      type: "button",
+      onClick: function onClick() {
+        props.setVerifyUsername(sendUser), setPage("validate");
+      }
+    }, "Validate Account") : null)));
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -61902,6 +61953,10 @@ var Login = function Login(props) {
     to: "/forgotUsername"
   }), page === "forgotPassword" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
     to: "/forgotPassword"
+  }), page === "signup" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+    to: "/signup"
+  }), page === "validate" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+    to: "/signup/validate"
   }));
 };
 
@@ -61941,8 +61996,18 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n  query getEmail($username: String) {\n    getEmail(username: $username)\n  }\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  mutation validateAccount($email: String!, $validationCode: String!) {\n    validateAccount(email: $email, validationCode: $validationCode)\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  mutation validateAccount($username: String!, $validationCode: String!) {\n    validateAccount(username: $username, validationCode: $validationCode)\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -61971,16 +62036,18 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var ADD_USER = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_2__["gql"])(_templateObject());
 var VALIDATE_ACCOUNT = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_2__["gql"])(_templateObject2());
+var GET_EMAIL = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_2__["gql"])(_templateObject3());
 
-var Signup = function Signup() {
+var Signup = function Signup(props) {
   document.title = "Signup | MyChat";
-  var firstNameSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
-  var lastNameSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
-  var emailSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
-  var userSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
-  var passSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
-  var confirmPassSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
-  var confirmNumber = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
+
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(ADD_USER),
+      _useMutation2 = _slicedToArray(_useMutation, 1),
+      addUser = _useMutation2[0];
+
+  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(VALIDATE_ACCOUNT),
+      _useMutation4 = _slicedToArray(_useMutation3, 1),
+      validateAccount = _useMutation4[0];
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState2 = _slicedToArray(_useState, 2),
@@ -62007,18 +62074,25 @@ var Signup = function Signup() {
       confirmMsg = _useState10[0],
       setConfirmMsg = _useState10[1];
 
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(ADD_USER),
-      _useMutation2 = _slicedToArray(_useMutation, 1),
-      addUser = _useMutation2[0];
-
-  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(VALIDATE_ACCOUNT),
-      _useMutation4 = _slicedToArray(_useMutation3, 1),
-      validateAccount = _useMutation4[0];
+  var verifyUser = props.verifyUsername ? props.verifyUsername : "";
+  var getEmail = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(GET_EMAIL, {
+    variables: {
+      username: verifyUser
+    }
+  });
 
   var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("signUpForm"),
       _useState12 = _slicedToArray(_useState11, 2),
       page = _useState12[0],
       setPage = _useState12[1];
+
+  var firstNameSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
+  var lastNameSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
+  var emailSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
+  var userSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
+  var passSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
+  var confirmPassSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
+  var confirmNumber = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
 
   var submit = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
@@ -62149,7 +62223,7 @@ var Signup = function Signup() {
   var signUpConfirm = function signUpConfirm() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "center"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Thanks for signing up, ".concat(firstNameSign.value, " ").concat(lastNameSign.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Please check your email at: ".concat(emailSign.value, " \n          Please don't leave this page until you have confirmed your email address.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Thanks for signing up your username is ".concat(verifyUser ? verifyUser : userSign.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Please check your email at: ".concat(getEmail.data.getEmail != "" ? getEmail.data.getEmail : emailSign.value, " \n          Please don't leave this page until you have confirmed your email address.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       onSubmit: confirmEmail
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Enter your confirmation code here:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       value: confirmNumber.value,
@@ -62163,18 +62237,18 @@ var Signup = function Signup() {
 
   var confirmEmail = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(event) {
-      var validationCode, email, result;
+      var validationCode, username, result;
       return regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               event.preventDefault();
               validationCode = confirmNumber.value;
-              email = emailSign.value;
+              username = verifyUser != "" ? verifyUser : userSign;
               _context2.next = 5;
               return validateAccount({
                 variables: {
-                  email: email,
+                  username: username,
                   validationCode: validationCode
                 }
               });
@@ -62202,8 +62276,31 @@ var Signup = function Signup() {
     };
   }();
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, page === "signUpForm" && signUpForm(), page === "signUpValidate" && signUpConfirm(), page === "signUpConfirm" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Confirmation__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    confirmMsg: confirmMsg
+  return !getEmail.loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, verifyUser === "" && props.fromLogin != true && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+    to: "/"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/signup",
+    render: function render() {
+      return signUpForm();
+    }
+  }), page === "signUpValidate" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+    to: "/signup/validate"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: "/signup/validate",
+    render: function render() {
+      return signUpConfirm();
+    }
+  }), page === "signUpConfirm" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+    to: "/signup/confirm"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/signup/confirm",
+    render: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Confirmation__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        confirmMsg: confirmMsg
+      });
+    }
   }));
 };
 
@@ -63016,12 +63113,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _HomeMain__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./HomeMain */ "./src/client/components/main/home/HomeMain.js");
-/* harmony import */ var _account_profile_Profile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../account/profile/Profile */ "./src/client/components/main/account/profile/Profile.js");
-/* harmony import */ var _account_settings_Settings__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../account/settings/Settings */ "./src/client/components/main/account/settings/Settings.js");
-/* harmony import */ var _assets_stylesheets_components_main_home_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../assets/stylesheets/components/main/home.css */ "./src/client/assets/stylesheets/components/main/home.css");
-/* harmony import */ var _assets_stylesheets_components_main_home_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_home_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _HomeMain__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./HomeMain */ "./src/client/components/main/home/HomeMain.js");
+/* harmony import */ var _account_profile_Profile__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../account/profile/Profile */ "./src/client/components/main/account/profile/Profile.js");
+/* harmony import */ var _account_settings_Settings__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../account/settings/Settings */ "./src/client/components/main/account/settings/Settings.js");
+/* harmony import */ var _assets_stylesheets_components_main_home_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../assets/stylesheets/components/main/home.css */ "./src/client/assets/stylesheets/components/main/home.css");
+/* harmony import */ var _assets_stylesheets_components_main_home_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_home_css__WEBPACK_IMPORTED_MODULE_8__);
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -63037,6 +63136,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
@@ -63064,9 +63165,9 @@ var HomeContainer = function HomeContainer(props) {
   var topBanner = function topBanner() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "banner"
-    }, frontpage && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+    }, frontpage && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Redirect"], {
       to: "/"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
       to: "/home",
       className: "link"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -63082,14 +63183,14 @@ var HomeContainer = function HomeContainer(props) {
       className: "dropdown"
     }, "".concat(userInfo.firstName, " ").concat(userInfo.lastName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "dropdown-content"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
       to: "/home/profile",
       className: "link"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "dropdown-profile"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "dropdown-profile-content"
-    }, "Profile"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+    }, "Profile"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
       to: "/home/settings/general",
       className: "link"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -63129,24 +63230,24 @@ var HomeContainer = function HomeContainer(props) {
     };
   }();
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, topBanner(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, topBanner(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
     exact: true,
     path: "/home",
     render: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HomeMain__WEBPACK_IMPORTED_MODULE_3__["default"], null);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HomeMain__WEBPACK_IMPORTED_MODULE_5__["default"], null);
     }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
     path: "/home/profile",
     render: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_account_profile_Profile__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_account_profile_Profile__WEBPACK_IMPORTED_MODULE_6__["default"], {
         userInfo: userInfo,
         setUserInfo: setUserInfo
       });
     }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
     path: "/home/settings/",
     render: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_account_settings_Settings__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_account_settings_Settings__WEBPACK_IMPORTED_MODULE_7__["default"], {
         userInfo: userInfo,
         setUserInfo: setUserInfo,
         setIgnoreCookie: props.setIgnoreCookie,

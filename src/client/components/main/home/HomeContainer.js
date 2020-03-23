@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { fieldInput } from "../../hooks/customHooks";
+import { useQuery } from "@apollo/react-hooks";
+import { gql } from "apollo-boost";
 import { Link, Route, Redirect } from "react-router-dom";
 import HomeMain from "./HomeMain";
 import Profile from "../account/profile/Profile";
