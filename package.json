@@ -28,6 +28,7 @@
     "babel-loader": "^8.1.0",
     "babel-polyfill": "^6.26.0",
     "bcryptjs": "^2.4.3",
+    "browser-image-compression": "^1.0.8",
     "cors": "^2.8.5",
     "css-loader": "^3.4.2",
     "dotenv": "^8.2.0",

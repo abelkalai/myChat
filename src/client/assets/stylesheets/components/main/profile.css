@@ -10,11 +10,20 @@
   justify-content: center;
 }
 
+.profile-image{
+  width: 200px;
+  height: 200px;
+}
+
 .about-button{
   width: 100px;
 }
 
 .about-input{
-  height: 200 px;
+  height: 200px;
   width: 400px;
 }
+
+
+
+

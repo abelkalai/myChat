@@ -8,12 +8,19 @@ import Profile from "../account/profile/Profile";
 import Settings from "../account/settings/Settings";
 import "../../../assets/stylesheets/components/main/home.css";
 
+const GET_IMAGE = gql`
+  query getImage($_id: String!) {
+    getImage(_id: $_id)
+  }
+`;
+
 const HomeContainer = props => {
   document.title = "MyChat";
   const [userInfo, setUserInfo] = useState(
     props.activeUser ? props.activeUser : props.loggedIn
   );
   const [frontpage, setFrontPage] = useState(false);
+  const userImage = useQuery(GET_IMAGE, { variables: { _id: userInfo._id } });
   const search = fieldInput();
 
   const topBanner = () => {
@@ -63,25 +70,29 @@ const HomeContainer = props => {
   };
 
   return (
-    <div>
-      {topBanner()}
-      <Route exact path="/home" render={() => <HomeMain />} />
-      <Route
-        path="/home/profile"
-        render={() => <Profile userInfo={userInfo} setUserInfo={setUserInfo} />}
-      />
-      <Route
-        path="/home/settings/"
-        render={() => (
-          <Settings
-            userInfo={userInfo}
-            setUserInfo={setUserInfo}
-            setIgnoreCookie={props.setIgnoreCookie}
-            setActiveUser={props.setActiveUser}
-          />
-        )}
-      />
-    </div>
+    !userImage.loading && (
+      <div>
+        {topBanner()}
+        <Route exact path="/home" render={() => <HomeMain />} />
+        <Route
+          path="/home/profile"
+          render={() => (
+            <Profile userInfo={userInfo} setUserInfo={setUserInfo} userImage={userImage} getImage={GET_IMAGE}/>
+          )}
+        />
+        <Route
+          path="/home/settings/"
+          render={() => (
+            <Settings
+              userInfo={userInfo}
+              setUserInfo={setUserInfo}
+              setIgnoreCookie={props.setIgnoreCookie}
+              setActiveUser={props.setActiveUser}
+            />
+          )}
+        />
+      </div>
+    )
   );
 };
 

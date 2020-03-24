@@ -55,7 +55,8 @@ const typeDefs = gql`
     getEmail(username: String): String
     loggedIn: User
     checkEmail(email: String, type: String): String
-    getUserDetails(_id: String!): userDetails
+    getAbout(_id: String!): String
+    getImage(_id: String!): String
   }
 
   type loginResp {
@@ -76,6 +77,7 @@ const typeDefs = gql`
     login(username: String!, password: String!): loginResp
     validateAccount(username: String!, validationCode: String!): String!
     editAbout(_id: String!, about: String!): String!
+    editImage(_id: String!, image: String!): String!
     changeName(_id: String!, firstName: String!, lastName: String!): String
     changeUserName(_id: String, username: String!): String
     changePassword(
@@ -112,11 +114,14 @@ const resolvers = {
       return activeUser;
     },
 
-    getUserDetails: async (root, args) => {
+    getAbout: async (root, args) => {
       let user = await User.findById(args._id);
-      let about = user.about;
-      let profilePicture = user.profilePicture;
-      return { about: about, profilePicture: profilePicture };
+      return user.about;
+    },
+
+    getImage: async (root, args) => {
+      let user = await User.findById(args._id);
+      return user.profilePicture;
     },
 
     checkEmail: async (root, args) => {
@@ -224,6 +229,11 @@ const resolvers = {
 
     editAbout: async (root, args) => {
       await User.findByIdAndUpdate(args._id, { about: args.about });
+      return "Success";
+    },
+
+    editImage: async (root, args) => {
+      await User.findByIdAndUpdate(args._id, { profilePicture: args.image });
       return "Success";
     },
 
