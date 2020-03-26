@@ -13,6 +13,7 @@ const LOGIN = gql`
         _id
         firstName
         lastName
+        fullName
         email
         username
         confirmed
@@ -29,6 +30,7 @@ const LOGGED_IN = gql`
       _id
       firstName
       lastName
+      fullName
       email
       username
       confirmed

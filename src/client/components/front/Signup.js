@@ -201,7 +201,7 @@ const Signup = props => {
   const confirmEmail = async event => {
     event.preventDefault();
     let validationCode = confirmNumber.value;
-    let username = verifyUser != "" ? verifyUser : userSign;
+    let username = verifyUser != "" ? verifyUser : userSign.value;
     let result = await validateAccount({
       variables: { username, validationCode }
     });

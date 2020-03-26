@@ -86,7 +86,7 @@ const Profile = props => {
   return (
     !aboutUser.loading && (
       <div className="profile-main">
-        <h1>{`${props.userInfo.firstName}  ${props.userInfo.lastName}`}</h1>
+        <h1>{props.userInfo.fullName }</h1>
         <img className="profile-image" src={`data:image/png;base64,${props.userImage.data.getImage}`} />
         <div>Upload .jpeg and .png only | About</div>
         <input

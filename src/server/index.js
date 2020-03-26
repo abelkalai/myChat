@@ -34,10 +34,12 @@ const typeDefs = gql`
     _id: String!
     firstName: String!
     lastName: String!
+    fullName: String!
     email: String!
     username: String!
     password: String
     confirmed: Boolean!
+    profilePicture: String
     validationCode: String
   }
 
@@ -57,6 +59,7 @@ const typeDefs = gql`
     checkEmail(email: String, type: String): String
     getAbout(_id: String!): String
     getImage(_id: String!): String
+    searchUser(_id: String!, type: String!, search: String!): [User]
   }
 
   type loginResp {
@@ -99,8 +102,7 @@ const resolvers = {
         validationCode: validationCodeHash
       });
       await mailService.sendEmail("CONFIRM", {
-        toFName: user.firstName,
-        toLName: user.lastName,
+        toFullName: user.fullName,
         toEmail: user.email,
         code: verificationCode
       });
@@ -130,8 +132,7 @@ const resolvers = {
       if (result === "validEmail") {
         if (args.type === "Username") {
           await mailService.sendEmail("USERNAME", {
-            toFName: user.firstName,
-            toLName: user.lastName,
+            toFullName: user.fullName,
             toEmail: user.email,
             username: user.username
           });
@@ -140,19 +141,40 @@ const resolvers = {
           let bcryptPass = await bcrypt.hash(newPass, 10);
           await User.findByIdAndUpdate(user._id, { password: bcryptPass });
           await mailService.sendEmail("PASSWORD", {
-            toFName: user.firstName,
-            toLName: user.lastName,
+            toFullName: user.fullName,
             toEmail: user.email,
             password: newPass
           });
         }
       }
       return result;
+    },
+
+    searchUser: async (root, args) => {
+      if (args.search === "") return [];
+      let dbSearch = `\W*((?i)${args.search}(?-i))\W*`;
+      let _id = args._id;
+      if (args.type === "contact") {
+        let searchResult = await User.find({
+          _id: { $ne: _id },
+          fullName: { $regex: dbSearch },
+          confirmed: true
+        });
+        return searchResult;
+      } else if (args.type === "normal") {
+        let searchResult = await User.find({
+          _id: { $ne: _id },
+          fullName: { $regex: dbSearch },
+          confirmed: true
+        });
+        return searchResult;
+      }
     }
   },
   Mutation: {
     addUser: async (root, args) => {
       args.password = await bcrypt.hash(args.password, 10);
+      args.fullName = `${args.firstName} ${args.lastName}`;
       args.confirmed = false;
       args.about = "";
       args.profilePicture = DEFAULT_IMAGE;
@@ -179,8 +201,7 @@ const resolvers = {
         return { errorList: [userError, emailError] };
       }
       await mailService.sendEmail("CONFIRM", {
-        toFName: args.firstName,
-        toLName: args.lastName,
+        toFullName: args.fullName,
         toEmail: args.email,
         code: verificationCode
       });
@@ -202,6 +223,7 @@ const resolvers = {
           _id: user._id,
           firstName: user.firstName,
           lastName: user.lastName,
+          fullName: user.fullName,
           username: user.username,
           email: user.email,
           confirmed: user.confirmed
@@ -240,7 +262,8 @@ const resolvers = {
     changeName: async (root, args) => {
       await User.findByIdAndUpdate(args._id, {
         firstName: args.firstName,
-        lastName: args.lastName
+        lastName: args.lastName,
+        fullName: `${args.firstName} ${args.lastName}`
       });
       return "Success";
     },

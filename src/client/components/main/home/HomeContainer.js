@@ -3,7 +3,7 @@ import { fieldInput } from "../../hooks/customHooks";
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 import { Link, Route, Redirect } from "react-router-dom";
-import HomeMain from "./HomeMain";
+import ChatContainer from "./chat/ChatContainer";
 import Profile from "../account/profile/Profile";
 import Settings from "../account/settings/Settings";
 import "../../../assets/stylesheets/components/main/home.css";
@@ -30,15 +30,15 @@ const HomeContainer = props => {
         <Link to="/home" className="link">
           <div className="home-title">MyChat</div>
         </Link>
-        <input
-          className="searchName"
-          placeholder="Search for people..."
-          value={search.value}
-          onChange={search.onChange}
-        />
         <div className="user">
+          <span className="home-image-container">
+            <img
+              className="home-image"
+              src={`data:image/png;base64,${userImage.data.getImage}`}
+            />
+          </span>
           <span className="dropdown">
-            {`${userInfo.firstName} ${userInfo.lastName}`}
+            {userInfo.fullName}
             <div className="dropdown-content">
               <Link to={`/home/profile`} className="link">
                 <div className="dropdown-profile">
@@ -73,11 +73,20 @@ const HomeContainer = props => {
     !userImage.loading && (
       <div>
         {topBanner()}
-        <Route exact path="/home" render={() => <HomeMain />} />
+        <Route
+          exact
+          path="/home"
+          render={() => <ChatContainer userInfo={userInfo} />}
+        />
         <Route
           path="/home/profile"
           render={() => (
-            <Profile userInfo={userInfo} setUserInfo={setUserInfo} userImage={userImage} getImage={GET_IMAGE}/>
+            <Profile
+              userInfo={userInfo}
+              setUserInfo={setUserInfo}
+              userImage={userImage}
+              getImage={GET_IMAGE}
+            />
           )}
         />
         <Route

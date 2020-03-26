@@ -46,7 +46,7 @@ const sendEmail = (type, options) => {
     case "CONFIRM":
       mailOptions = {
         from: `"My Chat" <${emailUsername}>`,
-        to: `${options.toFName} ${options.toLName} <${options.toEmail}>`,
+        to: `${options.toFullName} <${options.toEmail}>`,
         subject: "Welcome to MyChat | Email Validation",
         html: `<p> Please provide this verification code <b> ${options.code} </b> to MyChat to validate your email! </p>`
       };
@@ -54,7 +54,7 @@ const sendEmail = (type, options) => {
     case "USERNAME":
       mailOptions = {
         from: `"My Chat" <${emailUsername}>`,
-        to: `${options.toFName} ${options.toLName} <${options.toEmail}>`,
+        to: `${options.toFullName} <${options.toEmail}>`,
         subject: "My Chat | Forgot Username",
         html: `Your Username is: ${options.username}`
       };
@@ -62,7 +62,7 @@ const sendEmail = (type, options) => {
     case "PASSWORD":
       mailOptions = {
         from: `"My Chat" <${emailUsername}>`,
-        to: `${options.toFName} ${options.toLName} <${options.toEmail}>`,
+        to: `${options.toFullName} <${options.toEmail}>`,
         subject: "My Chat | Forgot Password",
         html: `<p> Your temporary password is <b>${options.password} </b> Please go into the MyChat app and change your password </p>`
       };

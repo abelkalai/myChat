@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { fieldInput } from "../hooks/customHooks";
 import {Redirect } from "react-router-dom";
 
+//Implement getting email when person needs to validate account, pass that to signup/validate. Remove getEmail query.
+
 const Login = props => {
   document.title = "Login | MyChat";
   const [loginError, setLoginError] = useState(null);

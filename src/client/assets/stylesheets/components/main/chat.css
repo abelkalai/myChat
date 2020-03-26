@@ -1,0 +1,48 @@
+.chat-main {
+  margin: 65px 0 0 5px;
+  font-size: 22px;
+  display: grid;
+  width: 30%;
+}
+
+.searchContacts {
+  width: 35%;
+  padding: 10px;
+  background-position: 0 5px;
+  background-image: url("../../../images/search.png");
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding-left: 25px;
+}
+
+.chat-dropdown {
+  display: inline-block;
+  font-size: 18px;
+  color: black;
+  background-color: white;
+  width: 50%;
+  padding-top: 10px;
+  z-index: 1;
+}
+
+
+.chat-dropdown div {
+  padding: 10px 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.chat-dropdown div:hover {
+  cursor: pointer;
+  background-color: #DCDCDC	;
+}
+
+.chat-dropdown span{
+  padding-right: 5px;
+}
+
+.chat-dropdown img{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}

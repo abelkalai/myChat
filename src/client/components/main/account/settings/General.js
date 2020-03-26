@@ -80,7 +80,8 @@ const General = props => {
     props.setUserInfo({
       ...props.userInfo,
       firstName,
-      lastName
+      lastName,
+      fullName: `${firstName} ${lastName}`
     });
     firstNamefield.clear();
     lastNameField.clear();

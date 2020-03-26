@@ -7,6 +7,10 @@ export const fieldInput = () => {
       setValue(event.target.value)
     }
 
+    const manualChange = (value) => {
+      setValue(value)
+    }
+
     const clear = ()=>{
         setValue("")
     }
@@ -14,6 +18,7 @@ export const fieldInput = () => {
     return {
       value,
       onChange,
+      manualChange,
       clear
     }
   }

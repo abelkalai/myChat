@@ -12,7 +12,7 @@
   background-color: #00a8f3;
   display: inline-grid;
   grid-template-areas: "left center right";
-  grid-template-columns: 11% 76% 12%;
+  grid-template-columns: 11% 73% 17%;
   align-items: center;
 }
 
@@ -25,19 +25,8 @@
   padding-left: 10px;
 }
 
-.searchName {
-  height: 10%;
-  width: 15%;
-  padding: 10px;
-  grid-area: center;
-  background-image: url("../../../images/search.png");
-  background-repeat: no-repeat;
-  font-size: 16px;
-  padding-left: 25px;
-}
-
 .user {
-  padding: 10px;
+  padding: 10px 10px 5px 10px;
   font-size: 24px;
   grid-area: right;
 }
@@ -135,4 +124,14 @@
 
 .dropdown-logout-content {
   padding-left: 20px;
+}
+
+.home-image-container{
+  padding: 20px 5px 0 0;
+}
+
+.home-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%
 }
