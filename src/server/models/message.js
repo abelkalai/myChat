@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const schema = new mongoose.Schema({
-  sender: {
+  senderID: {
     type: String,
     required: true
   },
-  receiver: {
+  receiverID: {
     type: String,
     required: true
   },
@@ -14,7 +14,7 @@ const schema = new mongoose.Schema({
     required: true
   },
   time: {
-    type: Timestamp,
+    type: Date,
     required: true
   }
 });

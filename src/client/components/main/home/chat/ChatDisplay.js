@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { fieldInput } from "../../../hooks/customHooks";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 
@@ -13,19 +14,79 @@ const GET_SINGLE_USER = gql`
   }
 `;
 
+const GET_MESSAGES = gql`
+  query getMessages($senderID: String!, $receiverID: String!) {
+    getMessages(senderID: $senderID, receiverID: $receiverID) {
+      _id
+      senderID
+      receiverID
+      content
+      time
+    }
+  }
+`;
+
+const SEND_MESSAGE = gql`
+  mutation sendMessage(
+    $senderID: String!
+    $receiverID: String!
+    $content: String!
+  ) {
+    sendMessage(senderID: $senderID, receiverID: $receiverID, content: $content)
+  }
+`;
+
 const ChatDisplay = props => {
+  const messageField = fieldInput();
+  const [sendMessageQuery] = useMutation(SEND_MESSAGE, {
+    refetchQueries: [
+      {
+        query: GET_MESSAGES,
+        variables: {
+          senderID: props.userInfo._id,
+          receiverID: props.currentChat
+        }
+      }
+    ]
+  });
+  const getMessages = useQuery(GET_MESSAGES, {
+    variables: { senderID: props.userInfo._id, receiverID: props.currentChat }
+  });
   const getUser = useQuery(GET_SINGLE_USER, {
     variables: { _id: props.currentChat }
   });
+
   // const [noChatHistory, setNoChatHistory] = useState(props.currentChat === "" ? true : false);
+  const sendMessage = async event => {
+    event.preventDefault();
+    if (messageField === "") return;
+    let senderID = props.userInfo._id;
+    let receiverID = props.currentChat;
+    let content = messageField.value;
+    await sendMessageQuery({ variables: { senderID, receiverID, content } });
+    messageField.clear();
+  };
 
   const chat = () => {
+    if(getMessages.loading || getMessages.data.getMessages === null){
+      return null
+    }
     return (
       <div className="chat-display-chat">
-        Right Middle Panel Placeholder
-        <form>
-          <input placeholder="Type a message..." />
-          <img src="../../../../assets/images/send.png" />
+        {getMessages.data.getMessages.map(message=>(
+          <div key= {message._id}>
+            {message.content}
+            </div>
+        ))}
+        <form onSubmit={sendMessage}>
+          <input
+            type="text"
+            className="chat-display-chat-message"
+            value={messageField.value}
+            onChange={messageField.onChange}
+            placeholder="Type a message..."
+          />
+          <input type="image" src="../../../../assets/images/send.png" />
         </form>
       </div>
     );
@@ -35,7 +96,9 @@ const ChatDisplay = props => {
     return (
       <div className="chat-display-about">
         <h1>{getUser.data.getSingleUser.fullName}</h1>
-        <img src={`data:image/png;base64,${getUser.data.getSingleUser.profilePicture}`}/>
+        <img
+          src={`data:image/png;base64,${getUser.data.getSingleUser.profilePicture}`}
+        />
         <h2>About </h2>
         <p>{getUser.data.getSingleUser.about}</p>
       </div>
@@ -53,15 +116,18 @@ const ChatDisplay = props => {
       </div>
     );
   };
-  return (!getUser.loading &&(
-    <div>
-      {props.currentChat === "" && defaultChatDisplay()}
-      <div className="chat-display-parent">
-        {props.currentChat != "" && chat()}
-        {props.currentChat != "" && about()}
+
+  return (
+    !getUser.loading && (
+      <div>
+        {props.currentChat === "" && defaultChatDisplay()}
+        <div className="chat-display-parent">
+          {props.currentChat != "" && chat()}
+          {props.currentChat != "" && about()}
+        </div>
       </div>
-    </div>
-  ));
+    )
+  );
 };
 
 export default ChatDisplay;

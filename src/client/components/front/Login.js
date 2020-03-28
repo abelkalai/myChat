@@ -56,7 +56,7 @@ const Login = props => {
         <form onSubmit={submitLogin}>
           <div>
             Username:
-            <input value={user.value} onChange={user.onChange} required />
+            <input type= "text" value={user.value} onChange={user.onChange} required />
             {<span className="error"> {loginError} </span>}
             <button
               type="button"

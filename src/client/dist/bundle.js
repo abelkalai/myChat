@@ -18200,7 +18200,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../../../images/sear
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-exports.push([module.i, ".chat-main {\r\n  height: 100%;\r\n  grid-template-columns: 25% 75%;\r\n  display: grid;\r\n  grid-template-areas: \"left right\";\r\n  margin: 55px 0 0 5px;\r\n}\r\n\r\n.chat-left {\r\n  grid-area: left;\r\n  min-height: 100%;\r\n  height: 100%;\r\n  border-right: 1px solid #dcdcdc;\r\n}\r\n\r\n.chat-search {\r\n  font-size: 22px;\r\n  padding-top: 10px;\r\n}\r\n\r\n.searchContacts {\r\n  padding: 10px;\r\n  background-position: 0 5px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 25px;\r\n  width: 87.5%;\r\n}\r\n\r\n.chat-dropdown {\r\n  display: inline-block;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  width: 100%;\r\n  padding-top: 10px;\r\n}\r\n\r\n.chat-dropdown div {\r\n  padding: 10px 10px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.chat-dropdown div:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-dropdown span {\r\n  padding-right: 5px;\r\n}\r\n\r\n.chat-dropdown img {\r\n  width: 20px;\r\n  height: 20px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-display-parent {\r\n  grid-area: \"right\";\r\n  display: grid;\r\n  grid-template-columns: 66% 33%;\r\n  grid-template-areas: \"chat about\";\r\n  padding-top: 5px ;\r\n  height: 100%\r\n}\r\n\r\n.chat-display-default {\r\n  padding: 10px 0 0 5px;\r\n}\r\n\r\n.chat-display-chat {\r\n  border-right: 1px solid #dcdcdc;\r\n  grid-area: \"chat\";\r\n  height: 100%;\r\n  position: relative;\r\n}\r\n\r\n.chat-display-chat form{\r\n  position: absolute;\r\n  bottom: 5px;\r\n  width: 100%\r\n}\r\n\r\n.chat-display-chat input{\r\n  font-size: 20px;\r\n  width: 96%;\r\n\r\n}\r\n\r\n.chat-display-about {\r\n  grid-area: \"about\";\r\n  height: 100%;\r\n  text-align: center;\r\n}\r\n\r\n.chat-display-about img{\r\n  width: 200px;\r\n  height: 200px;\r\n  border-radius: 50%;\r\n}\r\n", ""]);
+exports.push([module.i, ".chat-main {\r\n  height: 100%;\r\n  grid-template-columns: 25% 75%;\r\n  display: grid;\r\n  grid-template-areas: \"left right\";\r\n  margin: 55px 0 0 5px;\r\n}\r\n\r\n.chat-left {\r\n  grid-area: left;\r\n  min-height: 100%;\r\n  height: 100%;\r\n  border-right: 1px solid #dcdcdc;\r\n}\r\n\r\n.chat-search {\r\n  font-size: 22px;\r\n  padding-top: 10px;\r\n}\r\n\r\n.searchContacts {\r\n  padding: 10px;\r\n  background-position: 0 5px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 25px;\r\n  width: 87.5%;\r\n}\r\n\r\n.chat-dropdown {\r\n  display: inline-block;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  width: 100%;\r\n  padding-top: 10px;\r\n}\r\n\r\n.chat-dropdown div {\r\n  padding: 10px 10px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.chat-dropdown div:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-dropdown span {\r\n  padding-right: 5px;\r\n}\r\n\r\n.chat-dropdown img {\r\n  width: 20px;\r\n  height: 20px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-display-parent {\r\n  grid-area: \"right\";\r\n  display: grid;\r\n  grid-template-columns: 66% 33%;\r\n  grid-template-areas: \"chat about\";\r\n  padding-top: 5px ;\r\n  height: 100%\r\n}\r\n\r\n.chat-display-default {\r\n  padding: 10px 0 0 5px;\r\n}\r\n\r\n.chat-display-chat {\r\n  border-right: 1px solid #dcdcdc;\r\n  grid-area: \"chat\";\r\n  height: 100%;\r\n  position: relative;\r\n}\r\n\r\n.chat-display-chat form{\r\n  position: absolute;\r\n  bottom: 5px;\r\n  width: 100%\r\n}\r\n\r\n.chat-display-chat-message{\r\n  font-size: 20px;\r\n  width: 96%;\r\n\r\n}\r\n\r\n.chat-display-about {\r\n  grid-area: \"about\";\r\n  height: 100%;\r\n  text-align: center;\r\n}\r\n\r\n.chat-display-about img{\r\n  width: 200px;\r\n  height: 200px;\r\n  border-radius: 50%;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -61982,6 +61982,7 @@ var Login = function Login(props) {
     }, "Your account is not validate click the button to go to the validation page") : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       onSubmit: submitLogin
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Username:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "text",
       value: user.value,
       onChange: user.onChange,
       required: true
@@ -62238,12 +62239,14 @@ var Signup = function Signup(props) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "sign-up-input"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " First Name: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "text",
       value: firstNameSign.value,
       onChange: firstNameSign.onChange,
       required: true
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "sign-up-input"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Last Name: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "text",
       value: lastNameSign.value,
       onChange: lastNameSign.onChange,
       required: true
@@ -62259,6 +62262,7 @@ var Signup = function Signup(props) {
     }, " ", emailError, " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "sign-up-input"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Username: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "text",
       value: userSign.value,
       onChange: userSign.onChange,
       required: true
@@ -62300,6 +62304,7 @@ var Signup = function Signup(props) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Thanks for signing up your username is ".concat(verifyUser ? verifyUser : userSign.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Please check your email at: ".concat(getEmail.data.getEmail != "" ? getEmail.data.getEmail : emailSign.value, " \n          Please don't leave this page until you have confirmed your email address.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       onSubmit: confirmEmail
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Enter your confirmation code here:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "text",
       value: confirmNumber.value,
       onChange: confirmNumber.onChange
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -63547,6 +63552,7 @@ var ChatContainer = function ChatContainer(props) {
     userInfo: props.userInfo,
     setCurrentChat: setCurrentChat
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatDisplay__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    userInfo: props.userInfo,
     currentChat: currentChat
   }));
 };
@@ -63566,8 +63572,45 @@ var ChatContainer = function ChatContainer(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+/* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n  mutation sendMessage(\n    $senderID: String!\n    $receiverID: String!\n    $content: String!\n  ) {\n    sendMessage(senderID: $senderID, receiverID: $receiverID, content: $content)\n  }\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  query getMessages($senderID: String!, $receiverID: String!) {\n    getMessages(senderID: $senderID, receiverID: $receiverID) {\n      _id\n      senderID\n      receiverID\n      content\n      time\n    }\n  }\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject() {
   var data = _taggedTemplateLiteral(["\n  query getSingleUser($_id: String!) {\n    getSingleUser(_id: $_id) {\n      _id\n      fullName\n      profilePicture\n      about\n    }\n  }\n"]);
 
@@ -63583,21 +63626,104 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var GET_SINGLE_USER = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_2__["gql"])(_templateObject());
+
+var GET_SINGLE_USER = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject());
+var GET_MESSAGES = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject2());
+var SEND_MESSAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject3());
 
 var ChatDisplay = function ChatDisplay(props) {
-  var getUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useQuery"])(GET_SINGLE_USER, {
+  var messageField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
+
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(SEND_MESSAGE, {
+    refetchQueries: [{
+      query: GET_MESSAGES,
+      variables: {
+        senderID: props.userInfo._id,
+        receiverID: props.currentChat
+      }
+    }]
+  }),
+      _useMutation2 = _slicedToArray(_useMutation, 1),
+      sendMessageQuery = _useMutation2[0];
+
+  var getMessages = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(GET_MESSAGES, {
+    variables: {
+      senderID: props.userInfo._id,
+      receiverID: props.currentChat
+    }
+  });
+  var getUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(GET_SINGLE_USER, {
     variables: {
       _id: props.currentChat
     }
   }); // const [noChatHistory, setNoChatHistory] = useState(props.currentChat === "" ? true : false);
 
+  var sendMessage = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
+      var senderID, receiverID, content;
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              event.preventDefault();
+
+              if (!(messageField === "")) {
+                _context.next = 3;
+                break;
+              }
+
+              return _context.abrupt("return");
+
+            case 3:
+              senderID = props.userInfo._id;
+              receiverID = props.currentChat;
+              content = messageField.value;
+              _context.next = 8;
+              return sendMessageQuery({
+                variables: {
+                  senderID: senderID,
+                  receiverID: receiverID,
+                  content: content
+                }
+              });
+
+            case 8:
+              messageField.clear();
+
+            case 9:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function sendMessage(_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
   var chat = function chat() {
+    if (getMessages.loading || getMessages.data.getMessages === null) {
+      return null;
+    }
+
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "chat-display-chat"
-    }, "Right Middle Panel Placeholder", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }, getMessages.data.getMessages.map(function (message) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        key: message._id
+      }, message.content);
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      onSubmit: sendMessage
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "text",
+      className: "chat-display-chat-message",
+      value: messageField.value,
+      onChange: messageField.onChange,
       placeholder: "Type a message..."
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "image",
       src: "../../../../assets/images/send.png"
     })));
   };

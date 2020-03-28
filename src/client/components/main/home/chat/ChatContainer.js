@@ -8,7 +8,7 @@ const ChatContainer = props => {
   return (
     <div className="chat-main">
       {<ChatSearch userInfo={props.userInfo} setCurrentChat={setCurrentChat}/>}
-      {<ChatDisplay currentChat={currentChat}/>}
+      {<ChatDisplay userInfo={props.userInfo} currentChat={currentChat}/>}
     </div>
   );
 };

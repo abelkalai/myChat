@@ -104,6 +104,7 @@ const Signup = props => {
             <div className="sign-up-input">
               <label> First Name: </label>
               <input
+              type="text"
                 value={firstNameSign.value}
                 onChange={firstNameSign.onChange}
                 required
@@ -112,6 +113,7 @@ const Signup = props => {
             <div className="sign-up-input">
               <label> Last Name: </label>
               <input
+              type="text"
                 value={lastNameSign.value}
                 onChange={lastNameSign.onChange}
                 required
@@ -132,6 +134,7 @@ const Signup = props => {
             <div className="sign-up-input">
               <label>Username: </label>
               <input
+              type="text"
                 value={userSign.value}
                 onChange={userSign.onChange}
                 required
@@ -188,6 +191,7 @@ const Signup = props => {
         <form onSubmit={confirmEmail}>
           <label>Enter your confirmation code here:</label>
           <input
+          type="text"
             value={confirmNumber.value}
             onChange={confirmNumber.onChange}
           ></input>

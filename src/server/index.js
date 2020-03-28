@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const { ApolloServer, gql } = require("apollo-server-express");
+const { GraphQLScalarType } = require("graphql");
 const User = require("./models/user");
+const Message = require("./models/message");
 const config = require("../../utils/config");
 const imageStore = require("./utils/imageStore");
 const express = require("express");
@@ -54,6 +56,14 @@ const typeDefs = gql`
     profilePicture: String
   }
 
+  type Message {
+    _id: String!
+    senderID: String!
+    receiverID: String!
+    content: String!
+    time: String!
+  }
+
   type Query {
     getEmail(username: String): String
     loggedIn: User
@@ -62,6 +72,7 @@ const typeDefs = gql`
     getImage(_id: String!): String
     searchUser(_id: String!, type: String!, search: String!): [User]
     getSingleUser(_id: String!): User
+    getMessages(senderID: String!, receiverID: String!): [Message]
   }
 
   type loginResp {
@@ -90,6 +101,11 @@ const typeDefs = gql`
       currentPassword: String!
       newPassword: String!
     ): String!
+    sendMessage(
+      senderID: String!
+      receiverID: String!
+      content: String!
+    ): String
   }
 `;
 
@@ -173,10 +189,23 @@ const resolvers = {
       }
     },
 
-    getSingleUser: async(root, args) =>{
-      if(args._id === "") return null
-      let user = await User.findById(args._id)
-      return user
+    getSingleUser: async (root, args) => {
+      if (args._id === "") return null;
+      let user = await User.findById(args._id);
+      return user;
+    },
+
+    getMessages: async (root, args) => {
+      if (args.receiverID === "") return null;
+      let senderID = args.senderID;
+      let receiverID = args.receiverID;
+      let messages = await Message.find({
+        $or: [
+          { senderID: senderID, receiverID: receiverID },
+          { senderID: receiverID, receiverID: senderID }
+        ]
+      }).sort({ time: -1 });
+      return messages;
     }
   },
   Mutation: {
@@ -298,6 +327,17 @@ const resolvers = {
       let hashPassword = await bcrypt.hash(args.newPassword, 10);
       await User.findByIdAndUpdate(args._id, { password: hashPassword });
       return "Success";
+    },
+
+    sendMessage: async (root, args) => {
+      args.time = new Date();
+      let message = new Message({ ...args });
+      try {
+        await message.save();
+      } catch (error) {
+        return "Could not send message";
+      }
+      return "Success Message sent";
     }
   }
 };
