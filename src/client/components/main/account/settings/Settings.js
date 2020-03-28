@@ -8,7 +8,7 @@ import "../../../../assets/stylesheets/components/main/settings.css";
 const Settings = props => {
   document.title="Settings | MyChat"
   return (
-    <div className="main">
+    <div className="main-settings">
       <div className="main-left">
         <h1>Settings</h1>
         <div className="settings-dropdown">

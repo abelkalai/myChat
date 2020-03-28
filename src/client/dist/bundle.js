@@ -18179,7 +18179,7 @@ function _defineProperty(e,r,n){return r in e?Object.defineProperty(e,r,{value:n
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".center {\r\n  text-align: center;\r\n}\r\n\r\n.sign-up{\r\n  display: inline-block;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  width: 15%\r\n}\r\n\r\n.sign-up-input{\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding: 7.5px;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n  font-size: 12px;\r\n  display: relative;\r\n}\r\n\r\n.link {\r\n  text-decoration: none;\r\n  color: black;\r\n}\r\n\r\n.button:hover{\r\n  cursor: pointer\r\n} \r\n\r\n\r\n\r\n", ""]);
+exports.push([module.i, "* {\r\n  font-family: Georgia, \"Times New Roman\", Times, serif; \r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\nhtml, body{\r\n  height: 95.95%;\r\n  min-height: 95.95%;\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n#root{\r\n  height: 100%;\r\n  min-height: 100%;\r\n}\r\n\r\n.main{\r\n  min-height: 100%;\r\n  height: 100%;\r\n  padding: 0px;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n.sign-up{\r\n  display: inline-block;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  width: 15%\r\n}\r\n\r\n.sign-up-input{\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding: 7.5px;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n  font-size: 12px;\r\n  display: relative;\r\n}\r\n\r\n.link {\r\n  text-decoration: none;\r\n  color: black;\r\n}\r\n\r\n.button:hover{\r\n  cursor: pointer\r\n} \r\n\r\n\r\n\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -18200,7 +18200,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../../../images/sear
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-exports.push([module.i, ".chat-main {\r\n  margin: 65px 0 0 5px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  width: 30%;\r\n}\r\n\r\n.searchContacts {\r\n  width: 35%;\r\n  padding: 10px;\r\n  background-position: 0 5px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 25px;\r\n}\r\n\r\n.chat-dropdown {\r\n  display: inline-block;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  width: 50%;\r\n  padding-top: 10px;\r\n  z-index: 1;\r\n}\r\n\r\n\r\n.chat-dropdown div {\r\n  padding: 10px 10px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.chat-dropdown div:hover {\r\n  cursor: pointer;\r\n  background-color: #DCDCDC\t;\r\n}\r\n\r\n.chat-dropdown span{\r\n  padding-right: 5px;\r\n}\r\n\r\n.chat-dropdown img{\r\n  width: 20px;\r\n  height: 20px;\r\n  border-radius: 50%;\r\n}", ""]);
+exports.push([module.i, ".chat-main {\r\n  height: 100%;\r\n  grid-template-columns: 25% 75%;\r\n  display: grid;\r\n  grid-template-areas: \"left right\";\r\n  margin: 55px 0 0 5px;\r\n}\r\n\r\n.chat-left {\r\n  grid-area: left;\r\n  min-height: 100%;\r\n  height: 100%;\r\n  border-right: 1px solid #dcdcdc;\r\n}\r\n\r\n.chat-search {\r\n  font-size: 22px;\r\n  padding-top: 10px;\r\n}\r\n\r\n.searchContacts {\r\n  padding: 10px;\r\n  background-position: 0 5px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 25px;\r\n  width: 87.5%;\r\n}\r\n\r\n.chat-dropdown {\r\n  display: inline-block;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  width: 100%;\r\n  padding-top: 10px;\r\n}\r\n\r\n.chat-dropdown div {\r\n  padding: 10px 10px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.chat-dropdown div:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-dropdown span {\r\n  padding-right: 5px;\r\n}\r\n\r\n.chat-dropdown img {\r\n  width: 20px;\r\n  height: 20px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-display-parent {\r\n  grid-area: \"right\";\r\n  display: grid;\r\n  grid-template-columns: 66% 33%;\r\n  grid-template-areas: \"chat about\";\r\n  padding-top: 5px ;\r\n  height: 100%\r\n}\r\n\r\n.chat-display-default {\r\n  padding: 10px 0 0 5px;\r\n}\r\n\r\n.chat-display-chat {\r\n  border-right: 1px solid #dcdcdc;\r\n  grid-area: \"chat\";\r\n  height: 100%;\r\n  position: relative;\r\n}\r\n\r\n.chat-display-chat form{\r\n  position: absolute;\r\n  bottom: 5px;\r\n  width: 100%\r\n}\r\n\r\n.chat-display-chat input{\r\n  font-size: 20px;\r\n  width: 96%;\r\n\r\n}\r\n\r\n.chat-display-about {\r\n  grid-area: \"about\";\r\n  height: 100%;\r\n  text-align: center;\r\n}\r\n\r\n.chat-display-about img{\r\n  width: 200px;\r\n  height: 200px;\r\n  border-radius: 50%;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -18231,7 +18231,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_
 var ___CSS_LOADER_URL_REPLACEMENT_4___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_4___);
 var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___);
 // Module
-exports.push([module.i, "* {\r\n  font-family: Georgia, \"Times New Roman\", Times, serif;\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\n.banner {\r\n  position: absolute;\r\n  width: 100%;\r\n  top: 0px;\r\n  left: 0px;\r\n  background-color: #00a8f3;\r\n  display: inline-grid;\r\n  grid-template-areas: \"left center right\";\r\n  grid-template-columns: 11% 73% 17%;\r\n  align-items: center;\r\n}\r\n\r\n.home-title {\r\n  color: white;\r\n  font-size: 44px;\r\n  grid-area: left;\r\n  justify-content: left;\r\n  cursor: pointer;\r\n  padding-left: 10px;\r\n}\r\n\r\n.user {\r\n  padding: 10px 10px 5px 10px;\r\n  font-size: 24px;\r\n  grid-area: right;\r\n}\r\n\r\n.dropdown {\r\n  color: white;\r\n  font-size: 24px;\r\n  display: inline-block;\r\n}\r\n\r\n.dropdown:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-content {\r\n  font-size: 18px;\r\n  margin-right: 10px;\r\n  display: none;\r\n  position: absolute;\r\n  color: black;\r\n  background-color: white;\r\n  min-width: 125px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  padding: 10px 15px;\r\n  border-radius: 10px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown:hover .dropdown-content {\r\n  display: block;\r\n}\r\n\r\n.dropdown-content div {\r\n  padding: 10px 10px;\r\n  border-radius: 5px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.dropdown-profile {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-profile:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-profile-content {\r\n  padding-left: 17.5px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-settings:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-logout:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.home-image-container{\r\n  padding: 20px 5px 0 0;\r\n}\r\n\r\n.home-image {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 50%\r\n}\r\n", ""]);
+exports.push([module.i, "* {\r\n  font-family: Georgia, \"Times New Roman\", Times, serif;\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\n.main-container{\r\n  height: 100%;\r\n}\r\n\r\n.banner {\r\n  position: absolute;\r\n  width: 100%;\r\n  top: 0px;\r\n  left: 0px;\r\n  background-color: #00a8f3;\r\n  display: inline-grid;\r\n  grid-template-areas: \"left center right\";\r\n  grid-template-columns: 11% 74% 12%;\r\n  align-items: center;\r\n}\r\n\r\n.home-title {\r\n  color: white;\r\n  font-size: 44px;\r\n  grid-area: left;\r\n  justify-content: left;\r\n  cursor: pointer;\r\n  padding-left: 10px;\r\n}\r\n\r\n.user {\r\n  padding: 10px 10px 5px 10px;\r\n  font-size: 24px;\r\n  grid-area: right;\r\n}\r\n\r\n.dropdown {\r\n  color: white;\r\n  font-size: 24px;\r\n  display: inline-block;\r\n}\r\n\r\n.dropdown:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-content {\r\n  font-size: 18px;\r\n  margin-right: 10px;\r\n  display: none;\r\n  position: absolute;\r\n  color: black;\r\n  background-color: white;\r\n  min-width: 125px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  padding: 10px 15px;\r\n  border-radius: 10px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown:hover .dropdown-content {\r\n  display: block;\r\n}\r\n\r\n.dropdown-content div {\r\n  padding: 10px 10px;\r\n  border-radius: 5px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.dropdown-profile {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-profile:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-profile-content {\r\n  padding-left: 17.5px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-settings:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-logout:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.home-image-container{\r\n  padding: 20px 5px 0 0;\r\n}\r\n\r\n.home-image {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 50%\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -18249,7 +18249,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "* {\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\n.profile-main {\r\n  display: grid;\r\n  margin-top: 65px;\r\n  width: 100%;\r\n  justify-content: center;\r\n}\r\n\r\n.profile-image{\r\n  width: 200px;\r\n  height: 200px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.about-button{\r\n  width: 100px;\r\n}\r\n\r\n.about-input{\r\n  height: 200px;\r\n  width: 400px;\r\n}\r\n\r\n\r\n\r\n\r\n", ""]);
+exports.push([module.i, ".profile-main {\r\n  display: grid;\r\n  margin-top: 65px;\r\n  width: 100%;\r\n  justify-content: center;\r\n}\r\n\r\n.profile-image{\r\n  width: 200px;\r\n  height: 200px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.about-button{\r\n  width: 100px;\r\n}\r\n\r\n.about-input{\r\n  height: 200px;\r\n  width: 400px;\r\n}\r\n\r\n\r\n\r\n\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -18267,7 +18267,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "*{\r\n  font-family: Georgia, \"Times New Roman\", Times, serif;\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\n.main {\r\n  margin: 65px 0 0 65px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 22.5% 70%;\r\n  grid-template-areas: \"left right\";\r\n}\r\n\r\n.main-left {\r\n  grid-area: left;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-dropdown div {\r\n  margin: 10px 10px;\r\n  padding: 10px;\r\n}\r\n\r\n.settings-dropdown div:hover {\r\n  background-color: grey;\r\n}\r\n\r\n.main-right{\r\n    grid-area: right;\r\n}\r\n\r\n.main-right div{\r\n    grid-area: right;\r\n    padding: 10px;\r\n}\r\n\r\n.form{\r\n  display: inline-block;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  width: 25%\r\n}\r\n\r\n.form div{\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding: 7.5px;\r\n}\r\n\r\n.button{\r\n  font-size: 20px\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".main-settings {\r\n  margin: 65px 0 0 65px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 22.5% 70%;\r\n  grid-template-areas: \"left right\";\r\n}\r\n\r\n.main-left {\r\n  grid-area: left;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-dropdown div {\r\n  margin: 10px 10px;\r\n  padding: 10px;\r\n}\r\n\r\n.settings-dropdown div:hover {\r\n  background-color: grey;\r\n}\r\n\r\n.main-right{\r\n    grid-area: right;\r\n}\r\n\r\n.main-right div{\r\n    grid-area: right;\r\n    padding: 10px;\r\n}\r\n\r\n.form{\r\n  display: inline-block;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  width: 25%\r\n}\r\n\r\n.form div{\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding: 7.5px;\r\n}\r\n\r\n.button{\r\n  font-size: 20px\r\n}\r\n\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -61545,7 +61545,9 @@ var App = function App() {
       activeUser = _useState4[0],
       setActiveUser = _useState4[1];
 
-  return !loggedInQuery.loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_util_route__WEBPACK_IMPORTED_MODULE_5__["OutRoute"], {
+  return !loggedInQuery.loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "main"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_util_route__WEBPACK_IMPORTED_MODULE_5__["OutRoute"], {
     path: "/",
     loggedIn: loggedInQuery.data.loggedIn,
     ignoreCookie: ignoreCookie,
@@ -63224,7 +63226,7 @@ __webpack_require__.r(__webpack_exports__);
 var Settings = function Settings(props) {
   document.title = "Settings | MyChat";
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "main"
+    className: "main-settings"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main-left"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Settings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -63290,7 +63292,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Home = function Home(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "main-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: ["/home", "/home/profile", "/home/settings/general", "/home/settings/security"],
     render: function render() {
@@ -63393,7 +63397,6 @@ var HomeContainer = function HomeContainer(props) {
       _id: userInfo._id
     }
   });
-  var search = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
 
   var topBanner = function topBanner() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -63463,7 +63466,9 @@ var HomeContainer = function HomeContainer(props) {
     };
   }();
 
-  return !userImage.loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, topBanner(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
+  return !userImage.loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "main-container"
+  }, topBanner(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
     exact: true,
     path: "/home",
     render: function render() {
@@ -63509,12 +63514,132 @@ var HomeContainer = function HomeContainer(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ChatSearch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChatSearch */ "./src/client/components/main/home/chat/ChatSearch.js");
+/* harmony import */ var _ChatDisplay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChatDisplay */ "./src/client/components/main/home/chat/ChatDisplay.js");
+/* harmony import */ var _assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/chat.css */ "./src/client/assets/stylesheets/components/main/chat.css");
+/* harmony import */ var _assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_3__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var ChatContainer = function ChatContainer(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+      _useState2 = _slicedToArray(_useState, 2),
+      currentChat = _useState2[0],
+      setCurrentChat = _useState2[1];
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "chat-main"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatSearch__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    userInfo: props.userInfo,
+    setCurrentChat: setCurrentChat
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatDisplay__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    currentChat: currentChat
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ChatContainer);
+
+/***/ }),
+
+/***/ "./src/client/components/main/home/chat/ChatDisplay.js":
+/*!*************************************************************!*\
+  !*** ./src/client/components/main/home/chat/ChatDisplay.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  query getSingleUser($_id: String!) {\n    getSingleUser(_id: $_id) {\n      _id\n      fullName\n      profilePicture\n      about\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+var GET_SINGLE_USER = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_2__["gql"])(_templateObject());
+
+var ChatDisplay = function ChatDisplay(props) {
+  var getUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useQuery"])(GET_SINGLE_USER, {
+    variables: {
+      _id: props.currentChat
+    }
+  }); // const [noChatHistory, setNoChatHistory] = useState(props.currentChat === "" ? true : false);
+
+  var chat = function chat() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "chat-display-chat"
+    }, "Right Middle Panel Placeholder", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      placeholder: "Type a message..."
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: "../../../../assets/images/send.png"
+    })));
+  };
+
+  var about = function about() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "chat-display-about"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, getUser.data.getSingleUser.fullName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: "data:image/png;base64,".concat(getUser.data.getSingleUser.profilePicture)
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "About "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, getUser.data.getSingleUser.about));
+  };
+
+  var defaultChatDisplay = function defaultChatDisplay() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "chat-display-default"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hi, welcome to MyChat"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "To get started, enter a name from the contact list to the left to start messaging!"));
+  };
+
+  return !getUser.loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.currentChat === "" && defaultChatDisplay(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "chat-display-parent"
+  }, props.currentChat != "" && chat(), props.currentChat != "" && about()));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ChatDisplay);
+
+/***/ }),
+
+/***/ "./src/client/components/main/home/chat/ChatSearch.js":
+/*!************************************************************!*\
+  !*** ./src/client/components/main/home/chat/ChatSearch.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/chat.css */ "./src/client/assets/stylesheets/components/main/chat.css");
-/* harmony import */ var _assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_4__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -63543,16 +63668,20 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-
 var SEARCH_USER = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject());
 
-var ChatContainer = function ChatContainer(props) {
+var ChatSearch = function ChatSearch(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      searchActive = _useState2[0],
+      setSearchActive = _useState2[1];
+
   var searchField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      searchResult = _useState2[0],
-      setSearchResult = _useState2[1];
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      searchResult = _useState4[0],
+      setSearchResult = _useState4[1];
 
   var _useLazyQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useLazyQuery"])(SEARCH_USER, {
     onCompleted: function onCompleted(data) {
@@ -63561,6 +63690,13 @@ var ChatContainer = function ChatContainer(props) {
   }),
       _useLazyQuery2 = _slicedToArray(_useLazyQuery, 1),
       searchQuery = _useLazyQuery2[0];
+
+  var selectUser = function selectUser(id) {
+    event.preventDefault();
+    searchField.clear();
+    setSearchActive(false);
+    props.setCurrentChat(id);
+  };
 
   var userDropdown = function userDropdown() {
     if (searchResult.length === 0) {
@@ -63571,7 +63707,10 @@ var ChatContainer = function ChatContainer(props) {
       className: "chat-dropdown"
     }, searchResult.map(function (user) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        key: user._id
+        key: user._id,
+        onClick: function onClick() {
+          selectUser(user._id);
+        }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "data:image/png;base64,".concat(user.profilePicture)
       })), user.fullName);
@@ -63580,6 +63719,7 @@ var ChatContainer = function ChatContainer(props) {
 
   var search = function search(event) {
     searchField.manualChange(event.target.value);
+    setSearchActive(event.target.value === "" ? false : true);
     searchQuery({
       variables: {
         _id: props.userInfo._id,
@@ -63589,20 +63729,23 @@ var ChatContainer = function ChatContainer(props) {
     });
   };
 
-  var leftPanel = function leftPanel() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "chat-main"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      className: "searchContacts",
-      placeholder: "Search MyChat...",
-      onChange: search
-    })), userDropdown());
+  var currentChats = function currentChats() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Current Chats");
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, leftPanel());
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "chat-left"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "chat-search"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    value: searchField.value,
+    className: "searchContacts",
+    placeholder: "Search MyChat...",
+    onChange: search
+  })), searchActive && userDropdown(), !searchActive && currentChats()));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (ChatContainer);
+/* harmony default export */ __webpack_exports__["default"] = (ChatSearch);
 
 /***/ }),
 

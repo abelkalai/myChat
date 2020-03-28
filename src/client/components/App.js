@@ -46,7 +46,7 @@ const App = () => {
 
   return (
     !loggedInQuery.loading && (
-      <div>
+      <div className="main">
           <OutRoute
             path="/"
             loggedIn = {loggedInQuery.data.loggedIn}

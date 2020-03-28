@@ -4,6 +4,10 @@
   margin: 0px;
 }
 
+.main-container{
+  height: 100%;
+}
+
 .banner {
   position: absolute;
   width: 100%;
@@ -12,7 +16,7 @@
   background-color: #00a8f3;
   display: inline-grid;
   grid-template-areas: "left center right";
-  grid-template-columns: 11% 73% 17%;
+  grid-template-columns: 11% 74% 12%;
   align-items: center;
 }
 

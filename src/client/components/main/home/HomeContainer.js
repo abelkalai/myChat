@@ -21,7 +21,6 @@ const HomeContainer = props => {
   );
   const [frontpage, setFrontPage] = useState(false);
   const userImage = useQuery(GET_IMAGE, { variables: { _id: userInfo._id } });
-  const search = fieldInput();
 
   const topBanner = () => {
     return (
@@ -71,7 +70,7 @@ const HomeContainer = props => {
 
   return (
     !userImage.loading && (
-      <div>
+      <div className="main-container">
         {topBanner()}
         <Route
           exact

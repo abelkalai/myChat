@@ -1,18 +1,31 @@
 .chat-main {
-  margin: 65px 0 0 5px;
-  font-size: 22px;
+  height: 100%;
+  grid-template-columns: 25% 75%;
   display: grid;
-  width: 30%;
+  grid-template-areas: "left right";
+  margin: 55px 0 0 5px;
+}
+
+.chat-left {
+  grid-area: left;
+  min-height: 100%;
+  height: 100%;
+  border-right: 1px solid #dcdcdc;
+}
+
+.chat-search {
+  font-size: 22px;
+  padding-top: 10px;
 }
 
 .searchContacts {
-  width: 35%;
   padding: 10px;
   background-position: 0 5px;
   background-image: url("../../../images/search.png");
   background-repeat: no-repeat;
   font-size: 16px;
   padding-left: 25px;
+  width: 87.5%;
 }
 
 .chat-dropdown {
@@ -20,11 +33,9 @@
   font-size: 18px;
   color: black;
   background-color: white;
-  width: 50%;
+  width: 100%;
   padding-top: 10px;
-  z-index: 1;
 }
-
 
 .chat-dropdown div {
   padding: 10px 10px;
@@ -34,15 +45,59 @@
 
 .chat-dropdown div:hover {
   cursor: pointer;
-  background-color: #DCDCDC	;
+  background-color: #dcdcdc;
 }
 
-.chat-dropdown span{
+.chat-dropdown span {
   padding-right: 5px;
 }
 
-.chat-dropdown img{
+.chat-dropdown img {
   width: 20px;
   height: 20px;
+  border-radius: 50%;
+}
+
+.chat-display-parent {
+  grid-area: "right";
+  display: grid;
+  grid-template-columns: 66% 33%;
+  grid-template-areas: "chat about";
+  padding-top: 5px ;
+  height: 100%
+}
+
+.chat-display-default {
+  padding: 10px 0 0 5px;
+}
+
+.chat-display-chat {
+  border-right: 1px solid #dcdcdc;
+  grid-area: "chat";
+  height: 100%;
+  position: relative;
+}
+
+.chat-display-chat form{
+  position: absolute;
+  bottom: 5px;
+  width: 100%
+}
+
+.chat-display-chat input{
+  font-size: 20px;
+  width: 96%;
+
+}
+
+.chat-display-about {
+  grid-area: "about";
+  height: 100%;
+  text-align: center;
+}
+
+.chat-display-about img{
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
 }

@@ -1,10 +1,4 @@
-*{
-  font-family: Georgia, "Times New Roman", Times, serif;
-  padding: 0px;
-  margin: 0px;
-}
-
-.main {
+.main-settings {
   margin: 65px 0 0 65px;
   font-size: 22px;
   display: grid;

@@ -6,7 +6,7 @@ import "../../../assets/stylesheets/components/main/home.css";
 
 const Home = props => {
   return (
-    <div>
+    <div className="main-container">
       <Switch>
         <Route
           exact

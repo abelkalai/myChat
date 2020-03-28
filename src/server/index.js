@@ -41,6 +41,7 @@ const typeDefs = gql`
     confirmed: Boolean!
     profilePicture: String
     validationCode: String
+    about: String
   }
 
   type addUserResp {
@@ -60,6 +61,7 @@ const typeDefs = gql`
     getAbout(_id: String!): String
     getImage(_id: String!): String
     searchUser(_id: String!, type: String!, search: String!): [User]
+    getSingleUser(_id: String!): User
   }
 
   type loginResp {
@@ -169,6 +171,12 @@ const resolvers = {
         });
         return searchResult;
       }
+    },
+
+    getSingleUser: async(root, args) =>{
+      if(args._id === "") return null
+      let user = await User.findById(args._id)
+      return user
     }
   },
   Mutation: {
