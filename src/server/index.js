@@ -204,7 +204,7 @@ const resolvers = {
           { senderID: senderID, receiverID: receiverID },
           { senderID: receiverID, receiverID: senderID }
         ]
-      }).sort({ time: -1 });
+      }).sort({ time: 1 });
       return messages;
     }
   },

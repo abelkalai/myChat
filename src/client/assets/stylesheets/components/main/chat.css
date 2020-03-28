@@ -3,7 +3,7 @@
   grid-template-columns: 25% 75%;
   display: grid;
   grid-template-areas: "left right";
-  margin: 55px 0 0 5px;
+  margin-top: 55px
 }
 
 .chat-left {
@@ -63,12 +63,24 @@
   display: grid;
   grid-template-columns: 66% 33%;
   grid-template-areas: "chat about";
-  padding-top: 5px ;
-  height: 100%
+  padding-top: 5px;
+  height: 100%;
 }
 
 .chat-display-default {
   padding: 10px 0 0 5px;
+}
+
+.chat-display-about {
+  grid-area: "about";
+  height: 100%;
+  text-align: center;
+}
+
+.chat-display-about img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
 }
 
 .chat-display-chat {
@@ -78,26 +90,43 @@
   position: relative;
 }
 
-.chat-display-chat form{
+.chat-display-chat form {
   position: absolute;
   bottom: 5px;
-  width: 100%
+  width: 100%;
 }
 
-.chat-display-chat-message{
+.chat-display-chat-message {
   font-size: 20px;
   width: 96%;
-
+  overflow: scroll;
 }
 
-.chat-display-about {
-  grid-area: "about";
-  height: 100%;
-  text-align: center;
+.chat-message-wrapper{
+  font-size: 18px;
+  display: inline-block;
+  padding: 1px 1px;
+  width: 100%;
 }
 
-.chat-display-about img{
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
+.chat-my-message {
+  color: white;
+  background-color: #0099ff;
+  padding: 8px;
+  float: right;
+  max-width: 60%;
+  margin-right: 5px;
+  border-radius: 15px;
 }
+
+
+.chat-contact-message {
+  background-color: #f1f0f0;
+  padding: 8px;
+  float: left;
+  max-width: 60%;
+  margin-left: 5px;
+  border-radius: 15px;
+}
+
+

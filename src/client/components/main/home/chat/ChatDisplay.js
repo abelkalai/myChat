@@ -57,6 +57,7 @@ const ChatDisplay = props => {
   });
 
   // const [noChatHistory, setNoChatHistory] = useState(props.currentChat === "" ? true : false);
+
   const sendMessage = async event => {
     event.preventDefault();
     if (messageField === "") return;
@@ -68,16 +69,26 @@ const ChatDisplay = props => {
   };
 
   const chat = () => {
-    if(getMessages.loading || getMessages.data.getMessages === null){
-      return null
+    if (getMessages.loading || getMessages.data.getMessages === null) {
+      return null;
     }
     return (
       <div className="chat-display-chat">
-        {getMessages.data.getMessages.map(message=>(
-          <div key= {message._id}>
-            {message.content}
+        {getMessages.data.getMessages.map(message =>
+          message.senderID === props.userInfo._id ? (
+            <div key={message._id} className="chat-message-wrapper">
+              <span key={message._id} className="chat-my-message">
+                {message.content}
+              </span>
             </div>
-        ))}
+          ) : (
+            <div key={message._id} className="chat-message-wrapper">
+              <span key={message._id} className="chat-contact-message">
+                {message.content}
+              </span>
+            </div>
+          )
+        )}
         <form onSubmit={sendMessage}>
           <input
             type="text"
