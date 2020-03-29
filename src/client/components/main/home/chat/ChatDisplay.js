@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { fieldInput } from "../../../hooks/customHooks";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
@@ -37,6 +37,14 @@ const SEND_MESSAGE = gql`
 `;
 
 const ChatDisplay = props => {
+  useEffect(() => {
+    if (props.convoHistory.data.getConversations.length != 0 && !props.fromSearch) {
+      for (let ele of props.convoHistory.data.getConversations[0].members) {
+        if (ele._id != props.userInfo._id) props.setCurrentChat(ele._id);
+      }
+    }
+  });
+
   const messageField = fieldInput();
   const [sendMessageQuery] = useMutation(SEND_MESSAGE, {
     refetchQueries: [
@@ -45,6 +53,12 @@ const ChatDisplay = props => {
         variables: {
           senderID: props.userInfo._id,
           receiverID: props.currentChat
+        }
+      },
+      {
+        query: props.getConversations,
+        variables: {
+          _id: props.userInfo._id
         }
       }
     ]
@@ -55,8 +69,6 @@ const ChatDisplay = props => {
   const getUser = useQuery(GET_SINGLE_USER, {
     variables: { _id: props.currentChat }
   });
-
-  // const [noChatHistory, setNoChatHistory] = useState(props.currentChat === "" ? true : false);
 
   const sendMessage = async event => {
     event.preventDefault();
@@ -104,6 +116,9 @@ const ChatDisplay = props => {
   };
 
   const about = () => {
+    if (getMessages.loading || getMessages.data.getMessages === null) {
+      return null;
+    }
     return (
       <div className="chat-display-about">
         <h1>{getUser.data.getSingleUser.fullName}</h1>
@@ -117,21 +132,25 @@ const ChatDisplay = props => {
   };
 
   const defaultChatDisplay = () => {
-    return (
-      <div className="chat-display-default">
-        <h1>Hi, welcome to MyChat</h1>
-        <p>
-          To get started, enter a name from the contact list to the left to
-          start messaging!
-        </p>
-      </div>
-    );
+    if (props.convoHistory.data.getConversations.length === 0) {
+      return (
+        <div className="chat-display-default">
+          <h1>Hi, welcome to MyChat</h1>
+          <p>
+            To get started, enter a name from the contact list to the left to
+            start messaging!
+          </p>
+        </div>
+      );
+    }
   };
 
   return (
     !getUser.loading && (
       <div>
-        {props.currentChat === "" && defaultChatDisplay()}
+        {props.currentChat === "" &&
+          props.convoHistory.data.getConversations.length === 0 &&
+          defaultChatDisplay()}
         <div className="chat-display-parent">
           {props.currentChat != "" && chat()}
           {props.currentChat != "" && about()}

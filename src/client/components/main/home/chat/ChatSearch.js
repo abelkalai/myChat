@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import History from "./History";
 import { fieldInput } from "../../../hooks/customHooks";
-import { useLazyQuery } from "@apollo/react-hooks";
+import { useQuery, useLazyQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
 const SEARCH_USER = gql`
@@ -13,6 +14,7 @@ const SEARCH_USER = gql`
   }
 `;
 
+
 const ChatSearch = props => {
   const [searchActive, setSearchActive] = useState(false);
   const searchField = fieldInput();
@@ -23,12 +25,13 @@ const ChatSearch = props => {
     }
   });
 
-  const selectUser= (id) =>{
-    event.preventDefault()
-    searchField.clear()
-    setSearchActive(false)
-    props.setCurrentChat(id)
-  }
+  const selectUser = id => {
+    event.preventDefault();
+    searchField.clear();
+    setSearchActive(false);
+    props.setFromSearch(true)
+    props.setCurrentChat(id);
+  };
 
   const userDropdown = () => {
     if (searchResult.length === 0) {
@@ -37,7 +40,12 @@ const ChatSearch = props => {
     return (
       <div className="chat-dropdown">
         {searchResult.map(user => (
-          <div key={user._id} onClick={()=>{selectUser(user._id)}}>
+          <div
+            key={user._id}
+            onClick={() => {
+              selectUser(user._id);
+            }}
+          >
             <span>
               <img src={`data:image/png;base64,${user.profilePicture}`} />
             </span>
@@ -60,10 +68,6 @@ const ChatSearch = props => {
     });
   };
 
-  const currentChats = () => {
-    return <div>Current Chats</div>;
-  };
-
   return (
     <div>
       <div className="chat-left">
@@ -76,7 +80,9 @@ const ChatSearch = props => {
           />
         </div>
         {searchActive && userDropdown()}
-        {!searchActive && currentChats()}
+        {!searchActive && (
+          <History userInfo={props.userInfo} convoHistory={props.getConvoQuery} />
+        )}
       </div>
     </div>
   );

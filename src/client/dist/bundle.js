@@ -63521,8 +63521,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _ChatSearch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChatSearch */ "./src/client/components/main/home/chat/ChatSearch.js");
 /* harmony import */ var _ChatDisplay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChatDisplay */ "./src/client/components/main/home/chat/ChatDisplay.js");
-/* harmony import */ var _assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/chat.css */ "./src/client/assets/stylesheets/components/main/chat.css");
-/* harmony import */ var _assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/chat.css */ "./src/client/assets/stylesheets/components/main/chat.css");
+/* harmony import */ var _assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_5__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -63535,25 +63538,56 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  query getConversations($_id: String!) {\n    getConversations(_id: $_id) {\n      _id\n      members {\n        _id\n        fullName\n        profilePicture\n      }\n      lastSender\n      lastMessage\n      lastMessageTime\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
 
+
+
+
+var GET_CONVERSATIONS = graphql_tag__WEBPACK_IMPORTED_MODULE_4___default()(_templateObject());
 
 var ChatContainer = function ChatContainer(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       _useState2 = _slicedToArray(_useState, 2),
-      currentChat = _useState2[0],
-      setCurrentChat = _useState2[1];
+      fromSearch = _useState2[0],
+      setFromSearch = _useState2[1];
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+      _useState4 = _slicedToArray(_useState3, 2),
+      currentChat = _useState4[0],
+      setCurrentChat = _useState4[1];
+
+  var getConvoQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(GET_CONVERSATIONS, {
+    variables: {
+      _id: props.userInfo._id
+    }
+  });
+  return !getConvoQuery.loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-main"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatSearch__WEBPACK_IMPORTED_MODULE_1__["default"], {
     userInfo: props.userInfo,
-    setCurrentChat: setCurrentChat
+    setCurrentChat: setCurrentChat,
+    getConvoQuery: getConvoQuery,
+    setFromSearch: setFromSearch
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatDisplay__WEBPACK_IMPORTED_MODULE_2__["default"], {
     userInfo: props.userInfo,
-    currentChat: currentChat
+    currentChat: currentChat,
+    setCurrentChat: setCurrentChat,
+    fromSearch: fromSearch,
+    convoHistory: getConvoQuery,
+    getConversations: GET_CONVERSATIONS
   }));
 };
 
@@ -63583,13 +63617,15 @@ function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArra
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function _templateObject3() {
   var data = _taggedTemplateLiteral(["\n  mutation sendMessage(\n    $senderID: String!\n    $receiverID: String!\n    $content: String!\n  ) {\n    sendMessage(senderID: $senderID, receiverID: $receiverID, content: $content)\n  }\n"]);
@@ -63632,6 +63668,23 @@ var GET_MESSAGES = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_tem
 var SEND_MESSAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject3());
 
 var ChatDisplay = function ChatDisplay(props) {
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    if (props.convoHistory.data.getConversations.length != 0 && !props.fromSearch) {
+      var _iterator = _createForOfIteratorHelper(props.convoHistory.data.getConversations[0].members),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var ele = _step.value;
+          if (ele._id != props.userInfo._id) props.setCurrentChat(ele._id);
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+    }
+  });
   var messageField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
 
   var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(SEND_MESSAGE, {
@@ -63640,6 +63693,11 @@ var ChatDisplay = function ChatDisplay(props) {
       variables: {
         senderID: props.userInfo._id,
         receiverID: props.currentChat
+      }
+    }, {
+      query: props.getConversations,
+      variables: {
+        _id: props.userInfo._id
       }
     }]
   }),
@@ -63656,7 +63714,7 @@ var ChatDisplay = function ChatDisplay(props) {
     variables: {
       _id: props.currentChat
     }
-  }); // const [noChatHistory, setNoChatHistory] = useState(props.currentChat === "" ? true : false);
+  });
 
   var sendMessage = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
@@ -63739,6 +63797,10 @@ var ChatDisplay = function ChatDisplay(props) {
   };
 
   var about = function about() {
+    if (getMessages.loading || getMessages.data.getMessages === null) {
+      return null;
+    }
+
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "chat-display-about"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, getUser.data.getSingleUser.fullName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -63747,12 +63809,14 @@ var ChatDisplay = function ChatDisplay(props) {
   };
 
   var defaultChatDisplay = function defaultChatDisplay() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "chat-display-default"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hi, welcome to MyChat"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "To get started, enter a name from the contact list to the left to start messaging!"));
+    if (props.convoHistory.data.getConversations.length === 0) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "chat-display-default"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hi, welcome to MyChat"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "To get started, enter a name from the contact list to the left to start messaging!"));
+    }
   };
 
-  return !getUser.loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.currentChat === "" && defaultChatDisplay(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return !getUser.loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.currentChat === "" && props.convoHistory.data.getConversations.length === 0 && defaultChatDisplay(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-parent"
   }, props.currentChat != "" && chat(), props.currentChat != "" && about()));
 };
@@ -63772,10 +63836,11 @@ var ChatDisplay = function ChatDisplay(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _History__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./History */ "./src/client/components/main/home/chat/History.js");
+/* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_4__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -63804,7 +63869,8 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var SEARCH_USER = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject());
+
+var SEARCH_USER = graphql_tag__WEBPACK_IMPORTED_MODULE_4___default()(_templateObject());
 
 var ChatSearch = function ChatSearch(props) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
@@ -63812,14 +63878,14 @@ var ChatSearch = function ChatSearch(props) {
       searchActive = _useState2[0],
       setSearchActive = _useState2[1];
 
-  var searchField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
+  var searchField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["fieldInput"])();
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState4 = _slicedToArray(_useState3, 2),
       searchResult = _useState4[0],
       setSearchResult = _useState4[1];
 
-  var _useLazyQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useLazyQuery"])(SEARCH_USER, {
+  var _useLazyQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useLazyQuery"])(SEARCH_USER, {
     onCompleted: function onCompleted(data) {
       setSearchResult(data.searchUser);
     }
@@ -63831,6 +63897,7 @@ var ChatSearch = function ChatSearch(props) {
     event.preventDefault();
     searchField.clear();
     setSearchActive(false);
+    props.setFromSearch(true);
     props.setCurrentChat(id);
   };
 
@@ -63865,10 +63932,6 @@ var ChatSearch = function ChatSearch(props) {
     });
   };
 
-  var currentChats = function currentChats() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Current Chats");
-  };
-
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-left"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -63878,10 +63941,50 @@ var ChatSearch = function ChatSearch(props) {
     className: "searchContacts",
     placeholder: "Search MyChat...",
     onChange: search
-  })), searchActive && userDropdown(), !searchActive && currentChats()));
+  })), searchActive && userDropdown(), !searchActive && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_History__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    userInfo: props.userInfo,
+    convoHistory: props.getConvoQuery
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ChatSearch);
+
+/***/ }),
+
+/***/ "./src/client/components/main/home/chat/History.js":
+/*!*********************************************************!*\
+  !*** ./src/client/components/main/home/chat/History.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var History = function History(props) {
+  if (props.convoHistory.data === null) {
+    return null;
+  }
+
+  var displayHistory = function displayHistory() {
+    if (props.convoHistory.data.getConversations.length === 0) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "You don't have any history of convos please type a name above to get started");
+    }
+
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.convoHistory.data.getConversations.map(function (convo) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        key: convo._id
+      }, convo.lastMessage);
+    }));
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, displayHistory());
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (History);
 
 /***/ }),
 

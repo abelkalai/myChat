@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const { ApolloServer, gql } = require("apollo-server-express");
 const { GraphQLScalarType } = require("graphql");
 const User = require("./models/user");
+const Conversation = require("./models/conversation");
 const Message = require("./models/message");
 const config = require("../../utils/config");
 const imageStore = require("./utils/imageStore");
@@ -34,13 +35,13 @@ mongoose.set("useFindAndModify", false);
 const typeDefs = gql`
   type User {
     _id: String!
-    firstName: String!
-    lastName: String!
-    fullName: String!
-    email: String!
-    username: String!
+    firstName: String
+    lastName: String
+    fullName: String
+    email: String
+    username: String
     password: String
-    confirmed: Boolean!
+    confirmed: Boolean
     profilePicture: String
     validationCode: String
     about: String
@@ -54,6 +55,14 @@ const typeDefs = gql`
   type userDetails {
     about: String
     profilePicture: String
+  }
+
+  type Conversation {
+    _id: String
+    members: [User]
+    lastSender: String
+    lastMessage: String
+    lastMessageTime: String
   }
 
   type Message {
@@ -72,6 +81,7 @@ const typeDefs = gql`
     getImage(_id: String!): String
     searchUser(_id: String!, type: String!, search: String!): [User]
     getSingleUser(_id: String!): User
+    getConversations(_id: String): [Conversation]
     getMessages(senderID: String!, receiverID: String!): [Message]
   }
 
@@ -193,6 +203,34 @@ const resolvers = {
       if (args._id === "") return null;
       let user = await User.findById(args._id);
       return user;
+    },
+
+    getConversations: async (root, args) => {
+      let objectID = mongoose.mongo.ObjectId(args._id);
+      let conversations = await Conversation.aggregate([
+        { $match: { members: { $in: [objectID] } } },
+        {
+          $lookup: {
+            from: "users",
+            localField: "members",
+            foreignField: "_id",
+            as: "members"
+          }
+        },
+        {
+          $project: {
+            "members._id": 1,
+            "members.fullName": 1,
+            "members.profilePicture": 1,
+            lastSender: 1,
+            lastMessage: 1,
+            lastMessageTime: 1
+          }
+        },
+        { $sort: { lastMessageTime: -1 } }
+      ]);
+      console.log(conversations);
+      return conversations;
     },
 
     getMessages: async (root, args) => {
@@ -330,7 +368,37 @@ const resolvers = {
     },
 
     sendMessage: async (root, args) => {
-      args.time = new Date();
+      let existingConvo = await Conversation.findOne({
+        members: { $all: [args.senderID, args.receiverID] }
+      });
+
+      let time = new Date();
+      if (existingConvo === null) {
+        let newConvo = new Conversation({
+          members: [args.senderID, args.receiverID],
+          lastSender: args.senderID,
+          lastMessage: args.content,
+          lastMessageTime: time
+        });
+        await newConvo.save();
+      } else {
+        await Conversation.findOneAndUpdate(
+          {
+            members: { $all: [args.senderID, args.receiverID] }
+          },
+          {
+            lastSender: args.senderID,
+            lastMessage: args.content,
+            lastMessageTime: time
+          }
+        );
+      }
+
+      let updateConvo = await Conversation.findOne({
+        members: { $all: [args.senderID, args.receiverID] }
+      });
+      args.time = time;
+      args.conversationID = updateConvo._id;
       let message = new Message({ ...args });
       try {
         await message.save();
