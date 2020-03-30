@@ -14,7 +14,6 @@ const SEARCH_USER = gql`
   }
 `;
 
-
 const ChatSearch = props => {
   const [searchActive, setSearchActive] = useState(false);
   const searchField = fieldInput();
@@ -29,7 +28,6 @@ const ChatSearch = props => {
     event.preventDefault();
     searchField.clear();
     setSearchActive(false);
-    props.setFromSearch(true)
     props.setCurrentChat(id);
   };
 
@@ -81,7 +79,12 @@ const ChatSearch = props => {
         </div>
         {searchActive && userDropdown()}
         {!searchActive && (
-          <History userInfo={props.userInfo} convoHistory={props.getConvoQuery} />
+          <History
+            userInfo={props.userInfo}
+            convoHistory={props.getConvoQuery}
+            setCurrentChat={props.setCurrentChat}
+            setFromSearch={props.setFromSearch}
+          />
         )}
       </div>
     </div>

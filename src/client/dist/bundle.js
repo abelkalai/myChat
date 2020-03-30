@@ -18200,7 +18200,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../../../images/sear
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-exports.push([module.i, ".chat-main {\r\n  height: 100%;\r\n  grid-template-columns: 25% 75%;\r\n  display: grid;\r\n  grid-template-areas: \"left right\";\r\n  margin-top: 55px\r\n}\r\n\r\n.chat-left {\r\n  grid-area: left;\r\n  min-height: 100%;\r\n  height: 100%;\r\n  border-right: 1px solid #dcdcdc;\r\n}\r\n\r\n.chat-search {\r\n  font-size: 22px;\r\n  padding-top: 10px;\r\n}\r\n\r\n.searchContacts {\r\n  padding: 10px;\r\n  background-position: 0 5px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 25px;\r\n  width: 87.5%;\r\n}\r\n\r\n.chat-dropdown {\r\n  display: inline-block;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  width: 100%;\r\n  padding-top: 10px;\r\n}\r\n\r\n.chat-dropdown div {\r\n  padding: 10px 10px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.chat-dropdown div:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-dropdown span {\r\n  padding-right: 5px;\r\n}\r\n\r\n.chat-dropdown img {\r\n  width: 20px;\r\n  height: 20px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-display-parent {\r\n  grid-area: \"right\";\r\n  display: grid;\r\n  grid-template-columns: 66% 33%;\r\n  grid-template-areas: \"chat about\";\r\n  padding-top: 5px;\r\n  height: 100%;\r\n}\r\n\r\n.chat-display-default {\r\n  padding: 10px 0 0 5px;\r\n}\r\n\r\n.chat-display-about {\r\n  grid-area: \"about\";\r\n  height: 100%;\r\n  text-align: center;\r\n}\r\n\r\n.chat-display-about img {\r\n  width: 200px;\r\n  height: 200px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-display-chat {\r\n  border-right: 1px solid #dcdcdc;\r\n  grid-area: \"chat\";\r\n  height: 100%;\r\n  position: relative;\r\n}\r\n\r\n.chat-display-chat form {\r\n  position: absolute;\r\n  bottom: 5px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-display-chat-message {\r\n  font-size: 20px;\r\n  width: 96%;\r\n  overflow: scroll;\r\n}\r\n\r\n.chat-message-wrapper{\r\n  font-size: 18px;\r\n  display: inline-block;\r\n  padding: 1px 1px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-my-message {\r\n  color: white;\r\n  background-color: #0099ff;\r\n  padding: 8px;\r\n  float: right;\r\n  max-width: 60%;\r\n  margin-right: 5px;\r\n  border-radius: 15px;\r\n}\r\n\r\n\r\n.chat-contact-message {\r\n  background-color: #f1f0f0;\r\n  padding: 8px;\r\n  float: left;\r\n  max-width: 60%;\r\n  margin-left: 5px;\r\n  border-radius: 15px;\r\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, ".chat-main {\r\n  height: 100%;\r\n  grid-template-columns: 25% 75%;\r\n  display: grid;\r\n  grid-template-areas: \"left right\";\r\n  margin-top: 55px\r\n}\r\n\r\n.chat-left {\r\n  grid-area: left;\r\n  min-height: 100%;\r\n  height: 100%;\r\n  border-right: 1px solid #dcdcdc;\r\n}\r\n\r\n.chat-search {\r\n  font-size: 22px;\r\n  padding-top: 10px;\r\n}\r\n\r\n.searchContacts {\r\n  padding: 10px;\r\n  background-position: 0 5px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 25px;\r\n  width: 87.5%;\r\n}\r\n\r\n.chat-dropdown {\r\n  display: inline-block;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  width: 100%;\r\n  padding-top: 10px;\r\n}\r\n\r\n.chat-dropdown div {\r\n  padding: 10px 10px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.chat-dropdown div:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-dropdown span {\r\n  padding-right: 5px;\r\n}\r\n\r\n.chat-dropdown img {\r\n  width: 20px;\r\n  height: 20px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-display-parent {\r\n  grid-area: \"right\";\r\n  display: grid;\r\n  grid-template-columns: 66% 33%;\r\n  grid-template-areas: \"chat about\";\r\n  padding-top: 5px;\r\n  height: 100%;\r\n}\r\n\r\n.chat-display-default {\r\n  padding: 10px 0 0 5px;\r\n}\r\n\r\n.chat-display-about {\r\n  grid-area: \"about\";\r\n  height: 100%;\r\n  text-align: center;\r\n}\r\n\r\n.chat-display-about img {\r\n  width: 200px;\r\n  height: 200px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-display-chat {\r\n  border-right: 1px solid #dcdcdc;\r\n  grid-area: \"chat\";\r\n  height: 100%;\r\n  position: relative;\r\n}\r\n\r\n.chat-display-chat form {\r\n  position: absolute;\r\n  bottom: 5px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-display-chat-message {\r\n  font-size: 20px;\r\n  width: 96%;\r\n  overflow: scroll;\r\n}\r\n\r\n.chat-message-wrapper{\r\n  font-size: 18px;\r\n  display: inline-block;\r\n  padding: 1px 1px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-my-message {\r\n  color: white;\r\n  background-color: #0099ff;\r\n  padding: 8px;\r\n  float: right;\r\n  max-width: 60%;\r\n  margin-right: 5px;\r\n  border-radius: 15px;\r\n}\r\n\r\n.chat-contact-message {\r\n  background-color: #f1f0f0;\r\n  padding: 8px;\r\n  float: left;\r\n  max-width: 60%;\r\n  margin-left: 5px;\r\n  border-radius: 15px;\r\n}\r\n\r\n.chat-history-container{\r\n  margin-top: 10px;\r\n}\r\n\r\n.chat-history-wrapper{\r\n  display: grid;\r\n  cursor: pointer;\r\n}\r\n\r\n.chat-history-wrapper :hover{\r\n  background-color:#f1f0f0; ;\r\n}\r\n\r\n.chat-history-wrapper img{\r\n  width: 40px;\r\n  height: 40px;\r\n}\r\n\r\n.chat-history-name-header{\r\n\r\n}\r\n\r\n.chat-history-details{\r\n  display: inline;\r\n}\r\n\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -63539,7 +63539,7 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query getConversations($_id: String!) {\n    getConversations(_id: $_id) {\n      _id\n      members {\n        _id\n        fullName\n        profilePicture\n      }\n      lastSender\n      lastMessage\n      lastMessageTime\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query getConversations($_id: String!) {\n    getConversations(_id: $_id) {\n      _id\n      members {\n        _id\n        fullName\n        profilePicture\n      }\n      lastMessage\n      lastMessageTime\n      unread\n      sender {\n        fullName\n      }\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -63586,6 +63586,7 @@ var ChatContainer = function ChatContainer(props) {
     currentChat: currentChat,
     setCurrentChat: setCurrentChat,
     fromSearch: fromSearch,
+    setFromSearch: setFromSearch,
     convoHistory: getConvoQuery,
     getConversations: GET_CONVERSATIONS
   }));
@@ -63746,9 +63747,10 @@ var ChatDisplay = function ChatDisplay(props) {
               });
 
             case 8:
+              props.setFromSearch(true);
               messageField.clear();
 
-            case 9:
+            case 10:
             case "end":
               return _context.stop();
           }
@@ -63797,10 +63799,6 @@ var ChatDisplay = function ChatDisplay(props) {
   };
 
   var about = function about() {
-    if (getMessages.loading || getMessages.data.getMessages === null) {
-      return null;
-    }
-
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "chat-display-about"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, getUser.data.getSingleUser.fullName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -63816,7 +63814,7 @@ var ChatDisplay = function ChatDisplay(props) {
     }
   };
 
-  return !getUser.loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.currentChat === "" && props.convoHistory.data.getConversations.length === 0 && defaultChatDisplay(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return !getUser.loading && !getMessages.loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.currentChat === "" && props.convoHistory.data.getConversations.length === 0 && defaultChatDisplay(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-parent"
   }, props.currentChat != "" && chat(), props.currentChat != "" && about()));
 };
@@ -63897,7 +63895,6 @@ var ChatSearch = function ChatSearch(props) {
     event.preventDefault();
     searchField.clear();
     setSearchActive(false);
-    props.setFromSearch(true);
     props.setCurrentChat(id);
   };
 
@@ -63943,7 +63940,9 @@ var ChatSearch = function ChatSearch(props) {
     onChange: search
   })), searchActive && userDropdown(), !searchActive && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_History__WEBPACK_IMPORTED_MODULE_1__["default"], {
     userInfo: props.userInfo,
-    convoHistory: props.getConvoQuery
+    convoHistory: props.getConvoQuery,
+    setCurrentChat: props.setCurrentChat,
+    setFromSearch: props.setFromSearch
   })));
 };
 
@@ -63974,10 +63973,32 @@ var History = function History(props) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "You don't have any history of convos please type a name above to get started");
     }
 
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.convoHistory.data.getConversations.map(function (convo) {
+    var changeChat = function changeChat(members) {
+      var id = members[0]._id != props.userInfo._id ? members[0]._id : members[1]._id;
+      props.setCurrentChat(id);
+      props.setFromSearch(true);
+    };
+
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "chat-history-container"
+    }, props.convoHistory.data.getConversations.map(function (convo) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        key: convo._id
-      }, convo.lastMessage);
+        className: "chat-history-wrapper",
+        key: convo._id,
+        onClick: function onClick() {
+          changeChat(convo.members);
+        }
+      }, convo.members[0]._id != props.userInfo._id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "data:image/png;base64,".concat(convo.members[0].profilePicture)
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "chat-history-name-header"
+      }, convo.members[0].fullName)) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "data:image/png;base64,".concat(convo.members[1].profilePicture)
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "chat-history-name-header"
+      }, convo.members[1].fullName)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "chat-history-details"
+      }, convo.sender[0].fullName === props.userInfo.fullName ? "You:" : convo.sender[0].fullName, convo.lastMessage));
     }));
   };
 

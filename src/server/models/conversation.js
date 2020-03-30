@@ -8,6 +8,9 @@ const Conversation = new mongoose.Schema({
   },
   lastMessageTime: {
     type: Date
+  },
+  unread:{
+    type: Boolean
   }
 });
 

@@ -14,43 +14,48 @@ const GET_CONVERSATIONS = gql`
         fullName
         profilePicture
       }
-      lastSender
       lastMessage
       lastMessageTime
+      unread
+      sender {
+        fullName
+      }
     }
   }
 `;
 
 const ChatContainer = props => {
-  const [fromSearch, setFromSearch] =useState(false)
+  const [fromSearch, setFromSearch] = useState(false);
   const [currentChat, setCurrentChat] = useState("");
   const getConvoQuery = useQuery(GET_CONVERSATIONS, {
     variables: { _id: props.userInfo._id }
   });
-  
 
-  return (!getConvoQuery.loading && (
-    <div className="chat-main">
-      {
-        <ChatSearch
-          userInfo={props.userInfo}
-          setCurrentChat={setCurrentChat}
-          getConvoQuery={getConvoQuery}
-          setFromSearch={setFromSearch}
-        />
-      }
-      {
-        <ChatDisplay
-          userInfo={props.userInfo}
-          currentChat={currentChat}
-          setCurrentChat={setCurrentChat}
-          fromSearch={fromSearch}
-          convoHistory={getConvoQuery}
-          getConversations={GET_CONVERSATIONS}
-        />
-      }
-    </div>
-  ))
+  return (
+    !getConvoQuery.loading && (
+      <div className="chat-main">
+        {
+          <ChatSearch
+            userInfo={props.userInfo}
+            setCurrentChat={setCurrentChat}
+            getConvoQuery={getConvoQuery}
+            setFromSearch={setFromSearch}
+          />
+        }
+        {
+          <ChatDisplay
+            userInfo={props.userInfo}
+            currentChat={currentChat}
+            setCurrentChat={setCurrentChat}
+            fromSearch={fromSearch}
+            setFromSearch={setFromSearch}
+            convoHistory={getConvoQuery}
+            getConversations={GET_CONVERSATIONS}
+          />
+        }
+      </div>
+    )
+  );
 };
 
 export default ChatContainer;

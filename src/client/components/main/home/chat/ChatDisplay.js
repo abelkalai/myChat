@@ -38,7 +38,10 @@ const SEND_MESSAGE = gql`
 
 const ChatDisplay = props => {
   useEffect(() => {
-    if (props.convoHistory.data.getConversations.length != 0 && !props.fromSearch) {
+    if (
+      props.convoHistory.data.getConversations.length != 0 &&
+      !props.fromSearch
+    ) {
       for (let ele of props.convoHistory.data.getConversations[0].members) {
         if (ele._id != props.userInfo._id) props.setCurrentChat(ele._id);
       }
@@ -57,9 +60,7 @@ const ChatDisplay = props => {
       },
       {
         query: props.getConversations,
-        variables: {
-          _id: props.userInfo._id
-        }
+        variables: { _id: props.userInfo._id }
       }
     ]
   });
@@ -77,6 +78,7 @@ const ChatDisplay = props => {
     let receiverID = props.currentChat;
     let content = messageField.value;
     await sendMessageQuery({ variables: { senderID, receiverID, content } });
+    props.setFromSearch(true);
     messageField.clear();
   };
 
@@ -116,9 +118,6 @@ const ChatDisplay = props => {
   };
 
   const about = () => {
-    if (getMessages.loading || getMessages.data.getMessages === null) {
-      return null;
-    }
     return (
       <div className="chat-display-about">
         <h1>{getUser.data.getSingleUser.fullName}</h1>
@@ -146,7 +145,8 @@ const ChatDisplay = props => {
   };
 
   return (
-    !getUser.loading && (
+    !getUser.loading &&
+    !getMessages.loading && (
       <div>
         {props.currentChat === "" &&
           props.convoHistory.data.getConversations.length === 0 &&

@@ -119,7 +119,6 @@
   border-radius: 15px;
 }
 
-
 .chat-contact-message {
   background-color: #f1f0f0;
   padding: 8px;
@@ -129,4 +128,29 @@
   border-radius: 15px;
 }
 
+.chat-history-container{
+  margin-top: 10px;
+}
+
+.chat-history-wrapper{
+  display: grid;
+  cursor: pointer;
+}
+
+.chat-history-wrapper :hover{
+  background-color:#f1f0f0; ;
+}
+
+.chat-history-wrapper img{
+  width: 40px;
+  height: 40px;
+}
+
+.chat-history-name-header{
+
+}
+
+.chat-history-details{
+  display: inline;
+}
 

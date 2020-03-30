@@ -60,9 +60,11 @@ const typeDefs = gql`
   type Conversation {
     _id: String
     members: [User]
-    lastSender: String
+    lastSenderName: String
     lastMessage: String
     lastMessageTime: String
+    unread: Boolean
+    sender: [User]
   }
 
   type Message {
@@ -218,10 +220,19 @@ const resolvers = {
           }
         },
         {
+          $lookup: {
+            from: "users",
+            localField: "lastSender",
+            foreignField: "_id",
+            as: "sender"
+          }
+        },
+        {
           $project: {
             "members._id": 1,
-            "members.fullName": 1,
             "members.profilePicture": 1,
+            "members.fullName": 1,
+            "sender.fullName": 1,
             lastSender: 1,
             lastMessage: 1,
             lastMessageTime: 1
@@ -229,7 +240,6 @@ const resolvers = {
         },
         { $sort: { lastMessageTime: -1 } }
       ]);
-      console.log(conversations);
       return conversations;
     },
 
@@ -378,7 +388,8 @@ const resolvers = {
           members: [args.senderID, args.receiverID],
           lastSender: args.senderID,
           lastMessage: args.content,
-          lastMessageTime: time
+          lastMessageTime: time,
+          unread: true
         });
         await newConvo.save();
       } else {
@@ -389,7 +400,8 @@ const resolvers = {
           {
             lastSender: args.senderID,
             lastMessage: args.content,
-            lastMessageTime: time
+            lastMessageTime: time,
+            unread: true
           }
         );
       }
