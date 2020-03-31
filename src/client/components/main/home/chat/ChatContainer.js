@@ -26,10 +26,13 @@ const GET_CONVERSATIONS = gql`
 
 const ChatContainer = props => {
   const [fromSearch, setFromSearch] = useState(false);
+  const [currentConvo, setCurrentConvo] = useState(null)
   const [currentChat, setCurrentChat] = useState("");
   const getConvoQuery = useQuery(GET_CONVERSATIONS, {
     variables: { _id: props.userInfo._id }
   });
+
+  console.log(currentConvo)
 
   return (
     !getConvoQuery.loading && (
@@ -40,6 +43,8 @@ const ChatContainer = props => {
             setCurrentChat={setCurrentChat}
             getConvoQuery={getConvoQuery}
             setFromSearch={setFromSearch}
+            currentConvo= {currentConvo}
+            setCurrentConvo={setCurrentConvo}
           />
         }
         {
@@ -51,6 +56,7 @@ const ChatContainer = props => {
             setFromSearch={setFromSearch}
             convoHistory={getConvoQuery}
             getConversations={GET_CONVERSATIONS}
+            setCurrentConvo={setCurrentConvo}
           />
         }
       </div>

@@ -44,7 +44,9 @@ const ChatDisplay = props => {
     ) {
       for (let ele of props.convoHistory.data.getConversations[0].members) {
         if (ele._id != props.userInfo._id) props.setCurrentChat(ele._id);
+        props.setCurrentConvo(0)
       }
+      props.setFromSearch(true);
     }
   });
 
@@ -78,7 +80,6 @@ const ChatDisplay = props => {
     let receiverID = props.currentChat;
     let content = messageField.value;
     await sendMessageQuery({ variables: { senderID, receiverID, content } });
-    props.setFromSearch(true);
     messageField.clear();
   };
 

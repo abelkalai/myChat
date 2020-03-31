@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import History from "./History";
 import { fieldInput } from "../../../hooks/customHooks";
-import { useQuery, useLazyQuery } from "@apollo/react-hooks";
+import {useLazyQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
 const SEARCH_USER = gql`
@@ -84,6 +84,8 @@ const ChatSearch = props => {
             convoHistory={props.getConvoQuery}
             setCurrentChat={props.setCurrentChat}
             setFromSearch={props.setFromSearch}
+            currentConvo= {props.currentConvo}
+            setCurrentConvo={props.setCurrentConvo}
           />
         )}
       </div>

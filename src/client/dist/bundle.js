@@ -18200,7 +18200,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../../../images/sear
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-exports.push([module.i, ".chat-main {\r\n  height: 100%;\r\n  grid-template-columns: 25% 75%;\r\n  display: grid;\r\n  grid-template-areas: \"left right\";\r\n  margin-top: 55px\r\n}\r\n\r\n.chat-left {\r\n  grid-area: left;\r\n  min-height: 100%;\r\n  height: 100%;\r\n  border-right: 1px solid #dcdcdc;\r\n}\r\n\r\n.chat-search {\r\n  font-size: 22px;\r\n  padding-top: 10px;\r\n}\r\n\r\n.searchContacts {\r\n  padding: 10px;\r\n  background-position: 0 5px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 25px;\r\n  width: 87.5%;\r\n}\r\n\r\n.chat-dropdown {\r\n  display: inline-block;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  width: 100%;\r\n  padding-top: 10px;\r\n}\r\n\r\n.chat-dropdown div {\r\n  padding: 10px 10px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.chat-dropdown div:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-dropdown span {\r\n  padding-right: 5px;\r\n}\r\n\r\n.chat-dropdown img {\r\n  width: 20px;\r\n  height: 20px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-display-parent {\r\n  grid-area: \"right\";\r\n  display: grid;\r\n  grid-template-columns: 66% 33%;\r\n  grid-template-areas: \"chat about\";\r\n  padding-top: 5px;\r\n  height: 100%;\r\n}\r\n\r\n.chat-display-default {\r\n  padding: 10px 0 0 5px;\r\n}\r\n\r\n.chat-display-about {\r\n  grid-area: \"about\";\r\n  height: 100%;\r\n  text-align: center;\r\n}\r\n\r\n.chat-display-about img {\r\n  width: 200px;\r\n  height: 200px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-display-chat {\r\n  border-right: 1px solid #dcdcdc;\r\n  grid-area: \"chat\";\r\n  height: 100%;\r\n  position: relative;\r\n}\r\n\r\n.chat-display-chat form {\r\n  position: absolute;\r\n  bottom: 5px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-display-chat-message {\r\n  font-size: 20px;\r\n  width: 96%;\r\n  overflow: scroll;\r\n}\r\n\r\n.chat-message-wrapper{\r\n  font-size: 18px;\r\n  display: inline-block;\r\n  padding: 1px 1px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-my-message {\r\n  color: white;\r\n  background-color: #0099ff;\r\n  padding: 8px;\r\n  float: right;\r\n  max-width: 60%;\r\n  margin-right: 5px;\r\n  border-radius: 15px;\r\n}\r\n\r\n.chat-contact-message {\r\n  background-color: #f1f0f0;\r\n  padding: 8px;\r\n  float: left;\r\n  max-width: 60%;\r\n  margin-left: 5px;\r\n  border-radius: 15px;\r\n}\r\n\r\n.chat-history-container{\r\n  margin-top: 10px;\r\n}\r\n\r\n.chat-history-wrapper{\r\n  display: grid;\r\n  cursor: pointer;\r\n}\r\n\r\n.chat-history-wrapper :hover{\r\n  background-color:#f1f0f0; ;\r\n}\r\n\r\n.chat-history-wrapper img{\r\n  width: 40px;\r\n  height: 40px;\r\n}\r\n\r\n.chat-history-name-header{\r\n\r\n}\r\n\r\n.chat-history-details{\r\n  display: inline;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".chat-main {\r\n  height: 100%;\r\n  grid-template-columns: 25% 75%;\r\n  display: grid;\r\n  grid-template-areas: \"left right\";\r\n  margin-top: 55px\r\n}\r\n\r\n.chat-left {\r\n  grid-area: left;\r\n  min-height: 100%;\r\n  height: 100%;\r\n  border-right: 1px solid #dcdcdc;\r\n}\r\n\r\n.chat-search {\r\n  font-size: 22px;\r\n  padding-top: 10px;\r\n}\r\n\r\n.searchContacts {\r\n  padding: 10px;\r\n  background-position: 0 5px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 25px;\r\n  width: 87.5%;\r\n}\r\n\r\n.chat-dropdown {\r\n  display: inline-block;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  width: 100%;\r\n  padding-top: 10px;\r\n}\r\n\r\n.chat-dropdown div {\r\n  padding: 10px 10px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.chat-dropdown div:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-dropdown span {\r\n  padding-right: 5px;\r\n}\r\n\r\n.chat-dropdown img {\r\n  width: 20px;\r\n  height: 20px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-display-parent {\r\n  grid-area: \"right\";\r\n  display: grid;\r\n  grid-template-columns: 66% 33%;\r\n  grid-template-areas: \"chat about\";\r\n  padding-top: 5px;\r\n  height: 100%;\r\n}\r\n\r\n.chat-display-default {\r\n  padding: 10px 0 0 5px;\r\n}\r\n\r\n.chat-display-about {\r\n  grid-area: \"about\";\r\n  height: 100%;\r\n  text-align: center;\r\n}\r\n\r\n.chat-display-about img {\r\n  width: 200px;\r\n  height: 200px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-display-chat {\r\n  border-right: 1px solid #dcdcdc;\r\n  grid-area: \"chat\";\r\n  height: 100%;\r\n  position: relative;\r\n}\r\n\r\n.chat-display-chat form {\r\n  position: absolute;\r\n  bottom: 5px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-display-chat-message {\r\n  font-size: 20px;\r\n  width: 96%;\r\n  overflow: scroll;\r\n}\r\n\r\n.chat-message-wrapper{\r\n  font-size: 18px;\r\n  display: inline-block;\r\n  padding: 1px 1px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-my-message {\r\n  color: white;\r\n  background-color: #0099ff;\r\n  padding: 8px;\r\n  float: right;\r\n  max-width: 60%;\r\n  margin-right: 5px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-contact-message {\r\n  background-color: #f1f0f0;\r\n  padding: 8px;\r\n  float: left;\r\n  max-width: 60%;\r\n  margin-left: 5px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-history-container{\r\n  margin: 10px 5px 0 5px;\r\n}\r\n\r\n.chat-history-wrapper-current{\r\n  display: grid;\r\n  grid-template-columns: 12.5% 87.5%;\r\n  grid-auto-rows: 22.5px;\r\n  margin-bottom: 10px;\r\n  cursor: pointer;\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.chat-history-wrapper{\r\n  display: grid;\r\n  grid-template-columns: 12.5% 87.5%;\r\n  grid-auto-rows: 22.5px;\r\n  margin-bottom: 10px;\r\n  cursor: pointer;\r\n}\r\n\r\n.chat-history-wrapper img{\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-history-wrapper-current img{\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 90%;\r\n}\r\n\r\n\r\n.chat-history-img-container{\r\n  grid-column: 1\r\n}\r\n\r\n.chat-history-name-header{\r\n  grid-column: 2;\r\n  grid-row: 1;\r\n}\r\n\r\n.chat-history-content{\r\n  overflow: hidden;\r\n  grid-column: 2;\r\n  grid-row: 2;\r\n}\r\n\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -63564,23 +63564,31 @@ var ChatContainer = function ChatContainer(props) {
       fromSearch = _useState2[0],
       setFromSearch = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState4 = _slicedToArray(_useState3, 2),
-      currentChat = _useState4[0],
-      setCurrentChat = _useState4[1];
+      currentConvo = _useState4[0],
+      setCurrentConvo = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+      _useState6 = _slicedToArray(_useState5, 2),
+      currentChat = _useState6[0],
+      setCurrentChat = _useState6[1];
 
   var getConvoQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(GET_CONVERSATIONS, {
     variables: {
       _id: props.userInfo._id
     }
   });
+  console.log(currentConvo);
   return !getConvoQuery.loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-main"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatSearch__WEBPACK_IMPORTED_MODULE_1__["default"], {
     userInfo: props.userInfo,
     setCurrentChat: setCurrentChat,
     getConvoQuery: getConvoQuery,
-    setFromSearch: setFromSearch
+    setFromSearch: setFromSearch,
+    currentConvo: currentConvo,
+    setCurrentConvo: setCurrentConvo
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatDisplay__WEBPACK_IMPORTED_MODULE_2__["default"], {
     userInfo: props.userInfo,
     currentChat: currentChat,
@@ -63588,7 +63596,8 @@ var ChatContainer = function ChatContainer(props) {
     fromSearch: fromSearch,
     setFromSearch: setFromSearch,
     convoHistory: getConvoQuery,
-    getConversations: GET_CONVERSATIONS
+    getConversations: GET_CONVERSATIONS,
+    setCurrentConvo: setCurrentConvo
   }));
 };
 
@@ -63678,12 +63687,15 @@ var ChatDisplay = function ChatDisplay(props) {
         for (_iterator.s(); !(_step = _iterator.n()).done;) {
           var ele = _step.value;
           if (ele._id != props.userInfo._id) props.setCurrentChat(ele._id);
+          props.setCurrentConvo(0);
         }
       } catch (err) {
         _iterator.e(err);
       } finally {
         _iterator.f();
       }
+
+      props.setFromSearch(true);
     }
   });
   var messageField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
@@ -63747,10 +63759,9 @@ var ChatDisplay = function ChatDisplay(props) {
               });
 
             case 8:
-              props.setFromSearch(true);
               messageField.clear();
 
-            case 10:
+            case 9:
             case "end":
               return _context.stop();
           }
@@ -63942,7 +63953,9 @@ var ChatSearch = function ChatSearch(props) {
     userInfo: props.userInfo,
     convoHistory: props.getConvoQuery,
     setCurrentChat: props.setCurrentChat,
-    setFromSearch: props.setFromSearch
+    setFromSearch: props.setFromSearch,
+    currentConvo: props.currentConvo,
+    setCurrentConvo: props.setCurrentConvo
   })));
 };
 
@@ -63973,32 +63986,36 @@ var History = function History(props) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "You don't have any history of convos please type a name above to get started");
     }
 
-    var changeChat = function changeChat(members) {
-      var id = members[0]._id != props.userInfo._id ? members[0]._id : members[1]._id;
+    var changeChat = function changeChat(convo, i) {
+      var id = convo.members[0]._id != props.userInfo._id ? convo.members[0]._id : convo.members[1]._id;
       props.setCurrentChat(id);
-      props.setFromSearch(true);
+      props.setCurrentConvo(i);
     };
 
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "chat-history-container"
-    }, props.convoHistory.data.getConversations.map(function (convo) {
+    }, props.convoHistory.data.getConversations.map(function (convo, i) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "chat-history-wrapper",
         key: convo._id,
+        className: i === props.currentConvo ? "chat-history-wrapper-current" : "chat-history-wrapper",
         onClick: function onClick() {
-          changeChat(convo.members);
+          changeChat(convo, i);
         }
-      }, convo.members[0]._id != props.userInfo._id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, convo.members[0]._id != props.userInfo._id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "chat-history-img-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "data:image/png;base64,".concat(convo.members[0].profilePicture)
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chat-history-name-header"
-      }, convo.members[0].fullName)) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, convo.members[0].fullName)) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "chat-history-img-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "data:image/png;base64,".concat(convo.members[1].profilePicture)
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chat-history-name-header"
-      }, convo.members[1].fullName)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "chat-history-details"
-      }, convo.sender[0].fullName === props.userInfo.fullName ? "You:" : convo.sender[0].fullName, convo.lastMessage));
+      }, convo.members[1].fullName)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "chat-history-content"
+      }, convo.sender[0].fullName === props.userInfo.fullName ? "You:" : null, convo.lastMessage));
     }));
   };
 
