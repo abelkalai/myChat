@@ -16,6 +16,7 @@
 .chat-search {
   font-size: 22px;
   padding-top: 10px;
+
 }
 
 .searchContacts {
@@ -94,6 +95,7 @@
   position: absolute;
   bottom: 5px;
   width: 100%;
+  word-wrap: break-word;
 }
 
 .chat-display-chat-message {
@@ -174,8 +176,11 @@
 }
 
 .chat-history-content{
-  overflow: hidden;
   grid-column: 2;
   grid-row: 2;
 }
 
+.chat-history-time{
+  float: right;
+  padding-right: 10px;
+}

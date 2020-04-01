@@ -40,13 +40,12 @@ const ChatDisplay = props => {
   useEffect(() => {
     if (
       props.convoHistory.data.getConversations.length != 0 &&
-      !props.fromSearch
+      props.currentChat === ""
     ) {
       for (let ele of props.convoHistory.data.getConversations[0].members) {
         if (ele._id != props.userInfo._id) props.setCurrentChat(ele._id);
-        props.setCurrentConvo(0)
       }
-      props.setFromSearch(true);
+      props.setCurrentConvo(props.convoHistory.data.getConversations[0]._id);
     }
   });
 

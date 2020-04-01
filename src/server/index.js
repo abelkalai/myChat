@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const { ApolloServer, gql } = require("apollo-server-express");
-const { GraphQLScalarType } = require("graphql");
 const User = require("./models/user");
 const Conversation = require("./models/conversation");
 const Message = require("./models/message");

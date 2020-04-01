@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ChatSearch from "./ChatSearch";
 import ChatDisplay from "./ChatDisplay";
-import { useQuery, useLazyQuery } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import "../../../../assets/stylesheets/components/main/chat.css";
 
@@ -26,13 +26,11 @@ const GET_CONVERSATIONS = gql`
 
 const ChatContainer = props => {
   const [fromSearch, setFromSearch] = useState(false);
-  const [currentConvo, setCurrentConvo] = useState(null)
+  const [currentConvo, setCurrentConvo] = useState(null);
   const [currentChat, setCurrentChat] = useState("");
   const getConvoQuery = useQuery(GET_CONVERSATIONS, {
     variables: { _id: props.userInfo._id }
   });
-
-  console.log(currentConvo)
 
   return (
     !getConvoQuery.loading && (
@@ -43,7 +41,7 @@ const ChatContainer = props => {
             setCurrentChat={setCurrentChat}
             getConvoQuery={getConvoQuery}
             setFromSearch={setFromSearch}
-            currentConvo= {currentConvo}
+            currentConvo={currentConvo}
             setCurrentConvo={setCurrentConvo}
           />
         }

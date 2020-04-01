@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import Time from "./Time";
 
 const History = props => {
   if (props.convoHistory.data === null) {
@@ -15,27 +16,25 @@ const History = props => {
       );
     }
 
-    const changeChat = (convo,i) => {
+    const changeChat = (members,convoID) => {
       let id =
-        convo.members[0]._id != props.userInfo._id
-          ? convo.members[0]._id
-          : convo.members[1]._id;
+        members[0]._id != props.userInfo._id ? members[0]._id : members[1]._id;
       props.setCurrentChat(id);
-      props.setCurrentConvo(i);
+      props.setCurrentConvo(convoID);
     };
 
     return (
       <div className="chat-history-container">
-        {props.convoHistory.data.getConversations.map((convo, i) => (
+        {props.convoHistory.data.getConversations.map(convo => (
           <div
             key={convo._id}
             className={
-              i === props.currentConvo
+              convo._id === props.currentConvo
                 ? "chat-history-wrapper-current"
                 : "chat-history-wrapper"
             }
             onClick={() => {
-              changeChat(convo,i);
+              changeChat(convo.members,convo._id);
             }}
           >
             {convo.members[0]._id != props.userInfo._id ? (
@@ -65,7 +64,12 @@ const History = props => {
               {convo.sender[0].fullName === props.userInfo.fullName
                 ? "You:"
                 : null}
-              {convo.lastMessage}
+              {convo.lastMessage.length > 24
+                ? `${convo.lastMessage.slice(0, 24)}...`
+                : convo.lastMessage}
+              <span className="chat-history-time">
+                <Time time={convo.lastMessageTime} />
+              </span>
             </div>
           </div>
         ))}
