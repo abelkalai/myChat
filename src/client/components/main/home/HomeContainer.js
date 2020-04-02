@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
-import { Link, Route, Redirect } from "react-router-dom";
+import { Link, Route} from "react-router-dom";
 import ChatContainer from "./chat/ChatContainer";
 import Profile from "../account/profile/Profile";
 import Settings from "../account/settings/Settings";
@@ -14,17 +14,14 @@ const GET_IMAGE = gql`
 `;
 
 const HomeContainer = props => {
-  document.title = "MyChat";
   const [userInfo, setUserInfo] = useState(
     props.activeUser ? props.activeUser : props.loggedIn
   );
-  const [frontpage, setFrontPage] = useState(false);
   const userImage = useQuery(GET_IMAGE, { variables: { _id: userInfo._id } });
   const [showDropdown, setShowDropdown] = useState(false);
   const topBanner = () => {
     return (
       <div className="banner">
-        {frontpage && <Redirect to="/" />}
         <Link to="/home" className="link">
           <div className="home-title">MyChat</div>
         </Link>
@@ -74,7 +71,6 @@ const HomeContainer = props => {
       "token = ;expires = Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
     props.setIgnoreCookie(true);
     props.setActiveUser(null);
-    setFrontPage(true);
   };
 
   return (

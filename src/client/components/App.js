@@ -48,7 +48,6 @@ const App = () => {
     !loggedInQuery.loading && (
       <div className="main">
           <OutRoute
-            path="/"
             loggedIn = {loggedInQuery.data.loggedIn}
             ignoreCookie = {ignoreCookie}
             activeUser = {activeUser}
@@ -62,7 +61,6 @@ const App = () => {
             />
           </OutRoute>
           <InRoute
-            path="/home"
             loggedIn = {loggedInQuery.data.loggedIn}
             ignoreCookie = {ignoreCookie}
             activeUser = {activeUser}

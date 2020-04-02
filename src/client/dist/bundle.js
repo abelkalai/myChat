@@ -79186,7 +79186,6 @@ var App = function App() {
   return !loggedInQuery.loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_util_route__WEBPACK_IMPORTED_MODULE_5__["OutRoute"], {
-    path: "/",
     loggedIn: loggedInQuery.data.loggedIn,
     ignoreCookie: ignoreCookie,
     activeUser: activeUser
@@ -79197,7 +79196,6 @@ var App = function App() {
     activeUser: activeUser,
     setActiveUser: setActiveUser
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_util_route__WEBPACK_IMPORTED_MODULE_5__["InRoute"], {
-    path: "/home",
     loggedIn: loggedInQuery.data.loggedIn,
     ignoreCookie: ignoreCookie,
     activeUser: activeUser
@@ -79477,6 +79475,14 @@ var FrontPage = function FrontPage(props) {
         setIgnoreCookie: props.setIgnoreCookie,
         activeUser: props.activeUser,
         setActiveUser: props.setActiveUser
+      });
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: ["/home", "/home/profile", "/home/settings/general", "/home/settings/security"],
+    render: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+        to: "/"
       });
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
@@ -81021,17 +81027,10 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 var GET_IMAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_2__["gql"])(_templateObject());
 
 var HomeContainer = function HomeContainer(props) {
-  document.title = "MyChat";
-
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(props.activeUser ? props.activeUser : props.loggedIn),
       _useState2 = _slicedToArray(_useState, 2),
       userInfo = _useState2[0],
       setUserInfo = _useState2[1];
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      frontpage = _useState4[0],
-      setFrontPage = _useState4[1];
 
   var userImage = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useQuery"])(GET_IMAGE, {
     variables: {
@@ -81039,17 +81038,15 @@ var HomeContainer = function HomeContainer(props) {
     }
   });
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState6 = _slicedToArray(_useState5, 2),
-      showDropdown = _useState6[0],
-      setShowDropdown = _useState6[1];
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      showDropdown = _useState4[0],
+      setShowDropdown = _useState4[1];
 
   var topBanner = function topBanner() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "banner"
-    }, frontpage && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Redirect"], {
-      to: "/"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
       to: "/home",
       className: "link"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -81103,9 +81100,8 @@ var HomeContainer = function HomeContainer(props) {
               document.cookie = "token = ;expires = Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
               props.setIgnoreCookie(true);
               props.setActiveUser(null);
-              setFrontPage(true);
 
-            case 5:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -81723,6 +81719,13 @@ var History = function History(props) {
     return null;
   }
 
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    var unreadMsgs = props.convoHistory.data.getConversations.filter(function (convo) {
+      return convo.unread === true && convo.lastSender != props.userInfo._id;
+    }).length;
+    document.title = unreadMsgs > 0 ? "(".concat(unreadMsgs, ") Unread Messages | MyChat") : "MyChat";
+  });
+
   var displayHistory = function displayHistory() {
     if (props.convoHistory.data.getConversations.length === 0) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "You don't have any history of convos please type a name above to get started");
@@ -81842,10 +81845,7 @@ var InvalidLink = function InvalidLink(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Whoops! This page isn't avaliable on MyChat"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "The link you followed may be broken. Please try again or use the button below to login."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    type: "button",
-    onClick: function onClick() {
-      setValid(true);
-    }
+    type: "button"
   }, "Back to ".concat(props.type))));
 };
 
@@ -81910,22 +81910,21 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 var Out = function Out(_ref) {
-  var path = _ref.path,
-      loggedIn = _ref.loggedIn,
+  var loggedIn = _ref.loggedIn,
       ignoreCookie = _ref.ignoreCookie,
       activeUser = _ref.activeUser,
-      props = _objectWithoutProperties(_ref, ["path", "loggedIn", "ignoreCookie", "activeUser"]);
+      props = _objectWithoutProperties(_ref, ["loggedIn", "ignoreCookie", "activeUser"]);
 
   return loggedIn != null && !ignoreCookie || activeUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
-    path: path,
+    path: ["/", "/forgotUsername", "/forgotPassword", "/signup", "/signup/validate", "/signup/confirm"],
     render: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
         to: "/home"
       });
     }
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    path: path,
+    path: "/",
     render: function render() {
       return props.children;
     }
@@ -81940,18 +81939,11 @@ var In = function In(_ref2) {
       props = _objectWithoutProperties(_ref2, ["path", "loggedIn", "ignoreCookie", "activeUser"]);
 
   return loggedIn != null && !ignoreCookie || activeUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    path: path,
+    path: "/home",
     render: function render() {
       return props.children;
     }
-  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    path: path,
-    render: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
-        to: "/"
-      });
-    }
-  });
+  }) : null;
 };
 
 var OutRoute = Out;

@@ -13,9 +13,6 @@ const InvalidLink = props => {
       <Link to = "/">
         <button
           type = "button"
-          onClick={() => {
-            setValid(true);
-          }}
         >
           {`Back to ${props.type}`}
         </button>
