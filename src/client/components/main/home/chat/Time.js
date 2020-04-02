@@ -1,23 +1,25 @@
-import React from "React";
-import moment from "moment";
+import React from "react";
+import Moment from "moment";
 
 const Time = props => {
   let result;
   let messageDateObject = new Date(parseInt(props.time)); //Week, year
-
-  result = `${messageDateObject.toLocaleTimeString().slice(0, 4)}
-  ${messageDateObject.toLocaleTimeString().slice(8, 11)}`;
+  let localTime = messageDateObject.toLocaleTimeString();
+  let secondColon = localTime.indexOf(":", localTime.indexOf(":") + 1);
+  
+  result = `${localTime.slice(0, secondColon)}
+  ${localTime.slice(8, 11)}`;
 
   // Different day
-  if (moment(messageDateObject).day() != moment().day()) {
+  if (Moment(messageDateObject).day() != Moment().day()) {
     result = `${messageDateObject.toDateString().slice(0, 3)}`;
   }
   // Different week
-  if (moment(messageDateObject).week() != moment().week()) {
+  if (Moment(messageDateObject).week() != Moment().week()) {
     result = `${messageDateObject.toDateString().slice(4, 10)}`;
   }
   // Different Year
-  if (moment(messageDateObject).year() != moment().year()) {
+  if (Moment(messageDateObject).year() != Moment().year()) {
     result = `${messageDateObject.toLocaleDateString()}`;
   }
 

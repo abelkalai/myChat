@@ -14,6 +14,7 @@ const GET_CONVERSATIONS = gql`
         fullName
         profilePicture
       }
+      lastSender
       lastMessage
       lastMessageTime
       unread
@@ -54,6 +55,7 @@ const ChatContainer = props => {
             setFromSearch={setFromSearch}
             convoHistory={getConvoQuery}
             getConversations={GET_CONVERSATIONS}
+            currentConvo={currentConvo}
             setCurrentConvo={setCurrentConvo}
           />
         }

@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { fieldInput } from "../../../hooks/customHooks";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
+import ChatMessage from "./ChatMessage";
 
 const GET_SINGLE_USER = gql`
   query getSingleUser($_id: String!) {
@@ -23,6 +24,12 @@ const GET_MESSAGES = gql`
       content
       time
     }
+  }
+`;
+
+const READ_MESSAGE = gql`
+  mutation readMessage($_id: String!) {
+    readMessage(_id: $_id)
   }
 `;
 
@@ -50,6 +57,14 @@ const ChatDisplay = props => {
   });
 
   const messageField = fieldInput();
+  const [readMsg] = useMutation(READ_MESSAGE, {
+    refetchQueries: [
+      {
+        query: props.getConversations,
+        variables: { _id: props.userInfo._id }
+      }
+    ]
+  });
   const [sendMessageQuery] = useMutation(SEND_MESSAGE, {
     refetchQueries: [
       {
@@ -82,32 +97,33 @@ const ChatDisplay = props => {
     messageField.clear();
   };
 
+  const readMessage = async event => {
+    event.preventDefault();
+    let currentChat = props.convoHistory.data.getConversations.filter(
+      convo => convo._id === props.currentConvo
+    );
+    if (currentChat[0].lastSender === props.userInfo._id) {
+      return;
+    }
+    await readMsg({ variables: { _id: props.currentConvo } });
+  };
+
   const chat = () => {
     if (getMessages.loading || getMessages.data.getMessages === null) {
       return null;
     }
     return (
-      <div className="chat-display-chat">
-        {getMessages.data.getMessages.map(message =>
-          message.senderID === props.userInfo._id ? (
-            <div key={message._id} className="chat-message-wrapper">
-              <span key={message._id} className="chat-my-message">
-                {message.content}
-              </span>
-            </div>
-          ) : (
-            <div key={message._id} className="chat-message-wrapper">
-              <span key={message._id} className="chat-contact-message">
-                {message.content}
-              </span>
-            </div>
-          )
-        )}
-        <form onSubmit={sendMessage}>
+      <div className="chat-display-chat-parent">
+        <ChatMessage
+          messageData={getMessages.data.getMessages}
+          userInfo={props.userInfo}
+        />
+        <form onSubmit={sendMessage} className="chat-display-chat-send-message">
           <input
             type="text"
             className="chat-display-chat-message"
             value={messageField.value}
+            onClick={readMessage}
             onChange={messageField.onChange}
             placeholder="Type a message..."
           />
@@ -125,7 +141,9 @@ const ChatDisplay = props => {
           src={`data:image/png;base64,${getUser.data.getSingleUser.profilePicture}`}
         />
         <h2>About </h2>
-        <p>{getUser.data.getSingleUser.about}</p>
+        <div className="chat-display-about-content">
+          {getUser.data.getSingleUser.about}
+        </div>
       </div>
     );
   };

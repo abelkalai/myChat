@@ -14,7 +14,7 @@
   background-color: #00a8f3;
   display: inline-grid;
   grid-template-areas: "left center right";
-  grid-template-columns: 11% 74% 12%;
+  grid-template-columns: 11% 70% 14%;
   align-items: center;
 }
 
@@ -46,7 +46,7 @@
 .dropdown-content {
   font-size: 18px;
   margin-right: 10px;
-  display: none;
+  display: block;
   position: absolute;
   color: black;
   background-color: white;
@@ -55,10 +55,6 @@
   padding: 10px 15px;
   border-radius: 10px;
   z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
 }
 
 .dropdown-content div {

@@ -59,7 +59,7 @@ const typeDefs = gql`
   type Conversation {
     _id: String
     members: [User]
-    lastSenderName: String
+    lastSender: String
     lastMessage: String
     lastMessageTime: String
     unread: Boolean
@@ -112,6 +112,7 @@ const typeDefs = gql`
       currentPassword: String!
       newPassword: String!
     ): String!
+    readMessage(_id: String!): String
     sendMessage(
       senderID: String!
       receiverID: String!
@@ -234,7 +235,8 @@ const resolvers = {
             "sender.fullName": 1,
             lastSender: 1,
             lastMessage: 1,
-            lastMessageTime: 1
+            lastMessageTime: 1,
+            unread: 1
           }
         },
         { $sort: { lastMessageTime: -1 } }
@@ -251,7 +253,7 @@ const resolvers = {
           { senderID: senderID, receiverID: receiverID },
           { senderID: receiverID, receiverID: senderID }
         ]
-      }).sort({ time: 1 });
+      }).sort({ time: -1 });
       return messages;
     }
   },
@@ -375,7 +377,10 @@ const resolvers = {
       await User.findByIdAndUpdate(args._id, { password: hashPassword });
       return "Success";
     },
-
+    readMessage: async (root, args) => {
+      await Conversation.findByIdAndUpdate(args._id, { unread: false });
+      return "Success";
+    },
     sendMessage: async (root, args) => {
       let existingConvo = await Conversation.findOne({
         members: { $all: [args.senderID, args.receiverID] }

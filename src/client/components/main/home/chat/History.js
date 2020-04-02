@@ -16,7 +16,7 @@ const History = props => {
       );
     }
 
-    const changeChat = (members,convoID) => {
+    const changeChat = (members, convoID) => {
       let id =
         members[0]._id != props.userInfo._id ? members[0]._id : members[1]._id;
       props.setCurrentChat(id);
@@ -26,52 +26,61 @@ const History = props => {
     return (
       <div className="chat-history-container">
         {props.convoHistory.data.getConversations.map(convo => (
-          <div
+          <span
             key={convo._id}
             className={
-              convo._id === props.currentConvo
-                ? "chat-history-wrapper-current"
-                : "chat-history-wrapper"
+              convo.unread && convo.lastSender != props.userInfo._id
+                ? "chat-history-unread"
+                : null
             }
-            onClick={() => {
-              changeChat(convo.members,convo._id);
-            }}
           >
-            {convo.members[0]._id != props.userInfo._id ? (
-              <Fragment>
-                <div className="chat-history-img-container">
-                  <img
-                    src={`data:image/png;base64,${convo.members[0].profilePicture}`}
-                  />
-                </div>
-                <div className="chat-history-name-header">
-                  {convo.members[0].fullName}
-                </div>
-              </Fragment>
-            ) : (
-              <Fragment>
-                <div className="chat-history-img-container">
-                  <img
-                    src={`data:image/png;base64,${convo.members[1].profilePicture}`}
-                  />
-                </div>
-                <div className="chat-history-name-header">
-                  {convo.members[1].fullName}
-                </div>
-              </Fragment>
-            )}
-            <div className="chat-history-content">
-              {convo.sender[0].fullName === props.userInfo.fullName
-                ? "You:"
-                : null}
-              {convo.lastMessage.length > 24
-                ? `${convo.lastMessage.slice(0, 24)}...`
-                : convo.lastMessage}
-              <span className="chat-history-time">
-                <Time time={convo.lastMessageTime} />
-              </span>
+            <div
+              key={convo._id}
+              className={
+                convo._id === props.currentConvo
+                  ? "chat-history-wrapper-current"
+                  : "chat-history-wrapper"
+              }
+              onClick={() => {
+                changeChat(convo.members, convo._id);
+              }}
+            >
+              {convo.members[0]._id != props.userInfo._id ? (
+                <Fragment>
+                  <div className="chat-history-img-container">
+                    <img
+                      src={`data:image/png;base64,${convo.members[0].profilePicture}`}
+                    />
+                  </div>
+                  <div className="chat-history-name-header">
+                    {convo.members[0].fullName}
+                  </div>
+                </Fragment>
+              ) : (
+                <Fragment>
+                  <div className="chat-history-img-container">
+                    <img
+                      src={`data:image/png;base64,${convo.members[1].profilePicture}`}
+                    />
+                  </div>
+                  <div className="chat-history-name-header">
+                    {convo.members[1].fullName}
+                  </div>
+                </Fragment>
+              )}
+              <div className="chat-history-content">
+                {convo.lastSender === props.userInfo._id
+                  ? "You: "
+                  : null}
+                {convo.lastMessage.length > 22
+                  ? `${convo.lastMessage.slice(0, 16)}...`
+                  : convo.lastMessage}
+                <span className="chat-history-time">
+                  <Time time={convo.lastMessageTime} />
+                </span>
+              </div>
             </div>
-          </div>
+          </span>
         ))}
       </div>
     );
