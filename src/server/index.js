@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const { ApolloServer, gql } = require("apollo-server-express");
+const { PubSub } = require("apollo-server");
+const { createServer } = require("http");
 const User = require("./models/user");
 const Conversation = require("./models/conversation");
 const Message = require("./models/message");
@@ -16,6 +18,8 @@ const MONGODB_URI = config.MONGODB_URI;
 const JWT_SECRET_KEY = config.JSON_SECRET_KEY;
 
 const mailService = require("./services/emailService");
+
+const pubsub = new PubSub();
 
 mongoose
   .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -64,6 +68,7 @@ const typeDefs = gql`
     lastMessageTime: String
     unread: Boolean
     sender: [User]
+    change: Boolean
   }
 
   type Message {
@@ -118,6 +123,10 @@ const typeDefs = gql`
       receiverID: String!
       content: String!
     ): String
+  }
+
+  type Subscription {
+    newMessage: Message
   }
 `;
 
@@ -337,12 +346,12 @@ const resolvers = {
 
     editAbout: async (root, args) => {
       await User.findByIdAndUpdate(args._id, { about: args.about });
-      return "Success";
+      return args.about
     },
 
     editImage: async (root, args) => {
       await User.findByIdAndUpdate(args._id, { profilePicture: args.image });
-      return "Success";
+      return args.image
     },
 
     changeName: async (root, args) => {
@@ -378,8 +387,8 @@ const resolvers = {
       return "Success";
     },
     readMessage: async (root, args) => {
-      await Conversation.findByIdAndUpdate(args._id, { unread: false });
-      return "Success";
+      // await Conversation.findByIdAndUpdate(args._id, { unread: false });
+      return args._id;
     },
     sendMessage: async (root, args) => {
       let existingConvo = await Conversation.findOne({
@@ -416,17 +425,24 @@ const resolvers = {
       args.time = time;
       args.conversationID = updateConvo._id;
       let message = new Message({ ...args });
+
       try {
         await message.save();
       } catch (error) {
         return "Could not send message";
       }
+      pubsub.publish("NEW_MESSAGE", { newMessage: message });
       return "Success Message sent";
+    }
+  },
+  Subscription: {
+    newMessage: {
+      subscribe: () => pubsub.asyncIterator(["NEW_MESSAGE"])
     }
   }
 };
 
-const server = new ApolloServer({
+const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
   context: async ({ req }) => {
@@ -447,19 +463,24 @@ const server = new ApolloServer({
 
 const app = express();
 const path = require("path");
+
 app.use(cors());
 app.use("/", express.static(__dirname + "/../client/"));
 app.get("/", function(response) {
   response.sendFile(path.join(__dirname + "/../client/index.html"));
 });
 
-server.applyMiddleware({ app });
+apolloServer.applyMiddleware({ app });
 
 const port = process.env.PORT || 4000;
+const httpServer = createServer(app);
 
-app.listen({ port }, () =>
+apolloServer.installSubscriptionHandlers(httpServer);
+
+httpServer.listen({ port }, () =>
   console.log(
     `Client application ready at http:localhost:${port},`,
-    `Backend server ready at http:localhost:${port}${server.graphqlPath}`
+    `Backend server ready at http:localhost:${port}${apolloServer.graphqlPath}`,
+    `Subscriptions ready at http://localhost:${port}${apolloServer.subscriptionsPath}`
   )
 );

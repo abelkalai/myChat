@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { fieldInput } from "../../../hooks/customHooks";
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import { useQuery, useMutation, useSubscription } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 import ChatMessage from "./ChatMessage";
 
@@ -27,6 +27,18 @@ const GET_MESSAGES = gql`
   }
 `;
 
+const NEW_MESSAGE = gql`
+  subscription {
+    newMessage {
+      _id
+      senderID
+      receiverID
+      content
+      time
+    }
+  }
+`;
+
 const READ_MESSAGE = gql`
   mutation readMessage($_id: String!) {
     readMessage(_id: $_id)
@@ -43,7 +55,7 @@ const SEND_MESSAGE = gql`
   }
 `;
 
-const ChatDisplay = props => {
+const ChatDisplay = (props) => {
   useEffect(() => {
     if (
       props.convoHistory.data.getConversations.length != 0 &&
@@ -56,14 +68,27 @@ const ChatDisplay = props => {
     }
   });
 
+  useSubscription(NEW_MESSAGE, {
+    onSubscriptionData: ({ subscriptionData }) => {
+      console.log("sub Data", subscriptionData);
+    },
+  });
   const messageField = fieldInput();
+  
   const [readMsg] = useMutation(READ_MESSAGE, {
-    refetchQueries: [
-      {
+    update: (store, { data }) => {
+      let convoCache = store.readQuery({
         query: props.getConversations,
-        variables: { _id: props.userInfo._id }
-      }
-    ]
+        variables: { _id: props.userInfo._id },
+      });
+      convoCache.getConversations.filter(convo => convo._id === data.readMessage)[0].unread=false
+      convoCache.getConversations.change = !convoCache.getConversations.change
+      store.writeQuery({
+        query: props.getConversations,
+        variables: { _id: props.userInfo._id },
+        data: {"getConversations": [...convoCache.getConversations]}
+      })
+    }
   });
   const [sendMessageQuery] = useMutation(SEND_MESSAGE, {
     refetchQueries: [
@@ -71,23 +96,23 @@ const ChatDisplay = props => {
         query: GET_MESSAGES,
         variables: {
           senderID: props.userInfo._id,
-          receiverID: props.currentChat
-        }
+          receiverID: props.currentChat,
+        },
       },
       {
         query: props.getConversations,
-        variables: { _id: props.userInfo._id }
-      }
-    ]
+        variables: { _id: props.userInfo._id },
+      },
+    ],
   });
   const getMessages = useQuery(GET_MESSAGES, {
-    variables: { senderID: props.userInfo._id, receiverID: props.currentChat }
+    variables: { senderID: props.userInfo._id, receiverID: props.currentChat },
   });
   const getUser = useQuery(GET_SINGLE_USER, {
-    variables: { _id: props.currentChat }
+    variables: { _id: props.currentChat },
   });
 
-  const sendMessage = async event => {
+  const sendMessage = async (event) => {
     event.preventDefault();
     if (messageField === "") return;
     let senderID = props.userInfo._id;
@@ -97,10 +122,10 @@ const ChatDisplay = props => {
     messageField.clear();
   };
 
-  const readMessage = async event => {
+  const readMessage = async (event) => {
     event.preventDefault();
     let currentChat = props.convoHistory.data.getConversations.filter(
-      convo => convo._id === props.currentConvo
+      (convo) => convo._id === props.currentConvo
     );
     if (currentChat[0].lastSender === props.userInfo._id) {
       return;

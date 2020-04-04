@@ -86,6 +86,6743 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/@apollo/client/ApolloClient.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/@apollo/client/ApolloClient.js ***!
+  \*****************************************************/
+/*! exports provided: ApolloClient */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApolloClient", function() { return ApolloClient; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+/* harmony import */ var _link_core_ApolloLink_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./link/core/ApolloLink.js */ "./node_modules/@apollo/client/link/core/ApolloLink.js");
+/* harmony import */ var _link_core_execute_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./link/core/execute.js */ "./node_modules/@apollo/client/link/core/execute.js");
+/* harmony import */ var _core_LocalState_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./core/LocalState.js */ "./node_modules/@apollo/client/core/LocalState.js");
+/* harmony import */ var _core_QueryManager_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./core/QueryManager.js */ "./node_modules/@apollo/client/core/QueryManager.js");
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./version.js */ "./node_modules/@apollo/client/version.js");
+/* harmony import */ var _link_http_HttpLink_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./link/http/HttpLink.js */ "./node_modules/@apollo/client/link/http/HttpLink.js");
+
+
+
+
+
+
+
+
+
+var hasSuggestedDevtools = false;
+var ApolloClient = (function () {
+    function ApolloClient(options) {
+        var _this = this;
+        this.defaultOptions = {};
+        this.resetStoreCallbacks = [];
+        this.clearStoreCallbacks = [];
+        var uri = options.uri, credentials = options.credentials, headers = options.headers, cache = options.cache, _a = options.ssrMode, ssrMode = _a === void 0 ? false : _a, _b = options.ssrForceFetchDelay, ssrForceFetchDelay = _b === void 0 ? 0 : _b, connectToDevTools = options.connectToDevTools, _c = options.queryDeduplication, queryDeduplication = _c === void 0 ? true : _c, defaultOptions = options.defaultOptions, _d = options.assumeImmutableResults, assumeImmutableResults = _d === void 0 ? false : _d, resolvers = options.resolvers, typeDefs = options.typeDefs, fragmentMatcher = options.fragmentMatcher, clientAwarenessName = options.name, clientAwarenessVersion = options.version;
+        var link = options.link;
+        if (!link) {
+            link = uri
+                ? new _link_http_HttpLink_js__WEBPACK_IMPORTED_MODULE_7__["HttpLink"]({ uri: uri, credentials: credentials, headers: headers })
+                : _link_core_ApolloLink_js__WEBPACK_IMPORTED_MODULE_2__["ApolloLink"].empty();
+        }
+        if (!cache) {
+            throw  false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_1__["InvariantError"]("To initialize Apollo Client, you must specify a 'cache' property " +
+                "in the options object. \n" +
+                "For more information, please visit: https://go.apollo.dev/c/docs");
+        }
+        this.link = link;
+        this.cache = cache;
+        this.disableNetworkFetches = ssrMode || ssrForceFetchDelay > 0;
+        this.queryDeduplication = queryDeduplication;
+        this.defaultOptions = defaultOptions || {};
+        this.typeDefs = typeDefs;
+        if (ssrForceFetchDelay) {
+            setTimeout(function () { return (_this.disableNetworkFetches = false); }, ssrForceFetchDelay);
+        }
+        this.watchQuery = this.watchQuery.bind(this);
+        this.query = this.query.bind(this);
+        this.mutate = this.mutate.bind(this);
+        this.resetStore = this.resetStore.bind(this);
+        this.reFetchObservableQueries = this.reFetchObservableQueries.bind(this);
+        var defaultConnectToDevTools =  true &&
+            typeof window !== 'undefined' &&
+            !window.__APOLLO_CLIENT__;
+        if (typeof connectToDevTools === 'undefined'
+            ? defaultConnectToDevTools
+            : connectToDevTools && typeof window !== 'undefined') {
+            window.__APOLLO_CLIENT__ = this;
+        }
+        if (!hasSuggestedDevtools && "development" !== 'production') {
+            hasSuggestedDevtools = true;
+            if (typeof window !== 'undefined' &&
+                window.document &&
+                window.top === window.self) {
+                if (typeof window.__APOLLO_DEVTOOLS_GLOBAL_HOOK__ === 'undefined') {
+                    if (window.navigator &&
+                        window.navigator.userAgent &&
+                        window.navigator.userAgent.indexOf('Chrome') > -1) {
+                        console.debug('Download the Apollo DevTools ' +
+                            'for a better development experience: ' +
+                            'https://chrome.google.com/webstore/detail/apollo-client-developer-t/jdkknkkbebbapilgoeccciglkfbmbnfm');
+                    }
+                }
+            }
+        }
+        this.version = _version_js__WEBPACK_IMPORTED_MODULE_6__["version"];
+        this.localState = new _core_LocalState_js__WEBPACK_IMPORTED_MODULE_4__["LocalState"]({
+            cache: cache,
+            client: this,
+            resolvers: resolvers,
+            fragmentMatcher: fragmentMatcher,
+        });
+        this.queryManager = new _core_QueryManager_js__WEBPACK_IMPORTED_MODULE_5__["QueryManager"]({
+            cache: this.cache,
+            link: this.link,
+            queryDeduplication: queryDeduplication,
+            ssrMode: ssrMode,
+            clientAwareness: {
+                name: clientAwarenessName,
+                version: clientAwarenessVersion,
+            },
+            localState: this.localState,
+            assumeImmutableResults: assumeImmutableResults,
+            onBroadcast: function () {
+                if (_this.devToolsHookCb) {
+                    _this.devToolsHookCb({
+                        action: {},
+                        state: {
+                            queries: _this.queryManager.getQueryStore(),
+                            mutations: _this.queryManager.mutationStore.getStore(),
+                        },
+                        dataWithOptimisticResults: _this.cache.extract(true),
+                    });
+                }
+            },
+        });
+    }
+    ApolloClient.prototype.stop = function () {
+        this.queryManager.stop();
+    };
+    ApolloClient.prototype.watchQuery = function (options) {
+        if (this.defaultOptions.watchQuery) {
+            options = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.defaultOptions.watchQuery), options);
+        }
+        if (this.disableNetworkFetches &&
+            (options.fetchPolicy === 'network-only' ||
+                options.fetchPolicy === 'cache-and-network')) {
+            options = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, options), { fetchPolicy: 'cache-first' });
+        }
+        return this.queryManager.watchQuery(options);
+    };
+    ApolloClient.prototype.query = function (options) {
+        if (this.defaultOptions.query) {
+            options = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.defaultOptions.query), options);
+        }
+         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(options.fetchPolicy !== 'cache-and-network', 'The cache-and-network fetchPolicy does not work with client.query, because ' +
+            'client.query can only return a single result. Please use client.watchQuery ' +
+            'to receive multiple results from the cache and the network, or consider ' +
+            'using a different fetchPolicy, such as cache-first or network-only.');
+        if (this.disableNetworkFetches && options.fetchPolicy === 'network-only') {
+            options = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, options), { fetchPolicy: 'cache-first' });
+        }
+        return this.queryManager.query(options);
+    };
+    ApolloClient.prototype.mutate = function (options) {
+        if (this.defaultOptions.mutate) {
+            options = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.defaultOptions.mutate), options);
+        }
+        return this.queryManager.mutate(options);
+    };
+    ApolloClient.prototype.subscribe = function (options) {
+        return this.queryManager.startGraphQLSubscription(options);
+    };
+    ApolloClient.prototype.readQuery = function (options, optimistic) {
+        if (optimistic === void 0) { optimistic = false; }
+        return this.cache.readQuery(options, optimistic);
+    };
+    ApolloClient.prototype.readFragment = function (options, optimistic) {
+        if (optimistic === void 0) { optimistic = false; }
+        return this.cache.readFragment(options, optimistic);
+    };
+    ApolloClient.prototype.writeQuery = function (options) {
+        var result = this.cache.writeQuery(options);
+        this.queryManager.broadcastQueries();
+        return result;
+    };
+    ApolloClient.prototype.writeFragment = function (options) {
+        var result = this.cache.writeFragment(options);
+        this.queryManager.broadcastQueries();
+        return result;
+    };
+    ApolloClient.prototype.__actionHookForDevTools = function (cb) {
+        this.devToolsHookCb = cb;
+    };
+    ApolloClient.prototype.__requestRaw = function (payload) {
+        return Object(_link_core_execute_js__WEBPACK_IMPORTED_MODULE_3__["execute"])(this.link, payload);
+    };
+    ApolloClient.prototype.resetStore = function () {
+        var _this = this;
+        return Promise.resolve()
+            .then(function () { return _this.queryManager.clearStore(); })
+            .then(function () { return Promise.all(_this.resetStoreCallbacks.map(function (fn) { return fn(); })); })
+            .then(function () { return _this.reFetchObservableQueries(); });
+    };
+    ApolloClient.prototype.clearStore = function () {
+        var _this = this;
+        return Promise.resolve()
+            .then(function () { return _this.queryManager.clearStore(); })
+            .then(function () { return Promise.all(_this.clearStoreCallbacks.map(function (fn) { return fn(); })); });
+    };
+    ApolloClient.prototype.onResetStore = function (cb) {
+        var _this = this;
+        this.resetStoreCallbacks.push(cb);
+        return function () {
+            _this.resetStoreCallbacks = _this.resetStoreCallbacks.filter(function (c) { return c !== cb; });
+        };
+    };
+    ApolloClient.prototype.onClearStore = function (cb) {
+        var _this = this;
+        this.clearStoreCallbacks.push(cb);
+        return function () {
+            _this.clearStoreCallbacks = _this.clearStoreCallbacks.filter(function (c) { return c !== cb; });
+        };
+    };
+    ApolloClient.prototype.reFetchObservableQueries = function (includeStandby) {
+        return this.queryManager.reFetchObservableQueries(includeStandby);
+    };
+    ApolloClient.prototype.extract = function (optimistic) {
+        return this.cache.extract(optimistic);
+    };
+    ApolloClient.prototype.restore = function (serializedState) {
+        return this.cache.restore(serializedState);
+    };
+    ApolloClient.prototype.addResolvers = function (resolvers) {
+        this.localState.addResolvers(resolvers);
+    };
+    ApolloClient.prototype.setResolvers = function (resolvers) {
+        this.localState.setResolvers(resolvers);
+    };
+    ApolloClient.prototype.getResolvers = function () {
+        return this.localState.getResolvers();
+    };
+    ApolloClient.prototype.setLocalStateFragmentMatcher = function (fragmentMatcher) {
+        this.localState.setFragmentMatcher(fragmentMatcher);
+    };
+    return ApolloClient;
+}());
+
+
+//# sourceMappingURL=ApolloClient.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/cache/core/cache.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@apollo/client/cache/core/cache.js ***!
+  \*********************************************************/
+/*! exports provided: ApolloCache */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApolloCache", function() { return ApolloCache; });
+/* harmony import */ var _utilities_graphql_fragments_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/graphql/fragments.js */ "./node_modules/@apollo/client/utilities/graphql/fragments.js");
+/* harmony import */ var optimism__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! optimism */ "./node_modules/@apollo/client/node_modules/optimism/lib/bundle.esm.js");
+
+
+
+var ApolloCache = (function () {
+    function ApolloCache() {
+        this.getFragmentDoc = Object(optimism__WEBPACK_IMPORTED_MODULE_1__["wrap"])(_utilities_graphql_fragments_js__WEBPACK_IMPORTED_MODULE_0__["getFragmentQueryDocument"]);
+    }
+    ApolloCache.prototype.transformDocument = function (document) {
+        return document;
+    };
+    ApolloCache.prototype.identify = function (object) {
+        return null;
+    };
+    ApolloCache.prototype.modify = function (dataId, modifiers, optimistic) {
+        return false;
+    };
+    ApolloCache.prototype.gc = function () {
+        return [];
+    };
+    ApolloCache.prototype.transformForLink = function (document) {
+        return document;
+    };
+    ApolloCache.prototype.readQuery = function (options, optimistic) {
+        if (optimistic === void 0) { optimistic = false; }
+        return this.read({
+            rootId: options.id || 'ROOT_QUERY',
+            query: options.query,
+            variables: options.variables,
+            optimistic: optimistic,
+        });
+    };
+    ApolloCache.prototype.readFragment = function (options, optimistic) {
+        if (optimistic === void 0) { optimistic = false; }
+        return this.read({
+            query: this.getFragmentDoc(options.fragment, options.fragmentName),
+            variables: options.variables,
+            rootId: options.id,
+            optimistic: optimistic,
+        });
+    };
+    ApolloCache.prototype.writeQuery = function (options) {
+        this.write({
+            dataId: options.id || 'ROOT_QUERY',
+            result: options.data,
+            query: options.query,
+            variables: options.variables,
+        });
+    };
+    ApolloCache.prototype.writeFragment = function (options) {
+        this.write({
+            dataId: options.id,
+            result: options.data,
+            variables: options.variables,
+            query: this.getFragmentDoc(options.fragment, options.fragmentName),
+        });
+    };
+    return ApolloCache;
+}());
+
+
+//# sourceMappingURL=cache.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/cache/core/types/Cache.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@apollo/client/cache/core/types/Cache.js ***!
+  \***************************************************************/
+/*! exports provided: Cache */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Cache", function() { return Cache; });
+var Cache;
+(function (Cache) {
+})(Cache || (Cache = {}));
+
+
+//# sourceMappingURL=Cache.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/cache/inmemory/entityStore.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@apollo/client/cache/inmemory/entityStore.js ***!
+  \*******************************************************************/
+/*! exports provided: EntityStore, supportsResultCaching */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EntityStore", function() { return EntityStore; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "supportsResultCaching", function() { return supportsResultCaching; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/graphql/storeUtils.js */ "./node_modules/@apollo/client/utilities/graphql/storeUtils.js");
+/* harmony import */ var _utilities_common_canUse_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utilities/common/canUse.js */ "./node_modules/@apollo/client/utilities/common/canUse.js");
+/* harmony import */ var _wry_equality__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wry/equality */ "./node_modules/@wry/equality/lib/equality.esm.js");
+/* harmony import */ var _utilities_common_mergeDeep_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utilities/common/mergeDeep.js */ "./node_modules/@apollo/client/utilities/common/mergeDeep.js");
+/* harmony import */ var optimism__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! optimism */ "./node_modules/@apollo/client/node_modules/optimism/lib/bundle.esm.js");
+/* harmony import */ var _utilities_common_maybeDeepFreeze_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utilities/common/maybeDeepFreeze.js */ "./node_modules/@apollo/client/utilities/common/maybeDeepFreeze.js");
+/* harmony import */ var _helpers_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers.js */ "./node_modules/@apollo/client/cache/inmemory/helpers.js");
+/* harmony import */ var _policies_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./policies.js */ "./node_modules/@apollo/client/cache/inmemory/policies.js");
+
+
+
+
+
+
+
+
+
+
+var hasOwn = Object.prototype.hasOwnProperty;
+var DELETE = Object.create(null);
+var delModifier = function () { return DELETE; };
+var EntityStore = (function () {
+    function EntityStore(policies, group) {
+        var _this = this;
+        this.policies = policies;
+        this.group = group;
+        this.data = Object.create(null);
+        this.rootIds = Object.create(null);
+        this.refs = Object.create(null);
+        this.getFieldValue = function (objectOrReference, storeFieldName) { return Object(_utilities_common_maybeDeepFreeze_js__WEBPACK_IMPORTED_MODULE_6__["maybeDeepFreeze"])(Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_1__["isReference"])(objectOrReference)
+            ? _this.get(objectOrReference.__ref, storeFieldName)
+            : objectOrReference && objectOrReference[storeFieldName]); };
+        this.toReference = function (object, mergeIntoStore) {
+            var id = _this.policies.identify(object);
+            var ref = id && Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_1__["makeReference"])(id);
+            if (ref && mergeIntoStore) {
+                _this.merge(id, object);
+            }
+            return ref;
+        };
+    }
+    EntityStore.prototype.toObject = function () {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.data);
+    };
+    EntityStore.prototype.has = function (dataId) {
+        return this.lookup(dataId, true) !== void 0;
+    };
+    EntityStore.prototype.get = function (dataId, fieldName) {
+        this.group.depend(dataId, fieldName);
+        if (hasOwn.call(this.data, dataId)) {
+            var storeObject = this.data[dataId];
+            if (storeObject && hasOwn.call(storeObject, fieldName)) {
+                return storeObject[fieldName];
+            }
+        }
+        if (fieldName === "__typename" &&
+            hasOwn.call(this.policies.rootTypenamesById, dataId)) {
+            return this.policies.rootTypenamesById[dataId];
+        }
+        if (this instanceof Layer) {
+            return this.parent.get(dataId, fieldName);
+        }
+    };
+    EntityStore.prototype.lookup = function (dataId, dependOnExistence) {
+        if (dependOnExistence)
+            this.group.depend(dataId, "__exists");
+        return hasOwn.call(this.data, dataId) ? this.data[dataId] :
+            this instanceof Layer ? this.parent.lookup(dataId, dependOnExistence) : void 0;
+    };
+    EntityStore.prototype.merge = function (dataId, incoming) {
+        var _this = this;
+        var existing = this.lookup(dataId);
+        var merged = new _utilities_common_mergeDeep_js__WEBPACK_IMPORTED_MODULE_4__["DeepMerger"](storeObjectReconciler).merge(existing, incoming);
+        this.data[dataId] = merged;
+        if (merged !== existing) {
+            delete this.refs[dataId];
+            if (this.group.caching) {
+                var fieldsToDirty_1 = Object.create(null);
+                if (!existing)
+                    fieldsToDirty_1.__exists = 1;
+                Object.keys(incoming).forEach(function (storeFieldName) {
+                    if (!existing || existing[storeFieldName] !== merged[storeFieldName]) {
+                        fieldsToDirty_1[Object(_helpers_js__WEBPACK_IMPORTED_MODULE_7__["fieldNameFromStoreName"])(storeFieldName)] = 1;
+                        if (merged[storeFieldName] === void 0 && !(_this instanceof Layer)) {
+                            delete merged[storeFieldName];
+                        }
+                    }
+                });
+                Object.keys(fieldsToDirty_1).forEach(function (fieldName) { return _this.group.dirty(dataId, fieldName); });
+            }
+        }
+    };
+    EntityStore.prototype.modify = function (dataId, modifiers) {
+        var _this = this;
+        var storeObject = this.lookup(dataId);
+        if (storeObject) {
+            var changedFields_1 = Object.create(null);
+            var needToMerge_1 = false;
+            var allDeleted_1 = true;
+            var readField_1 = function (fieldName, objOrRef) { return _this.getFieldValue(objOrRef || Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_1__["makeReference"])(dataId), fieldName); };
+            Object.keys(storeObject).forEach(function (storeFieldName) {
+                var fieldName = Object(_helpers_js__WEBPACK_IMPORTED_MODULE_7__["fieldNameFromStoreName"])(storeFieldName);
+                var fieldValue = storeObject[storeFieldName];
+                if (fieldValue === void 0)
+                    return;
+                var modify = typeof modifiers === "function"
+                    ? modifiers
+                    : modifiers[fieldName];
+                if (modify) {
+                    var newValue = modify === delModifier ? DELETE :
+                        modify(Object(_utilities_common_maybeDeepFreeze_js__WEBPACK_IMPORTED_MODULE_6__["maybeDeepFreeze"])(fieldValue), {
+                            DELETE: DELETE,
+                            fieldName: fieldName,
+                            storeFieldName: storeFieldName,
+                            isReference: _utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_1__["isReference"],
+                            toReference: _this.toReference,
+                            readField: readField_1,
+                        });
+                    if (newValue === DELETE)
+                        newValue = void 0;
+                    if (newValue !== fieldValue) {
+                        changedFields_1[storeFieldName] = newValue;
+                        needToMerge_1 = true;
+                        fieldValue = newValue;
+                    }
+                }
+                if (fieldValue !== void 0) {
+                    allDeleted_1 = false;
+                }
+            });
+            if (needToMerge_1) {
+                this.merge(dataId, changedFields_1);
+                if (allDeleted_1) {
+                    if (this instanceof Layer) {
+                        this.data[dataId] = void 0;
+                    }
+                    else {
+                        delete this.data[dataId];
+                    }
+                    this.group.dirty(dataId, "__exists");
+                }
+                return true;
+            }
+        }
+        return false;
+    };
+    EntityStore.prototype.delete = function (dataId, fieldName) {
+        var _a;
+        return this.modify(dataId, fieldName ? (_a = {},
+            _a[fieldName] = delModifier,
+            _a) : delModifier);
+    };
+    EntityStore.prototype.evict = function (dataId, fieldName) {
+        var evicted = false;
+        if (hasOwn.call(this.data, dataId)) {
+            evicted = this.delete(dataId, fieldName);
+        }
+        if (this instanceof Layer) {
+            evicted = this.parent.evict(dataId, fieldName) || evicted;
+        }
+        this.group.dirty(dataId, fieldName || "__exists");
+        return evicted;
+    };
+    EntityStore.prototype.clear = function () {
+        this.replace(null);
+    };
+    EntityStore.prototype.replace = function (newData) {
+        var _this = this;
+        Object.keys(this.data).forEach(function (dataId) {
+            if (!(newData && hasOwn.call(newData, dataId))) {
+                _this.delete(dataId);
+            }
+        });
+        if (newData) {
+            Object.keys(newData).forEach(function (dataId) {
+                _this.merge(dataId, newData[dataId]);
+            });
+        }
+    };
+    EntityStore.prototype.retain = function (rootId) {
+        return this.rootIds[rootId] = (this.rootIds[rootId] || 0) + 1;
+    };
+    EntityStore.prototype.release = function (rootId) {
+        if (this.rootIds[rootId] > 0) {
+            var count = --this.rootIds[rootId];
+            if (!count)
+                delete this.rootIds[rootId];
+            return count;
+        }
+        return 0;
+    };
+    EntityStore.prototype.getRootIdSet = function (ids) {
+        if (ids === void 0) { ids = new Set(); }
+        Object.keys(this.rootIds).forEach(ids.add, ids);
+        if (this instanceof Layer) {
+            this.parent.getRootIdSet(ids);
+        }
+        return ids;
+    };
+    EntityStore.prototype.gc = function () {
+        var _this = this;
+        var ids = this.getRootIdSet();
+        var snapshot = this.toObject();
+        ids.forEach(function (id) {
+            if (hasOwn.call(snapshot, id)) {
+                Object.keys(_this.findChildRefIds(id)).forEach(ids.add, ids);
+                delete snapshot[id];
+            }
+        });
+        var idsToRemove = Object.keys(snapshot);
+        if (idsToRemove.length) {
+            var root_1 = this;
+            while (root_1 instanceof Layer)
+                root_1 = root_1.parent;
+            idsToRemove.forEach(function (id) { return root_1.delete(id); });
+        }
+        return idsToRemove;
+    };
+    EntityStore.prototype.findChildRefIds = function (dataId) {
+        if (!hasOwn.call(this.refs, dataId)) {
+            var found_1 = this.refs[dataId] = Object.create(null);
+            var workSet_1 = new Set([this.data[dataId]]);
+            var canTraverse_1 = function (obj) { return obj !== null && typeof obj === 'object'; };
+            workSet_1.forEach(function (obj) {
+                if (Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_1__["isReference"])(obj)) {
+                    found_1[obj.__ref] = true;
+                }
+                else if (canTraverse_1(obj)) {
+                    Object.values(obj)
+                        .filter(canTraverse_1)
+                        .forEach(workSet_1.add, workSet_1);
+                }
+            });
+        }
+        return this.refs[dataId];
+    };
+    EntityStore.prototype.makeCacheKey = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        return this.group.keyMaker.lookupArray(args);
+    };
+    return EntityStore;
+}());
+var CacheGroup = (function () {
+    function CacheGroup(caching) {
+        this.caching = caching;
+        this.d = null;
+        this.keyMaker = new optimism__WEBPACK_IMPORTED_MODULE_5__["KeyTrie"](_utilities_common_canUse_js__WEBPACK_IMPORTED_MODULE_2__["canUseWeakMap"]);
+        this.d = caching ? Object(optimism__WEBPACK_IMPORTED_MODULE_5__["dep"])() : null;
+    }
+    CacheGroup.prototype.depend = function (dataId, storeFieldName) {
+        if (this.d) {
+            this.d(makeDepKey(dataId, storeFieldName));
+        }
+    };
+    CacheGroup.prototype.dirty = function (dataId, storeFieldName) {
+        if (this.d) {
+            this.d.dirty(makeDepKey(dataId, storeFieldName));
+        }
+    };
+    return CacheGroup;
+}());
+function makeDepKey(dataId, storeFieldName) {
+    return Object(_helpers_js__WEBPACK_IMPORTED_MODULE_7__["fieldNameFromStoreName"])(storeFieldName) + '#' + dataId;
+}
+(function (EntityStore) {
+    var Root = (function (_super) {
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(Root, _super);
+        function Root(_a) {
+            var policies = _a.policies, _b = _a.resultCaching, resultCaching = _b === void 0 ? true : _b, seed = _a.seed;
+            var _this = _super.call(this, policies, new CacheGroup(resultCaching)) || this;
+            _this.sharedLayerGroup = null;
+            _this.sharedLayerGroup = new CacheGroup(resultCaching);
+            if (seed)
+                _this.replace(seed);
+            return _this;
+        }
+        Root.prototype.addLayer = function (layerId, replay) {
+            return new Layer(layerId, this, replay, this.sharedLayerGroup);
+        };
+        Root.prototype.removeLayer = function (layerId) {
+            return this;
+        };
+        return Root;
+    }(EntityStore));
+    EntityStore.Root = Root;
+})(EntityStore || (EntityStore = {}));
+var Layer = (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(Layer, _super);
+    function Layer(id, parent, replay, group) {
+        var _this = _super.call(this, parent.policies, group) || this;
+        _this.id = id;
+        _this.parent = parent;
+        _this.replay = replay;
+        _this.group = group;
+        replay(_this);
+        return _this;
+    }
+    Layer.prototype.addLayer = function (layerId, replay) {
+        return new Layer(layerId, this, replay, this.group);
+    };
+    Layer.prototype.removeLayer = function (layerId) {
+        var _this = this;
+        var parent = this.parent.removeLayer(layerId);
+        if (layerId === this.id) {
+            if (this.group.caching) {
+                Object.keys(this.data).forEach(function (dataId) {
+                    if (_this.data[dataId] !== parent.lookup(dataId)) {
+                        _this.delete(dataId);
+                    }
+                });
+            }
+            return parent;
+        }
+        if (parent === this.parent)
+            return this;
+        return parent.addLayer(this.id, this.replay);
+    };
+    Layer.prototype.toObject = function () {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.parent.toObject()), this.data);
+    };
+    Layer.prototype.findChildRefIds = function (dataId) {
+        var fromParent = this.parent.findChildRefIds(dataId);
+        return hasOwn.call(this.data, dataId) ? Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, fromParent), _super.prototype.findChildRefIds.call(this, dataId)) : fromParent;
+    };
+    return Layer;
+}(EntityStore));
+function storeObjectReconciler(existingObject, incomingObject, property) {
+    var existingValue = existingObject[property];
+    var incomingValue = incomingObject[property];
+    return Object(_wry_equality__WEBPACK_IMPORTED_MODULE_3__["equal"])(existingValue, incomingValue) ? existingValue : incomingValue;
+}
+function supportsResultCaching(store) {
+    return !!(store instanceof EntityStore && store.group.caching);
+}
+
+
+//# sourceMappingURL=entityStore.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/cache/inmemory/helpers.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@apollo/client/cache/inmemory/helpers.js ***!
+  \***************************************************************/
+/*! exports provided: fieldNameFromStoreName, getTypenameFromStoreObject, isFieldValueToBeMerged, makeProcessedFieldsMerger */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fieldNameFromStoreName", function() { return fieldNameFromStoreName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTypenameFromStoreObject", function() { return getTypenameFromStoreObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isFieldValueToBeMerged", function() { return isFieldValueToBeMerged; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeProcessedFieldsMerger", function() { return makeProcessedFieldsMerger; });
+/* harmony import */ var _utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/graphql/storeUtils.js */ "./node_modules/@apollo/client/utilities/graphql/storeUtils.js");
+/* harmony import */ var _utilities_common_mergeDeep_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/common/mergeDeep.js */ "./node_modules/@apollo/client/utilities/common/mergeDeep.js");
+
+
+
+function getTypenameFromStoreObject(store, objectOrReference) {
+    return Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_0__["isReference"])(objectOrReference)
+        ? store.get(objectOrReference.__ref, "__typename")
+        : objectOrReference && objectOrReference.__typename;
+}
+var FieldNamePattern = /^[_A-Za-z0-9]+/;
+function fieldNameFromStoreName(storeFieldName) {
+    var match = storeFieldName.match(FieldNamePattern);
+    return match && match[0];
+}
+function isFieldValueToBeMerged(value) {
+    var field = value && value.__field;
+    return field && Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_0__["isField"])(field);
+}
+function makeProcessedFieldsMerger() {
+    return new _utilities_common_mergeDeep_js__WEBPACK_IMPORTED_MODULE_1__["DeepMerger"](reconcileProcessedFields);
+}
+var reconcileProcessedFields = function (existingObject, incomingObject, property) {
+    var existing = existingObject[property];
+    var incoming = incomingObject[property];
+    if (isFieldValueToBeMerged(existing)) {
+        existing.__value = this.merge(existing.__value, isFieldValueToBeMerged(incoming)
+            ? incoming.__value
+            : incoming);
+        return existing;
+    }
+    if (isFieldValueToBeMerged(incoming)) {
+        incoming.__value = this.merge(existing, incoming.__value);
+        return incoming;
+    }
+    return this.merge(existing, incoming);
+};
+
+
+//# sourceMappingURL=helpers.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/cache/inmemory/inMemoryCache.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@apollo/client/cache/inmemory/inMemoryCache.js ***!
+  \*********************************************************************/
+/*! exports provided: InMemoryCache */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InMemoryCache", function() { return InMemoryCache; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _utilities_graphql_transform_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/graphql/transform.js */ "./node_modules/@apollo/client/utilities/graphql/transform.js");
+/* harmony import */ var optimism__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! optimism */ "./node_modules/@apollo/client/node_modules/optimism/lib/bundle.esm.js");
+/* harmony import */ var _core_cache_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../core/cache.js */ "./node_modules/@apollo/client/cache/core/cache.js");
+/* harmony import */ var _policies_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./policies.js */ "./node_modules/@apollo/client/cache/inmemory/policies.js");
+/* harmony import */ var _entityStore_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./entityStore.js */ "./node_modules/@apollo/client/cache/inmemory/entityStore.js");
+/* harmony import */ var _readFromStore_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./readFromStore.js */ "./node_modules/@apollo/client/cache/inmemory/readFromStore.js");
+/* harmony import */ var _writeToStore_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./writeToStore.js */ "./node_modules/@apollo/client/cache/inmemory/writeToStore.js");
+
+
+
+
+
+
+
+
+
+var defaultConfig = {
+    dataIdFromObject: _policies_js__WEBPACK_IMPORTED_MODULE_4__["defaultDataIdFromObject"],
+    addTypename: true,
+    resultCaching: true,
+    typePolicies: {},
+};
+var InMemoryCache = (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(InMemoryCache, _super);
+    function InMemoryCache(config) {
+        if (config === void 0) { config = {}; }
+        var _this = _super.call(this) || this;
+        _this.watches = new Set();
+        _this.typenameDocumentCache = new Map();
+        _this.txCount = 0;
+        _this.varDep = Object(optimism__WEBPACK_IMPORTED_MODULE_2__["dep"])();
+        _this.config = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, defaultConfig), config);
+        _this.addTypename = !!_this.config.addTypename;
+        _this.policies = new _policies_js__WEBPACK_IMPORTED_MODULE_4__["Policies"]({
+            dataIdFromObject: _this.config.dataIdFromObject,
+            possibleTypes: _this.config.possibleTypes,
+            typePolicies: _this.config.typePolicies,
+        });
+        _this.data = new _entityStore_js__WEBPACK_IMPORTED_MODULE_5__["EntityStore"].Root({
+            policies: _this.policies,
+            resultCaching: _this.config.resultCaching,
+        });
+        _this.optimisticData = _this.data;
+        _this.storeWriter = new _writeToStore_js__WEBPACK_IMPORTED_MODULE_7__["StoreWriter"]({
+            policies: _this.policies,
+        });
+        _this.storeReader = new _readFromStore_js__WEBPACK_IMPORTED_MODULE_6__["StoreReader"]({
+            addTypename: _this.addTypename,
+            policies: _this.policies,
+        });
+        var cache = _this;
+        var maybeBroadcastWatch = cache.maybeBroadcastWatch;
+        _this.maybeBroadcastWatch = Object(optimism__WEBPACK_IMPORTED_MODULE_2__["wrap"])(function (c) {
+            return maybeBroadcastWatch.call(_this, c);
+        }, {
+            makeCacheKey: function (c) {
+                var store = c.optimistic ? cache.optimisticData : cache.data;
+                if (Object(_entityStore_js__WEBPACK_IMPORTED_MODULE_5__["supportsResultCaching"])(store)) {
+                    var optimistic = c.optimistic, rootId = c.rootId, variables = c.variables;
+                    return store.makeCacheKey(c.query, c.callback, JSON.stringify({ optimistic: optimistic, rootId: rootId, variables: variables }));
+                }
+            }
+        });
+        return _this;
+    }
+    InMemoryCache.prototype.restore = function (data) {
+        if (data)
+            this.data.replace(data);
+        return this;
+    };
+    InMemoryCache.prototype.extract = function (optimistic) {
+        if (optimistic === void 0) { optimistic = false; }
+        return (optimistic ? this.optimisticData : this.data).toObject();
+    };
+    InMemoryCache.prototype.read = function (options) {
+        var store = options.optimistic ? this.optimisticData : this.data;
+        if (typeof options.rootId === 'string' && !store.has(options.rootId)) {
+            return null;
+        }
+        return this.storeReader.readQueryFromStore({
+            store: store,
+            query: options.query,
+            variables: options.variables,
+            rootId: options.rootId,
+            config: this.config,
+        }) || null;
+    };
+    InMemoryCache.prototype.write = function (options) {
+        this.storeWriter.writeQueryToStore({
+            store: this.data,
+            query: options.query,
+            result: options.result,
+            dataId: options.dataId,
+            variables: options.variables,
+        });
+        this.broadcastWatches();
+    };
+    InMemoryCache.prototype.modify = function (dataId, modifiers, optimistic) {
+        if (optimistic === void 0) { optimistic = false; }
+        var store = optimistic ? this.optimisticData : this.data;
+        if (store.modify(dataId, modifiers)) {
+            this.broadcastWatches();
+            return true;
+        }
+        return false;
+    };
+    InMemoryCache.prototype.diff = function (options) {
+        return this.storeReader.diffQueryAgainstStore({
+            store: options.optimistic ? this.optimisticData : this.data,
+            rootId: options.id || "ROOT_QUERY",
+            query: options.query,
+            variables: options.variables,
+            returnPartialData: options.returnPartialData,
+            config: this.config,
+        });
+    };
+    InMemoryCache.prototype.watch = function (watch) {
+        var _this = this;
+        this.watches.add(watch);
+        if (watch.immediate) {
+            this.maybeBroadcastWatch(watch);
+        }
+        return function () {
+            _this.watches.delete(watch);
+        };
+    };
+    InMemoryCache.prototype.gc = function () {
+        return this.optimisticData.gc();
+    };
+    InMemoryCache.prototype.retain = function (rootId, optimistic) {
+        return (optimistic ? this.optimisticData : this.data).retain(rootId);
+    };
+    InMemoryCache.prototype.release = function (rootId, optimistic) {
+        return (optimistic ? this.optimisticData : this.data).release(rootId);
+    };
+    InMemoryCache.prototype.identify = function (object) {
+        return this.policies.identify(object);
+    };
+    InMemoryCache.prototype.evict = function (dataId, fieldName) {
+        var evicted = this.optimisticData.evict(dataId, fieldName);
+        this.broadcastWatches();
+        return evicted;
+    };
+    InMemoryCache.prototype.reset = function () {
+        this.data.clear();
+        this.optimisticData = this.data;
+        this.broadcastWatches();
+        return Promise.resolve();
+    };
+    InMemoryCache.prototype.removeOptimistic = function (idToRemove) {
+        var newOptimisticData = this.optimisticData.removeLayer(idToRemove);
+        if (newOptimisticData !== this.optimisticData) {
+            this.optimisticData = newOptimisticData;
+            this.broadcastWatches();
+        }
+    };
+    InMemoryCache.prototype.performTransaction = function (transaction, optimisticId) {
+        var _this = this;
+        var perform = function (layer) {
+            var _a = _this, data = _a.data, optimisticData = _a.optimisticData;
+            ++_this.txCount;
+            if (layer) {
+                _this.data = _this.optimisticData = layer;
+            }
+            try {
+                transaction(_this);
+            }
+            finally {
+                --_this.txCount;
+                _this.data = data;
+                _this.optimisticData = optimisticData;
+            }
+        };
+        if (typeof optimisticId === 'string') {
+            this.optimisticData = this.optimisticData.addLayer(optimisticId, perform);
+        }
+        else {
+            perform();
+        }
+        this.broadcastWatches();
+    };
+    InMemoryCache.prototype.recordOptimisticTransaction = function (transaction, id) {
+        return this.performTransaction(transaction, id);
+    };
+    InMemoryCache.prototype.transformDocument = function (document) {
+        if (this.addTypename) {
+            var result = this.typenameDocumentCache.get(document);
+            if (!result) {
+                result = Object(_utilities_graphql_transform_js__WEBPACK_IMPORTED_MODULE_1__["addTypenameToDocument"])(document);
+                this.typenameDocumentCache.set(document, result);
+                this.typenameDocumentCache.set(result, result);
+            }
+            return result;
+        }
+        return document;
+    };
+    InMemoryCache.prototype.broadcastWatches = function () {
+        var _this = this;
+        if (!this.txCount) {
+            this.watches.forEach(function (c) { return _this.maybeBroadcastWatch(c); });
+        }
+    };
+    InMemoryCache.prototype.maybeBroadcastWatch = function (c) {
+        c.callback(this.diff({
+            query: c.query,
+            variables: c.variables,
+            optimistic: c.optimistic,
+        }));
+    };
+    InMemoryCache.prototype.makeVar = function (value) {
+        var cache = this;
+        return function rv(newValue) {
+            if (arguments.length > 0) {
+                if (value !== newValue) {
+                    value = newValue;
+                    cache.varDep.dirty(rv);
+                    cache.broadcastWatches();
+                }
+            }
+            else {
+                cache.varDep(rv);
+            }
+            return value;
+        };
+    };
+    return InMemoryCache;
+}(_core_cache_js__WEBPACK_IMPORTED_MODULE_3__["ApolloCache"]));
+
+
+//# sourceMappingURL=inMemoryCache.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/cache/inmemory/policies.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@apollo/client/cache/inmemory/policies.js ***!
+  \****************************************************************/
+/*! exports provided: Policies, defaultDataIdFromObject */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Policies", function() { return Policies; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultDataIdFromObject", function() { return defaultDataIdFromObject; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+/* harmony import */ var _utilities_graphql_fragments_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utilities/graphql/fragments.js */ "./node_modules/@apollo/client/utilities/graphql/fragments.js");
+/* harmony import */ var _utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utilities/graphql/storeUtils.js */ "./node_modules/@apollo/client/utilities/graphql/storeUtils.js");
+/* harmony import */ var _utilities_common_canUse_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utilities/common/canUse.js */ "./node_modules/@apollo/client/utilities/common/canUse.js");
+/* harmony import */ var optimism__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! optimism */ "./node_modules/@apollo/client/node_modules/optimism/lib/bundle.esm.js");
+/* harmony import */ var _helpers_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./helpers.js */ "./node_modules/@apollo/client/cache/inmemory/helpers.js");
+
+
+
+
+
+
+
+
+var hasOwn = Object.prototype.hasOwnProperty;
+function defaultDataIdFromObject(object) {
+    var __typename = object.__typename, id = object.id, _id = object._id;
+    if (typeof __typename === "string") {
+        if (typeof id !== "undefined")
+            return __typename + ":" + id;
+        if (typeof _id !== "undefined")
+            return __typename + ":" + _id;
+    }
+    return null;
+}
+var nullKeyFieldsFn = function () { return null; };
+var simpleKeyArgsFn = function (_args, context) { return context.fieldName; };
+var Policies = (function () {
+    function Policies(config) {
+        if (config === void 0) { config = {}; }
+        this.config = config;
+        this.typePolicies = Object.create(null);
+        this.rootIdsByTypename = Object.create(null);
+        this.rootTypenamesById = Object.create(null);
+        this.usingPossibleTypes = false;
+        this.storageTrie = new optimism__WEBPACK_IMPORTED_MODULE_5__["KeyTrie"](true);
+        this.config = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({ dataIdFromObject: defaultDataIdFromObject }, config);
+        this.setRootTypename("Query");
+        this.setRootTypename("Mutation");
+        this.setRootTypename("Subscription");
+        if (config.possibleTypes) {
+            this.addPossibleTypes(config.possibleTypes);
+        }
+        if (config.typePolicies) {
+            this.addTypePolicies(config.typePolicies);
+        }
+    }
+    Policies.prototype.identify = function (object, selectionSet, fragmentMap) {
+        var typename = selectionSet && fragmentMap
+            ? Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["getTypenameFromResult"])(object, selectionSet, fragmentMap)
+            : object.__typename;
+        var context = {
+            typename: typename,
+            selectionSet: selectionSet,
+            fragmentMap: fragmentMap,
+            policies: this,
+        };
+        var id = null;
+        var policy = this.getTypePolicy(typename, false);
+        var keyFn = policy && policy.keyFn || this.config.dataIdFromObject;
+        while (keyFn) {
+            var specifierOrId = keyFn(object, context);
+            if (Array.isArray(specifierOrId)) {
+                keyFn = keyFieldsFnFromSpecifier(specifierOrId);
+            }
+            else {
+                id = specifierOrId;
+                break;
+            }
+        }
+        return id && String(id);
+    };
+    Policies.prototype.addTypePolicies = function (typePolicies) {
+        var _this = this;
+        Object.keys(typePolicies).forEach(function (typename) {
+            var existing = _this.getTypePolicy(typename, true);
+            var incoming = typePolicies[typename];
+            var keyFields = incoming.keyFields, fields = incoming.fields;
+            if (incoming.queryType)
+                _this.setRootTypename("Query", typename);
+            if (incoming.mutationType)
+                _this.setRootTypename("Mutation", typename);
+            if (incoming.subscriptionType)
+                _this.setRootTypename("Subscription", typename);
+            existing.keyFn =
+                keyFields === false ? nullKeyFieldsFn :
+                    Array.isArray(keyFields) ? keyFieldsFnFromSpecifier(keyFields) :
+                        typeof keyFields === "function" ? keyFields : void 0;
+            if (fields) {
+                Object.keys(fields).forEach(function (fieldName) {
+                    var existing = _this.getFieldPolicy(typename, fieldName, true);
+                    var incoming = fields[fieldName];
+                    if (typeof incoming === "function") {
+                        existing.read = incoming;
+                    }
+                    else {
+                        var keyArgs = incoming.keyArgs, read = incoming.read, merge = incoming.merge;
+                        existing.keyFn =
+                            keyArgs === false ? simpleKeyArgsFn :
+                                Array.isArray(keyArgs) ? keyArgsFnFromSpecifier(keyArgs) :
+                                    typeof keyArgs === "function" ? keyArgs :
+                                        existing.keyFn;
+                        if (typeof read === "function")
+                            existing.read = read;
+                        if (typeof merge === "function")
+                            existing.merge = merge;
+                    }
+                    if (existing.read && existing.merge) {
+                        existing.keyFn = existing.keyFn || simpleKeyArgsFn;
+                    }
+                });
+            }
+        });
+    };
+    Policies.prototype.setRootTypename = function (which, typename) {
+        if (typename === void 0) { typename = which; }
+        var rootId = "ROOT_" + which.toUpperCase();
+        var old = this.rootTypenamesById[rootId];
+        if (typename !== old) {
+             false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(!old || old === which, "Cannot change root " + which + " __typename more than once");
+            this.rootIdsByTypename[typename] = rootId;
+            this.rootTypenamesById[rootId] = typename;
+        }
+    };
+    Policies.prototype.addPossibleTypes = function (possibleTypes) {
+        var _this = this;
+        this.usingPossibleTypes = true;
+        Object.keys(possibleTypes).forEach(function (supertype) {
+            var subtypeSet = _this.getSubtypeSet(supertype, true);
+            possibleTypes[supertype].forEach(subtypeSet.add, subtypeSet);
+        });
+    };
+    Policies.prototype.getTypePolicy = function (typename, createIfMissing) {
+        if (typename) {
+            return this.typePolicies[typename] || (createIfMissing && (this.typePolicies[typename] = Object.create(null)));
+        }
+    };
+    Policies.prototype.getSubtypeSet = function (supertype, createIfMissing) {
+        var policy = this.getTypePolicy(supertype, createIfMissing);
+        if (policy) {
+            return policy.subtypes || (createIfMissing && (policy.subtypes = new Set()));
+        }
+    };
+    Policies.prototype.getFieldPolicy = function (typename, fieldName, createIfMissing) {
+        var typePolicy = this.getTypePolicy(typename, createIfMissing);
+        if (typePolicy) {
+            var fieldPolicies = typePolicy.fields || (createIfMissing && (typePolicy.fields = Object.create(null)));
+            if (fieldPolicies) {
+                return fieldPolicies[fieldName] || (createIfMissing && (fieldPolicies[fieldName] = Object.create(null)));
+            }
+        }
+    };
+    Policies.prototype.fragmentMatches = function (fragment, typename) {
+        var _this = this;
+        if (!fragment.typeCondition)
+            return true;
+        if (!typename)
+            return false;
+        var supertype = fragment.typeCondition.name.value;
+        if (typename === supertype)
+            return true;
+        if (this.usingPossibleTypes) {
+            var workQueue_1 = [this.getSubtypeSet(supertype, false)];
+            for (var i = 0; i < workQueue_1.length; ++i) {
+                var subtypes = workQueue_1[i];
+                if (subtypes) {
+                    if (subtypes.has(typename))
+                        return true;
+                    subtypes.forEach(function (subtype) {
+                        var subsubtypes = _this.getSubtypeSet(subtype, false);
+                        if (subsubtypes && workQueue_1.indexOf(subsubtypes) < 0) {
+                            workQueue_1.push(subsubtypes);
+                        }
+                    });
+                }
+            }
+        }
+        return false;
+    };
+    Policies.prototype.getStoreFieldName = function (typename, field, variables) {
+        var fieldName = field.name.value;
+        var policy = this.getFieldPolicy(typename, fieldName, false);
+        var storeFieldName;
+        var keyFn = policy && policy.keyFn;
+        if (keyFn) {
+            var args = Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["argumentsObjectFromField"])(field, variables);
+            var context = { typename: typename, fieldName: fieldName, field: field, variables: variables, policies: this };
+            while (keyFn) {
+                var specifierOrString = keyFn(args, context);
+                if (Array.isArray(specifierOrString)) {
+                    keyFn = keyArgsFnFromSpecifier(specifierOrString);
+                }
+                else {
+                    storeFieldName = specifierOrString || fieldName;
+                    break;
+                }
+            }
+        }
+        if (storeFieldName === void 0) {
+            storeFieldName = Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["storeKeyNameFromField"])(field, variables);
+        }
+        return fieldName === Object(_helpers_js__WEBPACK_IMPORTED_MODULE_6__["fieldNameFromStoreName"])(storeFieldName)
+            ? storeFieldName
+            : fieldName + ":" + storeFieldName;
+    };
+    Policies.prototype.readField = function (objectOrReference, nameOrField, context, typename) {
+        if (typename === void 0) { typename = context.getFieldValue(objectOrReference, "__typename"); }
+         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(objectOrReference, "Must provide an object or Reference when calling Policies#readField");
+        var policies = this;
+        var storeFieldName = typeof nameOrField === "string" ? nameOrField
+            : policies.getStoreFieldName(typename, nameOrField, context.variables);
+        var fieldName = Object(_helpers_js__WEBPACK_IMPORTED_MODULE_6__["fieldNameFromStoreName"])(storeFieldName);
+        var existing = context.getFieldValue(objectOrReference, storeFieldName);
+        var policy = policies.getFieldPolicy(typename, fieldName, false);
+        var read = policy && policy.read;
+        if (read) {
+            var storage = policies.storageTrie.lookup(Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isReference"])(objectOrReference)
+                ? objectOrReference.__ref
+                : objectOrReference, storeFieldName);
+            return read(existing, makeFieldFunctionOptions(policies, typename, objectOrReference, nameOrField, storage, context));
+        }
+        return existing;
+    };
+    Policies.prototype.hasMergeFunction = function (typename, fieldName) {
+        var policy = this.getFieldPolicy(typename, fieldName, false);
+        return !!(policy && policy.merge);
+    };
+    Policies.prototype.applyMerges = function (existing, incoming, context, storageKeys) {
+        var policies = this;
+        if (Object(_helpers_js__WEBPACK_IMPORTED_MODULE_6__["isFieldValueToBeMerged"])(incoming)) {
+            var field = incoming.__field;
+            var fieldName = field.name.value;
+            var merge = policies.getFieldPolicy(incoming.__typename, fieldName, false).merge;
+            var storage = storageKeys
+                ? policies.storageTrie.lookupArray(storageKeys)
+                : null;
+            incoming = merge(existing, incoming.__value, makeFieldFunctionOptions(policies, incoming.__typename, null, field, storage, context));
+        }
+        if (incoming && typeof incoming === "object") {
+            if (Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isReference"])(incoming)) {
+                return incoming;
+            }
+            if (Array.isArray(incoming)) {
+                return incoming.map(function (item) { return policies.applyMerges(void 0, item, context); });
+            }
+            var e_1 = existing;
+            var i_1 = incoming;
+            var firstStorageKey_1 = Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isReference"])(e_1)
+                ? e_1.__ref
+                : typeof e_1 === "object" && e_1;
+            Object.keys(i_1).forEach(function (storeFieldName) {
+                i_1[storeFieldName] = policies.applyMerges(context.getFieldValue(e_1, storeFieldName), i_1[storeFieldName], context, firstStorageKey_1 && [firstStorageKey_1, storeFieldName]);
+            });
+        }
+        return incoming;
+    };
+    return Policies;
+}());
+function makeFieldFunctionOptions(policies, typename, objectOrReference, nameOrField, storage, context) {
+    var toReference = context.toReference, getFieldValue = context.getFieldValue, variables = context.variables;
+    var storeFieldName = typeof nameOrField === "string" ? nameOrField :
+        policies.getStoreFieldName(typename, nameOrField, variables);
+    var fieldName = Object(_helpers_js__WEBPACK_IMPORTED_MODULE_6__["fieldNameFromStoreName"])(storeFieldName);
+    return {
+        args: typeof nameOrField === "string" ? null :
+            Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["argumentsObjectFromField"])(nameOrField, variables),
+        field: typeof nameOrField === "string" ? null : nameOrField,
+        fieldName: fieldName,
+        storeFieldName: storeFieldName,
+        variables: variables,
+        policies: policies,
+        isReference: _utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isReference"],
+        toReference: toReference,
+        storage: storage,
+        readField: function (nameOrField, foreignObjOrRef) {
+            return policies.readField(foreignObjOrRef || objectOrReference, nameOrField, context);
+        },
+        mergeObjects: function (existing, incoming) {
+            if (Array.isArray(existing) || Array.isArray(incoming)) {
+                throw  false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_1__["InvariantError"]("Cannot automatically merge arrays");
+            }
+            if (existing && typeof existing === "object" &&
+                incoming && typeof incoming === "object") {
+                var eType = getFieldValue(existing, "__typename");
+                var iType = getFieldValue(incoming, "__typename");
+                var typesDiffer = eType && iType && eType !== iType;
+                var applied = policies.applyMerges(typesDiffer ? void 0 : existing, incoming, context);
+                if (typesDiffer ||
+                    !canBeMerged(existing) ||
+                    !canBeMerged(applied)) {
+                    return applied;
+                }
+                return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, existing), applied);
+            }
+            return incoming;
+        }
+    };
+}
+function canBeMerged(obj) {
+    return obj && typeof obj === "object" &&
+        !Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isReference"])(obj) && !Array.isArray(obj);
+}
+function keyArgsFnFromSpecifier(specifier) {
+    return function (args, context) {
+        var field = context.field;
+        var fieldName = field.name.value;
+        return fieldName + ":" + JSON.stringify(computeKeyObject(args, specifier));
+    };
+}
+function keyFieldsFnFromSpecifier(specifier) {
+    var trie = new optimism__WEBPACK_IMPORTED_MODULE_5__["KeyTrie"](_utilities_common_canUse_js__WEBPACK_IMPORTED_MODULE_4__["canUseWeakMap"]);
+    return function (object, context) {
+        var aliasMap;
+        if (context.selectionSet && context.fragmentMap) {
+            var info = trie.lookupArray([
+                context.selectionSet,
+                context.fragmentMap,
+            ]);
+            aliasMap = info.aliasMap || (info.aliasMap = makeAliasMap(context.selectionSet, context.fragmentMap));
+        }
+        return context.typename + ":" + JSON.stringify(computeKeyObject(object, specifier, aliasMap));
+    };
+}
+function makeAliasMap(selectionSet, fragmentMap) {
+    var map = Object.create(null);
+    var workQueue = new Set([selectionSet]);
+    workQueue.forEach(function (selectionSet) {
+        selectionSet.selections.forEach(function (selection) {
+            if (Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isField"])(selection)) {
+                if (selection.alias) {
+                    var responseKey = selection.alias.value;
+                    var storeKey = selection.name.value;
+                    if (storeKey !== responseKey) {
+                        var aliases = map.aliases || (map.aliases = Object.create(null));
+                        aliases[storeKey] = responseKey;
+                    }
+                }
+                if (selection.selectionSet) {
+                    var subsets = map.subsets || (map.subsets = Object.create(null));
+                    subsets[selection.name.value] =
+                        makeAliasMap(selection.selectionSet, fragmentMap);
+                }
+            }
+            else {
+                var fragment = Object(_utilities_graphql_fragments_js__WEBPACK_IMPORTED_MODULE_2__["getFragmentFromSelection"])(selection, fragmentMap);
+                workQueue.add(fragment.selectionSet);
+            }
+        });
+    });
+    return map;
+}
+function computeKeyObject(response, specifier, aliasMap) {
+    var keyObj = Object.create(null);
+    var prevKey;
+    specifier.forEach(function (s) {
+        if (Array.isArray(s)) {
+            if (typeof prevKey === "string") {
+                var subsets = aliasMap && aliasMap.subsets;
+                var subset = subsets && subsets[prevKey];
+                keyObj[prevKey] = computeKeyObject(response[prevKey], s, subset);
+            }
+        }
+        else {
+            var aliases = aliasMap && aliasMap.aliases;
+            var responseName = aliases && aliases[s] || s;
+             false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(hasOwn.call(response, responseName), "Missing field " + responseName + " while computing key fields");
+            keyObj[prevKey = s] = response[responseName];
+        }
+    });
+    return keyObj;
+}
+
+
+//# sourceMappingURL=policies.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/cache/inmemory/readFromStore.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@apollo/client/cache/inmemory/readFromStore.js ***!
+  \*********************************************************************/
+/*! exports provided: StoreReader */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StoreReader", function() { return StoreReader; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+/* harmony import */ var _utilities_graphql_fragments_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utilities/graphql/fragments.js */ "./node_modules/@apollo/client/utilities/graphql/fragments.js");
+/* harmony import */ var _utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utilities/graphql/storeUtils.js */ "./node_modules/@apollo/client/utilities/graphql/storeUtils.js");
+/* harmony import */ var _utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utilities/graphql/getFromAST.js */ "./node_modules/@apollo/client/utilities/graphql/getFromAST.js");
+/* harmony import */ var _utilities_graphql_directives_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utilities/graphql/directives.js */ "./node_modules/@apollo/client/utilities/graphql/directives.js");
+/* harmony import */ var _utilities_graphql_transform_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utilities/graphql/transform.js */ "./node_modules/@apollo/client/utilities/graphql/transform.js");
+/* harmony import */ var _utilities_common_mergeDeep_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utilities/common/mergeDeep.js */ "./node_modules/@apollo/client/utilities/common/mergeDeep.js");
+/* harmony import */ var optimism__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! optimism */ "./node_modules/@apollo/client/node_modules/optimism/lib/bundle.esm.js");
+/* harmony import */ var _utilities_common_maybeDeepFreeze_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../utilities/common/maybeDeepFreeze.js */ "./node_modules/@apollo/client/utilities/common/maybeDeepFreeze.js");
+/* harmony import */ var _helpers_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./helpers.js */ "./node_modules/@apollo/client/cache/inmemory/helpers.js");
+/* harmony import */ var _entityStore_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./entityStore.js */ "./node_modules/@apollo/client/cache/inmemory/entityStore.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+var StoreReader = (function () {
+    function StoreReader(config) {
+        var _this = this;
+        this.config = config;
+        this.config = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({ addTypename: true }, config);
+        var _a = this, executeSelectionSet = _a.executeSelectionSet, executeSubSelectedArray = _a.executeSubSelectedArray;
+        this.executeSelectionSet = Object(optimism__WEBPACK_IMPORTED_MODULE_8__["wrap"])(function (options) {
+            return executeSelectionSet.call(_this, options);
+        }, {
+            makeCacheKey: function (_a) {
+                var selectionSet = _a.selectionSet, objectOrReference = _a.objectOrReference, context = _a.context;
+                if (Object(_entityStore_js__WEBPACK_IMPORTED_MODULE_11__["supportsResultCaching"])(context.store)) {
+                    return context.store.makeCacheKey(selectionSet, context.varString, Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isReference"])(objectOrReference)
+                        ? objectOrReference.__ref
+                        : objectOrReference);
+                }
+            }
+        });
+        this.executeSubSelectedArray = Object(optimism__WEBPACK_IMPORTED_MODULE_8__["wrap"])(function (options) {
+            return executeSubSelectedArray.call(_this, options);
+        }, {
+            makeCacheKey: function (_a) {
+                var field = _a.field, array = _a.array, context = _a.context;
+                if (Object(_entityStore_js__WEBPACK_IMPORTED_MODULE_11__["supportsResultCaching"])(context.store)) {
+                    return context.store.makeCacheKey(field, array, context.varString);
+                }
+            }
+        });
+    }
+    StoreReader.prototype.readQueryFromStore = function (options) {
+        return this.diffQueryAgainstStore(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, options), { returnPartialData: false })).result;
+    };
+    StoreReader.prototype.diffQueryAgainstStore = function (_a) {
+        var store = _a.store, query = _a.query, _b = _a.rootId, rootId = _b === void 0 ? 'ROOT_QUERY' : _b, variables = _a.variables, _c = _a.returnPartialData, returnPartialData = _c === void 0 ? true : _c;
+        var policies = this.config.policies;
+        variables = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, Object(_utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["getDefaultValues"])(Object(_utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["getQueryDefinition"])(query))), variables);
+        var execResult = this.executeSelectionSet({
+            selectionSet: Object(_utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["getMainDefinition"])(query).selectionSet,
+            objectOrReference: Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["makeReference"])(rootId),
+            context: {
+                store: store,
+                query: query,
+                policies: policies,
+                variables: variables,
+                varString: JSON.stringify(variables),
+                fragmentMap: Object(_utilities_graphql_fragments_js__WEBPACK_IMPORTED_MODULE_2__["createFragmentMap"])(Object(_utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["getFragmentDefinitions"])(query)),
+                toReference: store.toReference,
+                getFieldValue: store.getFieldValue,
+            },
+        });
+        var hasMissingFields = execResult.missing && execResult.missing.length > 0;
+        if (hasMissingFields && !returnPartialData) {
+            throw execResult.missing[0];
+        }
+        return {
+            result: execResult.result,
+            complete: !hasMissingFields,
+        };
+    };
+    StoreReader.prototype.executeSelectionSet = function (_a) {
+        var _this = this;
+        var selectionSet = _a.selectionSet, objectOrReference = _a.objectOrReference, context = _a.context;
+        if (Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isReference"])(objectOrReference) &&
+            !context.policies.rootTypenamesById[objectOrReference.__ref] &&
+            !context.store.has(objectOrReference.__ref)) {
+            return {
+                result: {},
+                missing: [ false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_1__["InvariantError"]("Dangling reference to missing " + objectOrReference.__ref + " object")],
+            };
+        }
+        var fragmentMap = context.fragmentMap, variables = context.variables, policies = context.policies, store = context.store;
+        var objectsToMerge = [];
+        var finalResult = { result: null };
+        var typename = store.getFieldValue(objectOrReference, "__typename");
+        if (this.config.addTypename &&
+            typeof typename === "string" &&
+            !policies.rootIdsByTypename[typename]) {
+            objectsToMerge.push({ __typename: typename });
+        }
+        function getMissing() {
+            return finalResult.missing || (finalResult.missing = []);
+        }
+        function handleMissing(result) {
+            var _a;
+            if (result.missing)
+                (_a = getMissing()).push.apply(_a, result.missing);
+            return result.result;
+        }
+        var workSet = new Set(selectionSet.selections);
+        workSet.forEach(function (selection) {
+            var _a;
+            if (!Object(_utilities_graphql_directives_js__WEBPACK_IMPORTED_MODULE_5__["shouldInclude"])(selection, variables))
+                return;
+            if (Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isField"])(selection)) {
+                var fieldValue = policies.readField(objectOrReference, selection, context);
+                if (fieldValue === void 0) {
+                    if (!_utilities_graphql_transform_js__WEBPACK_IMPORTED_MODULE_6__["addTypenameToDocument"].added(selection)) {
+                        getMissing().push( false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_1__["InvariantError"]("Can't find field " + selection.name.value + " on " + (Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isReference"])(objectOrReference)
+                            ? objectOrReference.__ref + " object"
+                            : "object " + JSON.stringify(objectOrReference, null, 2))));
+                    }
+                }
+                else if (Array.isArray(fieldValue)) {
+                    fieldValue = handleMissing(_this.executeSubSelectedArray({
+                        field: selection,
+                        array: fieldValue,
+                        context: context,
+                    }));
+                }
+                else if (!selection.selectionSet) {
+                    if (true) {
+                        assertSelectionSetForIdValue(context.store, selection, fieldValue);
+                        Object(_utilities_common_maybeDeepFreeze_js__WEBPACK_IMPORTED_MODULE_9__["maybeDeepFreeze"])(fieldValue);
+                    }
+                }
+                else if (fieldValue != null) {
+                    fieldValue = handleMissing(_this.executeSelectionSet({
+                        selectionSet: selection.selectionSet,
+                        objectOrReference: fieldValue,
+                        context: context,
+                    }));
+                }
+                if (fieldValue !== void 0) {
+                    objectsToMerge.push((_a = {},
+                        _a[Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["resultKeyNameFromField"])(selection)] = fieldValue,
+                        _a));
+                }
+            }
+            else {
+                var fragment = void 0;
+                if (Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isInlineFragment"])(selection)) {
+                    fragment = selection;
+                }
+                else {
+                     false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(fragment = fragmentMap[selection.name.value], "No fragment named " + selection.name.value);
+                }
+                if (policies.fragmentMatches(fragment, typename)) {
+                    fragment.selectionSet.selections.forEach(workSet.add, workSet);
+                }
+            }
+        });
+        finalResult.result = Object(_utilities_common_mergeDeep_js__WEBPACK_IMPORTED_MODULE_7__["mergeDeepArray"])(objectsToMerge);
+        if (true) {
+            Object.freeze(finalResult.result);
+        }
+        return finalResult;
+    };
+    StoreReader.prototype.executeSubSelectedArray = function (_a) {
+        var _this = this;
+        var field = _a.field, array = _a.array, context = _a.context;
+        var missing;
+        function handleMissing(childResult) {
+            if (childResult.missing) {
+                missing = missing || [];
+                missing.push.apply(missing, childResult.missing);
+            }
+            return childResult.result;
+        }
+        array = array.map(function (item) {
+            if (item === null) {
+                return null;
+            }
+            if (Array.isArray(item)) {
+                return handleMissing(_this.executeSubSelectedArray({
+                    field: field,
+                    array: item,
+                    context: context,
+                }));
+            }
+            if (field.selectionSet) {
+                return handleMissing(_this.executeSelectionSet({
+                    selectionSet: field.selectionSet,
+                    objectOrReference: item,
+                    context: context,
+                }));
+            }
+            if (true) {
+                assertSelectionSetForIdValue(context.store, field, item);
+            }
+            return item;
+        });
+        if (true) {
+            Object.freeze(array);
+        }
+        return { result: array, missing: missing };
+    };
+    return StoreReader;
+}());
+function assertSelectionSetForIdValue(store, field, fieldValue) {
+    if (!field.selectionSet) {
+        var workSet_1 = new Set([fieldValue]);
+        workSet_1.forEach(function (value) {
+            if (value && typeof value === "object") {
+                 false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(!Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isReference"])(value), "Missing selection set for object of type " + Object(_helpers_js__WEBPACK_IMPORTED_MODULE_10__["getTypenameFromStoreObject"])(store, value) + " returned for query field " + field.name.value);
+                Object.values(value).forEach(workSet_1.add, workSet_1);
+            }
+        });
+    }
+}
+
+
+//# sourceMappingURL=readFromStore.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/cache/inmemory/writeToStore.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@apollo/client/cache/inmemory/writeToStore.js ***!
+  \********************************************************************/
+/*! exports provided: StoreWriter */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StoreWriter", function() { return StoreWriter; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+/* harmony import */ var _utilities_graphql_fragments_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utilities/graphql/fragments.js */ "./node_modules/@apollo/client/utilities/graphql/fragments.js");
+/* harmony import */ var _utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utilities/graphql/storeUtils.js */ "./node_modules/@apollo/client/utilities/graphql/storeUtils.js");
+/* harmony import */ var _utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utilities/graphql/getFromAST.js */ "./node_modules/@apollo/client/utilities/graphql/getFromAST.js");
+/* harmony import */ var _utilities_graphql_directives_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utilities/graphql/directives.js */ "./node_modules/@apollo/client/utilities/graphql/directives.js");
+/* harmony import */ var _utilities_common_cloneDeep_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utilities/common/cloneDeep.js */ "./node_modules/@apollo/client/utilities/common/cloneDeep.js");
+/* harmony import */ var _helpers_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers.js */ "./node_modules/@apollo/client/cache/inmemory/helpers.js");
+/* harmony import */ var _entityStore_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./entityStore.js */ "./node_modules/@apollo/client/cache/inmemory/entityStore.js");
+
+
+
+
+
+
+
+
+
+
+var StoreWriter = (function () {
+    function StoreWriter(config) {
+        this.policies = config.policies;
+    }
+    StoreWriter.prototype.writeQueryToStore = function (_a) {
+        var query = _a.query, result = _a.result, _b = _a.dataId, dataId = _b === void 0 ? 'ROOT_QUERY' : _b, _c = _a.store, store = _c === void 0 ? new _entityStore_js__WEBPACK_IMPORTED_MODULE_8__["EntityStore"].Root({
+            policies: this.policies,
+        }) : _c, variables = _a.variables;
+        var operationDefinition = Object(_utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["getOperationDefinition"])(query);
+        store.retain(dataId);
+        var merger = Object(_helpers_js__WEBPACK_IMPORTED_MODULE_7__["makeProcessedFieldsMerger"])();
+        return this.writeSelectionSetToStore({
+            result: result || Object.create(null),
+            dataId: dataId,
+            selectionSet: operationDefinition.selectionSet,
+            context: {
+                store: store,
+                written: Object.create(null),
+                merge: function (existing, incoming) {
+                    return merger.merge(existing, incoming);
+                },
+                variables: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, Object(_utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["getDefaultValues"])(operationDefinition)), variables),
+                fragmentMap: Object(_utilities_graphql_fragments_js__WEBPACK_IMPORTED_MODULE_2__["createFragmentMap"])(Object(_utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["getFragmentDefinitions"])(query)),
+                toReference: store.toReference,
+                getFieldValue: store.getFieldValue,
+            },
+        });
+    };
+    StoreWriter.prototype.writeSelectionSetToStore = function (_a) {
+        var dataId = _a.dataId, result = _a.result, selectionSet = _a.selectionSet, context = _a.context;
+        var policies = this.policies;
+        var store = context.store, written = context.written;
+        var sets = written[dataId] || (written[dataId] = []);
+        if (sets.indexOf(selectionSet) >= 0)
+            return store;
+        sets.push(selectionSet);
+        var typename = Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["getTypenameFromResult"])(result, selectionSet, context.fragmentMap) ||
+            store.get(dataId, "__typename");
+        var out = Object.create(null);
+        var processed = this.processSelectionSet({
+            result: result,
+            selectionSet: selectionSet,
+            context: context,
+            typename: typename,
+            out: out,
+        });
+        if (out.shouldApplyMerges) {
+            processed = policies.applyMerges(Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["makeReference"])(dataId), processed, context);
+        }
+        store.merge(dataId, processed);
+        return store;
+    };
+    StoreWriter.prototype.processSelectionSet = function (_a) {
+        var _this = this;
+        var result = _a.result, selectionSet = _a.selectionSet, context = _a.context, typename = _a.typename, out = _a.out;
+        var mergedFields = Object.create(null);
+        if (typeof typename === "string") {
+            mergedFields.__typename = typename;
+        }
+        var policies = this.policies;
+        var workSet = new Set(selectionSet.selections);
+        workSet.forEach(function (selection) {
+            var _a;
+            if (!Object(_utilities_graphql_directives_js__WEBPACK_IMPORTED_MODULE_5__["shouldInclude"])(selection, context.variables))
+                return;
+            if (Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isField"])(selection)) {
+                var resultFieldKey = Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["resultKeyNameFromField"])(selection);
+                var value = result[resultFieldKey];
+                if (typeof value !== 'undefined') {
+                    var storeFieldName = policies.getStoreFieldName(typename, selection, context.variables);
+                    var incomingValue = _this.processFieldValue(value, selection, context, out);
+                    if (policies.hasMergeFunction(typename, selection.name.value)) {
+                        incomingValue = {
+                            __field: selection,
+                            __typename: typename,
+                            __value: incomingValue,
+                        };
+                        out.shouldApplyMerges = true;
+                    }
+                    mergedFields = context.merge(mergedFields, (_a = {},
+                        _a[storeFieldName] = incomingValue,
+                        _a));
+                }
+                else if (policies.usingPossibleTypes &&
+                    !(selection.directives &&
+                        selection.directives.some(function (_a) {
+                            var name = _a.name;
+                            return name && (name.value === 'defer' || name.value === 'client');
+                        }))) {
+                     false || ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"].warn("Missing field " + resultFieldKey + " in " + JSON.stringify(result, null, 2).substring(0, 100));
+                }
+            }
+            else {
+                var fragment = Object(_utilities_graphql_fragments_js__WEBPACK_IMPORTED_MODULE_2__["getFragmentFromSelection"])(selection, context.fragmentMap);
+                if (policies.fragmentMatches(fragment, typename)) {
+                    fragment.selectionSet.selections.forEach(workSet.add, workSet);
+                }
+            }
+        });
+        return mergedFields;
+    };
+    StoreWriter.prototype.processFieldValue = function (value, field, context, out) {
+        var _this = this;
+        if (!field.selectionSet || value === null) {
+            return  false ? undefined : Object(_utilities_common_cloneDeep_js__WEBPACK_IMPORTED_MODULE_6__["cloneDeep"])(value);
+        }
+        if (Array.isArray(value)) {
+            return value.map(function (item, i) { return _this.processFieldValue(item, field, context, out); });
+        }
+        if (value) {
+            var dataId = this.policies.identify(value, field.selectionSet, context.fragmentMap);
+            if (typeof dataId === 'string') {
+                this.writeSelectionSetToStore({
+                    dataId: dataId,
+                    result: value,
+                    selectionSet: field.selectionSet,
+                    context: context,
+                });
+                return Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["makeReference"])(dataId);
+            }
+        }
+        return this.processSelectionSet({
+            result: value,
+            selectionSet: field.selectionSet,
+            context: context,
+            typename: Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["getTypenameFromResult"])(value, field.selectionSet, context.fragmentMap),
+            out: out,
+        });
+    };
+    return StoreWriter;
+}());
+
+
+//# sourceMappingURL=writeToStore.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/core/LocalState.js":
+/*!********************************************************!*\
+  !*** ./node_modules/@apollo/client/core/LocalState.js ***!
+  \********************************************************/
+/*! exports provided: LocalState */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LocalState", function() { return LocalState; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+/* harmony import */ var _utilities_graphql_fragments_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utilities/graphql/fragments.js */ "./node_modules/@apollo/client/utilities/graphql/fragments.js");
+/* harmony import */ var _utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utilities/graphql/storeUtils.js */ "./node_modules/@apollo/client/utilities/graphql/storeUtils.js");
+/* harmony import */ var _utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utilities/graphql/getFromAST.js */ "./node_modules/@apollo/client/utilities/graphql/getFromAST.js");
+/* harmony import */ var graphql_language_visitor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! graphql/language/visitor */ "./node_modules/graphql/language/visitor.mjs");
+/* harmony import */ var _utilities_graphql_directives_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utilities/graphql/directives.js */ "./node_modules/@apollo/client/utilities/graphql/directives.js");
+/* harmony import */ var _utilities_graphql_transform_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utilities/graphql/transform.js */ "./node_modules/@apollo/client/utilities/graphql/transform.js");
+/* harmony import */ var _utilities_common_mergeDeep_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utilities/common/mergeDeep.js */ "./node_modules/@apollo/client/utilities/common/mergeDeep.js");
+
+
+
+
+
+
+
+
+
+
+var LocalState = (function () {
+    function LocalState(_a) {
+        var cache = _a.cache, client = _a.client, resolvers = _a.resolvers, fragmentMatcher = _a.fragmentMatcher;
+        this.cache = cache;
+        if (client) {
+            this.client = client;
+        }
+        if (resolvers) {
+            this.addResolvers(resolvers);
+        }
+        if (fragmentMatcher) {
+            this.setFragmentMatcher(fragmentMatcher);
+        }
+    }
+    LocalState.prototype.addResolvers = function (resolvers) {
+        var _this = this;
+        this.resolvers = this.resolvers || {};
+        if (Array.isArray(resolvers)) {
+            resolvers.forEach(function (resolverGroup) {
+                _this.resolvers = Object(_utilities_common_mergeDeep_js__WEBPACK_IMPORTED_MODULE_8__["mergeDeep"])(_this.resolvers, resolverGroup);
+            });
+        }
+        else {
+            this.resolvers = Object(_utilities_common_mergeDeep_js__WEBPACK_IMPORTED_MODULE_8__["mergeDeep"])(this.resolvers, resolvers);
+        }
+    };
+    LocalState.prototype.setResolvers = function (resolvers) {
+        this.resolvers = {};
+        this.addResolvers(resolvers);
+    };
+    LocalState.prototype.getResolvers = function () {
+        return this.resolvers || {};
+    };
+    LocalState.prototype.runResolvers = function (_a) {
+        var document = _a.document, remoteResult = _a.remoteResult, context = _a.context, variables = _a.variables, _b = _a.onlyRunForcedResolvers, onlyRunForcedResolvers = _b === void 0 ? false : _b;
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_c) {
+                if (document) {
+                    return [2, this.resolveDocument(document, remoteResult.data, context, variables, this.fragmentMatcher, onlyRunForcedResolvers).then(function (localResult) { return (Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, remoteResult), { data: localResult.result })); })];
+                }
+                return [2, remoteResult];
+            });
+        });
+    };
+    LocalState.prototype.setFragmentMatcher = function (fragmentMatcher) {
+        this.fragmentMatcher = fragmentMatcher;
+    };
+    LocalState.prototype.getFragmentMatcher = function () {
+        return this.fragmentMatcher;
+    };
+    LocalState.prototype.clientQuery = function (document) {
+        if (Object(_utilities_graphql_directives_js__WEBPACK_IMPORTED_MODULE_6__["hasDirectives"])(['client'], document)) {
+            if (this.resolvers) {
+                return document;
+            }
+        }
+        return null;
+    };
+    LocalState.prototype.serverQuery = function (document) {
+        return Object(_utilities_graphql_transform_js__WEBPACK_IMPORTED_MODULE_7__["removeClientSetsFromDocument"])(document);
+    };
+    LocalState.prototype.prepareContext = function (context) {
+        var cache = this.cache;
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, context), { cache: cache,
+            getCacheKey: function (obj) {
+                return cache.identify(obj);
+            } });
+    };
+    LocalState.prototype.addExportedVariables = function (document, variables, context) {
+        if (variables === void 0) { variables = {}; }
+        if (context === void 0) { context = {}; }
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                if (document) {
+                    return [2, this.resolveDocument(document, this.buildRootValueFromCache(document, variables) || {}, this.prepareContext(context), variables).then(function (data) { return (Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, variables), data.exportedVariables)); })];
+                }
+                return [2, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, variables)];
+            });
+        });
+    };
+    LocalState.prototype.shouldForceResolvers = function (document) {
+        var forceResolvers = false;
+        Object(graphql_language_visitor__WEBPACK_IMPORTED_MODULE_5__["visit"])(document, {
+            Directive: {
+                enter: function (node) {
+                    if (node.name.value === 'client' && node.arguments) {
+                        forceResolvers = node.arguments.some(function (arg) {
+                            return arg.name.value === 'always' &&
+                                arg.value.kind === 'BooleanValue' &&
+                                arg.value.value === true;
+                        });
+                        if (forceResolvers) {
+                            return graphql_language_visitor__WEBPACK_IMPORTED_MODULE_5__["BREAK"];
+                        }
+                    }
+                },
+            },
+        });
+        return forceResolvers;
+    };
+    LocalState.prototype.buildRootValueFromCache = function (document, variables) {
+        return this.cache.diff({
+            query: Object(_utilities_graphql_transform_js__WEBPACK_IMPORTED_MODULE_7__["buildQueryFromSelectionSet"])(document),
+            variables: variables,
+            returnPartialData: true,
+            optimistic: false,
+        }).result;
+    };
+    LocalState.prototype.resolveDocument = function (document, rootValue, context, variables, fragmentMatcher, onlyRunForcedResolvers) {
+        if (context === void 0) { context = {}; }
+        if (variables === void 0) { variables = {}; }
+        if (fragmentMatcher === void 0) { fragmentMatcher = function () { return true; }; }
+        if (onlyRunForcedResolvers === void 0) { onlyRunForcedResolvers = false; }
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var mainDefinition, fragments, fragmentMap, definitionOperation, defaultOperationType, _a, cache, client, execContext;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_b) {
+                mainDefinition = Object(_utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["getMainDefinition"])(document);
+                fragments = Object(_utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["getFragmentDefinitions"])(document);
+                fragmentMap = Object(_utilities_graphql_fragments_js__WEBPACK_IMPORTED_MODULE_2__["createFragmentMap"])(fragments);
+                definitionOperation = mainDefinition
+                    .operation;
+                defaultOperationType = definitionOperation
+                    ? definitionOperation.charAt(0).toUpperCase() +
+                        definitionOperation.slice(1)
+                    : 'Query';
+                _a = this, cache = _a.cache, client = _a.client;
+                execContext = {
+                    fragmentMap: fragmentMap,
+                    context: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, context), { cache: cache,
+                        client: client }),
+                    variables: variables,
+                    fragmentMatcher: fragmentMatcher,
+                    defaultOperationType: defaultOperationType,
+                    exportedVariables: {},
+                    onlyRunForcedResolvers: onlyRunForcedResolvers,
+                };
+                return [2, this.resolveSelectionSet(mainDefinition.selectionSet, rootValue, execContext).then(function (result) { return ({
+                        result: result,
+                        exportedVariables: execContext.exportedVariables,
+                    }); })];
+            });
+        });
+    };
+    LocalState.prototype.resolveSelectionSet = function (selectionSet, rootValue, execContext) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var fragmentMap, context, variables, resultsToMerge, execute;
+            var _this = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                fragmentMap = execContext.fragmentMap, context = execContext.context, variables = execContext.variables;
+                resultsToMerge = [rootValue];
+                execute = function (selection) { return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this, void 0, void 0, function () {
+                    var fragment, typeCondition;
+                    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                        if (!Object(_utilities_graphql_directives_js__WEBPACK_IMPORTED_MODULE_6__["shouldInclude"])(selection, variables)) {
+                            return [2];
+                        }
+                        if (Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isField"])(selection)) {
+                            return [2, this.resolveField(selection, rootValue, execContext).then(function (fieldResult) {
+                                    var _a;
+                                    if (typeof fieldResult !== 'undefined') {
+                                        resultsToMerge.push((_a = {},
+                                            _a[Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["resultKeyNameFromField"])(selection)] = fieldResult,
+                                            _a));
+                                    }
+                                })];
+                        }
+                        if (Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isInlineFragment"])(selection)) {
+                            fragment = selection;
+                        }
+                        else {
+                            fragment = fragmentMap[selection.name.value];
+                             false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(fragment, "No fragment named " + selection.name.value);
+                        }
+                        if (fragment && fragment.typeCondition) {
+                            typeCondition = fragment.typeCondition.name.value;
+                            if (execContext.fragmentMatcher(rootValue, typeCondition, context)) {
+                                return [2, this.resolveSelectionSet(fragment.selectionSet, rootValue, execContext).then(function (fragmentResult) {
+                                        resultsToMerge.push(fragmentResult);
+                                    })];
+                            }
+                        }
+                        return [2];
+                    });
+                }); };
+                return [2, Promise.all(selectionSet.selections.map(execute)).then(function () {
+                        return Object(_utilities_common_mergeDeep_js__WEBPACK_IMPORTED_MODULE_8__["mergeDeepArray"])(resultsToMerge);
+                    })];
+            });
+        });
+    };
+    LocalState.prototype.resolveField = function (field, rootValue, execContext) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var variables, fieldName, aliasedFieldName, aliasUsed, defaultResult, resultPromise, resolverType, resolverMap, resolve;
+            var _this = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_a) {
+                variables = execContext.variables;
+                fieldName = field.name.value;
+                aliasedFieldName = Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["resultKeyNameFromField"])(field);
+                aliasUsed = fieldName !== aliasedFieldName;
+                defaultResult = rootValue[aliasedFieldName] || rootValue[fieldName];
+                resultPromise = Promise.resolve(defaultResult);
+                if (!execContext.onlyRunForcedResolvers ||
+                    this.shouldForceResolvers(field)) {
+                    resolverType = rootValue.__typename || execContext.defaultOperationType;
+                    resolverMap = this.resolvers && this.resolvers[resolverType];
+                    if (resolverMap) {
+                        resolve = resolverMap[aliasUsed ? fieldName : aliasedFieldName];
+                        if (resolve) {
+                            resultPromise = Promise.resolve(resolve(rootValue, Object(_utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["argumentsObjectFromField"])(field, variables), execContext.context, { field: field, fragmentMap: execContext.fragmentMap }));
+                        }
+                    }
+                }
+                return [2, resultPromise.then(function (result) {
+                        if (result === void 0) { result = defaultResult; }
+                        if (field.directives) {
+                            field.directives.forEach(function (directive) {
+                                if (directive.name.value === 'export' && directive.arguments) {
+                                    directive.arguments.forEach(function (arg) {
+                                        if (arg.name.value === 'as' && arg.value.kind === 'StringValue') {
+                                            execContext.exportedVariables[arg.value.value] = result;
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                        if (!field.selectionSet) {
+                            return result;
+                        }
+                        if (result == null) {
+                            return result;
+                        }
+                        if (Array.isArray(result)) {
+                            return _this.resolveSubSelectedArray(field, result, execContext);
+                        }
+                        if (field.selectionSet) {
+                            return _this.resolveSelectionSet(field.selectionSet, result, execContext);
+                        }
+                    })];
+            });
+        });
+    };
+    LocalState.prototype.resolveSubSelectedArray = function (field, result, execContext) {
+        var _this = this;
+        return Promise.all(result.map(function (item) {
+            if (item === null) {
+                return null;
+            }
+            if (Array.isArray(item)) {
+                return _this.resolveSubSelectedArray(field, item, execContext);
+            }
+            if (field.selectionSet) {
+                return _this.resolveSelectionSet(field.selectionSet, item, execContext);
+            }
+        }));
+    };
+    return LocalState;
+}());
+
+
+//# sourceMappingURL=LocalState.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/core/ObservableQuery.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@apollo/client/core/ObservableQuery.js ***!
+  \*************************************************************/
+/*! exports provided: ObservableQuery, hasError */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ObservableQuery", function() { return ObservableQuery; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasError", function() { return hasError; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+/* harmony import */ var zen_observable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! zen-observable */ "./node_modules/zen-observable/index.js");
+/* harmony import */ var zen_observable__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(zen_observable__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var symbol_observable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! symbol-observable */ "./node_modules/symbol-observable/es/index.js");
+/* harmony import */ var _utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utilities/graphql/getFromAST.js */ "./node_modules/@apollo/client/utilities/graphql/getFromAST.js");
+/* harmony import */ var _utilities_common_errorHandling_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utilities/common/errorHandling.js */ "./node_modules/@apollo/client/utilities/common/errorHandling.js");
+/* harmony import */ var _utilities_common_arrays_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utilities/common/arrays.js */ "./node_modules/@apollo/client/utilities/common/arrays.js");
+/* harmony import */ var _errors_ApolloError_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../errors/ApolloError.js */ "./node_modules/@apollo/client/errors/ApolloError.js");
+/* harmony import */ var _wry_equality__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wry/equality */ "./node_modules/@wry/equality/lib/equality.esm.js");
+/* harmony import */ var _utilities_common_cloneDeep_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utilities/common/cloneDeep.js */ "./node_modules/@apollo/client/utilities/common/cloneDeep.js");
+/* harmony import */ var _networkStatus_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./networkStatus.js */ "./node_modules/@apollo/client/core/networkStatus.js");
+/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./types.js */ "./node_modules/@apollo/client/core/types.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+var hasError = function (storeValue, policy) {
+    if (policy === void 0) { policy = 'none'; }
+    return storeValue && (storeValue.networkError ||
+        (policy === 'none' && Object(_utilities_common_arrays_js__WEBPACK_IMPORTED_MODULE_6__["isNonEmptyArray"])(storeValue.graphQLErrors)));
+};
+var ObservableQuery = (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(ObservableQuery, _super);
+    function ObservableQuery(_a) {
+        var queryManager = _a.queryManager, options = _a.options, _b = _a.shouldSubscribe, shouldSubscribe = _b === void 0 ? true : _b;
+        var _this = _super.call(this, function (observer) {
+            return _this.onSubscribe(observer);
+        }) || this;
+        _this.observers = new Set();
+        _this.subscriptions = new Set();
+        _this.observer = {
+            next: function (result) {
+                if (_this.lastError || _this.isDifferentFromLastResult(result)) {
+                    var queryManager = _this.queryManager;
+                    var _a = _this.options, query = _a.query, variables = _a.variables, fetchPolicy_1 = _a.fetchPolicy;
+                    var hasClientExports = queryManager.transform(query).hasClientExports;
+                    var previousResult_1 = _this.updateLastResult(result);
+                    if (hasClientExports) {
+                        queryManager.getLocalState().addExportedVariables(query, variables).then(function (variables) {
+                            var previousVariables = _this.variables;
+                            if (!result.loading &&
+                                previousResult_1 &&
+                                fetchPolicy_1 !== 'cache-only' &&
+                                !Object(_wry_equality__WEBPACK_IMPORTED_MODULE_8__["equal"])(previousVariables, variables)) {
+                                _this.setVariables(variables).then(function (updatedResult) {
+                                    iterateObserversSafely(_this.observers, 'next', updatedResult);
+                                });
+                            }
+                            else {
+                                _this.variables = _this.options.variables = variables;
+                                iterateObserversSafely(_this.observers, 'next', result);
+                            }
+                        });
+                    }
+                    else {
+                        iterateObserversSafely(_this.observers, 'next', result);
+                    }
+                }
+            },
+            error: function (error) {
+                _this.updateLastResult(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, _this.lastResult), { errors: error.graphQLErrors, networkStatus: _networkStatus_js__WEBPACK_IMPORTED_MODULE_10__["NetworkStatus"].error, loading: false }));
+                iterateObserversSafely(_this.observers, 'error', _this.lastError = error);
+            },
+        };
+        _this.isTornDown = false;
+        _this.options = options;
+        _this.variables = options.variables || {};
+        _this.queryId = queryManager.generateQueryId();
+        _this.watching = shouldSubscribe;
+        var opDef = Object(_utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["getOperationDefinition"])(options.query);
+        _this.queryName = opDef && opDef.name && opDef.name.value;
+        _this.queryManager = queryManager;
+        return _this;
+    }
+    ObservableQuery.prototype.result = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var observer = {
+                next: function (result) {
+                    resolve(result);
+                    _this.observers.delete(observer);
+                    if (!_this.observers.size) {
+                        _this.queryManager.removeQuery(_this.queryId);
+                    }
+                    setTimeout(function () {
+                        subscription.unsubscribe();
+                    }, 0);
+                },
+                error: reject,
+            };
+            var subscription = _this.subscribe(observer);
+        });
+    };
+    ObservableQuery.prototype.getCurrentResult = function () {
+        var _a = this, lastResult = _a.lastResult, lastError = _a.lastError, fetchPolicy = _a.options.fetchPolicy;
+        var isNetworkFetchPolicy = fetchPolicy === 'network-only' ||
+            fetchPolicy === 'no-cache';
+        var networkStatus = lastError ? _networkStatus_js__WEBPACK_IMPORTED_MODULE_10__["NetworkStatus"].error :
+            lastResult ? lastResult.networkStatus :
+                isNetworkFetchPolicy ? _networkStatus_js__WEBPACK_IMPORTED_MODULE_10__["NetworkStatus"].loading :
+                    _networkStatus_js__WEBPACK_IMPORTED_MODULE_10__["NetworkStatus"].ready;
+        var result = {
+            data: !lastError && lastResult && lastResult.data || void 0,
+            error: lastError,
+            loading: Object(_networkStatus_js__WEBPACK_IMPORTED_MODULE_10__["isNetworkRequestInFlight"])(networkStatus),
+            networkStatus: networkStatus,
+            stale: lastResult ? lastResult.stale : false,
+        };
+        if (this.isTornDown) {
+            return result;
+        }
+        var _b = this.queryManager.getCurrentQueryResult(this), data = _b.data, partial = _b.partial;
+        Object.assign(result, { data: data, partial: partial });
+        var queryStoreValue = this.queryManager.getQueryStoreValue(this.queryId);
+        if (queryStoreValue) {
+            var networkStatus_1 = queryStoreValue.networkStatus;
+            if (hasError(queryStoreValue, this.options.errorPolicy)) {
+                return Object.assign(result, {
+                    data: void 0,
+                    networkStatus: networkStatus_1,
+                    error: new _errors_ApolloError_js__WEBPACK_IMPORTED_MODULE_7__["ApolloError"]({
+                        graphQLErrors: queryStoreValue.graphQLErrors,
+                        networkError: queryStoreValue.networkError,
+                    }),
+                });
+            }
+            if (queryStoreValue.variables) {
+                this.variables = this.options.variables = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.options.variables), queryStoreValue.variables);
+            }
+            Object.assign(result, {
+                loading: Object(_networkStatus_js__WEBPACK_IMPORTED_MODULE_10__["isNetworkRequestInFlight"])(networkStatus_1),
+                networkStatus: networkStatus_1,
+            });
+            if (queryStoreValue.graphQLErrors && this.options.errorPolicy === 'all') {
+                result.errors = queryStoreValue.graphQLErrors;
+            }
+        }
+        if (!partial) {
+            result.stale = false;
+            this.updateLastResult(result);
+        }
+        return result;
+    };
+    ObservableQuery.prototype.isDifferentFromLastResult = function (newResult) {
+        var snapshot = this.lastResultSnapshot;
+        return !(snapshot &&
+            newResult &&
+            snapshot.networkStatus === newResult.networkStatus &&
+            snapshot.stale === newResult.stale &&
+            Object(_wry_equality__WEBPACK_IMPORTED_MODULE_8__["equal"])(snapshot.data, newResult.data));
+    };
+    ObservableQuery.prototype.getLastResult = function () {
+        return this.lastResult;
+    };
+    ObservableQuery.prototype.getLastError = function () {
+        return this.lastError;
+    };
+    ObservableQuery.prototype.resetLastResults = function () {
+        delete this.lastResult;
+        delete this.lastResultSnapshot;
+        delete this.lastError;
+        this.isTornDown = false;
+    };
+    ObservableQuery.prototype.resetQueryStoreErrors = function () {
+        var queryStore = this.queryManager.getQueryStoreValue(this.queryId);
+        if (queryStore) {
+            queryStore.networkError = null;
+            queryStore.graphQLErrors = [];
+        }
+    };
+    ObservableQuery.prototype.refetch = function (variables) {
+        var fetchPolicy = this.options.fetchPolicy;
+        if (fetchPolicy === 'cache-only') {
+            return Promise.reject( false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_1__["InvariantError"]('cache-only fetchPolicy option should not be used together with query refetch.'));
+        }
+        if (fetchPolicy !== 'no-cache' &&
+            fetchPolicy !== 'cache-and-network') {
+            fetchPolicy = 'network-only';
+        }
+        if (!Object(_wry_equality__WEBPACK_IMPORTED_MODULE_8__["equal"])(this.variables, variables)) {
+            this.variables = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.variables), variables);
+        }
+        if (!Object(_wry_equality__WEBPACK_IMPORTED_MODULE_8__["equal"])(this.options.variables, this.variables)) {
+            this.options.variables = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.options.variables), this.variables);
+        }
+        return this.queryManager.fetchQuery(this.queryId, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.options), { fetchPolicy: fetchPolicy }), _types_js__WEBPACK_IMPORTED_MODULE_11__["FetchType"].refetch);
+    };
+    ObservableQuery.prototype.fetchMore = function (fetchMoreOptions) {
+        var _this = this;
+        var combinedOptions = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, (fetchMoreOptions.query ? fetchMoreOptions : Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.options), fetchMoreOptions), { variables: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.variables), fetchMoreOptions.variables) }))), { fetchPolicy: 'network-only' });
+        var qid = this.queryManager.generateQueryId();
+        return this.queryManager
+            .fetchQuery(qid, combinedOptions, _types_js__WEBPACK_IMPORTED_MODULE_11__["FetchType"].normal, this.queryId)
+            .then(function (fetchMoreResult) {
+            _this.updateQuery(function (previousResult) {
+                var data = fetchMoreResult.data;
+                var updateQuery = fetchMoreOptions.updateQuery;
+                return updateQuery ? updateQuery(previousResult, {
+                    fetchMoreResult: data,
+                    variables: combinedOptions.variables,
+                }) : data;
+            });
+            _this.queryManager.stopQuery(qid);
+            return fetchMoreResult;
+        }, function (error) {
+            _this.queryManager.stopQuery(qid);
+            throw error;
+        });
+    };
+    ObservableQuery.prototype.subscribeToMore = function (options) {
+        var _this = this;
+        var subscription = this.queryManager
+            .startGraphQLSubscription({
+            query: options.document,
+            variables: options.variables,
+        })
+            .subscribe({
+            next: function (subscriptionData) {
+                var updateQuery = options.updateQuery;
+                if (updateQuery) {
+                    _this.updateQuery(function (previous, _a) {
+                        var variables = _a.variables;
+                        return updateQuery(previous, {
+                            subscriptionData: subscriptionData,
+                            variables: variables,
+                        });
+                    });
+                }
+            },
+            error: function (err) {
+                if (options.onError) {
+                    options.onError(err);
+                    return;
+                }
+                 false || ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"].error('Unhandled GraphQL subscription error', err);
+            },
+        });
+        this.subscriptions.add(subscription);
+        return function () {
+            if (_this.subscriptions.delete(subscription)) {
+                subscription.unsubscribe();
+            }
+        };
+    };
+    ObservableQuery.prototype.setOptions = function (opts) {
+        var oldFetchPolicy = this.options.fetchPolicy;
+        this.options = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.options), opts);
+        if (opts.pollInterval) {
+            this.startPolling(opts.pollInterval);
+        }
+        else if (opts.pollInterval === 0) {
+            this.stopPolling();
+        }
+        var fetchPolicy = opts.fetchPolicy;
+        return this.setVariables(this.options.variables, oldFetchPolicy !== fetchPolicy && (oldFetchPolicy === 'cache-only' ||
+            oldFetchPolicy === 'standby' ||
+            fetchPolicy === 'network-only'), opts.fetchResults);
+    };
+    ObservableQuery.prototype.setVariables = function (variables, tryFetch, fetchResults) {
+        if (tryFetch === void 0) { tryFetch = false; }
+        if (fetchResults === void 0) { fetchResults = true; }
+        this.isTornDown = false;
+        variables = variables || this.variables;
+        if (!tryFetch && Object(_wry_equality__WEBPACK_IMPORTED_MODULE_8__["equal"])(variables, this.variables)) {
+            return this.observers.size && fetchResults
+                ? this.result()
+                : Promise.resolve();
+        }
+        this.variables = this.options.variables = variables;
+        if (!this.observers.size) {
+            return Promise.resolve();
+        }
+        return this.queryManager.fetchQuery(this.queryId, this.options);
+    };
+    ObservableQuery.prototype.updateQuery = function (mapFn) {
+        var queryManager = this.queryManager;
+        var _a = queryManager.getQueryWithPreviousResult(this.queryId), previousResult = _a.previousResult, variables = _a.variables, document = _a.document;
+        var newResult = Object(_utilities_common_errorHandling_js__WEBPACK_IMPORTED_MODULE_5__["tryFunctionOrLogError"])(function () {
+            return mapFn(previousResult, { variables: variables });
+        });
+        if (newResult) {
+            queryManager.cache.write({
+                query: document,
+                result: newResult,
+                dataId: 'ROOT_QUERY',
+                variables: variables,
+            });
+            queryManager.broadcastQueries();
+        }
+    };
+    ObservableQuery.prototype.stopPolling = function () {
+        this.queryManager.stopPollingQuery(this.queryId);
+        this.options.pollInterval = undefined;
+    };
+    ObservableQuery.prototype.startPolling = function (pollInterval) {
+        this.options.pollInterval = pollInterval;
+        this.queryManager.startPollingQuery(this.options, this.queryId);
+    };
+    ObservableQuery.prototype.updateLastResult = function (newResult) {
+        var previousResult = this.lastResult;
+        this.lastResult = newResult;
+        this.lastResultSnapshot = this.queryManager.assumeImmutableResults
+            ? newResult
+            : Object(_utilities_common_cloneDeep_js__WEBPACK_IMPORTED_MODULE_9__["cloneDeep"])(newResult);
+        if (!Object(_utilities_common_arrays_js__WEBPACK_IMPORTED_MODULE_6__["isNonEmptyArray"])(newResult.errors)) {
+            delete this.lastError;
+        }
+        return previousResult;
+    };
+    ObservableQuery.prototype.onSubscribe = function (observer) {
+        var _this = this;
+        if (observer === this.observer) {
+            return function () { };
+        }
+        try {
+            var subObserver = observer._subscription._observer;
+            if (subObserver && !subObserver.error) {
+                subObserver.error = defaultSubscriptionObserverErrorCallback;
+            }
+        }
+        catch (_a) { }
+        var first = !this.observers.size;
+        this.observers.add(observer);
+        if (observer.next && this.lastResult)
+            observer.next(this.lastResult);
+        if (observer.error && this.lastError)
+            observer.error(this.lastError);
+        if (first) {
+            this.queryManager
+                .observeQuery(this, this.observer)
+                .catch(this.observer.error);
+        }
+        return function () {
+            if (_this.observers.delete(observer) && !_this.observers.size) {
+                _this.tearDownQuery();
+            }
+        };
+    };
+    ObservableQuery.prototype.tearDownQuery = function () {
+        var queryManager = this.queryManager;
+        this.isTornDown = true;
+        queryManager.stopPollingQuery(this.queryId);
+        this.subscriptions.forEach(function (sub) { return sub.unsubscribe(); });
+        this.subscriptions.clear();
+        queryManager.stopQuery(this.queryId);
+        this.observers.clear();
+    };
+    return ObservableQuery;
+}(zen_observable__WEBPACK_IMPORTED_MODULE_2___default.a));
+function defaultSubscriptionObserverErrorCallback(error) {
+     false || ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"].error('Unhandled error', error.message, error.stack);
+}
+function iterateObserversSafely(observers, method, argument) {
+    var observersWithMethod = [];
+    observers.forEach(function (obs) { return obs[method] && observersWithMethod.push(obs); });
+    observersWithMethod.forEach(function (obs) { return obs[method](argument); });
+}
+
+
+//# sourceMappingURL=ObservableQuery.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/core/QueryInfo.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/@apollo/client/core/QueryInfo.js ***!
+  \*******************************************************/
+/*! exports provided: QueryInfo */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QueryInfo", function() { return QueryInfo; });
+/* harmony import */ var _utilities_common_errorHandling_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utilities/common/errorHandling.js */ "./node_modules/@apollo/client/utilities/common/errorHandling.js");
+/* harmony import */ var _utilities_common_arrays_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utilities/common/arrays.js */ "./node_modules/@apollo/client/utilities/common/arrays.js");
+/* harmony import */ var _wry_equality__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wry/equality */ "./node_modules/@wry/equality/lib/equality.esm.js");
+/* harmony import */ var _networkStatus_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./networkStatus.js */ "./node_modules/@apollo/client/core/networkStatus.js");
+
+
+
+
+
+var QueryInfo = (function () {
+    function QueryInfo(cache) {
+        this.cache = cache;
+        this.listeners = new Set();
+        this.document = null;
+        this.lastRequestId = 1;
+        this.observableQuery = null;
+        this.subscriptions = new Set();
+        this.dirty = false;
+        this.diff = null;
+    }
+    QueryInfo.prototype.init = function (query) {
+        var networkStatus;
+        if (this.variables &&
+            this.networkStatus !== _networkStatus_js__WEBPACK_IMPORTED_MODULE_3__["NetworkStatus"].loading &&
+            !Object(_wry_equality__WEBPACK_IMPORTED_MODULE_2__["equal"])(this.variables, query.variables)) {
+            networkStatus = _networkStatus_js__WEBPACK_IMPORTED_MODULE_3__["NetworkStatus"].setVariables;
+        }
+        else if (query.isPoll) {
+            networkStatus = _networkStatus_js__WEBPACK_IMPORTED_MODULE_3__["NetworkStatus"].poll;
+        }
+        else if (query.isRefetch) {
+            networkStatus = _networkStatus_js__WEBPACK_IMPORTED_MODULE_3__["NetworkStatus"].refetch;
+        }
+        else {
+            networkStatus = _networkStatus_js__WEBPACK_IMPORTED_MODULE_3__["NetworkStatus"].loading;
+        }
+        Object.assign(this, {
+            document: query.document,
+            variables: query.variables,
+            networkError: null,
+            graphQLErrors: this && this.graphQLErrors || [],
+            networkStatus: networkStatus,
+        });
+        if (query.observableQuery) {
+            this.observableQuery = query.observableQuery;
+        }
+        if (query.lastRequestId) {
+            this.lastRequestId = query.lastRequestId;
+        }
+        return this;
+    };
+    QueryInfo.prototype.setDirty = function () {
+        var _this = this;
+        if (!this.dirty) {
+            this.dirty = true;
+            if (!this.notifyTimeout) {
+                this.notifyTimeout = setTimeout(function () { return _this.notify(); }, 0);
+            }
+        }
+        return this;
+    };
+    QueryInfo.prototype.setDiff = function (diff) {
+        var _a, _b;
+        var oldDiff = this.diff;
+        this.diff = diff;
+        if (!this.dirty && ((_a = diff) === null || _a === void 0 ? void 0 : _a.result) !== ((_b = oldDiff) === null || _b === void 0 ? void 0 : _b.result)) {
+            this.setDirty();
+        }
+    };
+    QueryInfo.prototype.getDiff = function () {
+        if (!this.diff) {
+            var oq = this.observableQuery;
+            var lastResult = oq && oq.getLastResult();
+            var lastError = oq && oq.getLastError();
+            var fetchPolicy = oq && oq.options.fetchPolicy || "cache-first";
+            var errorPolicy = this.getErrorPolicy();
+            var errorStatusChanged = errorPolicy !== 'none' &&
+                (lastError && lastError.graphQLErrors) !== this.graphQLErrors;
+            if (lastResult && lastResult.data && !errorStatusChanged) {
+                this.diff = {
+                    result: lastResult.data,
+                    complete: true,
+                };
+            }
+            else if (fetchPolicy !== "no-cache" &&
+                fetchPolicy !== "network-only") {
+                this.diff = this.cache.diff({
+                    query: this.document,
+                    variables: this.variables,
+                    returnPartialData: true,
+                    optimistic: true,
+                });
+            }
+        }
+        return this.diff;
+    };
+    QueryInfo.prototype.getErrorPolicy = function () {
+        var oq = this.observableQuery;
+        return oq && oq.options.errorPolicy || "none";
+    };
+    QueryInfo.prototype.notify = function () {
+        var _this = this;
+        if (this.notifyTimeout) {
+            clearTimeout(this.notifyTimeout);
+            this.notifyTimeout = void 0;
+        }
+        if (this.shouldNotify() && this.getDiff()) {
+            this.listeners.forEach(function (listener) { return listener(_this); });
+        }
+        this.dirty = false;
+    };
+    QueryInfo.prototype.shouldNotify = function () {
+        if (!this.dirty || !this.listeners.size) {
+            return false;
+        }
+        if (!this.observableQuery) {
+            return true;
+        }
+        var _a = this.observableQuery.options, fetchPolicy = _a.fetchPolicy, returnPartialData = _a.returnPartialData, notifyOnNetworkStatusChange = _a.notifyOnNetworkStatusChange;
+        if (fetchPolicy === "standby") {
+            return false;
+        }
+        if (Object(_networkStatus_js__WEBPACK_IMPORTED_MODULE_3__["isNetworkRequestInFlight"])(this.networkStatus)) {
+            var lastResult = this.observableQuery.getLastResult();
+            var networkStatusChanged = !!(lastResult &&
+                lastResult.networkStatus !== this.networkStatus);
+            var shouldNotifyIfLoading = returnPartialData ||
+                this.networkStatus === _networkStatus_js__WEBPACK_IMPORTED_MODULE_3__["NetworkStatus"].setVariables ||
+                (networkStatusChanged && notifyOnNetworkStatusChange) ||
+                fetchPolicy === 'cache-only' ||
+                fetchPolicy === 'cache-and-network';
+            if (!shouldNotifyIfLoading) {
+                return false;
+            }
+        }
+        return true;
+    };
+    QueryInfo.prototype.stop = function () {
+        this.cancel();
+        delete this.cancel;
+        this.variables =
+            this.networkStatus =
+                this.networkError =
+                    this.graphQLErrors = void 0;
+    };
+    QueryInfo.prototype.cancel = function () { };
+    QueryInfo.prototype.updateWatch = function (options) {
+        var _this = this;
+        this.cancel();
+        var previousResult = function () {
+            var previousResult = null;
+            var observableQuery = _this.observableQuery;
+            if (observableQuery) {
+                var lastResult = observableQuery.getLastResult();
+                if (lastResult) {
+                    previousResult = lastResult.data;
+                }
+            }
+            return previousResult;
+        };
+        this.cancel = this.cache.watch({
+            query: this.document,
+            variables: options.variables,
+            optimistic: true,
+            previousResult: previousResult,
+            callback: function (diff) {
+                _this.setDiff(diff);
+            },
+        });
+        return this;
+    };
+    QueryInfo.prototype.markResult = function (result, _a, allowCacheWrite, makeReady) {
+        var fetchPolicy = _a.fetchPolicy, variables = _a.variables, errorPolicy = _a.errorPolicy;
+        if (fetchPolicy === 'no-cache') {
+            this.setDiff({ result: result.data, complete: true });
+        }
+        else if (allowCacheWrite) {
+            var ignoreErrors = errorPolicy === 'ignore' || errorPolicy === 'all';
+            var writeWithErrors = !Object(_utilities_common_errorHandling_js__WEBPACK_IMPORTED_MODULE_0__["graphQLResultHasError"])(result);
+            if (!writeWithErrors && ignoreErrors && result.data) {
+                writeWithErrors = true;
+            }
+            if (writeWithErrors) {
+                this.cache.write({
+                    result: result.data,
+                    dataId: 'ROOT_QUERY',
+                    query: this.document,
+                    variables: variables,
+                });
+            }
+        }
+        if (makeReady) {
+            this.networkError = null;
+            this.graphQLErrors = Object(_utilities_common_arrays_js__WEBPACK_IMPORTED_MODULE_1__["isNonEmptyArray"])(result.errors) ? result.errors : [];
+            this.networkStatus = _networkStatus_js__WEBPACK_IMPORTED_MODULE_3__["NetworkStatus"].ready;
+        }
+    };
+    QueryInfo.prototype.markError = function (error) {
+        this.networkError = error;
+        this.networkStatus = _networkStatus_js__WEBPACK_IMPORTED_MODULE_3__["NetworkStatus"].error;
+    };
+    return QueryInfo;
+}());
+
+
+//# sourceMappingURL=QueryInfo.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/core/QueryManager.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@apollo/client/core/QueryManager.js ***!
+  \**********************************************************/
+/*! exports provided: QueryManager */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QueryManager", function() { return QueryManager; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+/* harmony import */ var zen_observable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! zen-observable */ "./node_modules/zen-observable/index.js");
+/* harmony import */ var zen_observable__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(zen_observable__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var symbol_observable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! symbol-observable */ "./node_modules/symbol-observable/es/index.js");
+/* harmony import */ var _utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utilities/graphql/getFromAST.js */ "./node_modules/@apollo/client/utilities/graphql/getFromAST.js");
+/* harmony import */ var _link_core_execute_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../link/core/execute.js */ "./node_modules/@apollo/client/link/core/execute.js");
+/* harmony import */ var _utilities_graphql_directives_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utilities/graphql/directives.js */ "./node_modules/@apollo/client/utilities/graphql/directives.js");
+/* harmony import */ var _utilities_common_errorHandling_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utilities/common/errorHandling.js */ "./node_modules/@apollo/client/utilities/common/errorHandling.js");
+/* harmony import */ var _utilities_graphql_transform_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utilities/graphql/transform.js */ "./node_modules/@apollo/client/utilities/graphql/transform.js");
+/* harmony import */ var _utilities_common_canUse_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utilities/common/canUse.js */ "./node_modules/@apollo/client/utilities/common/canUse.js");
+/* harmony import */ var _utilities_common_arrays_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utilities/common/arrays.js */ "./node_modules/@apollo/client/utilities/common/arrays.js");
+/* harmony import */ var _errors_ApolloError_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../errors/ApolloError.js */ "./node_modules/@apollo/client/errors/ApolloError.js");
+/* harmony import */ var _data_mutations_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../data/mutations.js */ "./node_modules/@apollo/client/data/mutations.js");
+/* harmony import */ var _networkStatus_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./networkStatus.js */ "./node_modules/@apollo/client/core/networkStatus.js");
+/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./types.js */ "./node_modules/@apollo/client/core/types.js");
+/* harmony import */ var _ObservableQuery_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./ObservableQuery.js */ "./node_modules/@apollo/client/core/ObservableQuery.js");
+/* harmony import */ var _LocalState_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./LocalState.js */ "./node_modules/@apollo/client/core/LocalState.js");
+/* harmony import */ var _utilities_observables_observables_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../utilities/observables/observables.js */ "./node_modules/@apollo/client/utilities/observables/observables.js");
+/* harmony import */ var _QueryInfo_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./QueryInfo.js */ "./node_modules/@apollo/client/core/QueryInfo.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var QueryManager = (function () {
+    function QueryManager(_a) {
+        var cache = _a.cache, link = _a.link, _b = _a.queryDeduplication, queryDeduplication = _b === void 0 ? false : _b, _c = _a.onBroadcast, onBroadcast = _c === void 0 ? function () { return undefined; } : _c, _d = _a.ssrMode, ssrMode = _d === void 0 ? false : _d, _e = _a.clientAwareness, clientAwareness = _e === void 0 ? {} : _e, localState = _a.localState, assumeImmutableResults = _a.assumeImmutableResults;
+        this.mutationStore = new _data_mutations_js__WEBPACK_IMPORTED_MODULE_12__["MutationStore"]();
+        this.clientAwareness = {};
+        this.idCounter = 1;
+        this.queries = new Map();
+        this.fetchQueryRejectFns = new Map();
+        this.transformCache = new (_utilities_common_canUse_js__WEBPACK_IMPORTED_MODULE_9__["canUseWeakMap"] ? WeakMap : Map)();
+        this.inFlightLinkObservables = new Map();
+        this.pollingInfoByQueryId = new Map();
+        this.cache = cache;
+        this.link = link;
+        this.queryDeduplication = queryDeduplication;
+        this.onBroadcast = onBroadcast;
+        this.clientAwareness = clientAwareness;
+        this.localState = localState || new _LocalState_js__WEBPACK_IMPORTED_MODULE_16__["LocalState"]({ cache: cache });
+        this.ssrMode = ssrMode;
+        this.assumeImmutableResults = !!assumeImmutableResults;
+    }
+    QueryManager.prototype.stop = function () {
+        var _this = this;
+        this.queries.forEach(function (_info, queryId) {
+            _this.stopQueryNoBroadcast(queryId);
+        });
+        this.fetchQueryRejectFns.forEach(function (reject) {
+            reject( false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_1__["InvariantError"]('QueryManager stopped while query was in flight'));
+        });
+    };
+    QueryManager.prototype.mutate = function (_a) {
+        var mutation = _a.mutation, variables = _a.variables, optimisticResponse = _a.optimisticResponse, updateQueriesByName = _a.updateQueries, _b = _a.refetchQueries, refetchQueries = _b === void 0 ? [] : _b, _c = _a.awaitRefetchQueries, awaitRefetchQueries = _c === void 0 ? false : _c, updateWithProxyFn = _a.update, _d = _a.errorPolicy, errorPolicy = _d === void 0 ? 'none' : _d, fetchPolicy = _a.fetchPolicy, _e = _a.context, context = _e === void 0 ? {} : _e;
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var mutationId, generateUpdateQueriesInfo, optimistic_1, self;
+            var _this = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_f) {
+                switch (_f.label) {
+                    case 0:
+                         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(mutation, 'mutation option is required. You must specify your GraphQL document in the mutation option.');
+                         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(!fetchPolicy || fetchPolicy === 'no-cache', "Mutations only support a 'no-cache' fetchPolicy. If you don't want to disable the cache, remove your fetchPolicy setting to proceed with the default mutation behavior.");
+                        mutationId = this.generateQueryId();
+                        mutation = this.transform(mutation).document;
+                        variables = this.getVariables(mutation, variables);
+                        if (!this.transform(mutation).hasClientExports) return [3, 2];
+                        return [4, this.localState.addExportedVariables(mutation, variables, context)];
+                    case 1:
+                        variables = _f.sent();
+                        _f.label = 2;
+                    case 2:
+                        generateUpdateQueriesInfo = function () {
+                            var ret = {};
+                            if (updateQueriesByName) {
+                                _this.queries.forEach(function (_a, queryId) {
+                                    var observableQuery = _a.observableQuery;
+                                    if (observableQuery &&
+                                        observableQuery.watching) {
+                                        var queryName = observableQuery.queryName;
+                                        if (queryName &&
+                                            hasOwnProperty.call(updateQueriesByName, queryName)) {
+                                            ret[queryId] = {
+                                                updater: updateQueriesByName[queryName],
+                                                queryInfo: _this.queries.get(queryId),
+                                            };
+                                        }
+                                    }
+                                });
+                            }
+                            return ret;
+                        };
+                        this.mutationStore.initMutation(mutationId, mutation, variables);
+                        if (optimisticResponse) {
+                            optimistic_1 = typeof optimisticResponse === 'function'
+                                ? optimisticResponse(variables)
+                                : optimisticResponse;
+                            this.cache.recordOptimisticTransaction(function (cache) {
+                                markMutationResult({
+                                    mutationId: mutationId,
+                                    result: { data: optimistic_1 },
+                                    document: mutation,
+                                    variables: variables,
+                                    queryUpdatersById: generateUpdateQueriesInfo(),
+                                    update: updateWithProxyFn,
+                                }, cache);
+                            }, mutationId);
+                        }
+                        this.broadcastQueries();
+                        self = this;
+                        return [2, new Promise(function (resolve, reject) {
+                                var storeResult;
+                                var error;
+                                self.getObservableFromLink(mutation, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, context), { optimisticResponse: optimisticResponse }), variables, false).subscribe({
+                                    next: function (result) {
+                                        if (Object(_utilities_common_errorHandling_js__WEBPACK_IMPORTED_MODULE_7__["graphQLResultHasError"])(result) && errorPolicy === 'none') {
+                                            error = new _errors_ApolloError_js__WEBPACK_IMPORTED_MODULE_11__["ApolloError"]({
+                                                graphQLErrors: result.errors,
+                                            });
+                                            return;
+                                        }
+                                        self.mutationStore.markMutationResult(mutationId);
+                                        if (fetchPolicy !== 'no-cache') {
+                                            markMutationResult({
+                                                mutationId: mutationId,
+                                                result: result,
+                                                document: mutation,
+                                                variables: variables,
+                                                queryUpdatersById: generateUpdateQueriesInfo(),
+                                                update: updateWithProxyFn,
+                                            }, self.cache);
+                                        }
+                                        storeResult = result;
+                                    },
+                                    error: function (err) {
+                                        self.mutationStore.markMutationError(mutationId, err);
+                                        if (optimisticResponse) {
+                                            self.cache.removeOptimistic(mutationId);
+                                        }
+                                        self.broadcastQueries();
+                                        reject(new _errors_ApolloError_js__WEBPACK_IMPORTED_MODULE_11__["ApolloError"]({
+                                            networkError: err,
+                                        }));
+                                    },
+                                    complete: function () {
+                                        if (error) {
+                                            self.mutationStore.markMutationError(mutationId, error);
+                                        }
+                                        if (optimisticResponse) {
+                                            self.cache.removeOptimistic(mutationId);
+                                        }
+                                        self.broadcastQueries();
+                                        if (error) {
+                                            reject(error);
+                                            return;
+                                        }
+                                        if (typeof refetchQueries === 'function') {
+                                            refetchQueries = refetchQueries(storeResult);
+                                        }
+                                        var refetchQueryPromises = [];
+                                        if (Object(_utilities_common_arrays_js__WEBPACK_IMPORTED_MODULE_10__["isNonEmptyArray"])(refetchQueries)) {
+                                            refetchQueries.forEach(function (refetchQuery) {
+                                                if (typeof refetchQuery === 'string') {
+                                                    self.queries.forEach(function (_a) {
+                                                        var observableQuery = _a.observableQuery;
+                                                        if (observableQuery &&
+                                                            observableQuery.watching &&
+                                                            observableQuery.queryName === refetchQuery) {
+                                                            refetchQueryPromises.push(observableQuery.refetch());
+                                                        }
+                                                    });
+                                                }
+                                                else {
+                                                    var queryOptions = {
+                                                        query: refetchQuery.query,
+                                                        variables: refetchQuery.variables,
+                                                        fetchPolicy: 'network-only',
+                                                    };
+                                                    if (refetchQuery.context) {
+                                                        queryOptions.context = refetchQuery.context;
+                                                    }
+                                                    refetchQueryPromises.push(self.query(queryOptions));
+                                                }
+                                            });
+                                        }
+                                        Promise.all(awaitRefetchQueries ? refetchQueryPromises : []).then(function () {
+                                            if (errorPolicy === 'ignore' &&
+                                                storeResult &&
+                                                Object(_utilities_common_errorHandling_js__WEBPACK_IMPORTED_MODULE_7__["graphQLResultHasError"])(storeResult)) {
+                                                delete storeResult.errors;
+                                            }
+                                            resolve(storeResult);
+                                        });
+                                    },
+                                });
+                            })];
+                }
+            });
+        });
+    };
+    QueryManager.prototype.fetchQuery = function (queryId, options, fetchType, fetchMoreForQueryId) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function () {
+            var _a, fetchPolicy, _b, context, query, variables, storeResult, isNetworkOnly, needToFetch, _c, complete, result, shouldFetch, requestId, queryInfo, networkResult;
+            var _this = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_d) {
+                switch (_d.label) {
+                    case 0:
+                        _a = options.fetchPolicy, fetchPolicy = _a === void 0 ? 'cache-first' : _a, _b = options.context, context = _b === void 0 ? {} : _b;
+                        query = this.transform(options.query).document;
+                        variables = this.getVariables(query, options.variables);
+                        if (!this.transform(query).hasClientExports) return [3, 2];
+                        return [4, this.localState.addExportedVariables(query, variables, context)];
+                    case 1:
+                        variables = _d.sent();
+                        _d.label = 2;
+                    case 2:
+                        options = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, options), { variables: variables });
+                        isNetworkOnly = fetchPolicy === 'network-only' || fetchPolicy === 'no-cache';
+                        needToFetch = isNetworkOnly;
+                        if (!isNetworkOnly) {
+                            _c = this.cache.diff({
+                                query: query,
+                                variables: variables,
+                                returnPartialData: true,
+                                optimistic: false,
+                            }), complete = _c.complete, result = _c.result;
+                            needToFetch = !complete || fetchPolicy === 'cache-and-network';
+                            storeResult = result;
+                        }
+                        shouldFetch = needToFetch && fetchPolicy !== 'cache-only' && fetchPolicy !== 'standby';
+                        if (Object(_utilities_graphql_directives_js__WEBPACK_IMPORTED_MODULE_6__["hasDirectives"])(['live'], query))
+                            shouldFetch = true;
+                        requestId = this.idCounter++;
+                        queryInfo = this.getQuery(queryId).init({
+                            document: query,
+                            variables: variables,
+                            isPoll: fetchType === _types_js__WEBPACK_IMPORTED_MODULE_14__["FetchType"].poll,
+                            isRefetch: fetchType === _types_js__WEBPACK_IMPORTED_MODULE_14__["FetchType"].refetch,
+                            lastRequestId: requestId,
+                        }).updateWatch(options);
+                        this.dirty(queryId);
+                        this.dirty(fetchMoreForQueryId);
+                        this.setNetStatus(fetchMoreForQueryId, _networkStatus_js__WEBPACK_IMPORTED_MODULE_13__["NetworkStatus"].fetchMore);
+                        if (shouldFetch) {
+                            this.broadcastQueries();
+                            networkResult = this.fetchRequest({
+                                requestId: requestId,
+                                queryId: queryId,
+                                document: query,
+                                options: options,
+                                fetchMoreForQueryId: fetchMoreForQueryId,
+                            }).catch(function (error) {
+                                if (Object(_errors_ApolloError_js__WEBPACK_IMPORTED_MODULE_11__["isApolloError"])(error)) {
+                                    throw error;
+                                }
+                                else {
+                                    if (requestId >= _this.getQuery(queryId).lastRequestId) {
+                                        queryInfo.markError(error);
+                                        _this.setNetStatus(fetchMoreForQueryId, _networkStatus_js__WEBPACK_IMPORTED_MODULE_13__["NetworkStatus"].ready);
+                                        _this.dirty(queryId);
+                                        _this.dirty(fetchMoreForQueryId);
+                                        _this.broadcastQueries();
+                                    }
+                                    throw new _errors_ApolloError_js__WEBPACK_IMPORTED_MODULE_11__["ApolloError"]({ networkError: error });
+                                }
+                            });
+                            if (fetchPolicy !== 'cache-and-network') {
+                                return [2, networkResult];
+                            }
+                            networkResult.catch(function () { });
+                        }
+                        this.setNetStatus(queryId, shouldFetch ? queryInfo.networkStatus : _networkStatus_js__WEBPACK_IMPORTED_MODULE_13__["NetworkStatus"].ready);
+                        this.dirty(queryId);
+                        this.dirty(fetchMoreForQueryId);
+                        if (this.transform(query).hasForcedResolvers) {
+                            return [2, this.localState.runResolvers({
+                                    document: query,
+                                    remoteResult: { data: storeResult },
+                                    context: context,
+                                    variables: variables,
+                                    onlyRunForcedResolvers: true,
+                                }).then(function (result) {
+                                    queryInfo.markResult(result, options, !fetchMoreForQueryId, false);
+                                    _this.broadcastQueries();
+                                    return result;
+                                })];
+                        }
+                        this.broadcastQueries();
+                        return [2, { data: storeResult }];
+                }
+            });
+        });
+    };
+    QueryManager.prototype.getQueryStore = function () {
+        var store = Object.create(null);
+        this.queries.forEach(function (info, queryId) {
+            store[queryId] = {
+                variables: info.variables,
+                networkStatus: info.networkStatus,
+                networkError: info.networkError,
+                graphQLErrors: info.graphQLErrors,
+            };
+        });
+        return store;
+    };
+    QueryManager.prototype.getQueryStoreValue = function (queryId) {
+        return queryId && this.queries.get(queryId);
+    };
+    QueryManager.prototype.setNetStatus = function (queryId, status) {
+        var queryInfo = queryId && this.getQuery(queryId);
+        if (queryInfo) {
+            queryInfo.networkStatus = status;
+            if (status === _networkStatus_js__WEBPACK_IMPORTED_MODULE_13__["NetworkStatus"].ready) {
+                queryInfo.networkError = null;
+            }
+        }
+    };
+    QueryManager.prototype.queryListenerForObserver = function (queryId, observer) {
+        return function (info) {
+            var observableQuery = info.observableQuery, networkStatus = info.networkStatus, networkError = info.networkError, graphQLErrors = info.graphQLErrors;
+            var _a = observableQuery.options, fetchPolicy = _a.fetchPolicy, _b = _a.errorPolicy, errorPolicy = _b === void 0 ? 'none' : _b, returnPartialData = _a.returnPartialData, partialRefetch = _a.partialRefetch;
+            var hasGraphQLErrors = Object(_utilities_common_arrays_js__WEBPACK_IMPORTED_MODULE_10__["isNonEmptyArray"])(graphQLErrors);
+            if (errorPolicy === 'none' && hasGraphQLErrors || networkError) {
+                observer.error(new _errors_ApolloError_js__WEBPACK_IMPORTED_MODULE_11__["ApolloError"]({
+                    graphQLErrors: graphQLErrors,
+                    networkError: networkError,
+                }));
+                return;
+            }
+            var diff = info.getDiff();
+            var stale = !diff.complete && !(returnPartialData ||
+                partialRefetch ||
+                fetchPolicy === 'cache-only');
+            var lastResult = observableQuery.getLastResult();
+            var resultFromStore = {
+                data: stale ? lastResult && lastResult.data : diff.result,
+                loading: Object(_networkStatus_js__WEBPACK_IMPORTED_MODULE_13__["isNetworkRequestInFlight"])(networkStatus),
+                networkStatus: networkStatus,
+                stale: stale,
+            };
+            if (errorPolicy === 'all' && hasGraphQLErrors) {
+                resultFromStore.errors = graphQLErrors;
+            }
+            observer.next(resultFromStore);
+        };
+    };
+    QueryManager.prototype.transform = function (document) {
+        var transformCache = this.transformCache;
+        if (!transformCache.has(document)) {
+            var transformed = this.cache.transformDocument(document);
+            var forLink = Object(_utilities_graphql_transform_js__WEBPACK_IMPORTED_MODULE_8__["removeConnectionDirectiveFromDocument"])(this.cache.transformForLink(transformed));
+            var clientQuery = this.localState.clientQuery(transformed);
+            var serverQuery = this.localState.serverQuery(forLink);
+            var cacheEntry_1 = {
+                document: transformed,
+                hasClientExports: Object(_utilities_graphql_directives_js__WEBPACK_IMPORTED_MODULE_6__["hasClientExports"])(transformed),
+                hasForcedResolvers: this.localState.shouldForceResolvers(transformed),
+                clientQuery: clientQuery,
+                serverQuery: serverQuery,
+                defaultVars: Object(_utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["getDefaultValues"])(Object(_utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["getOperationDefinition"])(transformed)),
+            };
+            var add = function (doc) {
+                if (doc && !transformCache.has(doc)) {
+                    transformCache.set(doc, cacheEntry_1);
+                }
+            };
+            add(document);
+            add(transformed);
+            add(clientQuery);
+            add(serverQuery);
+        }
+        return transformCache.get(document);
+    };
+    QueryManager.prototype.getVariables = function (document, variables) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.transform(document).defaultVars), variables);
+    };
+    QueryManager.prototype.watchQuery = function (options, shouldSubscribe) {
+        if (shouldSubscribe === void 0) { shouldSubscribe = true; }
+        options = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, options), { variables: this.getVariables(options.query, options.variables) });
+        if (typeof options.notifyOnNetworkStatusChange === 'undefined') {
+            options.notifyOnNetworkStatusChange = false;
+        }
+        var observable = new _ObservableQuery_js__WEBPACK_IMPORTED_MODULE_15__["ObservableQuery"]({
+            queryManager: this,
+            options: options,
+            shouldSubscribe: shouldSubscribe,
+        });
+        this.getQuery(observable.queryId).init({
+            document: options.query,
+            observableQuery: observable,
+            variables: options.variables,
+            isPoll: false,
+            isRefetch: false,
+        });
+        return observable;
+    };
+    QueryManager.prototype.query = function (options) {
+        var _this = this;
+         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(options.query, 'query option is required. You must specify your GraphQL document ' +
+            'in the query option.');
+         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(options.query.kind === 'Document', 'You must wrap the query string in a "gql" tag.');
+         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(!options.returnPartialData, 'returnPartialData option only supported on watchQuery.');
+         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(!options.pollInterval, 'pollInterval option only supported on watchQuery.');
+        return new Promise(function (resolve, reject) {
+            var watchedQuery = _this.watchQuery(options, false);
+            _this.fetchQueryRejectFns.set("query:" + watchedQuery.queryId, reject);
+            watchedQuery
+                .result()
+                .then(resolve, reject)
+                .then(function () {
+                return _this.fetchQueryRejectFns.delete("query:" + watchedQuery.queryId);
+            });
+        });
+    };
+    QueryManager.prototype.generateQueryId = function () {
+        return String(this.idCounter++);
+    };
+    QueryManager.prototype.stopQueryInStore = function (queryId) {
+        this.stopQueryInStoreNoBroadcast(queryId);
+        this.broadcastQueries();
+    };
+    QueryManager.prototype.stopQueryInStoreNoBroadcast = function (queryId) {
+        var queryInfo = this.queries.get(queryId);
+        if (queryInfo)
+            queryInfo.stop();
+        this.stopPollingQuery(queryId);
+    };
+    QueryManager.prototype.addQueryListener = function (queryId, listener) {
+        this.getQuery(queryId).listeners.add(listener);
+    };
+    QueryManager.prototype.clearStore = function () {
+        this.fetchQueryRejectFns.forEach(function (reject) {
+            reject( false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_1__["InvariantError"]('Store reset while query was in flight (not completed in link chain)'));
+        });
+        this.queries.forEach(function (queryInfo, queryId) {
+            if (queryInfo.observableQuery &&
+                queryInfo.observableQuery.watching) {
+                queryInfo.networkStatus = _networkStatus_js__WEBPACK_IMPORTED_MODULE_13__["NetworkStatus"].loading;
+            }
+            else {
+                queryInfo.stop();
+            }
+        });
+        this.mutationStore.reset();
+        return this.cache.reset();
+    };
+    QueryManager.prototype.resetStore = function () {
+        var _this = this;
+        return this.clearStore().then(function () {
+            return _this.reFetchObservableQueries();
+        });
+    };
+    QueryManager.prototype.reFetchObservableQueries = function (includeStandby) {
+        var _this = this;
+        if (includeStandby === void 0) { includeStandby = false; }
+        var observableQueryPromises = [];
+        this.queries.forEach(function (_a, queryId) {
+            var observableQuery = _a.observableQuery;
+            if (observableQuery &&
+                observableQuery.watching) {
+                var fetchPolicy = observableQuery.options.fetchPolicy;
+                observableQuery.resetLastResults();
+                if (fetchPolicy !== 'cache-only' &&
+                    (includeStandby || fetchPolicy !== 'standby')) {
+                    observableQueryPromises.push(observableQuery.refetch());
+                }
+                _this.getQuery(queryId).setDiff(null);
+            }
+        });
+        this.broadcastQueries();
+        return Promise.all(observableQueryPromises);
+    };
+    QueryManager.prototype.observeQuery = function (observableQuery, observer) {
+        var queryId = observableQuery.queryId, options = observableQuery.options;
+        this.getQuery(queryId).observableQuery = observableQuery;
+        if (options.pollInterval) {
+            this.startPollingQuery(options, queryId);
+        }
+        this.addQueryListener(queryId, this.queryListenerForObserver(queryId, observer));
+        return this.fetchQuery(queryId, options);
+    };
+    QueryManager.prototype.startGraphQLSubscription = function (_a) {
+        var _this = this;
+        var query = _a.query, fetchPolicy = _a.fetchPolicy, variables = _a.variables;
+        query = this.transform(query).document;
+        variables = this.getVariables(query, variables);
+        var makeObservable = function (variables) {
+            return _this.getObservableFromLink(query, {}, variables, false).map(function (result) {
+                if (!fetchPolicy || fetchPolicy !== 'no-cache') {
+                    if (!Object(_utilities_common_errorHandling_js__WEBPACK_IMPORTED_MODULE_7__["graphQLResultHasError"])(result)) {
+                        _this.cache.write({
+                            query: query,
+                            result: result.data,
+                            dataId: 'ROOT_SUBSCRIPTION',
+                            variables: variables,
+                        });
+                    }
+                    _this.broadcastQueries();
+                }
+                if (Object(_utilities_common_errorHandling_js__WEBPACK_IMPORTED_MODULE_7__["graphQLResultHasError"])(result)) {
+                    throw new _errors_ApolloError_js__WEBPACK_IMPORTED_MODULE_11__["ApolloError"]({
+                        graphQLErrors: result.errors,
+                    });
+                }
+                return result;
+            });
+        };
+        if (this.transform(query).hasClientExports) {
+            var observablePromise_1 = this.localState.addExportedVariables(query, variables).then(makeObservable);
+            return new zen_observable__WEBPACK_IMPORTED_MODULE_2___default.a(function (observer) {
+                var sub = null;
+                observablePromise_1.then(function (observable) { return sub = observable.subscribe(observer); }, observer.error);
+                return function () { return sub && sub.unsubscribe(); };
+            });
+        }
+        return makeObservable(variables);
+    };
+    QueryManager.prototype.stopQuery = function (queryId) {
+        this.stopQueryNoBroadcast(queryId);
+        this.broadcastQueries();
+    };
+    QueryManager.prototype.stopQueryNoBroadcast = function (queryId) {
+        this.stopQueryInStoreNoBroadcast(queryId);
+        this.removeQuery(queryId);
+    };
+    QueryManager.prototype.removeQuery = function (queryId) {
+        this.fetchQueryRejectFns.delete("query:" + queryId);
+        this.fetchQueryRejectFns.delete("fetchRequest:" + queryId);
+        this.getQuery(queryId).subscriptions.forEach(function (x) { return x.unsubscribe(); });
+        this.queries.delete(queryId);
+    };
+    QueryManager.prototype.getCurrentQueryResult = function (observableQuery, optimistic) {
+        if (optimistic === void 0) { optimistic = true; }
+        var _a;
+        var _b = observableQuery.options, variables = _b.variables, query = _b.query, fetchPolicy = _b.fetchPolicy, returnPartialData = _b.returnPartialData;
+        var lastResult = observableQuery.getLastResult();
+        if (fetchPolicy === 'no-cache' ||
+            fetchPolicy === 'network-only') {
+            var diff = this.getQuery(observableQuery.queryId).getDiff();
+            return { data: (_a = diff) === null || _a === void 0 ? void 0 : _a.result, partial: false };
+        }
+        var _c = this.cache.diff({
+            query: query,
+            variables: variables,
+            previousResult: lastResult ? lastResult.data : undefined,
+            returnPartialData: true,
+            optimistic: optimistic,
+        }), result = _c.result, complete = _c.complete;
+        return {
+            data: (complete || returnPartialData) ? result : void 0,
+            partial: !complete,
+        };
+    };
+    QueryManager.prototype.getQueryWithPreviousResult = function (queryIdOrObservable) {
+        var observableQuery;
+        if (typeof queryIdOrObservable === 'string') {
+            var foundObservableQuery = this.getQuery(queryIdOrObservable).observableQuery;
+             false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(foundObservableQuery, "ObservableQuery with this id doesn't exist: " + queryIdOrObservable);
+            observableQuery = foundObservableQuery;
+        }
+        else {
+            observableQuery = queryIdOrObservable;
+        }
+        var _a = observableQuery.options, variables = _a.variables, query = _a.query;
+        return {
+            previousResult: this.getCurrentQueryResult(observableQuery, false).data,
+            variables: variables,
+            document: query,
+        };
+    };
+    QueryManager.prototype.broadcastQueries = function () {
+        this.onBroadcast();
+        this.queries.forEach(function (info) { return info.notify(); });
+    };
+    QueryManager.prototype.getLocalState = function () {
+        return this.localState;
+    };
+    QueryManager.prototype.getObservableFromLink = function (query, context, variables, deduplication) {
+        var _this = this;
+        if (deduplication === void 0) { deduplication = this.queryDeduplication; }
+        var observable;
+        var serverQuery = this.transform(query).serverQuery;
+        if (serverQuery) {
+            var _a = this, inFlightLinkObservables_1 = _a.inFlightLinkObservables, link = _a.link;
+            var operation = {
+                query: serverQuery,
+                variables: variables,
+                operationName: Object(_utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["getOperationName"])(serverQuery) || void 0,
+                context: this.prepareContext(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, context), { forceFetch: !deduplication })),
+            };
+            context = operation.context;
+            if (deduplication) {
+                var byVariables_1 = inFlightLinkObservables_1.get(serverQuery) || new Map();
+                inFlightLinkObservables_1.set(serverQuery, byVariables_1);
+                var varJson_1 = JSON.stringify(variables);
+                observable = byVariables_1.get(varJson_1);
+                if (!observable) {
+                    byVariables_1.set(varJson_1, observable = Object(_utilities_observables_observables_js__WEBPACK_IMPORTED_MODULE_17__["multiplex"])(Object(_link_core_execute_js__WEBPACK_IMPORTED_MODULE_5__["execute"])(link, operation)));
+                    var cleanup = function () {
+                        byVariables_1.delete(varJson_1);
+                        if (!byVariables_1.size)
+                            inFlightLinkObservables_1.delete(serverQuery);
+                        cleanupSub_1.unsubscribe();
+                    };
+                    var cleanupSub_1 = observable.subscribe({
+                        next: cleanup,
+                        error: cleanup,
+                        complete: cleanup,
+                    });
+                }
+            }
+            else {
+                observable = Object(_utilities_observables_observables_js__WEBPACK_IMPORTED_MODULE_17__["multiplex"])(Object(_link_core_execute_js__WEBPACK_IMPORTED_MODULE_5__["execute"])(link, operation));
+            }
+        }
+        else {
+            observable = zen_observable__WEBPACK_IMPORTED_MODULE_2___default.a.of({ data: {} });
+            context = this.prepareContext(context);
+        }
+        var clientQuery = this.transform(query).clientQuery;
+        if (clientQuery) {
+            observable = Object(_utilities_observables_observables_js__WEBPACK_IMPORTED_MODULE_17__["asyncMap"])(observable, function (result) {
+                return _this.localState.runResolvers({
+                    document: clientQuery,
+                    remoteResult: result,
+                    context: context,
+                    variables: variables,
+                });
+            });
+        }
+        return observable;
+    };
+    QueryManager.prototype.fetchRequest = function (_a) {
+        var _this = this;
+        var requestId = _a.requestId, queryId = _a.queryId, document = _a.document, options = _a.options, fetchMoreForQueryId = _a.fetchMoreForQueryId;
+        var variables = options.variables, _b = options.errorPolicy, errorPolicy = _b === void 0 ? 'none' : _b, fetchPolicy = options.fetchPolicy;
+        var resultFromStore;
+        var errorsFromStore;
+        return new Promise(function (resolve, reject) {
+            var observable = _this.getObservableFromLink(document, options.context, variables);
+            var subs = _this.getQuery(queryId).subscriptions;
+            var fqrfId = "fetchRequest:" + queryId;
+            _this.fetchQueryRejectFns.set(fqrfId, reject);
+            var cleanup = function () {
+                _this.fetchQueryRejectFns.delete(fqrfId);
+                subs.delete(subscription);
+            };
+            var subscription = observable.map(function (result) {
+                var queryInfo = _this.getQuery(queryId);
+                if (requestId >= queryInfo.lastRequestId) {
+                    queryInfo.markResult(result, options, !fetchMoreForQueryId, true);
+                    _this.setNetStatus(fetchMoreForQueryId, _networkStatus_js__WEBPACK_IMPORTED_MODULE_13__["NetworkStatus"].ready);
+                    _this.dirty(queryId);
+                    _this.dirty(fetchMoreForQueryId);
+                    _this.broadcastQueries();
+                }
+                if (errorPolicy === 'none' && Object(_utilities_common_arrays_js__WEBPACK_IMPORTED_MODULE_10__["isNonEmptyArray"])(result.errors)) {
+                    return reject(new _errors_ApolloError_js__WEBPACK_IMPORTED_MODULE_11__["ApolloError"]({
+                        graphQLErrors: result.errors,
+                    }));
+                }
+                if (errorPolicy === 'all') {
+                    errorsFromStore = result.errors;
+                }
+                if (fetchMoreForQueryId || fetchPolicy === 'no-cache') {
+                    resultFromStore = result.data;
+                }
+                else {
+                    var _a = _this.cache.diff({
+                        variables: variables,
+                        query: document,
+                        optimistic: false,
+                        returnPartialData: true,
+                    }), result_1 = _a.result, complete = _a.complete;
+                    if (complete || options.returnPartialData) {
+                        resultFromStore = result_1;
+                    }
+                }
+            }).subscribe({
+                error: function (error) {
+                    cleanup();
+                    reject(error);
+                },
+                complete: function () {
+                    cleanup();
+                    resolve({
+                        data: resultFromStore,
+                        errors: errorsFromStore,
+                        loading: false,
+                        networkStatus: _networkStatus_js__WEBPACK_IMPORTED_MODULE_13__["NetworkStatus"].ready,
+                        stale: false,
+                    });
+                },
+            });
+            subs.add(subscription);
+        });
+    };
+    QueryManager.prototype.getQuery = function (queryId) {
+        if (queryId && !this.queries.has(queryId)) {
+            this.queries.set(queryId, new _QueryInfo_js__WEBPACK_IMPORTED_MODULE_18__["QueryInfo"](this.cache));
+        }
+        return this.queries.get(queryId);
+    };
+    QueryManager.prototype.dirty = function (queryId) {
+        if (queryId) {
+            this.getQuery(queryId).setDirty();
+        }
+    };
+    QueryManager.prototype.prepareContext = function (context) {
+        if (context === void 0) { context = {}; }
+        var newContext = this.localState.prepareContext(context);
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, newContext), { clientAwareness: this.clientAwareness });
+    };
+    QueryManager.prototype.checkInFlight = function (queryId) {
+        var query = this.getQueryStoreValue(queryId);
+        return (query &&
+            query.networkStatus &&
+            query.networkStatus !== _networkStatus_js__WEBPACK_IMPORTED_MODULE_13__["NetworkStatus"].ready &&
+            query.networkStatus !== _networkStatus_js__WEBPACK_IMPORTED_MODULE_13__["NetworkStatus"].error);
+    };
+    QueryManager.prototype.startPollingQuery = function (options, queryId) {
+        var _this = this;
+        var pollInterval = options.pollInterval;
+         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(pollInterval, 'Attempted to start a polling query without a polling interval.');
+        if (!this.ssrMode) {
+            var info = this.pollingInfoByQueryId.get(queryId);
+            if (!info) {
+                this.pollingInfoByQueryId.set(queryId, (info = {}));
+            }
+            info.interval = pollInterval;
+            info.options = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, options), { fetchPolicy: 'network-only' });
+            var maybeFetch_1 = function () {
+                var info = _this.pollingInfoByQueryId.get(queryId);
+                if (info) {
+                    if (_this.checkInFlight(queryId)) {
+                        poll_1();
+                    }
+                    else {
+                        _this.fetchQuery(queryId, info.options, _types_js__WEBPACK_IMPORTED_MODULE_14__["FetchType"].poll).then(poll_1, poll_1);
+                    }
+                }
+            };
+            var poll_1 = function () {
+                var info = _this.pollingInfoByQueryId.get(queryId);
+                if (info) {
+                    clearTimeout(info.timeout);
+                    info.timeout = setTimeout(maybeFetch_1, info.interval);
+                }
+            };
+            poll_1();
+        }
+        return queryId;
+    };
+    QueryManager.prototype.stopPollingQuery = function (queryId) {
+        this.pollingInfoByQueryId.delete(queryId);
+    };
+    return QueryManager;
+}());
+function markMutationResult(mutation, cache) {
+    if (!Object(_utilities_common_errorHandling_js__WEBPACK_IMPORTED_MODULE_7__["graphQLResultHasError"])(mutation.result)) {
+        var cacheWrites_1 = [{
+                result: mutation.result.data,
+                dataId: 'ROOT_MUTATION',
+                query: mutation.document,
+                variables: mutation.variables,
+            }];
+        var queryUpdatersById_1 = mutation.queryUpdatersById;
+        if (queryUpdatersById_1) {
+            Object.keys(queryUpdatersById_1).forEach(function (id) {
+                var _a = queryUpdatersById_1[id], updater = _a.updater, _b = _a.queryInfo, document = _b.document, variables = _b.variables;
+                var _c = cache.diff({
+                    query: document,
+                    variables: variables,
+                    returnPartialData: true,
+                    optimistic: false,
+                }), currentQueryResult = _c.result, complete = _c.complete;
+                if (complete) {
+                    var nextQueryResult = Object(_utilities_common_errorHandling_js__WEBPACK_IMPORTED_MODULE_7__["tryFunctionOrLogError"])(function () { return updater(currentQueryResult, {
+                        mutationResult: mutation.result,
+                        queryName: Object(_utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["getOperationName"])(document) || undefined,
+                        queryVariables: variables,
+                    }); });
+                    if (nextQueryResult) {
+                        cacheWrites_1.push({
+                            result: nextQueryResult,
+                            dataId: 'ROOT_QUERY',
+                            query: document,
+                            variables: variables,
+                        });
+                    }
+                }
+            });
+        }
+        cache.performTransaction(function (c) {
+            cacheWrites_1.forEach(function (write) { return c.write(write); });
+            var update = mutation.update;
+            if (update) {
+                Object(_utilities_common_errorHandling_js__WEBPACK_IMPORTED_MODULE_7__["tryFunctionOrLogError"])(function () { return update(c, mutation.result); });
+            }
+        });
+    }
+}
+
+
+//# sourceMappingURL=QueryManager.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/core/index.js":
+/*!***************************************************!*\
+  !*** ./node_modules/@apollo/client/core/index.js ***!
+  \***************************************************/
+/*! exports provided: Observable, isReference, makeReference, ApolloLink, execute, ApolloError, isApolloError, NetworkStatus, FetchType, ObservableQuery, serializeFetchParameter, selectURI, throwServerError, parseAndCheckHttpResponse, checkFetcher, fallbackHttpConfig, selectHttpOptionsAndBody, createSignalIfSupported, fromError, createHttpLink, HttpLink, ApolloClient, ApolloCache, Cache, defaultDataIdFromObject, InMemoryCache, empty, from, split, concat, toPromise, fromPromise, gql, disableExperimentalFragmentVariables, disableFragmentWarnings, enableExperimentalFragmentVariables, resetCaches */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "disableExperimentalFragmentVariables", function() { return disableExperimentalFragmentVariables; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "disableFragmentWarnings", function() { return disableFragmentWarnings; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enableExperimentalFragmentVariables", function() { return enableExperimentalFragmentVariables; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetCaches", function() { return resetCaches; });
+/* harmony import */ var zen_observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! zen-observable */ "./node_modules/zen-observable/index.js");
+/* harmony import */ var zen_observable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(zen_observable__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (default from non-harmony) */ __webpack_require__.d(__webpack_exports__, "Observable", function() { return zen_observable__WEBPACK_IMPORTED_MODULE_0___default.a; });
+/* harmony import */ var symbol_observable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! symbol-observable */ "./node_modules/symbol-observable/es/index.js");
+/* harmony import */ var _utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utilities/graphql/storeUtils.js */ "./node_modules/@apollo/client/utilities/graphql/storeUtils.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isReference", function() { return _utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_2__["isReference"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "makeReference", function() { return _utilities_graphql_storeUtils_js__WEBPACK_IMPORTED_MODULE_2__["makeReference"]; });
+
+/* harmony import */ var _link_core_ApolloLink_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../link/core/ApolloLink.js */ "./node_modules/@apollo/client/link/core/ApolloLink.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloLink", function() { return _link_core_ApolloLink_js__WEBPACK_IMPORTED_MODULE_3__["ApolloLink"]; });
+
+/* harmony import */ var _link_core_execute_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../link/core/execute.js */ "./node_modules/@apollo/client/link/core/execute.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "execute", function() { return _link_core_execute_js__WEBPACK_IMPORTED_MODULE_4__["execute"]; });
+
+/* harmony import */ var _errors_ApolloError_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../errors/ApolloError.js */ "./node_modules/@apollo/client/errors/ApolloError.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloError", function() { return _errors_ApolloError_js__WEBPACK_IMPORTED_MODULE_5__["ApolloError"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isApolloError", function() { return _errors_ApolloError_js__WEBPACK_IMPORTED_MODULE_5__["isApolloError"]; });
+
+/* harmony import */ var _networkStatus_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./networkStatus.js */ "./node_modules/@apollo/client/core/networkStatus.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NetworkStatus", function() { return _networkStatus_js__WEBPACK_IMPORTED_MODULE_6__["NetworkStatus"]; });
+
+/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./types.js */ "./node_modules/@apollo/client/core/types.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FetchType", function() { return _types_js__WEBPACK_IMPORTED_MODULE_7__["FetchType"]; });
+
+/* harmony import */ var _ObservableQuery_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ObservableQuery.js */ "./node_modules/@apollo/client/core/ObservableQuery.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ObservableQuery", function() { return _ObservableQuery_js__WEBPACK_IMPORTED_MODULE_8__["ObservableQuery"]; });
+
+/* harmony import */ var _link_http_serializeFetchParameter_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../link/http/serializeFetchParameter.js */ "./node_modules/@apollo/client/link/http/serializeFetchParameter.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "serializeFetchParameter", function() { return _link_http_serializeFetchParameter_js__WEBPACK_IMPORTED_MODULE_9__["serializeFetchParameter"]; });
+
+/* harmony import */ var _link_http_selectURI_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../link/http/selectURI.js */ "./node_modules/@apollo/client/link/http/selectURI.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "selectURI", function() { return _link_http_selectURI_js__WEBPACK_IMPORTED_MODULE_10__["selectURI"]; });
+
+/* harmony import */ var _link_utils_throwServerError_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../link/utils/throwServerError.js */ "./node_modules/@apollo/client/link/utils/throwServerError.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "throwServerError", function() { return _link_utils_throwServerError_js__WEBPACK_IMPORTED_MODULE_11__["throwServerError"]; });
+
+/* harmony import */ var _link_http_parseAndCheckHttpResponse_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../link/http/parseAndCheckHttpResponse.js */ "./node_modules/@apollo/client/link/http/parseAndCheckHttpResponse.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "parseAndCheckHttpResponse", function() { return _link_http_parseAndCheckHttpResponse_js__WEBPACK_IMPORTED_MODULE_12__["parseAndCheckHttpResponse"]; });
+
+/* harmony import */ var _link_http_checkFetcher_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../link/http/checkFetcher.js */ "./node_modules/@apollo/client/link/http/checkFetcher.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "checkFetcher", function() { return _link_http_checkFetcher_js__WEBPACK_IMPORTED_MODULE_13__["checkFetcher"]; });
+
+/* harmony import */ var _link_http_selectHttpOptionsAndBody_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../link/http/selectHttpOptionsAndBody.js */ "./node_modules/@apollo/client/link/http/selectHttpOptionsAndBody.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fallbackHttpConfig", function() { return _link_http_selectHttpOptionsAndBody_js__WEBPACK_IMPORTED_MODULE_14__["fallbackHttpConfig"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "selectHttpOptionsAndBody", function() { return _link_http_selectHttpOptionsAndBody_js__WEBPACK_IMPORTED_MODULE_14__["selectHttpOptionsAndBody"]; });
+
+/* harmony import */ var _link_http_createSignalIfSupported_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../link/http/createSignalIfSupported.js */ "./node_modules/@apollo/client/link/http/createSignalIfSupported.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createSignalIfSupported", function() { return _link_http_createSignalIfSupported_js__WEBPACK_IMPORTED_MODULE_15__["createSignalIfSupported"]; });
+
+/* harmony import */ var _link_utils_fromError_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../link/utils/fromError.js */ "./node_modules/@apollo/client/link/utils/fromError.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fromError", function() { return _link_utils_fromError_js__WEBPACK_IMPORTED_MODULE_16__["fromError"]; });
+
+/* harmony import */ var _link_http_createHttpLink_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../link/http/createHttpLink.js */ "./node_modules/@apollo/client/link/http/createHttpLink.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createHttpLink", function() { return _link_http_createHttpLink_js__WEBPACK_IMPORTED_MODULE_17__["createHttpLink"]; });
+
+/* harmony import */ var _link_http_HttpLink_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../link/http/HttpLink.js */ "./node_modules/@apollo/client/link/http/HttpLink.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HttpLink", function() { return _link_http_HttpLink_js__WEBPACK_IMPORTED_MODULE_18__["HttpLink"]; });
+
+/* harmony import */ var _ApolloClient_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../ApolloClient.js */ "./node_modules/@apollo/client/ApolloClient.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloClient", function() { return _ApolloClient_js__WEBPACK_IMPORTED_MODULE_19__["ApolloClient"]; });
+
+/* harmony import */ var _cache_core_cache_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../cache/core/cache.js */ "./node_modules/@apollo/client/cache/core/cache.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApolloCache", function() { return _cache_core_cache_js__WEBPACK_IMPORTED_MODULE_20__["ApolloCache"]; });
+
+/* harmony import */ var _cache_core_types_Cache_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../cache/core/types/Cache.js */ "./node_modules/@apollo/client/cache/core/types/Cache.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Cache", function() { return _cache_core_types_Cache_js__WEBPACK_IMPORTED_MODULE_21__["Cache"]; });
+
+/* harmony import */ var _cache_inmemory_policies_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../cache/inmemory/policies.js */ "./node_modules/@apollo/client/cache/inmemory/policies.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "defaultDataIdFromObject", function() { return _cache_inmemory_policies_js__WEBPACK_IMPORTED_MODULE_22__["defaultDataIdFromObject"]; });
+
+/* harmony import */ var _cache_inmemory_inMemoryCache_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../cache/inmemory/inMemoryCache.js */ "./node_modules/@apollo/client/cache/inmemory/inMemoryCache.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "InMemoryCache", function() { return _cache_inmemory_inMemoryCache_js__WEBPACK_IMPORTED_MODULE_23__["InMemoryCache"]; });
+
+/* harmony import */ var _link_core_empty_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../link/core/empty.js */ "./node_modules/@apollo/client/link/core/empty.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "empty", function() { return _link_core_empty_js__WEBPACK_IMPORTED_MODULE_24__["empty"]; });
+
+/* harmony import */ var _link_core_from_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../link/core/from.js */ "./node_modules/@apollo/client/link/core/from.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "from", function() { return _link_core_from_js__WEBPACK_IMPORTED_MODULE_25__["from"]; });
+
+/* harmony import */ var _link_core_split_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../link/core/split.js */ "./node_modules/@apollo/client/link/core/split.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "split", function() { return _link_core_split_js__WEBPACK_IMPORTED_MODULE_26__["split"]; });
+
+/* harmony import */ var _link_core_concat_js__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../link/core/concat.js */ "./node_modules/@apollo/client/link/core/concat.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "concat", function() { return _link_core_concat_js__WEBPACK_IMPORTED_MODULE_27__["concat"]; });
+
+/* harmony import */ var _link_utils_toPromise_js__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../link/utils/toPromise.js */ "./node_modules/@apollo/client/link/utils/toPromise.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "toPromise", function() { return _link_utils_toPromise_js__WEBPACK_IMPORTED_MODULE_28__["toPromise"]; });
+
+/* harmony import */ var _link_utils_fromPromise_js__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../link/utils/fromPromise.js */ "./node_modules/@apollo/client/link/utils/fromPromise.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fromPromise", function() { return _link_utils_fromPromise_js__WEBPACK_IMPORTED_MODULE_29__["fromPromise"]; });
+
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_30___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_30__);
+/* harmony reexport (default from non-harmony) */ __webpack_require__.d(__webpack_exports__, "gql", function() { return graphql_tag__WEBPACK_IMPORTED_MODULE_30___default.a; });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var resetCaches = graphql_tag__WEBPACK_IMPORTED_MODULE_30___default.a.resetCaches, disableFragmentWarnings = graphql_tag__WEBPACK_IMPORTED_MODULE_30___default.a.disableFragmentWarnings, enableExperimentalFragmentVariables = graphql_tag__WEBPACK_IMPORTED_MODULE_30___default.a.enableExperimentalFragmentVariables, disableExperimentalFragmentVariables = graphql_tag__WEBPACK_IMPORTED_MODULE_30___default.a.disableExperimentalFragmentVariables;
+
+
+//# sourceMappingURL=index.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/core/networkStatus.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@apollo/client/core/networkStatus.js ***!
+  \***********************************************************/
+/*! exports provided: NetworkStatus, isNetworkRequestInFlight */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NetworkStatus", function() { return NetworkStatus; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isNetworkRequestInFlight", function() { return isNetworkRequestInFlight; });
+var NetworkStatus;
+(function (NetworkStatus) {
+    NetworkStatus[NetworkStatus["loading"] = 1] = "loading";
+    NetworkStatus[NetworkStatus["setVariables"] = 2] = "setVariables";
+    NetworkStatus[NetworkStatus["fetchMore"] = 3] = "fetchMore";
+    NetworkStatus[NetworkStatus["refetch"] = 4] = "refetch";
+    NetworkStatus[NetworkStatus["poll"] = 6] = "poll";
+    NetworkStatus[NetworkStatus["ready"] = 7] = "ready";
+    NetworkStatus[NetworkStatus["error"] = 8] = "error";
+})(NetworkStatus || (NetworkStatus = {}));
+function isNetworkRequestInFlight(networkStatus) {
+    return networkStatus < 7;
+}
+
+
+//# sourceMappingURL=networkStatus.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/core/types.js":
+/*!***************************************************!*\
+  !*** ./node_modules/@apollo/client/core/types.js ***!
+  \***************************************************/
+/*! exports provided: FetchType */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FetchType", function() { return FetchType; });
+var FetchType;
+(function (FetchType) {
+    FetchType[FetchType["normal"] = 1] = "normal";
+    FetchType[FetchType["refetch"] = 2] = "refetch";
+    FetchType[FetchType["poll"] = 3] = "poll";
+})(FetchType || (FetchType = {}));
+
+
+//# sourceMappingURL=types.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/data/mutations.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/@apollo/client/data/mutations.js ***!
+  \*******************************************************/
+/*! exports provided: MutationStore */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MutationStore", function() { return MutationStore; });
+var MutationStore = (function () {
+    function MutationStore() {
+        this.store = {};
+    }
+    MutationStore.prototype.getStore = function () {
+        return this.store;
+    };
+    MutationStore.prototype.get = function (mutationId) {
+        return this.store[mutationId];
+    };
+    MutationStore.prototype.initMutation = function (mutationId, mutation, variables) {
+        this.store[mutationId] = {
+            mutation: mutation,
+            variables: variables || {},
+            loading: true,
+            error: null,
+        };
+    };
+    MutationStore.prototype.markMutationError = function (mutationId, error) {
+        var mutation = this.store[mutationId];
+        if (mutation) {
+            mutation.loading = false;
+            mutation.error = error;
+        }
+    };
+    MutationStore.prototype.markMutationResult = function (mutationId) {
+        var mutation = this.store[mutationId];
+        if (mutation) {
+            mutation.loading = false;
+            mutation.error = null;
+        }
+    };
+    MutationStore.prototype.reset = function () {
+        this.store = {};
+    };
+    return MutationStore;
+}());
+
+
+//# sourceMappingURL=mutations.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/errors/ApolloError.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@apollo/client/errors/ApolloError.js ***!
+  \***********************************************************/
+/*! exports provided: ApolloError, isApolloError */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApolloError", function() { return ApolloError; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isApolloError", function() { return isApolloError; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _utilities_common_arrays_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utilities/common/arrays.js */ "./node_modules/@apollo/client/utilities/common/arrays.js");
+
+
+
+function isApolloError(err) {
+    return err.hasOwnProperty('graphQLErrors');
+}
+var generateErrorMessage = function (err) {
+    var message = '';
+    if (Object(_utilities_common_arrays_js__WEBPACK_IMPORTED_MODULE_1__["isNonEmptyArray"])(err.graphQLErrors)) {
+        err.graphQLErrors.forEach(function (graphQLError) {
+            var errorMessage = graphQLError
+                ? graphQLError.message
+                : 'Error message not found.';
+            message += "GraphQL error: " + errorMessage + "\n";
+        });
+    }
+    if (err.networkError) {
+        message += 'Network error: ' + err.networkError.message + '\n';
+    }
+    message = message.replace(/\n$/, '');
+    return message;
+};
+var ApolloError = (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(ApolloError, _super);
+    function ApolloError(_a) {
+        var graphQLErrors = _a.graphQLErrors, networkError = _a.networkError, errorMessage = _a.errorMessage, extraInfo = _a.extraInfo;
+        var _this = _super.call(this, errorMessage) || this;
+        _this.graphQLErrors = graphQLErrors || [];
+        _this.networkError = networkError || null;
+        if (!errorMessage) {
+            _this.message = generateErrorMessage(_this);
+        }
+        else {
+            _this.message = errorMessage;
+        }
+        _this.extraInfo = extraInfo;
+        _this.__proto__ = ApolloError.prototype;
+        return _this;
+    }
+    return ApolloError;
+}(Error));
+
+
+//# sourceMappingURL=ApolloError.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/core/ApolloLink.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@apollo/client/link/core/ApolloLink.js ***!
+  \*************************************************************/
+/*! exports provided: ApolloLink */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApolloLink", function() { return ApolloLink; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+/* harmony import */ var zen_observable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! zen-observable */ "./node_modules/zen-observable/index.js");
+/* harmony import */ var zen_observable__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(zen_observable__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var symbol_observable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! symbol-observable */ "./node_modules/symbol-observable/es/index.js");
+/* harmony import */ var _utils_validateOperation_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/validateOperation.js */ "./node_modules/@apollo/client/link/utils/validateOperation.js");
+/* harmony import */ var _utils_createOperation_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/createOperation.js */ "./node_modules/@apollo/client/link/utils/createOperation.js");
+/* harmony import */ var _utils_transformOperation_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/transformOperation.js */ "./node_modules/@apollo/client/link/utils/transformOperation.js");
+
+
+
+
+
+
+
+
+function passthrough(op, forward) {
+    return forward ? forward(op) : zen_observable__WEBPACK_IMPORTED_MODULE_2___default.a.of();
+}
+function toLink(handler) {
+    return typeof handler === 'function' ? new ApolloLink(handler) : handler;
+}
+function isTerminating(link) {
+    return link.request.length <= 1;
+}
+var LinkError = (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(LinkError, _super);
+    function LinkError(message, link) {
+        var _this = _super.call(this, message) || this;
+        _this.link = link;
+        return _this;
+    }
+    return LinkError;
+}(Error));
+var ApolloLink = (function () {
+    function ApolloLink(request) {
+        if (request)
+            this.request = request;
+    }
+    ApolloLink.empty = function () {
+        return new ApolloLink(function () { return zen_observable__WEBPACK_IMPORTED_MODULE_2___default.a.of(); });
+    };
+    ApolloLink.from = function (links) {
+        if (links.length === 0)
+            return ApolloLink.empty();
+        return links.map(toLink).reduce(function (x, y) { return x.concat(y); });
+    };
+    ApolloLink.split = function (test, left, right) {
+        var leftLink = toLink(left);
+        var rightLink = toLink(right || new ApolloLink(passthrough));
+        if (isTerminating(leftLink) && isTerminating(rightLink)) {
+            return new ApolloLink(function (operation) {
+                return test(operation)
+                    ? leftLink.request(operation) || zen_observable__WEBPACK_IMPORTED_MODULE_2___default.a.of()
+                    : rightLink.request(operation) || zen_observable__WEBPACK_IMPORTED_MODULE_2___default.a.of();
+            });
+        }
+        else {
+            return new ApolloLink(function (operation, forward) {
+                return test(operation)
+                    ? leftLink.request(operation, forward) || zen_observable__WEBPACK_IMPORTED_MODULE_2___default.a.of()
+                    : rightLink.request(operation, forward) || zen_observable__WEBPACK_IMPORTED_MODULE_2___default.a.of();
+            });
+        }
+    };
+    ApolloLink.execute = function (link, operation) {
+        return (link.request(Object(_utils_createOperation_js__WEBPACK_IMPORTED_MODULE_5__["createOperation"])(operation.context, Object(_utils_transformOperation_js__WEBPACK_IMPORTED_MODULE_6__["transformOperation"])(Object(_utils_validateOperation_js__WEBPACK_IMPORTED_MODULE_4__["validateOperation"])(operation)))) || zen_observable__WEBPACK_IMPORTED_MODULE_2___default.a.of());
+    };
+    ApolloLink.concat = function (first, second) {
+        var firstLink = toLink(first);
+        if (isTerminating(firstLink)) {
+             false || ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"].warn(new LinkError("You are calling concat on a terminating link, which will have no effect", firstLink));
+            return firstLink;
+        }
+        var nextLink = toLink(second);
+        if (isTerminating(nextLink)) {
+            return new ApolloLink(function (operation) {
+                return firstLink.request(operation, function (op) { return nextLink.request(op) || zen_observable__WEBPACK_IMPORTED_MODULE_2___default.a.of(); }) || zen_observable__WEBPACK_IMPORTED_MODULE_2___default.a.of();
+            });
+        }
+        else {
+            return new ApolloLink(function (operation, forward) {
+                return (firstLink.request(operation, function (op) {
+                    return nextLink.request(op, forward) || zen_observable__WEBPACK_IMPORTED_MODULE_2___default.a.of();
+                }) || zen_observable__WEBPACK_IMPORTED_MODULE_2___default.a.of());
+            });
+        }
+    };
+    ApolloLink.prototype.split = function (test, left, right) {
+        return this.concat(ApolloLink.split(test, left, right || new ApolloLink(passthrough)));
+    };
+    ApolloLink.prototype.concat = function (next) {
+        return ApolloLink.concat(this, next);
+    };
+    ApolloLink.prototype.request = function (operation, forward) {
+        throw  false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_1__["InvariantError"]('request is not implemented');
+    };
+    ApolloLink.prototype.onError = function (reason) {
+        throw reason;
+    };
+    ApolloLink.prototype.setOnError = function (fn) {
+        this.onError = fn;
+        return this;
+    };
+    return ApolloLink;
+}());
+
+
+//# sourceMappingURL=ApolloLink.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/core/concat.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@apollo/client/link/core/concat.js ***!
+  \*********************************************************/
+/*! exports provided: concat */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "concat", function() { return concat; });
+/* harmony import */ var _ApolloLink_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ApolloLink.js */ "./node_modules/@apollo/client/link/core/ApolloLink.js");
+
+
+var concat = _ApolloLink_js__WEBPACK_IMPORTED_MODULE_0__["ApolloLink"].concat;
+
+
+//# sourceMappingURL=concat.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/core/empty.js":
+/*!********************************************************!*\
+  !*** ./node_modules/@apollo/client/link/core/empty.js ***!
+  \********************************************************/
+/*! exports provided: empty */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "empty", function() { return empty; });
+/* harmony import */ var _ApolloLink_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ApolloLink.js */ "./node_modules/@apollo/client/link/core/ApolloLink.js");
+
+
+var empty = _ApolloLink_js__WEBPACK_IMPORTED_MODULE_0__["ApolloLink"].empty;
+
+
+//# sourceMappingURL=empty.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/core/execute.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@apollo/client/link/core/execute.js ***!
+  \**********************************************************/
+/*! exports provided: execute */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "execute", function() { return execute; });
+/* harmony import */ var _ApolloLink_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ApolloLink.js */ "./node_modules/@apollo/client/link/core/ApolloLink.js");
+
+
+var execute = _ApolloLink_js__WEBPACK_IMPORTED_MODULE_0__["ApolloLink"].execute;
+
+
+//# sourceMappingURL=execute.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/core/from.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/@apollo/client/link/core/from.js ***!
+  \*******************************************************/
+/*! exports provided: from */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "from", function() { return from; });
+/* harmony import */ var _ApolloLink_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ApolloLink.js */ "./node_modules/@apollo/client/link/core/ApolloLink.js");
+
+
+var from = _ApolloLink_js__WEBPACK_IMPORTED_MODULE_0__["ApolloLink"].from;
+
+
+//# sourceMappingURL=from.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/core/split.js":
+/*!********************************************************!*\
+  !*** ./node_modules/@apollo/client/link/core/split.js ***!
+  \********************************************************/
+/*! exports provided: split */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "split", function() { return split; });
+/* harmony import */ var _ApolloLink_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ApolloLink.js */ "./node_modules/@apollo/client/link/core/ApolloLink.js");
+
+
+var split = _ApolloLink_js__WEBPACK_IMPORTED_MODULE_0__["ApolloLink"].split;
+
+
+//# sourceMappingURL=split.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/http/HttpLink.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@apollo/client/link/http/HttpLink.js ***!
+  \***********************************************************/
+/*! exports provided: HttpLink */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpLink", function() { return HttpLink; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _core_ApolloLink_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/ApolloLink.js */ "./node_modules/@apollo/client/link/core/ApolloLink.js");
+/* harmony import */ var _createHttpLink_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createHttpLink.js */ "./node_modules/@apollo/client/link/http/createHttpLink.js");
+
+
+
+
+var HttpLink = (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(HttpLink, _super);
+    function HttpLink(options) {
+        if (options === void 0) { options = {}; }
+        var _this = _super.call(this, Object(_createHttpLink_js__WEBPACK_IMPORTED_MODULE_2__["createHttpLink"])(options).request) || this;
+        _this.options = options;
+        return _this;
+    }
+    return HttpLink;
+}(_core_ApolloLink_js__WEBPACK_IMPORTED_MODULE_1__["ApolloLink"]));
+
+
+//# sourceMappingURL=HttpLink.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/http/checkFetcher.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@apollo/client/link/http/checkFetcher.js ***!
+  \***************************************************************/
+/*! exports provided: checkFetcher */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkFetcher", function() { return checkFetcher; });
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+
+
+var checkFetcher = function (fetcher) {
+    if (!fetcher && typeof fetch === 'undefined') {
+        var library = 'unfetch';
+        if (typeof window === 'undefined')
+            library = 'node-fetch';
+        throw  false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_0__["InvariantError"]('"fetch" has not been found globally and no fetcher has been ' +
+            'configured. To fix this, install a fetch package ' +
+            ("(like https://www.npmjs.com/package/" + library + "), instantiate the ") +
+            'fetcher, and pass it into your `HttpLink` constructor. For example:' +
+            '\n\n' +
+            ("import fetch from '" + library + "';\n") +
+            "import { ApolloClient, HttpLink } from '@apollo/client';\n" +
+            'const client = new ApolloClient({\n' +
+            "  link: new HttpLink({ uri: '/graphq', fetch })\n" +
+            '});');
+    }
+};
+
+
+//# sourceMappingURL=checkFetcher.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/http/createHttpLink.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@apollo/client/link/http/createHttpLink.js ***!
+  \*****************************************************************/
+/*! exports provided: createHttpLink */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createHttpLink", function() { return createHttpLink; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var zen_observable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! zen-observable */ "./node_modules/zen-observable/index.js");
+/* harmony import */ var zen_observable__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(zen_observable__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var symbol_observable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! symbol-observable */ "./node_modules/symbol-observable/es/index.js");
+/* harmony import */ var _core_ApolloLink_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../core/ApolloLink.js */ "./node_modules/@apollo/client/link/core/ApolloLink.js");
+/* harmony import */ var _serializeFetchParameter_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./serializeFetchParameter.js */ "./node_modules/@apollo/client/link/http/serializeFetchParameter.js");
+/* harmony import */ var _selectURI_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./selectURI.js */ "./node_modules/@apollo/client/link/http/selectURI.js");
+/* harmony import */ var _parseAndCheckHttpResponse_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./parseAndCheckHttpResponse.js */ "./node_modules/@apollo/client/link/http/parseAndCheckHttpResponse.js");
+/* harmony import */ var _checkFetcher_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./checkFetcher.js */ "./node_modules/@apollo/client/link/http/checkFetcher.js");
+/* harmony import */ var _selectHttpOptionsAndBody_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./selectHttpOptionsAndBody.js */ "./node_modules/@apollo/client/link/http/selectHttpOptionsAndBody.js");
+/* harmony import */ var _createSignalIfSupported_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./createSignalIfSupported.js */ "./node_modules/@apollo/client/link/http/createSignalIfSupported.js");
+/* harmony import */ var _rewriteURIForGET_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./rewriteURIForGET.js */ "./node_modules/@apollo/client/link/http/rewriteURIForGET.js");
+/* harmony import */ var _utils_fromError_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../utils/fromError.js */ "./node_modules/@apollo/client/link/utils/fromError.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+var createHttpLink = function (linkOptions) {
+    if (linkOptions === void 0) { linkOptions = {}; }
+    var _a = linkOptions.uri, uri = _a === void 0 ? '/graphql' : _a, fetcher = linkOptions.fetch, includeExtensions = linkOptions.includeExtensions, useGETForQueries = linkOptions.useGETForQueries, requestOptions = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(linkOptions, ["uri", "fetch", "includeExtensions", "useGETForQueries"]);
+    Object(_checkFetcher_js__WEBPACK_IMPORTED_MODULE_7__["checkFetcher"])(fetcher);
+    if (!fetcher) {
+        fetcher = fetch;
+    }
+    var linkConfig = {
+        http: { includeExtensions: includeExtensions },
+        options: requestOptions.fetchOptions,
+        credentials: requestOptions.credentials,
+        headers: requestOptions.headers,
+    };
+    return new _core_ApolloLink_js__WEBPACK_IMPORTED_MODULE_3__["ApolloLink"](function (operation) {
+        var chosenURI = Object(_selectURI_js__WEBPACK_IMPORTED_MODULE_5__["selectURI"])(operation, uri);
+        var context = operation.getContext();
+        var clientAwarenessHeaders = {};
+        if (context.clientAwareness) {
+            var _a = context.clientAwareness, name_1 = _a.name, version = _a.version;
+            if (name_1) {
+                clientAwarenessHeaders['apollographql-client-name'] = name_1;
+            }
+            if (version) {
+                clientAwarenessHeaders['apollographql-client-version'] = version;
+            }
+        }
+        var contextHeaders = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, clientAwarenessHeaders), context.headers);
+        var contextConfig = {
+            http: context.http,
+            options: context.fetchOptions,
+            credentials: context.credentials,
+            headers: contextHeaders,
+        };
+        var _b = Object(_selectHttpOptionsAndBody_js__WEBPACK_IMPORTED_MODULE_8__["selectHttpOptionsAndBody"])(operation, _selectHttpOptionsAndBody_js__WEBPACK_IMPORTED_MODULE_8__["fallbackHttpConfig"], linkConfig, contextConfig), options = _b.options, body = _b.body;
+        var controller;
+        if (!options.signal) {
+            var _c = Object(_createSignalIfSupported_js__WEBPACK_IMPORTED_MODULE_9__["createSignalIfSupported"])(), _controller = _c.controller, signal = _c.signal;
+            controller = _controller;
+            if (controller)
+                options.signal = signal;
+        }
+        var definitionIsMutation = function (d) {
+            return d.kind === 'OperationDefinition' && d.operation === 'mutation';
+        };
+        if (useGETForQueries &&
+            !operation.query.definitions.some(definitionIsMutation)) {
+            options.method = 'GET';
+        }
+        if (options.method === 'GET') {
+            var _d = Object(_rewriteURIForGET_js__WEBPACK_IMPORTED_MODULE_10__["rewriteURIForGET"])(chosenURI, body), newURI = _d.newURI, parseError = _d.parseError;
+            if (parseError) {
+                return Object(_utils_fromError_js__WEBPACK_IMPORTED_MODULE_11__["fromError"])(parseError);
+            }
+            chosenURI = newURI;
+        }
+        else {
+            try {
+                options.body = Object(_serializeFetchParameter_js__WEBPACK_IMPORTED_MODULE_4__["serializeFetchParameter"])(body, 'Payload');
+            }
+            catch (parseError) {
+                return Object(_utils_fromError_js__WEBPACK_IMPORTED_MODULE_11__["fromError"])(parseError);
+            }
+        }
+        return new zen_observable__WEBPACK_IMPORTED_MODULE_1___default.a(function (observer) {
+            fetcher(chosenURI, options)
+                .then(function (response) {
+                operation.setContext({ response: response });
+                return response;
+            })
+                .then(Object(_parseAndCheckHttpResponse_js__WEBPACK_IMPORTED_MODULE_6__["parseAndCheckHttpResponse"])(operation))
+                .then(function (result) {
+                observer.next(result);
+                observer.complete();
+                return result;
+            })
+                .catch(function (err) {
+                if (err.name === 'AbortError')
+                    return;
+                if (err.result && err.result.errors && err.result.data) {
+                    observer.next(err.result);
+                }
+                observer.error(err);
+            });
+            return function () {
+                if (controller)
+                    controller.abort();
+            };
+        });
+    });
+};
+
+
+//# sourceMappingURL=createHttpLink.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/http/createSignalIfSupported.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@apollo/client/link/http/createSignalIfSupported.js ***!
+  \**************************************************************************/
+/*! exports provided: createSignalIfSupported */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createSignalIfSupported", function() { return createSignalIfSupported; });
+var createSignalIfSupported = function () {
+    if (typeof AbortController === 'undefined')
+        return { controller: false, signal: false };
+    var controller = new AbortController();
+    var signal = controller.signal;
+    return { controller: controller, signal: signal };
+};
+
+
+//# sourceMappingURL=createSignalIfSupported.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/http/parseAndCheckHttpResponse.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/@apollo/client/link/http/parseAndCheckHttpResponse.js ***!
+  \****************************************************************************/
+/*! exports provided: parseAndCheckHttpResponse */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parseAndCheckHttpResponse", function() { return parseAndCheckHttpResponse; });
+/* harmony import */ var _utils_throwServerError_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/throwServerError.js */ "./node_modules/@apollo/client/link/utils/throwServerError.js");
+
+
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+function parseAndCheckHttpResponse(operations) {
+    return function (response) { return response
+        .text()
+        .then(function (bodyText) {
+        try {
+            return JSON.parse(bodyText);
+        }
+        catch (err) {
+            var parseError = err;
+            parseError.name = 'ServerParseError';
+            parseError.response = response;
+            parseError.statusCode = response.status;
+            parseError.bodyText = bodyText;
+            throw parseError;
+        }
+    })
+        .then(function (result) {
+        if (response.status >= 300) {
+            Object(_utils_throwServerError_js__WEBPACK_IMPORTED_MODULE_0__["throwServerError"])(response, result, "Response not successful: Received status code " + response.status);
+        }
+        if (!Array.isArray(result) &&
+            !hasOwnProperty.call(result, 'data') &&
+            !hasOwnProperty.call(result, 'errors')) {
+            Object(_utils_throwServerError_js__WEBPACK_IMPORTED_MODULE_0__["throwServerError"])(response, result, "Server response was missing for query '" + (Array.isArray(operations)
+                ? operations.map(function (op) { return op.operationName; })
+                : operations.operationName) + "'.");
+        }
+        return result;
+    }); };
+}
+
+
+//# sourceMappingURL=parseAndCheckHttpResponse.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/http/rewriteURIForGET.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@apollo/client/link/http/rewriteURIForGET.js ***!
+  \*******************************************************************/
+/*! exports provided: rewriteURIForGET */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rewriteURIForGET", function() { return rewriteURIForGET; });
+/* harmony import */ var _serializeFetchParameter_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./serializeFetchParameter.js */ "./node_modules/@apollo/client/link/http/serializeFetchParameter.js");
+
+
+function rewriteURIForGET(chosenURI, body) {
+    var queryParams = [];
+    var addQueryParam = function (key, value) {
+        queryParams.push(key + "=" + encodeURIComponent(value));
+    };
+    if ('query' in body) {
+        addQueryParam('query', body.query);
+    }
+    if (body.operationName) {
+        addQueryParam('operationName', body.operationName);
+    }
+    if (body.variables) {
+        var serializedVariables = void 0;
+        try {
+            serializedVariables = Object(_serializeFetchParameter_js__WEBPACK_IMPORTED_MODULE_0__["serializeFetchParameter"])(body.variables, 'Variables map');
+        }
+        catch (parseError) {
+            return { parseError: parseError };
+        }
+        addQueryParam('variables', serializedVariables);
+    }
+    if (body.extensions) {
+        var serializedExtensions = void 0;
+        try {
+            serializedExtensions = Object(_serializeFetchParameter_js__WEBPACK_IMPORTED_MODULE_0__["serializeFetchParameter"])(body.extensions, 'Extensions map');
+        }
+        catch (parseError) {
+            return { parseError: parseError };
+        }
+        addQueryParam('extensions', serializedExtensions);
+    }
+    var fragment = '', preFragment = chosenURI;
+    var fragmentStart = chosenURI.indexOf('#');
+    if (fragmentStart !== -1) {
+        fragment = chosenURI.substr(fragmentStart);
+        preFragment = chosenURI.substr(0, fragmentStart);
+    }
+    var queryParamsPrefix = preFragment.indexOf('?') === -1 ? '?' : '&';
+    var newURI = preFragment + queryParamsPrefix + queryParams.join('&') + fragment;
+    return { newURI: newURI };
+}
+
+
+//# sourceMappingURL=rewriteURIForGET.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/http/selectHttpOptionsAndBody.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@apollo/client/link/http/selectHttpOptionsAndBody.js ***!
+  \***************************************************************************/
+/*! exports provided: fallbackHttpConfig, selectHttpOptionsAndBody */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fallbackHttpConfig", function() { return fallbackHttpConfig; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectHttpOptionsAndBody", function() { return selectHttpOptionsAndBody; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var graphql_language_printer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! graphql/language/printer */ "./node_modules/graphql/language/printer.mjs");
+
+
+
+var defaultHttpOptions = {
+    includeQuery: true,
+    includeExtensions: false,
+};
+var defaultHeaders = {
+    accept: '*/*',
+    'content-type': 'application/json',
+};
+var defaultOptions = {
+    method: 'POST',
+};
+var fallbackHttpConfig = {
+    http: defaultHttpOptions,
+    headers: defaultHeaders,
+    options: defaultOptions,
+};
+var selectHttpOptionsAndBody = function (operation, fallbackConfig) {
+    var configs = [];
+    for (var _i = 2; _i < arguments.length; _i++) {
+        configs[_i - 2] = arguments[_i];
+    }
+    var options = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, fallbackConfig.options), { headers: fallbackConfig.headers, credentials: fallbackConfig.credentials });
+    var http = fallbackConfig.http;
+    configs.forEach(function (config) {
+        options = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, options), config.options), { headers: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, options.headers), config.headers) });
+        if (config.credentials)
+            options.credentials = config.credentials;
+        http = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, http), config.http);
+    });
+    var operationName = operation.operationName, extensions = operation.extensions, variables = operation.variables, query = operation.query;
+    var body = { operationName: operationName, variables: variables };
+    if (http.includeExtensions)
+        body.extensions = extensions;
+    if (http.includeQuery)
+        body.query = Object(graphql_language_printer__WEBPACK_IMPORTED_MODULE_1__["print"])(query);
+    return {
+        options: options,
+        body: body,
+    };
+};
+
+
+//# sourceMappingURL=selectHttpOptionsAndBody.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/http/selectURI.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@apollo/client/link/http/selectURI.js ***!
+  \************************************************************/
+/*! exports provided: selectURI */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectURI", function() { return selectURI; });
+var selectURI = function (operation, fallbackURI) {
+    var context = operation.getContext();
+    var contextURI = context.uri;
+    if (contextURI) {
+        return contextURI;
+    }
+    else if (typeof fallbackURI === 'function') {
+        return fallbackURI(operation);
+    }
+    else {
+        return fallbackURI || '/graphql';
+    }
+};
+
+
+//# sourceMappingURL=selectURI.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/http/serializeFetchParameter.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@apollo/client/link/http/serializeFetchParameter.js ***!
+  \**************************************************************************/
+/*! exports provided: serializeFetchParameter */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "serializeFetchParameter", function() { return serializeFetchParameter; });
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+
+
+var serializeFetchParameter = function (p, label) {
+    var serialized;
+    try {
+        serialized = JSON.stringify(p);
+    }
+    catch (e) {
+        var parseError =  false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_0__["InvariantError"]("Network request failed. " + label + " is not serializable: " + e.message);
+        parseError.parseError = e;
+        throw parseError;
+    }
+    return serialized;
+};
+
+
+//# sourceMappingURL=serializeFetchParameter.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/utils/createOperation.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@apollo/client/link/utils/createOperation.js ***!
+  \*******************************************************************/
+/*! exports provided: createOperation */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createOperation", function() { return createOperation; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+
+function createOperation(starting, operation) {
+    var context = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, starting);
+    var setContext = function (next) {
+        if (typeof next === 'function') {
+            context = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, context), next(context));
+        }
+        else {
+            context = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, context), next);
+        }
+    };
+    var getContext = function () { return (Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, context)); };
+    Object.defineProperty(operation, 'setContext', {
+        enumerable: false,
+        value: setContext,
+    });
+    Object.defineProperty(operation, 'getContext', {
+        enumerable: false,
+        value: getContext,
+    });
+    return operation;
+}
+
+
+//# sourceMappingURL=createOperation.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/utils/fromError.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@apollo/client/link/utils/fromError.js ***!
+  \*************************************************************/
+/*! exports provided: fromError */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fromError", function() { return fromError; });
+/* harmony import */ var zen_observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! zen-observable */ "./node_modules/zen-observable/index.js");
+/* harmony import */ var zen_observable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(zen_observable__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var symbol_observable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! symbol-observable */ "./node_modules/symbol-observable/es/index.js");
+
+
+
+function fromError(errorValue) {
+    return new zen_observable__WEBPACK_IMPORTED_MODULE_0___default.a(function (observer) {
+        observer.error(errorValue);
+    });
+}
+
+
+//# sourceMappingURL=fromError.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/utils/fromPromise.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@apollo/client/link/utils/fromPromise.js ***!
+  \***************************************************************/
+/*! exports provided: fromPromise */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fromPromise", function() { return fromPromise; });
+/* harmony import */ var zen_observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! zen-observable */ "./node_modules/zen-observable/index.js");
+/* harmony import */ var zen_observable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(zen_observable__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var symbol_observable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! symbol-observable */ "./node_modules/symbol-observable/es/index.js");
+
+
+
+function fromPromise(promise) {
+    return new zen_observable__WEBPACK_IMPORTED_MODULE_0___default.a(function (observer) {
+        promise
+            .then(function (value) {
+            observer.next(value);
+            observer.complete();
+        })
+            .catch(observer.error.bind(observer));
+    });
+}
+
+
+//# sourceMappingURL=fromPromise.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/utils/throwServerError.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@apollo/client/link/utils/throwServerError.js ***!
+  \********************************************************************/
+/*! exports provided: throwServerError */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "throwServerError", function() { return throwServerError; });
+var throwServerError = function (response, result, message) {
+    var error = new Error(message);
+    error.name = 'ServerError';
+    error.response = response;
+    error.statusCode = response.status;
+    error.result = result;
+    throw error;
+};
+
+
+//# sourceMappingURL=throwServerError.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/utils/toPromise.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@apollo/client/link/utils/toPromise.js ***!
+  \*************************************************************/
+/*! exports provided: toPromise */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toPromise", function() { return toPromise; });
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+
+
+function toPromise(observable) {
+    var completed = false;
+    return new Promise(function (resolve, reject) {
+        observable.subscribe({
+            next: function (data) {
+                if (completed) {
+                     false || ts_invariant__WEBPACK_IMPORTED_MODULE_0__["invariant"].warn("Promise Wrapper does not support multiple results from Observable");
+                }
+                else {
+                    completed = true;
+                    resolve(data);
+                }
+            },
+            error: reject,
+        });
+    });
+}
+
+
+//# sourceMappingURL=toPromise.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/utils/transformOperation.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@apollo/client/link/utils/transformOperation.js ***!
+  \**********************************************************************/
+/*! exports provided: transformOperation */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "transformOperation", function() { return transformOperation; });
+/* harmony import */ var _utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/graphql/getFromAST.js */ "./node_modules/@apollo/client/utilities/graphql/getFromAST.js");
+
+
+function transformOperation(operation) {
+    var transformedOperation = {
+        variables: operation.variables || {},
+        extensions: operation.extensions || {},
+        operationName: operation.operationName,
+        query: operation.query,
+    };
+    if (!transformedOperation.operationName) {
+        transformedOperation.operationName =
+            typeof transformedOperation.query !== 'string'
+                ? Object(_utilities_graphql_getFromAST_js__WEBPACK_IMPORTED_MODULE_0__["getOperationName"])(transformedOperation.query)
+                : '';
+    }
+    return transformedOperation;
+}
+
+
+//# sourceMappingURL=transformOperation.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/link/utils/validateOperation.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@apollo/client/link/utils/validateOperation.js ***!
+  \*********************************************************************/
+/*! exports provided: validateOperation */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "validateOperation", function() { return validateOperation; });
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+
+
+function validateOperation(operation) {
+    var OPERATION_FIELDS = [
+        'query',
+        'operationName',
+        'variables',
+        'extensions',
+        'context',
+    ];
+    for (var _i = 0, _a = Object.keys(operation); _i < _a.length; _i++) {
+        var key = _a[_i];
+        if (OPERATION_FIELDS.indexOf(key) < 0) {
+            throw  false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_0__["InvariantError"]("illegal argument: " + key);
+        }
+    }
+    return operation;
+}
+
+
+//# sourceMappingURL=validateOperation.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/node_modules/@wry/context/lib/context.esm.js":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/@apollo/client/node_modules/@wry/context/lib/context.esm.js ***!
+  \**********************************************************************************/
+/*! exports provided: Slot, asyncFromGen, bind, noContext, setTimeout, wrapYieldingFiberMethods */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Slot", function() { return Slot; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "asyncFromGen", function() { return asyncFromGen; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bind", function() { return bind; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "noContext", function() { return noContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setTimeout", function() { return setTimeoutWithContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrapYieldingFiberMethods", function() { return wrapYieldingFiberMethods; });
+// This currentContext variable will only be used if the makeSlotClass
+// function is called, which happens only if this is the first copy of the
+// @wry/context package to be imported.
+var currentContext = null;
+// This unique internal object is used to denote the absence of a value
+// for a given Slot, and is never exposed to outside code.
+var MISSING_VALUE = {};
+var idCounter = 1;
+// Although we can't do anything about the cost of duplicated code from
+// accidentally bundling multiple copies of the @wry/context package, we can
+// avoid creating the Slot class more than once using makeSlotClass.
+var makeSlotClass = function () { return /** @class */ (function () {
+    function Slot() {
+        // If you have a Slot object, you can find out its slot.id, but you cannot
+        // guess the slot.id of a Slot you don't have access to, thanks to the
+        // randomized suffix.
+        this.id = [
+            "slot",
+            idCounter++,
+            Date.now(),
+            Math.random().toString(36).slice(2),
+        ].join(":");
+    }
+    Slot.prototype.hasValue = function () {
+        for (var context_1 = currentContext; context_1; context_1 = context_1.parent) {
+            // We use the Slot object iself as a key to its value, which means the
+            // value cannot be obtained without a reference to the Slot object.
+            if (this.id in context_1.slots) {
+                var value = context_1.slots[this.id];
+                if (value === MISSING_VALUE)
+                    break;
+                if (context_1 !== currentContext) {
+                    // Cache the value in currentContext.slots so the next lookup will
+                    // be faster. This caching is safe because the tree of contexts and
+                    // the values of the slots are logically immutable.
+                    currentContext.slots[this.id] = value;
+                }
+                return true;
+            }
+        }
+        if (currentContext) {
+            // If a value was not found for this Slot, it's never going to be found
+            // no matter how many times we look it up, so we might as well cache
+            // the absence of the value, too.
+            currentContext.slots[this.id] = MISSING_VALUE;
+        }
+        return false;
+    };
+    Slot.prototype.getValue = function () {
+        if (this.hasValue()) {
+            return currentContext.slots[this.id];
+        }
+    };
+    Slot.prototype.withValue = function (value, callback, 
+    // Given the prevalence of arrow functions, specifying arguments is likely
+    // to be much more common than specifying `this`, hence this ordering:
+    args, thisArg) {
+        var _a;
+        var slots = (_a = {
+                __proto__: null
+            },
+            _a[this.id] = value,
+            _a);
+        var parent = currentContext;
+        currentContext = { parent: parent, slots: slots };
+        try {
+            // Function.prototype.apply allows the arguments array argument to be
+            // omitted or undefined, so args! is fine here.
+            return callback.apply(thisArg, args);
+        }
+        finally {
+            currentContext = parent;
+        }
+    };
+    // Capture the current context and wrap a callback function so that it
+    // reestablishes the captured context when called.
+    Slot.bind = function (callback) {
+        var context = currentContext;
+        return function () {
+            var saved = currentContext;
+            try {
+                currentContext = context;
+                return callback.apply(this, arguments);
+            }
+            finally {
+                currentContext = saved;
+            }
+        };
+    };
+    // Immediately run a callback function without any captured context.
+    Slot.noContext = function (callback, 
+    // Given the prevalence of arrow functions, specifying arguments is likely
+    // to be much more common than specifying `this`, hence this ordering:
+    args, thisArg) {
+        if (currentContext) {
+            var saved = currentContext;
+            try {
+                currentContext = null;
+                // Function.prototype.apply allows the arguments array argument to be
+                // omitted or undefined, so args! is fine here.
+                return callback.apply(thisArg, args);
+            }
+            finally {
+                currentContext = saved;
+            }
+        }
+        else {
+            return callback.apply(thisArg, args);
+        }
+    };
+    return Slot;
+}()); };
+// We store a single global implementation of the Slot class as a permanent
+// non-enumerable symbol property of the Array constructor. This obfuscation
+// does nothing to prevent access to the Slot class, but at least it ensures
+// the implementation (i.e. currentContext) cannot be tampered with, and all
+// copies of the @wry/context package (hopefully just one) will share the
+// same Slot implementation. Since the first copy of the @wry/context package
+// to be imported wins, this technique imposes a very high cost for any
+// future breaking changes to the Slot class.
+var globalKey = "@wry/context:Slot";
+var host = Array;
+var Slot = host[globalKey] || function () {
+    var Slot = makeSlotClass();
+    try {
+        Object.defineProperty(host, globalKey, {
+            value: host[globalKey] = Slot,
+            enumerable: false,
+            writable: false,
+            configurable: false,
+        });
+    }
+    finally {
+        return Slot;
+    }
+}();
+
+var bind = Slot.bind, noContext = Slot.noContext;
+function setTimeoutWithContext(callback, delay) {
+    return setTimeout(bind(callback), delay);
+}
+// Turn any generator function into an async function (using yield instead
+// of await), with context automatically preserved across yields.
+function asyncFromGen(genFn) {
+    return function () {
+        var gen = genFn.apply(this, arguments);
+        var boundNext = bind(gen.next);
+        var boundThrow = bind(gen.throw);
+        return new Promise(function (resolve, reject) {
+            function invoke(method, argument) {
+                try {
+                    var result = method.call(gen, argument);
+                }
+                catch (error) {
+                    return reject(error);
+                }
+                var next = result.done ? resolve : invokeNext;
+                if (isPromiseLike(result.value)) {
+                    result.value.then(next, result.done ? reject : invokeThrow);
+                }
+                else {
+                    next(result.value);
+                }
+            }
+            var invokeNext = function (value) { return invoke(boundNext, value); };
+            var invokeThrow = function (error) { return invoke(boundThrow, error); };
+            invokeNext();
+        });
+    };
+}
+function isPromiseLike(value) {
+    return value && typeof value.then === "function";
+}
+// If you use the fibers npm package to implement coroutines in Node.js,
+// you should call this function at least once to ensure context management
+// remains coherent across any yields.
+var wrappedFibers = [];
+function wrapYieldingFiberMethods(Fiber) {
+    // There can be only one implementation of Fiber per process, so this array
+    // should never grow longer than one element.
+    if (wrappedFibers.indexOf(Fiber) < 0) {
+        var wrap = function (obj, method) {
+            var fn = obj[method];
+            obj[method] = function () {
+                return noContext(fn, arguments, this);
+            };
+        };
+        // These methods can yield, according to
+        // https://github.com/laverdet/node-fibers/blob/ddebed9b8ae3883e57f822e2108e6943e5c8d2a8/fibers.js#L97-L100
+        wrap(Fiber, "yield");
+        wrap(Fiber.prototype, "run");
+        wrap(Fiber.prototype, "throwInto");
+        wrappedFibers.push(Fiber);
+    }
+    return Fiber;
+}
+
+
+//# sourceMappingURL=context.esm.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/node_modules/optimism/lib/bundle.esm.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@apollo/client/node_modules/optimism/lib/bundle.esm.js ***!
+  \*****************************************************************************/
+/*! exports provided: asyncFromGen, bindContext, noContext, setTimeout, KeyTrie, defaultMakeCacheKey, dep, wrap */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KeyTrie", function() { return KeyTrie; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultMakeCacheKey", function() { return defaultMakeCacheKey; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dep", function() { return dep; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrap", function() { return wrap; });
+/* harmony import */ var _wry_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wry/context */ "./node_modules/@apollo/client/node_modules/@wry/context/lib/context.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "asyncFromGen", function() { return _wry_context__WEBPACK_IMPORTED_MODULE_0__["asyncFromGen"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "bindContext", function() { return _wry_context__WEBPACK_IMPORTED_MODULE_0__["bind"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "noContext", function() { return _wry_context__WEBPACK_IMPORTED_MODULE_0__["noContext"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setTimeout", function() { return _wry_context__WEBPACK_IMPORTED_MODULE_0__["setTimeout"]; });
+
+
+
+
+function defaultDispose() { }
+var Cache = /** @class */ (function () {
+    function Cache(max, dispose) {
+        if (max === void 0) { max = Infinity; }
+        if (dispose === void 0) { dispose = defaultDispose; }
+        this.max = max;
+        this.dispose = dispose;
+        this.map = new Map();
+        this.newest = null;
+        this.oldest = null;
+    }
+    Cache.prototype.has = function (key) {
+        return this.map.has(key);
+    };
+    Cache.prototype.get = function (key) {
+        var entry = this.getEntry(key);
+        return entry && entry.value;
+    };
+    Cache.prototype.getEntry = function (key) {
+        var entry = this.map.get(key);
+        if (entry && entry !== this.newest) {
+            var older = entry.older, newer = entry.newer;
+            if (newer) {
+                newer.older = older;
+            }
+            if (older) {
+                older.newer = newer;
+            }
+            entry.older = this.newest;
+            entry.older.newer = entry;
+            entry.newer = null;
+            this.newest = entry;
+            if (entry === this.oldest) {
+                this.oldest = newer;
+            }
+        }
+        return entry;
+    };
+    Cache.prototype.set = function (key, value) {
+        var entry = this.getEntry(key);
+        if (entry) {
+            return entry.value = value;
+        }
+        entry = {
+            key: key,
+            value: value,
+            newer: null,
+            older: this.newest
+        };
+        if (this.newest) {
+            this.newest.newer = entry;
+        }
+        this.newest = entry;
+        this.oldest = this.oldest || entry;
+        this.map.set(key, entry);
+        return entry.value;
+    };
+    Cache.prototype.clean = function () {
+        while (this.oldest && this.map.size > this.max) {
+            this.delete(this.oldest.key);
+        }
+    };
+    Cache.prototype.delete = function (key) {
+        var entry = this.map.get(key);
+        if (entry) {
+            if (entry === this.newest) {
+                this.newest = entry.older;
+            }
+            if (entry === this.oldest) {
+                this.oldest = entry.newer;
+            }
+            if (entry.newer) {
+                entry.newer.older = entry.older;
+            }
+            if (entry.older) {
+                entry.older.newer = entry.newer;
+            }
+            this.map.delete(key);
+            this.dispose(entry.value, key);
+            return true;
+        }
+        return false;
+    };
+    return Cache;
+}());
+
+var parentEntrySlot = new _wry_context__WEBPACK_IMPORTED_MODULE_0__["Slot"]();
+
+function maybeUnsubscribe(entryOrDep) {
+    var unsubscribe = entryOrDep.unsubscribe;
+    if (typeof unsubscribe === "function") {
+        entryOrDep.unsubscribe = void 0;
+        unsubscribe();
+    }
+}
+
+var emptySetPool = [];
+var POOL_TARGET_SIZE = 100;
+// Since this package might be used browsers, we should avoid using the
+// Node built-in assert module.
+function assert(condition, optionalMessage) {
+    if (!condition) {
+        throw new Error(optionalMessage || "assertion failure");
+    }
+}
+function valueIs(a, b) {
+    var len = a.length;
+    return (
+    // Unknown values are not equal to each other.
+    len > 0 &&
+        // Both values must be ordinary (or both exceptional) to be equal.
+        len === b.length &&
+        // The underlying value or exception must be the same.
+        a[len - 1] === b[len - 1]);
+}
+function valueGet(value) {
+    switch (value.length) {
+        case 0: throw new Error("unknown value");
+        case 1: return value[0];
+        case 2: throw value[1];
+    }
+}
+function valueCopy(value) {
+    return value.slice(0);
+}
+var Entry = /** @class */ (function () {
+    function Entry(fn, args) {
+        this.fn = fn;
+        this.args = args;
+        this.parents = new Set();
+        this.childValues = new Map();
+        // When this Entry has children that are dirty, this property becomes
+        // a Set containing other Entry objects, borrowed from emptySetPool.
+        // When the set becomes empty, it gets recycled back to emptySetPool.
+        this.dirtyChildren = null;
+        this.dirty = true;
+        this.recomputing = false;
+        this.value = [];
+        this.deps = null;
+        ++Entry.count;
+    }
+    // This is the most important method of the Entry API, because it
+    // determines whether the cached this.value can be returned immediately,
+    // or must be recomputed. The overall performance of the caching system
+    // depends on the truth of the following observations: (1) this.dirty is
+    // usually false, (2) this.dirtyChildren is usually null/empty, and thus
+    // (3) valueGet(this.value) is usually returned without recomputation.
+    Entry.prototype.recompute = function () {
+        assert(!this.recomputing, "already recomputing");
+        rememberParent(this);
+        return mightBeDirty(this)
+            ? reallyRecompute(this)
+            : valueGet(this.value);
+    };
+    Entry.prototype.setDirty = function () {
+        if (this.dirty)
+            return;
+        this.dirty = true;
+        this.value.length = 0;
+        reportDirty(this);
+        forgetChildren(this);
+        // We can go ahead and unsubscribe here, since any further dirty
+        // notifications we receive will be redundant, and unsubscribing may
+        // free up some resources, e.g. file watchers.
+        maybeUnsubscribe(this);
+    };
+    Entry.prototype.dispose = function () {
+        var _this = this;
+        forgetChildren(this);
+        maybeUnsubscribe(this);
+        // Because this entry has been kicked out of the cache (in index.js),
+        // we've lost the ability to find out if/when this entry becomes dirty,
+        // whether that happens through a subscription, because of a direct call
+        // to entry.setDirty(), or because one of its children becomes dirty.
+        // Because of this loss of future information, we have to assume the
+        // worst (that this entry might have become dirty very soon), so we must
+        // immediately mark this entry's parents as dirty. Normally we could
+        // just call entry.setDirty() rather than calling parent.setDirty() for
+        // each parent, but that would leave this entry in parent.childValues
+        // and parent.dirtyChildren, which would prevent the child from being
+        // truly forgotten.
+        this.parents.forEach(function (parent) {
+            parent.setDirty();
+            forgetChild(parent, _this);
+        });
+    };
+    Entry.prototype.dependOn = function (dep) {
+        dep.add(this);
+        if (!this.deps) {
+            this.deps = emptySetPool.pop() || new Set();
+        }
+        this.deps.add(dep);
+    };
+    Entry.prototype.forgetDeps = function () {
+        var _this = this;
+        if (this.deps) {
+            this.deps.forEach(function (dep) { return dep.delete(_this); });
+            this.deps.clear();
+            emptySetPool.push(this.deps);
+            this.deps = null;
+        }
+    };
+    Entry.count = 0;
+    return Entry;
+}());
+function rememberParent(child) {
+    var parent = parentEntrySlot.getValue();
+    if (parent) {
+        child.parents.add(parent);
+        if (!parent.childValues.has(child)) {
+            parent.childValues.set(child, []);
+        }
+        if (mightBeDirty(child)) {
+            reportDirtyChild(parent, child);
+        }
+        else {
+            reportCleanChild(parent, child);
+        }
+        return parent;
+    }
+}
+function reallyRecompute(entry) {
+    forgetChildren(entry);
+    // Set entry as the parent entry while calling recomputeNewValue(entry).
+    parentEntrySlot.withValue(entry, recomputeNewValue, [entry]);
+    if (maybeSubscribe(entry)) {
+        // If we successfully recomputed entry.value and did not fail to
+        // (re)subscribe, then this Entry is no longer explicitly dirty.
+        setClean(entry);
+    }
+    return valueGet(entry.value);
+}
+function recomputeNewValue(entry) {
+    entry.recomputing = true;
+    // Set entry.value as unknown.
+    entry.value.length = 0;
+    try {
+        // If entry.fn succeeds, entry.value will become a normal Value.
+        entry.value[0] = entry.fn.apply(null, entry.args);
+    }
+    catch (e) {
+        // If entry.fn throws, entry.value will become exceptional.
+        entry.value[1] = e;
+    }
+    // Either way, this line is always reached.
+    entry.recomputing = false;
+}
+function mightBeDirty(entry) {
+    return entry.dirty || !!(entry.dirtyChildren && entry.dirtyChildren.size);
+}
+function setClean(entry) {
+    entry.dirty = false;
+    if (mightBeDirty(entry)) {
+        // This Entry may still have dirty children, in which case we can't
+        // let our parents know we're clean just yet.
+        return;
+    }
+    reportClean(entry);
+}
+function reportDirty(child) {
+    child.parents.forEach(function (parent) { return reportDirtyChild(parent, child); });
+}
+function reportClean(child) {
+    child.parents.forEach(function (parent) { return reportCleanChild(parent, child); });
+}
+// Let a parent Entry know that one of its children may be dirty.
+function reportDirtyChild(parent, child) {
+    // Must have called rememberParent(child) before calling
+    // reportDirtyChild(parent, child).
+    assert(parent.childValues.has(child));
+    assert(mightBeDirty(child));
+    if (!parent.dirtyChildren) {
+        parent.dirtyChildren = emptySetPool.pop() || new Set;
+    }
+    else if (parent.dirtyChildren.has(child)) {
+        // If we already know this child is dirty, then we must have already
+        // informed our own parents that we are dirty, so we can terminate
+        // the recursion early.
+        return;
+    }
+    parent.dirtyChildren.add(child);
+    reportDirty(parent);
+}
+// Let a parent Entry know that one of its children is no longer dirty.
+function reportCleanChild(parent, child) {
+    // Must have called rememberChild(child) before calling
+    // reportCleanChild(parent, child).
+    assert(parent.childValues.has(child));
+    assert(!mightBeDirty(child));
+    var childValue = parent.childValues.get(child);
+    if (childValue.length === 0) {
+        parent.childValues.set(child, valueCopy(child.value));
+    }
+    else if (!valueIs(childValue, child.value)) {
+        parent.setDirty();
+    }
+    removeDirtyChild(parent, child);
+    if (mightBeDirty(parent)) {
+        return;
+    }
+    reportClean(parent);
+}
+function removeDirtyChild(parent, child) {
+    var dc = parent.dirtyChildren;
+    if (dc) {
+        dc.delete(child);
+        if (dc.size === 0) {
+            if (emptySetPool.length < POOL_TARGET_SIZE) {
+                emptySetPool.push(dc);
+            }
+            parent.dirtyChildren = null;
+        }
+    }
+}
+// Removes all children from this entry and returns an array of the
+// removed children.
+function forgetChildren(parent) {
+    if (parent.childValues.size > 0) {
+        parent.childValues.forEach(function (_value, child) {
+            forgetChild(parent, child);
+        });
+    }
+    // Remove this parent Entry from any sets to which it was added by the
+    // addToSet method.
+    parent.forgetDeps();
+    // After we forget all our children, this.dirtyChildren must be empty
+    // and therefore must have been reset to null.
+    assert(parent.dirtyChildren === null);
+}
+function forgetChild(parent, child) {
+    child.parents.delete(parent);
+    parent.childValues.delete(child);
+    removeDirtyChild(parent, child);
+}
+function maybeSubscribe(entry) {
+    if (typeof entry.subscribe === "function") {
+        try {
+            maybeUnsubscribe(entry); // Prevent double subscriptions.
+            entry.unsubscribe = entry.subscribe.apply(null, entry.args);
+        }
+        catch (e) {
+            // If this Entry has a subscribe function and it threw an exception
+            // (or an unsubscribe function it previously returned now throws),
+            // return false to indicate that we were not able to subscribe (or
+            // unsubscribe), and this Entry should remain dirty.
+            entry.setDirty();
+            return false;
+        }
+    }
+    // Returning true indicates either that there was no entry.subscribe
+    // function or that it succeeded.
+    return true;
+}
+
+// A trie data structure that holds object keys weakly, yet can also hold
+// non-object keys, unlike the native `WeakMap`.
+// If no makeData function is supplied, the looked-up data will be an empty,
+// no-prototype Object.
+var defaultMakeData = function () { return Object.create(null); };
+var KeyTrie = /** @class */ (function () {
+    function KeyTrie(weakness, makeData) {
+        if (makeData === void 0) { makeData = defaultMakeData; }
+        this.weakness = weakness;
+        this.makeData = makeData;
+    }
+    KeyTrie.prototype.lookup = function () {
+        var array = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            array[_i] = arguments[_i];
+        }
+        return this.lookupArray(array);
+    };
+    KeyTrie.prototype.lookupArray = function (array) {
+        var node = this;
+        array.forEach(function (key) { return node = node.getChildTrie(key); });
+        return node.data || (node.data = this.makeData(array.slice(0)));
+    };
+    KeyTrie.prototype.getChildTrie = function (key) {
+        var map = this.weakness && isObjRef(key)
+            ? this.weak || (this.weak = new WeakMap())
+            : this.strong || (this.strong = new Map());
+        var child = map.get(key);
+        if (!child)
+            map.set(key, child = new KeyTrie(this.weakness, this.makeData));
+        return child;
+    };
+    return KeyTrie;
+}());
+function isObjRef(value) {
+    switch (typeof value) {
+        case "object":
+            if (value === null)
+                break;
+        // Fall through to return true...
+        case "function":
+            return true;
+    }
+    return false;
+}
+
+function dep(options) {
+    var depsByKey = new Map();
+    var subscribe = options && options.subscribe;
+    function depend(key) {
+        var parent = parentEntrySlot.getValue();
+        if (parent) {
+            var dep_1 = depsByKey.get(key);
+            if (!dep_1) {
+                depsByKey.set(key, dep_1 = new Set);
+            }
+            parent.dependOn(dep_1);
+            if (typeof subscribe === "function") {
+                maybeUnsubscribe(dep_1);
+                dep_1.unsubscribe = subscribe(key);
+            }
+        }
+    }
+    depend.dirty = function dirty(key) {
+        var dep = depsByKey.get(key);
+        if (dep) {
+            dep.forEach(function (entry) { return entry.setDirty(); });
+            depsByKey.delete(key);
+            maybeUnsubscribe(dep);
+        }
+    };
+    return depend;
+}
+
+// The defaultMakeCacheKey function is remarkably powerful, because it gives
+// a unique object for any shallow-identical list of arguments. If you need
+// to implement a custom makeCacheKey function, you may find it helpful to
+// delegate the final work to defaultMakeCacheKey, which is why we export it
+// here. However, you may want to avoid defaultMakeCacheKey if your runtime
+// does not support WeakMap, or you have the ability to return a string key.
+// In those cases, just write your own custom makeCacheKey functions.
+var keyTrie = new KeyTrie(typeof WeakMap === "function");
+function defaultMakeCacheKey() {
+    var args = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        args[_i] = arguments[_i];
+    }
+    return keyTrie.lookupArray(args);
+}
+var caches = new Set();
+function wrap(originalFunction, options) {
+    if (options === void 0) { options = Object.create(null); }
+    var cache = new Cache(options.max || Math.pow(2, 16), function (entry) { return entry.dispose(); });
+    var makeCacheKey = options.makeCacheKey || defaultMakeCacheKey;
+    function optimistic() {
+        var key = makeCacheKey.apply(null, arguments);
+        if (key === void 0) {
+            return originalFunction.apply(null, arguments);
+        }
+        var args = Array.prototype.slice.call(arguments);
+        var entry = cache.get(key);
+        if (entry) {
+            entry.args = args;
+        }
+        else {
+            entry = new Entry(originalFunction, args);
+            cache.set(key, entry);
+            entry.subscribe = options.subscribe;
+        }
+        var value = entry.recompute();
+        // Move this entry to the front of the least-recently used queue,
+        // since we just finished computing its value.
+        cache.set(key, entry);
+        caches.add(cache);
+        // Clean up any excess entries in the cache, but only if there is no
+        // active parent entry, meaning we're not in the middle of a larger
+        // computation that might be flummoxed by the cleaning.
+        if (!parentEntrySlot.hasValue()) {
+            caches.forEach(function (cache) { return cache.clean(); });
+            caches.clear();
+        }
+        return value;
+    }
+    optimistic.dirty = function () {
+        var key = makeCacheKey.apply(null, arguments);
+        var child = key !== void 0 && cache.get(key);
+        if (child) {
+            child.setDirty();
+        }
+    };
+    return optimistic;
+}
+
+
+//# sourceMappingURL=bundle.esm.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/utilities/common/arrays.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@apollo/client/utilities/common/arrays.js ***!
+  \****************************************************************/
+/*! exports provided: isNonEmptyArray */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isNonEmptyArray", function() { return isNonEmptyArray; });
+function isNonEmptyArray(value) {
+    return Array.isArray(value) && value.length > 0;
+}
+
+
+//# sourceMappingURL=arrays.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/utilities/common/canUse.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@apollo/client/utilities/common/canUse.js ***!
+  \****************************************************************/
+/*! exports provided: canUseWeakMap */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canUseWeakMap", function() { return canUseWeakMap; });
+var canUseWeakMap = typeof WeakMap === 'function' && !(typeof navigator === 'object' &&
+    navigator.product === 'ReactNative');
+
+
+//# sourceMappingURL=canUse.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/utilities/common/cloneDeep.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@apollo/client/utilities/common/cloneDeep.js ***!
+  \*******************************************************************/
+/*! exports provided: cloneDeep */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneDeep", function() { return cloneDeep; });
+var toString = Object.prototype.toString;
+function cloneDeep(value) {
+    return cloneDeepHelper(value);
+}
+function cloneDeepHelper(val, seen) {
+    switch (toString.call(val)) {
+        case "[object Array]": {
+            seen = seen || new Map;
+            if (seen.has(val))
+                return seen.get(val);
+            var copy_1 = val.slice(0);
+            seen.set(val, copy_1);
+            copy_1.forEach(function (child, i) {
+                copy_1[i] = cloneDeepHelper(child, seen);
+            });
+            return copy_1;
+        }
+        case "[object Object]": {
+            seen = seen || new Map;
+            if (seen.has(val))
+                return seen.get(val);
+            var copy_2 = Object.create(Object.getPrototypeOf(val));
+            seen.set(val, copy_2);
+            Object.keys(val).forEach(function (key) {
+                copy_2[key] = cloneDeepHelper(val[key], seen);
+            });
+            return copy_2;
+        }
+        default:
+            return val;
+    }
+}
+
+
+//# sourceMappingURL=cloneDeep.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/utilities/common/environment.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@apollo/client/utilities/common/environment.js ***!
+  \*********************************************************************/
+/*! exports provided: getEnv, isDevelopment, isEnv, isTest */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEnv", function() { return getEnv; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isDevelopment", function() { return isDevelopment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isEnv", function() { return isEnv; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isTest", function() { return isTest; });
+function getEnv() {
+    if (typeof process !== 'undefined' && "development") {
+        return "development";
+    }
+    return 'development';
+}
+function isEnv(env) {
+    return getEnv() === env;
+}
+function isDevelopment() {
+    return isEnv('development') === true;
+}
+function isTest() {
+    return isEnv('test') === true;
+}
+
+
+//# sourceMappingURL=environment.js.map
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../process/browser.js */ "./node_modules/process/browser.js")))
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/utilities/common/errorHandling.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@apollo/client/utilities/common/errorHandling.js ***!
+  \***********************************************************************/
+/*! exports provided: graphQLResultHasError, tryFunctionOrLogError */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "graphQLResultHasError", function() { return graphQLResultHasError; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tryFunctionOrLogError", function() { return tryFunctionOrLogError; });
+function tryFunctionOrLogError(f) {
+    try {
+        return f();
+    }
+    catch (e) {
+        if (console.error) {
+            console.error(e);
+        }
+    }
+}
+function graphQLResultHasError(result) {
+    return result.errors && result.errors.length > 0;
+}
+
+
+//# sourceMappingURL=errorHandling.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/utilities/common/filterInPlace.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@apollo/client/utilities/common/filterInPlace.js ***!
+  \***********************************************************************/
+/*! exports provided: filterInPlace */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterInPlace", function() { return filterInPlace; });
+function filterInPlace(array, test, context) {
+    var target = 0;
+    array.forEach(function (elem, i) {
+        if (test.call(this, elem, i, array)) {
+            array[target++] = elem;
+        }
+    }, context);
+    array.length = target;
+    return array;
+}
+
+
+//# sourceMappingURL=filterInPlace.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/utilities/common/maybeDeepFreeze.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@apollo/client/utilities/common/maybeDeepFreeze.js ***!
+  \*************************************************************************/
+/*! exports provided: maybeDeepFreeze */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "maybeDeepFreeze", function() { return maybeDeepFreeze; });
+/* harmony import */ var _environment_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./environment.js */ "./node_modules/@apollo/client/utilities/common/environment.js");
+
+
+function isObject(value) {
+    return value !== null && typeof value === "object";
+}
+function deepFreeze(value) {
+    var workSet = new Set([value]);
+    workSet.forEach(function (obj) {
+        if (isObject(obj)) {
+            if (!Object.isFrozen(obj))
+                Object.freeze(obj);
+            Object.getOwnPropertyNames(obj).forEach(function (name) {
+                if (isObject(obj[name]))
+                    workSet.add(obj[name]);
+            });
+        }
+    });
+    return value;
+}
+function maybeDeepFreeze(obj) {
+    if ( true && (Object(_environment_js__WEBPACK_IMPORTED_MODULE_0__["isDevelopment"])() || Object(_environment_js__WEBPACK_IMPORTED_MODULE_0__["isTest"])())) {
+        deepFreeze(obj);
+    }
+    return obj;
+}
+
+
+//# sourceMappingURL=maybeDeepFreeze.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/utilities/common/mergeDeep.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@apollo/client/utilities/common/mergeDeep.js ***!
+  \*******************************************************************/
+/*! exports provided: DeepMerger, mergeDeep, mergeDeepArray */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeepMerger", function() { return DeepMerger; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mergeDeep", function() { return mergeDeep; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mergeDeepArray", function() { return mergeDeepArray; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+function mergeDeep() {
+    var sources = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        sources[_i] = arguments[_i];
+    }
+    return mergeDeepArray(sources);
+}
+function mergeDeepArray(sources) {
+    var target = sources[0] || {};
+    var count = sources.length;
+    if (count > 1) {
+        var merger = new DeepMerger();
+        for (var i = 1; i < count; ++i) {
+            target = merger.merge(target, sources[i]);
+        }
+    }
+    return target;
+}
+function isObject(obj) {
+    return obj !== null && typeof obj === 'object';
+}
+var defaultReconciler = function (target, source, property) {
+    return this.merge(target[property], source[property]);
+};
+var DeepMerger = (function () {
+    function DeepMerger(reconciler) {
+        if (reconciler === void 0) { reconciler = defaultReconciler; }
+        this.reconciler = reconciler;
+        this.isObject = isObject;
+        this.pastCopies = new Set();
+    }
+    DeepMerger.prototype.merge = function (target, source) {
+        var _this = this;
+        var context = [];
+        for (var _i = 2; _i < arguments.length; _i++) {
+            context[_i - 2] = arguments[_i];
+        }
+        if (isObject(source) && isObject(target)) {
+            Object.keys(source).forEach(function (sourceKey) {
+                if (hasOwnProperty.call(target, sourceKey)) {
+                    var targetValue = target[sourceKey];
+                    if (source[sourceKey] !== targetValue) {
+                        var result = _this.reconciler.apply(_this, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spreadArrays"])([target, source, sourceKey], context));
+                        if (result !== targetValue) {
+                            target = _this.shallowCopyForMerge(target);
+                            target[sourceKey] = result;
+                        }
+                    }
+                }
+                else {
+                    target = _this.shallowCopyForMerge(target);
+                    target[sourceKey] = source[sourceKey];
+                }
+            });
+            return target;
+        }
+        return source;
+    };
+    DeepMerger.prototype.shallowCopyForMerge = function (value) {
+        if (isObject(value) && !this.pastCopies.has(value)) {
+            if (Array.isArray(value)) {
+                value = value.slice(0);
+            }
+            else {
+                value = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({ __proto__: Object.getPrototypeOf(value) }, value);
+            }
+            this.pastCopies.add(value);
+        }
+        return value;
+    };
+    return DeepMerger;
+}());
+
+
+//# sourceMappingURL=mergeDeep.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/utilities/graphql/directives.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@apollo/client/utilities/graphql/directives.js ***!
+  \*********************************************************************/
+/*! exports provided: getDirectiveNames, getInclusionDirectives, hasClientExports, hasDirectives, shouldInclude */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDirectiveNames", function() { return getDirectiveNames; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getInclusionDirectives", function() { return getInclusionDirectives; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasClientExports", function() { return hasClientExports; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasDirectives", function() { return hasDirectives; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "shouldInclude", function() { return shouldInclude; });
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+/* harmony import */ var graphql_language_visitor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! graphql/language/visitor */ "./node_modules/graphql/language/visitor.mjs");
+
+
+
+function shouldInclude(_a, variables) {
+    var directives = _a.directives;
+    if (!directives || !directives.length) {
+        return true;
+    }
+    return getInclusionDirectives(directives).every(function (_a) {
+        var directive = _a.directive, ifArgument = _a.ifArgument;
+        var evaledValue = false;
+        if (ifArgument.value.kind === 'Variable') {
+            evaledValue = variables && variables[ifArgument.value.name.value];
+             false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_0__["invariant"])(evaledValue !== void 0, "Invalid variable referenced in @" + directive.name.value + " directive.");
+        }
+        else {
+            evaledValue = ifArgument.value.value;
+        }
+        return directive.name.value === 'skip' ? !evaledValue : evaledValue;
+    });
+}
+function getDirectiveNames(doc) {
+    var names = [];
+    Object(graphql_language_visitor__WEBPACK_IMPORTED_MODULE_1__["visit"])(doc, {
+        Directive: function (node) {
+            names.push(node.name.value);
+        },
+    });
+    return names;
+}
+function hasDirectives(names, doc) {
+    return getDirectiveNames(doc).some(function (name) { return names.indexOf(name) > -1; });
+}
+function hasClientExports(document) {
+    return (document &&
+        hasDirectives(['client'], document) &&
+        hasDirectives(['export'], document));
+}
+function isInclusionDirective(_a) {
+    var value = _a.name.value;
+    return value === 'skip' || value === 'include';
+}
+function getInclusionDirectives(directives) {
+    var result = [];
+    if (directives && directives.length) {
+        directives.forEach(function (directive) {
+            if (!isInclusionDirective(directive))
+                return;
+            var directiveArguments = directive.arguments;
+            var directiveName = directive.name.value;
+             false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_0__["invariant"])(directiveArguments && directiveArguments.length === 1, "Incorrect number of arguments for the @" + directiveName + " directive.");
+            var ifArgument = directiveArguments[0];
+             false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_0__["invariant"])(ifArgument.name && ifArgument.name.value === 'if', "Invalid argument for the @" + directiveName + " directive.");
+            var ifValue = ifArgument.value;
+             false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_0__["invariant"])(ifValue &&
+                (ifValue.kind === 'Variable' || ifValue.kind === 'BooleanValue'), "Argument for the @" + directiveName + " directive must be a variable or a boolean value.");
+            result.push({ directive: directive, ifArgument: ifArgument });
+        });
+    }
+    return result;
+}
+
+
+//# sourceMappingURL=directives.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/utilities/graphql/fragments.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@apollo/client/utilities/graphql/fragments.js ***!
+  \********************************************************************/
+/*! exports provided: createFragmentMap, getFragmentFromSelection, getFragmentQueryDocument */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createFragmentMap", function() { return createFragmentMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFragmentFromSelection", function() { return getFragmentFromSelection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFragmentQueryDocument", function() { return getFragmentQueryDocument; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+
+
+
+function getFragmentQueryDocument(document, fragmentName) {
+    var actualFragmentName = fragmentName;
+    var fragments = [];
+    document.definitions.forEach(function (definition) {
+        if (definition.kind === 'OperationDefinition') {
+            throw  false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_1__["InvariantError"]("Found a " + definition.operation + " operation" + (definition.name ? " named '" + definition.name.value + "'" : '') + ". " +
+                'No operations are allowed when using a fragment as a query. Only fragments are allowed.');
+        }
+        if (definition.kind === 'FragmentDefinition') {
+            fragments.push(definition);
+        }
+    });
+    if (typeof actualFragmentName === 'undefined') {
+         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(fragments.length === 1, "Found " + fragments.length + " fragments. `fragmentName` must be provided when there is not exactly 1 fragment.");
+        actualFragmentName = fragments[0].name.value;
+    }
+    var query = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, document), { definitions: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spreadArrays"])([
+            {
+                kind: 'OperationDefinition',
+                operation: 'query',
+                selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                        {
+                            kind: 'FragmentSpread',
+                            name: {
+                                kind: 'Name',
+                                value: actualFragmentName,
+                            },
+                        },
+                    ],
+                },
+            }
+        ], document.definitions) });
+    return query;
+}
+function createFragmentMap(fragments) {
+    if (fragments === void 0) { fragments = []; }
+    var symTable = {};
+    fragments.forEach(function (fragment) {
+        symTable[fragment.name.value] = fragment;
+    });
+    return symTable;
+}
+function getFragmentFromSelection(selection, fragmentMap) {
+    switch (selection.kind) {
+        case 'InlineFragment':
+            return selection;
+        case 'FragmentSpread': {
+            var fragment = fragmentMap && fragmentMap[selection.name.value];
+             false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"])(fragment, "No fragment named " + selection.name.value + ".");
+            return fragment;
+        }
+        default:
+            return null;
+    }
+}
+
+
+//# sourceMappingURL=fragments.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/utilities/graphql/getFromAST.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@apollo/client/utilities/graphql/getFromAST.js ***!
+  \*********************************************************************/
+/*! exports provided: checkDocument, getDefaultValues, getFragmentDefinition, getFragmentDefinitions, getMainDefinition, getOperationDefinition, getOperationName, getQueryDefinition */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkDocument", function() { return checkDocument; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDefaultValues", function() { return getDefaultValues; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFragmentDefinition", function() { return getFragmentDefinition; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFragmentDefinitions", function() { return getFragmentDefinitions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getMainDefinition", function() { return getMainDefinition; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getOperationDefinition", function() { return getOperationDefinition; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getOperationName", function() { return getOperationName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getQueryDefinition", function() { return getQueryDefinition; });
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+/* harmony import */ var _storeUtils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./storeUtils.js */ "./node_modules/@apollo/client/utilities/graphql/storeUtils.js");
+
+
+
+function checkDocument(doc) {
+     false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_0__["invariant"])(doc && doc.kind === 'Document', "Expecting a parsed GraphQL document. Perhaps you need to wrap the query string in a \"gql\" tag? http://docs.apollostack.com/apollo-client/core.html#gql");
+    var operations = doc.definitions
+        .filter(function (d) { return d.kind !== 'FragmentDefinition'; })
+        .map(function (definition) {
+        if (definition.kind !== 'OperationDefinition') {
+            throw  false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_0__["InvariantError"]("Schema type definitions not allowed in queries. Found: \"" + definition.kind + "\"");
+        }
+        return definition;
+    });
+     false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_0__["invariant"])(operations.length <= 1, "Ambiguous GraphQL document: contains " + operations.length + " operations");
+    return doc;
+}
+function getOperationDefinition(doc) {
+    checkDocument(doc);
+    return doc.definitions.filter(function (definition) { return definition.kind === 'OperationDefinition'; })[0];
+}
+function getOperationName(doc) {
+    return (doc.definitions
+        .filter(function (definition) {
+        return definition.kind === 'OperationDefinition' && definition.name;
+    })
+        .map(function (x) { return x.name.value; })[0] || null);
+}
+function getFragmentDefinitions(doc) {
+    return doc.definitions.filter(function (definition) { return definition.kind === 'FragmentDefinition'; });
+}
+function getQueryDefinition(doc) {
+    var queryDef = getOperationDefinition(doc);
+     false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_0__["invariant"])(queryDef && queryDef.operation === 'query', 'Must contain a query definition.');
+    return queryDef;
+}
+function getFragmentDefinition(doc) {
+     false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_0__["invariant"])(doc.kind === 'Document', "Expecting a parsed GraphQL document. Perhaps you need to wrap the query string in a \"gql\" tag? http://docs.apollostack.com/apollo-client/core.html#gql");
+     false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_0__["invariant"])(doc.definitions.length <= 1, 'Fragment must have exactly one definition.');
+    var fragmentDef = doc.definitions[0];
+     false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_0__["invariant"])(fragmentDef.kind === 'FragmentDefinition', 'Must be a fragment definition.');
+    return fragmentDef;
+}
+function getMainDefinition(queryDoc) {
+    checkDocument(queryDoc);
+    var fragmentDefinition;
+    for (var _i = 0, _a = queryDoc.definitions; _i < _a.length; _i++) {
+        var definition = _a[_i];
+        if (definition.kind === 'OperationDefinition') {
+            var operation = definition.operation;
+            if (operation === 'query' ||
+                operation === 'mutation' ||
+                operation === 'subscription') {
+                return definition;
+            }
+        }
+        if (definition.kind === 'FragmentDefinition' && !fragmentDefinition) {
+            fragmentDefinition = definition;
+        }
+    }
+    if (fragmentDefinition) {
+        return fragmentDefinition;
+    }
+    throw  false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_0__["InvariantError"]('Expected a parsed GraphQL query with a query, mutation, subscription, or a fragment.');
+}
+function getDefaultValues(definition) {
+    var defaultValues = Object.create(null);
+    var defs = definition && definition.variableDefinitions;
+    if (defs && defs.length) {
+        defs.forEach(function (def) {
+            if (def.defaultValue) {
+                Object(_storeUtils_js__WEBPACK_IMPORTED_MODULE_1__["valueToObjectRepresentation"])(defaultValues, def.variable.name, def.defaultValue);
+            }
+        });
+    }
+    return defaultValues;
+}
+
+
+//# sourceMappingURL=getFromAST.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/utilities/graphql/storeUtils.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@apollo/client/utilities/graphql/storeUtils.js ***!
+  \*********************************************************************/
+/*! exports provided: argumentsObjectFromField, getStoreKeyName, getTypenameFromResult, isField, isInlineFragment, isReference, makeReference, resultKeyNameFromField, storeKeyNameFromField, valueToObjectRepresentation */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "argumentsObjectFromField", function() { return argumentsObjectFromField; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStoreKeyName", function() { return getStoreKeyName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTypenameFromResult", function() { return getTypenameFromResult; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isField", function() { return isField; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isInlineFragment", function() { return isInlineFragment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isReference", function() { return isReference; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeReference", function() { return makeReference; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resultKeyNameFromField", function() { return resultKeyNameFromField; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "storeKeyNameFromField", function() { return storeKeyNameFromField; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "valueToObjectRepresentation", function() { return valueToObjectRepresentation; });
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+/* harmony import */ var fast_json_stable_stringify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! fast-json-stable-stringify */ "./node_modules/fast-json-stable-stringify/index.js");
+/* harmony import */ var fast_json_stable_stringify__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(fast_json_stable_stringify__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fragments_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./fragments.js */ "./node_modules/@apollo/client/utilities/graphql/fragments.js");
+
+
+
+
+function makeReference(id) {
+    return { __ref: String(id) };
+}
+function isReference(obj) {
+    return obj && typeof obj === 'object' && typeof obj.__ref === 'string';
+}
+function isStringValue(value) {
+    return value.kind === 'StringValue';
+}
+function isBooleanValue(value) {
+    return value.kind === 'BooleanValue';
+}
+function isIntValue(value) {
+    return value.kind === 'IntValue';
+}
+function isFloatValue(value) {
+    return value.kind === 'FloatValue';
+}
+function isVariable(value) {
+    return value.kind === 'Variable';
+}
+function isObjectValue(value) {
+    return value.kind === 'ObjectValue';
+}
+function isListValue(value) {
+    return value.kind === 'ListValue';
+}
+function isEnumValue(value) {
+    return value.kind === 'EnumValue';
+}
+function isNullValue(value) {
+    return value.kind === 'NullValue';
+}
+function valueToObjectRepresentation(argObj, name, value, variables) {
+    if (isIntValue(value) || isFloatValue(value)) {
+        argObj[name.value] = Number(value.value);
+    }
+    else if (isBooleanValue(value) || isStringValue(value)) {
+        argObj[name.value] = value.value;
+    }
+    else if (isObjectValue(value)) {
+        var nestedArgObj_1 = {};
+        value.fields.map(function (obj) {
+            return valueToObjectRepresentation(nestedArgObj_1, obj.name, obj.value, variables);
+        });
+        argObj[name.value] = nestedArgObj_1;
+    }
+    else if (isVariable(value)) {
+        var variableValue = (variables || {})[value.name.value];
+        argObj[name.value] = variableValue;
+    }
+    else if (isListValue(value)) {
+        argObj[name.value] = value.values.map(function (listValue) {
+            var nestedArgArrayObj = {};
+            valueToObjectRepresentation(nestedArgArrayObj, name, listValue, variables);
+            return nestedArgArrayObj[name.value];
+        });
+    }
+    else if (isEnumValue(value)) {
+        argObj[name.value] = value.value;
+    }
+    else if (isNullValue(value)) {
+        argObj[name.value] = null;
+    }
+    else {
+        throw  false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_0__["InvariantError"]("The inline argument \"" + name.value + "\" of kind \"" + value.kind + "\"" +
+            'is not supported. Use variables instead of inline arguments to ' +
+            'overcome this limitation.');
+    }
+}
+function storeKeyNameFromField(field, variables) {
+    var directivesObj = null;
+    if (field.directives) {
+        directivesObj = {};
+        field.directives.forEach(function (directive) {
+            directivesObj[directive.name.value] = {};
+            if (directive.arguments) {
+                directive.arguments.forEach(function (_a) {
+                    var name = _a.name, value = _a.value;
+                    return valueToObjectRepresentation(directivesObj[directive.name.value], name, value, variables);
+                });
+            }
+        });
+    }
+    var argObj = null;
+    if (field.arguments && field.arguments.length) {
+        argObj = {};
+        field.arguments.forEach(function (_a) {
+            var name = _a.name, value = _a.value;
+            return valueToObjectRepresentation(argObj, name, value, variables);
+        });
+    }
+    return getStoreKeyName(field.name.value, argObj, directivesObj);
+}
+var KNOWN_DIRECTIVES = [
+    'connection',
+    'include',
+    'skip',
+    'client',
+    'rest',
+    'export',
+];
+function getStoreKeyName(fieldName, args, directives) {
+    if (directives &&
+        directives['connection'] &&
+        directives['connection']['key']) {
+        if (directives['connection']['filter'] &&
+            directives['connection']['filter'].length > 0) {
+            var filterKeys = directives['connection']['filter']
+                ? directives['connection']['filter']
+                : [];
+            filterKeys.sort();
+            var queryArgs_1 = args;
+            var filteredArgs_1 = {};
+            filterKeys.forEach(function (key) {
+                filteredArgs_1[key] = queryArgs_1[key];
+            });
+            return directives['connection']['key'] + "(" + JSON.stringify(filteredArgs_1) + ")";
+        }
+        else {
+            return directives['connection']['key'];
+        }
+    }
+    var completeFieldName = fieldName;
+    if (args) {
+        var stringifiedArgs = fast_json_stable_stringify__WEBPACK_IMPORTED_MODULE_1___default()(args);
+        completeFieldName += "(" + stringifiedArgs + ")";
+    }
+    if (directives) {
+        Object.keys(directives).forEach(function (key) {
+            if (KNOWN_DIRECTIVES.indexOf(key) !== -1)
+                return;
+            if (directives[key] && Object.keys(directives[key]).length) {
+                completeFieldName += "@" + key + "(" + JSON.stringify(directives[key]) + ")";
+            }
+            else {
+                completeFieldName += "@" + key;
+            }
+        });
+    }
+    return completeFieldName;
+}
+function argumentsObjectFromField(field, variables) {
+    if (field.arguments && field.arguments.length) {
+        var argObj_1 = {};
+        field.arguments.forEach(function (_a) {
+            var name = _a.name, value = _a.value;
+            return valueToObjectRepresentation(argObj_1, name, value, variables);
+        });
+        return argObj_1;
+    }
+    return null;
+}
+function resultKeyNameFromField(field) {
+    return field.alias ? field.alias.value : field.name.value;
+}
+function getTypenameFromResult(result, selectionSet, fragmentMap) {
+    if (typeof result.__typename === 'string') {
+        return result.__typename;
+    }
+    for (var _i = 0, _a = selectionSet.selections; _i < _a.length; _i++) {
+        var selection = _a[_i];
+        if (isField(selection)) {
+            if (selection.name.value === '__typename') {
+                return result[resultKeyNameFromField(selection)];
+            }
+        }
+        else {
+            var typename = getTypenameFromResult(result, Object(_fragments_js__WEBPACK_IMPORTED_MODULE_2__["getFragmentFromSelection"])(selection, fragmentMap).selectionSet, fragmentMap);
+            if (typeof typename === 'string') {
+                return typename;
+            }
+        }
+    }
+}
+function isField(selection) {
+    return selection.kind === 'Field';
+}
+function isInlineFragment(selection) {
+    return selection.kind === 'InlineFragment';
+}
+
+
+//# sourceMappingURL=storeUtils.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/utilities/graphql/transform.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@apollo/client/utilities/graphql/transform.js ***!
+  \********************************************************************/
+/*! exports provided: addTypenameToDocument, buildQueryFromSelectionSet, removeArgumentsFromDocument, removeClientSetsFromDocument, removeConnectionDirectiveFromDocument, removeDirectivesFromDocument, removeFragmentSpreadFromDocument */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addTypenameToDocument", function() { return addTypenameToDocument; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildQueryFromSelectionSet", function() { return buildQueryFromSelectionSet; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeArgumentsFromDocument", function() { return removeArgumentsFromDocument; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeClientSetsFromDocument", function() { return removeClientSetsFromDocument; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeConnectionDirectiveFromDocument", function() { return removeConnectionDirectiveFromDocument; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeDirectivesFromDocument", function() { return removeDirectivesFromDocument; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeFragmentSpreadFromDocument", function() { return removeFragmentSpreadFromDocument; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+/* harmony import */ var _fragments_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./fragments.js */ "./node_modules/@apollo/client/utilities/graphql/fragments.js");
+/* harmony import */ var _storeUtils_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./storeUtils.js */ "./node_modules/@apollo/client/utilities/graphql/storeUtils.js");
+/* harmony import */ var _getFromAST_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./getFromAST.js */ "./node_modules/@apollo/client/utilities/graphql/getFromAST.js");
+/* harmony import */ var graphql_language_visitor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! graphql/language/visitor */ "./node_modules/graphql/language/visitor.mjs");
+/* harmony import */ var _common_filterInPlace_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/filterInPlace.js */ "./node_modules/@apollo/client/utilities/common/filterInPlace.js");
+
+
+
+
+
+
+
+
+var TYPENAME_FIELD = {
+    kind: 'Field',
+    name: {
+        kind: 'Name',
+        value: '__typename',
+    },
+};
+function isEmpty(op, fragments) {
+    return op.selectionSet.selections.every(function (selection) {
+        return selection.kind === 'FragmentSpread' &&
+            isEmpty(fragments[selection.name.value], fragments);
+    });
+}
+function nullIfDocIsEmpty(doc) {
+    return isEmpty(Object(_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["getOperationDefinition"])(doc) || Object(_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["getFragmentDefinition"])(doc), Object(_fragments_js__WEBPACK_IMPORTED_MODULE_2__["createFragmentMap"])(Object(_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["getFragmentDefinitions"])(doc)))
+        ? null
+        : doc;
+}
+function getDirectiveMatcher(directives) {
+    return function directiveMatcher(directive) {
+        return directives.some(function (dir) {
+            return (dir.name && dir.name === directive.name.value) ||
+                (dir.test && dir.test(directive));
+        });
+    };
+}
+function removeDirectivesFromDocument(directives, doc) {
+    var variablesInUse = Object.create(null);
+    var variablesToRemove = [];
+    var fragmentSpreadsInUse = Object.create(null);
+    var fragmentSpreadsToRemove = [];
+    var modifiedDoc = nullIfDocIsEmpty(Object(graphql_language_visitor__WEBPACK_IMPORTED_MODULE_5__["visit"])(doc, {
+        Variable: {
+            enter: function (node, _key, parent) {
+                if (parent.kind !== 'VariableDefinition') {
+                    variablesInUse[node.name.value] = true;
+                }
+            },
+        },
+        Field: {
+            enter: function (node) {
+                if (directives && node.directives) {
+                    var shouldRemoveField = directives.some(function (directive) { return directive.remove; });
+                    if (shouldRemoveField &&
+                        node.directives &&
+                        node.directives.some(getDirectiveMatcher(directives))) {
+                        if (node.arguments) {
+                            node.arguments.forEach(function (arg) {
+                                if (arg.value.kind === 'Variable') {
+                                    variablesToRemove.push({
+                                        name: arg.value.name.value,
+                                    });
+                                }
+                            });
+                        }
+                        if (node.selectionSet) {
+                            getAllFragmentSpreadsFromSelectionSet(node.selectionSet).forEach(function (frag) {
+                                fragmentSpreadsToRemove.push({
+                                    name: frag.name.value,
+                                });
+                            });
+                        }
+                        return null;
+                    }
+                }
+            },
+        },
+        FragmentSpread: {
+            enter: function (node) {
+                fragmentSpreadsInUse[node.name.value] = true;
+            },
+        },
+        Directive: {
+            enter: function (node) {
+                if (getDirectiveMatcher(directives)(node)) {
+                    return null;
+                }
+            },
+        },
+    }));
+    if (modifiedDoc &&
+        Object(_common_filterInPlace_js__WEBPACK_IMPORTED_MODULE_6__["filterInPlace"])(variablesToRemove, function (v) { return !variablesInUse[v.name]; }).length) {
+        modifiedDoc = removeArgumentsFromDocument(variablesToRemove, modifiedDoc);
+    }
+    if (modifiedDoc &&
+        Object(_common_filterInPlace_js__WEBPACK_IMPORTED_MODULE_6__["filterInPlace"])(fragmentSpreadsToRemove, function (fs) { return !fragmentSpreadsInUse[fs.name]; })
+            .length) {
+        modifiedDoc = removeFragmentSpreadFromDocument(fragmentSpreadsToRemove, modifiedDoc);
+    }
+    return modifiedDoc;
+}
+function addTypenameToDocument(doc) {
+    return Object(graphql_language_visitor__WEBPACK_IMPORTED_MODULE_5__["visit"])(Object(_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["checkDocument"])(doc), {
+        SelectionSet: {
+            enter: function (node, _key, parent) {
+                if (parent &&
+                    parent.kind === 'OperationDefinition') {
+                    return;
+                }
+                var selections = node.selections;
+                if (!selections) {
+                    return;
+                }
+                var skip = selections.some(function (selection) {
+                    return (Object(_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isField"])(selection) &&
+                        (selection.name.value === '__typename' ||
+                            selection.name.value.lastIndexOf('__', 0) === 0));
+                });
+                if (skip) {
+                    return;
+                }
+                var field = parent;
+                if (Object(_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isField"])(field) &&
+                    field.directives &&
+                    field.directives.some(function (d) { return d.name.value === 'export'; })) {
+                    return;
+                }
+                return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, node), { selections: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__spreadArrays"])(selections, [TYPENAME_FIELD]) });
+            },
+        },
+    });
+}
+addTypenameToDocument.added = function (field) {
+    return field === TYPENAME_FIELD;
+};
+var connectionRemoveConfig = {
+    test: function (directive) {
+        var willRemove = directive.name.value === 'connection';
+        if (willRemove) {
+            if (!directive.arguments ||
+                !directive.arguments.some(function (arg) { return arg.name.value === 'key'; })) {
+                 false || ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"].warn('Removing an @connection directive even though it does not have a key. ' +
+                    'You may want to use the key parameter to specify a store key.');
+            }
+        }
+        return willRemove;
+    },
+};
+function removeConnectionDirectiveFromDocument(doc) {
+    return removeDirectivesFromDocument([connectionRemoveConfig], Object(_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["checkDocument"])(doc));
+}
+function getArgumentMatcher(config) {
+    return function argumentMatcher(argument) {
+        return config.some(function (aConfig) {
+            return argument.value &&
+                argument.value.kind === 'Variable' &&
+                argument.value.name &&
+                (aConfig.name === argument.value.name.value ||
+                    (aConfig.test && aConfig.test(argument)));
+        });
+    };
+}
+function removeArgumentsFromDocument(config, doc) {
+    var argMatcher = getArgumentMatcher(config);
+    return nullIfDocIsEmpty(Object(graphql_language_visitor__WEBPACK_IMPORTED_MODULE_5__["visit"])(doc, {
+        OperationDefinition: {
+            enter: function (node) {
+                return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, node), { variableDefinitions: node.variableDefinitions.filter(function (varDef) {
+                        return !config.some(function (arg) { return arg.name === varDef.variable.name.value; });
+                    }) });
+            },
+        },
+        Field: {
+            enter: function (node) {
+                var shouldRemoveField = config.some(function (argConfig) { return argConfig.remove; });
+                if (shouldRemoveField) {
+                    var argMatchCount_1 = 0;
+                    node.arguments.forEach(function (arg) {
+                        if (argMatcher(arg)) {
+                            argMatchCount_1 += 1;
+                        }
+                    });
+                    if (argMatchCount_1 === 1) {
+                        return null;
+                    }
+                }
+            },
+        },
+        Argument: {
+            enter: function (node) {
+                if (argMatcher(node)) {
+                    return null;
+                }
+            },
+        },
+    }));
+}
+function removeFragmentSpreadFromDocument(config, doc) {
+    function enter(node) {
+        if (config.some(function (def) { return def.name === node.name.value; })) {
+            return null;
+        }
+    }
+    return nullIfDocIsEmpty(Object(graphql_language_visitor__WEBPACK_IMPORTED_MODULE_5__["visit"])(doc, {
+        FragmentSpread: { enter: enter },
+        FragmentDefinition: { enter: enter },
+    }));
+}
+function getAllFragmentSpreadsFromSelectionSet(selectionSet) {
+    var allFragments = [];
+    selectionSet.selections.forEach(function (selection) {
+        if ((Object(_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isField"])(selection) || Object(_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isInlineFragment"])(selection)) &&
+            selection.selectionSet) {
+            getAllFragmentSpreadsFromSelectionSet(selection.selectionSet).forEach(function (frag) { return allFragments.push(frag); });
+        }
+        else if (selection.kind === 'FragmentSpread') {
+            allFragments.push(selection);
+        }
+    });
+    return allFragments;
+}
+function buildQueryFromSelectionSet(document) {
+    var definition = Object(_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["getMainDefinition"])(document);
+    var definitionOperation = definition.operation;
+    if (definitionOperation === 'query') {
+        return document;
+    }
+    var modifiedDoc = Object(graphql_language_visitor__WEBPACK_IMPORTED_MODULE_5__["visit"])(document, {
+        OperationDefinition: {
+            enter: function (node) {
+                return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, node), { operation: 'query' });
+            },
+        },
+    });
+    return modifiedDoc;
+}
+function removeClientSetsFromDocument(document) {
+    Object(_getFromAST_js__WEBPACK_IMPORTED_MODULE_4__["checkDocument"])(document);
+    var modifiedDoc = removeDirectivesFromDocument([
+        {
+            test: function (directive) { return directive.name.value === 'client'; },
+            remove: true,
+        },
+    ], document);
+    if (modifiedDoc) {
+        modifiedDoc = Object(graphql_language_visitor__WEBPACK_IMPORTED_MODULE_5__["visit"])(modifiedDoc, {
+            FragmentDefinition: {
+                enter: function (node) {
+                    if (node.selectionSet) {
+                        var isTypenameOnly = node.selectionSet.selections.every(function (selection) {
+                            return Object(_storeUtils_js__WEBPACK_IMPORTED_MODULE_3__["isField"])(selection) && selection.name.value === '__typename';
+                        });
+                        if (isTypenameOnly) {
+                            return null;
+                        }
+                    }
+                },
+            },
+        });
+    }
+    return modifiedDoc;
+}
+
+
+//# sourceMappingURL=transform.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/utilities/observables/observables.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@apollo/client/utilities/observables/observables.js ***!
+  \**************************************************************************/
+/*! exports provided: asyncMap, multiplex */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "asyncMap", function() { return asyncMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "multiplex", function() { return multiplex; });
+/* harmony import */ var zen_observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! zen-observable */ "./node_modules/zen-observable/index.js");
+/* harmony import */ var zen_observable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(zen_observable__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var symbol_observable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! symbol-observable */ "./node_modules/symbol-observable/es/index.js");
+
+
+
+function multiplex(inner) {
+    var observers = new Set();
+    var sub = null;
+    return new zen_observable__WEBPACK_IMPORTED_MODULE_0___default.a(function (observer) {
+        observers.add(observer);
+        sub = sub || inner.subscribe({
+            next: function (value) {
+                observers.forEach(function (obs) { return obs.next && obs.next(value); });
+            },
+            error: function (error) {
+                observers.forEach(function (obs) { return obs.error && obs.error(error); });
+            },
+            complete: function () {
+                observers.forEach(function (obs) { return obs.complete && obs.complete(); });
+            },
+        });
+        return function () {
+            if (observers.delete(observer) && !observers.size && sub) {
+                sub.unsubscribe();
+                sub = null;
+            }
+        };
+    });
+}
+function asyncMap(observable, mapFn) {
+    return new zen_observable__WEBPACK_IMPORTED_MODULE_0___default.a(function (observer) {
+        var next = observer.next, error = observer.error, complete = observer.complete;
+        var activeNextCount = 0;
+        var completed = false;
+        var handler = {
+            next: function (value) {
+                ++activeNextCount;
+                new Promise(function (resolve) {
+                    resolve(mapFn(value));
+                }).then(function (result) {
+                    --activeNextCount;
+                    next && next.call(observer, result);
+                    completed && handler.complete();
+                }, function (e) {
+                    --activeNextCount;
+                    error && error.call(observer, e);
+                });
+            },
+            error: function (e) {
+                error && error.call(observer, e);
+            },
+            complete: function () {
+                completed = true;
+                if (!activeNextCount) {
+                    complete && complete.call(observer);
+                }
+            },
+        };
+        var sub = observable.subscribe(handler);
+        return function () { return sub.unsubscribe(); };
+    });
+}
+
+
+//# sourceMappingURL=observables.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/client/version.js":
+/*!************************************************!*\
+  !*** ./node_modules/@apollo/client/version.js ***!
+  \************************************************/
+/*! exports provided: version */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "version", function() { return version; });
+var version = 'local';
+
+
+//# sourceMappingURL=version.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@apollo/link-ws/lib/bundle.esm.js":
+/*!********************************************************!*\
+  !*** ./node_modules/@apollo/link-ws/lib/bundle.esm.js ***!
+  \********************************************************/
+/*! exports provided: WebSocketLink */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WebSocketLink", function() { return WebSocketLink; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _apollo_client_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/client/core */ "./node_modules/@apollo/client/core/index.js");
+/* harmony import */ var subscriptions_transport_ws__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! subscriptions-transport-ws */ "./node_modules/subscriptions-transport-ws/dist/client.js");
+/* harmony import */ var subscriptions_transport_ws__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(subscriptions_transport_ws__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+var WebSocketLink = (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(WebSocketLink, _super);
+    function WebSocketLink(paramsOrClient) {
+        var _this = _super.call(this) || this;
+        if (paramsOrClient instanceof subscriptions_transport_ws__WEBPACK_IMPORTED_MODULE_2__["SubscriptionClient"]) {
+            _this.subscriptionClient = paramsOrClient;
+        }
+        else {
+            _this.subscriptionClient = new subscriptions_transport_ws__WEBPACK_IMPORTED_MODULE_2__["SubscriptionClient"](paramsOrClient.uri, paramsOrClient.options, paramsOrClient.webSocketImpl);
+        }
+        return _this;
+    }
+    WebSocketLink.prototype.request = function (operation) {
+        return this.subscriptionClient.request(operation);
+    };
+    return WebSocketLink;
+}(_apollo_client_core__WEBPACK_IMPORTED_MODULE_1__["ApolloLink"]));
+
+
+//# sourceMappingURL=bundle.esm.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/@apollo/react-common/lib/react-common.esm.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@apollo/react-common/lib/react-common.esm.js ***!
@@ -735,7 +7472,7 @@ var OperationData = (function () {
 var QueryData = (function (_super) {
     Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(QueryData, _super);
     function QueryData(_a) {
-        var options = _a.options, context = _a.context, forceUpdate = _a.forceUpdate;
+        var options = _a.options, context = _a.context, onNewData = _a.onNewData;
         var _this = _super.call(this, options, context) || this;
         _this.previousData = {};
         _this.currentObservable = {};
@@ -744,7 +7481,7 @@ var QueryData = (function (_super) {
             _this.cleanup();
             _this.runLazy = true;
             _this.lazyOptions = options;
-            _this.forceUpdate();
+            _this.onNewData();
         };
         _this.getExecuteResult = function () {
             var result = _this.getQueryResult();
@@ -767,7 +7504,7 @@ var QueryData = (function (_super) {
                 _this.currentObservable.query.stopPolling();
         };
         _this.obsSubscribeToMore = function (options) { return _this.currentObservable.query.subscribeToMore(options); };
-        _this.forceUpdate = forceUpdate;
+        _this.onNewData = onNewData;
         return _this;
     }
     QueryData.prototype.execute = function () {
@@ -833,8 +7570,10 @@ var QueryData = (function (_super) {
         }
         return options;
     };
+    QueryData.prototype.ssrInitiated = function () {
+        return this.context && this.context.renderPromises;
+    };
     QueryData.prototype.getExecuteSsrResult = function () {
-        var treeRenderingInitiated = this.context && this.context.renderPromises;
         var ssrDisabled = this.getOptions().ssr === false;
         var fetchDisabled = this.refreshClient().client.disableNetworkFetches;
         var ssrLoading = {
@@ -843,11 +7582,11 @@ var QueryData = (function (_super) {
             called: true,
             data: undefined
         };
-        if (ssrDisabled && (treeRenderingInitiated || fetchDisabled)) {
+        if (ssrDisabled && (this.ssrInitiated() || fetchDisabled)) {
             return ssrLoading;
         }
         var result;
-        if (treeRenderingInitiated) {
+        if (this.ssrInitiated()) {
             result =
                 this.context.renderPromises.addQueryPromise(this, this.getExecuteResult) || ssrLoading;
         }
@@ -857,8 +7596,7 @@ var QueryData = (function (_super) {
         var options = this.getOptions();
         this.verifyDocumentType(options.query, _apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["DocumentType"].Query);
         var displayName = options.displayName || 'Query';
-        if (this.context &&
-            this.context.renderPromises &&
+        if (this.ssrInitiated() &&
             (options.fetchPolicy === 'network-only' ||
                 options.fetchPolicy === 'cache-and-network')) {
             options.fetchPolicy = 'cache-first';
@@ -866,15 +7604,16 @@ var QueryData = (function (_super) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, options), { displayName: displayName, context: options.context, metadata: { reactComponent: { displayName: displayName } } });
     };
     QueryData.prototype.initializeObservableQuery = function () {
-        if (this.context && this.context.renderPromises) {
+        var _a, _b;
+        if (this.ssrInitiated()) {
             this.currentObservable.query = this.context.renderPromises.getSSRObservable(this.getOptions());
         }
         if (!this.currentObservable.query) {
             var observableQueryOptions = this.prepareObservableQueryOptions();
             this.previousData.observableQueryOptions = Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, observableQueryOptions), { children: null });
             this.currentObservable.query = this.refreshClient().client.watchQuery(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, observableQueryOptions));
-            if (this.context && this.context.renderPromises) {
-                this.context.renderPromises.registerSSRObservable(this.currentObservable.query, observableQueryOptions);
+            if (this.ssrInitiated()) {
+                (_b = (_a = this.context) === null || _a === void 0 ? void 0 : _a.renderPromises) === null || _b === void 0 ? void 0 : _b.registerSSRObservable(this.currentObservable.query, observableQueryOptions);
             }
         }
     };
@@ -906,7 +7645,7 @@ var QueryData = (function (_super) {
                     Object(_wry_equality__WEBPACK_IMPORTED_MODULE_4__["equal"])(previousResult.data, data)) {
                     return;
                 }
-                _this.forceUpdate();
+                _this.onNewData();
             },
             error: function (error) {
                 _this.resubscribeToQuery();
@@ -916,7 +7655,7 @@ var QueryData = (function (_super) {
                 if ((previousResult && previousResult.loading) ||
                     !Object(_wry_equality__WEBPACK_IMPORTED_MODULE_4__["equal"])(error, _this.previousData.error)) {
                     _this.previousData.error = error;
-                    _this.forceUpdate();
+                    _this.onNewData();
                 }
             }
         });
@@ -1038,17 +7777,27 @@ function useBaseQuery(query, options, lazy) {
     var context = Object(react__WEBPACK_IMPORTED_MODULE_2__["useContext"])(Object(_apollo_react_common__WEBPACK_IMPORTED_MODULE_0__["getApolloContext"])());
     var _a = Object(react__WEBPACK_IMPORTED_MODULE_2__["useReducer"])(function (x) { return x + 1; }, 0), tick = _a[0], forceUpdate = _a[1];
     var updatedOptions = options ? Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, options), { query: query }) : { query: query };
+    var isRendering = Object(react__WEBPACK_IMPORTED_MODULE_2__["useRef"])(true);
+    var isRenderScheduled = Object(react__WEBPACK_IMPORTED_MODULE_2__["useRef"])(false);
     var queryDataRef = Object(react__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
-    if (!queryDataRef.current) {
-        queryDataRef.current = new QueryData({
+    var queryData = queryDataRef.current ||
+        new QueryData({
             options: updatedOptions,
             context: context,
-            forceUpdate: forceUpdate
+            onNewData: function () {
+                if (!queryData.ssrInitiated() && isRendering.current) {
+                    isRenderScheduled.current = true;
+                }
+                else {
+                    forceUpdate();
+                }
+            }
         });
-    }
-    var queryData = queryDataRef.current;
     queryData.setOptions(updatedOptions);
     queryData.context = context;
+    if (queryData.ssrInitiated() && !queryDataRef.current) {
+        queryDataRef.current = queryData;
+    }
     var memo = {
         options: Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])(Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__assign"])({}, updatedOptions), { onError: undefined, onCompleted: undefined }),
         context: context,
@@ -1058,6 +7807,16 @@ function useBaseQuery(query, options, lazy) {
     var queryResult = lazy
         ? result[1]
         : result;
+    Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
+        if (!queryDataRef.current) {
+            queryDataRef.current = queryData;
+        }
+        isRendering.current = false;
+        if (isRenderScheduled.current) {
+            isRenderScheduled.current = false;
+            forceUpdate();
+        }
+    });
     Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () { return queryData.afterExecute({ lazy: lazy }); }, [
         queryResult.loading,
         queryResult.networkStatus,
@@ -18146,6 +24905,102 @@ module.exports = __webpack_require__(/*! ./modules/_core */ "./node_modules/babe
 
 /***/ }),
 
+/***/ "./node_modules/backo2/index.js":
+/*!**************************************!*\
+  !*** ./node_modules/backo2/index.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+/**
+ * Expose `Backoff`.
+ */
+
+module.exports = Backoff;
+
+/**
+ * Initialize backoff timer with `opts`.
+ *
+ * - `min` initial timeout in milliseconds [100]
+ * - `max` max timeout [10000]
+ * - `jitter` [0]
+ * - `factor` [2]
+ *
+ * @param {Object} opts
+ * @api public
+ */
+
+function Backoff(opts) {
+  opts = opts || {};
+  this.ms = opts.min || 100;
+  this.max = opts.max || 10000;
+  this.factor = opts.factor || 2;
+  this.jitter = opts.jitter > 0 && opts.jitter <= 1 ? opts.jitter : 0;
+  this.attempts = 0;
+}
+
+/**
+ * Return the backoff duration.
+ *
+ * @return {Number}
+ * @api public
+ */
+
+Backoff.prototype.duration = function(){
+  var ms = this.ms * Math.pow(this.factor, this.attempts++);
+  if (this.jitter) {
+    var rand =  Math.random();
+    var deviation = Math.floor(rand * this.jitter * ms);
+    ms = (Math.floor(rand * 10) & 1) == 0  ? ms - deviation : ms + deviation;
+  }
+  return Math.min(ms, this.max) | 0;
+};
+
+/**
+ * Reset the number of attempts.
+ *
+ * @api public
+ */
+
+Backoff.prototype.reset = function(){
+  this.attempts = 0;
+};
+
+/**
+ * Set the minimum duration
+ *
+ * @api public
+ */
+
+Backoff.prototype.setMin = function(min){
+  this.ms = min;
+};
+
+/**
+ * Set the maximum duration
+ *
+ * @api public
+ */
+
+Backoff.prototype.setMax = function(max){
+  this.max = max;
+};
+
+/**
+ * Set the jitter
+ *
+ * @api public
+ */
+
+Backoff.prototype.setJitter = function(jitter){
+  this.jitter = jitter;
+};
+
+
+
+/***/ }),
+
 /***/ "./node_modules/browser-image-compression/dist/browser-image-compression.mjs":
 /*!***********************************************************************************!*\
   !*** ./node_modules/browser-image-compression/dist/browser-image-compression.mjs ***!
@@ -18421,6 +25276,354 @@ module.exports = function (url, options) {
 
   return url;
 };
+
+/***/ }),
+
+/***/ "./node_modules/eventemitter3/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/eventemitter3/index.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var has = Object.prototype.hasOwnProperty
+  , prefix = '~';
+
+/**
+ * Constructor to create a storage for our `EE` objects.
+ * An `Events` instance is a plain object whose properties are event names.
+ *
+ * @constructor
+ * @private
+ */
+function Events() {}
+
+//
+// We try to not inherit from `Object.prototype`. In some engines creating an
+// instance in this way is faster than calling `Object.create(null)` directly.
+// If `Object.create(null)` is not supported we prefix the event names with a
+// character to make sure that the built-in object properties are not
+// overridden or used as an attack vector.
+//
+if (Object.create) {
+  Events.prototype = Object.create(null);
+
+  //
+  // This hack is needed because the `__proto__` property is still inherited in
+  // some old browsers like Android 4, iPhone 5.1, Opera 11 and Safari 5.
+  //
+  if (!new Events().__proto__) prefix = false;
+}
+
+/**
+ * Representation of a single event listener.
+ *
+ * @param {Function} fn The listener function.
+ * @param {*} context The context to invoke the listener with.
+ * @param {Boolean} [once=false] Specify if the listener is a one-time listener.
+ * @constructor
+ * @private
+ */
+function EE(fn, context, once) {
+  this.fn = fn;
+  this.context = context;
+  this.once = once || false;
+}
+
+/**
+ * Add a listener for a given event.
+ *
+ * @param {EventEmitter} emitter Reference to the `EventEmitter` instance.
+ * @param {(String|Symbol)} event The event name.
+ * @param {Function} fn The listener function.
+ * @param {*} context The context to invoke the listener with.
+ * @param {Boolean} once Specify if the listener is a one-time listener.
+ * @returns {EventEmitter}
+ * @private
+ */
+function addListener(emitter, event, fn, context, once) {
+  if (typeof fn !== 'function') {
+    throw new TypeError('The listener must be a function');
+  }
+
+  var listener = new EE(fn, context || emitter, once)
+    , evt = prefix ? prefix + event : event;
+
+  if (!emitter._events[evt]) emitter._events[evt] = listener, emitter._eventsCount++;
+  else if (!emitter._events[evt].fn) emitter._events[evt].push(listener);
+  else emitter._events[evt] = [emitter._events[evt], listener];
+
+  return emitter;
+}
+
+/**
+ * Clear event by name.
+ *
+ * @param {EventEmitter} emitter Reference to the `EventEmitter` instance.
+ * @param {(String|Symbol)} evt The Event name.
+ * @private
+ */
+function clearEvent(emitter, evt) {
+  if (--emitter._eventsCount === 0) emitter._events = new Events();
+  else delete emitter._events[evt];
+}
+
+/**
+ * Minimal `EventEmitter` interface that is molded against the Node.js
+ * `EventEmitter` interface.
+ *
+ * @constructor
+ * @public
+ */
+function EventEmitter() {
+  this._events = new Events();
+  this._eventsCount = 0;
+}
+
+/**
+ * Return an array listing the events for which the emitter has registered
+ * listeners.
+ *
+ * @returns {Array}
+ * @public
+ */
+EventEmitter.prototype.eventNames = function eventNames() {
+  var names = []
+    , events
+    , name;
+
+  if (this._eventsCount === 0) return names;
+
+  for (name in (events = this._events)) {
+    if (has.call(events, name)) names.push(prefix ? name.slice(1) : name);
+  }
+
+  if (Object.getOwnPropertySymbols) {
+    return names.concat(Object.getOwnPropertySymbols(events));
+  }
+
+  return names;
+};
+
+/**
+ * Return the listeners registered for a given event.
+ *
+ * @param {(String|Symbol)} event The event name.
+ * @returns {Array} The registered listeners.
+ * @public
+ */
+EventEmitter.prototype.listeners = function listeners(event) {
+  var evt = prefix ? prefix + event : event
+    , handlers = this._events[evt];
+
+  if (!handlers) return [];
+  if (handlers.fn) return [handlers.fn];
+
+  for (var i = 0, l = handlers.length, ee = new Array(l); i < l; i++) {
+    ee[i] = handlers[i].fn;
+  }
+
+  return ee;
+};
+
+/**
+ * Return the number of listeners listening to a given event.
+ *
+ * @param {(String|Symbol)} event The event name.
+ * @returns {Number} The number of listeners.
+ * @public
+ */
+EventEmitter.prototype.listenerCount = function listenerCount(event) {
+  var evt = prefix ? prefix + event : event
+    , listeners = this._events[evt];
+
+  if (!listeners) return 0;
+  if (listeners.fn) return 1;
+  return listeners.length;
+};
+
+/**
+ * Calls each of the listeners registered for a given event.
+ *
+ * @param {(String|Symbol)} event The event name.
+ * @returns {Boolean} `true` if the event had listeners, else `false`.
+ * @public
+ */
+EventEmitter.prototype.emit = function emit(event, a1, a2, a3, a4, a5) {
+  var evt = prefix ? prefix + event : event;
+
+  if (!this._events[evt]) return false;
+
+  var listeners = this._events[evt]
+    , len = arguments.length
+    , args
+    , i;
+
+  if (listeners.fn) {
+    if (listeners.once) this.removeListener(event, listeners.fn, undefined, true);
+
+    switch (len) {
+      case 1: return listeners.fn.call(listeners.context), true;
+      case 2: return listeners.fn.call(listeners.context, a1), true;
+      case 3: return listeners.fn.call(listeners.context, a1, a2), true;
+      case 4: return listeners.fn.call(listeners.context, a1, a2, a3), true;
+      case 5: return listeners.fn.call(listeners.context, a1, a2, a3, a4), true;
+      case 6: return listeners.fn.call(listeners.context, a1, a2, a3, a4, a5), true;
+    }
+
+    for (i = 1, args = new Array(len -1); i < len; i++) {
+      args[i - 1] = arguments[i];
+    }
+
+    listeners.fn.apply(listeners.context, args);
+  } else {
+    var length = listeners.length
+      , j;
+
+    for (i = 0; i < length; i++) {
+      if (listeners[i].once) this.removeListener(event, listeners[i].fn, undefined, true);
+
+      switch (len) {
+        case 1: listeners[i].fn.call(listeners[i].context); break;
+        case 2: listeners[i].fn.call(listeners[i].context, a1); break;
+        case 3: listeners[i].fn.call(listeners[i].context, a1, a2); break;
+        case 4: listeners[i].fn.call(listeners[i].context, a1, a2, a3); break;
+        default:
+          if (!args) for (j = 1, args = new Array(len -1); j < len; j++) {
+            args[j - 1] = arguments[j];
+          }
+
+          listeners[i].fn.apply(listeners[i].context, args);
+      }
+    }
+  }
+
+  return true;
+};
+
+/**
+ * Add a listener for a given event.
+ *
+ * @param {(String|Symbol)} event The event name.
+ * @param {Function} fn The listener function.
+ * @param {*} [context=this] The context to invoke the listener with.
+ * @returns {EventEmitter} `this`.
+ * @public
+ */
+EventEmitter.prototype.on = function on(event, fn, context) {
+  return addListener(this, event, fn, context, false);
+};
+
+/**
+ * Add a one-time listener for a given event.
+ *
+ * @param {(String|Symbol)} event The event name.
+ * @param {Function} fn The listener function.
+ * @param {*} [context=this] The context to invoke the listener with.
+ * @returns {EventEmitter} `this`.
+ * @public
+ */
+EventEmitter.prototype.once = function once(event, fn, context) {
+  return addListener(this, event, fn, context, true);
+};
+
+/**
+ * Remove the listeners of a given event.
+ *
+ * @param {(String|Symbol)} event The event name.
+ * @param {Function} fn Only remove the listeners that match this function.
+ * @param {*} context Only remove the listeners that have this context.
+ * @param {Boolean} once Only remove one-time listeners.
+ * @returns {EventEmitter} `this`.
+ * @public
+ */
+EventEmitter.prototype.removeListener = function removeListener(event, fn, context, once) {
+  var evt = prefix ? prefix + event : event;
+
+  if (!this._events[evt]) return this;
+  if (!fn) {
+    clearEvent(this, evt);
+    return this;
+  }
+
+  var listeners = this._events[evt];
+
+  if (listeners.fn) {
+    if (
+      listeners.fn === fn &&
+      (!once || listeners.once) &&
+      (!context || listeners.context === context)
+    ) {
+      clearEvent(this, evt);
+    }
+  } else {
+    for (var i = 0, events = [], length = listeners.length; i < length; i++) {
+      if (
+        listeners[i].fn !== fn ||
+        (once && !listeners[i].once) ||
+        (context && listeners[i].context !== context)
+      ) {
+        events.push(listeners[i]);
+      }
+    }
+
+    //
+    // Reset the array, or remove it completely if we have no more listeners.
+    //
+    if (events.length) this._events[evt] = events.length === 1 ? events[0] : events;
+    else clearEvent(this, evt);
+  }
+
+  return this;
+};
+
+/**
+ * Remove all listeners, or those of the specified event.
+ *
+ * @param {(String|Symbol)} [event] The event name.
+ * @returns {EventEmitter} `this`.
+ * @public
+ */
+EventEmitter.prototype.removeAllListeners = function removeAllListeners(event) {
+  var evt;
+
+  if (event) {
+    evt = prefix ? prefix + event : event;
+    if (this._events[evt]) clearEvent(this, evt);
+  } else {
+    this._events = new Events();
+    this._eventsCount = 0;
+  }
+
+  return this;
+};
+
+//
+// Alias methods names because people roll like that.
+//
+EventEmitter.prototype.off = EventEmitter.prototype.removeListener;
+EventEmitter.prototype.addListener = EventEmitter.prototype.on;
+
+//
+// Expose the prefix.
+//
+EventEmitter.prefixed = prefix;
+
+//
+// Allow `EventEmitter` to be imported as module namespace.
+//
+EventEmitter.EventEmitter = EventEmitter;
+
+//
+// Expose the module.
+//
+if (true) {
+  module.exports = EventEmitter;
+}
+
 
 /***/ }),
 
@@ -22533,6 +29736,52 @@ function getVisitFn(visitor, kind, isLeaving) {
       }
     }
   }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/graphql/utilities/getOperationAST.mjs":
+/*!************************************************************!*\
+  !*** ./node_modules/graphql/utilities/getOperationAST.mjs ***!
+  \************************************************************/
+/*! exports provided: getOperationAST */
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getOperationAST", function() { return getOperationAST; });
+/* harmony import */ var _language_kinds__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../language/kinds */ "./node_modules/graphql/language/kinds.mjs");
+
+
+/**
+ * Returns an operation AST given a document AST and optionally an operation
+ * name. If a name is not provided, an operation is only returned if only one is
+ * provided in the document.
+ */
+function getOperationAST(documentAST, operationName) {
+  var operation = null;
+
+  for (var _i2 = 0, _documentAST$definiti2 = documentAST.definitions; _i2 < _documentAST$definiti2.length; _i2++) {
+    var definition = _documentAST$definiti2[_i2];
+
+    if (definition.kind === _language_kinds__WEBPACK_IMPORTED_MODULE_0__["Kind"].OPERATION_DEFINITION) {
+      if (!operationName) {
+        // If no operation name was provided, only return an Operation if there
+        // is one defined in the document. Upon encountering the second, return
+        // null.
+        if (operation) {
+          return null;
+        }
+
+        operation = definition;
+      } else if (definition.name && definition.name.value === operationName) {
+        return definition;
+      }
+    }
+  }
+
+  return operation;
 }
 
 
@@ -77597,6 +84846,668 @@ module.exports = function (list, options) {
 
 /***/ }),
 
+/***/ "./node_modules/subscriptions-transport-ws/dist/client.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/subscriptions-transport-ws/dist/client.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var _global = typeof global !== 'undefined' ? global : (typeof window !== 'undefined' ? window : {});
+var NativeWebSocket = _global.WebSocket || _global.MozWebSocket;
+var Backoff = __webpack_require__(/*! backo2 */ "./node_modules/backo2/index.js");
+var eventemitter3_1 = __webpack_require__(/*! eventemitter3 */ "./node_modules/eventemitter3/index.js");
+var is_string_1 = __webpack_require__(/*! ./utils/is-string */ "./node_modules/subscriptions-transport-ws/dist/utils/is-string.js");
+var is_object_1 = __webpack_require__(/*! ./utils/is-object */ "./node_modules/subscriptions-transport-ws/dist/utils/is-object.js");
+var printer_1 = __webpack_require__(/*! graphql/language/printer */ "./node_modules/graphql/language/printer.mjs");
+var getOperationAST_1 = __webpack_require__(/*! graphql/utilities/getOperationAST */ "./node_modules/graphql/utilities/getOperationAST.mjs");
+var symbol_observable_1 = __webpack_require__(/*! symbol-observable */ "./node_modules/symbol-observable/es/index.js");
+var protocol_1 = __webpack_require__(/*! ./protocol */ "./node_modules/subscriptions-transport-ws/dist/protocol.js");
+var defaults_1 = __webpack_require__(/*! ./defaults */ "./node_modules/subscriptions-transport-ws/dist/defaults.js");
+var message_types_1 = __webpack_require__(/*! ./message-types */ "./node_modules/subscriptions-transport-ws/dist/message-types.js");
+var SubscriptionClient = (function () {
+    function SubscriptionClient(url, options, webSocketImpl, webSocketProtocols) {
+        var _a = (options || {}), _b = _a.connectionCallback, connectionCallback = _b === void 0 ? undefined : _b, _c = _a.connectionParams, connectionParams = _c === void 0 ? {} : _c, _d = _a.timeout, timeout = _d === void 0 ? defaults_1.WS_TIMEOUT : _d, _e = _a.reconnect, reconnect = _e === void 0 ? false : _e, _f = _a.reconnectionAttempts, reconnectionAttempts = _f === void 0 ? Infinity : _f, _g = _a.lazy, lazy = _g === void 0 ? false : _g, _h = _a.inactivityTimeout, inactivityTimeout = _h === void 0 ? 0 : _h;
+        this.wsImpl = webSocketImpl || NativeWebSocket;
+        if (!this.wsImpl) {
+            throw new Error('Unable to find native implementation, or alternative implementation for WebSocket!');
+        }
+        this.wsProtocols = webSocketProtocols || protocol_1.GRAPHQL_WS;
+        this.connectionCallback = connectionCallback;
+        this.url = url;
+        this.operations = {};
+        this.nextOperationId = 0;
+        this.wsTimeout = timeout;
+        this.unsentMessagesQueue = [];
+        this.reconnect = reconnect;
+        this.reconnecting = false;
+        this.reconnectionAttempts = reconnectionAttempts;
+        this.lazy = !!lazy;
+        this.inactivityTimeout = inactivityTimeout;
+        this.closedByUser = false;
+        this.backoff = new Backoff({ jitter: 0.5 });
+        this.eventEmitter = new eventemitter3_1.EventEmitter();
+        this.middlewares = [];
+        this.client = null;
+        this.maxConnectTimeGenerator = this.createMaxConnectTimeGenerator();
+        this.connectionParams = this.getConnectionParams(connectionParams);
+        if (!this.lazy) {
+            this.connect();
+        }
+    }
+    Object.defineProperty(SubscriptionClient.prototype, "status", {
+        get: function () {
+            if (this.client === null) {
+                return this.wsImpl.CLOSED;
+            }
+            return this.client.readyState;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    SubscriptionClient.prototype.close = function (isForced, closedByUser) {
+        if (isForced === void 0) { isForced = true; }
+        if (closedByUser === void 0) { closedByUser = true; }
+        this.clearInactivityTimeout();
+        if (this.client !== null) {
+            this.closedByUser = closedByUser;
+            if (isForced) {
+                this.clearCheckConnectionInterval();
+                this.clearMaxConnectTimeout();
+                this.clearTryReconnectTimeout();
+                this.unsubscribeAll();
+                this.sendMessage(undefined, message_types_1.default.GQL_CONNECTION_TERMINATE, null);
+            }
+            this.client.close();
+            this.client = null;
+            this.eventEmitter.emit('disconnected');
+            if (!isForced) {
+                this.tryReconnect();
+            }
+        }
+    };
+    SubscriptionClient.prototype.request = function (request) {
+        var _a;
+        var getObserver = this.getObserver.bind(this);
+        var executeOperation = this.executeOperation.bind(this);
+        var unsubscribe = this.unsubscribe.bind(this);
+        var opId;
+        this.clearInactivityTimeout();
+        return _a = {},
+            _a[symbol_observable_1.default] = function () {
+                return this;
+            },
+            _a.subscribe = function (observerOrNext, onError, onComplete) {
+                var observer = getObserver(observerOrNext, onError, onComplete);
+                opId = executeOperation(request, function (error, result) {
+                    if (error === null && result === null) {
+                        if (observer.complete) {
+                            observer.complete();
+                        }
+                    }
+                    else if (error) {
+                        if (observer.error) {
+                            observer.error(error[0]);
+                        }
+                    }
+                    else {
+                        if (observer.next) {
+                            observer.next(result);
+                        }
+                    }
+                });
+                return {
+                    unsubscribe: function () {
+                        if (opId) {
+                            unsubscribe(opId);
+                            opId = null;
+                        }
+                    },
+                };
+            },
+            _a;
+    };
+    SubscriptionClient.prototype.on = function (eventName, callback, context) {
+        var handler = this.eventEmitter.on(eventName, callback, context);
+        return function () {
+            handler.off(eventName, callback, context);
+        };
+    };
+    SubscriptionClient.prototype.onConnected = function (callback, context) {
+        return this.on('connected', callback, context);
+    };
+    SubscriptionClient.prototype.onConnecting = function (callback, context) {
+        return this.on('connecting', callback, context);
+    };
+    SubscriptionClient.prototype.onDisconnected = function (callback, context) {
+        return this.on('disconnected', callback, context);
+    };
+    SubscriptionClient.prototype.onReconnected = function (callback, context) {
+        return this.on('reconnected', callback, context);
+    };
+    SubscriptionClient.prototype.onReconnecting = function (callback, context) {
+        return this.on('reconnecting', callback, context);
+    };
+    SubscriptionClient.prototype.onError = function (callback, context) {
+        return this.on('error', callback, context);
+    };
+    SubscriptionClient.prototype.unsubscribeAll = function () {
+        var _this = this;
+        Object.keys(this.operations).forEach(function (subId) {
+            _this.unsubscribe(subId);
+        });
+    };
+    SubscriptionClient.prototype.applyMiddlewares = function (options) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var queue = function (funcs, scope) {
+                var next = function (error) {
+                    if (error) {
+                        reject(error);
+                    }
+                    else {
+                        if (funcs.length > 0) {
+                            var f = funcs.shift();
+                            if (f) {
+                                f.applyMiddleware.apply(scope, [options, next]);
+                            }
+                        }
+                        else {
+                            resolve(options);
+                        }
+                    }
+                };
+                next();
+            };
+            queue(_this.middlewares.slice(), _this);
+        });
+    };
+    SubscriptionClient.prototype.use = function (middlewares) {
+        var _this = this;
+        middlewares.map(function (middleware) {
+            if (typeof middleware.applyMiddleware === 'function') {
+                _this.middlewares.push(middleware);
+            }
+            else {
+                throw new Error('Middleware must implement the applyMiddleware function.');
+            }
+        });
+        return this;
+    };
+    SubscriptionClient.prototype.getConnectionParams = function (connectionParams) {
+        return function () { return new Promise(function (resolve, reject) {
+            if (typeof connectionParams === 'function') {
+                try {
+                    return resolve(connectionParams.call(null));
+                }
+                catch (error) {
+                    return reject(error);
+                }
+            }
+            resolve(connectionParams);
+        }); };
+    };
+    SubscriptionClient.prototype.executeOperation = function (options, handler) {
+        var _this = this;
+        if (this.client === null) {
+            this.connect();
+        }
+        var opId = this.generateOperationId();
+        this.operations[opId] = { options: options, handler: handler };
+        this.applyMiddlewares(options)
+            .then(function (processedOptions) {
+            _this.checkOperationOptions(processedOptions, handler);
+            if (_this.operations[opId]) {
+                _this.operations[opId] = { options: processedOptions, handler: handler };
+                _this.sendMessage(opId, message_types_1.default.GQL_START, processedOptions);
+            }
+        })
+            .catch(function (error) {
+            _this.unsubscribe(opId);
+            handler(_this.formatErrors(error));
+        });
+        return opId;
+    };
+    SubscriptionClient.prototype.getObserver = function (observerOrNext, error, complete) {
+        if (typeof observerOrNext === 'function') {
+            return {
+                next: function (v) { return observerOrNext(v); },
+                error: function (e) { return error && error(e); },
+                complete: function () { return complete && complete(); },
+            };
+        }
+        return observerOrNext;
+    };
+    SubscriptionClient.prototype.createMaxConnectTimeGenerator = function () {
+        var minValue = 1000;
+        var maxValue = this.wsTimeout;
+        return new Backoff({
+            min: minValue,
+            max: maxValue,
+            factor: 1.2,
+        });
+    };
+    SubscriptionClient.prototype.clearCheckConnectionInterval = function () {
+        if (this.checkConnectionIntervalId) {
+            clearInterval(this.checkConnectionIntervalId);
+            this.checkConnectionIntervalId = null;
+        }
+    };
+    SubscriptionClient.prototype.clearMaxConnectTimeout = function () {
+        if (this.maxConnectTimeoutId) {
+            clearTimeout(this.maxConnectTimeoutId);
+            this.maxConnectTimeoutId = null;
+        }
+    };
+    SubscriptionClient.prototype.clearTryReconnectTimeout = function () {
+        if (this.tryReconnectTimeoutId) {
+            clearTimeout(this.tryReconnectTimeoutId);
+            this.tryReconnectTimeoutId = null;
+        }
+    };
+    SubscriptionClient.prototype.clearInactivityTimeout = function () {
+        if (this.inactivityTimeoutId) {
+            clearTimeout(this.inactivityTimeoutId);
+            this.inactivityTimeoutId = null;
+        }
+    };
+    SubscriptionClient.prototype.setInactivityTimeout = function () {
+        var _this = this;
+        if (this.inactivityTimeout > 0 && Object.keys(this.operations).length === 0) {
+            this.inactivityTimeoutId = setTimeout(function () {
+                if (Object.keys(_this.operations).length === 0) {
+                    _this.close();
+                }
+            }, this.inactivityTimeout);
+        }
+    };
+    SubscriptionClient.prototype.checkOperationOptions = function (options, handler) {
+        var query = options.query, variables = options.variables, operationName = options.operationName;
+        if (!query) {
+            throw new Error('Must provide a query.');
+        }
+        if (!handler) {
+            throw new Error('Must provide an handler.');
+        }
+        if ((!is_string_1.default(query) && !getOperationAST_1.getOperationAST(query, operationName)) ||
+            (operationName && !is_string_1.default(operationName)) ||
+            (variables && !is_object_1.default(variables))) {
+            throw new Error('Incorrect option types. query must be a string or a document,' +
+                '`operationName` must be a string, and `variables` must be an object.');
+        }
+    };
+    SubscriptionClient.prototype.buildMessage = function (id, type, payload) {
+        var payloadToReturn = payload && payload.query ? __assign({}, payload, { query: typeof payload.query === 'string' ? payload.query : printer_1.print(payload.query) }) :
+            payload;
+        return {
+            id: id,
+            type: type,
+            payload: payloadToReturn,
+        };
+    };
+    SubscriptionClient.prototype.formatErrors = function (errors) {
+        if (Array.isArray(errors)) {
+            return errors;
+        }
+        if (errors && errors.errors) {
+            return this.formatErrors(errors.errors);
+        }
+        if (errors && errors.message) {
+            return [errors];
+        }
+        return [{
+                name: 'FormatedError',
+                message: 'Unknown error',
+                originalError: errors,
+            }];
+    };
+    SubscriptionClient.prototype.sendMessage = function (id, type, payload) {
+        this.sendMessageRaw(this.buildMessage(id, type, payload));
+    };
+    SubscriptionClient.prototype.sendMessageRaw = function (message) {
+        switch (this.status) {
+            case this.wsImpl.OPEN:
+                var serializedMessage = JSON.stringify(message);
+                try {
+                    JSON.parse(serializedMessage);
+                }
+                catch (e) {
+                    this.eventEmitter.emit('error', new Error("Message must be JSON-serializable. Got: " + message));
+                }
+                this.client.send(serializedMessage);
+                break;
+            case this.wsImpl.CONNECTING:
+                this.unsentMessagesQueue.push(message);
+                break;
+            default:
+                if (!this.reconnecting) {
+                    this.eventEmitter.emit('error', new Error('A message was not sent because socket is not connected, is closing or ' +
+                        'is already closed. Message was: ' + JSON.stringify(message)));
+                }
+        }
+    };
+    SubscriptionClient.prototype.generateOperationId = function () {
+        return String(++this.nextOperationId);
+    };
+    SubscriptionClient.prototype.tryReconnect = function () {
+        var _this = this;
+        if (!this.reconnect || this.backoff.attempts >= this.reconnectionAttempts) {
+            return;
+        }
+        if (!this.reconnecting) {
+            Object.keys(this.operations).forEach(function (key) {
+                _this.unsentMessagesQueue.push(_this.buildMessage(key, message_types_1.default.GQL_START, _this.operations[key].options));
+            });
+            this.reconnecting = true;
+        }
+        this.clearTryReconnectTimeout();
+        var delay = this.backoff.duration();
+        this.tryReconnectTimeoutId = setTimeout(function () {
+            _this.connect();
+        }, delay);
+    };
+    SubscriptionClient.prototype.flushUnsentMessagesQueue = function () {
+        var _this = this;
+        this.unsentMessagesQueue.forEach(function (message) {
+            _this.sendMessageRaw(message);
+        });
+        this.unsentMessagesQueue = [];
+    };
+    SubscriptionClient.prototype.checkConnection = function () {
+        if (this.wasKeepAliveReceived) {
+            this.wasKeepAliveReceived = false;
+            return;
+        }
+        if (!this.reconnecting) {
+            this.close(false, true);
+        }
+    };
+    SubscriptionClient.prototype.checkMaxConnectTimeout = function () {
+        var _this = this;
+        this.clearMaxConnectTimeout();
+        this.maxConnectTimeoutId = setTimeout(function () {
+            if (_this.status !== _this.wsImpl.OPEN) {
+                _this.reconnecting = true;
+                _this.close(false, true);
+            }
+        }, this.maxConnectTimeGenerator.duration());
+    };
+    SubscriptionClient.prototype.connect = function () {
+        var _this = this;
+        this.client = new this.wsImpl(this.url, this.wsProtocols);
+        this.checkMaxConnectTimeout();
+        this.client.onopen = function () { return __awaiter(_this, void 0, void 0, function () {
+            var connectionParams, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!(this.status === this.wsImpl.OPEN)) return [3, 4];
+                        this.clearMaxConnectTimeout();
+                        this.closedByUser = false;
+                        this.eventEmitter.emit(this.reconnecting ? 'reconnecting' : 'connecting');
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        return [4, this.connectionParams()];
+                    case 2:
+                        connectionParams = _a.sent();
+                        this.sendMessage(undefined, message_types_1.default.GQL_CONNECTION_INIT, connectionParams);
+                        this.flushUnsentMessagesQueue();
+                        return [3, 4];
+                    case 3:
+                        error_1 = _a.sent();
+                        this.sendMessage(undefined, message_types_1.default.GQL_CONNECTION_ERROR, error_1);
+                        this.flushUnsentMessagesQueue();
+                        return [3, 4];
+                    case 4: return [2];
+                }
+            });
+        }); };
+        this.client.onclose = function () {
+            if (!_this.closedByUser) {
+                _this.close(false, false);
+            }
+        };
+        this.client.onerror = function (err) {
+            _this.eventEmitter.emit('error', err);
+        };
+        this.client.onmessage = function (_a) {
+            var data = _a.data;
+            _this.processReceivedData(data);
+        };
+    };
+    SubscriptionClient.prototype.processReceivedData = function (receivedData) {
+        var parsedMessage;
+        var opId;
+        try {
+            parsedMessage = JSON.parse(receivedData);
+            opId = parsedMessage.id;
+        }
+        catch (e) {
+            throw new Error("Message must be JSON-parseable. Got: " + receivedData);
+        }
+        if ([message_types_1.default.GQL_DATA,
+            message_types_1.default.GQL_COMPLETE,
+            message_types_1.default.GQL_ERROR,
+        ].indexOf(parsedMessage.type) !== -1 && !this.operations[opId]) {
+            this.unsubscribe(opId);
+            return;
+        }
+        switch (parsedMessage.type) {
+            case message_types_1.default.GQL_CONNECTION_ERROR:
+                if (this.connectionCallback) {
+                    this.connectionCallback(parsedMessage.payload);
+                }
+                break;
+            case message_types_1.default.GQL_CONNECTION_ACK:
+                this.eventEmitter.emit(this.reconnecting ? 'reconnected' : 'connected');
+                this.reconnecting = false;
+                this.backoff.reset();
+                this.maxConnectTimeGenerator.reset();
+                if (this.connectionCallback) {
+                    this.connectionCallback();
+                }
+                break;
+            case message_types_1.default.GQL_COMPLETE:
+                this.operations[opId].handler(null, null);
+                delete this.operations[opId];
+                break;
+            case message_types_1.default.GQL_ERROR:
+                this.operations[opId].handler(this.formatErrors(parsedMessage.payload), null);
+                delete this.operations[opId];
+                break;
+            case message_types_1.default.GQL_DATA:
+                var parsedPayload = !parsedMessage.payload.errors ?
+                    parsedMessage.payload : __assign({}, parsedMessage.payload, { errors: this.formatErrors(parsedMessage.payload.errors) });
+                this.operations[opId].handler(null, parsedPayload);
+                break;
+            case message_types_1.default.GQL_CONNECTION_KEEP_ALIVE:
+                var firstKA = typeof this.wasKeepAliveReceived === 'undefined';
+                this.wasKeepAliveReceived = true;
+                if (firstKA) {
+                    this.checkConnection();
+                }
+                if (this.checkConnectionIntervalId) {
+                    clearInterval(this.checkConnectionIntervalId);
+                    this.checkConnection();
+                }
+                this.checkConnectionIntervalId = setInterval(this.checkConnection.bind(this), this.wsTimeout);
+                break;
+            default:
+                throw new Error('Invalid message type!');
+        }
+    };
+    SubscriptionClient.prototype.unsubscribe = function (opId) {
+        if (this.operations[opId]) {
+            delete this.operations[opId];
+            this.setInactivityTimeout();
+            this.sendMessage(opId, message_types_1.default.GQL_STOP, undefined);
+        }
+    };
+    return SubscriptionClient;
+}());
+exports.SubscriptionClient = SubscriptionClient;
+//# sourceMappingURL=client.js.map
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "./node_modules/subscriptions-transport-ws/dist/defaults.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/subscriptions-transport-ws/dist/defaults.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var WS_TIMEOUT = 30000;
+exports.WS_TIMEOUT = WS_TIMEOUT;
+//# sourceMappingURL=defaults.js.map
+
+/***/ }),
+
+/***/ "./node_modules/subscriptions-transport-ws/dist/message-types.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/subscriptions-transport-ws/dist/message-types.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var MessageTypes = (function () {
+    function MessageTypes() {
+        throw new Error('Static Class');
+    }
+    MessageTypes.GQL_CONNECTION_INIT = 'connection_init';
+    MessageTypes.GQL_CONNECTION_ACK = 'connection_ack';
+    MessageTypes.GQL_CONNECTION_ERROR = 'connection_error';
+    MessageTypes.GQL_CONNECTION_KEEP_ALIVE = 'ka';
+    MessageTypes.GQL_CONNECTION_TERMINATE = 'connection_terminate';
+    MessageTypes.GQL_START = 'start';
+    MessageTypes.GQL_DATA = 'data';
+    MessageTypes.GQL_ERROR = 'error';
+    MessageTypes.GQL_COMPLETE = 'complete';
+    MessageTypes.GQL_STOP = 'stop';
+    MessageTypes.SUBSCRIPTION_START = 'subscription_start';
+    MessageTypes.SUBSCRIPTION_DATA = 'subscription_data';
+    MessageTypes.SUBSCRIPTION_SUCCESS = 'subscription_success';
+    MessageTypes.SUBSCRIPTION_FAIL = 'subscription_fail';
+    MessageTypes.SUBSCRIPTION_END = 'subscription_end';
+    MessageTypes.INIT = 'init';
+    MessageTypes.INIT_SUCCESS = 'init_success';
+    MessageTypes.INIT_FAIL = 'init_fail';
+    MessageTypes.KEEP_ALIVE = 'keepalive';
+    return MessageTypes;
+}());
+exports.default = MessageTypes;
+//# sourceMappingURL=message-types.js.map
+
+/***/ }),
+
+/***/ "./node_modules/subscriptions-transport-ws/dist/protocol.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/subscriptions-transport-ws/dist/protocol.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var GRAPHQL_WS = 'graphql-ws';
+exports.GRAPHQL_WS = GRAPHQL_WS;
+var GRAPHQL_SUBSCRIPTIONS = 'graphql-subscriptions';
+exports.GRAPHQL_SUBSCRIPTIONS = GRAPHQL_SUBSCRIPTIONS;
+//# sourceMappingURL=protocol.js.map
+
+/***/ }),
+
+/***/ "./node_modules/subscriptions-transport-ws/dist/utils/is-object.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/subscriptions-transport-ws/dist/utils/is-object.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+function isObject(value) {
+    return ((value !== null) && (typeof value === 'object'));
+}
+exports.default = isObject;
+//# sourceMappingURL=is-object.js.map
+
+/***/ }),
+
+/***/ "./node_modules/subscriptions-transport-ws/dist/utils/is-string.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/subscriptions-transport-ws/dist/utils/is-string.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+function isString(value) {
+    return typeof value === 'string';
+}
+exports.default = isString;
+//# sourceMappingURL=is-string.js.map
+
+/***/ }),
+
 /***/ "./node_modules/symbol-observable/es/index.js":
 /*!****************************************************!*\
   !*** ./node_modules/symbol-observable/es/index.js ***!
@@ -80166,50 +88077,58 @@ var EDIT_ABOUT = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templ
 var EDIT_IMAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject3());
 
 var Profile = function Profile(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(props.userInfo._id),
-      _useState2 = _slicedToArray(_useState, 1),
-      _id = _useState2[0];
-
+  document.title = "Profile | MyChat";
   var aboutUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useQuery"])(GET_ABOUT, {
     variables: {
-      _id: _id
+      _id: props.userInfo._id
     }
   });
 
   var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useMutation"])(EDIT_ABOUT, {
-    refetchQueries: [{
-      query: GET_ABOUT,
-      variables: {
-        _id: _id
-      }
-    }]
+    update: function update(store, _ref) {
+      var data = _ref.data;
+      store.writeQuery({
+        query: GET_ABOUT,
+        variables: {
+          _id: props.userInfo._id
+        },
+        data: {
+          "getAbout": data.editAbout
+        }
+      });
+    }
   }),
       _useMutation2 = _slicedToArray(_useMutation, 1),
       editAbout = _useMutation2[0];
 
   var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useMutation"])(EDIT_IMAGE, {
-    refetchQueries: [{
-      query: props.getImage,
-      variables: {
-        _id: _id
-      }
-    }]
+    update: function update(store, _ref2) {
+      var data = _ref2.data;
+      store.writeQuery({
+        query: props.getImage,
+        variables: {
+          _id: props.userInfo._id
+        },
+        data: {
+          "getImage": data.editImage
+        }
+      });
+    }
   }),
       _useMutation4 = _slicedToArray(_useMutation3, 1),
       editImage = _useMutation4[0];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      showAbout = _useState4[0],
-      setShowAbout = _useState4[1];
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      showAbout = _useState2[0],
+      setShowAbout = _useState2[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
-      _useState6 = _slicedToArray(_useState5, 2),
-      uploadFile = _useState6[0],
-      setUploadFile = _useState6[1];
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      uploadFile = _useState4[0],
+      setUploadFile = _useState4[1];
 
   var aboutField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["fieldInput"])();
-  document.title = "Profile | MyChat";
 
   var aboutForm = function aboutForm() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -80225,7 +88144,7 @@ var Profile = function Profile(props) {
   };
 
   var changeAbout = /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
       var _id, about;
 
       return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -80258,19 +88177,19 @@ var Profile = function Profile(props) {
     }));
 
     return function changeAbout(_x) {
-      return _ref.apply(this, arguments);
+      return _ref3.apply(this, arguments);
     };
   }();
 
   var compressImage = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(file) {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(file) {
       var options, result;
       return regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               options = {
-                maxSizeMB: .05,
+                maxSizeMB: 0.05,
                 maxWidthOrHeight: 1920
               };
               _context2.next = 3;
@@ -80289,12 +88208,12 @@ var Profile = function Profile(props) {
     }));
 
     return function compressImage(_x2) {
-      return _ref2.apply(this, arguments);
+      return _ref4.apply(this, arguments);
     };
   }();
 
   var uploadFileHandler = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(event) {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(event) {
       var newFile, reader;
       return regeneratorRuntime.wrap(function _callee4$(_context4) {
         while (1) {
@@ -80356,7 +88275,7 @@ var Profile = function Profile(props) {
     }));
 
     return function uploadFileHandler(_x3) {
-      return _ref3.apply(this, arguments);
+      return _ref5.apply(this, arguments);
     };
   }();
 
@@ -81182,7 +89101,7 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query getConversations($_id: String!) {\n    getConversations(_id: $_id) {\n      _id\n      members {\n        _id\n        fullName\n        profilePicture\n      }\n      lastSender\n      lastMessage\n      lastMessageTime\n      unread\n      sender {\n        fullName\n      }\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query getConversations($_id: String!) {\n    getConversations(_id: $_id) {\n      _id\n      members {\n        _id\n        fullName\n        profilePicture\n      }\n      lastSender\n      lastMessage\n      lastMessageTime\n      unread\n      sender {\n        fullName\n      }\n      change\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -81267,6 +89186,14 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -81281,8 +89208,18 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function _templateObject4() {
+function _templateObject5() {
   var data = _taggedTemplateLiteral(["\n  mutation sendMessage(\n    $senderID: String!\n    $receiverID: String!\n    $content: String!\n  ) {\n    sendMessage(senderID: $senderID, receiverID: $receiverID, content: $content)\n  }\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["\n  mutation readMessage($_id: String!) {\n    readMessage(_id: $_id)\n  }\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -81292,7 +89229,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  mutation readMessage($_id: String!) {\n    readMessage(_id: $_id)\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  subscription {\n    newMessage {\n      _id\n      senderID\n      receiverID\n      content\n      time\n    }\n  }\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -81330,8 +89267,9 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var GET_SINGLE_USER = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject());
 var GET_MESSAGES = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject2());
-var READ_MESSAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject3());
-var SEND_MESSAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject4());
+var NEW_MESSAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject3());
+var READ_MESSAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject4());
+var SEND_MESSAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject5());
 
 var ChatDisplay = function ChatDisplay(props) {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
@@ -81353,15 +89291,37 @@ var ChatDisplay = function ChatDisplay(props) {
       props.setCurrentConvo(props.convoHistory.data.getConversations[0]._id);
     }
   });
+  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(NEW_MESSAGE, {
+    onSubscriptionData: function onSubscriptionData(_ref) {
+      var subscriptionData = _ref.subscriptionData;
+      console.log("sub Data", subscriptionData);
+    }
+  });
   var messageField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
 
   var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(READ_MESSAGE, {
-    refetchQueries: [{
-      query: props.getConversations,
-      variables: {
-        _id: props.userInfo._id
-      }
-    }]
+    update: function update(store, _ref2) {
+      var data = _ref2.data;
+      var convoCache = store.readQuery({
+        query: props.getConversations,
+        variables: {
+          _id: props.userInfo._id
+        }
+      });
+      convoCache.getConversations.filter(function (convo) {
+        return convo._id === data.readMessage;
+      })[0].unread = false;
+      convoCache.getConversations.change = !convoCache.getConversations.change;
+      store.writeQuery({
+        query: props.getConversations,
+        variables: {
+          _id: props.userInfo._id
+        },
+        data: {
+          "getConversations": _toConsumableArray(convoCache.getConversations)
+        }
+      });
+    }
   }),
       _useMutation2 = _slicedToArray(_useMutation, 1),
       readMsg = _useMutation2[0];
@@ -81396,7 +89356,7 @@ var ChatDisplay = function ChatDisplay(props) {
   });
 
   var sendMessage = /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
       var senderID, receiverID, content;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
@@ -81436,12 +89396,12 @@ var ChatDisplay = function ChatDisplay(props) {
     }));
 
     return function sendMessage(_x) {
-      return _ref.apply(this, arguments);
+      return _ref3.apply(this, arguments);
     };
   }();
 
   var readMessage = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(event) {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(event) {
       var currentChat;
       return regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) {
@@ -81476,7 +89436,7 @@ var ChatDisplay = function ChatDisplay(props) {
     }));
 
     return function readMessage(_x2) {
-      return _ref2.apply(this, arguments);
+      return _ref4.apply(this, arguments);
     };
   }();
 
@@ -81719,12 +89679,10 @@ var History = function History(props) {
     return null;
   }
 
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    var unreadMsgs = props.convoHistory.data.getConversations.filter(function (convo) {
-      return convo.unread === true && convo.lastSender != props.userInfo._id;
-    }).length;
-    document.title = unreadMsgs > 0 ? "(".concat(unreadMsgs, ") Unread Messages | MyChat") : "MyChat";
-  });
+  var unreadMsgs = props.convoHistory.data.getConversations.filter(function (convo) {
+    return convo.unread === true && convo.lastSender != props.userInfo._id;
+  }).length;
+  document.title = unreadMsgs > 0 ? "(".concat(unreadMsgs, ") Unread Messages | MyChat") : "MyChat";
 
   var displayHistory = function displayHistory() {
     if (props.convoHistory.data.getConversations.length === 0) {
@@ -81869,7 +89827,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/App */ "./src/client/components/App.js");
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/lib/react-apollo.esm.js");
 /* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var apollo_utilities__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! apollo-utilities */ "./node_modules/apollo-utilities/lib/bundle.esm.js");
+/* harmony import */ var _apollo_link_ws__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @apollo/link-ws */ "./node_modules/@apollo/link-ws/lib/bundle.esm.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
 
 
 
@@ -81879,12 +89841,27 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__(/*! babel-polyfill */ "./node_modules/babel-polyfill/lib/index.js");
 
-var client = new apollo_boost__WEBPACK_IMPORTED_MODULE_4__["default"]({
+var httpLink = new apollo_boost__WEBPACK_IMPORTED_MODULE_4__["HttpLink"]({
   uri: "/graphql"
+});
+var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_6__["WebSocketLink"]({
+  uri: "ws://localhost:4000/graphql",
+  options: {
+    reconnect: true
+  }
+});
+var splitLink = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_4__["split"])(function (_ref) {
+  var query = _ref.query;
+  var definition = Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_5__["getMainDefinition"])(query);
+  return definition.kind === "OperationDefinition" && definition.operation === "subscription";
+}, wsLink, httpLink);
+var client = new apollo_boost__WEBPACK_IMPORTED_MODULE_4__["ApolloClient"]({
+  cache: new apollo_boost__WEBPACK_IMPORTED_MODULE_4__["InMemoryCache"](),
+  link: splitLink
 });
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_3__["ApolloProvider"], {
   client: client
-}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_App__WEBPACK_IMPORTED_MODULE_2__["default"], null))), document.getElementById("root"));
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_App__WEBPACK_IMPORTED_MODULE_2__["default"], null))), document.getElementById("root"));
 
 /***/ }),
 

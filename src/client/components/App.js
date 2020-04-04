@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Frontpage from "./front/Frontpage";
 import Home from "./main/home/Home";
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import { useQuery, useMutation} from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 import { OutRoute, InRoute } from "../utils/util_route";
 import "../assets/stylesheets/all.css";

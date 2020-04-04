@@ -1,18 +1,17 @@
 import React, { Fragment, useEffect } from "react";
 import Time from "./Time";
 
-const History = props => {
+const History = (props) => {
   if (props.convoHistory.data === null) {
     return null;
   }
+ 
+  let unreadMsgs = props.convoHistory.data.getConversations.filter(
+    (convo) => convo.unread === true && convo.lastSender != props.userInfo._id
+  ).length;
 
-  useEffect(() => {
-    let unreadMsgs = props.convoHistory.data.getConversations.filter(
-      convo => convo.unread === true && convo.lastSender != props.userInfo._id
-    ).length;
-    document.title =
-      unreadMsgs > 0 ? `(${unreadMsgs}) Unread Messages | MyChat` : "MyChat";
-  });
+  document.title =
+    unreadMsgs > 0 ? `(${unreadMsgs}) Unread Messages | MyChat` : "MyChat";
 
   const displayHistory = () => {
     if (props.convoHistory.data.getConversations.length === 0) {
@@ -33,7 +32,7 @@ const History = props => {
 
     return (
       <div className="chat-history-container">
-        {props.convoHistory.data.getConversations.map(convo => (
+        {props.convoHistory.data.getConversations.map((convo) => (
           <span
             key={convo._id}
             className={

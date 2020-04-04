@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { fieldInput } from "../../../hooks/customHooks";
 import { gql } from "apollo-boost";
-import imageCompression from "browser-image-compression"
+import imageCompression from "browser-image-compression";
 import "../../../../assets/stylesheets/components/main/profile.css";
 
 const GET_ABOUT = gql`
@@ -23,19 +23,31 @@ const EDIT_IMAGE = gql`
   }
 `;
 
-const Profile = props => {
-  const [_id] = useState(props.userInfo._id);
-  const aboutUser = useQuery(GET_ABOUT, { variables: { _id: _id } });
+const Profile = (props) => {
+  document.title = "Profile | MyChat";
+  const aboutUser = useQuery(GET_ABOUT, { variables: { _id: props.userInfo._id } });
+
   const [editAbout] = useMutation(EDIT_ABOUT, {
-    refetchQueries: [{ query: GET_ABOUT, variables: { _id: _id } }]
+    update: (store, { data }) => {
+      store.writeQuery({
+        query: GET_ABOUT,
+        variables: { _id: props.userInfo._id },
+        data: {"getAbout": data.editAbout}
+      })
+    }
   });
   const [editImage] = useMutation(EDIT_IMAGE, {
-    refetchQueries: [{ query: props.getImage, variables: { _id: _id } }]
+    update: (store, { data }) => {
+      store.writeQuery({
+        query: props.getImage,
+        variables: { _id: props.userInfo._id },
+        data: {"getImage": data.editImage}
+      })
+    }
   });
   const [showAbout, setShowAbout] = useState(false);
   const [uploadFile, setUploadFile] = useState(null);
   const aboutField = fieldInput();
-  document.title = "Profile | MyChat";
 
   const aboutForm = () => {
     return (
@@ -51,7 +63,7 @@ const Profile = props => {
     );
   };
 
-  const changeAbout = async event => {
+  const changeAbout = async (event) => {
     event.preventDefault();
     let _id = props.userInfo._id;
     let about = aboutField.value;
@@ -60,19 +72,19 @@ const Profile = props => {
     aboutField.clear();
   };
 
-  const compressImage = async file => {
-    let options ={
-      maxSizeMB: .05,
-      maxWidthOrHeight: 1920
-    }
-    let result = await imageCompression(file,options)
-    return result
-  }
+  const compressImage = async (file) => {
+    let options = {
+      maxSizeMB: 0.05,
+      maxWidthOrHeight: 1920,
+    };
+    let result = await imageCompression(file, options);
+    return result;
+  };
 
-  const uploadFileHandler = async event => {
+  const uploadFileHandler = async (event) => {
     event.preventDefault();
     if (uploadFile === null) return;
-    let newFile = await compressImage(uploadFile)
+    let newFile = await compressImage(uploadFile);
     const reader = new FileReader();
     reader.readAsDataURL(newFile);
     reader.onload = async () => {
@@ -86,8 +98,11 @@ const Profile = props => {
   return (
     !aboutUser.loading && (
       <div className="profile-main">
-        <h1>{props.userInfo.fullName }</h1>
-        <img className="profile-image" src={`data:image/png;base64,${props.userImage.data.getImage}`} />
+        <h1>{props.userInfo.fullName}</h1>
+        <img
+          className="profile-image"
+          src={`data:image/png;base64,${props.userImage.data.getImage}`}
+        />
         <div>Upload .jpeg and .png only | About</div>
         <input
           type="file"

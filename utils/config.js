@@ -7,7 +7,6 @@ const EMAIL_PASSWORD= process.env.EMAIL_PASSWORD
 const CLIENT_ID= process.env.CLIENT_ID
 const CLIENT_SECRET= process.env.CLIENT_SECRET
 const REFRESH_TOKEN = process.env.REFRESH_TOKEN
-const ENCRYPT_KEY = process.env.ENCRYPTION_KEY
 
 module.exports = {
   MONGODB_URI,
@@ -16,6 +15,5 @@ module.exports = {
   EMAIL_PASSWORD,
   CLIENT_ID,
   CLIENT_SECRET,
-  REFRESH_TOKEN,
-  ENCRYPT_KEY
+  REFRESH_TOKEN
 }

@@ -21,6 +21,7 @@ const GET_CONVERSATIONS = gql`
       sender {
         fullName
       }
+      change
     }
   }
 `;
@@ -32,7 +33,7 @@ const ChatContainer = props => {
   const getConvoQuery = useQuery(GET_CONVERSATIONS, {
     variables: { _id: props.userInfo._id }
   });
-
+  
   return (
     !getConvoQuery.loading && (
       <div className="chat-main">

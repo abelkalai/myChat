@@ -2,17 +2,46 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
 import { ApolloProvider } from "react-apollo";
-import ApolloClient from "apollo-boost";
+import { ApolloClient, InMemoryCache, HttpLink, split } from "apollo-boost";
+import { getMainDefinition } from "apollo-utilities";
+import { WebSocketLink } from "@apollo/link-ws";
 import { HashRouter as Router } from "react-router-dom";
+
 require("babel-polyfill");
 
-const client = new ApolloClient({ uri: "/graphql" });
+const httpLink = new HttpLink({
+  uri: "/graphql",
+});
+
+const wsLink = new WebSocketLink({
+  uri: `ws://localhost:4000/graphql`,
+  options: {
+    reconnect: true,
+  },
+});
+
+const splitLink = split(
+  ({ query }) => {
+    const definition = getMainDefinition(query);
+    return (
+      definition.kind === "OperationDefinition" &&
+      definition.operation === "subscription"
+    );
+  },
+  wsLink,
+  httpLink
+);
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: splitLink,
+});
 
 ReactDOM.render(
   <ApolloProvider client={client}>
     <Router>
       <App />
-    </Router> 
+    </Router>
   </ApolloProvider>,
   document.getElementById("root")
 );
