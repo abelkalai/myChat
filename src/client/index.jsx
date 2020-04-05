@@ -24,6 +24,30 @@ const wsLink = new WebSocketLink({
   },
 });
 
+wsLink.subscriptionClient.on("connecting", () => {
+  console.log("connecting");
+});
+
+wsLink.subscriptionClient.on("connected", () => {
+  console.log("connected");
+});
+
+wsLink.subscriptionClient.on("reconnecting", () => {
+  console.log("reconnecting");
+});
+
+wsLink.subscriptionClient.on("reconnected", () => {
+  console.log("reconnected");
+});
+
+wsLink.subscriptionClient.on("disconnected", () => {
+  console.log("disconnected");
+});
+
+wsLink.subscriptionClient.maxConnectTimeGenerator.duration = () =>
+  wsLink.subscriptionClient.maxConnectTimeGenerator.max;
+
+
 const splitLink = split(
   ({ query }) => {
     const definition = getMainDefinition(query);
