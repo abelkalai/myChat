@@ -46,6 +46,26 @@ const NEW_MESSAGE = gql`
   }
 `;
 
+const UPATED_CONVO = gql`
+  subscription {
+    updatedConvo {
+      _id
+      members {
+        _id
+        fullName
+        profilePicture
+      }
+      lastSender
+      lastMessage
+      lastMessageTime
+      unread
+      sender {
+        fullName
+      }
+    }
+  }
+`;
+
 const READ_MESSAGE = gql`
   mutation readMessage($_id: String!) {
     readMessage(_id: $_id)
@@ -83,14 +103,14 @@ const ChatDisplay = (props) => {
         query: props.getConversations,
         variables: { _id: props.userInfo._id },
       });
-      convoCache.getConversations.filter(
-        (convo) => convo._id === data.readMessage
-      )[0].unread = false;
-      convoCache.getConversations.change = !convoCache.getConversations.change;
+      let copy = [...convoCache.getConversations]
+      copy = copy.map(
+        convo => convo._id === data.readMessage ? {...convo, "unread": false} : convo
+      )
       store.writeQuery({
         query: props.getConversations,
         variables: { _id: props.userInfo._id },
-        data: { getConversations: [...convoCache.getConversations] },
+        data: { getConversations: copy },
       });
     },
   });
@@ -123,7 +143,7 @@ const ChatDisplay = (props) => {
 
     if (msgStore.getMessages[0].conversationID === props.currentConvo) {
       let newMsgArray = [...msgStore.getMessages];
-      newMsgArray.unshift(newMsg.newMessage);
+      newMsgArray.unshift(newMsg);
       apolloClient.writeQuery({
         query: GET_MESSAGES,
         variables: {
@@ -137,8 +157,28 @@ const ChatDisplay = (props) => {
 
   useSubscription(NEW_MESSAGE, {
     onSubscriptionData: ({ subscriptionData }) => {
-      console.log(subscriptionData)
-      updateMsgCache(subscriptionData.data);
+      updateMsgCache(subscriptionData.data.newMessage);
+    },
+  });
+
+  const updateConvoCache = (convo) => {
+    const convoStore = apolloClient.readQuery({
+      query: props.getConversations,
+      variables: { _id: props.userInfo._id },
+    });
+    let copy = [...convoStore.getConversations];
+    copy = copy.filter(x => x._id != convo._id);
+    copy.unshift(convo)
+    apolloClient.writeQuery({
+      query: props.getConversations,
+      variables: { _id: props.userInfo._id },
+      data: { getConversations: copy },
+    });
+  };
+
+  useSubscription(UPATED_CONVO, {
+    onSubscriptionData: ({ subscriptionData }) => {
+      updateConvoCache(subscriptionData.data.updatedConvo);
     },
   });
 
@@ -154,6 +194,7 @@ const ChatDisplay = (props) => {
 
   const readMessage = async (event) => {
     event.preventDefault();
+
     let currentChat = props.convoHistory.data.getConversations.filter(
       (convo) => convo._id === props.currentConvo
     );

@@ -68,7 +68,6 @@ const typeDefs = gql`
     lastMessageTime: String
     unread: Boolean
     sender: [User]
-    change: Boolean
   }
 
   type Message {
@@ -128,6 +127,7 @@ const typeDefs = gql`
 
   type Subscription {
     newMessage: Message
+    updatedConvo: Conversation
   }
 `;
 
@@ -432,46 +432,51 @@ const resolvers = {
       } catch (error) {
         return "Could not send message";
       }
-      // let conversations = await Conversation.aggregate([
-      //   { $match: { members: { $all: [args.senderID, args.receiverID] } } },
-      //   {
-      //     $lookup: {
-      //       from: "users",
-      //       localField: "members",
-      //       foreignField: "_id",
-      //       as: "members",
-      //     },
-      //   },
-      //   {
-      //     $lookup: {
-      //       from: "users",
-      //       localField: "lastSender",
-      //       foreignField: "_id",
-      //       as: "sender",
-      //     },
-      //   },
-      //   {
-      //     $project: {
-      //       "members._id": 1,
-      //       "members.profilePicture": 1,
-      //       "members.fullName": 1,
-      //       "sender.fullName": 1,
-      //       lastSender: 1,
-      //       lastMessage: 1,
-      //       lastMessageTime: 1,
-      //       unread: 1,
-      //     },
-      //   },
-      //   { $sort: { lastMessageTime: -1 } },
-      // ]);
-      // console.log(conversations)
-      pubsub.publish("NEW_MESSAGE", { newMessage: message});
-      return "Success Message sent";
+      pubsub.publish("NEW_MESSAGE", { newMessage: message });
+      let senderID = mongoose.mongo.ObjectId(args.senderID);
+      let receiverID = mongoose.mongo.ObjectId(args.receiverID);
+      let conversations = await Conversation.aggregate([
+        { $match: { members: { $all: [senderID, receiverID] } } },
+        {
+          $lookup: {
+            from: "users",
+            localField: "members",
+            foreignField: "_id",
+            as: "members",
+          },
+        },
+        {
+          $lookup: {
+            from: "users",
+            localField: "lastSender",
+            foreignField: "_id",
+            as: "sender",
+          },
+        },
+        {
+          $project: {
+            "members._id": 1,
+            "members.profilePicture": 1,
+            "members.fullName": 1,
+            "sender.fullName": 1,
+            lastSender: 1,
+            lastMessage: 1,
+            lastMessageTime: 1,
+            unread: 1,
+          },
+        },
+        { $sort: { lastMessageTime: -1 } },
+      ]);
+      pubsub.publish("UPDATED_CONVO", { updatedConvo: conversations[0] });
+      return "Success Message Sent";
     },
   },
   Subscription: {
     newMessage: {
       subscribe: () => pubsub.asyncIterator(["NEW_MESSAGE"]),
+    },
+    updatedConvo: {
+      subscribe: () => pubsub.asyncIterator(["UPDATED_CONVO"]),
     },
   },
 };

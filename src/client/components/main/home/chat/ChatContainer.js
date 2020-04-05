@@ -21,7 +21,6 @@ const GET_CONVERSATIONS = gql`
       sender {
         fullName
       }
-      change
     }
   }
 `;

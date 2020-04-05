@@ -89101,7 +89101,7 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query getConversations($_id: String!) {\n    getConversations(_id: $_id) {\n      _id\n      members {\n        _id\n        fullName\n        profilePicture\n      }\n      lastSender\n      lastMessage\n      lastMessageTime\n      unread\n      sender {\n        fullName\n      }\n      change\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query getConversations($_id: String!) {\n    getConversations(_id: $_id) {\n      _id\n      members {\n        _id\n        fullName\n        profilePicture\n      }\n      lastSender\n      lastMessage\n      lastMessageTime\n      unread\n      sender {\n        fullName\n      }\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -89186,6 +89186,12 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -89208,8 +89214,18 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function _templateObject5() {
+function _templateObject6() {
   var data = _taggedTemplateLiteral(["\n  mutation sendMessage(\n    $senderID: String!\n    $receiverID: String!\n    $content: String!\n  ) {\n    sendMessage(senderID: $senderID, receiverID: $receiverID, content: $content)\n  }\n"]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["\n  mutation readMessage($_id: String!) {\n    readMessage(_id: $_id)\n  }\n"]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -89219,7 +89235,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  mutation readMessage($_id: String!) {\n    readMessage(_id: $_id)\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  subscription {\n    updatedConvo {\n      _id\n      members {\n        _id\n        fullName\n        profilePicture\n      }\n      lastSender\n      lastMessage\n      lastMessageTime\n      unread\n      sender {\n        fullName\n      }\n    }\n  }\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -89268,8 +89284,9 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 var GET_SINGLE_USER = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject());
 var GET_MESSAGES = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject2());
 var NEW_MESSAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject3());
-var READ_MESSAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject4());
-var SEND_MESSAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject5());
+var UPATED_CONVO = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject4());
+var READ_MESSAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject5());
+var SEND_MESSAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject6());
 
 var ChatDisplay = function ChatDisplay(props) {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
@@ -89302,17 +89319,21 @@ var ChatDisplay = function ChatDisplay(props) {
           _id: props.userInfo._id
         }
       });
-      convoCache.getConversations.filter(function (convo) {
-        return convo._id === data.readMessage;
-      })[0].unread = false;
-      convoCache.getConversations.change = !convoCache.getConversations.change;
+
+      var copy = _toConsumableArray(convoCache.getConversations);
+
+      copy = copy.map(function (convo) {
+        return convo._id === data.readMessage ? _objectSpread({}, convo, {
+          "unread": false
+        }) : convo;
+      });
       store.writeQuery({
         query: props.getConversations,
         variables: {
           _id: props.userInfo._id
         },
         data: {
-          getConversations: _toConsumableArray(convoCache.getConversations)
+          getConversations: copy
         }
       });
     }
@@ -89356,7 +89377,7 @@ var ChatDisplay = function ChatDisplay(props) {
     if (msgStore.getMessages[0].conversationID === props.currentConvo) {
       var newMsgArray = _toConsumableArray(msgStore.getMessages);
 
-      newMsgArray.unshift(newMsg.newMessage);
+      newMsgArray.unshift(newMsg);
       apolloClient.writeQuery({
         query: GET_MESSAGES,
         variables: {
@@ -89373,13 +89394,44 @@ var ChatDisplay = function ChatDisplay(props) {
   Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(NEW_MESSAGE, {
     onSubscriptionData: function onSubscriptionData(_ref2) {
       var subscriptionData = _ref2.subscriptionData;
-      console.log(subscriptionData);
-      updateMsgCache(subscriptionData.data);
+      updateMsgCache(subscriptionData.data.newMessage);
+    }
+  });
+
+  var updateConvoCache = function updateConvoCache(convo) {
+    var convoStore = apolloClient.readQuery({
+      query: props.getConversations,
+      variables: {
+        _id: props.userInfo._id
+      }
+    });
+
+    var copy = _toConsumableArray(convoStore.getConversations);
+
+    copy = copy.filter(function (x) {
+      return x._id != convo._id;
+    });
+    copy.unshift(convo);
+    apolloClient.writeQuery({
+      query: props.getConversations,
+      variables: {
+        _id: props.userInfo._id
+      },
+      data: {
+        getConversations: copy
+      }
+    });
+  };
+
+  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(UPATED_CONVO, {
+    onSubscriptionData: function onSubscriptionData(_ref3) {
+      var subscriptionData = _ref3.subscriptionData;
+      updateConvoCache(subscriptionData.data.updatedConvo);
     }
   });
 
   var sendMessage = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
       var senderID, receiverID, content;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
@@ -89419,12 +89471,12 @@ var ChatDisplay = function ChatDisplay(props) {
     }));
 
     return function sendMessage(_x) {
-      return _ref3.apply(this, arguments);
+      return _ref4.apply(this, arguments);
     };
   }();
 
   var readMessage = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(event) {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(event) {
       var currentChat;
       return regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) {
@@ -89459,7 +89511,7 @@ var ChatDisplay = function ChatDisplay(props) {
     }));
 
     return function readMessage(_x2) {
-      return _ref4.apply(this, arguments);
+      return _ref5.apply(this, arguments);
     };
   }();
 
