@@ -89922,7 +89922,7 @@ var httpLink = new apollo_boost__WEBPACK_IMPORTED_MODULE_4__["HttpLink"]({
 var domainName = window.location.hostname;
 var port = process.env.PORT || 4000;
 var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_6__["WebSocketLink"]({
-  uri: "ws://".concat(domainName, ":").concat(port, "/graphql"),
+  uri: "wss://".concat(domainName, ":").concat(port, "/graphql"),
   options: {
     reconnect: true
   }
@@ -89934,8 +89934,7 @@ var splitLink = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_4__["split"])(funct
 }, wsLink, httpLink);
 var client = new apollo_boost__WEBPACK_IMPORTED_MODULE_4__["ApolloClient"]({
   cache: new apollo_boost__WEBPACK_IMPORTED_MODULE_4__["InMemoryCache"](),
-  link: splitLink,
-  lazy: true
+  link: splitLink
 });
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_3__["ApolloProvider"], {
   client: client
