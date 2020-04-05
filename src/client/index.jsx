@@ -15,7 +15,7 @@ const httpLink = new HttpLink({
 const domainName = window.location.hostname;
 const port = process.env.PORT || 4000;
 const wsLink = new WebSocketLink({
-  uri: `ws://${domainName}:${port}/graphql`,
+  uri: `wss://${domainName}:${port}/graphql`,
   options: {
     reconnect: true,
   },
