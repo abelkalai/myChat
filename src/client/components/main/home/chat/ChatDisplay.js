@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 import { fieldInput } from "../../../hooks/customHooks";
-import { useQuery, useMutation, useSubscription } from "@apollo/react-hooks";
+import {
+  useApolloClient,
+  useQuery,
+  useMutation,
+  useSubscription,
+} from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 import ChatMessage from "./ChatMessage";
 
@@ -19,6 +24,7 @@ const GET_MESSAGES = gql`
   query getMessages($senderID: String!, $receiverID: String!) {
     getMessages(senderID: $senderID, receiverID: $receiverID) {
       _id
+      conversationID
       senderID
       receiverID
       content
@@ -31,6 +37,7 @@ const NEW_MESSAGE = gql`
   subscription {
     newMessage {
       _id
+      conversationID
       senderID
       receiverID
       content
@@ -68,37 +75,28 @@ const ChatDisplay = (props) => {
     }
   });
 
-  useSubscription(NEW_MESSAGE, {
-    onSubscriptionData: ({ subscriptionData }) => {
-      console.log("sub Data", subscriptionData);
-    },
-  });
   const messageField = fieldInput();
-  
+
   const [readMsg] = useMutation(READ_MESSAGE, {
     update: (store, { data }) => {
       let convoCache = store.readQuery({
         query: props.getConversations,
         variables: { _id: props.userInfo._id },
       });
-      convoCache.getConversations.filter(convo => convo._id === data.readMessage)[0].unread=false
-      convoCache.getConversations.change = !convoCache.getConversations.change
+      convoCache.getConversations.filter(
+        (convo) => convo._id === data.readMessage
+      )[0].unread = false;
+      convoCache.getConversations.change = !convoCache.getConversations.change;
       store.writeQuery({
         query: props.getConversations,
         variables: { _id: props.userInfo._id },
-        data: {"getConversations": [...convoCache.getConversations]}
-      })
-    }
+        data: { getConversations: [...convoCache.getConversations] },
+      });
+    },
   });
+
   const [sendMessageQuery] = useMutation(SEND_MESSAGE, {
     refetchQueries: [
-      {
-        query: GET_MESSAGES,
-        variables: {
-          senderID: props.userInfo._id,
-          receiverID: props.currentChat,
-        },
-      },
       {
         query: props.getConversations,
         variables: { _id: props.userInfo._id },
@@ -110,6 +108,38 @@ const ChatDisplay = (props) => {
   });
   const getUser = useQuery(GET_SINGLE_USER, {
     variables: { _id: props.currentChat },
+  });
+
+  const apolloClient = useApolloClient();
+
+  const updateMsgCache = (newMsg) => {
+    const msgStore = apolloClient.readQuery({
+      query: GET_MESSAGES,
+      variables: {
+        senderID: props.userInfo._id,
+        receiverID: props.currentChat,
+      },
+    });
+
+    if (msgStore.getMessages[0].conversationID === props.currentConvo) {
+      let newMsgArray = [...msgStore.getMessages];
+      newMsgArray.unshift(newMsg.newMessage);
+      apolloClient.writeQuery({
+        query: GET_MESSAGES,
+        variables: {
+          senderID: props.userInfo._id,
+          receiverID: props.currentChat,
+        },
+        data: { getMessages: newMsgArray },
+      });
+    }
+  };
+
+  useSubscription(NEW_MESSAGE, {
+    onSubscriptionData: ({ subscriptionData }) => {
+      console.log(subscriptionData)
+      updateMsgCache(subscriptionData.data);
+    },
   });
 
   const sendMessage = async (event) => {

@@ -26,7 +26,7 @@ mongoose
   .then(() => {
     console.log("Connected to MongoDB");
   })
-  .catch(error => {
+  .catch((error) => {
     console.log("Couldn't connect to MongoDB see error:", error.message);
   });
 
@@ -73,6 +73,7 @@ const typeDefs = gql`
 
   type Message {
     _id: String!
+    conversationID: String!
     senderID: String!
     receiverID: String!
     content: String!
@@ -138,12 +139,12 @@ const resolvers = {
       let verificationCode = generator.generate({ length: 8, numbers: true });
       let validationCodeHash = await bcrypt.hash(verificationCode, 10);
       await User.findByIdAndUpdate(user._id, {
-        validationCode: validationCodeHash
+        validationCode: validationCodeHash,
       });
       await mailService.sendEmail("CONFIRM", {
         toFullName: user.fullName,
         toEmail: user.email,
-        code: verificationCode
+        code: verificationCode,
       });
       return user.email;
     },
@@ -173,7 +174,7 @@ const resolvers = {
           await mailService.sendEmail("USERNAME", {
             toFullName: user.fullName,
             toEmail: user.email,
-            username: user.username
+            username: user.username,
           });
         } else if (args.type === "Password") {
           let newPass = generator.generate({ length: 8, numbers: true });
@@ -182,7 +183,7 @@ const resolvers = {
           await mailService.sendEmail("PASSWORD", {
             toFullName: user.fullName,
             toEmail: user.email,
-            password: newPass
+            password: newPass,
           });
         }
       }
@@ -197,14 +198,14 @@ const resolvers = {
         let searchResult = await User.find({
           _id: { $ne: _id },
           fullName: { $regex: dbSearch },
-          confirmed: true
+          confirmed: true,
         });
         return searchResult;
       } else if (args.type === "normal") {
         let searchResult = await User.find({
           _id: { $ne: _id },
           fullName: { $regex: dbSearch },
-          confirmed: true
+          confirmed: true,
         });
         return searchResult;
       }
@@ -225,16 +226,16 @@ const resolvers = {
             from: "users",
             localField: "members",
             foreignField: "_id",
-            as: "members"
-          }
+            as: "members",
+          },
         },
         {
           $lookup: {
             from: "users",
             localField: "lastSender",
             foreignField: "_id",
-            as: "sender"
-          }
+            as: "sender",
+          },
         },
         {
           $project: {
@@ -245,10 +246,10 @@ const resolvers = {
             lastSender: 1,
             lastMessage: 1,
             lastMessageTime: 1,
-            unread: 1
-          }
+            unread: 1,
+          },
         },
-        { $sort: { lastMessageTime: -1 } }
+        { $sort: { lastMessageTime: -1 } },
       ]);
       return conversations;
     },
@@ -260,11 +261,11 @@ const resolvers = {
       let messages = await Message.find({
         $or: [
           { senderID: senderID, receiverID: receiverID },
-          { senderID: receiverID, receiverID: senderID }
-        ]
+          { senderID: receiverID, receiverID: senderID },
+        ],
       }).sort({ time: -1 });
       return messages;
-    }
+    },
   },
   Mutation: {
     addUser: async (root, args) => {
@@ -283,13 +284,13 @@ const resolvers = {
       } catch (error) {
         let userError =
           (await User.collection.countDocuments({
-            username: args.username
+            username: args.username,
           })) > 0
             ? "User Already Used"
             : null;
         let emailError =
           (await User.collection.countDocuments({
-            email: args.email
+            email: args.email,
           })) > 0
             ? "Email Already Used"
             : null;
@@ -298,7 +299,7 @@ const resolvers = {
       await mailService.sendEmail("CONFIRM", {
         toFullName: args.fullName,
         toEmail: args.email,
-        code: verificationCode
+        code: verificationCode,
       });
       return { User: user };
     },
@@ -306,7 +307,7 @@ const resolvers = {
     login: async (root, args) => {
       try {
         const user = await User.findOne({
-          username: args.username.toLowerCase().replace(/ /g, "")
+          username: args.username.toLowerCase().replace(/ /g, ""),
         });
 
         if (!(await bcrypt.compare(args.password, user.password))) {
@@ -321,7 +322,7 @@ const resolvers = {
           fullName: user.fullName,
           username: user.username,
           email: user.email,
-          confirmed: user.confirmed
+          confirmed: user.confirmed,
         };
         return { User: user, Token: jwt.sign(userSign, JWT_SECRET_KEY) };
       } catch (error) {
@@ -338,7 +339,7 @@ const resolvers = {
       } else {
         await User.findByIdAndUpdate(user._id, {
           validationCode: null,
-          confirmed: true
+          confirmed: true,
         });
         return "Account verified";
       }
@@ -346,19 +347,19 @@ const resolvers = {
 
     editAbout: async (root, args) => {
       await User.findByIdAndUpdate(args._id, { about: args.about });
-      return args.about
+      return args.about;
     },
 
     editImage: async (root, args) => {
       await User.findByIdAndUpdate(args._id, { profilePicture: args.image });
-      return args.image
+      return args.image;
     },
 
     changeName: async (root, args) => {
       await User.findByIdAndUpdate(args._id, {
         firstName: args.firstName,
         lastName: args.lastName,
-        fullName: `${args.firstName} ${args.lastName}`
+        fullName: `${args.firstName} ${args.lastName}`,
       });
       return "Success";
     },
@@ -366,7 +367,7 @@ const resolvers = {
     changeUserName: async (root, args) => {
       if (
         (await User.collection.countDocuments({
-          username: args.username
+          username: args.username,
         })) > 0
       ) {
         return "Username is already in use";
@@ -387,12 +388,12 @@ const resolvers = {
       return "Success";
     },
     readMessage: async (root, args) => {
-      // await Conversation.findByIdAndUpdate(args._id, { unread: false });
+      await Conversation.findByIdAndUpdate(args._id, { unread: false });
       return args._id;
     },
     sendMessage: async (root, args) => {
       let existingConvo = await Conversation.findOne({
-        members: { $all: [args.senderID, args.receiverID] }
+        members: { $all: [args.senderID, args.receiverID] },
       });
 
       let time = new Date();
@@ -402,25 +403,25 @@ const resolvers = {
           lastSender: args.senderID,
           lastMessage: args.content,
           lastMessageTime: time,
-          unread: true
+          unread: true,
         });
         await newConvo.save();
       } else {
         await Conversation.findOneAndUpdate(
           {
-            members: { $all: [args.senderID, args.receiverID] }
+            members: { $all: [args.senderID, args.receiverID] },
           },
           {
             lastSender: args.senderID,
             lastMessage: args.content,
             lastMessageTime: time,
-            unread: true
+            unread: true,
           }
         );
       }
 
       let updateConvo = await Conversation.findOne({
-        members: { $all: [args.senderID, args.receiverID] }
+        members: { $all: [args.senderID, args.receiverID] },
       });
       args.time = time;
       args.conversationID = updateConvo._id;
@@ -431,15 +432,48 @@ const resolvers = {
       } catch (error) {
         return "Could not send message";
       }
-      pubsub.publish("NEW_MESSAGE", { newMessage: message });
+      // let conversations = await Conversation.aggregate([
+      //   { $match: { members: { $all: [args.senderID, args.receiverID] } } },
+      //   {
+      //     $lookup: {
+      //       from: "users",
+      //       localField: "members",
+      //       foreignField: "_id",
+      //       as: "members",
+      //     },
+      //   },
+      //   {
+      //     $lookup: {
+      //       from: "users",
+      //       localField: "lastSender",
+      //       foreignField: "_id",
+      //       as: "sender",
+      //     },
+      //   },
+      //   {
+      //     $project: {
+      //       "members._id": 1,
+      //       "members.profilePicture": 1,
+      //       "members.fullName": 1,
+      //       "sender.fullName": 1,
+      //       lastSender: 1,
+      //       lastMessage: 1,
+      //       lastMessageTime: 1,
+      //       unread: 1,
+      //     },
+      //   },
+      //   { $sort: { lastMessageTime: -1 } },
+      // ]);
+      // console.log(conversations)
+      pubsub.publish("NEW_MESSAGE", { newMessage: message});
       return "Success Message sent";
-    }
+    },
   },
   Subscription: {
     newMessage: {
-      subscribe: () => pubsub.asyncIterator(["NEW_MESSAGE"])
-    }
-  }
+      subscribe: () => pubsub.asyncIterator(["NEW_MESSAGE"]),
+    },
+  },
 };
 
 const apolloServer = new ApolloServer({
@@ -458,7 +492,7 @@ const apolloServer = new ApolloServer({
     }
 
     return null;
-  }
+  },
 });
 
 const app = express();
@@ -466,7 +500,7 @@ const path = require("path");
 
 app.use(cors());
 app.use("/", express.static(__dirname + "/../client/"));
-app.get("/", function(response) {
+app.get("/", function (response) {
   response.sendFile(path.join(__dirname + "/../client/index.html"));
 });
 

@@ -89229,7 +89229,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  subscription {\n    newMessage {\n      _id\n      senderID\n      receiverID\n      content\n      time\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  subscription {\n    newMessage {\n      _id\n      conversationID\n      senderID\n      receiverID\n      content\n      time\n    }\n  }\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -89239,7 +89239,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  query getMessages($senderID: String!, $receiverID: String!) {\n    getMessages(senderID: $senderID, receiverID: $receiverID) {\n      _id\n      senderID\n      receiverID\n      content\n      time\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query getMessages($senderID: String!, $receiverID: String!) {\n    getMessages(senderID: $senderID, receiverID: $receiverID) {\n      _id\n      conversationID\n      senderID\n      receiverID\n      content\n      time\n    }\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -89291,17 +89291,11 @@ var ChatDisplay = function ChatDisplay(props) {
       props.setCurrentConvo(props.convoHistory.data.getConversations[0]._id);
     }
   });
-  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(NEW_MESSAGE, {
-    onSubscriptionData: function onSubscriptionData(_ref) {
-      var subscriptionData = _ref.subscriptionData;
-      console.log("sub Data", subscriptionData);
-    }
-  });
   var messageField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
 
   var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(READ_MESSAGE, {
-    update: function update(store, _ref2) {
-      var data = _ref2.data;
+    update: function update(store, _ref) {
+      var data = _ref.data;
       var convoCache = store.readQuery({
         query: props.getConversations,
         variables: {
@@ -89318,7 +89312,7 @@ var ChatDisplay = function ChatDisplay(props) {
           _id: props.userInfo._id
         },
         data: {
-          "getConversations": _toConsumableArray(convoCache.getConversations)
+          getConversations: _toConsumableArray(convoCache.getConversations)
         }
       });
     }
@@ -89328,12 +89322,6 @@ var ChatDisplay = function ChatDisplay(props) {
 
   var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(SEND_MESSAGE, {
     refetchQueries: [{
-      query: GET_MESSAGES,
-      variables: {
-        senderID: props.userInfo._id,
-        receiverID: props.currentChat
-      }
-    }, {
       query: props.getConversations,
       variables: {
         _id: props.userInfo._id
@@ -89352,6 +89340,41 @@ var ChatDisplay = function ChatDisplay(props) {
   var getUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(GET_SINGLE_USER, {
     variables: {
       _id: props.currentChat
+    }
+  });
+  var apolloClient = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useApolloClient"])();
+
+  var updateMsgCache = function updateMsgCache(newMsg) {
+    var msgStore = apolloClient.readQuery({
+      query: GET_MESSAGES,
+      variables: {
+        senderID: props.userInfo._id,
+        receiverID: props.currentChat
+      }
+    });
+
+    if (msgStore.getMessages[0].conversationID === props.currentConvo) {
+      var newMsgArray = _toConsumableArray(msgStore.getMessages);
+
+      newMsgArray.unshift(newMsg.newMessage);
+      apolloClient.writeQuery({
+        query: GET_MESSAGES,
+        variables: {
+          senderID: props.userInfo._id,
+          receiverID: props.currentChat
+        },
+        data: {
+          getMessages: newMsgArray
+        }
+      });
+    }
+  };
+
+  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(NEW_MESSAGE, {
+    onSubscriptionData: function onSubscriptionData(_ref2) {
+      var subscriptionData = _ref2.subscriptionData;
+      console.log(subscriptionData);
+      updateMsgCache(subscriptionData.data);
     }
   });
 
