@@ -1,6 +1,11 @@
-let path = require("path");
+const path = require("path");
+const webpack = require('webpack')
+const dotenv = require('dotenv')
 
-module.exports = {
+
+
+module.exports =  {
+  
   mode: "development",
   entry: [path.join(__dirname, "./src/client/index.jsx")],
   watch: true,

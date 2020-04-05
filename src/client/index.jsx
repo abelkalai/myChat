@@ -15,32 +15,14 @@ const httpLink = new HttpLink({
 
 const domainName = window.location.hostname;
 
+const port = process.env.PORT || 4000;
+console.log(process.env.PORT)
 const wsLink = new WebSocketLink({
-  uri: `wss://${domainName}:30238/graphql`,
+  uri: `wss://${domainName}:${port}/graphql`,
   options: {
     reconnect: true,
     lazy: true
   },
-});
-
-wsLink.subscriptionClient.on("connecting", () => {
-  console.log("connecting");
-});
-
-wsLink.subscriptionClient.on("connected", () => {
-  console.log("connected");
-});
-
-wsLink.subscriptionClient.on("reconnecting", () => {
-  console.log("reconnecting");
-});
-
-wsLink.subscriptionClient.on("reconnected", () => {
-  console.log("reconnected");
-});
-
-wsLink.subscriptionClient.on("disconnected", () => {
-  console.log("disconnected");
 });
 
 wsLink.subscriptionClient.maxConnectTimeGenerator.duration = () =>
