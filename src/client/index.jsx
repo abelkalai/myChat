@@ -12,13 +12,11 @@ require("babel-polyfill");
 const httpLink = new HttpLink({
   uri: "/graphql",
 });
+
 const domainName = window.location.hostname;
 const port = process.env.PORT || 4000;
 const wsLink = new WebSocketLink({
   uri: `wss://${domainName}:${port}/graphql`,
-  options: {
-    reconnect: true,
-  },
 });
 
 const splitLink = split(
@@ -36,6 +34,7 @@ const splitLink = split(
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: splitLink,
+  lazy: true
 });
 
 ReactDOM.render(
