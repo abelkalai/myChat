@@ -12,9 +12,10 @@ require("babel-polyfill");
 const httpLink = new HttpLink({
   uri: "/graphql",
 });
-
+const domainName = window.location.hostname;
+const port = process.env.PORT || 4000;
 const wsLink = new WebSocketLink({
-  uri: `ws://localhost:4000/graphql`,
+  uri: `ws://${domainName}:${port}/graphql`,
   options: {
     reconnect: true,
   },
