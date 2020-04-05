@@ -20,6 +20,7 @@ const wsLink = new WebSocketLink({
   uri: `wss://${domainName}:${port}/graphql`,
   options: {
     reconnect: true,
+    lazy: true
   },
 });
 
