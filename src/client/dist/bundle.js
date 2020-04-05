@@ -89922,7 +89922,10 @@ var httpLink = new apollo_boost__WEBPACK_IMPORTED_MODULE_4__["HttpLink"]({
 var domainName = window.location.hostname;
 var port = process.env.PORT || 4000;
 var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_6__["WebSocketLink"]({
-  uri: "wss://".concat(domainName, ":").concat(port, "/graphql")
+  uri: "ws://".concat(domainName, ":").concat(port, "/graphql"),
+  options: {
+    reconnect: true
+  }
 });
 var splitLink = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_4__["split"])(function (_ref) {
   var query = _ref.query;

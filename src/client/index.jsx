@@ -17,6 +17,10 @@ const domainName = window.location.hostname;
 const port = process.env.PORT || 4000;
 const wsLink = new WebSocketLink({
   uri: `wss://${domainName}:${port}/graphql`,
+  options: {
+    reconnect: true,
+    lazy: true
+  },
 });
 
 const splitLink = split(
