@@ -87946,12 +87946,13 @@ var Signup = function Signup(props) {
 /*!****************************************************!*\
   !*** ./src/client/components/hooks/customHooks.js ***!
   \****************************************************/
-/*! exports provided: useFieldInput */
+/*! exports provided: useFieldInput, useActiveElement */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useFieldInput", function() { return useFieldInput; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useActiveElement", function() { return useActiveElement; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -87990,6 +87991,25 @@ var useFieldInput = function useFieldInput() {
     onChange: onChange,
     manualChange: manualChange,
     clear: clear
+  };
+};
+var useActiveElement = function useActiveElement() {
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(document.activeElement.id),
+      _useState4 = _slicedToArray(_useState3, 2),
+      value = _useState4[0],
+      setValue = _useState4[1];
+
+  var onChange = function onChange(event) {
+    setValue(document.activeElement.id);
+  };
+
+  var addEventListener = function addEventListener() {
+    return document.addEventListener("focusin", onChange);
+  };
+
+  return {
+    value: value,
+    addEventListener: addEventListener
   };
 };
 
@@ -89756,7 +89776,9 @@ var ChatSearch = function ChatSearch(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Time__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Time */ "./src/client/components/main/home/chat/Time.js");
+/* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
+/* harmony import */ var _Time__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Time */ "./src/client/components/main/home/chat/Time.js");
+
 
 
 
@@ -89765,8 +89787,10 @@ var History = function History(props) {
     return null;
   }
 
+  var activeElement = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useActiveElement"])();
+  activeElement.addEventListener();
   var unreadMsgs = props.convoHistory.data.getConversations.filter(function (convo) {
-    return convo.unread === true && convo.lastSender != props.userInfo._id;
+    return convo.unread === true && convo.lastSender != props.userInfo._id && (convo._id != props.currentConvo ? true : activeElement.value === "messageInput");
   }).length;
   document.title = unreadMsgs > 0 ? "(".concat(unreadMsgs, ") Unread Messages | MyChat") : "MyChat";
 
@@ -89786,7 +89810,7 @@ var History = function History(props) {
     }, props.convoHistory.data.getConversations.map(function (convo) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         key: convo._id,
-        className: convo.unread && convo.lastSender != props.userInfo._id ? "chat-history-unread" : null
+        className: convo.unread && convo.lastSender != props.userInfo._id && (convo._id != props.currentConvo ? true : activeElement.value === "messageInput") ? "chat-history-unread" : null
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: convo._id,
         className: convo._id === props.currentConvo ? "chat-history-wrapper-current" : "chat-history-wrapper",
@@ -89809,7 +89833,7 @@ var History = function History(props) {
         className: "chat-history-content"
       }, convo.lastSender === props.userInfo._id ? "You: " : null, convo.lastMessage.length > 22 ? "".concat(convo.lastMessage.slice(0, 16), "...") : convo.lastMessage, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "chat-history-time"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Time__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Time__WEBPACK_IMPORTED_MODULE_2__["default"], {
         time: convo.lastMessageTime
       })))));
     }));
@@ -89933,16 +89957,13 @@ var httpLink = new apollo_boost__WEBPACK_IMPORTED_MODULE_4__["HttpLink"]({
 var domainName = window.location.hostname;
 var port = process.env.PORT || 4000;
 var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_6__["WebSocketLink"]({
-  uri: "ws://".concat(domainName, ":").concat(port, "/graphql"),
+  uri: "wss://".concat(domainName, "/graphql"),
   options: {
     reconnect: true,
     lazy: true
   }
-});
-
-wsLink.subscriptionClient.maxConnectTimeGenerator.duration = function () {
-  return wsLink.subscriptionClient.maxConnectTimeGenerator.max;
-};
+}); // wsLink.subscriptionClient.maxConnectTimeGenerator.duration = () =>
+//   wsLink.subscriptionClient.maxConnectTimeGenerator.max;
 
 var splitLink = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_4__["split"])(function (_ref) {
   var query = _ref.query;

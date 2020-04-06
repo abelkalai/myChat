@@ -1,4 +1,5 @@
-import React, { Fragment} from "react";
+import React, { Fragment } from "react";
+import { useActiveElement } from "../../../hooks/customHooks";
 import Time from "./Time";
 
 const History = (props) => {
@@ -6,10 +7,17 @@ const History = (props) => {
     return null;
   }
 
+  const activeElement = useActiveElement();
+
+  activeElement.addEventListener();
+
   let unreadMsgs = props.convoHistory.data.getConversations.filter(
     (convo) =>
       convo.unread === true &&
-      convo.lastSender != props.userInfo._id 
+      convo.lastSender != props.userInfo._id &&
+      (convo._id != props.currentConvo
+        ? true
+        : activeElement.value === "messageInput")
   ).length;
 
   document.title =
@@ -39,7 +47,10 @@ const History = (props) => {
             key={convo._id}
             className={
               convo.unread &&
-              convo.lastSender != props.userInfo._id
+              convo.lastSender != props.userInfo._id &&
+              (convo._id != props.currentConvo
+                ? true
+                : activeElement.value === "messageInput")
                 ? "chat-history-unread"
                 : null
             }

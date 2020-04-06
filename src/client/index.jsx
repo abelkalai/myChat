@@ -18,15 +18,15 @@ const domainName = window.location.hostname;
 const port = process.env.PORT || 4000
 
 const wsLink = new WebSocketLink({
-  uri: `ws://${domainName}:${port}/graphql`,
+  uri: `wss://${domainName}/graphql`,
   options: {
     reconnect: true,
     lazy: true
   },
 });
 
-wsLink.subscriptionClient.maxConnectTimeGenerator.duration = () =>
-  wsLink.subscriptionClient.maxConnectTimeGenerator.max;
+// wsLink.subscriptionClient.maxConnectTimeGenerator.duration = () =>
+//   wsLink.subscriptionClient.maxConnectTimeGenerator.max;
 
 
 const splitLink = split(
