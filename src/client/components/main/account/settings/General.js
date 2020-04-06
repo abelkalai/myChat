@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { fieldInput } from "../../../hooks/customHooks";
+import { useFieldInput } from "../../../hooks/customHooks";
 import { useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 import "../../../../assets/stylesheets/components/main/settings.css";
@@ -19,10 +19,10 @@ const CHANGE_USERNAME = gql`
 const General = props => {
   const [changeName] = useMutation(CHANGE_NAME);
   const [changeUserName] = useMutation(CHANGE_USERNAME)
-  const firstNamefield = fieldInput();
-  const lastNameField = fieldInput();
+  const firstNamefield = useFieldInput()
+  const lastNameField = useFieldInput()
   const [showNameForm, setShowNameForm] = useState(false);
-  const userField = fieldInput();
+  const userField = useFieldInput()
   const [showUserForm, setShowUserForm] = useState(false);
   const [userError, setUserError] = useState(null);
 

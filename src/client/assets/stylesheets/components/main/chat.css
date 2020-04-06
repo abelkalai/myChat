@@ -99,23 +99,24 @@
   position: relative;
 }
 
-.chat-display-chat {
-  max-height: 650px;
+.chat-display-chat {  
+  max-height: 82.5vh;
   overflow-x: hidden;
   overflow-y: auto;
   display: flex;
   flex-direction: column-reverse;
 }
 
-.chat-display-chat-send-message {
+.chat-display-chat-send-message-form {
+  top: 86.5vh;
+  padding-left: 5px;
   position: absolute;
-  bottom: 5px;
-  width: 100%;
+  width: 100vh;
 }
 
-.chat-display-chat-message {
+.chat-display-chat-message-field {
   font-size: 22px;
-  width: 96%;
+  width: 95.5vh;
 }
 
 .chat-message-wrapper {
@@ -199,7 +200,6 @@
   grid-column: 2;
   grid-row: 2;
 }
-
 
 .chat-history-time {
   float: right;

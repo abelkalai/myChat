@@ -1,13 +1,15 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment} from "react";
 import Time from "./Time";
 
 const History = (props) => {
   if (props.convoHistory.data === null) {
     return null;
   }
- 
+
   let unreadMsgs = props.convoHistory.data.getConversations.filter(
-    (convo) => convo.unread === true && convo.lastSender != props.userInfo._id
+    (convo) =>
+      convo.unread === true &&
+      convo.lastSender != props.userInfo._id 
   ).length;
 
   document.title =
@@ -36,7 +38,8 @@ const History = (props) => {
           <span
             key={convo._id}
             className={
-              convo.unread && convo.lastSender != props.userInfo._id
+              convo.unread &&
+              convo.lastSender != props.userInfo._id
                 ? "chat-history-unread"
                 : null
             }

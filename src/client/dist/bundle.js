@@ -25055,7 +25055,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../../../images/sear
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-exports.push([module.i, ".chat-main {\r\n  height: 100%;\r\n  grid-template-columns: 25% 75%;\r\n  display: grid;\r\n  grid-template-areas: \"left right\";\r\n  margin-top: 55px;\r\n}\r\n\r\n.chat-left {\r\n  grid-area: left;\r\n  min-height: 100%;\r\n  height: 100%;\r\n  border-right: 1px solid #dcdcdc;\r\n}\r\n\r\n.chat-search {\r\n  font-size: 22px;\r\n  padding-top: 10px;\r\n}\r\n\r\n.searchContacts {\r\n  padding: 10px;\r\n  background-position: 0 5px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 25px;\r\n  width: 87.5%;\r\n}\r\n\r\n.chat-dropdown {\r\n  display: inline-block;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  width: 100%;\r\n  padding-top: 10px;\r\n}\r\n\r\n.chat-dropdown div {\r\n  padding: 10px 10px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.chat-dropdown div:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-dropdown span {\r\n  padding-right: 5px;\r\n}\r\n\r\n.chat-dropdown img {\r\n  width: 20px;\r\n  height: 20px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-display-parent {\r\n  grid-area: \"right\";\r\n  display: grid;\r\n  grid-template-columns: 66% 33%;\r\n  grid-template-areas: \"chat about\";\r\n  padding-top: 5px;\r\n  height: 100%;\r\n}\r\n\r\n.chat-display-default {\r\n  padding: 10px 0 0 5px;\r\n}\r\n\r\n.chat-display-about {\r\n  border-left: 1px solid #dcdcdc;\r\n  grid-area: \"about\";\r\n  height: 100%;\r\n  text-align: center;\r\n}\r\n\r\n.chat-display-about img {\r\n  width: 200px;\r\n  height: 200px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-display-about-content {\r\n  display: inline-block;\r\n  word-wrap: break-word;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  max-width: 100%;\r\n  max-height: 400px;\r\n}\r\n\r\n.chat-display-chat-parent {\r\n  margin-top: 5px;\r\n  grid-area: \"chat\";\r\n  position: relative;\r\n}\r\n\r\n.chat-display-chat {\r\n  max-height: 650px;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  display: flex;\r\n  flex-direction: column-reverse;\r\n}\r\n\r\n.chat-display-chat-send-message {\r\n  position: absolute;\r\n  bottom: 5px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-display-chat-message {\r\n  font-size: 22px;\r\n  width: 96%;\r\n}\r\n\r\n.chat-message-wrapper {\r\n  font-size: 18px;\r\n  display: inline-block;\r\n  padding: 3px 3px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-my-message {\r\n  color: white;\r\n  background-color: #0099ff;\r\n  padding: 6px 8px 6px 8px;\r\n  float: right;\r\n  max-width: 60%;\r\n  margin-right: 8px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-contact-message {\r\n  background-color: #f1f0f0;\r\n  padding: 6px 8px 6px 8px;\r\n  float: left;\r\n  max-width: 60%;\r\n  margin-left: 8px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-history-container {\r\n  margin: 10px 5px 0 5px;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  height: 600px;\r\n}\r\n\r\n.chat-history-wrapper-current {\r\n  display: grid;\r\n  grid-template-columns: 12.5% 87.5%;\r\n  grid-auto-rows: 22.5px;\r\n  margin-bottom: 10px;\r\n  cursor: pointer;\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.chat-history-wrapper {\r\n  display: grid;\r\n  grid-template-columns: 12.5% 87.5%;\r\n  grid-auto-rows: 22.5px;\r\n  margin-bottom: 10px;\r\n  cursor: pointer;\r\n}\r\n\r\n.chat-history-unread{\r\n  font-weight: bold;\r\n}\r\n\r\n.chat-history-wrapper img {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-history-wrapper-current img {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-history-img-container {\r\n  grid-column: 1;\r\n}\r\n\r\n.chat-history-name-header {\r\n  grid-column: 2;\r\n  grid-row: 1;\r\n}\r\n\r\n.chat-history-content {\r\n  grid-column: 2;\r\n  grid-row: 2;\r\n}\r\n\r\n\r\n.chat-history-time {\r\n  float: right;\r\n  padding-right: 10px;\r\n}\r\n", ""]);
+exports.push([module.i, ".chat-main {\r\n  height: 100%;\r\n  grid-template-columns: 25% 75%;\r\n  display: grid;\r\n  grid-template-areas: \"left right\";\r\n  margin-top: 55px;\r\n}\r\n\r\n.chat-left {\r\n  grid-area: left;\r\n  min-height: 100%;\r\n  height: 100%;\r\n  border-right: 1px solid #dcdcdc;\r\n}\r\n\r\n.chat-search {\r\n  font-size: 22px;\r\n  padding-top: 10px;\r\n}\r\n\r\n.searchContacts {\r\n  padding: 10px;\r\n  background-position: 0 5px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 25px;\r\n  width: 87.5%;\r\n}\r\n\r\n.chat-dropdown {\r\n  display: inline-block;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  width: 100%;\r\n  padding-top: 10px;\r\n}\r\n\r\n.chat-dropdown div {\r\n  padding: 10px 10px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.chat-dropdown div:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-dropdown span {\r\n  padding-right: 5px;\r\n}\r\n\r\n.chat-dropdown img {\r\n  width: 20px;\r\n  height: 20px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-display-parent {\r\n  grid-area: \"right\";\r\n  display: grid;\r\n  grid-template-columns: 66% 33%;\r\n  grid-template-areas: \"chat about\";\r\n  padding-top: 5px;\r\n  height: 100%;\r\n}\r\n\r\n.chat-display-default {\r\n  padding: 10px 0 0 5px;\r\n}\r\n\r\n.chat-display-about {\r\n  border-left: 1px solid #dcdcdc;\r\n  grid-area: \"about\";\r\n  height: 100%;\r\n  text-align: center;\r\n}\r\n\r\n.chat-display-about img {\r\n  width: 200px;\r\n  height: 200px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-display-about-content {\r\n  display: inline-block;\r\n  word-wrap: break-word;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  max-width: 100%;\r\n  max-height: 400px;\r\n}\r\n\r\n.chat-display-chat-parent {\r\n  margin-top: 5px;\r\n  grid-area: \"chat\";\r\n  position: relative;\r\n}\r\n\r\n.chat-display-chat {  \r\n  max-height: 82.5vh;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  display: flex;\r\n  flex-direction: column-reverse;\r\n}\r\n\r\n.chat-display-chat-send-message-form {\r\n  top: 86.5vh;\r\n  padding-left: 5px;\r\n  position: absolute;\r\n  width: 100vh;\r\n}\r\n\r\n.chat-display-chat-message-field {\r\n  font-size: 22px;\r\n  width: 95.5vh;\r\n}\r\n\r\n.chat-message-wrapper {\r\n  font-size: 18px;\r\n  display: inline-block;\r\n  padding: 3px 3px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-my-message {\r\n  color: white;\r\n  background-color: #0099ff;\r\n  padding: 6px 8px 6px 8px;\r\n  float: right;\r\n  max-width: 60%;\r\n  margin-right: 8px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-contact-message {\r\n  background-color: #f1f0f0;\r\n  padding: 6px 8px 6px 8px;\r\n  float: left;\r\n  max-width: 60%;\r\n  margin-left: 8px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-history-container {\r\n  margin: 10px 5px 0 5px;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  height: 600px;\r\n}\r\n\r\n.chat-history-wrapper-current {\r\n  display: grid;\r\n  grid-template-columns: 12.5% 87.5%;\r\n  grid-auto-rows: 22.5px;\r\n  margin-bottom: 10px;\r\n  cursor: pointer;\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.chat-history-wrapper {\r\n  display: grid;\r\n  grid-template-columns: 12.5% 87.5%;\r\n  grid-auto-rows: 22.5px;\r\n  margin-bottom: 10px;\r\n  cursor: pointer;\r\n}\r\n\r\n.chat-history-unread{\r\n  font-weight: bold;\r\n}\r\n\r\n.chat-history-wrapper img {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-history-wrapper-current img {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-history-img-container {\r\n  grid-column: 1;\r\n}\r\n\r\n.chat-history-name-header {\r\n  grid-column: 2;\r\n  grid-row: 1;\r\n}\r\n\r\n.chat-history-content {\r\n  grid-column: 2;\r\n  grid-row: 2;\r\n}\r\n\r\n.chat-history-time {\r\n  float: right;\r\n  padding-right: 10px;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25086,7 +25086,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_
 var ___CSS_LOADER_URL_REPLACEMENT_4___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_4___);
 var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___);
 // Module
-exports.push([module.i, "* {\r\n  font-family: Georgia, \"Times New Roman\", Times, serif;\r\n}\r\n\r\n.main-container{\r\n  height: 100%;\r\n}\r\n\r\n.banner {\r\n  position: absolute;\r\n  width: 100%;\r\n  top: 0px;\r\n  left: 0px;\r\n  background-color: #00a8f3;\r\n  display: inline-grid;\r\n  grid-template-areas: \"left center right\";\r\n  grid-template-columns: 11% 70% 14%;\r\n  align-items: center;\r\n}\r\n\r\n.home-title {\r\n  color: white;\r\n  font-size: 44px;\r\n  grid-area: left;\r\n  justify-content: left;\r\n  cursor: pointer;\r\n  padding-left: 10px;\r\n}\r\n\r\n.user {\r\n  padding: 10px 10px 5px 10px;\r\n  font-size: 24px;\r\n  grid-area: right;\r\n}\r\n\r\n.dropdown {\r\n  color: white;\r\n  font-size: 24px;\r\n  display: inline-block;\r\n}\r\n\r\n.dropdown:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-content {\r\n  font-size: 18px;\r\n  margin-right: 10px;\r\n  display: block;\r\n  position: absolute;\r\n  color: black;\r\n  background-color: white;\r\n  min-width: 125px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  padding: 10px 15px;\r\n  border-radius: 10px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-content div {\r\n  padding: 10px 10px;\r\n  border-radius: 5px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.dropdown-profile {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-profile:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-profile-content {\r\n  padding-left: 17.5px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-settings:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-logout:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.home-image-container{\r\n  padding: 20px 5px 0 0;\r\n}\r\n\r\n.home-image {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 50%\r\n}\r\n", ""]);
+exports.push([module.i, "* {\r\n  font-family: Georgia, \"Times New Roman\", Times, serif;\r\n}\r\n\r\n.main-container{\r\n  height: 100%\r\n}\r\n\r\n.banner {\r\n  position: absolute;\r\n  width: 100%;\r\n  top: 0px;\r\n  left: 0px;\r\n  background-color: #00a8f3;\r\n  display: inline-grid;\r\n  grid-template-areas: \"left center right\";\r\n  grid-template-columns: 11% 70% 14%;\r\n  align-items: center;\r\n}\r\n\r\n.home-title {\r\n  color: white;\r\n  font-size: 44px;\r\n  grid-area: left;\r\n  justify-content: left;\r\n  cursor: pointer;\r\n  padding-left: 10px;\r\n}\r\n\r\n.user {\r\n  padding: 10px 10px 5px 10px;\r\n  font-size: 24px;\r\n  grid-area: right;\r\n}\r\n\r\n.dropdown {\r\n  color: white;\r\n  font-size: 24px;\r\n  display: inline-block;\r\n}\r\n\r\n.dropdown:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-content {\r\n  font-size: 18px;\r\n  margin-right: 10px;\r\n  display: block;\r\n  position: absolute;\r\n  color: black;\r\n  background-color: white;\r\n  min-width: 125px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  padding: 10px 15px;\r\n  border-radius: 10px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-content div {\r\n  padding: 10px 10px;\r\n  border-radius: 5px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.dropdown-profile {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-profile:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-profile-content {\r\n  padding-left: 17.5px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-settings:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-logout:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.home-image-container{\r\n  padding: 20px 5px 0 0;\r\n}\r\n\r\n.home-image {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 50%\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -87205,7 +87205,7 @@ var CHECK_EMAIL = graphql_tag__WEBPACK_IMPORTED_MODULE_5___default()(_templateOb
 
 var Forgot = function Forgot(props) {
   document.title = "Forgot ".concat(props.type, " | MyChat");
-  var emailForm = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["fieldInput"])();
+  var emailForm = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])();
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState2 = _slicedToArray(_useState, 2),
@@ -87461,8 +87461,8 @@ var Login = function Login(props) {
       sendUser = _useState6[0],
       setSendUser = _useState6[1];
 
-  var user = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
-  var pass = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
+  var user = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])();
+  var pass = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])();
 
   var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("login"),
       _useState8 = _slicedToArray(_useState7, 2),
@@ -87716,13 +87716,13 @@ var Signup = function Signup(props) {
       page = _useState12[0],
       setPage = _useState12[1];
 
-  var firstNameSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
-  var lastNameSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
-  var emailSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
-  var userSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
-  var passSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
-  var confirmPassSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
-  var confirmNumber = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["fieldInput"])();
+  var firstNameSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])();
+  var lastNameSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])();
+  var emailSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])();
+  var userSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])();
+  var passSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])();
+  var confirmPassSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])();
+  var confirmNumber = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])();
 
   var submit = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
@@ -87946,12 +87946,12 @@ var Signup = function Signup(props) {
 /*!****************************************************!*\
   !*** ./src/client/components/hooks/customHooks.js ***!
   \****************************************************/
-/*! exports provided: fieldInput */
+/*! exports provided: useFieldInput */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fieldInput", function() { return fieldInput; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useFieldInput", function() { return useFieldInput; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -87967,7 +87967,7 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
-var fieldInput = function fieldInput() {
+var useFieldInput = function useFieldInput() {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
       _useState2 = _slicedToArray(_useState, 2),
       value = _useState2[0],
@@ -88128,7 +88128,7 @@ var Profile = function Profile(props) {
       uploadFile = _useState4[0],
       setUploadFile = _useState4[1];
 
-  var aboutField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["fieldInput"])();
+  var aboutField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])();
 
   var aboutForm = function aboutForm() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -88383,15 +88383,15 @@ var General = function General(props) {
       _useMutation4 = _slicedToArray(_useMutation3, 1),
       changeUserName = _useMutation4[0];
 
-  var firstNamefield = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
-  var lastNameField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
+  var firstNamefield = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])();
+  var lastNameField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])();
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       _useState2 = _slicedToArray(_useState, 2),
       showNameForm = _useState2[0],
       setShowNameForm = _useState2[1];
 
-  var userField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
+  var userField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])();
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       _useState4 = _slicedToArray(_useState3, 2),
@@ -88625,9 +88625,9 @@ var Security = function Security(props) {
       _useMutation2 = _slicedToArray(_useMutation, 1),
       changePassword = _useMutation2[0];
 
-  var currentPass = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["fieldInput"])();
-  var newPass = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["fieldInput"])();
-  var newPassConfirm = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["fieldInput"])();
+  var currentPass = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])();
+  var newPass = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])();
+  var newPassConfirm = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])();
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState2 = _slicedToArray(_useState, 2),
@@ -89308,7 +89308,7 @@ var ChatDisplay = function ChatDisplay(props) {
       props.setCurrentConvo(props.convoHistory.data.getConversations[0]._id);
     }
   });
-  var messageField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["fieldInput"])();
+  var messageField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])();
 
   var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(READ_MESSAGE, {
     update: function update(store, _ref) {
@@ -89366,6 +89366,10 @@ var ChatDisplay = function ChatDisplay(props) {
   var apolloClient = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useApolloClient"])();
 
   var updateMsgCache = function updateMsgCache(newMsg) {
+    if (newMsg.senderID != props.userInfo._id && newMsg.receiverID != props.userInfo._id) {
+      return;
+    }
+
     var msgStore = apolloClient.readQuery({
       query: GET_MESSAGES,
       variables: {
@@ -89399,6 +89403,12 @@ var ChatDisplay = function ChatDisplay(props) {
   });
 
   var updateConvoCache = function updateConvoCache(convo) {
+    if (convo.members.filter(function (member) {
+      return member._id === props.userInfo._id;
+    }).length === 0) {
+      return;
+    }
+
     var convoStore = apolloClient.readQuery({
       query: props.getConversations,
       variables: {
@@ -89527,10 +89537,11 @@ var ChatDisplay = function ChatDisplay(props) {
       userInfo: props.userInfo
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       onSubmit: sendMessage,
-      className: "chat-display-chat-send-message"
+      className: "chat-display-chat-send-message-form"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      id: "messageInput",
       type: "text",
-      className: "chat-display-chat-message",
+      className: "chat-display-chat-message-field",
       value: messageField.value,
       onClick: readMessage,
       onChange: messageField.onChange,
@@ -89658,7 +89669,7 @@ var ChatSearch = function ChatSearch(props) {
       searchActive = _useState2[0],
       setSearchActive = _useState2[1];
 
-  var searchField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["fieldInput"])();
+  var searchField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])();
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState4 = _slicedToArray(_useState3, 2),
@@ -89920,9 +89931,9 @@ var httpLink = new apollo_boost__WEBPACK_IMPORTED_MODULE_4__["HttpLink"]({
   uri: "/graphql"
 });
 var domainName = window.location.hostname;
-var port = process.env.PORT;
+var port = process.env.PORT || 4000;
 var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_6__["WebSocketLink"]({
-  uri: "wss://".concat(domainName, "/graphql"),
+  uri: "ws://".concat(domainName, ":").concat(port, "/graphql"),
   options: {
     reconnect: true,
     lazy: true

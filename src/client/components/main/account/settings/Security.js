@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import { fieldInput } from "../../../hooks/customHooks";
+import { useFieldInput } from "../../../hooks/customHooks";
 import { useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 import "../../../../assets/stylesheets/components/main/settings.css"
@@ -21,9 +21,9 @@ const CHANGE_PASSWORD = gql`
 
 const Security = props => {
   const [changePassword] = useMutation(CHANGE_PASSWORD);
-  const currentPass = fieldInput();
-  const newPass = fieldInput();
-  const newPassConfirm = fieldInput();
+  const currentPass = useFieldInput()
+  const newPass = useFieldInput()
+  const newPassConfirm = useFieldInput()
   const [currentPasswordError, setCurrentPasswordError] = useState(null);
   const [newPasswordError, setNewPasswordError] = useState(null);
   const [sendHome, setSendHome] = useState(false);

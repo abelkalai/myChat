@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { fieldInput } from "../../../hooks/customHooks";
+import { useFieldInput } from "../../../hooks/customHooks";
 import {
   useApolloClient,
   useQuery,
@@ -95,7 +95,7 @@ const ChatDisplay = (props) => {
     }
   });
 
-  const messageField = fieldInput();
+  const messageField = useFieldInput()
 
   const [readMsg] = useMutation(READ_MESSAGE, {
     update: (store, { data }) => {
@@ -133,6 +133,9 @@ const ChatDisplay = (props) => {
   const apolloClient = useApolloClient();
 
   const updateMsgCache = (newMsg) => {
+    if(newMsg.senderID != props.userInfo._id &&  newMsg.receiverID != props.userInfo._id){
+      return
+    }
     const msgStore = apolloClient.readQuery({
       query: GET_MESSAGES,
       variables: {
@@ -162,6 +165,9 @@ const ChatDisplay = (props) => {
   });
 
   const updateConvoCache = (convo) => {
+    if(convo.members.filter(member=>member._id === props.userInfo._id).length === 0){
+      return
+    }
     const convoStore = apolloClient.readQuery({
       query: props.getConversations,
       variables: { _id: props.userInfo._id },
@@ -214,10 +220,11 @@ const ChatDisplay = (props) => {
           messageData={getMessages.data.getMessages}
           userInfo={props.userInfo}
         />
-        <form onSubmit={sendMessage} className="chat-display-chat-send-message">
+        <form onSubmit={sendMessage} className="chat-display-chat-send-message-form">
           <input
+            id="messageInput"
             type="text"
-            className="chat-display-chat-message"
+            className="chat-display-chat-message-field"
             value={messageField.value}
             onClick={readMessage}
             onChange={messageField.onChange}

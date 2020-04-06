@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { fieldInput } from "../hooks/customHooks";
+import { useFieldInput } from "../hooks/customHooks";
 import Confirmation from "./Confirmation";
 import { useLazyQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
@@ -13,7 +13,7 @@ const CHECK_EMAIL = gql`
 
 const Forgot = props => {
   document.title = `Forgot ${props.type} | MyChat`;
-  const emailForm = fieldInput();
+  const emailForm = useFieldInput()
   const [error, setError] = useState(null);
   const [emailCheck] = useLazyQuery(CHECK_EMAIL, {
     onCompleted: data => {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { fieldInput } from "../hooks/customHooks";
+import { useFieldInput } from "../hooks/customHooks";
 import {Redirect } from "react-router-dom";
 
 //Implement getting email when person needs to validate account, pass that to signup/validate. Remove getEmail query.
@@ -9,8 +9,8 @@ const Login = props => {
   const [loginError, setLoginError] = useState(null);
   const [validateButton, showValidateButton] = useState(false);
   const [sendUser, setSendUser] = useState(null);
-  const user = fieldInput();
-  const pass = fieldInput();
+  const user = useFieldInput()
+  const pass = useFieldInput()
 
   const [page, setPage] = useState("login");
   const loginForm = () => {

@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-export const fieldInput = () => {
+export const useFieldInput = () => {
     const [value, setValue] = useState("")
   
     const onChange = (event) => {

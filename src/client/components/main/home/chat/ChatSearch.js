@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import History from "./History";
-import { fieldInput } from "../../../hooks/customHooks";
+import { useFieldInput } from "../../../hooks/customHooks";
 import {useLazyQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
@@ -16,7 +16,7 @@ const SEARCH_USER = gql`
 
 const ChatSearch = props => {
   const [searchActive, setSearchActive] = useState(false);
-  const searchField = fieldInput();
+  const searchField = useFieldInput()
   const [searchResult, setSearchResult] = useState([]);
   const [searchQuery] = useLazyQuery(SEARCH_USER, {
     onCompleted: data => {

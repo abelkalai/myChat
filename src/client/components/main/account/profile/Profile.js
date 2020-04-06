@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { fieldInput } from "../../../hooks/customHooks";
+import { useFieldInput } from "../../../hooks/customHooks";
 import { gql } from "apollo-boost";
 import imageCompression from "browser-image-compression";
 import "../../../../assets/stylesheets/components/main/profile.css";
@@ -47,7 +47,7 @@ const Profile = (props) => {
   });
   const [showAbout, setShowAbout] = useState(false);
   const [uploadFile, setUploadFile] = useState(null);
-  const aboutField = fieldInput();
+  const aboutField = useFieldInput()
 
   const aboutForm = () => {
     return (

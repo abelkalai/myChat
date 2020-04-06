@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, Redirect, Route } from "react-router-dom";
 import { gql } from "apollo-boost";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { fieldInput } from "../hooks/customHooks";
+import { useFieldInput } from "../hooks/customHooks";
 import Confirmation from "./Confirmation";
 
 const ADD_USER = gql`
@@ -54,13 +54,13 @@ const Signup = props => {
   const verifyUser = props.verifyUsername ? props.verifyUsername : "";
   const getEmail = useQuery(GET_EMAIL, { variables: { username: verifyUser } });
   const [page, setPage] = useState("signUpForm");
-  const firstNameSign = fieldInput();
-  const lastNameSign = fieldInput();
-  const emailSign = fieldInput();
-  const userSign = fieldInput();
-  const passSign = fieldInput();
-  const confirmPassSign = fieldInput();
-  const confirmNumber = fieldInput();
+  const firstNameSign = useFieldInput()
+  const lastNameSign = useFieldInput()
+  const emailSign = useFieldInput()
+  const userSign = useFieldInput()
+  const passSign = useFieldInput()
+  const confirmPassSign = useFieldInput()
+  const confirmNumber = useFieldInput()
 
   const submit = async event => {
     event.preventDefault();
