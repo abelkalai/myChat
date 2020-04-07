@@ -155,6 +155,7 @@ const ChatDisplay = (props) => {
   };
 
   useSubscription(NEW_MESSAGE, {
+    fetchPolicy: "no-cache",
     onSubscriptionData: ({ subscriptionData }) => {
       updateMsgCache(subscriptionData.data.newMessage);
     },
@@ -193,6 +194,7 @@ const ChatDisplay = (props) => {
   };
 
   useSubscription(UPDATED_CONVO, {
+    fetchPolicy: "no-cache",
     onSubscriptionData: ({ subscriptionData }) => {
       updateConvoCache(subscriptionData.data.updatedConvo);
     },

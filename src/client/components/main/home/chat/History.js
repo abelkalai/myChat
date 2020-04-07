@@ -6,14 +6,10 @@ const History = (props) => {
     return null;
   }
   
-  
   let unreadMsgs = props.convoHistory.data.getConversations.filter(
     (convo) =>
       convo.unread === true &&
-      convo.lastSender != props.userInfo._id &&
-      (props.currentConvo != convo._id
-        ? true
-        : document.activeElement.id != "messageInput")
+      convo.lastSender != props.userInfo._id 
   ).length;
 
   document.title =
@@ -42,10 +38,7 @@ const History = (props) => {
           <span
             key={convo._id}
             className={
-              convo.unread && convo.lastSender != props.userInfo._id &&
-              (props.currentConvo != convo._id
-                ? true
-                : document.activeElement.id != "messageInput")
+              convo.unread && convo.lastSender != props.userInfo._id 
                 ? "chat-history-unread"
                 : null
             }

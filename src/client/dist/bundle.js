@@ -89389,6 +89389,7 @@ var ChatDisplay = function ChatDisplay(props) {
   };
 
   Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(NEW_MESSAGE, {
+    fetchPolicy: "no-cache",
     onSubscriptionData: function onSubscriptionData(_ref2) {
       var subscriptionData = _ref2.subscriptionData;
       updateMsgCache(subscriptionData.data.newMessage);
@@ -89461,6 +89462,7 @@ var ChatDisplay = function ChatDisplay(props) {
   }();
 
   Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(UPDATED_CONVO, {
+    fetchPolicy: "no-cache",
     onSubscriptionData: function onSubscriptionData(_ref4) {
       var subscriptionData = _ref4.subscriptionData;
       updateConvoCache(subscriptionData.data.updatedConvo);
@@ -89790,7 +89792,7 @@ var History = function History(props) {
   }
 
   var unreadMsgs = props.convoHistory.data.getConversations.filter(function (convo) {
-    return convo.unread === true && convo.lastSender != props.userInfo._id && (props.currentConvo != convo._id ? true : document.activeElement.id != "messageInput");
+    return convo.unread === true && convo.lastSender != props.userInfo._id;
   }).length;
   document.title = unreadMsgs > 0 ? "(".concat(unreadMsgs, ") Unread Messages | MyChat") : "MyChat";
 
@@ -89810,7 +89812,7 @@ var History = function History(props) {
     }, props.convoHistory.data.getConversations.map(function (convo) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         key: convo._id,
-        className: convo.unread && convo.lastSender != props.userInfo._id && (props.currentConvo != convo._id ? true : document.activeElement.id != "messageInput") ? "chat-history-unread" : null
+        className: convo.unread && convo.lastSender != props.userInfo._id ? "chat-history-unread" : null
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: convo._id,
         className: convo._id === props.currentConvo ? "chat-history-wrapper-current" : "chat-history-wrapper",
