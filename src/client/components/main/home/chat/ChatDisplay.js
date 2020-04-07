@@ -46,7 +46,7 @@ const NEW_MESSAGE = gql`
   }
 `;
 
-const UPATED_CONVO = gql`
+const UPDATED_CONVO = gql`
   subscription {
     updatedConvo {
       _id
@@ -115,14 +115,7 @@ const ChatDisplay = (props) => {
     },
   });
 
-  const [sendMessageQuery] = useMutation(SEND_MESSAGE, {
-    refetchQueries: [
-      {
-        query: props.getConversations,
-        variables: { _id: props.userInfo._id },
-      },
-    ],
-  });
+  const [sendMessageQuery] = useMutation(SEND_MESSAGE);
   const getMessages = useQuery(GET_MESSAGES, {
     variables: { senderID: props.userInfo._id, receiverID: props.currentChat },
   });
@@ -179,8 +172,8 @@ const ChatDisplay = (props) => {
       convo._id === props.currentConvo &&
       convo.lastSender != props.userInfo._id
     ) {
-      convo.unread=false
-      console.log(convo)
+      convo.unread = false;
+
       await readMsg({ variables: { _id: convo._id } });
     }
     const convoStore = apolloClient.readQuery({
@@ -189,7 +182,9 @@ const ChatDisplay = (props) => {
     });
     let copy = [...convoStore.getConversations];
     copy = copy.filter((x) => x._id != convo._id);
+
     copy.unshift(convo);
+
     apolloClient.writeQuery({
       query: props.getConversations,
       variables: { _id: props.userInfo._id },
@@ -197,7 +192,7 @@ const ChatDisplay = (props) => {
     });
   };
 
-  useSubscription(UPATED_CONVO, {
+  useSubscription(UPDATED_CONVO, {
     onSubscriptionData: ({ subscriptionData }) => {
       updateConvoCache(subscriptionData.data.updatedConvo);
     },

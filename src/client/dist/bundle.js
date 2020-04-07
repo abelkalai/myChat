@@ -89284,7 +89284,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 var GET_SINGLE_USER = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject());
 var GET_MESSAGES = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject2());
 var NEW_MESSAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject3());
-var UPATED_CONVO = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject4());
+var UPDATED_CONVO = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject4());
 var READ_MESSAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject5());
 var SEND_MESSAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject6());
 
@@ -89341,14 +89341,7 @@ var ChatDisplay = function ChatDisplay(props) {
       _useMutation2 = _slicedToArray(_useMutation, 1),
       readMsg = _useMutation2[0];
 
-  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(SEND_MESSAGE, {
-    refetchQueries: [{
-      query: props.getConversations,
-      variables: {
-        _id: props.userInfo._id
-      }
-    }]
-  }),
+  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(SEND_MESSAGE),
       _useMutation4 = _slicedToArray(_useMutation3, 1),
       sendMessageQuery = _useMutation4[0];
 
@@ -89420,20 +89413,19 @@ var ChatDisplay = function ChatDisplay(props) {
 
             case 2:
               if (!(document.activeElement.id === "messageInput" && convo._id === props.currentConvo && convo.lastSender != props.userInfo._id)) {
-                _context.next = 7;
+                _context.next = 6;
                 break;
               }
 
               convo.unread = false;
-              console.log(convo);
-              _context.next = 7;
+              _context.next = 6;
               return readMsg({
                 variables: {
                   _id: convo._id
                 }
               });
 
-            case 7:
+            case 6:
               convoStore = apolloClient.readQuery({
                 query: props.getConversations,
                 variables: {
@@ -89455,7 +89447,7 @@ var ChatDisplay = function ChatDisplay(props) {
                 }
               });
 
-            case 12:
+            case 11:
             case "end":
               return _context.stop();
           }
@@ -89468,7 +89460,7 @@ var ChatDisplay = function ChatDisplay(props) {
     };
   }();
 
-  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(UPATED_CONVO, {
+  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(UPDATED_CONVO, {
     onSubscriptionData: function onSubscriptionData(_ref4) {
       var subscriptionData = _ref4.subscriptionData;
       updateConvoCache(subscriptionData.data.updatedConvo);
@@ -89798,7 +89790,7 @@ var History = function History(props) {
   }
 
   var unreadMsgs = props.convoHistory.data.getConversations.filter(function (convo) {
-    return convo.unread === true && convo.lastSender != props.userInfo._id;
+    return convo.unread === true && convo.lastSender != props.userInfo._id && (props.currentConvo != convo._id ? true : document.activeElement.id != "messageInput");
   }).length;
   document.title = unreadMsgs > 0 ? "(".concat(unreadMsgs, ") Unread Messages | MyChat") : "MyChat";
 
@@ -89818,7 +89810,7 @@ var History = function History(props) {
     }, props.convoHistory.data.getConversations.map(function (convo) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         key: convo._id,
-        className: convo.unread && convo.lastSender != props.userInfo._id ? "chat-history-unread" : null
+        className: convo.unread && convo.lastSender != props.userInfo._id && (props.currentConvo != convo._id ? true : document.activeElement.id != "messageInput") ? "chat-history-unread" : null
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: convo._id,
         className: convo._id === props.currentConvo ? "chat-history-wrapper-current" : "chat-history-wrapper",
