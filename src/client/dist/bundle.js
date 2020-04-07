@@ -89104,10 +89104,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ChatSearch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChatSearch */ "./src/client/components/main/home/chat/ChatSearch.js");
 /* harmony import */ var _ChatDisplay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChatDisplay */ "./src/client/components/main/home/chat/ChatDisplay.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/chat.css */ "./src/client/assets/stylesheets/components/main/chat.css");
-/* harmony import */ var _assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/chat.css */ "./src/client/assets/stylesheets/components/main/chat.css");
+/* harmony import */ var _assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_6__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -89138,7 +89139,8 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var GET_CONVERSATIONS = graphql_tag__WEBPACK_IMPORTED_MODULE_4___default()(_templateObject());
+
+var GET_CONVERSATIONS = graphql_tag__WEBPACK_IMPORTED_MODULE_5___default()(_templateObject());
 
 var ChatContainer = function ChatContainer(props) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
@@ -89161,6 +89163,8 @@ var ChatContainer = function ChatContainer(props) {
       _id: props.userInfo._id
     }
   });
+  var activeElement = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useActiveElement"])();
+  activeElement.addEventListener();
   return !getConvoQuery.loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-main"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatSearch__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -89169,7 +89173,8 @@ var ChatContainer = function ChatContainer(props) {
     getConvoQuery: getConvoQuery,
     setFromSearch: setFromSearch,
     currentConvo: currentConvo,
-    setCurrentConvo: setCurrentConvo
+    setCurrentConvo: setCurrentConvo,
+    activeElement: activeElement.value
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatDisplay__WEBPACK_IMPORTED_MODULE_2__["default"], {
     userInfo: props.userInfo,
     currentChat: currentChat,
@@ -89179,7 +89184,8 @@ var ChatContainer = function ChatContainer(props) {
     convoHistory: getConvoQuery,
     getConversations: GET_CONVERSATIONS,
     currentConvo: currentConvo,
-    setCurrentConvo: setCurrentConvo
+    setCurrentConvo: setCurrentConvo,
+    activeElement: activeElement.value
   }));
 };
 
@@ -89422,65 +89428,99 @@ var ChatDisplay = function ChatDisplay(props) {
     }
   });
 
-  var updateConvoCache = function updateConvoCache(convo) {
-    if (convo.members.filter(function (member) {
-      return member._id === props.userInfo._id;
-    }).length === 0) {
-      return;
-    }
-
-    var convoStore = apolloClient.readQuery({
-      query: props.getConversations,
-      variables: {
-        _id: props.userInfo._id
-      }
-    });
-
-    var copy = _toConsumableArray(convoStore.getConversations);
-
-    copy = copy.filter(function (x) {
-      return x._id != convo._id;
-    });
-    copy.unshift(convo);
-    apolloClient.writeQuery({
-      query: props.getConversations,
-      variables: {
-        _id: props.userInfo._id
-      },
-      data: {
-        getConversations: copy
-      }
-    });
-  };
-
-  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(UPATED_CONVO, {
-    onSubscriptionData: function onSubscriptionData(_ref3) {
-      var subscriptionData = _ref3.subscriptionData;
-      updateConvoCache(subscriptionData.data.updatedConvo);
-    }
-  });
-
-  var sendMessage = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
-      var senderID, receiverID, content;
+  var updateConvoCache = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(convo) {
+      var convoStore, copy;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              event.preventDefault();
-
-              if (!(messageField === "")) {
-                _context.next = 3;
+              if (!(convo.members.filter(function (member) {
+                return member._id === props.userInfo._id;
+              }).length === 0)) {
+                _context.next = 2;
                 break;
               }
 
               return _context.abrupt("return");
 
+            case 2:
+              if (!(props.activeElement === "messageInput" && convo._id === props.currentConvo)) {
+                _context.next = 6;
+                break;
+              }
+
+              convo.unread = false;
+              _context.next = 6;
+              return readMsg({
+                variables: {
+                  _id: convo._id
+                }
+              });
+
+            case 6:
+              convoStore = apolloClient.readQuery({
+                query: props.getConversations,
+                variables: {
+                  _id: props.userInfo._id
+                }
+              });
+              copy = _toConsumableArray(convoStore.getConversations);
+              copy = copy.filter(function (x) {
+                return x._id != convo._id;
+              });
+              copy.unshift(convo);
+              apolloClient.writeQuery({
+                query: props.getConversations,
+                variables: {
+                  _id: props.userInfo._id
+                },
+                data: {
+                  getConversations: copy
+                }
+              });
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function updateConvoCache(_x) {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+
+  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(UPATED_CONVO, {
+    onSubscriptionData: function onSubscriptionData(_ref4) {
+      var subscriptionData = _ref4.subscriptionData;
+      updateConvoCache(subscriptionData.data.updatedConvo);
+    }
+  });
+
+  var sendMessage = /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(event) {
+      var senderID, receiverID, content;
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              event.preventDefault();
+
+              if (!(messageField === "")) {
+                _context2.next = 3;
+                break;
+              }
+
+              return _context2.abrupt("return");
+
             case 3:
               senderID = props.userInfo._id;
               receiverID = props.currentChat;
               content = messageField.value;
-              _context.next = 8;
+              _context2.next = 8;
               return sendMessageQuery({
                 variables: {
                   senderID: senderID,
@@ -89494,23 +89534,23 @@ var ChatDisplay = function ChatDisplay(props) {
 
             case 9:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
         }
-      }, _callee);
+      }, _callee2);
     }));
 
-    return function sendMessage(_x) {
-      return _ref4.apply(this, arguments);
+    return function sendMessage(_x2) {
+      return _ref5.apply(this, arguments);
     };
   }();
 
   var readMessage = /*#__PURE__*/function () {
-    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(event) {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(event) {
       var currentChat;
-      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+      return regeneratorRuntime.wrap(function _callee3$(_context3) {
         while (1) {
-          switch (_context2.prev = _context2.next) {
+          switch (_context3.prev = _context3.next) {
             case 0:
               event.preventDefault();
               currentChat = props.convoHistory.data.getConversations.filter(function (convo) {
@@ -89518,14 +89558,14 @@ var ChatDisplay = function ChatDisplay(props) {
               });
 
               if (!(currentChat[0].lastSender === props.userInfo._id)) {
-                _context2.next = 4;
+                _context3.next = 4;
                 break;
               }
 
-              return _context2.abrupt("return");
+              return _context3.abrupt("return");
 
             case 4:
-              _context2.next = 6;
+              _context3.next = 6;
               return readMsg({
                 variables: {
                   _id: props.currentConvo
@@ -89534,14 +89574,14 @@ var ChatDisplay = function ChatDisplay(props) {
 
             case 6:
             case "end":
-              return _context2.stop();
+              return _context3.stop();
           }
         }
-      }, _callee2);
+      }, _callee3);
     }));
 
-    return function readMessage(_x2) {
-      return _ref5.apply(this, arguments);
+    return function readMessage(_x3) {
+      return _ref6.apply(this, arguments);
     };
   }();
 
@@ -89757,7 +89797,8 @@ var ChatSearch = function ChatSearch(props) {
     setCurrentChat: props.setCurrentChat,
     setFromSearch: props.setFromSearch,
     currentConvo: props.currentConvo,
-    setCurrentConvo: props.setCurrentConvo
+    setCurrentConvo: props.setCurrentConvo,
+    activeElement: props.activeElement
   })));
 };
 
@@ -89787,10 +89828,8 @@ var History = function History(props) {
     return null;
   }
 
-  var activeElement = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useActiveElement"])();
-  activeElement.addEventListener();
   var unreadMsgs = props.convoHistory.data.getConversations.filter(function (convo) {
-    return convo.unread === true && convo.lastSender != props.userInfo._id && (convo._id != props.currentConvo ? true : activeElement.value != "messageInput");
+    return convo.unread === true && convo.lastSender != props.userInfo._id && (convo._id != props.currentConvo ? true : props.activeElement != "messageInput");
   }).length;
   document.title = unreadMsgs > 0 ? "(".concat(unreadMsgs, ") Unread Messages | MyChat") : "MyChat";
 
@@ -89810,7 +89849,7 @@ var History = function History(props) {
     }, props.convoHistory.data.getConversations.map(function (convo) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         key: convo._id,
-        className: convo.unread && convo.lastSender != props.userInfo._id && (convo._id != props.currentConvo ? true : activeElement.value != "messageInput") ? "chat-history-unread" : null
+        className: convo.unread && convo.lastSender != props.userInfo._id && (convo._id != props.currentConvo ? true : document.activeElement.id != "messageInput") ? "chat-history-unread" : null
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: convo._id,
         className: convo._id === props.currentConvo ? "chat-history-wrapper-current" : "chat-history-wrapper",

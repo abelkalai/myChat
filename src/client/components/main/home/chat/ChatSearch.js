@@ -86,6 +86,7 @@ const ChatSearch = props => {
             setFromSearch={props.setFromSearch}
             currentConvo= {props.currentConvo}
             setCurrentConvo={props.setCurrentConvo}
+            activeElement = {props.activeElement}
           />
         )}
       </div>

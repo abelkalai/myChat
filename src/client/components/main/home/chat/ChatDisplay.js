@@ -164,9 +164,13 @@ const ChatDisplay = (props) => {
     },
   });
 
-  const updateConvoCache = (convo) => {
+  const updateConvoCache = async (convo) => {
     if(convo.members.filter(member=>member._id === props.userInfo._id).length === 0){
       return
+    }
+    if(props.activeElement === "messageInput" && convo._id === props.currentConvo){
+      convo.unread=false
+      await readMsg({ variables: { _id: convo._id } });
     }
     const convoStore = apolloClient.readQuery({
       query: props.getConversations,

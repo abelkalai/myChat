@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ChatSearch from "./ChatSearch";
 import ChatDisplay from "./ChatDisplay";
 import { useQuery } from "@apollo/react-hooks";
+import {useActiveElement} from "../../../hooks/customHooks"
 import gql from "graphql-tag";
 import "../../../../assets/stylesheets/components/main/chat.css";
 
@@ -32,7 +33,10 @@ const ChatContainer = props => {
   const getConvoQuery = useQuery(GET_CONVERSATIONS, {
     variables: { _id: props.userInfo._id }
   });
-  
+  const activeElement = useActiveElement();
+
+  activeElement.addEventListener();
+
   return (
     !getConvoQuery.loading && (
       <div className="chat-main">
@@ -44,6 +48,7 @@ const ChatContainer = props => {
             setFromSearch={setFromSearch}
             currentConvo={currentConvo}
             setCurrentConvo={setCurrentConvo}
+            activeElement={activeElement.value}
           />
         }
         {
@@ -57,6 +62,7 @@ const ChatContainer = props => {
             getConversations={GET_CONVERSATIONS}
             currentConvo={currentConvo}
             setCurrentConvo={setCurrentConvo}
+            activeElement={activeElement.value}
           />
         }
       </div>
