@@ -218,10 +218,9 @@ const ChatDisplay = (props) => {
     let currentChat = props.convoHistory.data.getConversations.filter(
       (convo) => convo._id === props.currentConvo
     );
-    if (currentChat[0].lastSender === props.userInfo._id) {
-      return;
+    if (currentChat[0].lastSender != props.userInfo._id) {
+      await readMsg({ variables: { _id: props.currentConvo } });
     }
-    await readMsg({ variables: { _id: props.currentConvo } });
   };
 
   const chat = () => {

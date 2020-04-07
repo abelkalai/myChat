@@ -89324,7 +89324,7 @@ var ChatDisplay = function ChatDisplay(props) {
 
       copy = copy.map(function (convo) {
         return convo._id === data.readMessage ? _objectSpread({}, convo, {
-          "unread": false
+          unread: false
         }) : convo;
       });
       store.writeQuery({
@@ -89419,7 +89419,7 @@ var ChatDisplay = function ChatDisplay(props) {
               return _context.abrupt("return");
 
             case 2:
-              if (!(document.activeElement.id === "messageInput" && convo._id === props.currentConvo)) {
+              if (!(document.activeElement.id === "messageInput" && convo._id === props.currentConvo && convo.lastSender != props.userInfo._id)) {
                 _context.next = 6;
                 break;
               }
@@ -89531,22 +89531,19 @@ var ChatDisplay = function ChatDisplay(props) {
                 return convo._id === props.currentConvo;
               });
 
-              if (!(currentChat[0].lastSender === props.userInfo._id)) {
-                _context3.next = 4;
+              if (!(currentChat[0].lastSender != props.userInfo._id)) {
+                _context3.next = 5;
                 break;
               }
 
-              return _context3.abrupt("return");
-
-            case 4:
-              _context3.next = 6;
+              _context3.next = 5;
               return readMsg({
                 variables: {
                   _id: props.currentConvo
                 }
               });
 
-            case 6:
+            case 5:
             case "end":
               return _context3.stop();
           }
@@ -89790,9 +89787,7 @@ var ChatSearch = function ChatSearch(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
-/* harmony import */ var _Time__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Time */ "./src/client/components/main/home/chat/Time.js");
-
+/* harmony import */ var _Time__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Time */ "./src/client/components/main/home/chat/Time.js");
 
 
 
@@ -89802,7 +89797,7 @@ var History = function History(props) {
   }
 
   var unreadMsgs = props.convoHistory.data.getConversations.filter(function (convo) {
-    return convo.unread === true && convo.lastSender != props.userInfo._id && (convo._id != props.currentConvo ? true : document.activeElement.id != "messageInput");
+    return convo.unread === true && convo.lastSender != props.userInfo._id;
   }).length;
   document.title = unreadMsgs > 0 ? "(".concat(unreadMsgs, ") Unread Messages | MyChat") : "MyChat";
 
@@ -89822,7 +89817,7 @@ var History = function History(props) {
     }, props.convoHistory.data.getConversations.map(function (convo) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         key: convo._id,
-        className: convo.unread && convo.lastSender != props.userInfo._id && (convo._id != props.currentConvo ? true : document.activeElement.id != "messageInput") ? "chat-history-unread" : null
+        className: convo.unread && convo.lastSender != props.userInfo._id ? "chat-history-unread" : null
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: convo._id,
         className: convo._id === props.currentConvo ? "chat-history-wrapper-current" : "chat-history-wrapper",
@@ -89845,7 +89840,7 @@ var History = function History(props) {
         className: "chat-history-content"
       }, convo.lastSender === props.userInfo._id ? "You: " : null, convo.lastMessage.length > 22 ? "".concat(convo.lastMessage.slice(0, 16), "...") : convo.lastMessage, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "chat-history-time"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Time__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Time__WEBPACK_IMPORTED_MODULE_1__["default"], {
         time: convo.lastMessageTime
       })))));
     }));
