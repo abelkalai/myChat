@@ -1,4 +1,5 @@
 import React from "react";
+import adjustTime from "../../../utilities/adjustTime"
 
 const ChatMessage = (props) => {
   return (
@@ -6,13 +7,13 @@ const ChatMessage = (props) => {
       {props.messageData.map((message) =>
         message.senderID === props.userInfo._id ? (
           <div key={message._id} className="chat-message-wrapper">
-            <span key={message._id} className="chat-my-message">
+            <span title={adjustTime(message.time, true)} key={message._id} className="chat-my-message">
               {message.content}
             </span>
           </div>
         ) : (
           <div key={message._id} className="chat-message-wrapper">
-            <span key={message._id} className="chat-contact-message">
+            <span title={adjustTime(message.time, true)} key={message._id} className="chat-contact-message">
               {message.content}
             </span>
           </div>

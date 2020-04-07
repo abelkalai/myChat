@@ -89616,6 +89616,8 @@ var ChatDisplay = function ChatDisplay(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utilities_adjustTime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../utilities/adjustTime */ "./src/client/components/utilities/adjustTime.js");
+
 
 
 var ChatMessage = function ChatMessage(props) {
@@ -89626,12 +89628,14 @@ var ChatMessage = function ChatMessage(props) {
       key: message._id,
       className: "chat-message-wrapper"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      title: Object(_utilities_adjustTime__WEBPACK_IMPORTED_MODULE_1__["default"])(message.time, true),
       key: message._id,
       className: "chat-my-message"
     }, message.content)) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: message._id,
       className: "chat-message-wrapper"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      title: Object(_utilities_adjustTime__WEBPACK_IMPORTED_MODULE_1__["default"])(message.time, true),
       key: message._id,
       className: "chat-contact-message"
     }, message.content));
@@ -89859,34 +89863,12 @@ var History = function History(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utilities_adjustTime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../utilities/adjustTime */ "./src/client/components/utilities/adjustTime.js");
 
 
 
 var Time = function Time(props) {
-  var result;
-  var messageDateObject = new Date(parseInt(props.time)); //Week, year
-
-  var localTime = messageDateObject.toLocaleTimeString();
-  var secondColon = localTime.indexOf(":", localTime.indexOf(":") + 1);
-  result = "".concat(localTime.slice(0, secondColon), "\n  ").concat(localTime.slice(8, 11)); // Different day
-
-  if (moment__WEBPACK_IMPORTED_MODULE_1___default()(messageDateObject).day() != moment__WEBPACK_IMPORTED_MODULE_1___default()().day()) {
-    result = "".concat(messageDateObject.toDateString().slice(0, 3));
-  } // Different week
-
-
-  if (moment__WEBPACK_IMPORTED_MODULE_1___default()(messageDateObject).week() != moment__WEBPACK_IMPORTED_MODULE_1___default()().week()) {
-    result = "".concat(messageDateObject.toDateString().slice(4, 10));
-  } // Different Year
-
-
-  if (moment__WEBPACK_IMPORTED_MODULE_1___default()(messageDateObject).year() != moment__WEBPACK_IMPORTED_MODULE_1___default()().year()) {
-    result = "".concat(messageDateObject.toLocaleDateString());
-  }
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, result);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, Object(_utilities_adjustTime__WEBPACK_IMPORTED_MODULE_1__["default"])(props.time, false));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Time);
@@ -89923,6 +89905,48 @@ var InvalidLink = function InvalidLink(props) {
 
 /***/ }),
 
+/***/ "./src/client/components/utilities/adjustTime.js":
+/*!*******************************************************!*\
+  !*** ./src/client/components/utilities/adjustTime.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var adjustTime = function adjustTime(time, showTimeOfDay) {
+  var result;
+  var messageDateObject = new Date(parseInt(time)); //Week, year
+
+  var localTime = messageDateObject.toLocaleTimeString();
+  result = "".concat(localTime.slice(0, localTime.indexOf(":") + 3), " ").concat(localTime.slice(-2)); // Different day
+
+  if (moment__WEBPACK_IMPORTED_MODULE_0___default()(messageDateObject).day() != moment__WEBPACK_IMPORTED_MODULE_0___default()().day()) {
+    result = "".concat(messageDateObject.toDateString().slice(0, 3));
+  } // Different week
+
+
+  if (moment__WEBPACK_IMPORTED_MODULE_0___default()(messageDateObject).week() != moment__WEBPACK_IMPORTED_MODULE_0___default()().week()) {
+    result = "".concat(messageDateObject.toDateString().slice(4, 10));
+  } // Different Year
+
+
+  if (moment__WEBPACK_IMPORTED_MODULE_0___default()(messageDateObject).year() != moment__WEBPACK_IMPORTED_MODULE_0___default()().year()) {
+    result = "".concat(messageDateObject.toLocaleDateString());
+  }
+
+  result = showTimeOfDay && !result.includes(":") ? "".concat(result, " at ").concat(localTime.slice(0, localTime.indexOf(":") + 3), " ").concat(localTime.slice(-2)) : result;
+  return result;
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (adjustTime);
+
+/***/ }),
+
 /***/ "./src/client/index.jsx":
 /*!******************************!*\
   !*** ./src/client/index.jsx ***!
@@ -89932,7 +89956,7 @@ var InvalidLink = function InvalidLink(props) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
@@ -89956,10 +89980,11 @@ __webpack_require__(/*! babel-polyfill */ "./node_modules/babel-polyfill/lib/ind
 var httpLink = new apollo_boost__WEBPACK_IMPORTED_MODULE_4__["HttpLink"]({
   uri: "/graphql"
 });
-var domainName = window.location.hostname;
-var port = process.env.PORT || 4000;
+var domainName = window.location.hostname; // If running locally use `ws://${domainName}${port}/graphql` else `wss://${domainName}/graphql` for prod
+
+var port = 4000;
 var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_6__["WebSocketLink"]({
-  uri: "wss://".concat(domainName, "/graphql"),
+  uri: "ws://".concat(domainName, ":").concat(port, "/graphql"),
   options: {
     reconnect: true,
     lazy: true
@@ -89977,7 +90002,6 @@ var client = new apollo_boost__WEBPACK_IMPORTED_MODULE_4__["ApolloClient"]({
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_3__["ApolloProvider"], {
   client: client
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_App__WEBPACK_IMPORTED_MODULE_2__["default"], null))), document.getElementById("root"));
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
