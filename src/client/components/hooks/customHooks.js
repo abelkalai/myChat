@@ -23,16 +23,3 @@ export const useFieldInput = () => {
   };
 };
 
-export const useActiveElement = () => {
-  const [value, setValue] = useState(document.activeElement.id);
-
-  const onChange = (event) => {
-    setValue(document.activeElement.id);
-  };
-
-  const addEventListener = () => {
-    return document.addEventListener("focusin", onChange);
-  };
-
-  return { value, addEventListener};
-};

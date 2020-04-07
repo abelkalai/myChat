@@ -87946,13 +87946,12 @@ var Signup = function Signup(props) {
 /*!****************************************************!*\
   !*** ./src/client/components/hooks/customHooks.js ***!
   \****************************************************/
-/*! exports provided: useFieldInput, useActiveElement */
+/*! exports provided: useFieldInput */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useFieldInput", function() { return useFieldInput; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useActiveElement", function() { return useActiveElement; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -87991,25 +87990,6 @@ var useFieldInput = function useFieldInput() {
     onChange: onChange,
     manualChange: manualChange,
     clear: clear
-  };
-};
-var useActiveElement = function useActiveElement() {
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(document.activeElement.id),
-      _useState4 = _slicedToArray(_useState3, 2),
-      value = _useState4[0],
-      setValue = _useState4[1];
-
-  var onChange = function onChange(event) {
-    setValue(document.activeElement.id);
-  };
-
-  var addEventListener = function addEventListener() {
-    return document.addEventListener("focusin", onChange);
-  };
-
-  return {
-    value: value,
-    addEventListener: addEventListener
   };
 };
 
@@ -89104,11 +89084,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ChatSearch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChatSearch */ "./src/client/components/main/home/chat/ChatSearch.js");
 /* harmony import */ var _ChatDisplay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChatDisplay */ "./src/client/components/main/home/chat/ChatDisplay.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/chat.css */ "./src/client/assets/stylesheets/components/main/chat.css");
-/* harmony import */ var _assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/chat.css */ "./src/client/assets/stylesheets/components/main/chat.css");
+/* harmony import */ var _assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_5__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -89139,8 +89118,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-
-var GET_CONVERSATIONS = graphql_tag__WEBPACK_IMPORTED_MODULE_5___default()(_templateObject());
+var GET_CONVERSATIONS = graphql_tag__WEBPACK_IMPORTED_MODULE_4___default()(_templateObject());
 
 var ChatContainer = function ChatContainer(props) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
@@ -89163,8 +89141,6 @@ var ChatContainer = function ChatContainer(props) {
       _id: props.userInfo._id
     }
   });
-  var activeElement = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useActiveElement"])();
-  activeElement.addEventListener();
   return !getConvoQuery.loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-main"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatSearch__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -89173,8 +89149,7 @@ var ChatContainer = function ChatContainer(props) {
     getConvoQuery: getConvoQuery,
     setFromSearch: setFromSearch,
     currentConvo: currentConvo,
-    setCurrentConvo: setCurrentConvo,
-    activeElement: activeElement.value
+    setCurrentConvo: setCurrentConvo
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatDisplay__WEBPACK_IMPORTED_MODULE_2__["default"], {
     userInfo: props.userInfo,
     currentChat: currentChat,
@@ -89184,8 +89159,7 @@ var ChatContainer = function ChatContainer(props) {
     convoHistory: getConvoQuery,
     getConversations: GET_CONVERSATIONS,
     currentConvo: currentConvo,
-    setCurrentConvo: setCurrentConvo,
-    activeElement: activeElement.value
+    setCurrentConvo: setCurrentConvo
   }));
 };
 
@@ -89445,7 +89419,7 @@ var ChatDisplay = function ChatDisplay(props) {
               return _context.abrupt("return");
 
             case 2:
-              if (!(props.activeElement === "messageInput" && convo._id === props.currentConvo)) {
+              if (!(document.activeElement.id === "messageInput" && convo._id === props.currentConvo)) {
                 _context.next = 6;
                 break;
               }
@@ -89797,8 +89771,7 @@ var ChatSearch = function ChatSearch(props) {
     setCurrentChat: props.setCurrentChat,
     setFromSearch: props.setFromSearch,
     currentConvo: props.currentConvo,
-    setCurrentConvo: props.setCurrentConvo,
-    activeElement: props.activeElement
+    setCurrentConvo: props.setCurrentConvo
   })));
 };
 
@@ -89829,7 +89802,7 @@ var History = function History(props) {
   }
 
   var unreadMsgs = props.convoHistory.data.getConversations.filter(function (convo) {
-    return convo.unread === true && convo.lastSender != props.userInfo._id && (convo._id != props.currentConvo ? true : props.activeElement != "messageInput");
+    return convo.unread === true && convo.lastSender != props.userInfo._id && (convo._id != props.currentConvo ? true : document.activeElement.id != "messageInput");
   }).length;
   document.title = unreadMsgs > 0 ? "(".concat(unreadMsgs, ") Unread Messages | MyChat") : "MyChat";
 

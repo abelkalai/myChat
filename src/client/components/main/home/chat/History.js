@@ -13,7 +13,7 @@ const History = (props) => {
       convo.lastSender != props.userInfo._id &&
       (convo._id != props.currentConvo
         ? true
-        : props.activeElement != "messageInput")
+        : document.activeElement.id != "messageInput")
   ).length;
 
   document.title =
