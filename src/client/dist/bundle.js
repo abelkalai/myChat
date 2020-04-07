@@ -89404,7 +89404,7 @@ var ChatDisplay = function ChatDisplay(props) {
 
   var updateConvoCache = /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(convo) {
-      var convoCopy, convoStore, copy;
+      var convoStore, copy;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -89419,14 +89419,13 @@ var ChatDisplay = function ChatDisplay(props) {
               return _context.abrupt("return");
 
             case 2:
-              convoCopy = _objectSpread({}, convo);
-
               if (!(document.activeElement.id === "messageInput" && convo._id === props.currentConvo && convo.lastSender != props.userInfo._id)) {
                 _context.next = 7;
                 break;
               }
 
-              convoCopy.unread = false;
+              convo.unread = false;
+              console.log(convo);
               _context.next = 7;
               return readMsg({
                 variables: {
@@ -89445,7 +89444,7 @@ var ChatDisplay = function ChatDisplay(props) {
               copy = copy.filter(function (x) {
                 return x._id != convo._id;
               });
-              copy.unshift(convoCopy);
+              copy.unshift(convo);
               apolloClient.writeQuery({
                 query: props.getConversations,
                 variables: {

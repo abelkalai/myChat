@@ -174,13 +174,13 @@ const ChatDisplay = (props) => {
     ) {
       return;
     }
-    let convoCopy = {...convo}
     if (
       document.activeElement.id === "messageInput" &&
       convo._id === props.currentConvo &&
       convo.lastSender != props.userInfo._id
     ) {
-      convoCopy.unread=false
+      convo.unread=false
+      console.log(convo)
       await readMsg({ variables: { _id: convo._id } });
     }
     const convoStore = apolloClient.readQuery({
@@ -189,7 +189,7 @@ const ChatDisplay = (props) => {
     });
     let copy = [...convoStore.getConversations];
     copy = copy.filter((x) => x._id != convo._id);
-    copy.unshift(convoCopy);
+    copy.unshift(convo);
     apolloClient.writeQuery({
       query: props.getConversations,
       variables: { _id: props.userInfo._id },
