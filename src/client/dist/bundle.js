@@ -89404,7 +89404,7 @@ var ChatDisplay = function ChatDisplay(props) {
 
   var updateConvoCache = /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(convo) {
-      var convoStore, copy;
+      var convoCopy, convoStore, copy;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -89419,20 +89419,22 @@ var ChatDisplay = function ChatDisplay(props) {
               return _context.abrupt("return");
 
             case 2:
+              convoCopy = _objectSpread({}, convo);
+
               if (!(document.activeElement.id === "messageInput" && convo._id === props.currentConvo && convo.lastSender != props.userInfo._id)) {
-                _context.next = 6;
+                _context.next = 7;
                 break;
               }
 
-              convo.unread = false;
-              _context.next = 6;
+              convoCopy.unread = false;
+              _context.next = 7;
               return readMsg({
                 variables: {
                   _id: convo._id
                 }
               });
 
-            case 6:
+            case 7:
               convoStore = apolloClient.readQuery({
                 query: props.getConversations,
                 variables: {
@@ -89443,7 +89445,7 @@ var ChatDisplay = function ChatDisplay(props) {
               copy = copy.filter(function (x) {
                 return x._id != convo._id;
               });
-              copy.unshift(convo);
+              copy.unshift(convoCopy);
               apolloClient.writeQuery({
                 query: props.getConversations,
                 variables: {
@@ -89454,7 +89456,7 @@ var ChatDisplay = function ChatDisplay(props) {
                 }
               });
 
-            case 11:
+            case 12:
             case "end":
               return _context.stop();
           }
