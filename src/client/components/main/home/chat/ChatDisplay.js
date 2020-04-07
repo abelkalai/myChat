@@ -144,7 +144,7 @@ const ChatDisplay = (props) => {
       },
     });
 
-    if (msgStore.getMessages[0].conversationID === props.currentConvo) {
+    if (newMsg.conversationID === props.currentConvo) {
       let newMsgArray = [...msgStore.getMessages];
       newMsgArray.unshift(newMsg);
       apolloClient.writeQuery({

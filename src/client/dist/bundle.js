@@ -89378,7 +89378,7 @@ var ChatDisplay = function ChatDisplay(props) {
       }
     });
 
-    if (msgStore.getMessages[0].conversationID === props.currentConvo) {
+    if (newMsg.conversationID === props.currentConvo) {
       var newMsgArray = _toConsumableArray(msgStore.getMessages);
 
       newMsgArray.unshift(newMsg);
@@ -89969,7 +89969,7 @@ var httpLink = new apollo_boost__WEBPACK_IMPORTED_MODULE_4__["HttpLink"]({
 var domainName = window.location.hostname;
 var port = process.env.PORT || 4000;
 var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_6__["WebSocketLink"]({
-  uri: "wss://".concat(domainName, "/graphql"),
+  uri: "wsw://".concat(domainName, "/graphql"),
   options: {
     reconnect: true,
     lazy: true
