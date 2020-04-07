@@ -89790,7 +89790,7 @@ var History = function History(props) {
   var activeElement = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useActiveElement"])();
   activeElement.addEventListener();
   var unreadMsgs = props.convoHistory.data.getConversations.filter(function (convo) {
-    return convo.unread === true && convo.lastSender != props.userInfo._id && (convo._id != props.currentConvo ? true : activeElement.value === "messageInput");
+    return convo.unread === true && convo.lastSender != props.userInfo._id && (convo._id != props.currentConvo ? true : activeElement.value != "messageInput");
   }).length;
   document.title = unreadMsgs > 0 ? "(".concat(unreadMsgs, ") Unread Messages | MyChat") : "MyChat";
 
@@ -89810,7 +89810,7 @@ var History = function History(props) {
     }, props.convoHistory.data.getConversations.map(function (convo) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         key: convo._id,
-        className: convo.unread && convo.lastSender != props.userInfo._id && (convo._id != props.currentConvo ? true : activeElement.value === "messageInput") ? "chat-history-unread" : null
+        className: convo.unread && convo.lastSender != props.userInfo._id && (convo._id != props.currentConvo ? true : activeElement.value != "messageInput") ? "chat-history-unread" : null
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: convo._id,
         className: convo._id === props.currentConvo ? "chat-history-wrapper-current" : "chat-history-wrapper",
@@ -89957,14 +89957,12 @@ var httpLink = new apollo_boost__WEBPACK_IMPORTED_MODULE_4__["HttpLink"]({
 var domainName = window.location.hostname;
 var port = process.env.PORT || 4000;
 var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_6__["WebSocketLink"]({
-  uri: "wss://".concat(domainName, "/graphql"),
+  uri: "ws://".concat(domainName, "/graphql"),
   options: {
     reconnect: true,
     lazy: true
   }
-}); // wsLink.subscriptionClient.maxConnectTimeGenerator.duration = () =>
-//   wsLink.subscriptionClient.maxConnectTimeGenerator.max;
-
+});
 var splitLink = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_4__["split"])(function (_ref) {
   var query = _ref.query;
   var definition = Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_5__["getMainDefinition"])(query);
