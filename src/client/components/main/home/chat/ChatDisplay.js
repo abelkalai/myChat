@@ -95,7 +95,7 @@ const ChatDisplay = (props) => {
     }
   });
 
-  const messageField = useFieldInput()
+  const messageField = useFieldInput();
 
   const [readMsg] = useMutation(READ_MESSAGE, {
     update: (store, { data }) => {
@@ -103,10 +103,10 @@ const ChatDisplay = (props) => {
         query: props.getConversations,
         variables: { _id: props.userInfo._id },
       });
-      let copy = [...convoCache.getConversations]
-      copy = copy.map(
-        convo => convo._id === data.readMessage ? {...convo, "unread": false} : convo
-      )
+      let copy = [...convoCache.getConversations];
+      copy = copy.map((convo) =>
+        convo._id === data.readMessage ? { ...convo, unread: false } : convo
+      );
       store.writeQuery({
         query: props.getConversations,
         variables: { _id: props.userInfo._id },
@@ -133,8 +133,11 @@ const ChatDisplay = (props) => {
   const apolloClient = useApolloClient();
 
   const updateMsgCache = (newMsg) => {
-    if(newMsg.senderID != props.userInfo._id &&  newMsg.receiverID != props.userInfo._id){
-      return
+    if (
+      newMsg.senderID != props.userInfo._id &&
+      newMsg.receiverID != props.userInfo._id
+    ) {
+      return;
     }
     const msgStore = apolloClient.readQuery({
       query: GET_MESSAGES,
@@ -165,11 +168,18 @@ const ChatDisplay = (props) => {
   });
 
   const updateConvoCache = async (convo) => {
-    if(convo.members.filter(member=>member._id === props.userInfo._id).length === 0){
-      return
+    if (
+      convo.members.filter((member) => member._id === props.userInfo._id)
+        .length === 0
+    ) {
+      return;
     }
-    if(document.activeElement.id === "messageInput" && convo._id === props.currentConvo){
-      convo.unread=false
+    if (
+      document.activeElement.id === "messageInput" &&
+      convo._id === props.currentConvo &&
+      convo.lastSender != props.userInfo._id
+    ) {
+      convo.unread = false;
       await readMsg({ variables: { _id: convo._id } });
     }
     const convoStore = apolloClient.readQuery({
@@ -177,8 +187,8 @@ const ChatDisplay = (props) => {
       variables: { _id: props.userInfo._id },
     });
     let copy = [...convoStore.getConversations];
-    copy = copy.filter(x => x._id != convo._id);
-    copy.unshift(convo)
+    copy = copy.filter((x) => x._id != convo._id);
+    copy.unshift(convo);
     apolloClient.writeQuery({
       query: props.getConversations,
       variables: { _id: props.userInfo._id },
@@ -224,7 +234,10 @@ const ChatDisplay = (props) => {
           messageData={getMessages.data.getMessages}
           userInfo={props.userInfo}
         />
-        <form onSubmit={sendMessage} className="chat-display-chat-send-message-form">
+        <form
+          onSubmit={sendMessage}
+          className="chat-display-chat-send-message-form"
+        >
           <input
             id="messageInput"
             type="text"
