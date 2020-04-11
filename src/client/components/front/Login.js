@@ -54,7 +54,7 @@ const Login = props => {
           </h2>
         ) : null}
         <form onSubmit={submitLogin}>
-          <div>
+          <div className>
             Username:
             <input type= "text" value={user.value} onChange={user.onChange} required />
             {<span className="error"> {loginError} </span>}

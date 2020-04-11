@@ -2,24 +2,34 @@
   display: grid;
   margin-top: 65px;
   width: 100%;
-  justify-content: center;
+  text-align: center;
 }
 
-.profile-image{
-  width: 200px;
-  height: 200px;
+.profile-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35vh;
+  height: 35vh;
   border-radius: 50%;
 }
 
-.about-button{
-  width: 100px;
+.about-text-area {
+  height: 30vh;
+  width: 45vh;
+  resize: none;
 }
 
-.about-input{
-  height: 200px;
-  width: 400px;
+.about-img-placeholder{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 30vh;
+  width: 45vh;
 }
 
-
-
-
+.profile-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

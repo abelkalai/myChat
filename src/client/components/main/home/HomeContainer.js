@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
-import { Link, Route} from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import ChatContainer from "./chat/ChatContainer";
 import Profile from "../account/profile/Profile";
 import Settings from "../account/settings/Settings";
@@ -13,7 +13,7 @@ const GET_IMAGE = gql`
   }
 `;
 
-const HomeContainer = props => {
+const HomeContainer = (props) => {
   const [userInfo, setUserInfo] = useState(
     props.activeUser ? props.activeUser : props.loggedIn
   );
@@ -27,10 +27,17 @@ const HomeContainer = props => {
         </Link>
         <div className="user">
           <span className="home-image-container">
-            <img
-              className="home-image"
-              src={`data:image/png;base64,${userImage.data.getImage}`}
-            />
+            {userImage.loading ? (
+              <img
+                className="home-image"
+                src="../../../assets/images/profilePlaceholder.png"
+              />
+            ) : (
+              <img
+                className="home-image"
+                src={`data:image/png;base64,${userImage.data.getImage}`}
+              />
+            )}
           </span>
           <span
             className="dropdown"
@@ -65,7 +72,7 @@ const HomeContainer = props => {
     );
   };
 
-  const logOut = async event => {
+  const logOut = async (event) => {
     event.preventDefault();
     document.cookie =
       "token = ;expires = Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
@@ -74,38 +81,36 @@ const HomeContainer = props => {
   };
 
   return (
-    !userImage.loading && (
-      <div className="main-container">
-        {topBanner()}
-        <Route
-          exact
-          path="/home"
-          render={() => <ChatContainer userInfo={userInfo} />}
-        />
-        <Route
-          path="/home/profile"
-          render={() => (
-            <Profile
-              userInfo={userInfo}
-              setUserInfo={setUserInfo}
-              userImage={userImage}
-              getImage={GET_IMAGE}
-            />
-          )}
-        />
-        <Route
-          path="/home/settings/"
-          render={() => (
-            <Settings
-              userInfo={userInfo}
-              setUserInfo={setUserInfo}
-              setIgnoreCookie={props.setIgnoreCookie}
-              setActiveUser={props.setActiveUser}
-            />
-          )}
-        />
-      </div>
-    )
+    <div className="main-container">
+      {topBanner()}
+      <Route
+        exact
+        path="/home"
+        render={() => <ChatContainer userInfo={userInfo} />}
+      />
+      <Route
+        path="/home/profile"
+        render={() => (
+          <Profile
+            userInfo={userInfo}
+            setUserInfo={setUserInfo}
+            userImage={userImage}
+            getImage={GET_IMAGE}
+          />
+        )}
+      />
+      <Route
+        path="/home/settings/"
+        render={() => (
+          <Settings
+            userInfo={userInfo}
+            setUserInfo={setUserInfo}
+            setIgnoreCookie={props.setIgnoreCookie}
+            setActiveUser={props.setActiveUser}
+          />
+        )}
+      />
+    </div>
   );
 };
 

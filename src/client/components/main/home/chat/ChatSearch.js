@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import History from "./History";
 import { useFieldInput } from "../../../hooks/customHooks";
-import {useLazyQuery } from "@apollo/react-hooks";
+import { useLazyQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
 const SEARCH_USER = gql`
@@ -14,30 +14,34 @@ const SEARCH_USER = gql`
   }
 `;
 
-const ChatSearch = props => {
+const ChatSearch = (props) => {
   const [searchActive, setSearchActive] = useState(false);
-  const searchField = useFieldInput()
+  const searchField = useFieldInput();
   const [searchResult, setSearchResult] = useState([]);
   const [searchQuery] = useLazyQuery(SEARCH_USER, {
-    onCompleted: data => {
+    onCompleted: (data) => {
       setSearchResult(data.searchUser);
-    }
+    },
   });
 
-  const selectUser = id => {
+  const selectUser = (id) => {
     event.preventDefault();
     searchField.clear();
     setSearchActive(false);
+    let userInConvoHistory = props.getConvoQuery.data.getConversations.filter(
+      convo => convo.members.filter((member) => member._id === id).length > 0
+    );
+    props.setCurrentConvo(userInConvoHistory.length > 0 ? userInConvoHistory[0]._id : null)
     props.setCurrentChat(id);
   };
 
   const userDropdown = () => {
-    if (searchResult.length === 0) {
+    if (searchResult.length === 0 || props.getConvoQuery.loading) {
       return null;
     }
     return (
       <div className="chat-dropdown">
-        {searchResult.map(user => (
+        {searchResult.map((user) => (
           <div
             key={user._id}
             onClick={() => {
@@ -54,15 +58,15 @@ const ChatSearch = props => {
     );
   };
 
-  const search = event => {
+  const search = (event) => {
     searchField.manualChange(event.target.value);
     setSearchActive(event.target.value === "" ? false : true);
     searchQuery({
       variables: {
         _id: props.userInfo._id,
         type: "contact",
-        search: event.target.value
-      }
+        search: event.target.value,
+      },
     });
   };
 
@@ -84,7 +88,7 @@ const ChatSearch = props => {
             convoHistory={props.getConvoQuery}
             setCurrentChat={props.setCurrentChat}
             setFromSearch={props.setFromSearch}
-            currentConvo= {props.currentConvo}
+            currentConvo={props.currentConvo}
             setCurrentConvo={props.setCurrentConvo}
           />
         )}

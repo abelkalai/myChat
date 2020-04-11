@@ -42,7 +42,7 @@ const GET_EMAIL = gql`
   }
 `;
 
-const Signup = props => {
+const Signup = (props) => {
   document.title = "Signup | MyChat";
   const [addUser] = useMutation(ADD_USER);
   const [validateAccount] = useMutation(VALIDATE_ACCOUNT);
@@ -54,15 +54,15 @@ const Signup = props => {
   const verifyUser = props.verifyUsername ? props.verifyUsername : "";
   const getEmail = useQuery(GET_EMAIL, { variables: { username: verifyUser } });
   const [page, setPage] = useState("signUpForm");
-  const firstNameSign = useFieldInput()
-  const lastNameSign = useFieldInput()
-  const emailSign = useFieldInput()
-  const userSign = useFieldInput()
-  const passSign = useFieldInput()
-  const confirmPassSign = useFieldInput()
-  const confirmNumber = useFieldInput()
+  const firstNameSign = useFieldInput();
+  const lastNameSign = useFieldInput();
+  const emailSign = useFieldInput();
+  const userSign = useFieldInput();
+  const passSign = useFieldInput();
+  const confirmPassSign = useFieldInput();
+  const confirmNumber = useFieldInput();
 
-  const submit = async event => {
+  const submit = async (event) => {
     event.preventDefault();
     if (passSign.value !== confirmPassSign.value) {
       setPassError("Passwords don't match");
@@ -80,8 +80,8 @@ const Signup = props => {
         lastName,
         email,
         username,
-        password
-      }
+        password,
+      },
     });
 
     if (result.data.addUser.errorList === null) {
@@ -104,7 +104,7 @@ const Signup = props => {
             <div className="sign-up-input">
               <label> First Name: </label>
               <input
-              type="text"
+                type="text"
                 value={firstNameSign.value}
                 onChange={firstNameSign.onChange}
                 required
@@ -113,7 +113,7 @@ const Signup = props => {
             <div className="sign-up-input">
               <label> Last Name: </label>
               <input
-              type="text"
+                type="text"
                 value={lastNameSign.value}
                 onChange={lastNameSign.onChange}
                 required
@@ -134,7 +134,7 @@ const Signup = props => {
             <div className="sign-up-input">
               <label>Username: </label>
               <input
-              type="text"
+                type="text"
                 value={userSign.value}
                 onChange={userSign.onChange}
                 required
@@ -175,9 +175,10 @@ const Signup = props => {
     );
   };
 
-  const signUpConfirm = () => {
+  const signUpValidate = () => {
     return (
       <div className="center">
+        {verifyUser === "" && props.fromLogin != true && <Redirect to="/" />}
         <h2>{`Thanks for signing up your username is ${
           verifyUser ? verifyUser : userSign.value
         }`}</h2>
@@ -191,7 +192,7 @@ const Signup = props => {
         <form onSubmit={confirmEmail}>
           <label>Enter your confirmation code here:</label>
           <input
-          type="text"
+            type="text"
             value={confirmNumber.value}
             onChange={confirmNumber.onChange}
           ></input>
@@ -202,12 +203,12 @@ const Signup = props => {
     );
   };
 
-  const confirmEmail = async event => {
+  const confirmEmail = async (event) => {
     event.preventDefault();
     let validationCode = confirmNumber.value;
     let username = verifyUser != "" ? verifyUser : userSign.value;
     let result = await validateAccount({
-      variables: { username, validationCode }
+      variables: { username, validationCode },
     });
     if (result.data.validateAccount === "Account verified") {
       setPage("signUpConfirm");
@@ -220,10 +221,9 @@ const Signup = props => {
   return (
     !getEmail.loading && (
       <div>
-        {verifyUser === "" && props.fromLogin != true && <Redirect to="/" />}
         <Route exact path="/signup" render={() => signUpForm()} />
         {page === "signUpValidate" && <Redirect to="/signup/validate" />}
-        <Route path="/signup/validate" render={() => signUpConfirm()} />
+        <Route path="/signup/validate" render={() => signUpValidate()} />
         {page === "signUpConfirm" && <Redirect to="/signup/confirm" />}
         <Route
           exact

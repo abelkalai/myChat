@@ -2,14 +2,42 @@ import React, { Fragment } from "react";
 import Time from "./Time";
 
 const History = (props) => {
-  if (props.convoHistory.data === null) {
-    return null;
+  const arr = [];
+  for (let i = 0; i < 11; i++) {
+    arr.push(
+      <div key={`Hist${i}`}>
+        <div className="chat-history-wrapper">
+          <div className="chat-history-img-container">
+            <img
+              className="chat-history-wrapper-img"
+              src="../../../../assets/images/profilePlaceholder.png"
+            />
+          </div>
+          <div className="chat-history-name-header">
+            <img
+              className="chat-history-name-header-placeholder"
+              src="../../../../assets/images/contentPlaceholder.png"
+            />
+          </div>
+          <div className="chat-history-content">
+            <img
+              className="chat-history-content-placeholder"
+              src="../../../../assets/images/contentPlaceholder.png"
+            />
+          </div>
+        </div>
+      </div>
+    );
   }
-  
+  if (props.convoHistory.loading) {
+    return (
+      <div className="chat-history-container">
+        {arr.map((element) => element)}
+      </div>
+    );
+  }
   let unreadMsgs = props.convoHistory.data.getConversations.filter(
-    (convo) =>
-      convo.unread === true &&
-      convo.lastSender != props.userInfo._id 
+    (convo) => convo.unread === true && convo.lastSender != props.userInfo._id
   ).length;
 
   document.title =
@@ -38,7 +66,7 @@ const History = (props) => {
           <span
             key={convo._id}
             className={
-              convo.unread && convo.lastSender != props.userInfo._id 
+              convo.unread && convo.lastSender != props.userInfo._id
                 ? "chat-history-unread"
                 : null
             }
@@ -58,6 +86,7 @@ const History = (props) => {
                 <Fragment>
                   <div className="chat-history-img-container">
                     <img
+                      className="chat-history-wrapper-img"
                       src={`data:image/png;base64,${convo.members[0].profilePicture}`}
                     />
                   </div>
@@ -69,6 +98,7 @@ const History = (props) => {
                 <Fragment>
                   <div className="chat-history-img-container">
                     <img
+                      className="chat-history-wrapper-img"
                       src={`data:image/png;base64,${convo.members[1].profilePicture}`}
                     />
                   </div>

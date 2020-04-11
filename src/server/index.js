@@ -346,7 +346,7 @@ const resolvers = {
     },
 
     editAbout: async (root, args) => {
-      await User.findByIdAndUpdate(args._id, { about: args.about });
+      await User.findByIdAndUpdate(args._id, { about: args.about.trim() });
       return args.about;
     },
 

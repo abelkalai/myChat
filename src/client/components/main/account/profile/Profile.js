@@ -25,40 +25,49 @@ const EDIT_IMAGE = gql`
 
 const Profile = (props) => {
   document.title = "Profile | MyChat";
-  const aboutUser = useQuery(GET_ABOUT, { variables: { _id: props.userInfo._id } });
+  const aboutField = useFieldInput();
+  const aboutUser = useQuery(GET_ABOUT, {
+    variables: { _id: props.userInfo._id },
+    onCompleted: (data) => {
+      aboutField.manualChange(data.getAbout);
+    },
+  });
 
   const [editAbout] = useMutation(EDIT_ABOUT, {
     update: (store, { data }) => {
       store.writeQuery({
         query: GET_ABOUT,
         variables: { _id: props.userInfo._id },
-        data: {"getAbout": data.editAbout}
-      })
-    }
+        data: { getAbout: data.editAbout },
+      });
+    },
   });
   const [editImage] = useMutation(EDIT_IMAGE, {
     update: (store, { data }) => {
       store.writeQuery({
         query: props.getImage,
         variables: { _id: props.userInfo._id },
-        data: {"getImage": data.editImage}
-      })
-    }
+        data: { getImage: data.editImage },
+      });
+    },
   });
   const [showAbout, setShowAbout] = useState(false);
   const [uploadFile, setUploadFile] = useState(null);
-  const aboutField = useFieldInput()
-
+  const [showUpload, setShowUpload] = useState(false);
   const aboutForm = () => {
     return (
       <form onSubmit={changeAbout}>
-        <input
-          className="about-input"
-          placeholder="Write about yourself..."
+        <textarea
+          id="editAbout"
+          maxLength = "850"
+          className="about-text-area"
           value={aboutField.value}
           onChange={aboutField.onChange}
         />
-        <button type="submit"> Save Changes</button>
+
+        <button className="profile-button" type="submit">
+          Save Changes
+        </button>
       </form>
     );
   };
@@ -69,7 +78,7 @@ const Profile = (props) => {
     let about = aboutField.value;
     await editAbout({ variables: { _id, about } });
     props.setUserInfo({ ...props.userInfo, about });
-    aboutField.clear();
+    setShowAbout(false);
   };
 
   const compressImage = async (file) => {
@@ -95,41 +104,69 @@ const Profile = (props) => {
     };
   };
 
+  const uploadImageForm = () => {
+    return (
+      <div>
+        <div>Upload .jpeg and .png only</div>
+        <div>
+          <input
+            type="file"
+            onChange={() => {
+              setUploadFile(event.target.files[0]);
+            }}
+          />
+        </div>
+        <div>
+          <button
+            type="button"
+            className="profile-button"
+            onClick={uploadFileHandler}
+          >
+            Upload Profile Picture
+          </button>
+        </div>
+      </div>
+    );
+  };
+
   return (
-    !aboutUser.loading && (
-      <div className="profile-main">
-        <h1>{props.userInfo.fullName}</h1>
+    <div className="profile-main">
+      {props.userImage.loading ? (
+        <img
+          className="profile-image"
+          src="../../../assets/images/profilePlaceholder.png"
+        />
+      ) : (
         <img
           className="profile-image"
           src={`data:image/png;base64,${props.userImage.data.getImage}`}
         />
-        <div>Upload .jpeg and .png only | About</div>
-        <input
-          type="file"
-          onChange={() => {
-            setUploadFile(event.target.files[0]);
-          }}
-        />
-        <button
-          type="button"
-          className="about-button"
-          onClick={uploadFileHandler}
-        >
-          Upload Profile Picture
-        </button>
-        <button
-          type="button"
-          className="about-button"
-          onClick={() => {
-            setShowAbout(!showAbout);
-          }}
-        >
-          {!showAbout ? "Edit" : "Close"}
-        </button>
-        <div> {aboutUser.data.getAbout} </div>
-        {showAbout && aboutForm()}
-      </div>
-    )
+      )}
+      <h1>{props.userInfo.fullName}</h1>
+      <button
+        className="profile-button"
+        onClick={() => {
+          setShowUpload(!showUpload);
+        }}
+      >
+        {!showUpload ? "Change Profile Picture" : "Close"}
+      </button>
+      {showUpload && uploadImageForm()}
+      <h2>About</h2>
+      <button
+        type="button"
+        className="profile-button"
+        onClick={() => {
+          setShowAbout(!showAbout);
+        }}
+      >
+        {!showAbout ? "Edit About" : "Close"}
+      </button>
+      {aboutUser.loading
+        ? <img className="about-img-placeholder" src="../../../assets/images/aboutPlaceholder.png" /> 
+        : !showAbout && <div> {aboutUser.data.getAbout} </div>}
+      {showAbout && aboutForm()}
+    </div>
   );
 };
 

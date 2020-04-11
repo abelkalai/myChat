@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ChatSearch from "./ChatSearch";
 import ChatDisplay from "./ChatDisplay";
 import { useQuery } from "@apollo/react-hooks";
+import ChatDisplayPlaceholder from "./ChatDisplayPlaceholder"
 import gql from "graphql-tag";
 import "../../../../assets/stylesheets/components/main/chat.css";
 
@@ -25,42 +26,50 @@ const GET_CONVERSATIONS = gql`
   }
 `;
 
-const ChatContainer = props => {
+const ChatContainer = (props) => {
   const [fromSearch, setFromSearch] = useState(false);
   const [currentConvo, setCurrentConvo] = useState(null);
   const [currentChat, setCurrentChat] = useState("");
+  const [messageLoading, setMessageLoading] = useState(true);
+  const [aboutLoading, setAboutLoading] = useState(true);
   const getConvoQuery = useQuery(GET_CONVERSATIONS, {
-    variables: { _id: props.userInfo._id }
+    variables: { _id: props.userInfo._id },
   });
 
   return (
-    !getConvoQuery.loading && (
-      <div className="chat-main">
-        {
-          <ChatSearch
-            userInfo={props.userInfo}
-            setCurrentChat={setCurrentChat}
-            getConvoQuery={getConvoQuery}
-            setFromSearch={setFromSearch}
-            currentConvo={currentConvo}
-            setCurrentConvo={setCurrentConvo}
-          />
+    <div className="chat-main">
+      {
+        <ChatSearch
+          userInfo={props.userInfo}
+          setCurrentChat={setCurrentChat}
+          getConvoQuery={getConvoQuery}
+          setFromSearch={setFromSearch}
+          currentConvo={currentConvo}
+          setCurrentConvo={setCurrentConvo}
+        />
+      }
+
+      {(getConvoQuery.loading ||
+      messageLoading ||
+      aboutLoading) &&
+        <ChatDisplayPlaceholder />
         }
-        {
-          <ChatDisplay
-            userInfo={props.userInfo}
-            currentChat={currentChat}
-            setCurrentChat={setCurrentChat}
-            fromSearch={fromSearch}
-            setFromSearch={setFromSearch}
-            convoHistory={getConvoQuery}
-            getConversations={GET_CONVERSATIONS}
-            currentConvo={currentConvo}
-            setCurrentConvo={setCurrentConvo}
-          />
-        }
-      </div>
-    )
+        <ChatDisplay
+          userInfo={props.userInfo}
+          currentChat={currentChat}
+          setCurrentChat={setCurrentChat}
+          fromSearch={fromSearch}
+          setFromSearch={setFromSearch}
+          convoHistory={getConvoQuery}
+          getConversations={GET_CONVERSATIONS}
+          currentConvo={currentConvo}
+          setCurrentConvo={setCurrentConvo}
+          messageLoading={messageLoading}
+          setMessageLoading={setMessageLoading}
+          aboutLoading={aboutLoading}
+          setAboutLoading={setAboutLoading}
+        />
+    </div>
   );
 };
 
