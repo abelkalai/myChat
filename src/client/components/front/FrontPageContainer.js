@@ -1,15 +1,15 @@
-import React, {useState} from "react";
+import React, { Fragment, useState } from "react";
 import { Route } from "react-router-dom";
 import Login from "./Login";
 import Forgot from "./Forgot";
 import Signup from "./Signup";
 
-const FrontPageContainer = props => {
-  const [verifyUsername, setVerifyUsername] = useState(null)
-  const [fromLogin, setFromLogin] = useState(false)
+const FrontPageContainer = (props) => {
+  const [verifyUsername, setVerifyUsername] = useState(null);
+  const [fromLogin, setFromLogin] = useState(false);
 
   return (
-    <div className="center">
+    <Fragment>
       <h1>Welcome to MyChat!</h1>
       <p>
         My Chat is a platform used to connect with friends and family and
@@ -25,8 +25,8 @@ const FrontPageContainer = props => {
             setIgnoreCookie={props.setIgnoreCookie}
             activeUser={props.activeUser}
             setActiveUser={props.setActiveUser}
-            setVerifyUsername = {setVerifyUsername}
-            setFromLogin = {setFromLogin}
+            setVerifyUsername={setVerifyUsername}
+            setFromLogin={setFromLogin}
           />
         )}
       />
@@ -41,8 +41,13 @@ const FrontPageContainer = props => {
         render={() => <Forgot type={"Password"} />}
       />
 
-      <Route path="/signup" render={() => <Signup verifyUsername={verifyUsername} fromLogin={fromLogin}/>} />
-    </div>
+      <Route
+        path="/signup"
+        render={() => (
+          <Signup verifyUsername={verifyUsername} fromLogin={fromLogin} />
+        )}
+      />
+    </Fragment>
   );
 };
 

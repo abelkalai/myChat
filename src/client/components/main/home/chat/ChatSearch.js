@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {Fragment, useState } from "react";
 import History from "./History";
 import { useFieldInput } from "../../../hooks/customHooks";
 import { useLazyQuery } from "@apollo/react-hooks";
@@ -71,7 +71,7 @@ const ChatSearch = (props) => {
   };
 
   return (
-    <div>
+    <Fragment>
       <div className="chat-left">
         <div className="chat-search">
           <input
@@ -90,10 +90,11 @@ const ChatSearch = (props) => {
             setFromSearch={props.setFromSearch}
             currentConvo={props.currentConvo}
             setCurrentConvo={props.setCurrentConvo}
+            
           />
         )}
       </div>
-    </div>
+    </Fragment>
   );
 };
 

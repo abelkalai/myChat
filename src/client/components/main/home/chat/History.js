@@ -123,7 +123,7 @@ const History = (props) => {
     );
   };
 
-  return <div>{displayHistory()}</div>;
+  return <Fragment>{displayHistory()}</Fragment>
 };
 
 export default History;

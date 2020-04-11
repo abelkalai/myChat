@@ -3,7 +3,7 @@ import React from "react";
 const ChatDisplayPlaceholder = () => {
   const MessagePlaceholder = () => {
     const arr = [];
-    for (let i = 0; i < 18; i++) {
+    for (let i = 0; i < 14; i++) {
       arr.push(
         <div key={`Msg${i}`} className="chat-message-wrapper">
           {i % 2 === 0 ? (

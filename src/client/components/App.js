@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {Fragment, useState } from "react";
 import Frontpage from "./front/Frontpage";
 import Home from "./main/home/Home";
 import { useQuery, useMutation} from "@apollo/react-hooks";
@@ -46,7 +46,7 @@ const App = () => {
 
   return (
     !loggedInQuery.loading && (
-      <div className="main">
+      <Fragment>
           <OutRoute
             loggedIn = {loggedInQuery.data.loggedIn}
             ignoreCookie = {ignoreCookie}
@@ -73,7 +73,7 @@ const App = () => {
               setActiveUser = {setActiveUser}
             />
           </InRoute>
-      </div>
+      </Fragment>
     )
   );
 };
