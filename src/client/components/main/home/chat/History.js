@@ -36,6 +36,7 @@ const History = (props) => {
       </div>
     );
   }
+  
   let unreadMsgs = props.convoHistory.data.getConversations.filter(
     (convo) => convo.unread === true && convo.lastSender != props.userInfo._id
   ).length;
