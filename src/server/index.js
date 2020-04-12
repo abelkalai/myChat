@@ -6,14 +6,13 @@ const User = require("./models/user");
 const Conversation = require("./models/conversation");
 const Message = require("./models/message");
 const config = require("../../utils/config");
-const imageStore = require("./utils/imageStore");
+const {DEFAULT_IMAGE} = require("./utils/imageStore");
 const express = require("express");
 const generator = require("generate-password");
 const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const DEFAULT_IMAGE = imageStore.DEFAULT_IMAGE;
 const MONGODB_URI = config.MONGODB_URI;
 const JWT_SECRET_KEY = config.JSON_SECRET_KEY;
 
@@ -31,7 +30,6 @@ mongoose
   });
 
 //Fix mongoose methods
-mongoose.set("useNewUrlParser", true);
 mongoose.set("useCreateIndex", true);
 mongoose.set("useFindAndModify", false);
 

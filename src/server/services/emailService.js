@@ -1,4 +1,9 @@
 const nodemailer = require("nodemailer");
+const {
+  confirmEmail,
+  forgotUserEmail,
+  forgotPassEmail,
+} = require("./emailTemplates");
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 const config = require("../../../utils/config");
@@ -15,11 +20,11 @@ const oauth2Client = new OAuth2(
 );
 
 oauth2Client.credentials = {
-  refresh_token: refreshToken
+  refresh_token: refreshToken,
 };
 
 let accessToken;
-oauth2Client.getAccessToken().then(function(value) {
+oauth2Client.getAccessToken().then(function (value) {
   accessToken = value.token;
 });
 
@@ -34,11 +39,11 @@ const sendEmail = (type, options) => {
       clientId: clientID,
       clientSecret: clientSecret,
       refreshToken: refreshToken,
-      accessToken: accessToken
+      accessToken: accessToken,
     },
     tls: {
-      rejectUnauthorized: false
-    }
+      rejectUnauthorized: false,
+    },
   });
 
   let mailOptions;
@@ -48,7 +53,7 @@ const sendEmail = (type, options) => {
         from: `"My Chat" <${emailUsername}>`,
         to: `${options.toFullName} <${options.toEmail}>`,
         subject: "Welcome to MyChat | Email Validation",
-        html: `<p> Please provide this verification code <b> ${options.code} </b> to MyChat to validate your email! </p>`
+        html: confirmEmail(options.toFullName,options.code),
       };
       break;
     case "USERNAME":
@@ -56,7 +61,7 @@ const sendEmail = (type, options) => {
         from: `"My Chat" <${emailUsername}>`,
         to: `${options.toFullName} <${options.toEmail}>`,
         subject: "My Chat | Forgot Username",
-        html: `Your Username is: ${options.username}`
+        html: forgotUserEmail(options.toFullName, options.username),
       };
       break;
     case "PASSWORD":
@@ -64,11 +69,11 @@ const sendEmail = (type, options) => {
         from: `"My Chat" <${emailUsername}>`,
         to: `${options.toFullName} <${options.toEmail}>`,
         subject: "My Chat | Forgot Password",
-        html: `<p> Your temporary password is <b>${options.password} </b> Please go into the MyChat app and change your password </p>`
+        html: forgotPassEmail(options.toFullName, options.password),
       };
       break;
   }
-  transporter.sendMail(mailOptions, function(error, info) {
+  transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       console.log(error);
     } else {

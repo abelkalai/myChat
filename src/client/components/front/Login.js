@@ -25,7 +25,7 @@ const Login = props => {
       if (result.data.login.errorList == null) {
         setLoginError(null);
         let date = new Date();
-        date.setDate(date.getDate() + 1);
+        date.setDate(date.getDate() + 7);
         document.cookie = `token=${
           result.data.login.Token
         }; expires= ${date.toGMTString()} path = /;`;

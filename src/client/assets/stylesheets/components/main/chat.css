@@ -15,7 +15,7 @@
 }
 
 .chat-search {
-  font-size: 22px;
+  font-size: 18px;
   padding-top: 10px;
   padding-left: 12.5px;
 }
@@ -28,6 +28,7 @@
   font-size: 16px;
   padding-left: 25px;
   width: 87.5%;
+  border-radius: 25px;
 }
 
 .chat-dropdown {
@@ -113,12 +114,12 @@
 }
 
 .chat-display-chat-parent {
-  margin-top: 5px;
   grid-area: "chat";
   position: relative;
 }
 
 .chat-display-chat {
+  margin-top: 5px;
   max-height: 82.5vh;
   overflow-x: hidden;
   overflow-y: auto;
@@ -134,7 +135,7 @@
 }
 
 .chat-display-chat-message-field {
-  font-size: 22px;
+  font-size: 18px;
   width: 92.5vh;
 }
 
@@ -176,6 +177,7 @@
 
 .chat-history-wrapper-current {
   display: grid;
+  margin-right: 5px;
   grid-template-columns: 12.5% 87.5%;
   grid-auto-rows: 22.5px;
   margin-bottom: 10px;
@@ -185,6 +187,7 @@
 
 .chat-history-wrapper {
   display: grid;
+  margin-right: 5px;
   grid-template-columns: 12.5% 87.5%;
   grid-auto-rows: 22.5px;
   margin-bottom: 10px;
