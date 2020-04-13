@@ -95,7 +95,7 @@ const messageResolvers = {
       } catch (error) {
         return "Could not send message";
       }
-      pubsub.publish("NEW_MESSAGE", { newMessage: message });
+  
       let senderID = mongoose.mongo.ObjectId(args.senderID);
       let receiverID = mongoose.mongo.ObjectId(args.receiverID);
       let conversations = await Conversation.aggregate([
@@ -131,6 +131,7 @@ const messageResolvers = {
         { $sort: { lastMessageTime: -1 } },
       ]);
       pubsub.publish("UPDATED_CONVO", { updatedConvo: conversations[0] });
+      pubsub.publish("NEW_MESSAGE", { newMessage: message });
       return "Success Message Sent";
     },
   },

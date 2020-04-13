@@ -2,11 +2,15 @@
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.main-container{
-  height: 100%
+.home-container{
+  display: grid;
+  grid-template-columns: 100%;
+  grid-row:  10% 90%;
+  grid-template-areas: "banner" "content";
 }
 
 .banner {
+  grid-area: "banner";
   position: absolute;
   width: 100%;
   top: 0px;
@@ -16,6 +20,7 @@
   grid-template-areas: "left center right";
   grid-template-columns: 11% 70% 14%;
   align-items: center;
+  grid-row: 1;
 }
 
 .home-title {

@@ -15,5 +15,5 @@ module.exports = {
   EMAIL_PASSWORD,
   CLIENT_ID,
   CLIENT_SECRET,
-  REFRESH_TOKEN
+  REFRESH_TOKEN,
 }

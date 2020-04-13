@@ -1,0 +1,37 @@
+import React from "react";
+
+const MessagePlaceholder = () => {
+  const arr = [];
+  for (let i = 0; i < 14; i++) {
+    arr.push(
+      <div key={`Msg${i}`} className="chat-message-wrapper">
+        {i % 2 === 0 ? (
+          <img
+            className="msg-placeholder-img-me"
+            src="../../../../assets/images/contentPlaceholder.png"
+          />
+        ) : (
+          <img
+            className="msg-placeholder-img-contact"
+            src="../../../../assets/images/contentPlaceholder.png"
+          />
+        )}
+      </div>
+    );
+  }
+  return (
+    <div className="chat-display-chat-parent">
+      <div className="chat-display-chat">{arr.map((element) => element)}</div>
+      <div className="chat-display-chat-send-message-form">
+        <input
+          type="text"
+          className="chat-display-chat-message-field"
+          placeholder="Type a message..."
+        />
+        <input type="image" src="../../../../assets/images/send.png" />
+      </div>
+    </div>
+  );
+};
+
+export default MessagePlaceholder;

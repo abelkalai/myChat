@@ -1,7 +1,12 @@
 import React from "react";
+import MessagePlaceholder from "./MessagePlaceholder"
 import adjustTime from "../../../utilities/adjustTime";
 
+
 const ChatMessage = (props) => {
+  if (props.getMessages.data.getMessages === null) {
+    return <MessagePlaceholder />
+  }
   return (
     <div className="chat-display-chat">
       {props.getMessages.data.getMessages.map((message) =>

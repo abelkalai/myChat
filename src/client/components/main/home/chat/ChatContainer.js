@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ChatSearch from "./ChatSearch";
 import ChatDisplay from "./ChatDisplay";
 import { useQuery } from "@apollo/react-hooks";
-import ChatDisplayPlaceholder from "./ChatDisplayPlaceholder"
+import ChatDisplayPlaceholder from "./ChatDisplayPlaceholder";
 import gql from "graphql-tag";
 import "../../../../assets/stylesheets/components/main/chat.css";
 
@@ -49,26 +49,24 @@ const ChatContainer = (props) => {
         />
       }
 
-      {(getConvoQuery.loading ||
-      messageLoading ||
-      aboutLoading) &&
+      {(getConvoQuery.loading || messageLoading || aboutLoading) && (
         <ChatDisplayPlaceholder />
-        }
-        <ChatDisplay
-          userInfo={props.userInfo}
-          currentChat={currentChat}
-          setCurrentChat={setCurrentChat}
-          fromSearch={fromSearch}
-          setFromSearch={setFromSearch}
-          convoHistory={getConvoQuery}
-          getConversations={GET_CONVERSATIONS}
-          currentConvo={currentConvo}
-          setCurrentConvo={setCurrentConvo}
-          messageLoading={messageLoading}
-          setMessageLoading={setMessageLoading}
-          aboutLoading={aboutLoading}
-          setAboutLoading={setAboutLoading}
-        />
+      )}
+      <ChatDisplay
+        userInfo={props.userInfo}
+        currentChat={currentChat}
+        setCurrentChat={setCurrentChat}
+        fromSearch={fromSearch}
+        setFromSearch={setFromSearch}
+        convoHistory={getConvoQuery}
+        getConversations={GET_CONVERSATIONS}
+        currentConvo={currentConvo}
+        setCurrentConvo={setCurrentConvo}
+        messageLoading={messageLoading}
+        setMessageLoading={setMessageLoading}
+        aboutLoading={aboutLoading}
+        setAboutLoading={setAboutLoading}
+      />
     </div>
   );
 };

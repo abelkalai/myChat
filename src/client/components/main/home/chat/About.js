@@ -1,6 +1,11 @@
 import React from "react";
+import AboutPlaceholder from "./AboutPlaceholder"
+
 
 const About = (props) => {
+  if(props.getUser.data.getSingleUser === null){
+    return <AboutPlaceholder />
+  }
   return (
     <div className="chat-display-about">
       <h1>{props.getUser.data.getSingleUser.fullName}</h1>

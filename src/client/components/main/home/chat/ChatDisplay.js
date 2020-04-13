@@ -10,6 +10,7 @@ import { gql } from "apollo-boost";
 import ChatMessage from "./ChatMessage";
 import About from "./About";
 
+
 const GET_SINGLE_USER = gql`
   query getSingleUser($_id: String!) {
     getSingleUser(_id: $_id) {
@@ -125,7 +126,6 @@ const ChatDisplay = (props) => {
     variables: { senderID: props.userInfo._id, receiverID: props.currentChat },
     onCompleted: (data) => {
       props.setMessageLoading(false);
-
     },
   });
   const getUser = useQuery(GET_SINGLE_USER, {
@@ -180,6 +180,8 @@ const ChatDisplay = (props) => {
     ) {
       return;
     }
+    if(props.currentConvo === null) props.setCurrentConvo(convo._id)
+   
     if (
       document.activeElement.id === "messageInput" &&
       convo._id === props.currentConvo &&
@@ -217,19 +219,21 @@ const ChatDisplay = (props) => {
     if (messageField === "") return;
     let senderID = props.userInfo._id;
     let receiverID = props.currentChat;
-    let content = messageField.value;
+    let content = messageField.value
+    
     await sendMessageQuery({ variables: { senderID, receiverID, content } });
     messageField.clear();
   };
 
   const readMessage = async (event) => {
     event.preventDefault();
-
     let currentChat = props.convoHistory.data.getConversations.filter(
       (convo) => convo._id === props.currentConvo
     );
-    if (currentChat[0].lastSender != props.userInfo._id) {
-      await readMsg({ variables: { _id: props.currentConvo } });
+    if (currentChat.length != 0) {
+      if (currentChat[0].lastSender != props.userInfo._id) {
+        await readMsg({ variables: { _id: props.currentConvo } });
+      }
     }
   };
 
@@ -250,7 +254,7 @@ const ChatDisplay = (props) => {
             onChange={messageField.onChange}
             placeholder="Type a message..."
           />
-            <input type="image" src="../../../../assets/images/send.png" />
+          <input type="image" src="../../../../assets/images/send.png" />
         </form>
       </div>
     );

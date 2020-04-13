@@ -81,7 +81,7 @@ const HomeContainer = (props) => {
   };
 
   return (
-    <div className="main-container">
+    <div className="home-container">
       {topBanner()}
       <Route
         exact

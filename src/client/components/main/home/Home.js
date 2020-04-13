@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from "react";
 import { Switch, Route } from "react-router-dom";
 import InvalidLink from "../../utilities/InvalidLink";
 import HomeContainer from "./HomeContainer";
@@ -6,7 +6,7 @@ import "../../../assets/stylesheets/components/main/home.css";
 
 const Home = props => {
   return (
-    <div className="main-container">
+    <Fragment>
       <Switch>
         <Route
           exact
@@ -28,7 +28,7 @@ const Home = props => {
         />
         <Route path="*" render={() => <InvalidLink type="MyChat" />} />
       </Switch>
-    </div>
+    </Fragment>
   );
 };
 
