@@ -9,6 +9,8 @@ import {
 import { gql } from "apollo-boost";
 import ChatMessage from "./ChatMessage";
 import About from "./About";
+import "../../../../assets/stylesheets/components/main/chatAbout.css";
+import "../../../../assets/stylesheets/components/main/chatMessage.css";
 
 
 const GET_SINGLE_USER = gql`

@@ -1,5 +1,5 @@
 .main-settings {
-  margin: 65px 0 0 65px;
+  margin-left: 65px;
   font-size: 22px;
   display: grid;
   grid-template-columns: 22.5% 70%;

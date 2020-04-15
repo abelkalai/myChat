@@ -1,0 +1,39 @@
+.chat-display-default {
+  padding: 10px 0 0 5px;
+}
+
+.chat-display-about {
+  border-left: 1px solid #dcdcdc;
+  grid-area: "about";
+  height: 100%;
+  text-align: center;
+}
+
+.chat-about-name-placeholder {
+  display: block;
+  margin: 1vh 1vh;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20vh;
+  height: 5vh;
+}
+
+.chat-display-about-img {
+  width: 30vh;
+  height: 30vh;
+  border-radius: 50%;
+}
+
+.chat-about-content-placeholder {
+  width: 45vh;
+  height: 40vh;
+}
+
+.chat-display-about-content {
+  display: inline-block;
+  word-wrap: break-word;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-width: 90%;
+  max-height: 45vh;
+}

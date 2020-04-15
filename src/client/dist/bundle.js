@@ -25034,7 +25034,7 @@ function _defineProperty(e,r,n){return r in e?Object.defineProperty(e,r,{value:n
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "* {\r\n  font-family: Georgia, \"Times New Roman\", Times, serif;\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\nhtml,\r\nbody {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n#root {\r\n  height: 100%;\r\n  min-height: 100%;\r\n}\r\n\r\n.main {\r\n  min-height: 100%;\r\n  height: 100%;\r\n  padding: 0px;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n.sign-up {\r\n  display: inline-block;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  width: 15%;\r\n}\r\n\r\n.sign-up-input {\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding: 7.5px;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n  font-size: 12px;\r\n  display: relative;\r\n}\r\n\r\n.link {\r\n  text-decoration: none;\r\n  color: black;\r\n}\r\n\r\n.button:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 7.5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  background: grey;\r\n  border-radius: 7.5px;\r\n}\r\n", ""]);
+exports.push([module.i, "* {\r\n  font-family: Georgia, \"Times New Roman\", Times, serif;\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\ninput:focus, textarea:focus, select:focus{\r\n  outline: none;\r\n}\r\n\r\nhtml,\r\nbody {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n#root {\r\n  height: 100%;\r\n  min-height: 100%;\r\n}\r\n\r\n.main {\r\n  min-height: 100%;\r\n  height: 100%;\r\n  padding: 0px;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n.sign-up {\r\n  display: inline-block;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  width: 15%;\r\n}\r\n\r\n.sign-up-input {\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding: 7.5px;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n  font-size: 12px;\r\n  display: relative;\r\n}\r\n\r\n.link {\r\n  text-decoration: none;\r\n  color: black;\r\n}\r\n\r\n.button:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 7.5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  background: grey;\r\n  border-radius: 7.5px;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25055,7 +25055,61 @@ var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../../../images/sear
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-exports.push([module.i, ".chat-main {\r\n  grid-area: \"content\";\r\n  grid-template-columns: 27.5% 72.5%;\r\n  display: grid;\r\n  grid-template-areas: \"left right\";\r\n  grid-row: 2;\r\n  margin-top: 55px;\r\n}\r\n\r\n\r\n.chat-left {\r\n  grid-area: left;\r\n  min-height: 100%;\r\n  height: 100%;\r\n  border-right: 1px solid #dcdcdc;\r\n}\r\n\r\n.chat-search {\r\n  font-size: 18px;\r\n  padding-top: 10px;\r\n  padding-left: 12.5px;\r\n}\r\n\r\n.searchContacts {\r\n  padding: 10px;\r\n  background-position: 0 5px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 25px;\r\n  width: 87.5%;\r\n  border-radius: 25px;\r\n}\r\n\r\n.chat-dropdown {\r\n  display: inline-block;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  width: 100%;\r\n  padding-top: 10px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n}\r\n\r\n.chat-dropdown div {\r\n  padding: 10px 10px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.chat-dropdown div:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-dropdown span {\r\n  padding-right: 5px;\r\n}\r\n\r\n.chat-dropdown img {\r\n  width: 20px;\r\n  height: 20px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-display-parent {\r\n  grid-area: \"right\";\r\n  display: grid;\r\n  grid-template-columns: 66% 33%;\r\n  grid-template-areas: \"chat about\";\r\n  padding-top: 5px;\r\n  height: 100%;\r\n}\r\n\r\n.chat-display-default {\r\n  padding: 10px 0 0 5px;\r\n}\r\n\r\n\r\n.chat-display-about {\r\n  border-left: 1px solid #dcdcdc;\r\n  grid-area: \"about\";\r\n  height: 100%;\r\n  text-align: center;\r\n}\r\n\r\n.chat-about-name-placeholder{\r\n  display: block;\r\n  margin: 1vh 1vh;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 20vh;\r\n  height: 5vh;\r\n}\r\n\r\n.chat-display-about-img {\r\n  width: 30vh;\r\n  height: 30vh;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-about-content-placeholder{\r\n  width: 45vh;\r\n  height: 40vh;\r\n}\r\n\r\n.chat-display-about-content {\r\n  display: inline-block;\r\n  word-wrap: break-word;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  max-width: 90%;\r\n  max-height: 45vh;\r\n}\r\n\r\n.chat-display-chat-parent {\r\n  grid-area: \"chat\";\r\n  position: relative;\r\n}\r\n\r\n.chat-display-chat {\r\n  margin-top: 5px;\r\n  max-height: 82.5vh;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  display: flex;\r\n  flex-direction: column-reverse;\r\n}\r\n\r\n.chat-display-chat-send-message-form {\r\n  top: 85vh;\r\n  padding-left: 15px;\r\n  position: absolute;\r\n  width: 100vh;\r\n}\r\n\r\n.chat-display-chat-message-field {\r\n  font-size: 18px;\r\n  width: 92.5vh;\r\n}\r\n\r\n.chat-message-wrapper {\r\n  font-size: 18px;\r\n  display: inline-block;\r\n  padding: 3px 3px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-my-message {\r\n  color: white;\r\n  background-color: #0099ff;\r\n  padding: 6px 10px 6px 10px;\r\n  float: right;\r\n  max-width: 60%;\r\n  margin-right: 8px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-contact-message {\r\n  background-color: #f1f0f0;\r\n  padding: 6px 10px 6px 10px;\r\n  float: left;\r\n  max-width: 60%;\r\n  margin-left: 8px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-history-container {\r\n  padding-left: 5px;\r\n  margin: 10px 5px 0 5px;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  height: 600px;\r\n}\r\n\r\n.chat-history-wrapper-current {\r\n  display: grid;\r\n  margin-right: 5px;\r\n  grid-template-columns: 12.5% 87.5%;\r\n  grid-auto-rows: 22.5px;\r\n  margin-bottom: 10px;\r\n  cursor: pointer;\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.chat-history-wrapper {\r\n  display: grid;\r\n  margin-right: 5px;\r\n  grid-template-columns: 12.5% 87.5%;\r\n  grid-auto-rows: 22.5px;\r\n  margin-bottom: 10px;\r\n  cursor: pointer;\r\n}\r\n\r\n.chat-history-unread {\r\n  font-weight: bold;\r\n}\r\n\r\n.chat-history-wrapper-img {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-history-img-container {\r\n  grid-column: 1;\r\n}\r\n\r\n.chat-history-name-header {\r\n  grid-column: 2;\r\n  grid-row: 1;\r\n}\r\n\r\n.chat-history-name-header-placeholder {\r\n  width: 10vh;\r\n  height: 2.5vh;\r\n}\r\n\r\n.chat-history-content-placeholder{\r\n  width: 42vh;\r\n  height: 2.5vh;\r\n}\r\n\r\n.chat-history-content {\r\n  grid-column: 2;\r\n  grid-row: 2;\r\n}\r\n\r\n.chat-history-time {\r\n  float: right;\r\n  padding-right: 10px;\r\n}\r\n\r\n.chat-history-placeholder {\r\n  width:  50vh;\r\n  height: 10vh;\r\n}\r\n\r\n.msg-placeholder-img-me{\r\n  float: right;\r\n  width: 35vh;\r\n  height: 3vh;\r\n  padding: 6px 8px 6px 8px;\r\n  margin-right: 8px;\r\n}\r\n\r\n.msg-placeholder-img-contact{\r\n  float: left;\r\n  padding: 6px 8px 6px 8px;\r\n  width: 35vh;\r\n  height: 3vh;\r\n  margin-left: 8px;\r\n}", ""]);
+exports.push([module.i, ".chat-main {\r\n  display: grid;\r\n  grid-template-columns: 27.5% 72.5%;\r\n  grid-template-areas: \"left right\";\r\n  margin-right: 0px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-left {\r\n  grid-area: left;\r\n  border-right: 1px solid #dcdcdc;\r\n}\r\n\r\n.chat-search {\r\n  font-size: 18px;\r\n  padding-top: 10px;\r\n  padding-left: 12.5px;\r\n}\r\n\r\n.searchContacts {\r\n  padding: 10px;\r\n  background-position:  2.5px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 25px;\r\n  width: 87.5%;\r\n  border-radius: 25px;\r\n}\r\n\r\n.chat-dropdown {\r\n  display: inline-block;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  width: 100%;\r\n  padding-top: 10px;\r\n  padding-left: 10px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n}\r\n\r\n.chat-dropdown div {\r\n  padding: 10px 5px 10px 5px;\r\n  border-radius: 15px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.chat-dropdown div:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-dropdown span {\r\n  padding-right: 5px;\r\n}\r\n\r\n.chat-dropdown img {\r\n  width: 30px;\r\n  height: 30px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-display-parent {\r\n  grid-area: \"right\";\r\n  display: grid;\r\n  grid-template-columns: 66% 33%;\r\n  grid-template-areas: \"chat about\";\r\n  height: 100%;\r\n}\r\n\r\n\r\n\r\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/client/assets/stylesheets/components/main/chatAbout.css":
+/*!***********************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/client/assets/stylesheets/components/main/chatAbout.css ***!
+  \***********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".chat-display-default {\r\n  padding: 10px 0 0 5px;\r\n}\r\n\r\n.chat-display-about {\r\n  border-left: 1px solid #dcdcdc;\r\n  grid-area: \"about\";\r\n  height: 100%;\r\n  text-align: center;\r\n}\r\n\r\n.chat-about-name-placeholder {\r\n  display: block;\r\n  margin: 1vh 1vh;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 20vh;\r\n  height: 5vh;\r\n}\r\n\r\n.chat-display-about-img {\r\n  width: 30vh;\r\n  height: 30vh;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-about-content-placeholder {\r\n  width: 45vh;\r\n  height: 40vh;\r\n}\r\n\r\n.chat-display-about-content {\r\n  display: inline-block;\r\n  word-wrap: break-word;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  max-width: 90%;\r\n  max-height: 45vh;\r\n}\r\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/client/assets/stylesheets/components/main/chatHistory.css":
+/*!*************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/client/assets/stylesheets/components/main/chatHistory.css ***!
+  \*************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".chat-history-container {\r\n    padding-left: 5px;\r\n    margin: 10px 5px 0 5px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n    height: 83vh;\r\n  }\r\n  \r\n  .chat-history-wrapper-current {\r\n    display: grid;\r\n    margin-right: 5px;\r\n    grid-template-columns: 12.5% 87.5%;\r\n    grid-auto-rows: 22.5px;\r\n    padding: 5px 5px;\r\n    margin-bottom: 5px;\r\n    cursor: pointer;\r\n    background-color: #f1f0f0;\r\n    border-radius: 10px;\r\n  }\r\n  \r\n  .chat-history-wrapper {\r\n    display: grid;\r\n    margin-right: 5px;\r\n    grid-template-columns: 12.5% 87.5%;\r\n    grid-auto-rows: 22.5px;\r\n    padding: 5px 5px;\r\n    margin-bottom: 5px;\r\n    cursor: pointer;\r\n    border-radius: 10px;\r\n  }\r\n  \r\n  .chat-history-unread {\r\n    font-weight: bold;\r\n  }\r\n  \r\n  .chat-history-wrapper-img {\r\n    width: 40px;\r\n    height: 40px;\r\n    border-radius: 90%;\r\n  }\r\n  \r\n  .chat-history-img-container {\r\n    grid-column: 1;\r\n  }\r\n  \r\n  .chat-history-name-header {\r\n    grid-column: 2;\r\n    grid-row: 1;\r\n  }\r\n  \r\n  .chat-history-name-header-placeholder {\r\n    width: 10vh;\r\n    height: 2.5vh;\r\n  }\r\n  \r\n  .chat-history-content-placeholder{\r\n    width: 42vh;\r\n    height: 2.5vh;\r\n  }\r\n  \r\n  .chat-history-content {\r\n    grid-column: 2;\r\n    grid-row: 2;\r\n  }\r\n  \r\n  .chat-history-time {\r\n    float: right;\r\n    padding-right: 10px;\r\n  }\r\n  \r\n  .chat-history-placeholder {\r\n    width:  50vh;\r\n    height: 10vh;\r\n  }\r\n  \r\n  .msg-placeholder-img-me{\r\n    float: right;\r\n    width: 35vh;\r\n    height: 3vh;\r\n    padding: 6px 8px 6px 8px;\r\n    margin-right: 8px;\r\n  }\r\n  \r\n  .msg-placeholder-img-contact{\r\n    float: left;\r\n    padding: 6px 8px 6px 8px;\r\n    width: 35vh;\r\n    height: 3vh;\r\n    margin-left: 8px;\r\n  }", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/client/assets/stylesheets/components/main/chatMessage.css":
+/*!*************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/client/assets/stylesheets/components/main/chatMessage.css ***!
+  \*************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".chat-display-chat-parent {\r\n    grid-area: \"chat\";\r\n    position: relative;\r\n  }\r\n  \r\n  .chat-display-chat {\r\n    margin-top: 5px;\r\n    max-height: 82.5vh;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n    display: flex;\r\n    flex-direction: column-reverse;\r\n  }\r\n  \r\n  .chat-display-chat-send-message-form {\r\n    top: 85vh;\r\n    padding-left: 15px;\r\n    position: absolute;\r\n    width: 100vh;\r\n  }\r\n  \r\n  .chat-display-chat-message-field {\r\n    font-size: 18px;\r\n    border-radius: 10px;\r\n    width: 92.5vh;\r\n  }\r\n  \r\n  .chat-message-wrapper {\r\n    font-size: 18px;\r\n    display: inline-block;\r\n    padding: 3px 3px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .chat-my-message {\r\n    color: white;\r\n    background-color: #0099ff;\r\n    padding: 6px 10px 6px 10px;\r\n    float: right;\r\n    max-width: 60%;\r\n    margin-right: 8px;\r\n    border-radius: 15px;\r\n    word-wrap: break-word;\r\n  }\r\n  \r\n  .chat-contact-message {\r\n    background-color: #f1f0f0;\r\n    padding: 6px 10px 6px 10px;\r\n    float: left;\r\n    max-width: 60%;\r\n    margin-left: 8px;\r\n    border-radius: 15px;\r\n    word-wrap: break-word;\r\n  }\r\n  ", ""]);
 // Exports
 module.exports = exports;
 
@@ -25086,7 +25140,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_
 var ___CSS_LOADER_URL_REPLACEMENT_4___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_4___);
 var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___);
 // Module
-exports.push([module.i, "* {\r\n  font-family: Georgia, \"Times New Roman\", Times, serif;\r\n}\r\n\r\n.home-container{\r\n  display: grid;\r\n  grid-template-columns: 100%;\r\n  grid-row:  10% 90%;\r\n  grid-template-areas: \"banner\" \"content\";\r\n}\r\n\r\n.banner {\r\n  grid-area: \"banner\";\r\n  position: absolute;\r\n  width: 100%;\r\n  top: 0px;\r\n  left: 0px;\r\n  background-color: #00a8f3;\r\n  display: inline-grid;\r\n  grid-template-areas: \"left center right\";\r\n  grid-template-columns: 11% 70% 14%;\r\n  align-items: center;\r\n  grid-row: 1;\r\n}\r\n\r\n.home-title {\r\n  color: white;\r\n  font-size: 44px;\r\n  grid-area: left;\r\n  justify-content: left;\r\n  cursor: pointer;\r\n  padding-left: 10px;\r\n}\r\n\r\n.user {\r\n  padding: 10px 10px 5px 10px;\r\n  font-size: 24px;\r\n  grid-area: right;\r\n}\r\n\r\n.dropdown {\r\n  color: white;\r\n  font-size: 24px;\r\n  display: inline-block;\r\n}\r\n\r\n.dropdown:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-content {\r\n  font-size: 18px;\r\n  margin-right: 10px;\r\n  display: block;\r\n  position: absolute;\r\n  color: black;\r\n  background-color: white;\r\n  min-width: 125px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  padding: 10px 15px;\r\n  border-radius: 10px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-content div {\r\n  padding: 10px 10px;\r\n  border-radius: 5px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.dropdown-profile {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-profile:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-profile-content {\r\n  padding-left: 17.5px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-settings:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-logout:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.home-image-container{\r\n  padding: 20px 5px 0 0;\r\n}\r\n\r\n.home-image {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 50%\r\n}\r\n", ""]);
+exports.push([module.i, "* {\r\n  font-family: Georgia, \"Times New Roman\", Times, serif;\r\n}\r\n\r\n\r\n.banner {\r\n  grid-area: \"banner\";\r\n  background-color: #00a8f3;\r\n  align-items: center;\r\n  padding-bottom: 5px;\r\n  padding-top: 2.5px;\r\n}\r\n\r\n.home-title {\r\n  color: white;\r\n  font-size: 44px;\r\n  cursor: pointer;\r\n  padding-left: 10px;\r\n  display: inline;\r\n}\r\n\r\n.user {\r\n  padding-top: 5px;\r\n  margin-right: 10vh;\r\n  font-size: 24px;\r\n  float: right;\r\n}\r\n\r\n.dropdown {\r\n  color: white;\r\n  font-size: 24px;\r\n  display: inline-block;\r\n}\r\n\r\n.dropdown:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-content {\r\n  font-size: 18px;\r\n  margin-right: 10px;\r\n  display: block;\r\n  position: absolute;\r\n  color: black;\r\n  background-color: white;\r\n  min-width: 125px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  padding: 10px 15px;\r\n  border-radius: 10px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-content div {\r\n  padding: 10px 10px;\r\n  border-radius: 5px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.dropdown-profile {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-profile:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-profile-content {\r\n  padding-left: 17.5px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-settings:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-logout:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.home-image-container{\r\n  padding: 20px 5px 0 0;\r\n}\r\n\r\n.home-image {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 50%\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25104,7 +25158,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".profile-main {\r\n  display: grid;\r\n  margin-top: 65px;\r\n  width: 100%;\r\n  text-align: center;\r\n}\r\n\r\n.profile-image {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 35vh;\r\n  height: 35vh;\r\n  border-radius: 50%;\r\n}\r\n\r\n.about-text-area {\r\n  height: 30vh;\r\n  width: 45vh;\r\n  resize: none;\r\n}\r\n\r\n.about-img-placeholder{\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  height: 30vh;\r\n  width: 45vh;\r\n}\r\n\r\n.profile-button {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n}\r\n", ""]);
+exports.push([module.i, ".profile-main {\r\n  margin-top: 2.5vh;\r\n  width: 100%;\r\n  text-align: center;\r\n}\r\n\r\n.profile-image {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 35vh;\r\n  height: 35vh;\r\n  border-radius: 50%;\r\n}\r\n\r\n.about-text-area {\r\n  height: 30vh;\r\n  width: 45vh;\r\n  resize: none;\r\n}\r\n\r\n.about-img-placeholder{\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  height: 30vh;\r\n  width: 45vh;\r\n}\r\n\r\n.profile-button {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25122,7 +25176,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".main-settings {\r\n  margin: 65px 0 0 65px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 22.5% 70%;\r\n  grid-template-areas: \"left right\";\r\n}\r\n\r\n.main-left {\r\n  grid-area: left;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-dropdown div {\r\n  margin: 10px 10px;\r\n  padding: 10px;\r\n}\r\n\r\n.settings-dropdown div:hover {\r\n  background-color: grey;\r\n}\r\n\r\n.main-right{\r\n    grid-area: right;\r\n}\r\n\r\n.main-right div{\r\n    grid-area: right;\r\n    padding: 10px;\r\n}\r\n\r\n.form{\r\n  display: inline-block;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  width: 25%\r\n}\r\n\r\n.form div{\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding: 7.5px;\r\n}\r\n\r\n.button{\r\n  font-size: 20px\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".main-settings {\r\n  margin-left: 65px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 22.5% 70%;\r\n  grid-template-areas: \"left right\";\r\n}\r\n\r\n.main-left {\r\n  grid-area: left;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-dropdown div {\r\n  margin: 10px 10px;\r\n  padding: 10px;\r\n}\r\n\r\n.settings-dropdown div:hover {\r\n  background-color: grey;\r\n}\r\n\r\n.main-right{\r\n    grid-area: right;\r\n}\r\n\r\n.main-right div{\r\n    grid-area: right;\r\n    padding: 10px;\r\n}\r\n\r\n.form{\r\n  display: inline-block;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  width: 25%\r\n}\r\n\r\n.form div{\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding: 7.5px;\r\n}\r\n\r\n.button{\r\n  font-size: 20px\r\n}\r\n\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -86922,6 +86976,99 @@ module.exports = exported;
 
 /***/ }),
 
+/***/ "./src/client/assets/stylesheets/components/main/chatAbout.css":
+/*!*********************************************************************!*\
+  !*** ./src/client/assets/stylesheets/components/main/chatAbout.css ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader/dist/cjs.js!./chatAbout.css */ "./node_modules/css-loader/dist/cjs.js!./src/client/assets/stylesheets/components/main/chatAbout.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
+
+/***/ }),
+
+/***/ "./src/client/assets/stylesheets/components/main/chatHistory.css":
+/*!***********************************************************************!*\
+  !*** ./src/client/assets/stylesheets/components/main/chatHistory.css ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader/dist/cjs.js!./chatHistory.css */ "./node_modules/css-loader/dist/cjs.js!./src/client/assets/stylesheets/components/main/chatHistory.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
+
+/***/ }),
+
+/***/ "./src/client/assets/stylesheets/components/main/chatMessage.css":
+/*!***********************************************************************!*\
+  !*** ./src/client/assets/stylesheets/components/main/chatMessage.css ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader/dist/cjs.js!./chatMessage.css */ "./node_modules/css-loader/dist/cjs.js!./src/client/assets/stylesheets/components/main/chatMessage.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
+
+/***/ }),
+
 /***/ "./src/client/assets/stylesheets/components/main/home.css":
 /*!****************************************************************!*\
   !*** ./src/client/assets/stylesheets/components/main/home.css ***!
@@ -89052,9 +89199,7 @@ var HomeContainer = function HomeContainer(props) {
     };
   }();
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "home-container"
-  }, topBanner(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, topBanner(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
     exact: true,
     path: "/home",
     render: function render() {
@@ -89284,6 +89429,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
 /* harmony import */ var _ChatMessage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ChatMessage */ "./src/client/components/main/home/chat/ChatMessage.js");
 /* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./About */ "./src/client/components/main/home/chat/About.js");
+/* harmony import */ var _assets_stylesheets_components_main_chatAbout_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/chatAbout.css */ "./src/client/assets/stylesheets/components/main/chatAbout.css");
+/* harmony import */ var _assets_stylesheets_components_main_chatAbout_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_chatAbout_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _assets_stylesheets_components_main_chatMessage_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/chatMessage.css */ "./src/client/assets/stylesheets/components/main/chatMessage.css");
+/* harmony import */ var _assets_stylesheets_components_main_chatMessage_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_chatMessage_css__WEBPACK_IMPORTED_MODULE_7__);
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -89377,6 +89526,8 @@ function _templateObject() {
 }
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
 
 
 
@@ -89932,6 +90083,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Time__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Time */ "./src/client/components/main/home/chat/Time.js");
+/* harmony import */ var _assets_stylesheets_components_main_chatHistory_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/chatHistory.css */ "./src/client/assets/stylesheets/components/main/chatHistory.css");
+/* harmony import */ var _assets_stylesheets_components_main_chatHistory_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_chatHistory_css__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
@@ -89988,7 +90142,7 @@ var History = function History(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "chat-history-container"
     }, props.convoHistory.data.getConversations.map(function (convo) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: convo._id,
         className: convo.unread && convo.lastSender != props.userInfo._id ? "chat-history-unread" : null
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import Time from "./Time";
+import "../../../../assets/stylesheets/components/main/chatHistory.css";
 
 const History = (props) => {
   const arr = [];
@@ -64,7 +65,7 @@ const History = (props) => {
     return (
       <div className="chat-history-container">
         {props.convoHistory.data.getConversations.map((convo) => (
-          <span
+          <div
             key={convo._id}
             className={
               convo.unread && convo.lastSender != props.userInfo._id
@@ -118,7 +119,7 @@ const History = (props) => {
                 </span>
               </div>
             </div>
-          </span>
+          </div>
         ))}
       </div>
     );

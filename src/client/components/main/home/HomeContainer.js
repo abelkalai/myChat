@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 import { Link, Route } from "react-router-dom";
@@ -81,7 +81,7 @@ const HomeContainer = (props) => {
   };
 
   return (
-    <div className="home-container">
+    <div>
       {topBanner()}
       <Route
         exact
