@@ -54,12 +54,13 @@ const Profile = (props) => {
   const [showAbout, setShowAbout] = useState(false);
   const [uploadFile, setUploadFile] = useState(null);
   const [showUpload, setShowUpload] = useState(false);
+
   const aboutForm = () => {
     return (
       <form onSubmit={changeAbout}>
         <textarea
           id="editAbout"
-          maxLength = "850"
+          maxLength="850"
           className="about-text-area"
           value={aboutField.value}
           onChange={aboutField.onChange}
@@ -69,6 +70,12 @@ const Profile = (props) => {
           Save Changes
         </button>
       </form>
+    );
+  };
+
+  const showAboutContent = () => {
+    return (
+      <div className="profile-about-wrapper">{aboutUser.data.getAbout}</div>
     );
   };
 
@@ -162,9 +169,14 @@ const Profile = (props) => {
       >
         {!showAbout ? "Edit About" : "Close"}
       </button>
-      {aboutUser.loading
-        ? <img className="about-img-placeholder" src="../../../assets/images/aboutPlaceholder.png" /> 
-        : !showAbout && <div> {aboutUser.data.getAbout} </div>}
+      {aboutUser.loading ? (
+        <img
+          className="about-img-placeholder"
+          src="../../../assets/images/aboutPlaceholder.png"
+        />
+      ) : (
+        !showAbout && showAboutContent()
+      )}
       {showAbout && aboutForm()}
     </div>
   );

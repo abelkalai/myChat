@@ -4,7 +4,6 @@
   "description": "App lets users message one another",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "client": "npx webpack",
     "server": "npx nodemon src/server/index.js"
   },

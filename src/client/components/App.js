@@ -1,6 +1,6 @@
 import React, {Fragment, useState } from "react";
 import Frontpage from "./front/Frontpage";
-import Home from "./main/home/Home";
+import HomeContainer from "./main/home/HomeContainer";
 import { useQuery, useMutation} from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 import { OutRoute, InRoute } from "../utils/util_route";
@@ -65,7 +65,7 @@ const App = () => {
             ignoreCookie = {ignoreCookie}
             activeUser = {activeUser}
           >
-            <Home
+            <HomeContainer
               ignoreCookie = {ignoreCookie}
               setIgnoreCookie = {setIgnoreCookie}
               loggedIn = {loggedInQuery.data.loggedIn}

@@ -12,7 +12,6 @@ import About from "./About";
 import "../../../../assets/stylesheets/components/main/chatAbout.css";
 import "../../../../assets/stylesheets/components/main/chatMessage.css";
 
-
 const GET_SINGLE_USER = gql`
   query getSingleUser($_id: String!) {
     getSingleUser(_id: $_id) {
@@ -165,6 +164,8 @@ const ChatDisplay = (props) => {
         },
         data: { getMessages: newMsgArray },
       });
+      const messageContainer = document.getElementById("messageContainer")
+      messageContainer.scrollTop = messageContainer.scrollHeight
     }
   };
 
@@ -182,8 +183,8 @@ const ChatDisplay = (props) => {
     ) {
       return;
     }
-    if(props.currentConvo === null) props.setCurrentConvo(convo._id)
-   
+    if (props.currentConvo === null) props.setCurrentConvo(convo._id);
+
     if (
       document.activeElement.id === "messageInput" &&
       convo._id === props.currentConvo &&
@@ -221,8 +222,8 @@ const ChatDisplay = (props) => {
     if (messageField === "") return;
     let senderID = props.userInfo._id;
     let receiverID = props.currentChat;
-    let content = messageField.value
-    
+    let content = messageField.value;
+
     await sendMessageQuery({ variables: { senderID, receiverID, content } });
     messageField.clear();
   };
@@ -256,7 +257,11 @@ const ChatDisplay = (props) => {
             onChange={messageField.onChange}
             placeholder="Type a message..."
           />
-          <input type="image" src="../../../../assets/images/send.png" />
+          <input
+            className="chat-display-chat-message-image"
+            type="image"
+            src="../../../../assets/images/send.png"
+          />
         </form>
       </div>
     );

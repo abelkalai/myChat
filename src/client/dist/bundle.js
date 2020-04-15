@@ -25034,7 +25034,7 @@ function _defineProperty(e,r,n){return r in e?Object.defineProperty(e,r,{value:n
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "* {\r\n  font-family: Georgia, \"Times New Roman\", Times, serif;\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\ninput:focus, textarea:focus, select:focus{\r\n  outline: none;\r\n}\r\n\r\nhtml,\r\nbody {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n#root {\r\n  height: 100%;\r\n  min-height: 100%;\r\n}\r\n\r\n.main {\r\n  min-height: 100%;\r\n  height: 100%;\r\n  padding: 0px;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n.sign-up {\r\n  display: inline-block;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  width: 15%;\r\n}\r\n\r\n.sign-up-input {\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding: 7.5px;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n  font-size: 12px;\r\n  display: relative;\r\n}\r\n\r\n.link {\r\n  text-decoration: none;\r\n  color: black;\r\n}\r\n\r\n.button:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 7.5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  background: grey;\r\n  border-radius: 7.5px;\r\n}\r\n", ""]);
+exports.push([module.i, "* {\r\n  font-family: Georgia, \"Times New Roman\", Times, serif;\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\ninput:focus, textarea:focus, select:focus{\r\n  outline: none;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n.sign-up {\r\n  display: inline-block;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  width: 15%;\r\n}\r\n\r\n.sign-up-input {\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding: 7.5px;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n  font-size: 12px;\r\n  display: relative;\r\n}\r\n\r\n.link {\r\n  text-decoration: none;\r\n  color: black;\r\n}\r\n\r\n.button:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 7.5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  background: grey;\r\n  border-radius: 7.5px;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25055,7 +25055,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../../../images/sear
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-exports.push([module.i, ".chat-main {\r\n  display: grid;\r\n  grid-template-columns: 27.5% 72.5%;\r\n  grid-template-areas: \"left right\";\r\n  margin-right: 0px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-left {\r\n  grid-area: left;\r\n  border-right: 1px solid #dcdcdc;\r\n}\r\n\r\n.chat-search {\r\n  font-size: 18px;\r\n  padding-top: 10px;\r\n  padding-left: 12.5px;\r\n}\r\n\r\n.searchContacts {\r\n  padding: 10px;\r\n  background-position:  2.5px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 25px;\r\n  width: 87.5%;\r\n  border-radius: 25px;\r\n}\r\n\r\n.chat-dropdown {\r\n  display: inline-block;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  width: 100%;\r\n  padding-top: 10px;\r\n  padding-left: 10px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n}\r\n\r\n.chat-dropdown div {\r\n  padding: 10px 5px 10px 5px;\r\n  border-radius: 15px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.chat-dropdown div:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-dropdown span {\r\n  padding-right: 5px;\r\n}\r\n\r\n.chat-dropdown img {\r\n  width: 30px;\r\n  height: 30px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-display-parent {\r\n  grid-area: \"right\";\r\n  display: grid;\r\n  grid-template-columns: 66% 33%;\r\n  grid-template-areas: \"chat about\";\r\n  height: 100%;\r\n}\r\n\r\n\r\n\r\n", ""]);
+exports.push([module.i, ".chat-main {\r\n  display: grid;\r\n  grid-template-columns: 27.5% 72.5%;\r\n  grid-template-areas: \"left right\";\r\n  margin-right: 0px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-left {\r\n  grid-area: left;\r\n  border-right: 1px solid #dcdcdc;\r\n}\r\n\r\n.chat-search {\r\n  font-size: 18px;\r\n  padding-top: 10px;\r\n  padding-left: 12.5px;\r\n}\r\n\r\n.searchContacts {\r\n  padding: 10px;\r\n  background-position:  2.5px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 30px;\r\n  width: 87.5%;\r\n  border-radius: 10px;\r\n}\r\n\r\n.chat-dropdown {\r\n  display: inline-block;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  width: 100%;\r\n  padding-top: 10px;\r\n  padding-left: 10px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n}\r\n\r\n.chat-dropdown div {\r\n  padding: 10px 5px 10px 5px;\r\n  border-radius: 15px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.chat-dropdown div:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-dropdown span {\r\n  padding-right: 5px;\r\n}\r\n\r\n.chat-dropdown img {\r\n  width: 30px;\r\n  height: 30px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-display-parent {\r\n  grid-area: \"right\";\r\n  display: grid;\r\n  grid-template-columns: 66% 33%;\r\n  grid-template-areas: \"chat about\";\r\n  height: 100%;\r\n}\r\n\r\n\r\n\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25073,7 +25073,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".chat-display-default {\r\n  padding: 10px 0 0 5px;\r\n}\r\n\r\n.chat-display-about {\r\n  border-left: 1px solid #dcdcdc;\r\n  grid-area: \"about\";\r\n  height: 100%;\r\n  text-align: center;\r\n}\r\n\r\n.chat-about-name-placeholder {\r\n  display: block;\r\n  margin: 1vh 1vh;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 20vh;\r\n  height: 5vh;\r\n}\r\n\r\n.chat-display-about-img {\r\n  width: 30vh;\r\n  height: 30vh;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-about-content-placeholder {\r\n  width: 45vh;\r\n  height: 40vh;\r\n}\r\n\r\n.chat-display-about-content {\r\n  display: inline-block;\r\n  word-wrap: break-word;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  max-width: 90%;\r\n  max-height: 45vh;\r\n}\r\n", ""]);
+exports.push([module.i, ".chat-display-default {\r\n  padding: 10px 0 0 5px;\r\n}\r\n\r\n.chat-display-about {\r\n  border-left: 1px solid #dcdcdc;\r\n  grid-area: \"about\";\r\n  height: 100%;\r\n  text-align: center;\r\n}\r\n\r\n.chat-about-name-placeholder {\r\n  display: block;\r\n  margin: 1vh 1vh;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 10vw;\r\n  height: 5vh;\r\n}\r\n\r\n.chat-display-about h1{\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.chat-display-about-img {\r\n  width: 225px;\r\n  height: 225px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-about-content-placeholder {\r\n  width: 20vw;\r\n  height: 40vh;\r\n}\r\n\r\n.chat-display-about-content {\r\n  margin-top: 10px;\r\n  display: inline-block;\r\n  word-wrap: break-word;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  max-width: 90%;\r\n  max-height: 40vh;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25091,7 +25091,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".chat-history-container {\r\n    padding-left: 5px;\r\n    margin: 10px 5px 0 5px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n    height: 83vh;\r\n  }\r\n  \r\n  .chat-history-wrapper-current {\r\n    display: grid;\r\n    margin-right: 5px;\r\n    grid-template-columns: 12.5% 87.5%;\r\n    grid-auto-rows: 22.5px;\r\n    padding: 5px 5px;\r\n    margin-bottom: 5px;\r\n    cursor: pointer;\r\n    background-color: #f1f0f0;\r\n    border-radius: 10px;\r\n  }\r\n  \r\n  .chat-history-wrapper {\r\n    display: grid;\r\n    margin-right: 5px;\r\n    grid-template-columns: 12.5% 87.5%;\r\n    grid-auto-rows: 22.5px;\r\n    padding: 5px 5px;\r\n    margin-bottom: 5px;\r\n    cursor: pointer;\r\n    border-radius: 10px;\r\n  }\r\n  \r\n  .chat-history-unread {\r\n    font-weight: bold;\r\n  }\r\n  \r\n  .chat-history-wrapper-img {\r\n    width: 40px;\r\n    height: 40px;\r\n    border-radius: 90%;\r\n  }\r\n  \r\n  .chat-history-img-container {\r\n    grid-column: 1;\r\n  }\r\n  \r\n  .chat-history-name-header {\r\n    grid-column: 2;\r\n    grid-row: 1;\r\n  }\r\n  \r\n  .chat-history-name-header-placeholder {\r\n    width: 10vh;\r\n    height: 2.5vh;\r\n  }\r\n  \r\n  .chat-history-content-placeholder{\r\n    width: 42vh;\r\n    height: 2.5vh;\r\n  }\r\n  \r\n  .chat-history-content {\r\n    grid-column: 2;\r\n    grid-row: 2;\r\n  }\r\n  \r\n  .chat-history-time {\r\n    float: right;\r\n    padding-right: 10px;\r\n  }\r\n  \r\n  .chat-history-placeholder {\r\n    width:  50vh;\r\n    height: 10vh;\r\n  }\r\n  \r\n  .msg-placeholder-img-me{\r\n    float: right;\r\n    width: 35vh;\r\n    height: 3vh;\r\n    padding: 6px 8px 6px 8px;\r\n    margin-right: 8px;\r\n  }\r\n  \r\n  .msg-placeholder-img-contact{\r\n    float: left;\r\n    padding: 6px 8px 6px 8px;\r\n    width: 35vh;\r\n    height: 3vh;\r\n    margin-left: 8px;\r\n  }", ""]);
+exports.push([module.i, ".chat-history-container {\r\n  padding-left: 5px;\r\n  margin: 10px 5px 0 5px;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  height: 83vh;\r\n}\r\n\r\n.chat-history-wrapper-current {\r\n  display: grid;\r\n  margin-right: 5px;\r\n  grid-template-columns: 12.5% 87.5%;\r\n  grid-auto-rows: 22.5px;\r\n  padding: 5px 5px;\r\n  margin-bottom: 5px;\r\n  cursor: pointer;\r\n  background-color: #f1f0f0;\r\n  border-radius: 5px;\r\n}\r\n\r\n.chat-history-wrapper {\r\n  display: grid;\r\n  margin-right: 5px;\r\n  grid-template-columns: 12.5% 87.5%;\r\n  grid-auto-rows: 22.5px;\r\n  padding: 5px 5px;\r\n  margin-bottom: 5px;\r\n  cursor: pointer;\r\n  border-radius: 5px;\r\n}\r\n\r\n.chat-history-unread {\r\n  font-weight: bold;\r\n}\r\n\r\n.chat-history-wrapper-img {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-history-img-container {\r\n  grid-column: 1;\r\n}\r\n\r\n.chat-history-name-header {\r\n  grid-column: 2;\r\n  grid-row: 1;\r\n}\r\n\r\n.chat-history-time {\r\n  float: right;\r\n  padding-right: 10px;\r\n}\r\n\r\n.chat-history-placeholder {\r\n  width: 20vw;\r\n  height: 10vh;\r\n}\r\n\r\n.chat-history-name-header-placeholder {\r\n  height: 2.5vh;\r\n  width: 5vw;\r\n}\r\n\r\n.chat-history-content-placeholder {\r\n  height: 2.5vh;\r\n  width: 20vw;\r\n}\r\n\r\n.chat-history-content {\r\n  grid-column: 2;\r\n  grid-row: 2;\r\n}\r\n\r\n\r\n\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25109,7 +25109,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".chat-display-chat-parent {\r\n    grid-area: \"chat\";\r\n    position: relative;\r\n  }\r\n  \r\n  .chat-display-chat {\r\n    margin-top: 5px;\r\n    max-height: 82.5vh;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n    display: flex;\r\n    flex-direction: column-reverse;\r\n  }\r\n  \r\n  .chat-display-chat-send-message-form {\r\n    top: 85vh;\r\n    padding-left: 15px;\r\n    position: absolute;\r\n    width: 100vh;\r\n  }\r\n  \r\n  .chat-display-chat-message-field {\r\n    font-size: 18px;\r\n    border-radius: 10px;\r\n    width: 92.5vh;\r\n  }\r\n  \r\n  .chat-message-wrapper {\r\n    font-size: 18px;\r\n    display: inline-block;\r\n    padding: 3px 3px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .chat-my-message {\r\n    color: white;\r\n    background-color: #0099ff;\r\n    padding: 6px 10px 6px 10px;\r\n    float: right;\r\n    max-width: 60%;\r\n    margin-right: 8px;\r\n    border-radius: 15px;\r\n    word-wrap: break-word;\r\n  }\r\n  \r\n  .chat-contact-message {\r\n    background-color: #f1f0f0;\r\n    padding: 6px 10px 6px 10px;\r\n    float: left;\r\n    max-width: 60%;\r\n    margin-left: 8px;\r\n    border-radius: 15px;\r\n    word-wrap: break-word;\r\n  }\r\n  ", ""]);
+exports.push([module.i, "\r\n.chat-display-chat-parent {\r\n    grid-area: \"chat\";\r\n    position: relative;\r\n  }\r\n\r\n.chat-display-chat-container{\r\n  min-height: 83vh;\r\n}\r\n  \r\n  .chat-display-chat {\r\n    margin-top: 5px;\r\n    max-height: 83vh;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n    display: flex;\r\n    flex-direction: column-reverse;\r\n  }\r\n  \r\n  .chat-display-chat-send-message-form {\r\n    display: flex;\r\n    margin-top: 15px;\r\n    margin-left: 15px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .chat-display-chat-message-field {\r\n    padding: 2.5px;\r\n    padding-left: 5px;\r\n    font-size: 18px;\r\n    border-radius: 5px;\r\n    width: 90%\r\n  }\r\n\r\n  .chat-display-chat-message-image{\r\n    margin-left: 2px;\r\n    margin-bottom: 2px;\r\n  }\r\n\r\n  .msg-placeholder-msg-field{\r\n    height: 25px;\r\n    width: 715px;\r\n  }\r\n\r\n  \r\n  .msg-placeholder-img-me{\r\n    float: right;\r\n    width: 35vh;\r\n    height: 3vh;\r\n    padding: 6px 8px 6px 8px;\r\n    margin-right: 8px;\r\n  }\r\n  \r\n  .msg-placeholder-img-contact{\r\n    float: left;\r\n    padding: 6px 8px 6px 8px;\r\n    width: 35vh;\r\n    height: 3vh;\r\n    margin-left: 8px;\r\n  }\r\n  \r\n  .chat-message-wrapper {\r\n    font-size: 18px;\r\n    display: inline-block;\r\n    padding: 3px 3px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .chat-my-message {\r\n    color: white;\r\n    background-color: #0099ff;\r\n    padding: 6px 10px 6px 10px;\r\n    float: right;\r\n    max-width: 60%;\r\n    margin-right: 8px;\r\n    border-radius: 15px;\r\n    word-wrap: break-word;\r\n  }\r\n  \r\n  .chat-contact-message {\r\n    background-color: #f1f0f0;\r\n    padding: 6px 10px 6px 10px;\r\n    float: left;\r\n    max-width: 60%;\r\n    margin-left: 8px;\r\n    border-radius: 15px;\r\n    word-wrap: break-word;\r\n  }\r\n  ", ""]);
 // Exports
 module.exports = exports;
 
@@ -25140,7 +25140,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_
 var ___CSS_LOADER_URL_REPLACEMENT_4___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_4___);
 var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___);
 // Module
-exports.push([module.i, "* {\r\n  font-family: Georgia, \"Times New Roman\", Times, serif;\r\n}\r\n\r\n\r\n.banner {\r\n  grid-area: \"banner\";\r\n  background-color: #00a8f3;\r\n  align-items: center;\r\n  padding-bottom: 5px;\r\n  padding-top: 2.5px;\r\n}\r\n\r\n.home-title {\r\n  color: white;\r\n  font-size: 44px;\r\n  cursor: pointer;\r\n  padding-left: 10px;\r\n  display: inline;\r\n}\r\n\r\n.user {\r\n  padding-top: 5px;\r\n  margin-right: 10vh;\r\n  font-size: 24px;\r\n  float: right;\r\n}\r\n\r\n.dropdown {\r\n  color: white;\r\n  font-size: 24px;\r\n  display: inline-block;\r\n}\r\n\r\n.dropdown:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-content {\r\n  font-size: 18px;\r\n  margin-right: 10px;\r\n  display: block;\r\n  position: absolute;\r\n  color: black;\r\n  background-color: white;\r\n  min-width: 125px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  padding: 10px 15px;\r\n  border-radius: 10px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-content div {\r\n  padding: 10px 10px;\r\n  border-radius: 5px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.dropdown-profile {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-profile:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-profile-content {\r\n  padding-left: 17.5px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-settings:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-right: 10px;\r\n}\r\n\r\n.dropdown-logout:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.home-image-container{\r\n  padding: 20px 5px 0 0;\r\n}\r\n\r\n.home-image {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 50%\r\n}\r\n", ""]);
+exports.push([module.i, ".banner {\r\n  grid-area: \"banner\";\r\n  background-color: #00a8f3;\r\n  padding-bottom: 5px;\r\n  padding-top: 2.5px;\r\n  display: flex;\r\n}\r\n\r\n.home-title {\r\n  color: white;\r\n  font-size: 44px;\r\n  cursor: pointer;\r\n  padding-left: 10px;\r\n  display: inline-block;\r\n}\r\n\r\n.user-container{\r\n  display: inline-block;\r\n  margin-left: 77vw;\r\n}\r\n\r\n.user {\r\n  color: white;\r\n  margin-top: 5px;\r\n  font-size: 24px;\r\n  display: flex;\r\n}\r\n\r\n.home-image-container {\r\n  padding-right: 5px;\r\n}\r\n\r\n.home-image {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.dropdown {\r\n  margin-top: 10px;\r\n  font-size: 24px;\r\n  display: inline-block;\r\n}\r\n\r\n.dropdown:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-content {\r\n  font-size: 18px;\r\n  display: block;\r\n  position: absolute;\r\n  color: black;\r\n  background-color: white;\r\n  min-width: 100px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  padding: 12.5px 12.5px;\r\n  border-radius: 10px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-content div {\r\n  padding: 10px  10px;\r\n  border-radius: 5px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.dropdown-profile {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-profile:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-profile-content {\r\n  padding-left: 17.5px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-settings:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-logout:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  padding-left: 20px;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25158,7 +25158,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".profile-main {\r\n  margin-top: 2.5vh;\r\n  width: 100%;\r\n  text-align: center;\r\n}\r\n\r\n.profile-image {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 35vh;\r\n  height: 35vh;\r\n  border-radius: 50%;\r\n}\r\n\r\n.about-text-area {\r\n  height: 30vh;\r\n  width: 45vh;\r\n  resize: none;\r\n}\r\n\r\n.about-img-placeholder{\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  height: 30vh;\r\n  width: 45vh;\r\n}\r\n\r\n.profile-button {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n}\r\n", ""]);
+exports.push([module.i, ".profile-main {\r\n  margin-top: 2.5vh;\r\n  text-align: center;\r\n}\r\n\r\n.profile-image {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 200px;\r\n  height: 200px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.about-text-area {\r\n  height: 30vh;\r\n  width: 25vw;\r\n  resize: none;\r\n}\r\n\r\n.about-img-placeholder {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  height: 30vh;\r\n  width: 35vw;\r\n}\r\n\r\n.profile-button {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n}\r\n\r\n.profile-about-wrapper{\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  max-height: 30vh;\r\n  max-width: 35vw;\r\n  text-align: center;\r\n}\r\n\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -87174,7 +87174,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _front_Frontpage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./front/Frontpage */ "./src/client/components/front/Frontpage.js");
-/* harmony import */ var _main_home_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main/home/Home */ "./src/client/components/main/home/Home.js");
+/* harmony import */ var _main_home_HomeContainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main/home/HomeContainer */ "./src/client/components/main/home/HomeContainer.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 /* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
 /* harmony import */ var _utils_util_route__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/util_route */ "./src/client/utils/util_route.js");
@@ -87255,7 +87255,7 @@ var App = function App() {
     loggedIn: loggedInQuery.data.loggedIn,
     ignoreCookie: ignoreCookie,
     activeUser: activeUser
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_home_Home__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_home_HomeContainer__WEBPACK_IMPORTED_MODULE_2__["default"], {
     ignoreCookie: ignoreCookie,
     setIgnoreCookie: setIgnoreCookie,
     loggedIn: loggedInQuery.data.loggedIn,
@@ -88293,6 +88293,12 @@ var Profile = function Profile(props) {
     }, "Save Changes"));
   };
 
+  var showAboutContent = function showAboutContent() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "profile-about-wrapper"
+    }, aboutUser.data.getAbout);
+  };
+
   var changeAbout = /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
       var _id, about;
@@ -88464,7 +88470,7 @@ var Profile = function Profile(props) {
   }, !showAbout ? "Edit About" : "Close"), aboutUser.loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "about-img-placeholder",
     src: "../../../assets/images/aboutPlaceholder.png"
-  }) : !showAbout && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ", aboutUser.data.getAbout, " "), showAbout && aboutForm());
+  }) : !showAbout && showAboutContent(), showAbout && aboutForm());
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Profile);
@@ -89013,55 +89019,6 @@ var Settings = function Settings(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _utilities_InvalidLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utilities/InvalidLink */ "./src/client/components/utilities/InvalidLink.js");
-/* harmony import */ var _HomeContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./HomeContainer */ "./src/client/components/main/home/HomeContainer.js");
-/* harmony import */ var _assets_stylesheets_components_main_home_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../assets/stylesheets/components/main/home.css */ "./src/client/assets/stylesheets/components/main/home.css");
-/* harmony import */ var _assets_stylesheets_components_main_home_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_home_css__WEBPACK_IMPORTED_MODULE_4__);
-
-
-
-
-
-
-var Home = function Home(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    exact: true,
-    path: ["/home", "/home/profile", "/home/settings/general", "/home/settings/security"],
-    render: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HomeContainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        ignoreCookie: props.ignoreCookie,
-        setIgnoreCookie: props.setIgnoreCookie,
-        loggedIn: props.loggedIn,
-        activeUser: props.activeUser,
-        setActiveUser: props.setActiveUser
-      });
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    path: "*",
-    render: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utilities_InvalidLink__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        type: "MyChat"
-      });
-    }
-  })));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Home);
-
-/***/ }),
-
-/***/ "./src/client/components/main/home/HomeContainer.js":
-/*!**********************************************************!*\
-  !*** ./src/client/components/main/home/HomeContainer.js ***!
-  \**********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 /* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
@@ -89108,7 +89065,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var GET_IMAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_2__["gql"])(_templateObject());
 
-var HomeContainer = function HomeContainer(props) {
+var Home = function Home(props) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(props.activeUser ? props.activeUser : props.loggedIn),
       _useState2 = _slicedToArray(_useState, 2),
       userInfo = _useState2[0],
@@ -89134,6 +89091,8 @@ var HomeContainer = function HomeContainer(props) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "home-title"
     }, "MyChat")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "user-container"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "user"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "home-image-container"
@@ -89172,7 +89131,7 @@ var HomeContainer = function HomeContainer(props) {
       onClick: logOut
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "dropdown-logout-content"
-    }, "Log Out"))))));
+    }, "Log Out")))))));
   };
 
   var logOut = /*#__PURE__*/function () {
@@ -89199,7 +89158,7 @@ var HomeContainer = function HomeContainer(props) {
     };
   }();
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, topBanner(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, topBanner(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
     exact: true,
     path: "/home",
     render: function render() {
@@ -89228,6 +89187,55 @@ var HomeContainer = function HomeContainer(props) {
       });
     }
   }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Home);
+
+/***/ }),
+
+/***/ "./src/client/components/main/home/HomeContainer.js":
+/*!**********************************************************!*\
+  !*** ./src/client/components/main/home/HomeContainer.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _utilities_InvalidLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utilities/InvalidLink */ "./src/client/components/utilities/InvalidLink.js");
+/* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Home */ "./src/client/components/main/home/Home.js");
+/* harmony import */ var _assets_stylesheets_components_main_home_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../assets/stylesheets/components/main/home.css */ "./src/client/assets/stylesheets/components/main/home.css");
+/* harmony import */ var _assets_stylesheets_components_main_home_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_home_css__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+
+var HomeContainer = function HomeContainer(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: ["/home", "/home/profile", "/home/settings/general", "/home/settings/security"],
+    render: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Home__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        ignoreCookie: props.ignoreCookie,
+        setIgnoreCookie: props.setIgnoreCookie,
+        loggedIn: props.loggedIn,
+        activeUser: props.activeUser,
+        setActiveUser: props.setActiveUser
+      });
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: "*",
+    render: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utilities_InvalidLink__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        type: "MyChat"
+      });
+    }
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (HomeContainer);
@@ -89649,6 +89657,8 @@ var ChatDisplay = function ChatDisplay(props) {
           getMessages: newMsgArray
         }
       });
+      var messageContainer = document.getElementById("messageContainer");
+      messageContainer.scrollTop = messageContainer.scrollHeight;
     }
   };
 
@@ -89840,6 +89850,7 @@ var ChatDisplay = function ChatDisplay(props) {
       onChange: messageField.onChange,
       placeholder: "Type a message..."
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "chat-display-chat-message-image",
       type: "image",
       src: "../../../../assets/images/send.png"
     })));
@@ -89912,6 +89923,9 @@ var ChatMessage = function ChatMessage(props) {
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "chat-display-chat-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "messageContainer",
     className: "chat-display-chat"
   }, props.getMessages.data.getMessages.map(function (message) {
     return message.senderID === props.userInfo._id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -89929,7 +89943,7 @@ var ChatMessage = function ChatMessage(props) {
       key: message._id,
       className: "chat-contact-message"
     }, message.content));
-  }));
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ChatMessage);
@@ -90151,21 +90165,14 @@ var History = function History(props) {
         onClick: function onClick() {
           changeChat(convo.members, convo._id);
         }
-      }, convo.members[0]._id != props.userInfo._id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chat-history-img-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "chat-history-wrapper-img",
-        src: "data:image/png;base64,".concat(convo.members[0].profilePicture)
+        src: "data:image/png;base64,".concat(convo.members[0]._id != props.userInfo._id ? convo.members[0].profilePicture : convo.members[1].profilePicture)
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chat-history-name-header"
-      }, convo.members[0].fullName)) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "chat-history-img-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "chat-history-wrapper-img",
-        src: "data:image/png;base64,".concat(convo.members[1].profilePicture)
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "chat-history-name-header"
-      }, convo.members[1].fullName)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, convo.members[0]._id != props.userInfo._id ? convo.members[0].fullName : convo.members[1].fullName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chat-history-content"
       }, convo.lastSender === props.userInfo._id ? "You: " : null, convo.lastMessage.length > 22 ? "".concat(convo.lastMessage.slice(0, 16), "...") : convo.lastMessage, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "chat-history-time"
@@ -90198,7 +90205,7 @@ __webpack_require__.r(__webpack_exports__);
 var MessagePlaceholder = function MessagePlaceholder() {
   var arr = [];
 
-  for (var i = 0; i < 14; i++) {
+  for (var i = 0; i < 10; i++) {
     arr.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: "Msg".concat(i),
       className: "chat-message-wrapper"
@@ -90211,21 +90218,19 @@ var MessagePlaceholder = function MessagePlaceholder() {
     })));
   }
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "chat-display-chat-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-chat-parent"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-chat"
   }, arr.map(function (element) {
     return element;
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-chat-send-message-form"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text",
-    className: "chat-display-chat-message-field",
-    placeholder: "Type a message..."
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "image",
-    src: "../../../../assets/images/send.png"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "msg-placeholder-msg-field",
+    src: "../../../../assets/images/contentPlaceholder.png"
   })));
 };
 

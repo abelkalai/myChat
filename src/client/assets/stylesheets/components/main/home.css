@@ -1,14 +1,9 @@
-* {
-  font-family: Georgia, "Times New Roman", Times, serif;
-}
-
-
 .banner {
   grid-area: "banner";
   background-color: #00a8f3;
-  align-items: center;
   padding-bottom: 5px;
   padding-top: 2.5px;
+  display: flex;
 }
 
 .home-title {
@@ -16,18 +11,33 @@
   font-size: 44px;
   cursor: pointer;
   padding-left: 10px;
-  display: inline;
+  display: inline-block;
+}
+
+.user-container{
+  display: inline-block;
+  margin-left: 77vw;
 }
 
 .user {
-  padding-top: 5px;
-  margin-right: 10vh;
+  color: white;
+  margin-top: 5px;
   font-size: 24px;
-  float: right;
+  display: flex;
+}
+
+.home-image-container {
+  padding-right: 5px;
+}
+
+.home-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 .dropdown {
-  color: white;
+  margin-top: 10px;
   font-size: 24px;
   display: inline-block;
 }
@@ -38,20 +48,19 @@
 
 .dropdown-content {
   font-size: 18px;
-  margin-right: 10px;
   display: block;
   position: absolute;
   color: black;
   background-color: white;
-  min-width: 125px;
+  min-width: 100px;
   box-shadow: 0px 5px 5px 0px black;
-  padding: 10px 15px;
+  padding: 12.5px 12.5px;
   border-radius: 10px;
   z-index: 1;
 }
 
 .dropdown-content div {
-  padding: 10px 10px;
+  padding: 10px  10px;
   border-radius: 5px;
   text-decoration: none;
   display: block;
@@ -61,7 +70,6 @@
   background-position: 0px 6px;
   background-image: url("../../../images/profile.png");
   background-repeat: no-repeat;
-  padding-right: 10px;
 }
 
 .dropdown-profile:hover {
@@ -81,7 +89,6 @@
   background-position: 0px 6px;
   background-image: url("../../../images/settings.png");
   background-repeat: no-repeat;
-  padding-right: 10px;
 }
 
 .dropdown-settings:hover {
@@ -101,7 +108,6 @@
   background-position: 0px 6px;
   background-image: url("../../../images/logout.png");
   background-repeat: no-repeat;
-  padding-right: 10px;
 }
 
 .dropdown-logout:hover {
@@ -115,14 +121,4 @@
 
 .dropdown-logout-content {
   padding-left: 20px;
-}
-
-.home-image-container{
-  padding: 20px 5px 0 0;
-}
-
-.home-image {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%
 }

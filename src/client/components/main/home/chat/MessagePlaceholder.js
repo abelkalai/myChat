@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 const MessagePlaceholder = () => {
   const arr = [];
-  for (let i = 0; i < 14; i++) {
+  for (let i = 0; i < 10; i++) {
     arr.push(
       <div key={`Msg${i}`} className="chat-message-wrapper">
         {i % 2 === 0 ? (
@@ -20,15 +20,16 @@ const MessagePlaceholder = () => {
     );
   }
   return (
-    <div className="chat-display-chat-parent">
-      <div className="chat-display-chat">{arr.map((element) => element)}</div>
+    <div>
+      <div className="chat-display-chat-container">
+        <div className="chat-display-chat-parent">
+          <div className="chat-display-chat">
+            {arr.map((element) => element)}
+          </div>
+        </div>
+      </div>
       <div className="chat-display-chat-send-message-form">
-        <input
-          type="text"
-          className="chat-display-chat-message-field"
-          placeholder="Type a message..."
-        />
-        <input type="image" src="../../../../assets/images/send.png" />
+          <img className="msg-placeholder-msg-field" src="../../../../assets/images/contentPlaceholder.png"/>
       </div>
     </div>
   );

@@ -37,7 +37,7 @@ const History = (props) => {
       </div>
     );
   }
-  
+
   let unreadMsgs = props.convoHistory.data.getConversations.filter(
     (convo) => convo.unread === true && convo.lastSender != props.userInfo._id
   ).length;
@@ -84,31 +84,22 @@ const History = (props) => {
                 changeChat(convo.members, convo._id);
               }}
             >
-              {convo.members[0]._id != props.userInfo._id ? (
-                <Fragment>
-                  <div className="chat-history-img-container">
-                    <img
-                      className="chat-history-wrapper-img"
-                      src={`data:image/png;base64,${convo.members[0].profilePicture}`}
-                    />
-                  </div>
-                  <div className="chat-history-name-header">
-                    {convo.members[0].fullName}
-                  </div>
-                </Fragment>
-              ) : (
-                <Fragment>
-                  <div className="chat-history-img-container">
-                    <img
-                      className="chat-history-wrapper-img"
-                      src={`data:image/png;base64,${convo.members[1].profilePicture}`}
-                    />
-                  </div>
-                  <div className="chat-history-name-header">
-                    {convo.members[1].fullName}
-                  </div>
-                </Fragment>
-              )}
+              <div className="chat-history-img-container">
+                <img
+                  className="chat-history-wrapper-img"
+                  src={`data:image/png;base64,${
+                    convo.members[0]._id != props.userInfo._id
+                      ? convo.members[0].profilePicture
+                      : convo.members[1].profilePicture
+                  }`}
+                />
+              </div>
+              <div className="chat-history-name-header">
+                {convo.members[0]._id != props.userInfo._id
+                  ? convo.members[0].fullName
+                  : convo.members[1].fullName}
+              </div>
+
               <div className="chat-history-content">
                 {convo.lastSender === props.userInfo._id ? "You: " : null}
                 {convo.lastMessage.length > 22
@@ -125,7 +116,7 @@ const History = (props) => {
     );
   };
 
-  return <Fragment>{displayHistory()}</Fragment>
+  return <Fragment>{displayHistory()}</Fragment>;
 };
 
 export default History;
