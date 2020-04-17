@@ -25034,7 +25034,7 @@ function _defineProperty(e,r,n){return r in e?Object.defineProperty(e,r,{value:n
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "* {\r\n  font-family: Georgia, \"Times New Roman\", Times, serif;\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\ninput:focus, textarea:focus, select:focus{\r\n  outline: none;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n.sign-up {\r\n  display: inline-block;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  width: 15%;\r\n}\r\n\r\n.sign-up-input {\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding: 7.5px;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n  font-size: 12px;\r\n  display: relative;\r\n}\r\n\r\n.link {\r\n  text-decoration: none;\r\n  color: black;\r\n}\r\n\r\n.button:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 7.5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  background: grey;\r\n  border-radius: 7.5px;\r\n}\r\n", ""]);
+exports.push([module.i, "* {\r\n  font: \"San Francisco\";\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\ninput:focus, textarea:focus, select:focus{\r\n  outline: none;\r\n}\r\n\r\nbutton{\r\n  padding: 2px;\r\n  border-radius: 2.5px;\r\n}\r\n\r\nbutton:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n.sign-up {\r\n  display: inline-block;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  width: 15%;\r\n}\r\n\r\n.sign-up-input {\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding: 7.5px;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n  font-size: 12px;\r\n  display: relative;\r\n}\r\n\r\n.link {\r\n  text-decoration: none;\r\n  color: black;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 7.5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  background: grey;\r\n  border-radius: 7.5px;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25055,7 +25055,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../../../images/sear
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-exports.push([module.i, ".chat-main {\r\n  display: grid;\r\n  grid-template-columns: 27.5% 72.5%;\r\n  grid-template-areas: \"left right\";\r\n  margin-right: 0px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-left {\r\n  grid-area: left;\r\n  border-right: 1px solid #dcdcdc;\r\n}\r\n\r\n.chat-search {\r\n  font-size: 18px;\r\n  padding-top: 10px;\r\n  padding-left: 12.5px;\r\n}\r\n\r\n.searchContacts {\r\n  padding: 10px;\r\n  background-position:  2.5px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 30px;\r\n  width: 87.5%;\r\n  border-radius: 10px;\r\n}\r\n\r\n.chat-dropdown {\r\n  display: inline-block;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  width: 100%;\r\n  padding-top: 10px;\r\n  padding-left: 10px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n}\r\n\r\n.chat-dropdown div {\r\n  padding: 10px 5px 10px 5px;\r\n  border-radius: 15px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.chat-dropdown div:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-dropdown span {\r\n  padding-right: 5px;\r\n}\r\n\r\n.chat-dropdown img {\r\n  width: 30px;\r\n  height: 30px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-display-parent {\r\n  grid-area: \"right\";\r\n  display: grid;\r\n  grid-template-columns: 66% 33%;\r\n  grid-template-areas: \"chat about\";\r\n  height: 100%;\r\n}\r\n\r\n\r\n\r\n", ""]);
+exports.push([module.i, ".chat-main {\r\n  display: grid;\r\n  grid-template-columns: 27.5% 72.5%;\r\n  grid-template-areas: \"left right\";\r\n  margin-right: 0px;\r\n  width: 100%;\r\n  font-size: 18px;\r\n}\r\n\r\n.chat-left {\r\n  grid-area: left;\r\n  border-right: 1px solid #dcdcdc;\r\n}\r\n\r\n.chat-search {\r\n  font-size: 18px;\r\n  padding-top: 10px;\r\n  padding-left: 12.5px;\r\n}\r\n\r\n.searchContacts {\r\n  padding: 10px;\r\n  background-position: 2.5px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 30px;\r\n  width: 87.5%;\r\n  border-radius: 10px;\r\n}\r\n\r\n.chat-dropdown {\r\n  display: inline-block;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  width: 100%;\r\n  padding-top: 10px;\r\n  padding-left: 10px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n}\r\n\r\n.chat-dropdown div {\r\n  padding: 10px 5px 10px 5px;\r\n  border-radius: 15px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.chat-dropdown div:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-dropdown span {\r\n  padding-right: 5px;\r\n}\r\n\r\n.chat-dropdown img {\r\n  width: 30px;\r\n  height: 30px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-display-parent {\r\n  grid-area: \"right\";\r\n  display: grid;\r\n  grid-template-columns: 66% 33%;\r\n  grid-template-areas: \"chat about\";\r\n  height: 100%;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25109,7 +25109,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\r\n.chat-display-chat-parent {\r\n    grid-area: \"chat\";\r\n    position: relative;\r\n  }\r\n\r\n.chat-display-chat-container{\r\n  min-height: 83vh;\r\n}\r\n  \r\n  .chat-display-chat {\r\n    margin-top: 5px;\r\n    max-height: 83vh;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n    display: flex;\r\n    flex-direction: column-reverse;\r\n  }\r\n  \r\n  .chat-display-chat-send-message-form {\r\n    display: flex;\r\n    margin-top: 15px;\r\n    margin-left: 15px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .chat-display-chat-message-field {\r\n    padding: 2.5px;\r\n    padding-left: 5px;\r\n    font-size: 18px;\r\n    border-radius: 5px;\r\n    width: 90%\r\n  }\r\n\r\n  .chat-display-chat-message-image{\r\n    margin-left: 2px;\r\n    margin-bottom: 2px;\r\n  }\r\n\r\n  .msg-placeholder-msg-field{\r\n    height: 25px;\r\n    width: 715px;\r\n  }\r\n\r\n  \r\n  .msg-placeholder-img-me{\r\n    float: right;\r\n    width: 35vh;\r\n    height: 3vh;\r\n    padding: 6px 8px 6px 8px;\r\n    margin-right: 8px;\r\n  }\r\n  \r\n  .msg-placeholder-img-contact{\r\n    float: left;\r\n    padding: 6px 8px 6px 8px;\r\n    width: 35vh;\r\n    height: 3vh;\r\n    margin-left: 8px;\r\n  }\r\n  \r\n  .chat-message-wrapper {\r\n    font-size: 18px;\r\n    display: inline-block;\r\n    padding: 3px 3px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .chat-my-message {\r\n    color: white;\r\n    background-color: #0099ff;\r\n    padding: 6px 10px 6px 10px;\r\n    float: right;\r\n    max-width: 60%;\r\n    margin-right: 8px;\r\n    border-radius: 15px;\r\n    word-wrap: break-word;\r\n  }\r\n  \r\n  .chat-contact-message {\r\n    background-color: #f1f0f0;\r\n    padding: 6px 10px 6px 10px;\r\n    float: left;\r\n    max-width: 60%;\r\n    margin-left: 8px;\r\n    border-radius: 15px;\r\n    word-wrap: break-word;\r\n  }\r\n  ", ""]);
+exports.push([module.i, ".chat-display-chat-parent {\r\n  grid-area: \"chat\";\r\n  position: relative;\r\n}\r\n\r\n.chat-display-chat-container {\r\n  min-height: 83vh;\r\n}\r\n\r\n.chat-display-chat {\r\n  margin-top: 5px;\r\n  max-height: 83vh;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  display: flex;\r\n  flex-direction: column-reverse;\r\n}\r\n\r\n.chat-display-chat-send-message-form {\r\n  display: flex;\r\n  margin-top: 15px;\r\n  margin-left: 15px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-display-chat-message-field {\r\n  padding: 2.5px;\r\n  padding-left: 5px;\r\n  font-size: 18px;\r\n  border-radius: 5px;\r\n  width: 90%;\r\n}\r\n\r\n.chat-display-chat-message-image {\r\n  margin-left: 2px;\r\n  margin-bottom: 2px;\r\n}\r\n\r\n.msg-placeholder-msg-field {\r\n  height: 25px;\r\n  width: 45vw;\r\n}\r\n\r\n.msg-placeholder-img-me {\r\n  float: right;\r\n  width: 35vh;\r\n  height: 3vh;\r\n  padding: 6px 8px 6px 8px;\r\n  margin-right: 8px;\r\n}\r\n\r\n.msg-placeholder-img-contact {\r\n  float: left;\r\n  padding: 6px 8px 6px 8px;\r\n  width: 35vh;\r\n  height: 3vh;\r\n  margin-left: 8px;\r\n}\r\n\r\n.chat-message-wrapper {\r\n  font-size: 18px;\r\n  display: inline-block;\r\n  padding: 3px 3px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-my-message {\r\n  color: white;\r\n  background-color: #0099ff;\r\n  padding: 6px 10px 6px 10px;\r\n  float: right;\r\n  max-width: 60%;\r\n  margin-right: 8px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-contact-message {\r\n  background-color: #f1f0f0;\r\n  padding: 6px 10px 6px 10px;\r\n  float: left;\r\n  max-width: 60%;\r\n  margin-left: 8px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25140,7 +25140,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_
 var ___CSS_LOADER_URL_REPLACEMENT_4___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_4___);
 var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___);
 // Module
-exports.push([module.i, ".banner {\r\n  grid-area: \"banner\";\r\n  background-color: #00a8f3;\r\n  padding-bottom: 5px;\r\n  padding-top: 2.5px;\r\n  display: flex;\r\n}\r\n\r\n.home-title {\r\n  color: white;\r\n  font-size: 44px;\r\n  cursor: pointer;\r\n  padding-left: 10px;\r\n  display: inline-block;\r\n}\r\n\r\n.user-container{\r\n  display: inline-block;\r\n  margin-left: 77vw;\r\n}\r\n\r\n.user {\r\n  color: white;\r\n  margin-top: 5px;\r\n  font-size: 24px;\r\n  display: flex;\r\n}\r\n\r\n.home-image-container {\r\n  padding-right: 5px;\r\n}\r\n\r\n.home-image {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.dropdown {\r\n  margin-top: 10px;\r\n  font-size: 24px;\r\n  display: inline-block;\r\n}\r\n\r\n.dropdown:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-content {\r\n  font-size: 18px;\r\n  display: block;\r\n  position: absolute;\r\n  color: black;\r\n  background-color: white;\r\n  min-width: 100px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  padding: 12.5px 12.5px;\r\n  border-radius: 10px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-content div {\r\n  padding: 10px  10px;\r\n  border-radius: 5px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.dropdown-profile {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-profile:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-profile-content {\r\n  padding-left: 17.5px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-settings:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-position: 0px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-logout:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 0px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  padding-left: 20px;\r\n}\r\n", ""]);
+exports.push([module.i, ".banner {\r\n  grid-area: \"banner\";\r\n  background-color: #00a8f3;\r\n  padding-bottom: 5px;\r\n  padding-top: 2.5px;\r\n  display: flex;\r\n}\r\n\r\n.home-title {\r\n  color: white;\r\n  font-size: 44px;\r\n  cursor: pointer;\r\n  padding-left: 15px;\r\n  display: inline-block;\r\n}\r\n\r\n.user-container{\r\n  display: inline-block;\r\n  margin-left: 77vw;\r\n}\r\n\r\n.user {\r\n  color: white;\r\n  margin-top: 5px;\r\n  font-size: 24px;\r\n  display: flex;\r\n}\r\n\r\n.home-image-container {\r\n  padding-right: 5px;\r\n}\r\n\r\n.home-image {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.dropdown {\r\n  margin-top: 10px;\r\n  font-size: 24px;\r\n  display: inline-block;\r\n}\r\n\r\n.dropdown:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-content {\r\n  font-size: 18px;\r\n  display: block;\r\n  position: absolute;\r\n  color: black;\r\n  background-color: white;\r\n  min-width: 100px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  padding: 12.5px 12.5px;\r\n  border-radius: 10px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-content div {\r\n  padding: 10px  10px;\r\n  border-radius: 8px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.dropdown-profile {\r\n  background-position: 2.5px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-left: 5px;\r\n}\r\n\r\n.dropdown-profile:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-profile-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-position: 2.5px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-settings:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  padding-left: 22.5px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-position: 2.5px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-logout:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  padding-left: 23.5px;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25176,7 +25176,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".main-settings {\r\n  margin-left: 65px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 22.5% 70%;\r\n  grid-template-areas: \"left right\";\r\n}\r\n\r\n.main-left {\r\n  grid-area: left;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-dropdown div {\r\n  margin: 10px 10px;\r\n  padding: 10px;\r\n}\r\n\r\n.settings-dropdown div:hover {\r\n  background-color: grey;\r\n}\r\n\r\n.main-right{\r\n    grid-area: right;\r\n}\r\n\r\n.main-right div{\r\n    grid-area: right;\r\n    padding: 10px;\r\n}\r\n\r\n.form{\r\n  display: inline-block;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  width: 25%\r\n}\r\n\r\n.form div{\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding: 7.5px;\r\n}\r\n\r\n.button{\r\n  font-size: 20px\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".main-settings {\r\n  margin-left: 65px;\r\n  margin-top: 10px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 22.5% 70%;\r\n  grid-template-areas: \"left right\";\r\n}\r\n\r\n.main-left {\r\n  grid-area: left;\r\n  width: 95%;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-active-tab {\r\n  background-color: #ecf2fe;\r\n  margin: 10px 10px;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  display: flex;\r\n}\r\n\r\n.settings-tab {\r\n  margin: 10px 10px;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  display: flex;\r\n}\r\n\r\n.general-content {\r\n  padding-left: 8.5px;\r\n  padding-top: 2.5px;\r\n}\r\n\r\n.general-settings-image {\r\n  width: 30px;\r\n  height: 30px;\r\n}\r\n\r\n.security-content {\r\n  padding-left: 8.5px;\r\n  padding-top: 2.5px;\r\n}\r\n\r\n.security-settings-image {\r\n  width: 30px;\r\n  height: 30px;\r\n}\r\n\r\n.settings-tab:hover {\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.main-right {\r\n  grid-area: right;\r\n}\r\n\r\n.main-right input {\r\n  margin-left: 7.5px;\r\n}\r\n\r\n.change {\r\n  font-size: 20px;\r\n  float: right;\r\n  color: blue;\r\n  border: none;\r\n}\r\n\r\n.change:hover {\r\n  text-decoration: underline;\r\n  cursor: pointer;\r\n}\r\n\r\n.bold-text {\r\n  font-weight: bold;\r\n}\r\n\r\n.settings-divider-container {\r\n  border-bottom: 1px solid black;\r\n}\r\n\r\n.settings-divider-inside {\r\n  border-bottom: 1px solid #dcdcdc;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-divider-inside-single {\r\n  border-bottom: 1px solid black;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-save-changes {\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  border-color: #00a8f3;\r\n  margin-top: 7.5px;\r\n  margin-right: 5px;\r\n  margin-left: 20.75%;\r\n}\r\n\r\n.settings-cancel-changes {\r\n  color: #696969;\r\n  margin-top: 7.5px;\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.settings-form{\r\n  margin-top: 5px;\r\n}\r\n.label-settings-form, .input-settings-form {\r\n  display: inline-block;\r\n}\r\n\r\n.label-settings-form {\r\n  width: 30%;\r\n  text-align: right;\r\n}\r\n\r\n.label-settings-form + .input-settings-form {\r\n  width: 20%;\r\n}\r\n\r\n.input-settings-form + .input-settings-form {\r\n  float: right;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -87348,7 +87348,7 @@ var CHECK_EMAIL = graphql_tag__WEBPACK_IMPORTED_MODULE_5___default()(_templateOb
 
 var Forgot = function Forgot(props) {
   document.title = "Forgot ".concat(props.type, " | MyChat");
-  var emailForm = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])();
+  var emailForm = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])("");
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState2 = _slicedToArray(_useState, 2),
@@ -87602,8 +87602,8 @@ var Login = function Login(props) {
       sendUser = _useState6[0],
       setSendUser = _useState6[1];
 
-  var user = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])();
-  var pass = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])();
+  var user = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])("");
+  var pass = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])("");
 
   var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("login"),
       _useState8 = _slicedToArray(_useState7, 2),
@@ -87857,13 +87857,13 @@ var Signup = function Signup(props) {
       page = _useState12[0],
       setPage = _useState12[1];
 
-  var firstNameSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])();
-  var lastNameSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])();
-  var emailSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])();
-  var userSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])();
-  var passSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])();
-  var confirmPassSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])();
-  var confirmNumber = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])();
+  var firstNameSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
+  var lastNameSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
+  var emailSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
+  var userSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
+  var passSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
+  var confirmPassSign = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
+  var confirmNumber = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
 
   var submit = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
@@ -87999,7 +87999,7 @@ var Signup = function Signup(props) {
       className: "center"
     }, verifyUser === "" && props.fromLogin != true && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
       to: "/"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Thanks for signing up your username is ".concat(verifyUser ? verifyUser : userSign.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Please check your email at: ".concat(getEmail.data.getEmail != "" ? getEmail.data.getEmail : emailSign.value, " \n          Please don't leave this page until you have confirmed your email address.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    }), "\"\"", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Thanks for signing up your username is ".concat(verifyUser ? verifyUser : userSign.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Please check your email at: ".concat(getEmail.data.getEmail != "" ? getEmail.data.getEmail : emailSign.value, " \n          Please don't leave this page until you have confirmed your email address.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       onSubmit: confirmEmail
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Enter your confirmation code here:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       type: "text",
@@ -88108,8 +88108,8 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
-var useFieldInput = function useFieldInput() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+var useFieldInput = function useFieldInput(initialValue) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(initialValue),
       _useState2 = _slicedToArray(_useState, 2),
       value = _useState2[0],
       setValue = _useState2[1];
@@ -88219,7 +88219,7 @@ var EDIT_IMAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templ
 
 var Profile = function Profile(props) {
   document.title = "Profile | MyChat";
-  var aboutField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])();
+  var aboutField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])("");
   var aboutUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useQuery"])(GET_ABOUT, {
     variables: {
       _id: props.userInfo._id
@@ -88488,11 +88488,272 @@ var Profile = function Profile(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+/* harmony import */ var _editInfo_EditName__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editInfo/EditName */ "./src/client/components/main/account/settings/editInfo/EditName.js");
+/* harmony import */ var _editInfo_EditUsername__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./editInfo/EditUsername */ "./src/client/components/main/account/settings/editInfo/EditUsername.js");
+/* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/settings.css */ "./src/client/assets/stylesheets/components/main/settings.css");
+/* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_3__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var General = function General(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      showNameForm = _useState2[0],
+      setShowNameForm = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      showUserForm = _useState4[0],
+      setShowUserForm = _useState4[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    props.setActiveTab("general");
+  }, []);
+
+  var nameSection = function nameSection() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "settings-divider-inside"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "bold-text"
+    }, "Name "), !showNameForm ? "".concat(props.userInfo.fullName) : null, !showNameForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "change",
+      onClick: function onClick() {
+        setShowNameForm(true);
+      }
+    }, "Edit") : null, showNameForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editInfo_EditName__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      userInfo: props.userInfo,
+      setUserInfo: props.setUserInfo,
+      setShowNameForm: setShowNameForm
+    }));
+  };
+
+  var usernameSection = function usernameSection() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "settings-divider-inside"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "bold-text"
+    }, " Username "), "".concat(props.userInfo.username), !showUserForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "change",
+      onClick: function onClick() {
+        setShowUserForm(true);
+      }
+    }, "Edit") : null, showUserForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editInfo_EditUsername__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      userInfo: props.userInfo,
+      setUserInfo: props.setUserInfo,
+      setShowUserForm: setShowUserForm
+    }));
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "main-right"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "settings-divider-container"
+  }, "General Settings"), nameSection(), usernameSection(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "settings-divider-inside-single"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "bold-text"
+  }, "Email "), " ", "".concat(props.userInfo.email)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (General);
+
+/***/ }),
+
+/***/ "./src/client/components/main/account/settings/Security.js":
+/*!*****************************************************************!*\
+  !*** ./src/client/components/main/account/settings/Security.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _editInfo_EditPassword__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editInfo/EditPassword */ "./src/client/components/main/account/settings/editInfo/EditPassword.js");
+/* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/settings.css */ "./src/client/assets/stylesheets/components/main/settings.css");
+/* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_2__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+var Security = function Security(props) {
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    props.setActiveTab("security");
+  }, []);
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      showPasswordForm = _useState2[0],
+      setShowPasswordForm = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      sendHome = _useState4[0],
+      setSendHome = _useState4[1];
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "main-right"
+  }, sendHome && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Redirect, {
+    to: "/"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "settings-divider-container"
+  }, "Security "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "settings-divider-inside-single"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "bold-text"
+  }, "Change Password "), "(You'll be required to re-login upon changing your password)", !showPasswordForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "change",
+    onClick: function onClick() {
+      setShowPasswordForm(true);
+    }
+  }, "Edit") : null, showPasswordForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editInfo_EditPassword__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    setSendHome: setSendHome,
+    userInfo: props.userInfo,
+    setActiveUser: props.setActiveUser,
+    setIgnoreCookie: props.setIgnoreCookie,
+    setShowPasswordForm: setShowPasswordForm
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Security);
+
+/***/ }),
+
+/***/ "./src/client/components/main/account/settings/Settings.js":
+/*!*****************************************************************!*\
+  !*** ./src/client/components/main/account/settings/Settings.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _General__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./General */ "./src/client/components/main/account/settings/General.js");
+/* harmony import */ var _Security__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Security */ "./src/client/components/main/account/settings/Security.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/settings.css */ "./src/client/assets/stylesheets/components/main/settings.css");
 /* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_4__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+var Settings = function Settings(props) {
+  document.title = "Settings | MyChat";
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      activeTab = _useState2[0],
+      setActiveTab = _useState2[1];
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "main-settings"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "main-left"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Settings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "settings-dropdown"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+    to: "/home/settings/general",
+    className: "link"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: activeTab === "general" ? "settings-active-tab" : "settings-tab"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "general-settings-image",
+    src: "../../../../assets/images/generalSettings.png"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "general-content"
+  }, "General"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+    to: "/home/settings/security",
+    className: "link"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: activeTab === "security" ? "settings-active-tab" : "settings-tab"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "security-settings-image",
+    src: "../../../../assets/images/securitySettings.png"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "security-content"
+  }, "Security "))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    path: "/home/settings/general",
+    render: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_General__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        userInfo: props.userInfo,
+        setUserInfo: props.setUserInfo,
+        setActiveTab: setActiveTab
+      });
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    path: "/home/settings/security",
+    render: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Security__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        userInfo: props.userInfo,
+        setIgnoreCookie: props.setIgnoreCookie,
+        setActiveUser: props.setActiveUser,
+        setActiveTab: setActiveTab
+      });
+    }
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Settings);
+
+/***/ }),
+
+/***/ "./src/client/components/main/account/settings/editInfo/EditName.js":
+/*!**************************************************************************!*\
+  !*** ./src/client/components/main/account/settings/editInfo/EditName.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -88515,16 +88776,6 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  mutation changeUserName($_id: String!, $username: String!) {\n    changeUserName(_id: $_id, username: $username)\n  }\n"]);
-
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
 function _templateObject() {
   var data = _taggedTemplateLiteral(["\n  mutation changeName($_id: String!, $firstName: String!, $lastName: String!) {\n    changeName(_id: $_id, firstName: $firstName, lastName: $lastName)\n  }\n"]);
 
@@ -88541,65 +88792,15 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-
 var CHANGE_NAME = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject());
-var CHANGE_USERNAME = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject2());
 
-var General = function General(props) {
+var EditName = function EditName(props) {
   var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(CHANGE_NAME),
       _useMutation2 = _slicedToArray(_useMutation, 1),
       changeName = _useMutation2[0];
 
-  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(CHANGE_USERNAME),
-      _useMutation4 = _slicedToArray(_useMutation3, 1),
-      changeUserName = _useMutation4[0];
-
-  var firstNamefield = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])();
-  var lastNameField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])();
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      showNameForm = _useState2[0],
-      setShowNameForm = _useState2[1];
-
-  var userField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])();
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      showUserForm = _useState4[0],
-      setShowUserForm = _useState4[1];
-
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
-      _useState6 = _slicedToArray(_useState5, 2),
-      userError = _useState6[0],
-      setUserError = _useState6[1];
-
-  var nameSection = function nameSection() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Name: ", "".concat(props.userInfo.firstName, " ").concat(props.userInfo.lastName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      type: "button",
-      className: "button",
-      onClick: function onClick() {
-        setShowNameForm(!showNameForm);
-      }
-    }, !showNameForm ? "Edit" : "Close"));
-  };
-
-  var nameForm = function nameForm() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-      className: "form",
-      onSubmit: changeNameCallBack
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " First Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      required: true,
-      value: firstNamefield.value,
-      onChange: firstNamefield.onChange
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Last Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      required: true,
-      value: lastNameField.value,
-      onChange: lastNameField.onChange
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      type: "submit"
-    }, " Save Changes ")));
-  };
+  var firstNamefield = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])(props.userInfo.firstName);
+  var lastNameField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])(props.userInfo.lastName);
 
   var changeNameCallBack = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
@@ -88628,10 +88829,8 @@ var General = function General(props) {
                 lastName: lastName,
                 fullName: "".concat(firstName, " ").concat(lastName)
               }));
-              firstNamefield.clear();
-              lastNameField.clear();
 
-            case 9:
+            case 7:
             case "end":
               return _context.stop();
           }
@@ -88644,104 +88843,43 @@ var General = function General(props) {
     };
   }();
 
-  var usernameSection = function usernameSection() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Username: ", "".concat(props.userInfo.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      type: "button",
-      className: "button",
-      onClick: function onClick() {
-        setShowUserForm(!showUserForm);
-      }
-    }, !showUserForm ? "Edit" : "Close"));
-  };
-
-  var userNameForm = function userNameForm() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-      className: "form",
-      onSubmit: changeUserCallBack
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Username"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      required: true,
-      value: userField.value,
-      onChange: userField.onChange
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "error"
-    }, userError)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      type: "submit"
-    }, " Save Changes ")));
-  };
-
-  var changeUserCallBack = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(event) {
-      var _id, username, result;
-
-      return regeneratorRuntime.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              event.preventDefault();
-
-              if (!(userField.value === props.userInfo.username)) {
-                _context2.next = 4;
-                break;
-              }
-
-              setUserError("You're currently using this username");
-              return _context2.abrupt("return");
-
-            case 4:
-              _id = props.userInfo._id;
-              username = userField.value;
-              _context2.next = 8;
-              return changeUserName({
-                variables: {
-                  _id: _id,
-                  username: username
-                }
-              });
-
-            case 8:
-              result = _context2.sent;
-
-              if (!(result.data.changeUserName != "Success")) {
-                _context2.next = 12;
-                break;
-              }
-
-              setUserError(result.data.changeUserName);
-              return _context2.abrupt("return");
-
-            case 12:
-              setUserError(null);
-              props.setUserInfo(_objectSpread({}, props.userInfo, {
-                username: username
-              }));
-              userField.clear();
-
-            case 15:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    return function changeUserCallBack(_x2) {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "main-right"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "General Settings"), nameSection(), showNameForm && nameForm(), usernameSection(), showUserForm && userNameForm(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Email: ", "".concat(props.userInfo.email)));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    className: "settings-form",
+    onSubmit: changeNameCallBack
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    className: "label-settings-form"
+  }, " First Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "input-settings-form",
+    required: true,
+    value: firstNamefield.value,
+    onChange: firstNamefield.onChange
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    className: "label-settings-form"
+  }, " Last Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "input-settings-form",
+    required: true,
+    value: lastNameField.value,
+    onChange: lastNameField.onChange
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "settings-save-changes",
+    type: "submit"
+  }, "Save Changes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "settings-cancel-changes",
+    type: "button",
+    onClick: function onClick() {
+      props.setShowNameForm(false);
+    }
+  }, "Cancel")));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (General);
+/* harmony default export */ __webpack_exports__["default"] = (EditName);
 
 /***/ }),
 
-/***/ "./src/client/components/main/account/settings/Security.js":
-/*!*****************************************************************!*\
-  !*** ./src/client/components/main/account/settings/Security.js ***!
-  \*****************************************************************/
+/***/ "./src/client/components/main/account/settings/editInfo/EditPassword.js":
+/*!******************************************************************************!*\
+  !*** ./src/client/components/main/account/settings/editInfo/EditPassword.js ***!
+  \******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -88749,12 +88887,9 @@ var General = function General(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
-/* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/settings.css */ "./src/client/assets/stylesheets/components/main/settings.css");
-/* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -88787,18 +88922,16 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+var CHANGE_PASSWORD = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject());
 
-
-var CHANGE_PASSWORD = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_4__["gql"])(_templateObject());
-
-var Security = function Security(props) {
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(CHANGE_PASSWORD),
+var EditPassword = function EditPassword(props) {
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(CHANGE_PASSWORD),
       _useMutation2 = _slicedToArray(_useMutation, 1),
       changePassword = _useMutation2[0];
 
-  var currentPass = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])();
-  var newPass = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])();
-  var newPassConfirm = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])();
+  var currentPasswordField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])("");
+  var newPasswordField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])("");
+  var newPasswordConfirmField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])("");
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState2 = _slicedToArray(_useState, 2),
@@ -88810,46 +88943,6 @@ var Security = function Security(props) {
       newPasswordError = _useState4[0],
       setNewPasswordError = _useState4[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState6 = _slicedToArray(_useState5, 2),
-      sendHome = _useState6[0],
-      setSendHome = _useState6[1];
-
-  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState8 = _slicedToArray(_useState7, 2),
-      showForm = _useState8[0],
-      setShowForm = _useState8[1];
-
-  var passwordForm = function passwordForm() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-      onSubmit: changePasswordCallBack,
-      className: "form"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Current Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      required: true,
-      type: "password",
-      value: currentPass.value,
-      onChange: currentPass.onChange
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "error"
-    }, currentPasswordError)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " New Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      required: true,
-      type: "password",
-      value: newPass.value,
-      onChange: newPass.onChange
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "error"
-    }, newPasswordError)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Confirm New Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      required: true,
-      type: "password",
-      value: newPassConfirm.value,
-      onChange: newPassConfirm.onChange
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "error"
-    }, newPasswordError)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      type: "submit"
-    }, " Save Changes ")));
-  };
-
   var changePasswordCallBack = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
       var _id, currentPassword, newPassword, result;
@@ -88860,7 +88953,7 @@ var Security = function Security(props) {
             case 0:
               event.preventDefault();
 
-              if (!(newPass.value != newPassConfirm.value)) {
+              if (!(newPasswordField.value != newPasswordConfirmField.value)) {
                 _context.next = 4;
                 break;
               }
@@ -88871,8 +88964,8 @@ var Security = function Security(props) {
             case 4:
               setNewPasswordError(null);
               _id = props.userInfo._id;
-              currentPassword = currentPass.value;
-              newPassword = newPass.value;
+              currentPassword = currentPasswordField.value;
+              newPassword = newPasswordField.value;
               _context.next = 10;
               return changePassword({
                 variables: {
@@ -88923,27 +89016,58 @@ var Security = function Security(props) {
     };
   }();
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "main-right"
-  }, sendHome && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
-    to: "/"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Security "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Change Password (You'll be required to re-login upon changing your password)", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    type: "button",
-    className: "button",
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    className: "settings-form",
+    onSubmit: changePasswordCallBack
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    className: "label-settings-form"
+  }, " Current Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "input-settings-form ",
+    required: true,
+    type: "password",
+    value: currentPasswordField.value,
+    onChange: currentPasswordField.onChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "error"
+  }, currentPasswordError)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    className: "label-settings-form"
+  }, " New Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "input-settings-form ",
+    required: true,
+    type: "password",
+    value: newPasswordField.value,
+    onChange: newPasswordField.onChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "error"
+  }, newPasswordError)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    className: "label-settings-form"
+  }, " Confirm New Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "input-settings-form ",
+    required: true,
+    type: "password",
+    value: newPasswordConfirmField.value,
+    onChange: newPasswordConfirmField.onChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "error"
+  }, newPasswordError)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "settings-save-changes",
+    type: "submit"
+  }, "Save Changes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "settings-cancel-changes",
     onClick: function onClick() {
-      setShowForm(!showForm);
+      props.setShowPasswordForm(false);
     }
-  }, !showForm ? "Edit" : "Close")), showForm && passwordForm(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Make sure you change your password if you used recently forgot password."));
+  }, "Cancel")));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Security);
+/* harmony default export */ __webpack_exports__["default"] = (EditPassword);
 
 /***/ }),
 
-/***/ "./src/client/components/main/account/settings/Settings.js":
-/*!*****************************************************************!*\
-  !*** ./src/client/components/main/account/settings/Settings.js ***!
-  \*****************************************************************/
+/***/ "./src/client/components/main/account/settings/editInfo/EditUsername.js":
+/*!******************************************************************************!*\
+  !*** ./src/client/components/main/account/settings/editInfo/EditUsername.js ***!
+  \******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -88951,60 +89075,144 @@ var Security = function Security(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _General__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./General */ "./src/client/components/main/account/settings/General.js");
-/* harmony import */ var _Security__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Security */ "./src/client/components/main/account/settings/Security.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/settings.css */ "./src/client/assets/stylesheets/components/main/settings.css");
-/* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  mutation changeUserName($_id: String!, $username: String!) {\n    changeUserName(_id: $_id, username: $username)\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
 
 
+var CHANGE_USERNAME = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject());
 
-var Settings = function Settings(props) {
-  document.title = "Settings | MyChat";
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "main-settings"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "main-left"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Settings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "settings-dropdown"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
-    to: "/home/settings/general",
-    className: "link"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "settings-dropdown-general"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "settings-dropdown-general-content"
-  }, "General"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
-    to: "/home/settings/security",
-    className: "link"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "settings-dropdown-security"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "settings-dropdown-security-content"
-  }, "Security"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: "/home/settings/general",
-    render: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_General__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        userInfo: props.userInfo,
-        setUserInfo: props.setUserInfo
-      });
+var EditUsername = function EditUsername(props) {
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(CHANGE_USERNAME),
+      _useMutation2 = _slicedToArray(_useMutation, 1),
+      changeUserName = _useMutation2[0];
+
+  var userField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])(props.userInfo.username);
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      userError = _useState2[0],
+      setUserError = _useState2[1];
+
+  var changeUserCallBack = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
+      var _id, username, result;
+
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              event.preventDefault();
+
+              if (!(userField.value === props.userInfo.username)) {
+                _context.next = 4;
+                break;
+              }
+
+              setUserError("You're currently using this username");
+              return _context.abrupt("return");
+
+            case 4:
+              _id = props.userInfo._id;
+              username = userField.value;
+              _context.next = 8;
+              return changeUserName({
+                variables: {
+                  _id: _id,
+                  username: username
+                }
+              });
+
+            case 8:
+              result = _context.sent;
+
+              if (!(result.data.changeUserName != "Success")) {
+                _context.next = 12;
+                break;
+              }
+
+              setUserError(result.data.changeUserName);
+              return _context.abrupt("return");
+
+            case 12:
+              setUserError(null);
+              props.setUserInfo(_objectSpread({}, props.userInfo, {
+                username: username
+              }));
+
+            case 14:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function changeUserCallBack(_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    className: "settings-form",
+    onSubmit: changeUserCallBack
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    className: "label-settings-form"
+  }, " Username"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "input-settings-form",
+    required: true,
+    value: userField.value,
+    onChange: userField.onChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "error"
+  }, userError)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "settings-save-changes",
+    type: "submit"
+  }, "Save Changes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "settings-cancel-changes",
+    onClick: function onClick() {
+      props.setShowUserForm(false);
     }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
-    path: "/home/settings/security",
-    render: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Security__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        userInfo: props.userInfo,
-        setIgnoreCookie: props.setIgnoreCookie,
-        setActiveUser: props.setActiveUser
-      });
-    }
-  }));
+  }, "Cancel")));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Settings);
+/* harmony default export */ __webpack_exports__["default"] = (EditUsername);
 
 /***/ }),
 
@@ -89574,7 +89782,7 @@ var ChatDisplay = function ChatDisplay(props) {
       props.setCurrentConvo(props.convoHistory.data.getConversations[0]._id);
     }
   });
-  var messageField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])();
+  var messageField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])("");
 
   var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(READ_MESSAGE, {
     update: function update(store, _ref) {
@@ -90003,7 +90211,7 @@ var ChatSearch = function ChatSearch(props) {
       searchActive = _useState2[0],
       setSearchActive = _useState2[1];
 
-  var searchField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])();
+  var searchField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])("");
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState4 = _slicedToArray(_useState3, 2),

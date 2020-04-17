@@ -25,7 +25,7 @@ const EDIT_IMAGE = gql`
 
 const Profile = (props) => {
   document.title = "Profile | MyChat";
-  const aboutField = useFieldInput();
+  const aboutField = useFieldInput("");
   const aboutUser = useQuery(GET_ABOUT, {
     variables: { _id: props.userInfo._id },
     onCompleted: (data) => {

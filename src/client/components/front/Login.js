@@ -9,8 +9,8 @@ const Login = props => {
   const [loginError, setLoginError] = useState(null);
   const [validateButton, showValidateButton] = useState(false);
   const [sendUser, setSendUser] = useState(null);
-  const user = useFieldInput()
-  const pass = useFieldInput()
+  const user = useFieldInput("")
+  const pass = useFieldInput("")
 
   const [page, setPage] = useState("login");
   const loginForm = () => {

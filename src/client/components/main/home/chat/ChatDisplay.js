@@ -102,7 +102,7 @@ const ChatDisplay = (props) => {
     }
   });
 
-  const messageField = useFieldInput();
+  const messageField = useFieldInput("");
 
   const [readMsg] = useMutation(READ_MESSAGE, {
     update: (store, { data }) => {

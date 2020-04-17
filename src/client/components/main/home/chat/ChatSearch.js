@@ -16,7 +16,7 @@ const SEARCH_USER = gql`
 
 const ChatSearch = (props) => {
   const [searchActive, setSearchActive] = useState(false);
-  const searchField = useFieldInput();
+  const searchField = useFieldInput("");
   const [searchResult, setSearchResult] = useState([]);
   const [searchQuery] = useLazyQuery(SEARCH_USER, {
     onCompleted: (data) => {

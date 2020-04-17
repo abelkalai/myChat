@@ -13,7 +13,7 @@ const CHECK_EMAIL = gql`
 
 const Forgot = props => {
   document.title = `Forgot ${props.type} | MyChat`;
-  const emailForm = useFieldInput()
+  const emailForm = useFieldInput("")
   const [error, setError] = useState(null);
   const [emailCheck] = useLazyQuery(CHECK_EMAIL, {
     onCompleted: data => {

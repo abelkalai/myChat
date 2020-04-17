@@ -1,11 +1,20 @@
 * {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font: "San Francisco";
   padding: 0px;
   margin: 0px;
 }
 
 input:focus, textarea:focus, select:focus{
   outline: none;
+}
+
+button{
+  padding: 2px;
+  border-radius: 2.5px;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .center {
@@ -34,10 +43,6 @@ input:focus, textarea:focus, select:focus{
 .link {
   text-decoration: none;
   color: black;
-}
-
-.button:hover {
-  cursor: pointer;
 }
 
 ::-webkit-scrollbar {

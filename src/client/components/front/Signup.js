@@ -54,13 +54,13 @@ const Signup = (props) => {
   const verifyUser = props.verifyUsername ? props.verifyUsername : "";
   const getEmail = useQuery(GET_EMAIL, { variables: { username: verifyUser } });
   const [page, setPage] = useState("signUpForm");
-  const firstNameSign = useFieldInput();
-  const lastNameSign = useFieldInput();
-  const emailSign = useFieldInput();
-  const userSign = useFieldInput();
-  const passSign = useFieldInput();
-  const confirmPassSign = useFieldInput();
-  const confirmNumber = useFieldInput();
+  const firstNameSign = useFieldInput("");
+  const lastNameSign = useFieldInput("");
+  const emailSign = useFieldInput("");
+  const userSign = useFieldInput("");
+  const passSign = useFieldInput("");
+  const confirmPassSign = useFieldInput("");
+  const confirmNumber = useFieldInput("");
 
   const submit = async (event) => {
     event.preventDefault();
@@ -178,7 +178,7 @@ const Signup = (props) => {
   const signUpValidate = () => {
     return (
       <div className="center">
-        {verifyUser === "" && props.fromLogin != true && <Redirect to="/" />}
+        {verifyUser === "" && props.fromLogin != true && <Redirect to="/" />}""
         <h2>{`Thanks for signing up your username is ${
           verifyUser ? verifyUser : userSign.value
         }`}</h2>
