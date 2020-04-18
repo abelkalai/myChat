@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useQuery, useMutation } from "@apollo/react-hooks";
-import { useFieldInput } from "../../../hooks/customHooks";
+import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
-import imageCompression from "browser-image-compression";
+import EditPicture from "./editProfile/EditPicture";
+import EditAbout from "./editProfile/EditAbout";
+import { useFieldInput } from "./../../../hooks/customHooks";
 import "../../../../assets/stylesheets/components/main/profile.css";
 
 const GET_ABOUT = gql`
@@ -11,20 +12,10 @@ const GET_ABOUT = gql`
   }
 `;
 
-const EDIT_ABOUT = gql`
-  mutation editAbout($_id: String!, $about: String!) {
-    editAbout(_id: $_id, about: $about)
-  }
-`;
-
-const EDIT_IMAGE = gql`
-  mutation editImage($_id: String!, $image: String!) {
-    editImage(_id: $_id, image: $image)
-  }
-`;
-
 const Profile = (props) => {
   document.title = "Profile | MyChat";
+  const [showUploadForm, setShowUploadForm] = useState(null);
+  const [showAboutForm, setShowAboutForm] = useState(false);
   const aboutField = useFieldInput("");
   const aboutUser = useQuery(GET_ABOUT, {
     variables: { _id: props.userInfo._id },
@@ -32,109 +23,6 @@ const Profile = (props) => {
       aboutField.manualChange(data.getAbout);
     },
   });
-
-  const [editAbout] = useMutation(EDIT_ABOUT, {
-    update: (store, { data }) => {
-      store.writeQuery({
-        query: GET_ABOUT,
-        variables: { _id: props.userInfo._id },
-        data: { getAbout: data.editAbout },
-      });
-    },
-  });
-  const [editImage] = useMutation(EDIT_IMAGE, {
-    update: (store, { data }) => {
-      store.writeQuery({
-        query: props.getImage,
-        variables: { _id: props.userInfo._id },
-        data: { getImage: data.editImage },
-      });
-    },
-  });
-  const [showAbout, setShowAbout] = useState(false);
-  const [uploadFile, setUploadFile] = useState(null);
-  const [showUpload, setShowUpload] = useState(false);
-
-  const aboutForm = () => {
-    return (
-      <form onSubmit={changeAbout}>
-        <textarea
-          id="editAbout"
-          maxLength="850"
-          className="about-text-area"
-          value={aboutField.value}
-          onChange={aboutField.onChange}
-        />
-
-        <button className="profile-button" type="submit">
-          Save Changes
-        </button>
-      </form>
-    );
-  };
-
-  const showAboutContent = () => {
-    return (
-      <div className="profile-about-wrapper">{aboutUser.data.getAbout}</div>
-    );
-  };
-
-  const changeAbout = async (event) => {
-    event.preventDefault();
-    let _id = props.userInfo._id;
-    let about = aboutField.value;
-    await editAbout({ variables: { _id, about } });
-    props.setUserInfo({ ...props.userInfo, about });
-    setShowAbout(false);
-  };
-
-  const compressImage = async (file) => {
-    let options = {
-      maxSizeMB: 0.05,
-      maxWidthOrHeight: 1920,
-    };
-    let result = await imageCompression(file, options);
-    return result;
-  };
-
-  const uploadFileHandler = async (event) => {
-    event.preventDefault();
-    if (uploadFile === null) return;
-    let newFile = await compressImage(uploadFile);
-    const reader = new FileReader();
-    reader.readAsDataURL(newFile);
-    reader.onload = async () => {
-      let _id = props.userInfo._id;
-      let result = await reader.result;
-      let image = result.substring(result.indexOf(",") + 1);
-      await editImage({ variables: { _id, image } });
-    };
-  };
-
-  const uploadImageForm = () => {
-    return (
-      <div>
-        <div>Upload .jpeg and .png only</div>
-        <div>
-          <input
-            type="file"
-            onChange={() => {
-              setUploadFile(event.target.files[0]);
-            }}
-          />
-        </div>
-        <div>
-          <button
-            type="button"
-            className="profile-button"
-            onClick={uploadFileHandler}
-          >
-            Upload Profile Picture
-          </button>
-        </div>
-      </div>
-    );
-  };
 
   return (
     <div className="profile-main">
@@ -150,34 +38,54 @@ const Profile = (props) => {
         />
       )}
       <h1>{props.userInfo.fullName}</h1>
-      <button
-        className="profile-button"
-        onClick={() => {
-          setShowUpload(!showUpload);
-        }}
-      >
-        {!showUpload ? "Change Profile Picture" : "Close"}
-      </button>
-      {showUpload && uploadImageForm()}
+      {!showUploadForm ? (
+        <button
+          className="change-button"
+          onClick={() => {
+            setShowUploadForm(true);
+          }}
+        >
+          Update Profile Picture
+        </button>
+      ) : null}
+      {showUploadForm && (
+        <EditPicture
+          userInfo={props.userInfo}
+          setUserInfo={props.setUserInfo}
+          getImage={props.getImage}
+          setShowUploadForm={setShowUploadForm}
+        />
+      )}
       <h2>About</h2>
-      <button
-        type="button"
-        className="profile-button"
-        onClick={() => {
-          setShowAbout(!showAbout);
-        }}
-      >
-        {!showAbout ? "Edit About" : "Close"}
-      </button>
+      {!showAboutForm ? (
+        <button
+          type="button"
+          className="change-button"
+          onClick={() => {
+            setShowAboutForm(true);
+          }}
+        >
+          Edit About
+        </button>
+      ) : null}
       {aboutUser.loading ? (
         <img
           className="about-img-placeholder"
           src="../../../assets/images/aboutPlaceholder.png"
         />
       ) : (
-        !showAbout && showAboutContent()
+        !showAboutForm && (
+          <div className="profile-about-wrapper">{aboutUser.data.getAbout}</div>
+        )
       )}
-      {showAbout && aboutForm()}
+      {showAboutForm && (
+        <EditAbout
+          userInfo={props.userInfo}
+          getAbout={GET_ABOUT}
+          aboutField={aboutField}
+          setShowAboutForm={setShowAboutForm}
+        />
+      )}
     </div>
   );
 };

@@ -25140,7 +25140,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_
 var ___CSS_LOADER_URL_REPLACEMENT_4___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_4___);
 var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___);
 // Module
-exports.push([module.i, ".banner {\r\n  grid-area: \"banner\";\r\n  background-color: #00a8f3;\r\n  padding-bottom: 5px;\r\n  padding-top: 2.5px;\r\n  display: flex;\r\n}\r\n\r\n.home-title {\r\n  color: white;\r\n  font-size: 44px;\r\n  cursor: pointer;\r\n  padding-left: 15px;\r\n  display: inline-block;\r\n}\r\n\r\n.user-container{\r\n  display: inline-block;\r\n  margin-left: 77vw;\r\n}\r\n\r\n.user {\r\n  color: white;\r\n  margin-top: 5px;\r\n  font-size: 24px;\r\n  display: flex;\r\n}\r\n\r\n.home-image-container {\r\n  padding-right: 5px;\r\n}\r\n\r\n.home-image {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.dropdown {\r\n  margin-top: 10px;\r\n  font-size: 24px;\r\n  display: inline-block;\r\n}\r\n\r\n.dropdown:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-content {\r\n  font-size: 18px;\r\n  display: block;\r\n  position: absolute;\r\n  color: black;\r\n  background-color: white;\r\n  min-width: 100px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  padding: 12.5px 12.5px;\r\n  border-radius: 10px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-content div {\r\n  padding: 10px  10px;\r\n  border-radius: 8px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.dropdown-profile {\r\n  background-position: 2.5px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-left: 5px;\r\n}\r\n\r\n.dropdown-profile:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-profile-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-position: 2.5px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-settings:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  padding-left: 22.5px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-position: 2.5px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-logout:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  padding-left: 23.5px;\r\n}\r\n", ""]);
+exports.push([module.i, ".banner {\r\n  grid-area: \"banner\";\r\n  background-color: #00a8f3;\r\n  padding-bottom: 5px;\r\n  padding-top: 2.5px;\r\n  display: flex;\r\n}\r\n\r\n.home-title {\r\n  color: white;\r\n  font-size: 44px;\r\n  cursor: pointer;\r\n  padding-left: 15px;\r\n  display: inline-block;\r\n}\r\n\r\n.user-container{\r\n  display: inline-block;\r\n  margin-left: 76.5%;\r\n}\r\n\r\n.user {\r\n  color: white;\r\n  margin-top: 5px;\r\n  font-size: 24px;\r\n  display: flex;\r\n}\r\n\r\n.home-image-container {\r\n  padding-right: 5px;\r\n}\r\n\r\n.home-image {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.dropdown {\r\n  margin-top: 10px;\r\n  font-size: 24px;\r\n  display: inline-block;\r\n}\r\n\r\n.dropdown:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-content {\r\n  font-size: 18px;\r\n  display: block;\r\n  position: absolute;\r\n  color: black;\r\n  background-color: white;\r\n  min-width: 100px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  padding: 12.5px 12.5px;\r\n  border-radius: 10px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-content div {\r\n  padding: 10px  10px;\r\n  border-radius: 8px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.dropdown-profile {\r\n  background-position: 2.5px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-left: 5px;\r\n}\r\n\r\n.dropdown-profile:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-profile-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-position: 2.5px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-settings:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  padding-left: 22.5px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-position: 2.5px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-logout:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  padding-left: 23.5px;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25158,7 +25158,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".profile-main {\r\n  margin-top: 2.5vh;\r\n  text-align: center;\r\n}\r\n\r\n.profile-image {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 200px;\r\n  height: 200px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.about-text-area {\r\n  height: 30vh;\r\n  width: 25vw;\r\n  resize: none;\r\n}\r\n\r\n.about-img-placeholder {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  height: 30vh;\r\n  width: 35vw;\r\n}\r\n\r\n.profile-button {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n}\r\n\r\n.profile-about-wrapper{\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  max-height: 30vh;\r\n  max-width: 35vw;\r\n  text-align: center;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".profile-main {\r\n  margin-top: 2.5vh;\r\n  text-align: center;\r\n}\r\n\r\n.profile-image {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 225px;\r\n  height: 225px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.about-text-area {\r\n  height: 30vh;\r\n  width: 35vw;\r\n  resize: none;\r\n  margin-top: 5px;\r\n  padding-top: 2.5px;\r\n  padding-left: 5px;\r\n  border-radius: 10px;\r\n\r\n}\r\n\r\n.about-img-placeholder {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  height: 30vh;\r\n  width: 35vw;\r\n}\r\n\r\n\r\n.profile-about-wrapper{\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  max-height: 30vh;\r\n  max-width: 35vw;\r\n  text-align: center;\r\n}\r\n\r\n.profile-upload-input-div{\r\n  display: block;\r\n  margin: 4px 0 4px 85px;\r\n}\r\n\r\n.change-button{\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  border-color: #00a8f3;\r\n  margin-top: 7.5px;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.cancel-button{\r\n  color: #696969;\r\n  background-color: #f1f0f0;\r\n  border-color:  #f1f0f0;\r\n  margin-top: 7.5px;\r\n  margin-left: 5px;\r\n  margin-bottom: 5px;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25176,7 +25176,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".main-settings {\r\n  margin-left: 65px;\r\n  margin-top: 10px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 22.5% 70%;\r\n  grid-template-areas: \"left right\";\r\n}\r\n\r\n.main-left {\r\n  grid-area: left;\r\n  width: 95%;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-active-tab {\r\n  background-color: #ecf2fe;\r\n  margin: 10px 10px;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  display: flex;\r\n}\r\n\r\n.settings-tab {\r\n  margin: 10px 10px;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  display: flex;\r\n}\r\n\r\n.general-content {\r\n  padding-left: 8.5px;\r\n  padding-top: 2.5px;\r\n}\r\n\r\n.general-settings-image {\r\n  width: 30px;\r\n  height: 30px;\r\n}\r\n\r\n.security-content {\r\n  padding-left: 8.5px;\r\n  padding-top: 2.5px;\r\n}\r\n\r\n.security-settings-image {\r\n  width: 30px;\r\n  height: 30px;\r\n}\r\n\r\n.settings-tab:hover {\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.main-right {\r\n  grid-area: right;\r\n}\r\n\r\n.main-right input {\r\n  margin-left: 7.5px;\r\n}\r\n\r\n.change {\r\n  font-size: 20px;\r\n  float: right;\r\n  color: blue;\r\n  border: none;\r\n}\r\n\r\n.change:hover {\r\n  text-decoration: underline;\r\n  cursor: pointer;\r\n}\r\n\r\n.bold-text {\r\n  font-weight: bold;\r\n}\r\n\r\n.settings-divider-container {\r\n  border-bottom: 1px solid black;\r\n}\r\n\r\n.settings-divider-inside {\r\n  border-bottom: 1px solid #dcdcdc;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-divider-inside-single {\r\n  border-bottom: 1px solid black;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-save-changes {\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  border-color: #00a8f3;\r\n  margin-top: 7.5px;\r\n  margin-right: 5px;\r\n  margin-left: 20.75%;\r\n}\r\n\r\n.settings-cancel-changes {\r\n  color: #696969;\r\n  margin-top: 7.5px;\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.settings-form{\r\n  margin-top: 5px;\r\n}\r\n.label-settings-form, .input-settings-form {\r\n  display: inline-block;\r\n}\r\n\r\n.label-settings-form {\r\n  width: 30%;\r\n  text-align: right;\r\n}\r\n\r\n.label-settings-form + .input-settings-form {\r\n  width: 20%;\r\n}\r\n\r\n.input-settings-form + .input-settings-form {\r\n  float: right;\r\n}\r\n", ""]);
+exports.push([module.i, ".main-settings {\r\n  margin-left: 65px;\r\n  margin-top: 10px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 22.5% 70%;\r\n  grid-template-areas: \"left right\";\r\n}\r\n\r\n.main-left {\r\n  grid-area: left;\r\n  width: 95%;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-active-tab {\r\n  background-color: #ecf2fe;\r\n  margin: 10px 10px;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  display: flex;\r\n}\r\n\r\n.settings-tab {\r\n  margin: 10px 10px;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  display: flex;\r\n}\r\n\r\n.general-content {\r\n  padding-left: 8.5px;\r\n  padding-top: 2.5px;\r\n}\r\n\r\n.general-settings-image {\r\n  width: 30px;\r\n  height: 30px;\r\n}\r\n\r\n.security-content {\r\n  padding-left: 8.5px;\r\n  padding-top: 2.5px;\r\n}\r\n\r\n.security-settings-image {\r\n  width: 30px;\r\n  height: 30px;\r\n}\r\n\r\n.settings-tab:hover {\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.main-right {\r\n  grid-area: right;\r\n}\r\n\r\n.main-right input {\r\n  margin-left: 7.5px;\r\n}\r\n\r\n.change {\r\n  font-size: 20px;\r\n  float: right;\r\n  color: blue;\r\n  border: none;\r\n}\r\n\r\n.change:hover {\r\n  text-decoration: underline;\r\n  cursor: pointer;\r\n}\r\n\r\n.bold-text {\r\n  font-weight: bold;\r\n  margin-right: 10px;\r\n}\r\n\r\n.settings-divider-container {\r\n  border-bottom: 1px solid black;\r\n}\r\n\r\n.settings-divider-inside {\r\n  border-bottom: 1px solid #dcdcdc;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-divider-inside-single {\r\n  border-bottom: 1px solid black;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-save-changes {\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  border-color: #00a8f3;\r\n  margin-top: 7.5px;\r\n  margin-right: 5px;\r\n  margin-left: 20.75%;\r\n}\r\n\r\n.settings-cancel-changes {\r\n  color: #696969;\r\n  margin-top: 7.5px;\r\n  background-color: #f1f0f0;\r\n  border-color:  #f1f0f0;\r\n}\r\n\r\n.settings-form{\r\n  margin-top: 5px;\r\n}\r\n.label-settings-form, .input-settings-form {\r\n  display: inline-block;\r\n}\r\n\r\n.label-settings-form {\r\n  width: 30%;\r\n  text-align: right;\r\n}\r\n\r\n.label-settings-form + .input-settings-form {\r\n  width: 20%;\r\n}\r\n\r\n.input-settings-form + .input-settings-form {\r\n  float: right;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -88148,21 +88148,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
-/* harmony import */ var browser_image_compression__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! browser-image-compression */ "./node_modules/browser-image-compression/dist/browser-image-compression.mjs");
-/* harmony import */ var _assets_stylesheets_components_main_profile_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/profile.css */ "./src/client/assets/stylesheets/components/main/profile.css");
-/* harmony import */ var _assets_stylesheets_components_main_profile_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_profile_css__WEBPACK_IMPORTED_MODULE_5__);
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+/* harmony import */ var _editProfile_EditPicture__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editProfile/EditPicture */ "./src/client/components/main/account/profile/editProfile/EditPicture.js");
+/* harmony import */ var _editProfile_EditAbout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editProfile/EditAbout */ "./src/client/components/main/account/profile/editProfile/EditAbout.js");
+/* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
+/* harmony import */ var _assets_stylesheets_components_main_profile_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/profile.css */ "./src/client/assets/stylesheets/components/main/profile.css");
+/* harmony import */ var _assets_stylesheets_components_main_profile_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_profile_css__WEBPACK_IMPORTED_MODULE_6__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -88174,26 +88165,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  mutation editImage($_id: String!, $image: String!) {\n    editImage(_id: $_id, image: $image)\n  }\n"]);
-
-  _templateObject3 = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  mutation editAbout($_id: String!, $about: String!) {\n    editAbout(_id: $_id, about: $about)\n  }\n"]);
-
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
 
 function _templateObject() {
   var data = _taggedTemplateLiteral(["\n  query getAbout($_id: String!) {\n    getAbout(_id: $_id)\n  }\n"]);
@@ -88213,13 +88184,23 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var GET_ABOUT = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject());
-var EDIT_ABOUT = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject2());
-var EDIT_IMAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject3());
+
+var GET_ABOUT = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_2__["gql"])(_templateObject());
 
 var Profile = function Profile(props) {
   document.title = "Profile | MyChat";
-  var aboutField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])("");
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      showUploadForm = _useState2[0],
+      setShowUploadForm = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      showAboutForm = _useState4[0],
+      setShowAboutForm = _useState4[1];
+
+  var aboutField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_5__["useFieldInput"])("");
   var aboutUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useQuery"])(GET_ABOUT, {
     variables: {
       _id: props.userInfo._id
@@ -88228,12 +88209,99 @@ var Profile = function Profile(props) {
       aboutField.manualChange(data.getAbout);
     }
   });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "profile-main"
+  }, props.userImage.loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "profile-image",
+    src: "../../../assets/images/profilePlaceholder.png"
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "profile-image",
+    src: "data:image/png;base64,".concat(props.userImage.data.getImage)
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, props.userInfo.fullName), !showUploadForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "change-button",
+    onClick: function onClick() {
+      setShowUploadForm(true);
+    }
+  }, "Update Profile Picture") : null, showUploadForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editProfile_EditPicture__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    userInfo: props.userInfo,
+    setUserInfo: props.setUserInfo,
+    getImage: props.getImage,
+    setShowUploadForm: setShowUploadForm
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "About"), !showAboutForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "button",
+    className: "change-button",
+    onClick: function onClick() {
+      setShowAboutForm(true);
+    }
+  }, "Edit About") : null, aboutUser.loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "about-img-placeholder",
+    src: "../../../assets/images/aboutPlaceholder.png"
+  }) : !showAboutForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "profile-about-wrapper"
+  }, aboutUser.data.getAbout), showAboutForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editProfile_EditAbout__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    userInfo: props.userInfo,
+    getAbout: GET_ABOUT,
+    aboutField: aboutField,
+    setShowAboutForm: setShowAboutForm
+  }));
+};
 
+/* harmony default export */ __webpack_exports__["default"] = (Profile);
+
+/***/ }),
+
+/***/ "./src/client/components/main/account/profile/editProfile/EditAbout.js":
+/*!*****************************************************************************!*\
+  !*** ./src/client/components/main/account/profile/editProfile/EditAbout.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  mutation editAbout($_id: String!, $about: String!) {\n    editAbout(_id: $_id, about: $about)\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+var EDIT_ABOUT = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_2__["gql"])(_templateObject());
+
+var EditAbout = function EditAbout(props) {
   var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useMutation"])(EDIT_ABOUT, {
     update: function update(store, _ref) {
       var data = _ref.data;
       store.writeQuery({
-        query: GET_ABOUT,
+        query: props.getAbout,
         variables: {
           _id: props.userInfo._id
         },
@@ -88246,9 +88314,124 @@ var Profile = function Profile(props) {
       _useMutation2 = _slicedToArray(_useMutation, 1),
       editAbout = _useMutation2[0];
 
-  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useMutation"])(EDIT_IMAGE, {
-    update: function update(store, _ref2) {
-      var data = _ref2.data;
+  var aboutEventHandler = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
+      var _id, about;
+
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              event.preventDefault();
+              _id = props.userInfo._id;
+              about = props.aboutField.value;
+              _context.next = 5;
+              return editAbout({
+                variables: {
+                  _id: _id,
+                  about: about
+                }
+              });
+
+            case 5:
+              props.setShowAboutForm(false);
+
+            case 6:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function aboutEventHandler(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    onSubmit: aboutEventHandler
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+    id: "editAbout",
+    maxLength: "850",
+    className: "about-text-area",
+    value: props.aboutField.value,
+    onChange: props.aboutField.onChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "profile-button-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "change-button",
+    type: "submit"
+  }, "Save Changes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "cancel-button",
+    type: "button",
+    onClick: function onClick() {
+      props.setShowAboutForm(false);
+    }
+  }, "Cancel")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (EditAbout);
+
+/***/ }),
+
+/***/ "./src/client/components/main/account/profile/editProfile/EditPicture.js":
+/*!*******************************************************************************!*\
+  !*** ./src/client/components/main/account/profile/editProfile/EditPicture.js ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var browser_image_compression__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! browser-image-compression */ "./node_modules/browser-image-compression/dist/browser-image-compression.mjs");
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  mutation editImage($_id: String!, $image: String!) {\n    editImage(_id: $_id, image: $image)\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+var EDIT_IMAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_1__["gql"])(_templateObject());
+
+var EditPicture = function EditPicture(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      uploadFile = _useState2[0],
+      setUploadFile = _useState2[1];
+
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(EDIT_IMAGE, {
+    update: function update(store, _ref) {
+      var data = _ref.data;
       store.writeQuery({
         query: props.getImage,
         variables: {
@@ -88260,153 +88443,51 @@ var Profile = function Profile(props) {
       });
     }
   }),
-      _useMutation4 = _slicedToArray(_useMutation3, 1),
-      editImage = _useMutation4[0];
+      _useMutation2 = _slicedToArray(_useMutation, 1),
+      editImage = _useMutation2[0];
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      showAbout = _useState2[0],
-      setShowAbout = _useState2[1];
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
-      _useState4 = _slicedToArray(_useState3, 2),
-      uploadFile = _useState4[0],
-      setUploadFile = _useState4[1];
-
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState6 = _slicedToArray(_useState5, 2),
-      showUpload = _useState6[0],
-      setShowUpload = _useState6[1];
-
-  var aboutForm = function aboutForm() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-      onSubmit: changeAbout
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-      id: "editAbout",
-      maxLength: "850",
-      className: "about-text-area",
-      value: aboutField.value,
-      onChange: aboutField.onChange
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "profile-button",
-      type: "submit"
-    }, "Save Changes"));
-  };
-
-  var showAboutContent = function showAboutContent() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "profile-about-wrapper"
-    }, aboutUser.data.getAbout);
-  };
-
-  var changeAbout = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
-      var _id, about;
-
-      return regeneratorRuntime.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              event.preventDefault();
-              _id = props.userInfo._id;
-              about = aboutField.value;
-              _context.next = 5;
-              return editAbout({
-                variables: {
-                  _id: _id,
-                  about: about
-                }
-              });
-
-            case 5:
-              props.setUserInfo(_objectSpread({}, props.userInfo, {
-                about: about
-              }));
-              setShowAbout(false);
-
-            case 7:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    return function changeAbout(_x) {
-      return _ref3.apply(this, arguments);
-    };
-  }();
-
-  var compressImage = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(file) {
-      var options, result;
+  var uploadFileEventHandler = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(event) {
+      var newFile, reader;
       return regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              options = {
-                maxSizeMB: 0.05,
-                maxWidthOrHeight: 1920
-              };
-              _context2.next = 3;
-              return Object(browser_image_compression__WEBPACK_IMPORTED_MODULE_4__["default"])(file, options);
-
-            case 3:
-              result = _context2.sent;
-              return _context2.abrupt("return", result);
-
-            case 5:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    return function compressImage(_x2) {
-      return _ref4.apply(this, arguments);
-    };
-  }();
-
-  var uploadFileHandler = /*#__PURE__*/function () {
-    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(event) {
-      var newFile, reader;
-      return regeneratorRuntime.wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
               event.preventDefault();
 
               if (!(uploadFile === null)) {
-                _context4.next = 3;
+                _context2.next = 3;
                 break;
               }
 
-              return _context4.abrupt("return");
+              return _context2.abrupt("return");
 
             case 3:
-              _context4.next = 5;
-              return compressImage(uploadFile);
+              _context2.next = 5;
+              return Object(browser_image_compression__WEBPACK_IMPORTED_MODULE_3__["default"])(uploadFile, {
+                maxSizeMB: 0.05,
+                maxWidthOrHeight: 1920
+              });
 
             case 5:
-              newFile = _context4.sent;
+              newFile = _context2.sent;
               reader = new FileReader();
               reader.readAsDataURL(newFile);
-              reader.onload = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+              reader.onload = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
                 var _id, result, image;
 
-                return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                return regeneratorRuntime.wrap(function _callee$(_context) {
                   while (1) {
-                    switch (_context3.prev = _context3.next) {
+                    switch (_context.prev = _context.next) {
                       case 0:
                         _id = props.userInfo._id;
-                        _context3.next = 3;
+                        _context.next = 3;
                         return reader.result;
 
                       case 3:
-                        result = _context3.sent;
+                        result = _context.sent;
                         image = result.substring(result.indexOf(",") + 1);
-                        _context3.next = 7;
+                        _context.next = 7;
                         return editImage({
                           variables: {
                             _id: _id,
@@ -88416,64 +88497,49 @@ var Profile = function Profile(props) {
 
                       case 7:
                       case "end":
-                        return _context3.stop();
+                        return _context.stop();
                     }
                   }
-                }, _callee3);
+                }, _callee);
               }));
+              props.setShowUploadForm(false);
 
-            case 9:
+            case 10:
             case "end":
-              return _context4.stop();
+              return _context2.stop();
           }
         }
-      }, _callee4);
+      }, _callee2);
     }));
 
-    return function uploadFileHandler(_x3) {
-      return _ref5.apply(this, arguments);
+    return function uploadFileEventHandler(_x) {
+      return _ref2.apply(this, arguments);
     };
   }();
 
-  var uploadImageForm = function uploadImageForm() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Upload .jpeg and .png only"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      type: "file",
-      onChange: function onChange() {
-        setUploadFile(event.target.files[0]);
-      }
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      type: "button",
-      className: "profile-button",
-      onClick: uploadFileHandler
-    }, "Upload Profile Picture")));
-  };
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "profile-main"
-  }, props.userImage.loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "profile-image",
-    src: "../../../assets/images/profilePlaceholder.png"
-  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "profile-image",
-    src: "data:image/png;base64,".concat(props.userImage.data.getImage)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, props.userInfo.fullName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "profile-button",
-    onClick: function onClick() {
-      setShowUpload(!showUpload);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "profile-upload-input-div"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "file",
+    onChange: function onChange() {
+      setUploadFile(event.target.files[0]);
     }
-  }, !showUpload ? "Change Profile Picture" : "Close"), showUpload && uploadImageForm(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "About"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "profile-button-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
-    className: "profile-button",
+    className: "change-button",
+    onClick: uploadFileEventHandler
+  }, "Upload Profile Picture"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "cancel-button",
+    type: "button",
     onClick: function onClick() {
-      setShowAbout(!showAbout);
+      props.setShowUploadForm(false);
     }
-  }, !showAbout ? "Edit About" : "Close"), aboutUser.loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "about-img-placeholder",
-    src: "../../../assets/images/aboutPlaceholder.png"
-  }) : !showAbout && showAboutContent(), showAbout && aboutForm());
+  }, "Cancel"))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Profile);
+/* harmony default export */ __webpack_exports__["default"] = (EditPicture);
 
 /***/ }),
 
@@ -88488,8 +88554,8 @@ var Profile = function Profile(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _editInfo_EditName__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editInfo/EditName */ "./src/client/components/main/account/settings/editInfo/EditName.js");
-/* harmony import */ var _editInfo_EditUsername__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./editInfo/EditUsername */ "./src/client/components/main/account/settings/editInfo/EditUsername.js");
+/* harmony import */ var _editSettings_EditName__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editSettings/EditName */ "./src/client/components/main/account/settings/editSettings/EditName.js");
+/* harmony import */ var _editSettings_EditUsername__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./editSettings/EditUsername */ "./src/client/components/main/account/settings/editSettings/EditUsername.js");
 /* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/settings.css */ "./src/client/assets/stylesheets/components/main/settings.css");
 /* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_3__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -88534,7 +88600,7 @@ var General = function General(props) {
       onClick: function onClick() {
         setShowNameForm(true);
       }
-    }, "Edit") : null, showNameForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editInfo_EditName__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    }, "Edit") : null, showNameForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editSettings_EditName__WEBPACK_IMPORTED_MODULE_1__["default"], {
       userInfo: props.userInfo,
       setUserInfo: props.setUserInfo,
       setShowNameForm: setShowNameForm
@@ -88551,7 +88617,7 @@ var General = function General(props) {
       onClick: function onClick() {
         setShowUserForm(true);
       }
-    }, "Edit") : null, showUserForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editInfo_EditUsername__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    }, "Edit") : null, showUserForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editSettings_EditUsername__WEBPACK_IMPORTED_MODULE_2__["default"], {
       userInfo: props.userInfo,
       setUserInfo: props.setUserInfo,
       setShowUserForm: setShowUserForm
@@ -88584,7 +88650,7 @@ var General = function General(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _editInfo_EditPassword__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editInfo/EditPassword */ "./src/client/components/main/account/settings/editInfo/EditPassword.js");
+/* harmony import */ var _editSettings_EditPassword__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editSettings/EditPassword */ "./src/client/components/main/account/settings/editSettings/EditPassword.js");
 /* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/settings.css */ "./src/client/assets/stylesheets/components/main/settings.css");
 /* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_2__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -88633,7 +88699,7 @@ var Security = function Security(props) {
     onClick: function onClick() {
       setShowPasswordForm(true);
     }
-  }, "Edit") : null, showPasswordForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editInfo_EditPassword__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, "Edit") : null, showPasswordForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editSettings_EditPassword__WEBPACK_IMPORTED_MODULE_1__["default"], {
     setSendHome: setSendHome,
     userInfo: props.userInfo,
     setActiveUser: props.setActiveUser,
@@ -88740,10 +88806,10 @@ var Settings = function Settings(props) {
 
 /***/ }),
 
-/***/ "./src/client/components/main/account/settings/editInfo/EditName.js":
-/*!**************************************************************************!*\
-  !*** ./src/client/components/main/account/settings/editInfo/EditName.js ***!
-  \**************************************************************************/
+/***/ "./src/client/components/main/account/settings/editSettings/EditName.js":
+/*!******************************************************************************!*\
+  !*** ./src/client/components/main/account/settings/editSettings/EditName.js ***!
+  \******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -88876,10 +88942,10 @@ var EditName = function EditName(props) {
 
 /***/ }),
 
-/***/ "./src/client/components/main/account/settings/editInfo/EditPassword.js":
-/*!******************************************************************************!*\
-  !*** ./src/client/components/main/account/settings/editInfo/EditPassword.js ***!
-  \******************************************************************************/
+/***/ "./src/client/components/main/account/settings/editSettings/EditPassword.js":
+/*!**********************************************************************************!*\
+  !*** ./src/client/components/main/account/settings/editSettings/EditPassword.js ***!
+  \**********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -89064,10 +89130,10 @@ var EditPassword = function EditPassword(props) {
 
 /***/ }),
 
-/***/ "./src/client/components/main/account/settings/editInfo/EditUsername.js":
-/*!******************************************************************************!*\
-  !*** ./src/client/components/main/account/settings/editInfo/EditUsername.js ***!
-  \******************************************************************************/
+/***/ "./src/client/components/main/account/settings/editSettings/EditUsername.js":
+/*!**********************************************************************************!*\
+  !*** ./src/client/components/main/account/settings/editSettings/EditUsername.js ***!
+  \**********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -89839,34 +89905,32 @@ var ChatDisplay = function ChatDisplay(props) {
   var apolloClient = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useApolloClient"])();
 
   var updateMsgCache = function updateMsgCache(newMsg) {
-    if (newMsg.senderID != props.userInfo._id && newMsg.receiverID != props.userInfo._id) {
-      return;
-    }
-
-    var msgStore = apolloClient.readQuery({
-      query: GET_MESSAGES,
-      variables: {
-        senderID: props.userInfo._id,
-        receiverID: props.currentChat
-      }
-    });
-
-    if (newMsg.conversationID === props.currentConvo) {
-      var newMsgArray = _toConsumableArray(msgStore.getMessages);
-
-      newMsgArray.unshift(newMsg);
-      apolloClient.writeQuery({
+    if (newMsg.senderID === props.userInfo._id && newMsg.receiverID === props.userInfo._id) {
+      var msgStore = apolloClient.readQuery({
         query: GET_MESSAGES,
         variables: {
           senderID: props.userInfo._id,
           receiverID: props.currentChat
-        },
-        data: {
-          getMessages: newMsgArray
         }
       });
-      var messageContainer = document.getElementById("messageContainer");
-      messageContainer.scrollTop = messageContainer.scrollHeight;
+
+      if (newMsg.conversationID === props.currentConvo) {
+        var newMsgArray = _toConsumableArray(msgStore.getMessages);
+
+        newMsgArray.unshift(newMsg);
+        apolloClient.writeQuery({
+          query: GET_MESSAGES,
+          variables: {
+            senderID: props.userInfo._id,
+            receiverID: props.currentChat
+          },
+          data: {
+            getMessages: newMsgArray
+          }
+        });
+        var messageContainer = document.getElementById("messageContainer");
+        messageContainer.scrollTop = messageContainer.scrollHeight;
+      }
     }
   };
 
@@ -89887,30 +89951,27 @@ var ChatDisplay = function ChatDisplay(props) {
             case 0:
               if (!(convo.members.filter(function (member) {
                 return member._id === props.userInfo._id;
-              }).length === 0)) {
-                _context.next = 2;
+              }).length != 0)) {
+                _context.next = 11;
                 break;
               }
 
-              return _context.abrupt("return");
-
-            case 2:
               if (props.currentConvo === null) props.setCurrentConvo(convo._id);
 
               if (!(document.activeElement.id === "messageInput" && convo._id === props.currentConvo && convo.lastSender != props.userInfo._id)) {
-                _context.next = 7;
+                _context.next = 6;
                 break;
               }
 
               convo.unread = false;
-              _context.next = 7;
+              _context.next = 6;
               return readMsg({
                 variables: {
                   _id: convo._id
                 }
               });
 
-            case 7:
+            case 6:
               convoStore = apolloClient.readQuery({
                 query: props.getConversations,
                 variables: {
@@ -89932,7 +89993,7 @@ var ChatDisplay = function ChatDisplay(props) {
                 }
               });
 
-            case 12:
+            case 11:
             case "end":
               return _context.stop();
           }
@@ -89962,18 +90023,15 @@ var ChatDisplay = function ChatDisplay(props) {
             case 0:
               event.preventDefault();
 
-              if (!(messageField === "")) {
-                _context2.next = 3;
+              if (!(messageField != "")) {
+                _context2.next = 8;
                 break;
               }
 
-              return _context2.abrupt("return");
-
-            case 3:
               senderID = props.userInfo._id;
               receiverID = props.currentChat;
               content = messageField.value;
-              _context2.next = 8;
+              _context2.next = 7;
               return sendMessageQuery({
                 variables: {
                   senderID: senderID,
@@ -89982,10 +90040,10 @@ var ChatDisplay = function ChatDisplay(props) {
                 }
               });
 
-            case 8:
+            case 7:
               messageField.clear();
 
-            case 9:
+            case 8:
             case "end":
               return _context2.stop();
           }

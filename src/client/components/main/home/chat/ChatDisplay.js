@@ -140,32 +140,31 @@ const ChatDisplay = (props) => {
 
   const updateMsgCache = (newMsg) => {
     if (
-      newMsg.senderID != props.userInfo._id &&
-      newMsg.receiverID != props.userInfo._id
+      newMsg.senderID === props.userInfo._id &&
+      newMsg.receiverID === props.userInfo._id
     ) {
-      return;
-    }
-    const msgStore = apolloClient.readQuery({
-      query: GET_MESSAGES,
-      variables: {
-        senderID: props.userInfo._id,
-        receiverID: props.currentChat,
-      },
-    });
-
-    if (newMsg.conversationID === props.currentConvo) {
-      let newMsgArray = [...msgStore.getMessages];
-      newMsgArray.unshift(newMsg);
-      apolloClient.writeQuery({
+      const msgStore = apolloClient.readQuery({
         query: GET_MESSAGES,
         variables: {
           senderID: props.userInfo._id,
           receiverID: props.currentChat,
         },
-        data: { getMessages: newMsgArray },
       });
-      const messageContainer = document.getElementById("messageContainer")
-      messageContainer.scrollTop = messageContainer.scrollHeight
+
+      if (newMsg.conversationID === props.currentConvo) {
+        let newMsgArray = [...msgStore.getMessages];
+        newMsgArray.unshift(newMsg);
+        apolloClient.writeQuery({
+          query: GET_MESSAGES,
+          variables: {
+            senderID: props.userInfo._id,
+            receiverID: props.currentChat,
+          },
+          data: { getMessages: newMsgArray },
+        });
+        const messageContainer = document.getElementById("messageContainer");
+        messageContainer.scrollTop = messageContainer.scrollHeight;
+      }
     }
   };
 
@@ -179,35 +178,34 @@ const ChatDisplay = (props) => {
   const updateConvoCache = async (convo) => {
     if (
       convo.members.filter((member) => member._id === props.userInfo._id)
-        .length === 0
+        .length != 0
     ) {
-      return;
+      if (props.currentConvo === null) props.setCurrentConvo(convo._id);
+
+      if (
+        document.activeElement.id === "messageInput" &&
+        convo._id === props.currentConvo &&
+        convo.lastSender != props.userInfo._id
+      ) {
+        convo.unread = false;
+
+        await readMsg({ variables: { _id: convo._id } });
+      }
+      const convoStore = apolloClient.readQuery({
+        query: props.getConversations,
+        variables: { _id: props.userInfo._id },
+      });
+      let copy = [...convoStore.getConversations];
+      copy = copy.filter((x) => x._id != convo._id);
+
+      copy.unshift(convo);
+
+      apolloClient.writeQuery({
+        query: props.getConversations,
+        variables: { _id: props.userInfo._id },
+        data: { getConversations: copy },
+      });
     }
-    if (props.currentConvo === null) props.setCurrentConvo(convo._id);
-
-    if (
-      document.activeElement.id === "messageInput" &&
-      convo._id === props.currentConvo &&
-      convo.lastSender != props.userInfo._id
-    ) {
-      convo.unread = false;
-
-      await readMsg({ variables: { _id: convo._id } });
-    }
-    const convoStore = apolloClient.readQuery({
-      query: props.getConversations,
-      variables: { _id: props.userInfo._id },
-    });
-    let copy = [...convoStore.getConversations];
-    copy = copy.filter((x) => x._id != convo._id);
-
-    copy.unshift(convo);
-
-    apolloClient.writeQuery({
-      query: props.getConversations,
-      variables: { _id: props.userInfo._id },
-      data: { getConversations: copy },
-    });
   };
 
   useSubscription(UPDATED_CONVO, {
@@ -219,13 +217,14 @@ const ChatDisplay = (props) => {
 
   const sendMessage = async (event) => {
     event.preventDefault();
-    if (messageField === "") return;
-    let senderID = props.userInfo._id;
-    let receiverID = props.currentChat;
-    let content = messageField.value;
+    if (messageField != "") {
+      let senderID = props.userInfo._id;
+      let receiverID = props.currentChat;
+      let content = messageField.value;
 
-    await sendMessageQuery({ variables: { senderID, receiverID, content } });
-    messageField.clear();
+      await sendMessageQuery({ variables: { senderID, receiverID, content } });
+      messageField.clear();
+    }
   };
 
   const readMessage = async (event) => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import EditName from "./editInfo/EditName";
-import EditUsername from "./editInfo/EditUsername";
+import EditName from "./editSettings/EditName";
+import EditUsername from "./editSettings/EditUsername";
 import "../../../../assets/stylesheets/components/main/settings.css";
 
 const General = (props) => {
