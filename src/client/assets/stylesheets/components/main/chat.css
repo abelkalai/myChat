@@ -70,3 +70,7 @@
   grid-template-areas: "chat about";
   height: 100%;
 }
+
+.chat-display-default{
+  padding-left: 10px;
+}

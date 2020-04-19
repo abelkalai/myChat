@@ -1,5 +1,5 @@
-import React, { Fragment, useEffect } from "react";
-import { useFieldInput } from "../../../hooks/customHooks";
+import React, { useEffect } from "react";
+import { useFieldInput } from "../../../../hooks/customHooks";
 import {
   useApolloClient,
   useQuery,
@@ -9,8 +9,6 @@ import {
 import { gql } from "apollo-boost";
 import ChatMessage from "./ChatMessage";
 import About from "./About";
-import "../../../../assets/stylesheets/components/main/chatAbout.css";
-import "../../../../assets/stylesheets/components/main/chatMessage.css";
 
 const GET_SINGLE_USER = gql`
   query getSingleUser($_id: String!) {
@@ -125,13 +123,13 @@ const ChatDisplay = (props) => {
   const [sendMessageQuery] = useMutation(SEND_MESSAGE);
   const getMessages = useQuery(GET_MESSAGES, {
     variables: { senderID: props.userInfo._id, receiverID: props.currentChat },
-    onCompleted: (data) => {
+    onCompleted: () => {
       props.setMessageLoading(false);
     },
   });
   const getUser = useQuery(GET_SINGLE_USER, {
     variables: { _id: props.currentChat },
-    onCompleted: (data) => {
+    onCompleted: () => {
       props.setAboutLoading(false);
     },
   });
@@ -140,8 +138,9 @@ const ChatDisplay = (props) => {
 
   const updateMsgCache = (newMsg) => {
     if (
-      newMsg.senderID === props.userInfo._id &&
-      newMsg.receiverID === props.userInfo._id
+      (newMsg.senderID === props.userInfo._id ||
+        newMsg.receiverID === props.userInfo._id) &&
+      newMsg.conversationID === props.currentConvo
     ) {
       const msgStore = apolloClient.readQuery({
         query: GET_MESSAGES,
@@ -151,20 +150,18 @@ const ChatDisplay = (props) => {
         },
       });
 
-      if (newMsg.conversationID === props.currentConvo) {
-        let newMsgArray = [...msgStore.getMessages];
-        newMsgArray.unshift(newMsg);
-        apolloClient.writeQuery({
-          query: GET_MESSAGES,
-          variables: {
-            senderID: props.userInfo._id,
-            receiverID: props.currentChat,
-          },
-          data: { getMessages: newMsgArray },
-        });
-        const messageContainer = document.getElementById("messageContainer");
-        messageContainer.scrollTop = messageContainer.scrollHeight;
-      }
+      let newMsgArray = [...msgStore.getMessages];
+      newMsgArray.unshift(newMsg);
+      apolloClient.writeQuery({
+        query: GET_MESSAGES,
+        variables: {
+          senderID: props.userInfo._id,
+          receiverID: props.currentChat,
+        },
+        data: { getMessages: newMsgArray },
+      });
+      const messageContainer = document.getElementById("messageContainer");
+      messageContainer.scrollTop = messageContainer.scrollHeight;
     }
   };
 
@@ -269,7 +266,7 @@ const ChatDisplay = (props) => {
   const defaultChatDisplay = () => {
     return (
       <div className="chat-display-default">
-        <h1>Hi, welcome to MyChat</h1>
+        <h1>Hi, Welcome to MyChat</h1>
         <p>
           To get started, enter a name from the contact list to the left to
           start messaging!
@@ -279,15 +276,13 @@ const ChatDisplay = (props) => {
   };
 
   return props.messageLoading || props.aboutLoading ? null : (
-    <Fragment>
+    <div className="chat-display-parent">
       {props.currentChat === "" &&
         props.convoHistory.data.getConversations.length === 0 &&
         defaultChatDisplay()}
-      <div className="chat-display-parent">
-        {props.currentChat != "" && chat()}
-        {props.currentChat != "" && <About getUser={getUser} />}
-      </div>
-    </Fragment>
+      {props.currentChat != "" && chat()}
+      {props.currentChat != "" && <About getUser={getUser} />}
+    </div>
   );
 };
 

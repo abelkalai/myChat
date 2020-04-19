@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import ChatSearch from "./ChatSearch";
-import ChatDisplay from "./ChatDisplay";
+import ChatSearch from "./left/ChatSearch";
+import ChatDisplay from "./right/ChatDisplay";
 import { useQuery } from "@apollo/react-hooks";
-import ChatDisplayPlaceholder from "./ChatDisplayPlaceholder";
+import ChatDisplayPlaceholder from "./right/placeholders/ChatDisplayPlaceholder";
 import gql from "graphql-tag";
 import "../../../../assets/stylesheets/components/main/chat.css";
 

@@ -1,0 +1,57 @@
+.front-page-container {
+  background-color: #434750;
+  height: 100vh;
+  text-align: center;
+}
+
+.front-page{
+  margin-top: 5vh;
+  display: inline-block;
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.front-page-header {
+  text-align: center;
+}
+
+.center{
+  text-align: center;
+}
+
+.footer {
+  position: absolute;
+  bottom: 20px;
+  right: 25px;
+}
+
+.logo {
+  float: left;
+  padding: 0;
+  margin-right: 2.5px;
+  width: 50px;
+  height: 50px;
+}
+
+.front-page-form{
+  margin-top: 5px;
+}
+
+.label-front-page-form, .input-front-page-form {
+  display: inline-block;
+}
+
+.label-front-page-form {
+  width: 30%;
+  text-align: right;
+}
+
+.label-front-page-form + .input-front-page-form {
+  width: 20%;
+}
+
+.input-front-page-form + .input-front-page-form {
+  float: right;
+}

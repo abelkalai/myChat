@@ -17,33 +17,6 @@ button:hover {
   cursor: pointer;
 }
 
-.center {
-  text-align: center;
-}
-
-.sign-up {
-  display: inline-block;
-  flex-direction: column;
-  align-items: center;
-  width: 15%;
-}
-
-.sign-up-input {
-  display: flex;
-  flex-direction: column;
-  padding: 7.5px;
-}
-
-.error {
-  color: red;
-  font-size: 12px;
-  display: relative;
-}
-
-.link {
-  text-decoration: none;
-  color: black;
-}
 
 ::-webkit-scrollbar {
   width: 7.5px;
@@ -53,3 +26,19 @@ button:hover {
   background: grey;
   border-radius: 7.5px;
 }
+
+
+.error {
+  color: red;
+  display: relative;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.general-button {
+  color: white;
+  background-color: #00a8f3;
+  border-color: #00a8f3;
+  margin-top: 7.5px;
+}
+

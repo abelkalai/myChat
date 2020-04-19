@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { Link, Redirect, Route } from "react-router-dom";
 import { gql } from "apollo-boost";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { useFieldInput } from "../hooks/customHooks";
 import Confirmation from "./Confirmation";
+import "../../assets/stylesheets/components/front/signup.css"
 
 const ADD_USER = gql`
   mutation addUser(
@@ -54,25 +55,25 @@ const Signup = (props) => {
   const verifyUser = props.verifyUsername ? props.verifyUsername : "";
   const getEmail = useQuery(GET_EMAIL, { variables: { username: verifyUser } });
   const [page, setPage] = useState("signUpForm");
-  const firstNameSign = useFieldInput("");
+  const firstNameField = useFieldInput("");
   const lastNameSign = useFieldInput("");
-  const emailSign = useFieldInput("");
-  const userSign = useFieldInput("");
-  const passSign = useFieldInput("");
-  const confirmPassSign = useFieldInput("");
-  const confirmNumber = useFieldInput("");
+  const emailField = useFieldInput("");
+  const usernameField = useFieldInput("");
+  const passwordField = useFieldInput("");
+  const confirmpasswordField = useFieldInput("");
+  const validationCodeField = useFieldInput("");
 
   const submit = async (event) => {
     event.preventDefault();
-    if (passSign.value !== confirmPassSign.value) {
+    if (passwordField.value !== confirmpasswordField.value) {
       setPassError("Passwords don't match");
       return;
     }
-    let firstName = firstNameSign.value;
+    let firstName = firstNameField.value;
     let lastName = lastNameSign.value;
-    let email = emailSign.value;
-    let username = userSign.value;
-    let password = passSign.value;
+    let email = emailField.value;
+    let username = usernameField.value;
+    let password = passwordField.value;
 
     let result = await addUser({
       variables: {
@@ -105,8 +106,8 @@ const Signup = (props) => {
               <label> First Name: </label>
               <input
                 type="text"
-                value={firstNameSign.value}
-                onChange={firstNameSign.onChange}
+                value={firstNameField.value}
+                onChange={firstNameField.onChange}
                 required
               />
             </div>
@@ -122,8 +123,8 @@ const Signup = (props) => {
             <div className="sign-up-input">
               <label> Email: </label>
               <input
-                value={emailSign.value}
-                onChange={emailSign.onChange}
+                value={emailField.value}
+                onChange={emailField.onChange}
                 type="email"
                 required
               />
@@ -135,8 +136,8 @@ const Signup = (props) => {
               <label>Username: </label>
               <input
                 type="text"
-                value={userSign.value}
-                onChange={userSign.onChange}
+                value={usernameField.value}
+                onChange={usernameField.onChange}
                 required
               />
               {userError === null ? null : (
@@ -145,8 +146,8 @@ const Signup = (props) => {
               <div className="sign-up-input"></div>
               <label> Password: </label>
               <input
-                value={passSign.value}
-                onChange={passSign.onChange}
+                value={passwordField.value}
+                onChange={passwordField.onChange}
                 type="password"
                 required
               />
@@ -156,8 +157,8 @@ const Signup = (props) => {
             <div className="sign-up-input">
               <label> Confirm Password: </label>
               <input
-                value={confirmPassSign.value}
-                onChange={confirmPassSign.onChange}
+                value={confirmpasswordField.value}
+                onChange={confirmpasswordField.onChange}
                 type="password"
                 required
               />
@@ -178,23 +179,23 @@ const Signup = (props) => {
   const signUpValidate = () => {
     return (
       <div className="center">
-        {verifyUser === "" && props.fromLogin != true && <Redirect to="/" />}""
+        {verifyUser === "" && props.fromLogin != true && <Redirect to="/" />}
         <h2>{`Thanks for signing up your username is ${
-          verifyUser ? verifyUser : userSign.value
+          verifyUser ? verifyUser : usernameField.value
         }`}</h2>
-        <p>{`Please check your email at: ${
+        <p > Please check your email at: <span className="bold">{
           getEmail.data.getEmail != ""
             ? getEmail.data.getEmail
-            : emailSign.value
-        } 
-          Please don't leave this page until you have confirmed your email address.`}</p>
+            : emailField.value
+        } </span>
+          Please don't leave this page until you have confirmed your email address.</p>
 
         <form onSubmit={confirmEmail}>
           <label>Enter your confirmation code here:</label>
           <input
             type="text"
-            value={confirmNumber.value}
-            onChange={confirmNumber.onChange}
+            value={validationCodeField.value}
+            onChange={validationCodeField.onChange}
           ></input>
           {<span className="error"> {validateError} </span>}
           <button type="submit"> Confirm Confirmation Code</button>
@@ -205,8 +206,8 @@ const Signup = (props) => {
 
   const confirmEmail = async (event) => {
     event.preventDefault();
-    let validationCode = confirmNumber.value;
-    let username = verifyUser != "" ? verifyUser : userSign.value;
+    let validationCode = validationCodeField.value;
+    let username = verifyUser != "" ? verifyUser : usernameField.value;
     let result = await validateAccount({
       variables: { username, validationCode },
     });

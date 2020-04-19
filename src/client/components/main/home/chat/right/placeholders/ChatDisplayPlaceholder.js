@@ -5,7 +5,9 @@ import AboutPlaceholder from "./AboutPlaceholder";
 const ChatDisplayPlaceholder = () => {
   return (
     <div className="chat-display-parent">
-      <MessagePlaceholder />
+      <div className="chat-display-chat-parent">
+        <MessagePlaceholder />
+      </div>
       <AboutPlaceholder />
     </div>
   );

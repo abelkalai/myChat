@@ -42,6 +42,11 @@
   display: inline-block;
 }
 
+.link {
+  text-decoration: none;
+  color: black;
+}
+
 .dropdown:hover {
   cursor: pointer;
 }

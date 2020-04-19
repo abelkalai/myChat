@@ -12,6 +12,7 @@ const InvalidLink = props => {
       </p>
       <Link to = "/">
         <button
+        className= "general-button"
           type = "button"
         >
           {`Back to ${props.type}`}

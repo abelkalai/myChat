@@ -1,12 +1,14 @@
 import React, { useState, Fragment } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
-import { Link, Route } from "react-router-dom";
+import { Switch, Link, Route } from "react-router-dom";
 import ChatContainer from "./chat/ChatContainer";
 import Profile from "../account/profile/Profile";
 import Settings from "../account/settings/Settings";
 import "../../../assets/stylesheets/components/main/home.css";
+import InvalidLink from "../../../utils/InvalidLink";
 
+import "../../../assets/stylesheets/components/main/home.css";
 const GET_IMAGE = gql`
   query getImage($_id: String!) {
     getImage(_id: $_id)
@@ -19,6 +21,7 @@ const Home = (props) => {
   );
   const userImage = useQuery(GET_IMAGE, { variables: { _id: userInfo._id } });
   const [showDropdown, setShowDropdown] = useState(false);
+
   const topBanner = () => {
     return (
       <div className="banner">
@@ -86,34 +89,39 @@ const Home = (props) => {
 
   return (
     <Fragment>
-      {topBanner()}
-      <Route
-        exact
-        path="/home"
-        render={() => <ChatContainer userInfo={userInfo} />}
-      />
-      <Route
-        path="/home/profile"
-        render={() => (
-          <Profile
-            userInfo={userInfo}
-            setUserInfo={setUserInfo}
-            userImage={userImage}
-            getImage={GET_IMAGE}
-          />
-        )}
-      />
-      <Route
-        path="/home/settings/"
-        render={() => (
-          <Settings
-            userInfo={userInfo}
-            setUserInfo={setUserInfo}
-            setIgnoreCookie={props.setIgnoreCookie}
-            setActiveUser={props.setActiveUser}
-          />
-        )}
-      />
+       {topBanner()}
+      <Switch>
+        <Route
+          exact
+          path="/home"
+          render={() => <ChatContainer userInfo={userInfo} />}
+        />
+        <Route
+          exact
+          path="/home/profile"
+          render={() => (
+            <Profile
+              userInfo={userInfo}
+              setUserInfo={setUserInfo}
+              userImage={userImage}
+              getImage={GET_IMAGE}
+            />
+          )}
+        />
+        <Route
+          exact
+          path={["/home/settings/general", "/home/settings/security"]}
+          render={() => (
+            <Settings
+              userInfo={userInfo}
+              setUserInfo={setUserInfo}
+              setIgnoreCookie={props.setIgnoreCookie}
+              setActiveUser={props.setActiveUser}
+            />
+          )}
+        />
+        <Route path="*" render={() => <InvalidLink type="MyChat" />} />
+      </Switch>
     </Fragment>
   );
 };

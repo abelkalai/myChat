@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import Time from "./Time";
-import "../../../../assets/stylesheets/components/main/chatHistory.css";
+import adjustTime from "../../../../../utils/adjustTime"
+import "../../../../../assets/stylesheets/components/main/chatHistory.css";
 
 const History = (props) => {
   const arr = [];
@@ -48,8 +48,8 @@ const History = (props) => {
   const displayHistory = () => {
     if (props.convoHistory.data.getConversations.length === 0) {
       return (
-        <div>
-          You don't have any history of convos please type a name above to get
+        <div className="no-history-div">
+          You don't have any history of conversations please type a name above to get
           started
         </div>
       );
@@ -106,7 +106,7 @@ const History = (props) => {
                   ? `${convo.lastMessage.slice(0, 16)}...`
                   : convo.lastMessage}
                 <span className="chat-history-time">
-                  <Time time={convo.lastMessageTime} />
+                  <div>{adjustTime(convo.lastMessageTime, false)}</div>
                 </span>
               </div>
             </div>

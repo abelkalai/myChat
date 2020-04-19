@@ -1,6 +1,6 @@
 import React from "react";
-import AboutPlaceholder from "./AboutPlaceholder"
-
+import AboutPlaceholder from "./placeholders/AboutPlaceholder"
+import "../../../../../assets/stylesheets/components/main/chatAbout.css";
 
 const About = (props) => {
   if(props.getUser.data.getSingleUser === null){

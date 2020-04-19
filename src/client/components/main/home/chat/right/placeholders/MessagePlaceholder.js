@@ -20,7 +20,7 @@ const MessagePlaceholder = () => {
     );
   }
   return (
-    <div>
+    <Fragment>
       <div className="chat-display-chat-container">
         <div className="chat-display-chat-parent">
           <div className="chat-display-chat">
@@ -31,7 +31,7 @@ const MessagePlaceholder = () => {
       <div className="chat-display-chat-send-message-form">
           <img className="msg-placeholder-msg-field" src="../../../../assets/images/contentPlaceholder.png"/>
       </div>
-    </div>
+      </Fragment>
   );
 };
 
