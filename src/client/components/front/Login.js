@@ -1,23 +1,27 @@
 import React, { useState } from "react";
 import { useFieldInput } from "../hooks/customHooks";
 import { Redirect } from "react-router-dom";
+import {LOGIN} from "../../graphqlDocuments/user"
+import { useMutation } from "@apollo/react-hooks";
 
 const Login = (props) => {
   document.title = "Login | MyChat";
+  const [loginQuery] = useMutation(LOGIN);
   const [loginError, setLoginError] = useState(null);
   const [validateButton, showValidateButton] = useState(false);
-  const [sendUser, setSendUser] = useState(null);
-  const user = useFieldInput("");
-  const pass = useFieldInput("");
+  const [verifyUser, setVerifyUser] = useState(null);
+  const [verifyEmail, setVerifyEmail] = useState(null);
+  const usernameField = useFieldInput("");
+  const passwordField = useFieldInput("");
 
   const [page, setPage] = useState("login");
-  
+
   const loginForm = () => {
     const submitLogin = async (event) => {
       event.preventDefault();
-      let username = user.value;
-      let password = pass.value;
-      let result = await props.login({
+      let username = usernameField.value;
+      let password = passwordField.value;
+      let result = await loginQuery({
         variables: { username, password },
       });
 
@@ -34,7 +38,8 @@ const Login = (props) => {
           result.data.login.errorList ===
           "Please confirm your email address to login"
         ) {
-          setSendUser(username);
+          setVerifyEmail(result.data.login.email);
+          setVerifyUser(username);
           showValidateButton(true);
         }
         return;
@@ -58,8 +63,8 @@ const Login = (props) => {
             <input
               className="input-front-page-form"
               type="text"
-              value={user.value}
-              onChange={user.onChange}
+              value={usernameField.value}
+              onChange={usernameField.onChange}
               required
             />
             {loginError ? <span className="error"> {loginError} </span> : null}
@@ -68,8 +73,8 @@ const Login = (props) => {
             <label className="label-front-page-form">Password</label>
             <input
               className="input-front-page-form"
-              value={pass.value}
-              onChange={pass.onChange}
+              value={passwordField.value}
+              onChange={passwordField.onChange}
               required
               type="password"
             />
@@ -113,7 +118,9 @@ const Login = (props) => {
               <button
                 type="button"
                 onClick={() => {
-                  props.setVerifyUsername(sendUser), setPage("validate");
+                  props.setVerifyUser(verifyUser),
+                    props.setVerifyEmail(verifyEmail),
+                    setPage("validate");
                 }}
               >
                 Validate Account
@@ -126,7 +133,7 @@ const Login = (props) => {
   };
 
   return (
-    <div className="center">
+    <div>
       {page === "login" && loginForm()}
       {page === "forgotUsername" && <Redirect to="/forgotUsername" />}
       {page === "forgotPassword" && <Redirect to="/forgotPassword" />}

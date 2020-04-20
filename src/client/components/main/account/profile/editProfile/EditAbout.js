@@ -1,12 +1,7 @@
 import React from "react";
+import {EDIT_ABOUT} from "../../../../../graphqlDocuments/user"
 import { useMutation } from "@apollo/react-hooks";
-import { gql } from "apollo-boost";
 
-const EDIT_ABOUT = gql`
-  mutation editAbout($_id: String!, $about: String!) {
-    editAbout(_id: $_id, about: $about)
-  }
-`;
 const EditAbout = (props) => {
   
   const [editAbout] = useMutation(EDIT_ABOUT, {

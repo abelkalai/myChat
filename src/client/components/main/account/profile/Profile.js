@@ -1,16 +1,11 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { gql } from "apollo-boost";
+import {GET_ABOUT} from "../../../../graphqlDocuments/user"
 import EditPicture from "./editProfile/EditPicture";
 import EditAbout from "./editProfile/EditAbout";
 import { useFieldInput } from "./../../../hooks/customHooks";
 import "../../../../assets/stylesheets/components/main/profile.css";
 
-const GET_ABOUT = gql`
-  query getAbout($_id: String!) {
-    getAbout(_id: $_id)
-  }
-`;
 
 const Profile = (props) => {
   document.title = "Profile | MyChat";
@@ -52,7 +47,6 @@ const Profile = (props) => {
         <EditPicture
           userInfo={props.userInfo}
           setUserInfo={props.setUserInfo}
-          getImage={props.getImage}
           setShowUploadForm={setShowUploadForm}
         />
       )}

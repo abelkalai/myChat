@@ -13,12 +13,12 @@ const JWT_SECRET_KEY = config.JSON_SECRET_KEY;
 
 const { merge } = require("lodash");
 
-const { userTypeDefs, userResolvers } = require("./schema/userSchema");
-const { messageTypeDefs, messageResolvers } = require("./schema/messageSchema");
+const { userTypeDefs, userResolvers } = require("./schema/user");
+const { messageTypeDefs, messageResolvers } = require("./schema/message");
 const {
   conversationTypeDefs,
   conversationResolvers,
-} = require("./schema/conversationSchema");
+} = require("./schema/conversation");
 
 mongoose
   .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })

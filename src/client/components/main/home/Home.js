@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { gql } from "apollo-boost";
+import {GET_IMAGE} from "../../../graphqlDocuments/user"
 import { Switch, Link, Route } from "react-router-dom";
 import ChatContainer from "./chat/ChatContainer";
 import Profile from "../account/profile/Profile";
@@ -9,11 +9,7 @@ import "../../../assets/stylesheets/components/main/home.css";
 import InvalidLink from "../../../utils/InvalidLink";
 
 import "../../../assets/stylesheets/components/main/home.css";
-const GET_IMAGE = gql`
-  query getImage($_id: String!) {
-    getImage(_id: $_id)
-  }
-`;
+
 
 const Home = (props) => {
   const [userInfo, setUserInfo] = useState(
@@ -104,7 +100,6 @@ const Home = (props) => {
               userInfo={userInfo}
               setUserInfo={setUserInfo}
               userImage={userImage}
-              getImage={GET_IMAGE}
             />
           )}
         />

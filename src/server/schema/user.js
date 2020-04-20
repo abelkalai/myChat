@@ -36,7 +36,6 @@ const userTypeDefs = gql`
   }
 
   type Query {
-    getEmail(username: String): String
     checkEmail(email: String, type: String): String
     loggedIn: User
     getAbout(_id: String!): String
@@ -49,6 +48,7 @@ const userTypeDefs = gql`
     User: User
     Token: String
     errorList: String
+    email: String
   }
 
   type Mutation {
@@ -76,21 +76,6 @@ const userTypeDefs = gql`
 
 const userResolvers = {
   Query: {
-    getEmail: async (root, args) => {
-      if (!args.username) return "";
-      let user = await User.findOne({ username: args.username });
-      let verificationCode = generator.generate({ length: 8, numbers: true });
-      let validationCodeHash = await bcrypt.hash(verificationCode, 10);
-      await User.findByIdAndUpdate(user._id, {
-        validationCode: validationCodeHash,
-      });
-      await mailService.sendEmail("CONFIRM", {
-        toFullName: user.fullName,
-        toEmail: user.email,
-        code: verificationCode,
-      });
-      return user.email;
-    },
     loggedIn: async (root, args, context) => {
       let activeUser = await (context.currentUser != null
         ? context.currentUser
@@ -205,7 +190,23 @@ const userResolvers = {
         if (!(await bcrypt.compare(args.password, user.password))) {
           return { errorList: "Username or Password is incorrect" };
         } else if (!user.confirmed) {
-          return { errorList: "Please confirm your email address to login" };
+          let verificationCode = generator.generate({
+            length: 8,
+            numbers: true,
+          });
+          let validationCodeHash = await bcrypt.hash(verificationCode, 10);
+          await User.findByIdAndUpdate(user._id, {
+            validationCode: validationCodeHash,
+          });
+          await mailService.sendEmail("CONFIRM", {
+            toFullName: user.fullName,
+            toEmail: user.email,
+            code: verificationCode,
+          });
+          return {
+            email: user.email,
+            errorList: "Please confirm your email address to login",
+          };
         }
         const userSign = {
           _id: user._id,

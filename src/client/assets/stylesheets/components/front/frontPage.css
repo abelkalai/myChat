@@ -1,24 +1,39 @@
-.front-page-container {
+.front-page-background {
   background-color: #434750;
   height: 100vh;
   text-align: center;
 }
 
-.front-page{
+.front-page-container {
   margin-top: 5vh;
   display: inline-block;
   background-color: white;
   border-radius: 15px;
+  width: 65vw;
   border: 1px solid black;
-  padding: 10px;
+}
+
+.front-page {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-areas: "info content";
+}
+
+.front-page-info {
+  grid-area: "info";
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  color: white;
+  background-color: #00a8f3;
 }
 
 .front-page-header {
   text-align: center;
 }
 
-.center{
-  text-align: center;
+.front-page-content {
+  grid-area: "content";
 }
 
 .footer {
@@ -35,16 +50,16 @@
   height: 50px;
 }
 
-.front-page-form{
+.front-page-form {
   margin-top: 5px;
 }
 
-.front-page-form-div{
+.front-page-form-div {
   padding: 2px 2px;
 }
 
-
-.label-front-page-form, .input-front-page-form {
+.label-front-page-form,
+.input-front-page-form {
   display: inline-block;
 }
 

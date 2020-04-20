@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
-const Out = ({ loggedIn, ignoreCookie, activeUser, ...props }) =>
+export const OutRoute = ({ loggedIn, ignoreCookie, activeUser, ...props }) =>
   (loggedIn && !ignoreCookie) || activeUser ? (
     <Route
       exact
@@ -19,10 +19,9 @@ const Out = ({ loggedIn, ignoreCookie, activeUser, ...props }) =>
     <Route path="/" render={() => props.children} />
   );
 
-const In = ({ path, loggedIn, ignoreCookie, activeUser, ...props }) =>
+export const InRoute = ({ path, loggedIn, ignoreCookie, activeUser, ...props }) =>
   (loggedIn && !ignoreCookie) || activeUser ? (
     <Route path="/home" render={() => props.children} />
   ) : null;
 
-export const OutRoute = Out;
-export const InRoute = In;
+

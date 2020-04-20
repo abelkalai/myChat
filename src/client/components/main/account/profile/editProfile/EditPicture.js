@@ -1,20 +1,14 @@
 import React, { useState } from "react";
-import { gql } from "apollo-boost";
+import {EDIT_IMAGE, GET_IMAGE} from "../../../../../graphqlDocuments/user"
 import { useMutation } from "@apollo/react-hooks";
 import imageCompression from "browser-image-compression";
-
-const EDIT_IMAGE = gql`
-  mutation editImage($_id: String!, $image: String!) {
-    editImage(_id: $_id, image: $image)
-  }
-`;
 
 const EditPicture = (props) => {
   const [uploadFile, setUploadFile] = useState(null);
   const [editImage] = useMutation(EDIT_IMAGE, {
     update: (store, { data }) => {
       store.writeQuery({
-        query: props.getImage,
+        query: GET_IMAGE,
         variables: { _id: props.userInfo._id },
         data: { getImage: data.editImage },
       });

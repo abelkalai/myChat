@@ -1,18 +1,8 @@
 import React, {Fragment, useState } from "react";
 import History from "./History";
 import { useFieldInput } from "../../../../hooks/customHooks";
+import {SEARCH_USER} from "../../../../../graphqlDocuments/user"
 import { useLazyQuery } from "@apollo/react-hooks";
-import gql from "graphql-tag";
-
-const SEARCH_USER = gql`
-  query searchUser($_id: String!, $type: String!, $search: String!) {
-    searchUser(_id: $_id, type: $type, search: $search) {
-      _id
-      fullName
-      profilePicture
-    }
-  }
-`;
 
 const ChatSearch = (props) => {
   const [searchActive, setSearchActive] = useState(false);

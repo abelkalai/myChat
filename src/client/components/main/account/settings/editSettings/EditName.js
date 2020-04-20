@@ -1,13 +1,7 @@
 import React from "react";
 import { useFieldInput } from "../../../../hooks/customHooks";
 import { useMutation } from "@apollo/react-hooks";
-import { gql } from "apollo-boost";
-
-const CHANGE_NAME = gql`
-  mutation changeName($_id: String!, $firstName: String!, $lastName: String!) {
-    changeName(_id: $_id, firstName: $firstName, lastName: $lastName)
-  }
-`;
+import {CHANGE_NAME} from "../../../../../graphqlDocuments/user"
 
 const EditName = (props) => {
   const [changeName] = useMutation(CHANGE_NAME);

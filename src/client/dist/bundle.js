@@ -25034,7 +25034,7 @@ function _defineProperty(e,r,n){return r in e?Object.defineProperty(e,r,{value:n
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "* {\r\n  font: \"San Francisco\";\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\ninput:focus, textarea:focus, select:focus{\r\n  outline: none;\r\n}\r\n\r\nbutton{\r\n  padding: 2px;\r\n  border-radius: 2.5px;\r\n}\r\n\r\nbutton:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n\r\n::-webkit-scrollbar {\r\n  width: 7.5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  background: grey;\r\n  border-radius: 7.5px;\r\n}\r\n\r\n\r\n.error {\r\n  color: red;\r\n  display: relative;\r\n  font-size: 16px;\r\n  margin-left: 5px;\r\n}\r\n\r\n.general-button {\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  border-color: #00a8f3;\r\n  margin-top: 7.5px;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, "* {\r\n  font: \"San Francisco\";\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\ninput:focus, textarea:focus, select:focus{\r\n  outline: none;\r\n}\r\n\r\nbutton{\r\n  padding: 2px;\r\n  border-radius: 2.5px;\r\n}\r\n\r\nbutton:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n\r\n::-webkit-scrollbar {\r\n  width: 7.5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  background: grey;\r\n  border-radius: 7.5px;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n  display: relative;\r\n  font-size: 16px;\r\n  margin-left: 5px;\r\n}\r\n\r\n.general-button {\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  border-color: #00a8f3;\r\n  margin-top: 7.5px;\r\n}\r\n\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25052,7 +25052,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".front-page-container {\r\n  background-color: #434750;\r\n  height: 100vh;\r\n  text-align: center;\r\n}\r\n\r\n.front-page{\r\n  margin-top: 5vh;\r\n  display: inline-block;\r\n  background-color: white;\r\n  border-radius: 15px;\r\n  border: 1px solid black;\r\n  padding: 10px;\r\n}\r\n\r\n.front-page-header {\r\n  text-align: center;\r\n}\r\n\r\n.center{\r\n  text-align: center;\r\n}\r\n\r\n.footer {\r\n  position: absolute;\r\n  bottom: 20px;\r\n  right: 25px;\r\n}\r\n\r\n.logo {\r\n  float: left;\r\n  padding: 0;\r\n  margin-right: 2.5px;\r\n  width: 50px;\r\n  height: 50px;\r\n}\r\n\r\n.front-page-form{\r\n  margin-top: 5px;\r\n}\r\n\r\n.front-page-form-div{\r\n  padding: 2px 2px;\r\n}\r\n\r\n\r\n.label-front-page-form, .input-front-page-form {\r\n  display: inline-block;\r\n}\r\n\r\n.label-front-page-form {\r\n  width: 30%;\r\n  text-align: right;\r\n}\r\n\r\n.label-front-page-form + .input-front-page-form {\r\n  width: 30%;\r\n}\r\n\r\n.input-front-page-form + .input-front-page-form {\r\n  float: right;\r\n}\r\n", ""]);
+exports.push([module.i, ".front-page-background {\r\n  background-color: #434750;\r\n  height: 100vh;\r\n  text-align: center;\r\n}\r\n\r\n.front-page-container {\r\n  margin-top: 5vh;\r\n  display: inline-block;\r\n  background-color: white;\r\n  border-radius: 15px;\r\n  width: 65vw;\r\n  border: 1px solid black;\r\n}\r\n\r\n.front-page {\r\n  height: 100%;\r\n  display: grid;\r\n  grid-template-columns: 40% 60%;\r\n  grid-template-areas: \"info content\";\r\n}\r\n\r\n.front-page-info {\r\n  grid-area: \"info\";\r\n  border-top-left-radius: 15px;\r\n  border-bottom-left-radius: 15px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n}\r\n\r\n.front-page-header {\r\n  text-align: center;\r\n}\r\n\r\n.front-page-content {\r\n  grid-area: \"content\";\r\n}\r\n\r\n.footer {\r\n  position: absolute;\r\n  bottom: 20px;\r\n  right: 25px;\r\n}\r\n\r\n.logo {\r\n  float: left;\r\n  padding: 0;\r\n  margin-right: 2.5px;\r\n  width: 50px;\r\n  height: 50px;\r\n}\r\n\r\n.front-page-form {\r\n  margin-top: 5px;\r\n}\r\n\r\n.front-page-form-div {\r\n  padding: 2px 2px;\r\n}\r\n\r\n.label-front-page-form,\r\n.input-front-page-form {\r\n  display: inline-block;\r\n}\r\n\r\n.label-front-page-form {\r\n  width: 30%;\r\n  text-align: right;\r\n}\r\n\r\n.label-front-page-form + .input-front-page-form {\r\n  width: 30%;\r\n}\r\n\r\n.input-front-page-form + .input-front-page-form {\r\n  float: right;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -87274,7 +87274,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _front_FrontPage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./front/FrontPage */ "./src/client/components/front/FrontPage.js");
 /* harmony import */ var _main_home_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main/home/Home */ "./src/client/components/main/home/Home.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+/* harmony import */ var _graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../graphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
 /* harmony import */ var _utils_utilRoute__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/utilRoute */ "./src/client/utils/utilRoute.js");
 /* harmony import */ var _assets_stylesheets_all_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/stylesheets/all.css */ "./src/client/assets/stylesheets/all.css");
 /* harmony import */ var _assets_stylesheets_all_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_all_css__WEBPACK_IMPORTED_MODULE_6__);
@@ -87290,27 +87290,6 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  {\n    loggedIn {\n      _id\n      firstName\n      lastName\n      fullName\n      email\n      username\n      confirmed\n    }\n  }\n"]);
-
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  mutation login($username: String!, $password: String!) {\n    login(username: $username, password: $password) {\n      User {\n        _id\n        firstName\n        lastName\n        fullName\n        email\n        username\n        confirmed\n      }\n      Token\n      errorList\n    }\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
@@ -87318,16 +87297,9 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-
-var LOGIN = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_4__["gql"])(_templateObject());
-var LOGGED_IN = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_4__["gql"])(_templateObject2());
 
 var App = function App() {
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(LOGIN),
-      _useMutation2 = _slicedToArray(_useMutation, 1),
-      loginQuery = _useMutation2[0];
-
-  var loggedInQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(LOGGED_IN);
+  var loggedInQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(_graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_4__["LOGGED_IN"]);
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -87344,7 +87316,6 @@ var App = function App() {
     ignoreCookie: ignoreCookie,
     activeUser: activeUser
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_front_FrontPage__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    loginQuery: loginQuery,
     ignoreCookie: ignoreCookie,
     setIgnoreCookie: setIgnoreCookie,
     activeUser: activeUser,
@@ -87409,9 +87380,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
 /* harmony import */ var _Confirmation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Confirmation */ "./src/client/components/front/Confirmation.js");
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../graphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -87424,25 +87394,12 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query checkEmail($email: String, $type: String) {\n    checkEmail(email: $email, type: $type)\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
 
 
 
-
-var CHECK_EMAIL = graphql_tag__WEBPACK_IMPORTED_MODULE_5___default()(_templateObject());
 
 var Forgot = function Forgot(props) {
   document.title = "Forgot ".concat(props.type, " | MyChat");
@@ -87453,7 +87410,7 @@ var Forgot = function Forgot(props) {
       error = _useState2[0],
       setError = _useState2[1];
 
-  var _useLazyQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__["useLazyQuery"])(CHECK_EMAIL, {
+  var _useLazyQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_5__["useLazyQuery"])(_graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_4__["CHECK_EMAIL"], {
     onCompleted: function onCompleted(data) {
       setError(data.checkEmail);
     }
@@ -87553,21 +87510,32 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var FrontPage = function FrontPage(props) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState2 = _slicedToArray(_useState, 2),
-      verifyUsername = _useState2[0],
-      setVerifyUsername = _useState2[1];
+      verifyUser = _useState2[0],
+      setVerifyUser = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState4 = _slicedToArray(_useState3, 2),
-      fromLogin = _useState4[0],
-      setFromLogin = _useState4[1];
+      verifyEmail = _useState4[0],
+      setVerifyEmail = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      fromLogin = _useState6[0],
+      setFromLogin = _useState6[1];
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "front-page-background"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "front-page-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "front-page"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "front-page-info"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "front-page-header"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to MyChat!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "My Chat is a platform used to connect with friends and family and message one another!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to MyChat!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "My Chat is a platform used to connect with friends and family and message one another!"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "front-page-content"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/",
     render: function render() {
@@ -87577,7 +87545,8 @@ var FrontPage = function FrontPage(props) {
         setIgnoreCookie: props.setIgnoreCookie,
         activeUser: props.activeUser,
         setActiveUser: props.setActiveUser,
-        setVerifyUsername: setVerifyUsername,
+        setVerifyUser: setVerifyUser,
+        setVerifyEmail: setVerifyEmail,
         setFromLogin: setFromLogin
       });
     }
@@ -87602,7 +87571,8 @@ var FrontPage = function FrontPage(props) {
     path: ["/signup", "/signup/validate", "/signup/confirm"],
     render: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Signup__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        verifyUsername: verifyUsername,
+        verifyUser: verifyUser,
+        verifyEmail: verifyEmail,
         fromLogin: fromLogin
       });
     }
@@ -87641,7 +87611,7 @@ var FrontPage = function FrontPage(props) {
     title: "https://github.com/abelkalai",
     className: "logo",
     alt: "GitHub"
-  }))));
+  }))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (FrontPage);
@@ -87661,6 +87631,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../graphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -87681,8 +87653,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 var Login = function Login(props) {
   document.title = "Login | MyChat";
+
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__["useMutation"])(_graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__["LOGIN"]),
+      _useMutation2 = _slicedToArray(_useMutation, 1),
+      loginQuery = _useMutation2[0];
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState2 = _slicedToArray(_useState, 2),
@@ -87696,16 +87674,21 @@ var Login = function Login(props) {
 
   var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState6 = _slicedToArray(_useState5, 2),
-      sendUser = _useState6[0],
-      setSendUser = _useState6[1];
+      verifyUser = _useState6[0],
+      setVerifyUser = _useState6[1];
 
-  var user = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])("");
-  var pass = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])("");
-
-  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("login"),
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState8 = _slicedToArray(_useState7, 2),
-      page = _useState8[0],
-      setPage = _useState8[1];
+      verifyEmail = _useState8[0],
+      setVerifyEmail = _useState8[1];
+
+  var usernameField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])("");
+  var passwordField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])("");
+
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("login"),
+      _useState10 = _slicedToArray(_useState9, 2),
+      page = _useState10[0],
+      setPage = _useState10[1];
 
   var loginForm = function loginForm() {
     var submitLogin = /*#__PURE__*/function () {
@@ -87716,10 +87699,10 @@ var Login = function Login(props) {
             switch (_context.prev = _context.next) {
               case 0:
                 event.preventDefault();
-                username = user.value;
-                password = pass.value;
+                username = usernameField.value;
+                password = passwordField.value;
                 _context.next = 5;
-                return props.login({
+                return loginQuery({
                   variables: {
                     username: username,
                     password: password
@@ -87745,7 +87728,8 @@ var Login = function Login(props) {
                 setLoginError(result.data.login.errorList);
 
                 if (result.data.login.errorList === "Please confirm your email address to login") {
-                  setSendUser(username);
+                  setVerifyEmail(result.data.login.email);
+                  setVerifyUser(username);
                   showValidateButton(true);
                 }
 
@@ -87780,8 +87764,8 @@ var Login = function Login(props) {
     }, " Username "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       className: "input-front-page-form",
       type: "text",
-      value: user.value,
-      onChange: user.onChange,
+      value: usernameField.value,
+      onChange: usernameField.onChange,
       required: true
     }), loginError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "error"
@@ -87791,8 +87775,8 @@ var Login = function Login(props) {
       className: "label-front-page-form"
     }, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       className: "input-front-page-form",
-      value: pass.value,
-      onChange: pass.onChange,
+      value: passwordField.value,
+      onChange: passwordField.onChange,
       required: true,
       type: "password"
     }), loginError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -87819,14 +87803,12 @@ var Login = function Login(props) {
     }, "Signup"), validateButton ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "button",
       onClick: function onClick() {
-        props.setVerifyUsername(sendUser), setPage("validate");
+        props.setVerifyUser(verifyUser), props.setVerifyEmail(verifyEmail), setPage("validate");
       }
     }, "Validate Account") : null)));
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "center"
-  }, page === "login" && loginForm(), page === "forgotUsername" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, page === "login" && loginForm(), page === "forgotUsername" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
     to: "/forgotUsername"
   }), page === "forgotPassword" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
     to: "/forgotPassword"
@@ -87853,7 +87835,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+/* harmony import */ var _graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../graphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 /* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
 /* harmony import */ var _Confirmation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Confirmation */ "./src/client/components/front/Confirmation.js");
@@ -87875,37 +87857,6 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  query getEmail($username: String) {\n    getEmail(username: $username)\n  }\n"]);
-
-  _templateObject3 = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  mutation validateAccount($username: String!, $validationCode: String!) {\n    validateAccount(username: $username, validationCode: $validationCode)\n  }\n"]);
-
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  mutation addUser(\n    $firstName: String!\n    $lastName: String!\n    $email: String!\n    $username: String!\n    $password: String!\n  ) {\n    addUser(\n      firstName: $firstName\n      lastName: $lastName\n      email: $email\n      username: $username\n      password: $password\n    ) {\n      User {\n        firstName\n        lastName\n        email\n      }\n      errorList\n    }\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
@@ -87913,19 +87864,15 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-
-var ADD_USER = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_2__["gql"])(_templateObject());
-var VALIDATE_ACCOUNT = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_2__["gql"])(_templateObject2());
-var GET_EMAIL = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_2__["gql"])(_templateObject3());
 
 var Signup = function Signup(props) {
   document.title = "Signup | MyChat";
 
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(ADD_USER),
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(_graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_2__["ADD_USER"]),
       _useMutation2 = _slicedToArray(_useMutation, 1),
       addUser = _useMutation2[0];
 
-  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(VALIDATE_ACCOUNT),
+  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(_graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_2__["VALIDATE_ACCOUNT"]),
       _useMutation4 = _slicedToArray(_useMutation3, 1),
       validateAccount = _useMutation4[0];
 
@@ -87953,13 +87900,6 @@ var Signup = function Signup(props) {
       _useState10 = _slicedToArray(_useState9, 2),
       confirmMsg = _useState10[0],
       setConfirmMsg = _useState10[1];
-
-  var verifyUser = props.verifyUsername ? props.verifyUsername : "";
-  var getEmail = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(GET_EMAIL, {
-    variables: {
-      username: verifyUser
-    }
-  });
 
   var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("signUpForm"),
       _useState12 = _slicedToArray(_useState11, 2),
@@ -88121,11 +88061,11 @@ var Signup = function Signup(props) {
   };
 
   var signUpValidate = function signUpValidate() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !verifyUser && !props.fromLogin && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !props.verifyUser && !props.fromLogin && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
       to: "/"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Thanks for signing up your username is ".concat(verifyUser ? verifyUser : usernameField.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Please check your email at:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Thanks for signing up your username is ".concat(props.verifyUser ? props.verifyUser : usernameField.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Please check your email at:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "bold"
-    }, getEmail.data.getEmail ? getEmail.data.getEmail : emailField.value), "Please don't leave this page until you have confirmed your email address."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    }, props.verifyEmail ? props.verifyEmail : emailField.value), "Please don't leave this page until you have confirmed your email address."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       className: "front-page-form",
       onSubmit: confirmEmail
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -88150,7 +88090,7 @@ var Signup = function Signup(props) {
             case 0:
               event.preventDefault();
               validationCode = validationCodeField.value;
-              username = verifyUser ? verifyUser : usernameField.value;
+              username = props.verifyUser ? props.verifyUser : usernameField.value;
               _context2.next = 5;
               return validateAccount({
                 variables: {
@@ -88182,7 +88122,7 @@ var Signup = function Signup(props) {
     };
   }();
 
-  return !getEmail.loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/signup",
     render: function render() {
@@ -88277,7 +88217,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+/* harmony import */ var _graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../graphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
 /* harmony import */ var _editProfile_EditPicture__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editProfile/EditPicture */ "./src/client/components/main/account/profile/editProfile/EditPicture.js");
 /* harmony import */ var _editProfile_EditAbout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editProfile/EditAbout */ "./src/client/components/main/account/profile/editProfile/EditAbout.js");
 /* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
@@ -88295,17 +88235,6 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query getAbout($_id: String!) {\n    getAbout(_id: $_id)\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
@@ -88313,8 +88242,6 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-
-var GET_ABOUT = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_2__["gql"])(_templateObject());
 
 var Profile = function Profile(props) {
   document.title = "Profile | MyChat";
@@ -88330,7 +88257,7 @@ var Profile = function Profile(props) {
       setShowAboutForm = _useState4[1];
 
   var aboutField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_5__["useFieldInput"])("");
-  var aboutUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useQuery"])(GET_ABOUT, {
+  var aboutUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useQuery"])(_graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_2__["GET_ABOUT"], {
     variables: {
       _id: props.userInfo._id
     },
@@ -88354,7 +88281,6 @@ var Profile = function Profile(props) {
   }, "Update Profile Picture") : null, showUploadForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editProfile_EditPicture__WEBPACK_IMPORTED_MODULE_3__["default"], {
     userInfo: props.userInfo,
     setUserInfo: props.setUserInfo,
-    getImage: props.getImage,
     setShowUploadForm: setShowUploadForm
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "About"), !showAboutForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
@@ -88369,7 +88295,7 @@ var Profile = function Profile(props) {
     className: "profile-about-wrapper"
   }, aboutUser.data.getAbout), showAboutForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editProfile_EditAbout__WEBPACK_IMPORTED_MODULE_4__["default"], {
     userInfo: props.userInfo,
-    getAbout: GET_ABOUT,
+    getAbout: _graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_2__["GET_ABOUT"],
     aboutField: aboutField,
     setShowAboutForm: setShowAboutForm
   }));
@@ -88390,8 +88316,8 @@ var Profile = function Profile(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+/* harmony import */ var _graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../graphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -88408,25 +88334,12 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  mutation editAbout($_id: String!, $about: String!) {\n    editAbout(_id: $_id, about: $about)\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
-
-var EDIT_ABOUT = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_2__["gql"])(_templateObject());
 
 var EditAbout = function EditAbout(props) {
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useMutation"])(EDIT_ABOUT, {
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(_graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_1__["EDIT_ABOUT"], {
     update: function update(store, _ref) {
       var data = _ref.data;
       store.writeQuery({
@@ -88515,7 +88428,7 @@ var EditAbout = function EditAbout(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+/* harmony import */ var _graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../graphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 /* harmony import */ var browser_image_compression__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! browser-image-compression */ "./node_modules/browser-image-compression/dist/browser-image-compression.mjs");
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -88534,23 +88447,10 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  mutation editImage($_id: String!, $image: String!) {\n    editImage(_id: $_id, image: $image)\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
 
-
-var EDIT_IMAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_1__["gql"])(_templateObject());
 
 var EditPicture = function EditPicture(props) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
@@ -88558,11 +88458,11 @@ var EditPicture = function EditPicture(props) {
       uploadFile = _useState2[0],
       setUploadFile = _useState2[1];
 
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(EDIT_IMAGE, {
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(_graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_1__["EDIT_IMAGE"], {
     update: function update(store, _ref) {
       var data = _ref.data;
       store.writeQuery({
-        query: props.getImage,
+        query: _graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_1__["GET_IMAGE"],
         variables: {
           _id: props.userInfo._id
         },
@@ -88948,7 +88848,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+/* harmony import */ var _graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../graphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -88971,26 +88871,13 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  mutation changeName($_id: String!, $firstName: String!, $lastName: String!) {\n    changeName(_id: $_id, firstName: $firstName, lastName: $lastName)\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
 
-
-var CHANGE_NAME = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject());
 
 var EditName = function EditName(props) {
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(CHANGE_NAME),
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(_graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__["CHANGE_NAME"]),
       _useMutation2 = _slicedToArray(_useMutation, 1),
       changeName = _useMutation2[0];
 
@@ -89084,7 +88971,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+/* harmony import */ var _graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../graphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -89101,26 +88988,13 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  mutation changePassword(\n    $_id: String!\n    $currentPassword: String!\n    $newPassword: String!\n  ) {\n    changePassword(\n      _id: $_id\n      currentPassword: $currentPassword\n      newPassword: $newPassword\n    )\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
 
-
-var CHANGE_PASSWORD = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject());
 
 var EditPassword = function EditPassword(props) {
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(CHANGE_PASSWORD),
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(_graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__["CHANGE_PASSWORD"]),
       _useMutation2 = _slicedToArray(_useMutation, 1),
       changePassword = _useMutation2[0];
 
@@ -89272,7 +89146,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+/* harmony import */ var _graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../graphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -89295,26 +89169,13 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  mutation changeUserName($_id: String!, $username: String!) {\n    changeUserName(_id: $_id, username: $username)\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
 
-
-var CHANGE_USERNAME = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject());
 
 var EditUsername = function EditUsername(props) {
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(CHANGE_USERNAME),
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(_graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__["CHANGE_USERNAME"]),
       _useMutation2 = _slicedToArray(_useMutation, 1),
       changeUserName = _useMutation2[0];
 
@@ -89423,7 +89284,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+/* harmony import */ var _graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../graphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _chat_ChatContainer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./chat/ChatContainer */ "./src/client/components/main/home/chat/ChatContainer.js");
 /* harmony import */ var _account_profile_Profile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../account/profile/Profile */ "./src/client/components/main/account/profile/Profile.js");
@@ -89447,17 +89308,6 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query getImage($_id: String!) {\n    getImage(_id: $_id)\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
@@ -89468,8 +89318,6 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-
-var GET_IMAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_2__["gql"])(_templateObject());
 
 var Home = function Home(props) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(props.activeUser ? props.activeUser : props.loggedIn),
@@ -89477,7 +89325,7 @@ var Home = function Home(props) {
       userInfo = _useState2[0],
       setUserInfo = _useState2[1];
 
-  var userImage = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useQuery"])(GET_IMAGE, {
+  var userImage = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useQuery"])(_graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_2__["GET_IMAGE"], {
     variables: {
       _id: userInfo._id
     }
@@ -89579,8 +89427,7 @@ var Home = function Home(props) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_account_profile_Profile__WEBPACK_IMPORTED_MODULE_5__["default"], {
         userInfo: userInfo,
         setUserInfo: setUserInfo,
-        userImage: userImage,
-        getImage: GET_IMAGE
+        userImage: userImage
       });
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
@@ -89621,10 +89468,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _left_ChatSearch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./left/ChatSearch */ "./src/client/components/main/home/chat/left/ChatSearch.js");
 /* harmony import */ var _right_ChatDisplay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./right/ChatDisplay */ "./src/client/components/main/home/chat/right/ChatDisplay.js");
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var _right_placeholders_ChatDisplayPlaceholder__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./right/placeholders/ChatDisplayPlaceholder */ "./src/client/components/main/home/chat/right/placeholders/ChatDisplayPlaceholder.js");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _graphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../graphqlDocuments/conversation */ "./src/client/graphqlDocuments/conversation.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var _right_placeholders_ChatDisplayPlaceholder__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./right/placeholders/ChatDisplayPlaceholder */ "./src/client/components/main/home/chat/right/placeholders/ChatDisplayPlaceholder.js");
 /* harmony import */ var _assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/chat.css */ "./src/client/assets/stylesheets/components/main/chat.css");
 /* harmony import */ var _assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_chat_css__WEBPACK_IMPORTED_MODULE_6__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -89639,17 +89485,6 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query getConversations($_id: String!) {\n    getConversations(_id: $_id) {\n      _id\n      members {\n        _id\n        fullName\n        profilePicture\n      }\n      lastSender\n      lastMessage\n      lastMessageTime\n      unread\n      sender {\n        fullName\n      }\n    }\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
@@ -89657,8 +89492,6 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-
-var GET_CONVERSATIONS = graphql_tag__WEBPACK_IMPORTED_MODULE_5___default()(_templateObject());
 
 var ChatContainer = function ChatContainer(props) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
@@ -89686,7 +89519,7 @@ var ChatContainer = function ChatContainer(props) {
       aboutLoading = _useState10[0],
       setAboutLoading = _useState10[1];
 
-  var getConvoQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(GET_CONVERSATIONS, {
+  var getConvoQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__["useQuery"])(_graphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_3__["GET_CONVERSATIONS"], {
     variables: {
       _id: props.userInfo._id
     }
@@ -89700,14 +89533,13 @@ var ChatContainer = function ChatContainer(props) {
     setFromSearch: setFromSearch,
     currentConvo: currentConvo,
     setCurrentConvo: setCurrentConvo
-  }), (getConvoQuery.loading || messageLoading || aboutLoading) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_right_placeholders_ChatDisplayPlaceholder__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_right_ChatDisplay__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }), (getConvoQuery.loading || messageLoading || aboutLoading) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_right_placeholders_ChatDisplayPlaceholder__WEBPACK_IMPORTED_MODULE_5__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_right_ChatDisplay__WEBPACK_IMPORTED_MODULE_2__["default"], {
     userInfo: props.userInfo,
     currentChat: currentChat,
     setCurrentChat: setCurrentChat,
     fromSearch: fromSearch,
     setFromSearch: setFromSearch,
     convoHistory: getConvoQuery,
-    getConversations: GET_CONVERSATIONS,
     currentConvo: currentConvo,
     setCurrentConvo: setCurrentConvo,
     messageLoading: messageLoading,
@@ -89734,9 +89566,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _History__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./History */ "./src/client/components/main/home/chat/left/History.js");
 /* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../graphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -89749,24 +89580,11 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query searchUser($_id: String!, $type: String!, $search: String!) {\n    searchUser(_id: $_id, type: $type, search: $search) {\n      _id\n      fullName\n      profilePicture\n    }\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
 
 
-
-var SEARCH_USER = graphql_tag__WEBPACK_IMPORTED_MODULE_4___default()(_templateObject());
 
 var ChatSearch = function ChatSearch(props) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
@@ -89781,7 +89599,7 @@ var ChatSearch = function ChatSearch(props) {
       searchResult = _useState4[0],
       setSearchResult = _useState4[1];
 
-  var _useLazyQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useLazyQuery"])(SEARCH_USER, {
+  var _useLazyQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__["useLazyQuery"])(_graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__["SEARCH_USER"], {
     onCompleted: function onCompleted(data) {
       setSearchResult(data.searchUser);
     }
@@ -90010,9 +89828,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
-/* harmony import */ var _ChatMessage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ChatMessage */ "./src/client/components/main/home/chat/right/ChatMessage.js");
-/* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./About */ "./src/client/components/main/home/chat/right/About.js");
+/* harmony import */ var _ChatMessage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ChatMessage */ "./src/client/components/main/home/chat/right/ChatMessage.js");
+/* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./About */ "./src/client/components/main/home/chat/right/About.js");
+/* harmony import */ var _graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../graphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
+/* harmony import */ var _graphqlDocuments_message__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../graphqlDocuments/message */ "./src/client/graphqlDocuments/message.js");
+/* harmony import */ var _graphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../graphqlDocuments/conversation */ "./src/client/graphqlDocuments/conversation.js");
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -90045,67 +89865,6 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function _templateObject6() {
-  var data = _taggedTemplateLiteral(["\n  mutation sendMessage(\n    $senderID: String!\n    $receiverID: String!\n    $content: String!\n  ) {\n    sendMessage(senderID: $senderID, receiverID: $receiverID, content: $content)\n  }\n"]);
-
-  _templateObject6 = function _templateObject6() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n  mutation readMessage($_id: String!) {\n    readMessage(_id: $_id)\n  }\n"]);
-
-  _templateObject5 = function _templateObject5() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  subscription {\n    updatedConvo {\n      _id\n      members {\n        _id\n        fullName\n        profilePicture\n      }\n      lastSender\n      lastMessage\n      lastMessageTime\n      unread\n      sender {\n        fullName\n      }\n    }\n  }\n"]);
-
-  _templateObject4 = function _templateObject4() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  subscription {\n    newMessage {\n      _id\n      conversationID\n      senderID\n      receiverID\n      content\n      time\n    }\n  }\n"]);
-
-  _templateObject3 = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  query getMessages($senderID: String!, $receiverID: String!) {\n    getMessages(senderID: $senderID, receiverID: $receiverID) {\n      _id\n      conversationID\n      senderID\n      receiverID\n      content\n      time\n    }\n  }\n"]);
-
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  query getSingleUser($_id: String!) {\n    getSingleUser(_id: $_id) {\n      _id\n      fullName\n      profilePicture\n      about\n    }\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
@@ -90113,12 +89872,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var GET_SINGLE_USER = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject());
-var GET_MESSAGES = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject2());
-var NEW_MESSAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject3());
-var UPDATED_CONVO = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject4());
-var READ_MESSAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject5());
-var SEND_MESSAGE = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["gql"])(_templateObject6());
+
 
 var ChatDisplay = function ChatDisplay(props) {
   if (props.convoHistory.loading) {
@@ -90146,11 +89900,11 @@ var ChatDisplay = function ChatDisplay(props) {
   });
   var messageField = Object(_hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])("");
 
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(READ_MESSAGE, {
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(_graphqlDocuments_message__WEBPACK_IMPORTED_MODULE_6__["READ_MESSAGE"], {
     update: function update(store, _ref) {
       var data = _ref.data;
       var convoCache = store.readQuery({
-        query: props.getConversations,
+        query: _graphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_7__["GET_CONVERSATIONS"],
         variables: {
           _id: props.userInfo._id
         }
@@ -90164,7 +89918,7 @@ var ChatDisplay = function ChatDisplay(props) {
         }) : convo;
       });
       store.writeQuery({
-        query: props.getConversations,
+        query: _graphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_7__["GET_CONVERSATIONS"],
         variables: {
           _id: props.userInfo._id
         },
@@ -90177,11 +89931,11 @@ var ChatDisplay = function ChatDisplay(props) {
       _useMutation2 = _slicedToArray(_useMutation, 1),
       readMsg = _useMutation2[0];
 
-  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(SEND_MESSAGE),
+  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(_graphqlDocuments_message__WEBPACK_IMPORTED_MODULE_6__["SEND_MESSAGE"]),
       _useMutation4 = _slicedToArray(_useMutation3, 1),
       sendMessageQuery = _useMutation4[0];
 
-  var getMessages = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(GET_MESSAGES, {
+  var getMessages = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(_graphqlDocuments_message__WEBPACK_IMPORTED_MODULE_6__["GET_MESSAGES"], {
     variables: {
       senderID: props.userInfo._id,
       receiverID: props.currentChat
@@ -90190,7 +89944,7 @@ var ChatDisplay = function ChatDisplay(props) {
       props.setMessageLoading(false);
     }
   });
-  var getUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(GET_SINGLE_USER, {
+  var getUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(_graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_5__["GET_SINGLE_USER"], {
     variables: {
       _id: props.currentChat
     },
@@ -90203,7 +89957,7 @@ var ChatDisplay = function ChatDisplay(props) {
   var updateMsgCache = function updateMsgCache(newMsg) {
     if ((newMsg.senderID === props.userInfo._id || newMsg.receiverID === props.userInfo._id) && newMsg.conversationID === props.currentConvo) {
       var msgStore = apolloClient.readQuery({
-        query: GET_MESSAGES,
+        query: _graphqlDocuments_message__WEBPACK_IMPORTED_MODULE_6__["GET_MESSAGES"],
         variables: {
           senderID: props.userInfo._id,
           receiverID: props.currentChat
@@ -90214,7 +89968,7 @@ var ChatDisplay = function ChatDisplay(props) {
 
       newMsgArray.unshift(newMsg);
       apolloClient.writeQuery({
-        query: GET_MESSAGES,
+        query: _graphqlDocuments_message__WEBPACK_IMPORTED_MODULE_6__["GET_MESSAGES"],
         variables: {
           senderID: props.userInfo._id,
           receiverID: props.currentChat
@@ -90228,7 +89982,7 @@ var ChatDisplay = function ChatDisplay(props) {
     }
   };
 
-  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(NEW_MESSAGE, {
+  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(_graphqlDocuments_message__WEBPACK_IMPORTED_MODULE_6__["NEW_MESSAGE"], {
     fetchPolicy: "no-cache",
     onSubscriptionData: function onSubscriptionData(_ref2) {
       var subscriptionData = _ref2.subscriptionData;
@@ -90267,7 +90021,7 @@ var ChatDisplay = function ChatDisplay(props) {
 
             case 6:
               convoStore = apolloClient.readQuery({
-                query: props.getConversations,
+                query: _graphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_7__["GET_CONVERSATIONS"],
                 variables: {
                   _id: props.userInfo._id
                 }
@@ -90278,7 +90032,7 @@ var ChatDisplay = function ChatDisplay(props) {
               });
               copy.unshift(convo);
               apolloClient.writeQuery({
-                query: props.getConversations,
+                query: _graphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_7__["GET_CONVERSATIONS"],
                 variables: {
                   _id: props.userInfo._id
                 },
@@ -90300,7 +90054,7 @@ var ChatDisplay = function ChatDisplay(props) {
     };
   }();
 
-  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(UPDATED_CONVO, {
+  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(_graphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_7__["UPDATED_CONVO"], {
     fetchPolicy: "no-cache",
     onSubscriptionData: function onSubscriptionData(_ref4) {
       var subscriptionData = _ref4.subscriptionData;
@@ -90317,7 +90071,7 @@ var ChatDisplay = function ChatDisplay(props) {
             case 0:
               event.preventDefault();
 
-              if (messageField) {
+              if (!messageField.value) {
                 _context2.next = 8;
                 break;
               }
@@ -90395,7 +90149,7 @@ var ChatDisplay = function ChatDisplay(props) {
   var chat = function chat() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "chat-display-chat-parent"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatMessage__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatMessage__WEBPACK_IMPORTED_MODULE_3__["default"], {
       getMessages: getMessages,
       userInfo: props.userInfo
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -90424,7 +90178,7 @@ var ChatDisplay = function ChatDisplay(props) {
 
   return props.messageLoading || props.aboutLoading ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-parent"
-  }, !props.currentChat && props.convoHistory.data.getConversations.length === 0 && defaultChatDisplay(), props.currentChat && chat(), props.currentChat && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_About__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, !props.currentChat && props.convoHistory.data.getConversations.length === 0 && defaultChatDisplay(), props.currentChat && chat(), props.currentChat && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_About__WEBPACK_IMPORTED_MODULE_4__["default"], {
     getUser: getUser
   }));
 };
@@ -90596,6 +90350,297 @@ var MessagePlaceholder = function MessagePlaceholder() {
 
 /***/ }),
 
+/***/ "./src/client/graphqlDocuments/conversation.js":
+/*!*****************************************************!*\
+  !*** ./src/client/graphqlDocuments/conversation.js ***!
+  \*****************************************************/
+/*! exports provided: GET_CONVERSATIONS, UPDATED_CONVO */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_CONVERSATIONS", function() { return GET_CONVERSATIONS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATED_CONVO", function() { return UPDATED_CONVO; });
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  subscription {\n    updatedConvo {\n      _id\n      members {\n        _id\n        fullName\n        profilePicture\n      }\n      lastSender\n      lastMessage\n      lastMessageTime\n      unread\n      sender {\n        fullName\n      }\n    }\n  }\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  query getConversations($_id: String!) {\n    getConversations(_id: $_id) {\n      _id\n      members {\n        _id\n        fullName\n        profilePicture\n      }\n      lastSender\n      lastMessage\n      lastMessageTime\n      unread\n      sender {\n        fullName\n      }\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+var GET_CONVERSATIONS = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject());
+var UPDATED_CONVO = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject2());
+
+/***/ }),
+
+/***/ "./src/client/graphqlDocuments/message.js":
+/*!************************************************!*\
+  !*** ./src/client/graphqlDocuments/message.js ***!
+  \************************************************/
+/*! exports provided: GET_MESSAGES, READ_MESSAGE, SEND_MESSAGE, NEW_MESSAGE */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_MESSAGES", function() { return GET_MESSAGES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "READ_MESSAGE", function() { return READ_MESSAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEND_MESSAGE", function() { return SEND_MESSAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NEW_MESSAGE", function() { return NEW_MESSAGE; });
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["\n  subscription {\n    newMessage {\n      _id\n      conversationID\n      senderID\n      receiverID\n      content\n      time\n    }\n  }\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n  mutation sendMessage(\n    $senderID: String!\n    $receiverID: String!\n    $content: String!\n  ) {\n    sendMessage(senderID: $senderID, receiverID: $receiverID, content: $content)\n  }\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  mutation readMessage($_id: String!) {\n    readMessage(_id: $_id)\n  }\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  query getMessages($senderID: String!, $receiverID: String!) {\n    getMessages(senderID: $senderID, receiverID: $receiverID) {\n      _id\n      conversationID\n      senderID\n      receiverID\n      content\n      time\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+var GET_MESSAGES = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject());
+var READ_MESSAGE = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject2());
+var SEND_MESSAGE = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject3());
+var NEW_MESSAGE = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject4());
+
+/***/ }),
+
+/***/ "./src/client/graphqlDocuments/user.js":
+/*!*********************************************!*\
+  !*** ./src/client/graphqlDocuments/user.js ***!
+  \*********************************************/
+/*! exports provided: LOGGED_IN, LOGIN, ADD_USER, VALIDATE_ACCOUNT, CHECK_EMAIL, GET_IMAGE, EDIT_IMAGE, GET_ABOUT, EDIT_ABOUT, CHANGE_NAME, CHANGE_USERNAME, CHANGE_PASSWORD, SEARCH_USER, GET_SINGLE_USER */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGGED_IN", function() { return LOGGED_IN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN", function() { return LOGIN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_USER", function() { return ADD_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VALIDATE_ACCOUNT", function() { return VALIDATE_ACCOUNT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHECK_EMAIL", function() { return CHECK_EMAIL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_IMAGE", function() { return GET_IMAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EDIT_IMAGE", function() { return EDIT_IMAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_ABOUT", function() { return GET_ABOUT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EDIT_ABOUT", function() { return EDIT_ABOUT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHANGE_NAME", function() { return CHANGE_NAME; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHANGE_USERNAME", function() { return CHANGE_USERNAME; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHANGE_PASSWORD", function() { return CHANGE_PASSWORD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_USER", function() { return SEARCH_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_SINGLE_USER", function() { return GET_SINGLE_USER; });
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
+function _templateObject14() {
+  var data = _taggedTemplateLiteral(["\nquery getSingleUser($_id: String!) {\n  getSingleUser(_id: $_id) {\n    _id\n    fullName\n    profilePicture\n    about\n  }\n}\n"]);
+
+  _templateObject14 = function _templateObject14() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject13() {
+  var data = _taggedTemplateLiteral(["\n  query searchUser($_id: String!, $type: String!, $search: String!) {\n    searchUser(_id: $_id, type: $type, search: $search) {\n      _id\n      fullName\n      profilePicture\n    }\n  }\n"]);
+
+  _templateObject13 = function _templateObject13() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject12() {
+  var data = _taggedTemplateLiteral(["\n  mutation changePassword(\n    $_id: String!\n    $currentPassword: String!\n    $newPassword: String!\n  ) {\n    changePassword(\n      _id: $_id\n      currentPassword: $currentPassword\n      newPassword: $newPassword\n    )\n  }\n"]);
+
+  _templateObject12 = function _templateObject12() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject11() {
+  var data = _taggedTemplateLiteral(["\n  mutation changeUserName($_id: String!, $username: String!) {\n    changeUserName(_id: $_id, username: $username)\n  }\n"]);
+
+  _templateObject11 = function _templateObject11() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject10() {
+  var data = _taggedTemplateLiteral(["\n  mutation changeName($_id: String!, $firstName: String!, $lastName: String!) {\n    changeName(_id: $_id, firstName: $firstName, lastName: $lastName)\n  }\n"]);
+
+  _templateObject10 = function _templateObject10() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject9() {
+  var data = _taggedTemplateLiteral(["\n  mutation editAbout($_id: String!, $about: String!) {\n    editAbout(_id: $_id, about: $about)\n  }\n"]);
+
+  _templateObject9 = function _templateObject9() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject8() {
+  var data = _taggedTemplateLiteral(["\n  query getAbout($_id: String!) {\n    getAbout(_id: $_id)\n  }\n"]);
+
+  _templateObject8 = function _templateObject8() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject7() {
+  var data = _taggedTemplateLiteral(["\n  mutation editImage($_id: String!, $image: String!) {\n    editImage(_id: $_id, image: $image)\n  }\n"]);
+
+  _templateObject7 = function _templateObject7() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject6() {
+  var data = _taggedTemplateLiteral(["\n  query getImage($_id: String!) {\n    getImage(_id: $_id)\n  }\n"]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["\n  query checkEmail($email: String, $type: String) {\n    checkEmail(email: $email, type: $type)\n  }\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["\n  mutation validateAccount($username: String!, $validationCode: String!) {\n    validateAccount(username: $username, validationCode: $validationCode)\n  }\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n  mutation addUser(\n    $firstName: String!\n    $lastName: String!\n    $email: String!\n    $username: String!\n    $password: String!\n  ) {\n    addUser(\n      firstName: $firstName\n      lastName: $lastName\n      email: $email\n      username: $username\n      password: $password\n    ) {\n      User {\n        firstName\n        lastName\n        email\n      }\n      errorList\n    }\n  }\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  mutation login($username: String!, $password: String!) {\n    login(username: $username, password: $password) {\n      User {\n        _id\n        firstName\n        lastName\n        fullName\n        email\n        username\n        confirmed\n      }\n      Token\n      errorList\n      email\n    }\n  }\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  {\n    loggedIn {\n      _id\n      firstName\n      lastName\n      fullName\n      email\n      username\n      confirmed\n    }\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+var LOGGED_IN = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject());
+var LOGIN = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject2());
+var ADD_USER = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject3());
+var VALIDATE_ACCOUNT = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject4());
+var CHECK_EMAIL = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject5());
+var GET_IMAGE = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject6());
+var EDIT_IMAGE = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject7());
+var GET_ABOUT = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject8());
+var EDIT_ABOUT = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject9());
+var CHANGE_NAME = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject10());
+var CHANGE_USERNAME = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject11());
+var CHANGE_PASSWORD = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject12());
+var SEARCH_USER = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject13());
+var GET_SINGLE_USER = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject14());
+
+/***/ }),
+
 /***/ "./src/client/index.jsx":
 /*!******************************!*\
   !*** ./src/client/index.jsx ***!
@@ -90747,8 +90792,7 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 
-
-var Out = function Out(_ref) {
+var OutRoute = function OutRoute(_ref) {
   var loggedIn = _ref.loggedIn,
       ignoreCookie = _ref.ignoreCookie,
       activeUser = _ref.activeUser,
@@ -90769,8 +90813,7 @@ var Out = function Out(_ref) {
     }
   });
 };
-
-var In = function In(_ref2) {
+var InRoute = function InRoute(_ref2) {
   var path = _ref2.path,
       loggedIn = _ref2.loggedIn,
       ignoreCookie = _ref2.ignoreCookie,
@@ -90784,9 +90827,6 @@ var In = function In(_ref2) {
     }
   }) : null;
 };
-
-var OutRoute = Out;
-var InRoute = In;
 
 /***/ }),
 

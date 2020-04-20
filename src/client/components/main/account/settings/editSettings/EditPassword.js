@@ -1,22 +1,7 @@
 import React, { useState } from "react";
 import { useFieldInput } from "../../../../hooks/customHooks";
 import { useMutation } from "@apollo/react-hooks";
-
-import { gql } from "apollo-boost";
-
-const CHANGE_PASSWORD = gql`
-  mutation changePassword(
-    $_id: String!
-    $currentPassword: String!
-    $newPassword: String!
-  ) {
-    changePassword(
-      _id: $_id
-      currentPassword: $currentPassword
-      newPassword: $newPassword
-    )
-  }
-`;
+import {CHANGE_PASSWORD} from "../../../../../graphqlDocuments/user"
 
 const EditPassword = (props) => {
   const [changePassword] = useMutation(CHANGE_PASSWORD);

@@ -1,47 +1,10 @@
 import React, { useState } from "react";
 import { Link, Redirect, Route } from "react-router-dom";
-import { gql } from "apollo-boost";
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import { ADD_USER, VALIDATE_ACCOUNT } from "../../graphqlDocuments/user";
+import { useMutation } from "@apollo/react-hooks";
 import { useFieldInput } from "../hooks/customHooks";
 import Confirmation from "./Confirmation";
 import "../../assets/stylesheets/components/front/signup.css";
-
-const ADD_USER = gql`
-  mutation addUser(
-    $firstName: String!
-    $lastName: String!
-    $email: String!
-    $username: String!
-    $password: String!
-  ) {
-    addUser(
-      firstName: $firstName
-      lastName: $lastName
-      email: $email
-      username: $username
-      password: $password
-    ) {
-      User {
-        firstName
-        lastName
-        email
-      }
-      errorList
-    }
-  }
-`;
-
-const VALIDATE_ACCOUNT = gql`
-  mutation validateAccount($username: String!, $validationCode: String!) {
-    validateAccount(username: $username, validationCode: $validationCode)
-  }
-`;
-
-const GET_EMAIL = gql`
-  query getEmail($username: String) {
-    getEmail(username: $username)
-  }
-`;
 
 const Signup = (props) => {
   document.title = "Signup | MyChat";
@@ -52,8 +15,6 @@ const Signup = (props) => {
   const [validateError, setValidateError] = useState(null);
   const [passwordError, setPasswordError] = useState(null);
   const [confirmMsg, setConfirmMsg] = useState(null);
-  const verifyUser = props.verifyUsername ? props.verifyUsername : "";
-  const getEmail = useQuery(GET_EMAIL, { variables: { username: verifyUser } });
   const [page, setPage] = useState("signUpForm");
   const firstNameField = useFieldInput("");
   const lastNameSign = useFieldInput("");
@@ -144,9 +105,7 @@ const Signup = (props) => {
                 onChange={usernameField.onChange}
                 required
               />
-              {userError ? (
-                <span className="error"> {userError} </span>
-              ) : null}
+              {userError ? <span className="error"> {userError} </span> : null}
               <div className="front-page-form-div">
                 <label className="label-front-page-form"> Password </label>
                 <input
@@ -192,17 +151,14 @@ const Signup = (props) => {
   const signUpValidate = () => {
     return (
       <div>
-        {!verifyUser && !props.fromLogin  && <Redirect to="/" />}
+        {!props.verifyUser && !props.fromLogin && <Redirect to="/" />}
         <h2>{`Thanks for signing up your username is ${
-          verifyUser ? verifyUser : usernameField.value
+          props.verifyUser ? props.verifyUser : usernameField.value
         }`}</h2>
         <p>
-
           Please check your email at:
           <span className="bold">
-            {getEmail.data.getEmail 
-              ? getEmail.data.getEmail
-              : emailField.value}
+            {props.verifyEmail ? props.verifyEmail : emailField.value}
           </span>
           Please don't leave this page until you have confirmed your email
           address.
@@ -227,7 +183,7 @@ const Signup = (props) => {
   const confirmEmail = async (event) => {
     event.preventDefault();
     let validationCode = validationCodeField.value;
-    let username = verifyUser  ? verifyUser : usernameField.value;
+    let username = props.verifyUser ? props.verifyUser : usernameField.value;
     let result = await validateAccount({
       variables: { username, validationCode },
     });
@@ -240,19 +196,17 @@ const Signup = (props) => {
   };
 
   return (
-    !getEmail.loading && (
-      <div>
-        <Route exact path="/signup" render={() => signUpForm()} />
-        {page === "signUpValidate" && <Redirect to="/signup/validate" />}
-        <Route path="/signup/validate" render={() => signUpValidate()} />
-        {page === "signUpConfirm" && <Redirect to="/signup/confirm" />}
-        <Route
-          exact
-          path="/signup/confirm"
-          render={() => <Confirmation confirmMsg={confirmMsg} />}
-        />
-      </div>
-    )
+    <div>
+      <Route exact path="/signup" render={() => signUpForm()} />
+      {page === "signUpValidate" && <Redirect to="/signup/validate" />}
+      <Route path="/signup/validate" render={() => signUpValidate()} />
+      {page === "signUpConfirm" && <Redirect to="/signup/confirm" />}
+      <Route
+        exact
+        path="/signup/confirm"
+        render={() => <Confirmation confirmMsg={confirmMsg} />}
+      />
+    </div>
   );
 };
 

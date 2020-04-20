@@ -2,14 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useFieldInput } from "../hooks/customHooks";
 import Confirmation from "./Confirmation";
+import { CHECK_EMAIL } from "../../graphqlDocuments/user";
 import { useLazyQuery } from "@apollo/react-hooks";
-import gql from "graphql-tag";
-
-const CHECK_EMAIL = gql`
-  query checkEmail($email: String, $type: String) {
-    checkEmail(email: $email, type: $type)
-  }
-`;
 
 const Forgot = (props) => {
   document.title = `Forgot ${props.type} | MyChat`;

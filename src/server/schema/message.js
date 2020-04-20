@@ -37,7 +37,7 @@ const messageTypeDefs = gql`
 const messageResolvers = {
   Query: {
     getMessages: async (root, args) => {
-      if (args.receiverID === "") return null;
+      if (!args.receiverID) return null;
       let senderID = args.senderID;
       let receiverID = args.receiverID;
       let messages = await Message.find({

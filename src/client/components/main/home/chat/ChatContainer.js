@@ -1,30 +1,10 @@
 import React, { useState } from "react";
 import ChatSearch from "./left/ChatSearch";
 import ChatDisplay from "./right/ChatDisplay";
+import {GET_CONVERSATIONS} from "../../../../graphqlDocuments/conversation"
 import { useQuery } from "@apollo/react-hooks";
 import ChatDisplayPlaceholder from "./right/placeholders/ChatDisplayPlaceholder";
-import gql from "graphql-tag";
 import "../../../../assets/stylesheets/components/main/chat.css";
-
-const GET_CONVERSATIONS = gql`
-  query getConversations($_id: String!) {
-    getConversations(_id: $_id) {
-      _id
-      members {
-        _id
-        fullName
-        profilePicture
-      }
-      lastSender
-      lastMessage
-      lastMessageTime
-      unread
-      sender {
-        fullName
-      }
-    }
-  }
-`;
 
 const ChatContainer = (props) => {
   const [fromSearch, setFromSearch] = useState(false);
@@ -59,7 +39,6 @@ const ChatContainer = (props) => {
         fromSearch={fromSearch}
         setFromSearch={setFromSearch}
         convoHistory={getConvoQuery}
-        getConversations={GET_CONVERSATIONS}
         currentConvo={currentConvo}
         setCurrentConvo={setCurrentConvo}
         messageLoading={messageLoading}
