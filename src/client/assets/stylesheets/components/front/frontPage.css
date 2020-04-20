@@ -58,9 +58,14 @@
   padding: 2px 2px;
 }
 
-.label-front-page-form,
+
+.label-front-page-form{
+  display: inline-block;
+}
+
 .input-front-page-form {
   display: inline-block;
+  border-radius: 10px;
 }
 
 .label-front-page-form {

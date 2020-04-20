@@ -26,7 +26,6 @@ const EditAbout = (props) => {
     <form onSubmit={aboutEventHandler}>
       <textarea
         id="editAbout"
-        maxLength="850"
         className="about-text-area"
         value={props.aboutField.value}
         onChange={props.aboutField.onChange}

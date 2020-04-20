@@ -1,11 +1,10 @@
 import React, {Fragment, useState } from "react";
 import FrontPage from "./front/FrontPage";
 import Home from "./main/home/Home";
-import { useQuery} from "@apollo/react-hooks";
+import {useQuery} from "@apollo/react-hooks";
 import {LOGGED_IN} from "../graphqlDocuments/user"
 import { OutRoute, InRoute } from "../utils/utilRoute";
 import "../assets/stylesheets/all.css";
-
 
 const App = () => {
   const loggedInQuery = useQuery(LOGGED_IN);

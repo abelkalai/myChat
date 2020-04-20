@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useFieldInput } from "../hooks/customHooks";
 import { Redirect } from "react-router-dom";
-import {LOGIN} from "../../graphqlDocuments/user"
+import { LOGIN } from "../../graphqlDocuments/user";
 import { useMutation } from "@apollo/react-hooks";
 
 const Login = (props) => {
@@ -50,11 +50,11 @@ const Login = (props) => {
 
     return (
       <div>
-        <h1> Login </h1>
+        <h1> Login into your account</h1>
         {validateButton ? (
           <h2 className="error">
-            Your account is not validate click the button to go to the
-            validation page
+            Your account is not validated, click the "validate account button"
+            to go to the validation page
           </h2>
         ) : null}
         <form className="front-page-form" onSubmit={submitLogin}>
@@ -107,6 +107,7 @@ const Login = (props) => {
             </button>
             <button type="submit">Login </button>
             <button
+              className="general-button"
               type="button"
               onClick={() => {
                 setPage("signup"), props.setFromLogin(true);

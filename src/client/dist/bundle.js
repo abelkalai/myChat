@@ -25052,7 +25052,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".front-page-background {\r\n  background-color: #434750;\r\n  height: 100vh;\r\n  text-align: center;\r\n}\r\n\r\n.front-page-container {\r\n  margin-top: 5vh;\r\n  display: inline-block;\r\n  background-color: white;\r\n  border-radius: 15px;\r\n  width: 65vw;\r\n  border: 1px solid black;\r\n}\r\n\r\n.front-page {\r\n  height: 100%;\r\n  display: grid;\r\n  grid-template-columns: 40% 60%;\r\n  grid-template-areas: \"info content\";\r\n}\r\n\r\n.front-page-info {\r\n  grid-area: \"info\";\r\n  border-top-left-radius: 15px;\r\n  border-bottom-left-radius: 15px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n}\r\n\r\n.front-page-header {\r\n  text-align: center;\r\n}\r\n\r\n.front-page-content {\r\n  grid-area: \"content\";\r\n}\r\n\r\n.footer {\r\n  position: absolute;\r\n  bottom: 20px;\r\n  right: 25px;\r\n}\r\n\r\n.logo {\r\n  float: left;\r\n  padding: 0;\r\n  margin-right: 2.5px;\r\n  width: 50px;\r\n  height: 50px;\r\n}\r\n\r\n.front-page-form {\r\n  margin-top: 5px;\r\n}\r\n\r\n.front-page-form-div {\r\n  padding: 2px 2px;\r\n}\r\n\r\n.label-front-page-form,\r\n.input-front-page-form {\r\n  display: inline-block;\r\n}\r\n\r\n.label-front-page-form {\r\n  width: 30%;\r\n  text-align: right;\r\n}\r\n\r\n.label-front-page-form + .input-front-page-form {\r\n  width: 30%;\r\n}\r\n\r\n.input-front-page-form + .input-front-page-form {\r\n  float: right;\r\n}\r\n", ""]);
+exports.push([module.i, ".front-page-background {\r\n  background-color: #434750;\r\n  height: 100vh;\r\n  text-align: center;\r\n}\r\n\r\n.front-page-container {\r\n  margin-top: 5vh;\r\n  display: inline-block;\r\n  background-color: white;\r\n  border-radius: 15px;\r\n  width: 65vw;\r\n  border: 1px solid black;\r\n}\r\n\r\n.front-page {\r\n  height: 100%;\r\n  display: grid;\r\n  grid-template-columns: 40% 60%;\r\n  grid-template-areas: \"info content\";\r\n}\r\n\r\n.front-page-info {\r\n  grid-area: \"info\";\r\n  border-top-left-radius: 15px;\r\n  border-bottom-left-radius: 15px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n}\r\n\r\n.front-page-header {\r\n  text-align: center;\r\n}\r\n\r\n.front-page-content {\r\n  grid-area: \"content\";\r\n}\r\n\r\n.footer {\r\n  position: absolute;\r\n  bottom: 20px;\r\n  right: 25px;\r\n}\r\n\r\n.logo {\r\n  float: left;\r\n  padding: 0;\r\n  margin-right: 2.5px;\r\n  width: 50px;\r\n  height: 50px;\r\n}\r\n\r\n.front-page-form {\r\n  margin-top: 5px;\r\n}\r\n\r\n.front-page-form-div {\r\n  padding: 2px 2px;\r\n}\r\n\r\n\r\n.label-front-page-form{\r\n  display: inline-block;\r\n}\r\n\r\n.input-front-page-form {\r\n  display: inline-block;\r\n  border-radius: 10px;\r\n}\r\n\r\n.label-front-page-form {\r\n  width: 30%;\r\n  text-align: right;\r\n}\r\n\r\n.label-front-page-form + .input-front-page-form {\r\n  width: 30%;\r\n}\r\n\r\n.input-front-page-form + .input-front-page-form {\r\n  float: right;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25194,7 +25194,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".profile-main {\r\n  margin-top: 2.5vh;\r\n  text-align: center;\r\n}\r\n\r\n.profile-image {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 225px;\r\n  height: 225px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.about-text-area {\r\n  height: 30vh;\r\n  width: 35vw;\r\n  resize: none;\r\n  margin-top: 5px;\r\n  padding-top: 2.5px;\r\n  padding-left: 5px;\r\n  border-radius: 10px;\r\n\r\n}\r\n\r\n.about-img-placeholder {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  height: 30vh;\r\n  width: 35vw;\r\n}\r\n\r\n\r\n.profile-about-wrapper{\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  max-height: 30vh;\r\n  max-width: 35vw;\r\n  text-align: center;\r\n}\r\n\r\n.profile-upload-input-div{\r\n  display: block;\r\n  margin: 4px 0 4px 85px;\r\n}\r\n\r\n.change-button{\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  border-color: #00a8f3;\r\n  margin-top: 7.5px;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.cancel-button{\r\n  color: #696969;\r\n  background-color: #f1f0f0;\r\n  border-color:  #f1f0f0;\r\n  margin-top: 7.5px;\r\n  margin-left: 5px;\r\n  margin-bottom: 5px;\r\n}\r\n", ""]);
+exports.push([module.i, ".profile-main {\r\n  margin-top: 2.5vh;\r\n  text-align: center;\r\n}\r\n\r\n.profile-image {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 225px;\r\n  height: 225px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.about-text-area {\r\n  height: 30vh;\r\n  width: 35vw;\r\n  resize: none;\r\n  margin-top: 5px;\r\n  padding-top: 2.5px;\r\n  padding-left: 5px;\r\n  border-radius: 10px;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n\r\n}\r\n\r\n.about-img-placeholder {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  height: 30vh;\r\n  width: 35vw;\r\n}\r\n\r\n\r\n.profile-about-wrapper{\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  max-height: 30vh;\r\n  max-width: 35vw;\r\n  text-align: center;\r\n}\r\n\r\n.profile-upload-input-div{\r\n  display: block;\r\n  margin: 4px 0 4px 85px;\r\n}\r\n\r\n.change-button{\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  border-color: #00a8f3;\r\n  margin-top: 7.5px;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.cancel-button{\r\n  color: #696969;\r\n  background-color: #f1f0f0;\r\n  border-color:  #f1f0f0;\r\n  margin-top: 7.5px;\r\n  margin-left: 5px;\r\n  margin-bottom: 5px;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -87752,9 +87752,9 @@ var Login = function Login(props) {
       };
     }();
 
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " Login "), validateButton ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " Login into your account"), validateButton ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
       className: "error"
-    }, "Your account is not validate click the button to go to the validation page") : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    }, "Your account is not validated, click the \"validate account button\" to go to the validation page") : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       className: "front-page-form",
       onSubmit: submitLogin
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -87796,6 +87796,7 @@ var Login = function Login(props) {
     }, "Forgot Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "submit"
     }, "Login "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "general-button",
       type: "button",
       onClick: function onClick() {
         setPage("signup"), props.setFromLogin(true);
@@ -88395,7 +88396,6 @@ var EditAbout = function EditAbout(props) {
     onSubmit: aboutEventHandler
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
     id: "editAbout",
-    maxLength: "850",
     className: "about-text-area",
     value: props.aboutField.value,
     onChange: props.aboutField.onChange
@@ -90678,7 +90678,7 @@ var domainName = window.location.hostname; // If running locally use `ws:// ${do
 
 var port = 4000;
 var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_6__["WebSocketLink"]({
-  uri: "ws://".concat(domainName, ":").concat(port, "/graphql"),
+  uri: "wss://".concat(domainName, "/graphql"),
   options: {
     reconnect: true,
     lazy: true
