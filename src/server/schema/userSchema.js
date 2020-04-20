@@ -77,7 +77,7 @@ const userTypeDefs = gql`
 const userResolvers = {
   Query: {
     getEmail: async (root, args) => {
-      if (args.username === "") return "";
+      if (!args.username) return "";
       let user = await User.findOne({ username: args.username });
       let verificationCode = generator.generate({ length: 8, numbers: true });
       let validationCodeHash = await bcrypt.hash(verificationCode, 10);
@@ -110,7 +110,7 @@ const userResolvers = {
 
     checkEmail: async (root, args) => {
       let user = await User.findOne({ email: args.email.toLowerCase() });
-      let result = user != null ? "validEmail" : "No associated email found";
+      let result = user ? "validEmail" : "No associated email found";
       if (result === "validEmail") {
         if (args.type === "Username") {
           await mailService.sendEmail("USERNAME", {
@@ -133,7 +133,7 @@ const userResolvers = {
     },
 
     searchUser: async (root, args) => {
-      if (args.search === "") return [];
+      if (!args.search) return [];
       let dbSearch = `\W*((?i)${args.search}(?-i))\W*`;
       let _id = args._id;
       if (args.type === "contact") {
@@ -154,7 +154,7 @@ const userResolvers = {
     },
 
     getSingleUser: async (root, args) => {
-      if (args._id === "") return null;
+      if (!args._id) return null;
       let user = await User.findById(args._id);
       return user;
     },

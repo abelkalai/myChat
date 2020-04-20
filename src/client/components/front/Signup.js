@@ -1,10 +1,10 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { Link, Redirect, Route } from "react-router-dom";
 import { gql } from "apollo-boost";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { useFieldInput } from "../hooks/customHooks";
 import Confirmation from "./Confirmation";
-import "../../assets/stylesheets/components/front/signup.css"
+import "../../assets/stylesheets/components/front/signup.css";
 
 const ADD_USER = gql`
   mutation addUser(
@@ -50,7 +50,7 @@ const Signup = (props) => {
   const [userError, setUserError] = useState(null);
   const [emailError, setEmailError] = useState(null);
   const [validateError, setValidateError] = useState(null);
-  const [passError, setPassError] = useState(null);
+  const [passwordError, setPasswordError] = useState(null);
   const [confirmMsg, setConfirmMsg] = useState(null);
   const verifyUser = props.verifyUsername ? props.verifyUsername : "";
   const getEmail = useQuery(GET_EMAIL, { variables: { username: verifyUser } });
@@ -65,8 +65,8 @@ const Signup = (props) => {
 
   const submit = async (event) => {
     event.preventDefault();
-    if (passwordField.value !== confirmpasswordField.value) {
-      setPassError("Passwords don't match");
+    if (passwordField.value != confirmpasswordField.value) {
+      setPasswordError("Passwords don't match");
       return;
     }
     let firstName = firstNameField.value;
@@ -85,10 +85,10 @@ const Signup = (props) => {
       },
     });
 
-    if (result.data.addUser.errorList === null) {
+    if (!result.data.addUser.errorList) {
       setUserError(null);
       setEmailError(null);
-      setPassError(null);
+      setPasswordError(null);
       setPage("signUpValidate");
     } else {
       setUserError(result.data.addUser.errorList[0]);
@@ -98,74 +98,87 @@ const Signup = (props) => {
 
   const signUpForm = () => {
     return (
-      <div className="center">
+      <div>
         <h1> Signup for an account!</h1>
         <div className="sign-up">
-          <form onSubmit={submit}>
-            <div className="sign-up-input">
-              <label> First Name: </label>
+          <form className="front-page-form" onSubmit={submit}>
+            <div className="front-page-form-div">
+              <label className="label-front-page-form"> First Name </label>
               <input
+                className="input-front-page-form"
                 type="text"
                 value={firstNameField.value}
                 onChange={firstNameField.onChange}
                 required
               />
             </div>
-            <div className="sign-up-input">
-              <label> Last Name: </label>
+            <div className="front-page-form-div">
+              <label className="label-front-page-form"> Last Name </label>
               <input
+                className="input-front-page-form"
                 type="text"
                 value={lastNameSign.value}
                 onChange={lastNameSign.onChange}
                 required
               />
             </div>
-            <div className="sign-up-input">
-              <label> Email: </label>
+            <div className="front-page-form-div">
+              <label className="label-front-page-form"> Email </label>
               <input
+                className="input-front-page-form"
                 value={emailField.value}
                 onChange={emailField.onChange}
                 type="email"
                 required
               />
-              {emailError === null ? null : (
+              {emailError ? (
                 <span className="error"> {emailError} </span>
-              )}
+              ) : null}
             </div>
-            <div className="sign-up-input">
-              <label>Username: </label>
+            <div className="front-page-form-div">
+              <label className="label-front-page-form"> Username </label>
               <input
+                className="input-front-page-form"
                 type="text"
                 value={usernameField.value}
                 onChange={usernameField.onChange}
                 required
               />
-              {userError === null ? null : (
+              {userError ? (
                 <span className="error"> {userError} </span>
-              )}
-              <div className="sign-up-input"></div>
-              <label> Password: </label>
-              <input
-                value={passwordField.value}
-                onChange={passwordField.onChange}
-                type="password"
-                required
-              />
-              {<span className="error">{passError}</span>}
-            </div>
+              ) : null}
+              <div className="front-page-form-div">
+                <label className="label-front-page-form"> Password </label>
+                <input
+                  className="input-front-page-form"
+                  value={passwordField.value}
+                  onChange={passwordField.onChange}
+                  type="password"
+                  required
+                />
+                {passwordError ? (
+                  <span className="error">{passwordError}</span>
+                ) : null}
+              </div>
 
-            <div className="sign-up-input">
-              <label> Confirm Password: </label>
-              <input
-                value={confirmpasswordField.value}
-                onChange={confirmpasswordField.onChange}
-                type="password"
-                required
-              />
-              {<span className="error"> {passError} </span>}
-            </div>
-            <div className="submit">
-              <button type="submit"> Signup</button>
+              <div className="front-page-form-div">
+                <label className="label-front-page-form">
+                  Confirm Password:
+                </label>
+                <input
+                  className="input-front-page-form"
+                  value={confirmpasswordField.value}
+                  onChange={confirmpasswordField.onChange}
+                  type="password"
+                  required
+                />
+                {passwordError ? (
+                  <span className="error"> {passwordError} </span>
+                ) : null}
+              </div>
+              <div className="submit">
+                <button type="submit"> Signup</button>
+              </div>
             </div>
           </form>
           <Link to="/" className="link">
@@ -178,20 +191,27 @@ const Signup = (props) => {
 
   const signUpValidate = () => {
     return (
-      <div className="center">
-        {verifyUser === "" && props.fromLogin != true && <Redirect to="/" />}
+      <div>
+        {!verifyUser && !props.fromLogin  && <Redirect to="/" />}
         <h2>{`Thanks for signing up your username is ${
           verifyUser ? verifyUser : usernameField.value
         }`}</h2>
-        <p > Please check your email at: <span className="bold">{
-          getEmail.data.getEmail != ""
-            ? getEmail.data.getEmail
-            : emailField.value
-        } </span>
-          Please don't leave this page until you have confirmed your email address.</p>
+        <p>
 
-        <form onSubmit={confirmEmail}>
-          <label>Enter your confirmation code here:</label>
+          Please check your email at:
+          <span className="bold">
+            {getEmail.data.getEmail 
+              ? getEmail.data.getEmail
+              : emailField.value}
+          </span>
+          Please don't leave this page until you have confirmed your email
+          address.
+        </p>
+
+        <form className="front-page-form" onSubmit={confirmEmail}>
+          <label className="label-front-page-form">
+            Enter your confirmation code here
+          </label>
           <input
             type="text"
             value={validationCodeField.value}
@@ -207,7 +227,7 @@ const Signup = (props) => {
   const confirmEmail = async (event) => {
     event.preventDefault();
     let validationCode = validationCodeField.value;
-    let username = verifyUser != "" ? verifyUser : usernameField.value;
+    let username = verifyUser  ? verifyUser : usernameField.value;
     let result = await validateAccount({
       variables: { username, validationCode },
     });

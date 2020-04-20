@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 
 const MessagePlaceholder = () => {
   const arr = [];
+
   for (let i = 0; i < 10; i++) {
     arr.push(
       <div key={`Msg${i}`} className="chat-message-wrapper">
@@ -19,6 +20,7 @@ const MessagePlaceholder = () => {
       </div>
     );
   }
+  
   return (
     <Fragment>
       <div className="chat-display-chat-container">

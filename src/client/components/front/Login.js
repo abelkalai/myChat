@@ -1,28 +1,27 @@
 import React, { useState } from "react";
 import { useFieldInput } from "../hooks/customHooks";
-import {Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
-//Implement getting email when person needs to validate account, pass that to signup/validate. Remove getEmail query.
-
-const Login = props => {
+const Login = (props) => {
   document.title = "Login | MyChat";
   const [loginError, setLoginError] = useState(null);
   const [validateButton, showValidateButton] = useState(false);
   const [sendUser, setSendUser] = useState(null);
-  const user = useFieldInput("")
-  const pass = useFieldInput("")
+  const user = useFieldInput("");
+  const pass = useFieldInput("");
 
   const [page, setPage] = useState("login");
+  
   const loginForm = () => {
-    const submitLogin = async event => {
+    const submitLogin = async (event) => {
       event.preventDefault();
       let username = user.value;
       let password = pass.value;
       let result = await props.login({
-        variables: { username, password }
+        variables: { username, password },
       });
 
-      if (result.data.login.errorList == null) {
+      if (!result.data.login.errorList) {
         setLoginError(null);
         let date = new Date();
         date.setDate(date.getDate() + 7);
@@ -45,7 +44,7 @@ const Login = props => {
     };
 
     return (
-      <div className="center">
+      <div>
         <h1> Login </h1>
         {validateButton ? (
           <h2 className="error">
@@ -53,11 +52,30 @@ const Login = props => {
             validation page
           </h2>
         ) : null}
-        <form onSubmit={submitLogin}>
+        <form className="front-page-form" onSubmit={submitLogin}>
+          <div className="front-page-form-div">
+            <label className="label-front-page-form"> Username </label>
+            <input
+              className="input-front-page-form"
+              type="text"
+              value={user.value}
+              onChange={user.onChange}
+              required
+            />
+            {loginError ? <span className="error"> {loginError} </span> : null}
+          </div>
+          <div className="front-page-form-div">
+            <label className="label-front-page-form">Password</label>
+            <input
+              className="input-front-page-form"
+              value={pass.value}
+              onChange={pass.onChange}
+              required
+              type="password"
+            />
+            {loginError ? <span className="error"> {loginError} </span> : null}
+          </div>
           <div>
-            Username:
-            <input type= "text" value={user.value} onChange={user.onChange} required />
-            {<span className="error"> {loginError} </span>}
             <button
               type="button"
               onClick={() => {
@@ -70,16 +88,6 @@ const Login = props => {
             >
               Forgot Username
             </button>
-          </div>
-          <div>
-            Password:
-            <input
-              value={pass.value}
-              onChange={pass.onChange}
-              required
-              type="password"
-            />
-            {<span className="error"> {loginError} </span>}
             <button
               type="button"
               onClick={() => {
@@ -92,8 +100,6 @@ const Login = props => {
             >
               Forgot Password
             </button>
-          </div>
-          <div>
             <button type="submit">Login </button>
             <button
               type="button"

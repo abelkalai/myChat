@@ -60,7 +60,7 @@ const messageResolvers = {
       });
 
       let time = new Date();
-      if (existingConvo === null) {
+      if (!existingConvo) {
         let newConvo = new Conversation({
           members: [args.senderID, args.receiverID],
           lastSender: args.senderID,

@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
 const Out = ({ loggedIn, ignoreCookie, activeUser, ...props }) =>
-  (loggedIn != null && !ignoreCookie) || activeUser ? (
+  (loggedIn && !ignoreCookie) || activeUser ? (
     <Route
       exact
       path={[
@@ -20,7 +20,7 @@ const Out = ({ loggedIn, ignoreCookie, activeUser, ...props }) =>
   );
 
 const In = ({ path, loggedIn, ignoreCookie, activeUser, ...props }) =>
-  (loggedIn != null && !ignoreCookie) || activeUser ? (
+  (loggedIn && !ignoreCookie) || activeUser ? (
     <Route path="/home" render={() => props.children} />
   ) : null;
 

@@ -39,6 +39,11 @@
   margin-top: 5px;
 }
 
+.front-page-form-div{
+  padding: 2px 2px;
+}
+
+
 .label-front-page-form, .input-front-page-form {
   display: inline-block;
 }
@@ -49,7 +54,7 @@
 }
 
 .label-front-page-form + .input-front-page-form {
-  width: 20%;
+  width: 30%;
 }
 
 .input-front-page-form + .input-front-page-form {

@@ -6,6 +6,7 @@ import {
   useMutation,
   useSubscription,
 } from "@apollo/react-hooks";
+
 import { gql } from "apollo-boost";
 import ChatMessage from "./ChatMessage";
 import About from "./About";
@@ -91,7 +92,7 @@ const ChatDisplay = (props) => {
   useEffect(() => {
     if (
       props.convoHistory.data.getConversations.length != 0 &&
-      props.currentChat === ""
+      !props.currentChat
     ) {
       for (let ele of props.convoHistory.data.getConversations[0].members) {
         if (ele._id != props.userInfo._id) props.setCurrentChat(ele._id);
@@ -214,7 +215,7 @@ const ChatDisplay = (props) => {
 
   const sendMessage = async (event) => {
     event.preventDefault();
-    if (messageField != "") {
+    if (!messageField) {
       let senderID = props.userInfo._id;
       let receiverID = props.currentChat;
       let content = messageField.value;
@@ -277,11 +278,11 @@ const ChatDisplay = (props) => {
 
   return props.messageLoading || props.aboutLoading ? null : (
     <div className="chat-display-parent">
-      {props.currentChat === "" &&
+      {!props.currentChat &&
         props.convoHistory.data.getConversations.length === 0 &&
         defaultChatDisplay()}
-      {props.currentChat != "" && chat()}
-      {props.currentChat != "" && <About getUser={getUser} />}
+      {props.currentChat && chat()}
+      {props.currentChat && <About getUser={getUser} />}
     </div>
   );
 };

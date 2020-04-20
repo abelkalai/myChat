@@ -60,7 +60,7 @@ const ChatSearch = (props) => {
 
   const search = (event) => {
     searchField.manualChange(event.target.value);
-    setSearchActive(event.target.value === "" ? false : true);
+    setSearchActive(event.target.value ? true : false);
     searchQuery({
       variables: {
         _id: props.userInfo._id,

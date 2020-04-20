@@ -46,7 +46,7 @@ const EditUsername = (props) => {
           value={userField.value}
           onChange={userField.onChange}
         />
-        {<span className="error">{userError}</span>}
+        {userError ?<span className="error">{userError}</span> : null}
       </div>
       <div>
         <button className="settings-save-changes" type="submit">

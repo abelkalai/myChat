@@ -7,6 +7,7 @@ import "../../../../assets/stylesheets/components/main/settings.css";
 const Settings = (props) => {
   document.title = "Settings | MyChat";
   const [activeTab, setActiveTab] = useState(null);
+  
   return (
     <div className="main-settings">
       <div className="main-left">

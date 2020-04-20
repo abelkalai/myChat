@@ -15,7 +15,7 @@ const httpLink = new HttpLink({
 
 const domainName = window.location.hostname;
 
-// If running locally use `ws://${domainName}${port}/graphql` else `wss://${domainName}/graphql` for prod
+// If running locally use `ws:// ${domainName} ${port} /graphql` else `wss:// ${domainName} /graphql` for prod
 const port= 4000
 
 const wsLink = new WebSocketLink({

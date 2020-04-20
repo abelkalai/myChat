@@ -3,9 +3,11 @@ import EditPassword from "./editSettings/EditPassword";
 import "../../../../assets/stylesheets/components/main/settings.css";
 
 const Security = (props) => {
+
   useEffect(() => {
     props.setActiveTab("security");
   }, []);
+
   const [showPasswordForm, setShowPasswordForm] = useState(false);
   const [sendHome, setSendHome] = useState(false);
 
@@ -16,7 +18,7 @@ const Security = (props) => {
       <div className="settings-divider-inside-single">
         <span className="bold-text">Change Password </span>(You'll be required to re-login upon changing your
         password)
-        {!showPasswordForm ? (
+        {showPasswordForm ? null :(
           <span
             className="change"
             onClick={() => {
@@ -25,7 +27,7 @@ const Security = (props) => {
           >
             Edit
           </span>
-        ) : null}
+        )}
         {showPasswordForm && (
           <EditPassword
             setSendHome={setSendHome}

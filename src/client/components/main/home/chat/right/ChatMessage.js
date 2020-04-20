@@ -4,7 +4,7 @@ import adjustTime from "../../../../../utils/adjustTime"
 import "../../../../../assets/stylesheets/components/main/chatMessage.css";
 
 const ChatMessage = (props) => {
-  if (props.getMessages.data.getMessages === null) {
+  if (!props.getMessages.data.getMessages) {
     return <MessagePlaceholder />;
   }
   return (

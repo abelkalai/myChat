@@ -23,7 +23,7 @@ const EditPicture = (props) => {
 
   const uploadFileEventHandler = async (event) => {
     event.preventDefault();
-    if (uploadFile === null) return;
+    if (!uploadFile) return;
     let newFile = await await imageCompression(uploadFile, {
       maxSizeMB: 0.05,
       maxWidthOrHeight: 1920,

@@ -8,6 +8,7 @@ const EDIT_ABOUT = gql`
   }
 `;
 const EditAbout = (props) => {
+  
   const [editAbout] = useMutation(EDIT_ABOUT, {
     update: (store, { data }) => {
       store.writeQuery({
@@ -17,6 +18,7 @@ const EditAbout = (props) => {
       });
     },
   });
+
   const aboutEventHandler = async (event) => {
     event.preventDefault();
     let _id = props.userInfo._id;

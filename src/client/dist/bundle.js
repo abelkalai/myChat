@@ -25052,7 +25052,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".front-page-container {\r\n  background-color: #434750;\r\n  height: 100vh;\r\n  text-align: center;\r\n}\r\n\r\n.front-page{\r\n  margin-top: 5vh;\r\n  display: inline-block;\r\n  background-color: white;\r\n  border-radius: 15px;\r\n  border: 1px solid black;\r\n  padding: 10px;\r\n}\r\n\r\n.front-page-header {\r\n  text-align: center;\r\n}\r\n\r\n.center{\r\n  text-align: center;\r\n}\r\n\r\n.footer {\r\n  position: absolute;\r\n  bottom: 20px;\r\n  right: 25px;\r\n}\r\n\r\n.logo {\r\n  float: left;\r\n  padding: 0;\r\n  margin-right: 2.5px;\r\n  width: 50px;\r\n  height: 50px;\r\n}\r\n\r\n.front-page-form{\r\n  margin-top: 5px;\r\n}\r\n\r\n.label-front-page-form, .input-front-page-form {\r\n  display: inline-block;\r\n}\r\n\r\n.label-front-page-form {\r\n  width: 30%;\r\n  text-align: right;\r\n}\r\n\r\n.label-front-page-form + .input-front-page-form {\r\n  width: 20%;\r\n}\r\n\r\n.input-front-page-form + .input-front-page-form {\r\n  float: right;\r\n}\r\n", ""]);
+exports.push([module.i, ".front-page-container {\r\n  background-color: #434750;\r\n  height: 100vh;\r\n  text-align: center;\r\n}\r\n\r\n.front-page{\r\n  margin-top: 5vh;\r\n  display: inline-block;\r\n  background-color: white;\r\n  border-radius: 15px;\r\n  border: 1px solid black;\r\n  padding: 10px;\r\n}\r\n\r\n.front-page-header {\r\n  text-align: center;\r\n}\r\n\r\n.center{\r\n  text-align: center;\r\n}\r\n\r\n.footer {\r\n  position: absolute;\r\n  bottom: 20px;\r\n  right: 25px;\r\n}\r\n\r\n.logo {\r\n  float: left;\r\n  padding: 0;\r\n  margin-right: 2.5px;\r\n  width: 50px;\r\n  height: 50px;\r\n}\r\n\r\n.front-page-form{\r\n  margin-top: 5px;\r\n}\r\n\r\n.front-page-form-div{\r\n  padding: 2px 2px;\r\n}\r\n\r\n\r\n.label-front-page-form, .input-front-page-form {\r\n  display: inline-block;\r\n}\r\n\r\n.label-front-page-form {\r\n  width: 30%;\r\n  text-align: right;\r\n}\r\n\r\n.label-front-page-form + .input-front-page-form {\r\n  width: 30%;\r\n}\r\n\r\n.input-front-page-form + .input-front-page-form {\r\n  float: right;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -87465,15 +87465,21 @@ var Forgot = function Forgot(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "center"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " Forgot ", props.type), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      className: "front-page-form",
       onSubmit: emailCall
-    }, "Enter Email Address:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "front-page-form-div"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      className: "label-front-page-form"
+    }, "Enter Email Address"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "input-front-page-form",
       value: emailForm.value,
       onChange: emailForm.onChange,
       type: "email",
       required: true
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }), error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "error"
-    }, error), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    }, error) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "submit"
     }, "Submit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/",
@@ -87673,7 +87679,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
- //Implement getting email when person needs to validate account, pass that to signup/validate. Remove getEmail query.
+
 
 var Login = function Login(props) {
   document.title = "Login | MyChat";
@@ -87723,7 +87729,7 @@ var Login = function Login(props) {
               case 5:
                 result = _context.sent;
 
-                if (!(result.data.login.errorList == null)) {
+                if (result.data.login.errorList) {
                   _context.next = 13;
                   break;
                 }
@@ -87762,39 +87768,48 @@ var Login = function Login(props) {
       };
     }();
 
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "center"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " Login "), validateButton ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " Login "), validateButton ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
       className: "error"
     }, "Your account is not validate click the button to go to the validation page") : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      className: "front-page-form",
       onSubmit: submitLogin
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Username:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "front-page-form-div"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      className: "label-front-page-form"
+    }, " Username "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "input-front-page-form",
       type: "text",
       value: user.value,
       onChange: user.onChange,
       required: true
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }), loginError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "error"
-    }, " ", loginError, " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    }, " ", loginError, " ") : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "front-page-form-div"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      className: "label-front-page-form"
+    }, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "input-front-page-form",
+      value: pass.value,
+      onChange: pass.onChange,
+      required: true,
+      type: "password"
+    }), loginError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "error"
+    }, " ", loginError, " ") : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "button",
       onClick: function onClick() {
         setPage("forgotUsername"), setLoginError(null), user.clear(), pass.clear();
       },
       className: "forgotLabel"
-    }, "Forgot Username")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Password:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      value: pass.value,
-      onChange: pass.onChange,
-      required: true,
-      type: "password"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "error"
-    }, " ", loginError, " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    }, "Forgot Username"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "button",
       onClick: function onClick() {
         setPage("forgotPassword"), setLoginError(null), user.clear(), pass.clear();
       },
       className: "forgotLabel"
-    }, "Forgot Password")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    }, "Forgot Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "submit"
     }, "Login "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "button",
@@ -87931,8 +87946,8 @@ var Signup = function Signup(props) {
 
   var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState8 = _slicedToArray(_useState7, 2),
-      passError = _useState8[0],
-      setPassError = _useState8[1];
+      passwordError = _useState8[0],
+      setPasswordError = _useState8[1];
 
   var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState10 = _slicedToArray(_useState9, 2),
@@ -87968,12 +87983,12 @@ var Signup = function Signup(props) {
             case 0:
               event.preventDefault();
 
-              if (!(passwordField.value !== confirmpasswordField.value)) {
+              if (!(passwordField.value != confirmpasswordField.value)) {
                 _context.next = 4;
                 break;
               }
 
-              setPassError("Passwords don't match");
+              setPasswordError("Passwords don't match");
               return _context.abrupt("return");
 
             case 4:
@@ -87996,10 +88011,10 @@ var Signup = function Signup(props) {
             case 11:
               result = _context.sent;
 
-              if (result.data.addUser.errorList === null) {
+              if (!result.data.addUser.errorList) {
                 setUserError(null);
                 setEmailError(null);
-                setPassError(null);
+                setPasswordError(null);
                 setPage("signUpValidate");
               } else {
                 setUserError(result.data.addUser.errorList[0]);
@@ -88020,67 +88035,84 @@ var Signup = function Signup(props) {
   }();
 
   var signUpForm = function signUpForm() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "center"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " Signup for an account!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " Signup for an account!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "sign-up"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      className: "front-page-form",
       onSubmit: submit
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "sign-up-input"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " First Name: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "front-page-form-div"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      className: "label-front-page-form"
+    }, " First Name "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "input-front-page-form",
       type: "text",
       value: firstNameField.value,
       onChange: firstNameField.onChange,
       required: true
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "sign-up-input"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Last Name: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "front-page-form-div"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      className: "label-front-page-form"
+    }, " Last Name "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "input-front-page-form",
       type: "text",
       value: lastNameSign.value,
       onChange: lastNameSign.onChange,
       required: true
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "sign-up-input"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Email: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "front-page-form-div"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      className: "label-front-page-form"
+    }, " Email "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "input-front-page-form",
       value: emailField.value,
       onChange: emailField.onChange,
       type: "email",
       required: true
-    }), emailError === null ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }), emailError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "error"
-    }, " ", emailError, " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "sign-up-input"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Username: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }, " ", emailError, " ") : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "front-page-form-div"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      className: "label-front-page-form"
+    }, " Username "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "input-front-page-form",
       type: "text",
       value: usernameField.value,
       onChange: usernameField.onChange,
       required: true
-    }), userError === null ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }), userError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "error"
-    }, " ", userError, " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "sign-up-input"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Password: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }, " ", userError, " ") : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "front-page-form-div"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      className: "label-front-page-form"
+    }, " Password "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "input-front-page-form",
       value: passwordField.value,
       onChange: passwordField.onChange,
       type: "password",
       required: true
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }), passwordError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "error"
-    }, passError)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "sign-up-input"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Confirm Password: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }, passwordError) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "front-page-form-div"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      className: "label-front-page-form"
+    }, "Confirm Password:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "input-front-page-form",
       value: confirmpasswordField.value,
       onChange: confirmpasswordField.onChange,
       type: "password",
       required: true
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }), passwordError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "error"
-    }, " ", passError, " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, " ", passwordError, " ") : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "submit"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "submit"
-    }, " Signup"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    }, " Signup")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/",
       className: "link"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -88089,15 +88121,16 @@ var Signup = function Signup(props) {
   };
 
   var signUpValidate = function signUpValidate() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "center"
-    }, verifyUser === "" && props.fromLogin != true && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !verifyUser && !props.fromLogin && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
       to: "/"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Thanks for signing up your username is ".concat(verifyUser ? verifyUser : usernameField.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " Please check your email at: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Thanks for signing up your username is ".concat(verifyUser ? verifyUser : usernameField.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Please check your email at:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "bold"
-    }, getEmail.data.getEmail != "" ? getEmail.data.getEmail : emailField.value, " "), "Please don't leave this page until you have confirmed your email address."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    }, getEmail.data.getEmail ? getEmail.data.getEmail : emailField.value), "Please don't leave this page until you have confirmed your email address."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      className: "front-page-form",
       onSubmit: confirmEmail
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Enter your confirmation code here:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      className: "label-front-page-form"
+    }, "Enter your confirmation code here"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       type: "text",
       value: validationCodeField.value,
       onChange: validationCodeField.onChange
@@ -88117,7 +88150,7 @@ var Signup = function Signup(props) {
             case 0:
               event.preventDefault();
               validationCode = validationCodeField.value;
-              username = verifyUser != "" ? verifyUser : usernameField.value;
+              username = verifyUser ? verifyUser : usernameField.value;
               _context2.next = 5;
               return validateAccount({
                 variables: {
@@ -88551,7 +88584,7 @@ var EditPicture = function EditPicture(props) {
             case 0:
               event.preventDefault();
 
-              if (!(uploadFile === null)) {
+              if (uploadFile) {
                 _context2.next = 3;
                 break;
               }
@@ -88790,12 +88823,12 @@ var Security = function Security(props) {
     className: "settings-divider-inside-single"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "bold-text"
-  }, "Change Password "), "(You'll be required to re-login upon changing your password)", !showPasswordForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, "Change Password "), "(You'll be required to re-login upon changing your password)", showPasswordForm ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "change",
     onClick: function onClick() {
       setShowPasswordForm(true);
     }
-  }, "Edit") : null, showPasswordForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editSettings_EditPassword__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, "Edit"), showPasswordForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editSettings_EditPassword__WEBPACK_IMPORTED_MODULE_1__["default"], {
     setSendHome: setSendHome,
     userInfo: props.userInfo,
     setActiveUser: props.setActiveUser,
@@ -89199,9 +89232,9 @@ var EditPassword = function EditPassword(props) {
     type: "password",
     value: newPasswordField.value,
     onChange: newPasswordField.onChange
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }), newPasswordError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "error"
-  }, newPasswordError)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+  }, newPasswordError) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     className: "label-settings-form"
   }, " Confirm New Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     className: "input-settings-form ",
@@ -89209,9 +89242,9 @@ var EditPassword = function EditPassword(props) {
     type: "password",
     value: newPasswordConfirmField.value,
     onChange: newPasswordConfirmField.onChange
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }), newPasswordError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "error"
-  }, newPasswordError)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, newPasswordError) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "settings-save-changes",
     type: "submit"
   }, "Save Changes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -89361,9 +89394,9 @@ var EditUsername = function EditUsername(props) {
     required: true,
     value: userField.value,
     onChange: userField.onChange
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }), userError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "error"
-  }, userError)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, userError) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "settings-save-changes",
     type: "submit"
   }, "Save Changes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -89790,7 +89823,7 @@ var ChatSearch = function ChatSearch(props) {
 
   var search = function search(event) {
     searchField.manualChange(event.target.value);
-    setSearchActive(event.target.value === "" ? false : true);
+    setSearchActive(event.target.value ? true : false);
     searchQuery({
       variables: {
         _id: props.userInfo._id,
@@ -89876,7 +89909,7 @@ var History = function History(props) {
   }
 
   var unreadMsgs = props.convoHistory.data.getConversations.filter(function (convo) {
-    return convo.unread === true && convo.lastSender != props.userInfo._id;
+    return convo.unread && convo.lastSender != props.userInfo._id;
   }).length;
   document.title = unreadMsgs > 0 ? "(".concat(unreadMsgs, ") Unread Messages | MyChat") : "MyChat";
 
@@ -89946,7 +89979,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var About = function About(props) {
-  if (props.getUser.data.getSingleUser === null) {
+  if (!props.getUser.data.getSingleUser) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_placeholders_AboutPlaceholder__WEBPACK_IMPORTED_MODULE_1__["default"], null);
   }
 
@@ -90093,7 +90126,7 @@ var ChatDisplay = function ChatDisplay(props) {
   }
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    if (props.convoHistory.data.getConversations.length != 0 && props.currentChat === "") {
+    if (props.convoHistory.data.getConversations.length != 0 && !props.currentChat) {
       var _iterator = _createForOfIteratorHelper(props.convoHistory.data.getConversations[0].members),
           _step;
 
@@ -90284,7 +90317,7 @@ var ChatDisplay = function ChatDisplay(props) {
             case 0:
               event.preventDefault();
 
-              if (!(messageField != "")) {
+              if (messageField) {
                 _context2.next = 8;
                 break;
               }
@@ -90391,7 +90424,7 @@ var ChatDisplay = function ChatDisplay(props) {
 
   return props.messageLoading || props.aboutLoading ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-parent"
-  }, props.currentChat === "" && props.convoHistory.data.getConversations.length === 0 && defaultChatDisplay(), props.currentChat != "" && chat(), props.currentChat != "" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_About__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, !props.currentChat && props.convoHistory.data.getConversations.length === 0 && defaultChatDisplay(), props.currentChat && chat(), props.currentChat && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_About__WEBPACK_IMPORTED_MODULE_5__["default"], {
     getUser: getUser
   }));
 };
@@ -90421,7 +90454,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ChatMessage = function ChatMessage(props) {
-  if (props.getMessages.data.getMessages === null) {
+  if (!props.getMessages.data.getMessages) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_placeholders_MessagePlaceholder__WEBPACK_IMPORTED_MODULE_1__["default"], null);
   }
 
@@ -90596,7 +90629,7 @@ __webpack_require__(/*! babel-polyfill */ "./node_modules/babel-polyfill/lib/ind
 var httpLink = new apollo_boost__WEBPACK_IMPORTED_MODULE_4__["HttpLink"]({
   uri: "/graphql"
 });
-var domainName = window.location.hostname; // If running locally use `ws://${domainName}${port}/graphql` else `wss://${domainName}/graphql` for prod
+var domainName = window.location.hostname; // If running locally use `ws:// ${domainName} ${port} /graphql` else `wss:// ${domainName} /graphql` for prod
 
 var port = 4000;
 var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_6__["WebSocketLink"]({
@@ -90721,7 +90754,7 @@ var Out = function Out(_ref) {
       activeUser = _ref.activeUser,
       props = _objectWithoutProperties(_ref, ["loggedIn", "ignoreCookie", "activeUser"]);
 
-  return loggedIn != null && !ignoreCookie || activeUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+  return loggedIn && !ignoreCookie || activeUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: ["/", "/forgotUsername", "/forgotPassword", "/signup", "/signup/validate", "/signup/confirm"],
     render: function render() {
@@ -90744,7 +90777,7 @@ var In = function In(_ref2) {
       activeUser = _ref2.activeUser,
       props = _objectWithoutProperties(_ref2, ["path", "loggedIn", "ignoreCookie", "activeUser"]);
 
-  return loggedIn != null && !ignoreCookie || activeUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+  return loggedIn && !ignoreCookie || activeUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/home",
     render: function render() {
       return props.children;

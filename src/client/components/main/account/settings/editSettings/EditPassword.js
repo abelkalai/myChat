@@ -79,7 +79,9 @@ const EditPassword = (props) => {
           value={newPasswordField.value}
           onChange={newPasswordField.onChange}
         />
-        {<span className="error">{newPasswordError}</span>}
+        {newPasswordError ? (
+          <span className="error">{newPasswordError}</span>
+        ) : null}
       </div>
       <div>
         <label className="label-settings-form"> Confirm New Password</label>
@@ -90,7 +92,9 @@ const EditPassword = (props) => {
           value={newPasswordConfirmField.value}
           onChange={newPasswordConfirmField.onChange}
         />
-        {<span className="error">{newPasswordError}</span>}
+        {newPasswordError ? (
+          <span className="error">{newPasswordError}</span>
+        ) : null}
       </div>
       <div>
         <button className="settings-save-changes" type="submit">
