@@ -22,11 +22,9 @@ const Forgot = (props) => {
         <div>
           <form className="front-page-form" onSubmit={emailCall}>
             <div className="front-page-form-div">
-              <label className="label-front-page-form">
-                Enter Email Address
-              </label>
               <input
                 className="input-front-page-form"
+                placeholder="Email"
                 value={emailForm.value}
                 onChange={emailForm.onChange}
                 type="email"
@@ -37,7 +35,7 @@ const Forgot = (props) => {
             <button type="submit">Submit</button>
           </form>
           <Link to="/" className="link">
-            <button type="button"> Back to Login </button>{" "}
+            <button type="button"> Back to Login </button>
           </Link>
         </div>
       </div>

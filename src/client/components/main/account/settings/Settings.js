@@ -13,7 +13,7 @@ const Settings = (props) => {
       <div className="main-left">
         <h1>Settings</h1>
         <div className="settings-dropdown">
-          <Link to={`/home/settings/general`} className="link">
+          <Link to="/home/settings/general" className="link">
             <div
               className={
                 activeTab === "general" ? "settings-active-tab" : "settings-tab"
@@ -26,7 +26,7 @@ const Settings = (props) => {
               <span className="general-content">General</span>
             </div>
           </Link>
-          <Link to={`/home/settings/security`} className="link">
+          <Link to="/home/settings/security" className="link">
             <div
               className={
                 activeTab === "security"

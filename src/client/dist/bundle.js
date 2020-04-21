@@ -25052,7 +25052,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".front-page-background {\r\n  background-color: #434750;\r\n  height: 100vh;\r\n  text-align: center;\r\n}\r\n\r\n.front-page-container {\r\n  margin-top: 5vh;\r\n  display: inline-block;\r\n  background-color: white;\r\n  border-radius: 15px;\r\n  width: 65vw;\r\n  border: 1px solid black;\r\n}\r\n\r\n.front-page {\r\n  height: 100%;\r\n  display: grid;\r\n  grid-template-columns: 40% 60%;\r\n  grid-template-areas: \"info content\";\r\n}\r\n\r\n.front-page-info {\r\n  grid-area: \"info\";\r\n  border-top-left-radius: 15px;\r\n  border-bottom-left-radius: 15px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n}\r\n\r\n.front-page-header {\r\n  text-align: center;\r\n}\r\n\r\n.front-page-content {\r\n  grid-area: \"content\";\r\n}\r\n\r\n.footer {\r\n  position: absolute;\r\n  bottom: 20px;\r\n  right: 25px;\r\n}\r\n\r\n.logo {\r\n  float: left;\r\n  padding: 0;\r\n  margin-right: 2.5px;\r\n  width: 50px;\r\n  height: 50px;\r\n}\r\n\r\n.front-page-form {\r\n  margin-top: 5px;\r\n}\r\n\r\n.front-page-form-div {\r\n  padding: 2px 2px;\r\n}\r\n\r\n\r\n.label-front-page-form{\r\n  display: inline-block;\r\n}\r\n\r\n.input-front-page-form {\r\n  display: inline-block;\r\n  border-radius: 10px;\r\n}\r\n\r\n.label-front-page-form {\r\n  width: 30%;\r\n  text-align: right;\r\n}\r\n\r\n.label-front-page-form + .input-front-page-form {\r\n  width: 30%;\r\n}\r\n\r\n.input-front-page-form + .input-front-page-form {\r\n  float: right;\r\n}\r\n", ""]);
+exports.push([module.i, ".front-page-background {\r\n  background-color: #434750;\r\n  height: 100vh;\r\n  text-align: center;\r\n}\r\n\r\n.front-page-container {\r\n  margin-top: 5vh;\r\n  display: inline-block;\r\n  background-color: white;\r\n  border-radius: 15px;\r\n  width: 65vw;\r\n  border: 1px solid black;\r\n}\r\n\r\n.front-page {\r\n  height: 100%;\r\n  display: grid;\r\n  grid-template-columns: 40% 60%;\r\n  grid-template-areas: \"info content\";\r\n}\r\n\r\n.front-page-info {\r\n  grid-area: \"info\";\r\n  border-top-left-radius: 15px;\r\n  border-bottom-left-radius: 15px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n}\r\n\r\n.front-page-header {\r\n  text-align: center;\r\n}\r\n\r\n.front-page-content {\r\n  grid-area: \"content\";\r\n}\r\n\r\n.footer {\r\n  position: absolute;\r\n  bottom: 20px;\r\n  right: 25px;\r\n}\r\n\r\n.logo {\r\n  float: left;\r\n  padding: 0;\r\n  margin-right: 2.5px;\r\n  width: 50px;\r\n  height: 50px;\r\n}\r\n\r\n.front-page-form {\r\n  margin-top: 5px;\r\n}\r\n\r\n.front-page-form-div {\r\n  padding: 2px 2px;\r\n}\r\n\r\n\r\n.label-front-page-form{\r\n  display: inline-block;\r\n}\r\n\r\n.input-front-page-form {\r\n  margin-left: 5px;\r\n  padding-left: 5px;\r\n  display: inline-block;\r\n  border-radius: 10px;\r\n}\r\n\r\n.label-front-page-form {\r\n  width: 30%;\r\n  text-align: right;\r\n}\r\n\r\n.label-front-page-form + .input-front-page-form {\r\n  width: 30%;\r\n}\r\n\r\n.input-front-page-form + .input-front-page-form {\r\n  float: right;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -87426,10 +87426,9 @@ var Forgot = function Forgot(props) {
       onSubmit: emailCall
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "front-page-form-div"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-      className: "label-front-page-form"
-    }, "Enter Email Address"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       className: "input-front-page-form",
+      placeholder: "Email",
       value: emailForm.value,
       onChange: emailForm.onChange,
       type: "email",
@@ -87443,7 +87442,7 @@ var Forgot = function Forgot(props) {
       className: "link"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "button"
-    }, " Back to Login "), " ")));
+    }, " Back to Login "))));
   };
 
   var emailCall = function emailCall(event) {
@@ -87759,10 +87758,9 @@ var Login = function Login(props) {
       onSubmit: submitLogin
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "front-page-form-div"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-      className: "label-front-page-form"
-    }, " Username "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       className: "input-front-page-form",
+      placeholder: "Username",
       type: "text",
       value: usernameField.value,
       onChange: usernameField.onChange,
@@ -87771,10 +87769,9 @@ var Login = function Login(props) {
       className: "error"
     }, " ", loginError, " ") : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "front-page-form-div"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-      className: "label-front-page-form"
-    }, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       className: "input-front-page-form",
+      placeholder: "Password",
       value: passwordField.value,
       onChange: passwordField.onChange,
       required: true,
@@ -87784,19 +87781,19 @@ var Login = function Login(props) {
     }, " ", loginError, " ") : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "button",
       onClick: function onClick() {
-        setPage("forgotUsername"), setLoginError(null), user.clear(), pass.clear();
+        setPage("forgotUsername");
       },
       className: "forgotLabel"
     }, "Forgot Username"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "button",
       onClick: function onClick() {
-        setPage("forgotPassword"), setLoginError(null), user.clear(), pass.clear();
+        setPage("forgotPassword");
       },
       className: "forgotLabel"
     }, "Forgot Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      type: "submit"
-    }, "Login "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "general-button",
+      type: "submit"
+    }, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "button",
       onClick: function onClick() {
         setPage("signup"), props.setFromLogin(true);
@@ -87810,12 +87807,16 @@ var Login = function Login(props) {
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, page === "login" && loginForm(), page === "forgotUsername" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+    push: true,
     to: "/forgotUsername"
   }), page === "forgotPassword" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+    push: true,
     to: "/forgotPassword"
   }), page === "signup" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+    push: true,
     to: "/signup"
   }), page === "validate" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+    push: true,
     to: "/signup/validate"
   }));
 };
@@ -88052,26 +88053,27 @@ var Signup = function Signup(props) {
     }, " ", passwordError, " ") : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "submit"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "general-button",
       type: "submit"
-    }, " Signup")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    }, "Signup")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/",
       className: "link"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "button"
-    }, " Back to Login "))));
+    }, "Back to Login"))));
   };
 
   var signUpValidate = function signUpValidate() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !props.verifyUser && !props.fromLogin && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
       to: "/"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Thanks for signing up your username is ".concat(props.verifyUser ? props.verifyUser : usernameField.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Please check your email at:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Thanks for signing up your username is ".concat(props.verifyUser ? props.verifyUser : usernameField.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Please check your email at:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "bold"
-    }, props.verifyEmail ? props.verifyEmail : emailField.value), "Please don't leave this page until you have confirmed your email address."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    }, props.verifyEmail ? props.verifyEmail : emailField.value), ". Please don't leave this page until you have confirmed your email\n            address."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       className: "front-page-form",
       onSubmit: confirmEmail
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-      className: "label-front-page-form"
-    }, "Enter your confirmation code here"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "input-front-page-form",
+      placeholder: "Confirmation Code",
       type: "text",
       value: validationCodeField.value,
       onChange: validationCodeField.onChange
@@ -90678,7 +90680,7 @@ var domainName = window.location.hostname; // If running locally use `ws:// ${do
 
 var port = 4000;
 var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_6__["WebSocketLink"]({
-  uri: "wss://".concat(domainName, "/graphql"),
+  uri: "ws://".concat(domainName, ":").concat(port, "/graphql"),
   options: {
     reconnect: true,
     lazy: true

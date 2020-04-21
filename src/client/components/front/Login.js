@@ -59,9 +59,9 @@ const Login = (props) => {
         ) : null}
         <form className="front-page-form" onSubmit={submitLogin}>
           <div className="front-page-form-div">
-            <label className="label-front-page-form"> Username </label>
             <input
               className="input-front-page-form"
+              placeholder="Username"
               type="text"
               value={usernameField.value}
               onChange={usernameField.onChange}
@@ -70,9 +70,10 @@ const Login = (props) => {
             {loginError ? <span className="error"> {loginError} </span> : null}
           </div>
           <div className="front-page-form-div">
-            <label className="label-front-page-form">Password</label>
             <input
+        
               className="input-front-page-form"
+              placeholder="Password"
               value={passwordField.value}
               onChange={passwordField.onChange}
               required
@@ -84,10 +85,7 @@ const Login = (props) => {
             <button
               type="button"
               onClick={() => {
-                setPage("forgotUsername"),
-                  setLoginError(null),
-                  user.clear(),
-                  pass.clear();
+                setPage("forgotUsername");
               }}
               className="forgotLabel"
             >
@@ -96,18 +94,16 @@ const Login = (props) => {
             <button
               type="button"
               onClick={() => {
-                setPage("forgotPassword"),
-                  setLoginError(null),
-                  user.clear(),
-                  pass.clear();
+                setPage("forgotPassword");
               }}
               className="forgotLabel"
             >
               Forgot Password
             </button>
-            <button type="submit">Login </button>
+            <button className="general-button" type="submit">
+              Login
+            </button>
             <button
-              className="general-button"
               type="button"
               onClick={() => {
                 setPage("signup"), props.setFromLogin(true);
@@ -136,10 +132,10 @@ const Login = (props) => {
   return (
     <div>
       {page === "login" && loginForm()}
-      {page === "forgotUsername" && <Redirect to="/forgotUsername" />}
-      {page === "forgotPassword" && <Redirect to="/forgotPassword" />}
-      {page === "signup" && <Redirect to="/signup" />}
-      {page === "validate" && <Redirect to="/signup/validate" />}
+      {page === "forgotUsername" && <Redirect push to="/forgotUsername" />}
+      {page === "forgotPassword" && <Redirect push to="/forgotPassword" />}
+      {page === "signup" && <Redirect push to="/signup" />}
+      {page === "validate" && <Redirect push to="/signup/validate" />}
     </div>
   );
 };

@@ -136,12 +136,14 @@ const Signup = (props) => {
                 ) : null}
               </div>
               <div className="submit">
-                <button type="submit"> Signup</button>
+                <button className="general-button" type="submit">
+                  Signup
+                </button>
               </div>
             </div>
           </form>
           <Link to="/" className="link">
-            <button type="button"> Back to Login </button>
+            <button type="button">Back to Login</button>
           </Link>
         </div>
       </div>
@@ -155,20 +157,20 @@ const Signup = (props) => {
         <h2>{`Thanks for signing up your username is ${
           props.verifyUser ? props.verifyUser : usernameField.value
         }`}</h2>
-        <p>
+        <span>
           Please check your email at:
           <span className="bold">
             {props.verifyEmail ? props.verifyEmail : emailField.value}
           </span>
-          Please don't leave this page until you have confirmed your email
-          address.
-        </p>
+            {`. Please don't leave this page until you have confirmed your email
+            address.`}
+
+        </span>
 
         <form className="front-page-form" onSubmit={confirmEmail}>
-          <label className="label-front-page-form">
-            Enter your confirmation code here
-          </label>
           <input
+            className="input-front-page-form"
+            placeholder="Confirmation Code"
             type="text"
             value={validationCodeField.value}
             onChange={validationCodeField.onChange}

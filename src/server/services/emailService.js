@@ -31,11 +31,15 @@ oauth2Client.getAccessToken().then(function (value) {
 const sendEmail = (type, options) => {
   let transporter = nodemailer.createTransport({
     service: "gmail",
-    port: 465,
-    secure: true,
+    host: "smtp.gmail.com",
     auth: {
+      type: "OAuth2",
       user: emailUsername,
-      pass: emailPassword
+      password: emailPassword,
+      clientId: clientID,
+      clientSecret: clientSecret,
+      refreshToken: refreshToken,
+      accessToken: accessToken,
     },
     tls: {
       rejectUnauthorized: false,
