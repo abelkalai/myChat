@@ -64,8 +64,22 @@ const ChatDisplay = (props) => {
     },
   });
 
-  const apolloClient = useApolloClient();
+  useSubscription(NEW_MESSAGE, {
+    fetchPolicy: "no-cache",
+    onSubscriptionData: ({ subscriptionData }) => {
+      updateMsgCache(subscriptionData.data.newMessage);
+    },
+  });
 
+  useSubscription(UPDATED_CONVO, {
+    fetchPolicy: "no-cache",
+    onSubscriptionData: ({ subscriptionData }) => {
+      updateConvoCache(subscriptionData.data.updatedConvo);
+    },
+  });
+
+  const apolloClient = useApolloClient();
+  
   const updateMsgCache = (newMsg) => {
     if (
       (newMsg.senderID === props.userInfo._id ||
@@ -95,12 +109,7 @@ const ChatDisplay = (props) => {
     }
   };
 
-  useSubscription(NEW_MESSAGE, {
-    fetchPolicy: "no-cache",
-    onSubscriptionData: ({ subscriptionData }) => {
-      updateMsgCache(subscriptionData.data.newMessage);
-    },
-  });
+
 
   const updateConvoCache = async (convo) => {
     if (
@@ -135,12 +144,6 @@ const ChatDisplay = (props) => {
     }
   };
 
-  useSubscription(UPDATED_CONVO, {
-    fetchPolicy: "no-cache",
-    onSubscriptionData: ({ subscriptionData }) => {
-      updateConvoCache(subscriptionData.data.updatedConvo);
-    },
-  });
 
   const sendMessage = async (event) => {
     event.preventDefault();

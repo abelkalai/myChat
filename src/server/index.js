@@ -6,12 +6,11 @@ const config = require("../../utils/config");
 const express = require("express");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
+const { merge } = require("lodash")
 
 const MONGODB_URI = config.MONGODB_URI;
 const JWT_SECRET_KEY = config.JSON_SECRET_KEY;
-
-
-const { merge } = require("lodash");
+;
 
 const { userTypeDefs, userResolvers } = require("./schema/user");
 const { messageTypeDefs, messageResolvers } = require("./schema/message");
