@@ -1,3 +1,35 @@
-.bold{
-    font-weight: bold;
+.bold {
+  font-weight: bold;
+}
+
+.sign-up-back-button {
+  font-size: 14px;
+  color: #696969;
+  margin-top: 10px;
+  margin-right: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #f1f0f0;
+  border-color: #f1f0f0;
+  border-radius: 10px;
+}
+
+.sign-up-submit-button {
+  font-size: 14px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #4ebee6;
+  border-color: #4ebee6;
+  color: white;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.sign-up-submit-button:hover {
+  background-color: darkblue;
+  border-color: darkblue;
+}
+
+.validate-info-container{
+  margin: 7.5px 7.5px;
 }

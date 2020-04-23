@@ -37,6 +37,7 @@ const EditPicture = (props) => {
     <div>
       <div className= "profile-upload-input-div">
         <input
+        
           type="file"
           onChange={() => {
             setUploadFile(event.target.files[0]);

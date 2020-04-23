@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import adjustTime from "../../../../../utils/adjustTime"
+import adjustTime from "../../../../../utils/adjustTime";
 import "../../../../../assets/stylesheets/components/main/chatHistory.css";
 
 const History = (props) => {
@@ -39,7 +39,7 @@ const History = (props) => {
   }
 
   let unreadMsgs = props.convoHistory.data.getConversations.filter(
-    (convo) => convo.unread  && convo.lastSender != props.userInfo._id
+    (convo) => convo.unread && convo.lastSender != props.userInfo._id
   ).length;
 
   document.title =
@@ -49,8 +49,8 @@ const History = (props) => {
     if (props.convoHistory.data.getConversations.length === 0) {
       return (
         <div className="no-history-div">
-          You don't have any history of conversations please type a name above to get
-          started
+          You don't have any history of conversations please type a name above
+          to get started
         </div>
       );
     }

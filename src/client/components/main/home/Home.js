@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import {GET_IMAGE} from "../../../graphqlDocuments/user"
-import { Switch, Link, Route } from "react-router-dom";
+import { GET_IMAGE } from "../../../graphqlDocuments/user";
+import { Switch, Link, Route, Redirect } from "react-router-dom";
 import ChatContainer from "./chat/ChatContainer";
 import Profile from "../account/profile/Profile";
 import Settings from "../account/settings/Settings";
@@ -9,7 +9,6 @@ import "../../../assets/stylesheets/components/main/home.css";
 import InvalidLink from "../../../utils/InvalidLink";
 
 import "../../../assets/stylesheets/components/main/home.css";
-
 
 const Home = (props) => {
   const [userInfo, setUserInfo] = useState(
@@ -85,8 +84,20 @@ const Home = (props) => {
 
   return (
     <Fragment>
-       {topBanner()}
+      {topBanner()}
       <Switch>
+        <Route
+          exact
+          path={[
+            "/",
+            "/forgotUsername",
+            "/forgotPassword",
+            "/signup",
+            "/signup/validate",
+            "/signup/confirm",
+          ]}
+          render={() => <Redirect to="/home" />}
+        />
         <Route
           exact
           path="/home"

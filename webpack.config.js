@@ -1,6 +1,4 @@
 const path = require("path");
-const webpack = require('webpack');
-
 
 module.exports =  {
   
@@ -24,7 +22,7 @@ module.exports =  {
         use: ["style-loader", "css-loader"]
       },
       {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        test: /\.(png|woff|woff2|eot|ttf|svg|jpg)$/,
         use: "url-loader"
       }
     ]

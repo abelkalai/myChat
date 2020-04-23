@@ -80,7 +80,7 @@
 
 .dropdown-profile:hover {
   color: white;
-  background-image: url("../../../images/profileW.png");
+  background-image: url("../../../images/profileWhite.png");
   background-repeat: no-repeat;
   background-color: #00a8f3;
   background-position: 2.5px 6px;
@@ -99,7 +99,7 @@
 
 .dropdown-settings:hover {
   color: white;
-  background-image: url("../../../images/settingsW.png");
+  background-image: url("../../../images/settingsWhite.png");
   background-repeat: no-repeat;
   background-color: #00a8f3;
   background-position: 2.5px 6px;
@@ -118,7 +118,7 @@
 
 .dropdown-logout:hover {
   color: white;
-  background-image: url("../../../images/logoutW.png");
+  background-image: url("../../../images/logoutWhite.png");
   background-repeat: no-repeat;
   background-color: #00a8f3;
   background-position: 2.5px 6px;

@@ -4,7 +4,7 @@ import Home from "./main/home/Home";
 import {useQuery} from "@apollo/react-hooks";
 import {LOGGED_IN} from "../graphqlDocuments/user"
 import { OutRoute, InRoute } from "../utils/utilRoute";
-import "../assets/stylesheets/all.css";
+import "../assets/stylesheets/base.css";
 
 const App = () => {
   const loggedInQuery = useQuery(LOGGED_IN);

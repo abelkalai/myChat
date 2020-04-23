@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {Fragment, useState } from "react";
 import { Link, Redirect, Route } from "react-router-dom";
 import { ADD_USER, VALIDATE_ACCOUNT } from "../../graphqlDocuments/user";
 import { useMutation } from "@apollo/react-hooks";
@@ -29,6 +29,9 @@ const Signup = (props) => {
     if (passwordField.value != confirmpasswordField.value) {
       setPasswordError("Passwords don't match");
       return;
+    }
+    else{
+      setPasswordError(null);
     }
     let firstName = firstNameField.value;
     let lastName = lastNameSign.value;
@@ -64,9 +67,9 @@ const Signup = (props) => {
         <div className="sign-up">
           <form className="front-page-form" onSubmit={submit}>
             <div className="front-page-form-div">
-              <label className="label-front-page-form"> First Name </label>
               <input
                 className="input-front-page-form"
+                placeholder="First Name"
                 type="text"
                 value={firstNameField.value}
                 onChange={firstNameField.onChange}
@@ -74,9 +77,9 @@ const Signup = (props) => {
               />
             </div>
             <div className="front-page-form-div">
-              <label className="label-front-page-form"> Last Name </label>
               <input
                 className="input-front-page-form"
+                placeholder="Last Name"
                 type="text"
                 value={lastNameSign.value}
                 onChange={lastNameSign.onChange}
@@ -84,9 +87,9 @@ const Signup = (props) => {
               />
             </div>
             <div className="front-page-form-div">
-              <label className="label-front-page-form"> Email </label>
               <input
                 className="input-front-page-form"
+                placeholder="Email"
                 value={emailField.value}
                 onChange={emailField.onChange}
                 type="email"
@@ -97,9 +100,9 @@ const Signup = (props) => {
               ) : null}
             </div>
             <div className="front-page-form-div">
-              <label className="label-front-page-form"> Username </label>
               <input
                 className="input-front-page-form"
+                placeholder="Username"
                 type="text"
                 value={usernameField.value}
                 onChange={usernameField.onChange}
@@ -107,9 +110,9 @@ const Signup = (props) => {
               />
               {userError ? <span className="error"> {userError} </span> : null}
               <div className="front-page-form-div">
-                <label className="label-front-page-form"> Password </label>
                 <input
                   className="input-front-page-form"
+                  placeholder="Password"
                   value={passwordField.value}
                   onChange={passwordField.onChange}
                   type="password"
@@ -121,11 +124,9 @@ const Signup = (props) => {
               </div>
 
               <div className="front-page-form-div">
-                <label className="label-front-page-form">
-                  Confirm Password:
-                </label>
                 <input
                   className="input-front-page-form"
+                  placeholder="Confirm Password"
                   value={confirmpasswordField.value}
                   onChange={confirmpasswordField.onChange}
                   type="password"
@@ -135,16 +136,18 @@ const Signup = (props) => {
                   <span className="error"> {passwordError} </span>
                 ) : null}
               </div>
-              <div className="submit">
-                <button className="general-button" type="submit">
+              <div>
+                <Link to="/" className="link">
+                  <button className="sign-up-back-button" type="button">
+                    Back to Login
+                  </button>
+                </Link>
+                <button className="sign-up-submit-button" type="submit">
                   Signup
                 </button>
               </div>
             </div>
           </form>
-          <Link to="/" className="link">
-            <button type="button">Back to Login</button>
-          </Link>
         </div>
       </div>
     );
@@ -152,21 +155,23 @@ const Signup = (props) => {
 
   const signUpValidate = () => {
     return (
-      <div>
+      <Fragment>
         {!props.verifyUser && !props.fromLogin && <Redirect to="/" />}
         <h2>{`Thanks for signing up your username is ${
           props.verifyUser ? props.verifyUser : usernameField.value
         }`}</h2>
-        <span>
-          Please check your email at:
-          <span className="bold">
-            {props.verifyEmail ? props.verifyEmail : emailField.value}
-          </span>
-            {`. Please don't leave this page until you have confirmed your email
+        <div className="validate-info-container">
+          <p>
+            Please check your email at:
+            <span className="bold">
+              {props.verifyEmail ? props.verifyEmail : emailField.value}
+            </span>
+          </p>
+          <p>
+            {`Please don't leave this page until you have confirmed your email
             address.`}
-
-        </span>
-
+          </p>
+        </div>
         <form className="front-page-form" onSubmit={confirmEmail}>
           <input
             className="input-front-page-form"
@@ -176,9 +181,13 @@ const Signup = (props) => {
             onChange={validationCodeField.onChange}
           ></input>
           {<span className="error"> {validateError} </span>}
-          <button type="submit"> Confirm Confirmation Code</button>
+          <div>
+            <button className="sign-up-submit-button" type="submit">
+              Confirm Confirmation Code
+            </button>
+          </div>
         </form>
-      </div>
+      </Fragment>
     );
   };
 
@@ -198,7 +207,7 @@ const Signup = (props) => {
   };
 
   return (
-    <div>
+    <Fragment>
       <Route exact path="/signup" render={() => signUpForm()} />
       {page === "signUpValidate" && <Redirect to="/signup/validate" />}
       <Route path="/signup/validate" render={() => signUpValidate()} />
@@ -208,7 +217,7 @@ const Signup = (props) => {
         path="/signup/confirm"
         render={() => <Confirmation confirmMsg={confirmMsg} />}
       />
-    </div>
+    </Fragment>
   );
 };
 

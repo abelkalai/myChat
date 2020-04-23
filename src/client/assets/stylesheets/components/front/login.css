@@ -1,0 +1,73 @@
+.new-account-container{
+    margin: 2.5px 5px;
+}
+
+.input-login-username{
+    font-size: 20px;
+    padding: 2.5px;
+    padding-left: 25px;
+    margin-bottom: 2.5px;
+    margin-top: 5px;
+    display: inline-block;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-position: 0px 2px;
+    background-size: 20px 20px;
+    background-image: url("../../../images/user.png");
+    background-repeat: no-repeat;
+  }
+  
+  .input-login-password{
+    font-size: 20px;
+    padding: 2.5px;
+    padding-left: 25px;
+    margin-bottom: 5px;
+    display: inline-block;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-position: 0px 4px;
+    background-image: url("../../../images/password.png");
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+  }
+  
+  .forgot-button{
+    border: none;
+    background-color: white;
+    color: grey;
+    text-decoration: underline;
+  }
+  
+  .grey-text{
+    color:grey
+  }
+
+  .sign-up-button{
+    border: none;
+    background-color: white;
+    padding-left: 0px;
+    color: grey;
+    text-decoration: underline;
+    font-size: 15px;
+  }
+  
+  .login-page-button{
+    color: white;
+    background-color: #4ebee6;
+    border-color: #4ebee6;
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    width: 35%;
+  }
+
+  .login-page-button:hover{
+    background-color: darkblue;
+    border-color: darkblue;
+  }
+  
+  .back-to-login{
+    margin-right: 5px;
+  }

@@ -13,22 +13,22 @@ const clientID = config.CLIENT_ID;
 const clientSecret = config.CLIENT_SECRET;
 const refreshToken = config.REFRESH_TOKEN;
 
-const oauth2Client = new OAuth2(
-  clientID,
-  clientSecret,
-  "https://developers.google.com/oauthplayground"
-);
-
-oauth2Client.credentials = {
-  refresh_token: refreshToken,
-};
-
-let accessToken;
-oauth2Client.getAccessToken().then(function (value) {
-  accessToken = value.token;
-});
-
 const sendEmail = (type, options) => {
+  const oauth2Client = new OAuth2(
+    clientID,
+    clientSecret,
+    "https://developers.google.com/oauthplayground"
+  );
+
+  oauth2Client.credentials = {
+    refresh_token: refreshToken,
+  };
+
+  let accessToken;
+  oauth2Client.getAccessToken().then(function (value) {
+    accessToken = value.token;
+  });
+  
   let transporter = nodemailer.createTransport({
     service: "gmail",
     host: "smtp.gmail.com",
@@ -53,7 +53,7 @@ const sendEmail = (type, options) => {
         from: `"My Chat" <${emailUsername}>`,
         to: `${options.toFullName} <${options.toEmail}>`,
         subject: "Welcome to MyChat | Email Validation",
-        html: confirmEmail(options.toFullName,options.code),
+        html: confirmEmail(options.toFullName, options.code),
       };
       break;
     case "USERNAME":

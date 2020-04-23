@@ -63,6 +63,9 @@
 
 .main-right input {
   margin-left: 7.5px;
+  border-radius: 1px;
+  padding-left: 2px;
+  font-size: 16px;
 }
 
 .change {
@@ -103,6 +106,7 @@
   margin-top: 7.5px;
   margin-right: 5px;
   margin-left: 20.75%;
+  border-radius: 2.5px;
 }
 
 .settings-cancel-changes {
@@ -110,6 +114,7 @@
   margin-top: 7.5px;
   background-color: #f1f0f0;
   border-color:  #f1f0f0;
+  border-radius: 2.5px;
 }
 
 .settings-form{

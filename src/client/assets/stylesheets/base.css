@@ -1,0 +1,51 @@
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0px;
+  margin: 0px;
+}
+
+
+input:focus, textarea:focus, select:focus{
+  outline: none;
+}
+
+button{
+  padding: 2px;
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+
+::-webkit-scrollbar {
+  width: 7.5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 7.5px;
+}
+
+.error {
+  color: red;
+  position: absolute;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.general-button {
+  color: white;
+  background-color: #00a8f3;
+  border-color: #00a8f3;
+  margin-top: 7.5px;
+  font-size: 16px;
+  border-radius: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.center{
+  text-align: center;
+}

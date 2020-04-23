@@ -1,7 +1,7 @@
 .no-history-div{
   margin-top: 5px;
   margin-left: 15px;
-  height: 84vh;
+  height: 83vh;
 }
 
 .chat-history-container {
@@ -9,25 +9,25 @@
   margin: 10px 5px 0 5px;
   overflow-x: hidden;
   overflow-y: auto;
-  height: 84vh;
+  height: 83vh;
 }
 
 .chat-history-wrapper-current {
   display: grid;
   margin-right: 5px;
-  grid-template-columns: 12.5% 87.5%;
+  grid-template-columns: 11.5% 88.5%;
   grid-auto-rows: 22.5px;
   padding: 5px 5px;
   margin-bottom: 5px;
   cursor: pointer;
-  background-color: #f1f0f0;
   border-radius: 5px;
+  background-color: #f1f0f0;
 }
 
 .chat-history-wrapper {
   display: grid;
   margin-right: 5px;
-  grid-template-columns: 12.5% 87.5%;
+  grid-template-columns: 11.5% 88.5%;
   grid-auto-rows: 22.5px;
   padding: 5px 5px;
   margin-bottom: 5px;

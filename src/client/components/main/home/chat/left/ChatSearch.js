@@ -1,7 +1,7 @@
-import React, {Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
 import History from "./History";
 import { useFieldInput } from "../../../../hooks/customHooks";
-import {SEARCH_USER} from "../../../../../graphqlDocuments/user"
+import { SEARCH_USER } from "../../../../../graphqlDocuments/user";
 import { useLazyQuery } from "@apollo/react-hooks";
 
 const ChatSearch = (props) => {
@@ -19,9 +19,11 @@ const ChatSearch = (props) => {
     searchField.clear();
     setSearchActive(false);
     let userInConvoHistory = props.getConvoQuery.data.getConversations.filter(
-      convo => convo.members.filter((member) => member._id === id).length > 0
+      (convo) => convo.members.filter((member) => member._id === id).length > 0
     );
-    props.setCurrentConvo(userInConvoHistory.length > 0 ? userInConvoHistory[0]._id : null)
+    props.setCurrentConvo(
+      userInConvoHistory.length > 0 ? userInConvoHistory[0]._id : null
+    );
     props.setCurrentChat(id);
   };
 
@@ -30,7 +32,7 @@ const ChatSearch = (props) => {
       return null;
     }
     return (
-      <div className="chat-dropdown">
+      <div className="chat-search">
         {searchResult.map((user) => (
           <div
             key={user._id}
@@ -38,10 +40,8 @@ const ChatSearch = (props) => {
               selectUser(user._id);
             }}
           >
-            <span>
-              <img src={`data:image/png;base64,${user.profilePicture}`} />
-            </span>
-            {user.fullName}
+            <img src={`data:image/png;base64,${user.profilePicture}`} />
+            <span className="chat-search-name">{user.fullName}</span>
           </div>
         ))}
       </div>
@@ -63,7 +63,7 @@ const ChatSearch = (props) => {
   return (
     <Fragment>
       <div className="chat-left">
-        <div className="chat-search">
+        <div className="chat-search-container">
           <input
             value={searchField.value}
             className="searchContacts"
@@ -80,7 +80,6 @@ const ChatSearch = (props) => {
             setFromSearch={props.setFromSearch}
             currentConvo={props.currentConvo}
             setCurrentConvo={props.setCurrentConvo}
-            
           />
         )}
       </div>

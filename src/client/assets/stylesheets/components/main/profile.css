@@ -54,6 +54,7 @@
   border-color: #00a8f3;
   margin-top: 7.5px;
   margin-bottom: 5px;
+  border-radius: 5px;
 }
 
 .cancel-button{
@@ -63,4 +64,6 @@
   margin-top: 7.5px;
   margin-left: 5px;
   margin-bottom: 5px;
+  border-radius: 5px;
 }
+

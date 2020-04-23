@@ -1,19 +1,23 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
-const InvalidLink = props => {
+const InvalidLink = (props) => {
   document.title = "Page Not Found | MyChat";
   return (
-    <div className = "center">
-      <h1>Whoops! This page isn't avaliable on MyChat</h1>
+    <div className="center">
+      <h1>Whoops! This page isn't avaliable.</h1>
       <p>
-        The link you followed may be broken. Please try again or use the button
-        below to login.
+        The link you followed may be broken. Please try again or follow the
+        button below.
       </p>
-      <Link to = "/">
+      <Link to={props.type === "Login" ? "/" : "/home"}>
         <button
-        className= "general-button"
-          type = "button"
+          className={
+            props.type === "Login"
+              ? "forgot-page-submit-button"
+              : "general-button"
+          }
+          type="button"
         >
           {`Back to ${props.type}`}
         </button>

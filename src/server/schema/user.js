@@ -205,7 +205,7 @@ const userResolvers = {
           });
           return {
             email: user.email,
-            errorList: "Please confirm your email address to login",
+            errorList: "Please confirm your email to login",
           };
         }
         const userSign = {
@@ -219,7 +219,7 @@ const userResolvers = {
         };
         return { User: user, Token: jwt.sign(userSign, JWT_SECRET_KEY) };
       } catch (error) {
-        return { errorList: "Username or Password is incorrect" };
+        return { errorList: "Incorrect Username/Password" };
       }
     },
 
