@@ -1,4 +1,4 @@
-import React, {Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { Link, Redirect, Route } from "react-router-dom";
 import { ADD_USER, VALIDATE_ACCOUNT } from "../../graphqlDocuments/user";
 import { useMutation } from "@apollo/react-hooks";
@@ -26,13 +26,10 @@ const Signup = (props) => {
 
   const submit = async (event) => {
     event.preventDefault();
-    if (passwordField.value != confirmpasswordField.value) {
-      setPasswordError("Passwords don't match");
-      return;
-    }
-    else{
-      setPasswordError(null);
-    }
+    passwordField.value != confirmpasswordField.value
+      ? setPasswordError("Passwords don't match")
+      : setPasswordError(null);
+
     let firstName = firstNameField.value;
     let lastName = lastNameSign.value;
     let email = emailField.value;
