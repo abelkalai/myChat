@@ -1,10 +1,10 @@
 import React from "react";
-import AboutPlaceholder from "./placeholders/AboutPlaceholder"
+import AboutPlaceholder from "./placeholders/AboutPlaceholder";
 import "../../../../../assets/stylesheets/components/main/chatAbout.css";
 
 const About = (props) => {
-  if(!props.getUser.data.getSingleUser){
-    return <AboutPlaceholder />
+  if (!props.getUser.data.getSingleUser) {
+    return <AboutPlaceholder />;
   }
   return (
     <div className="chat-display-about">
@@ -12,6 +12,8 @@ const About = (props) => {
 
       <img
         className="chat-display-about-img"
+        alt={props.getUser.data.getSingleUser.fullName}
+        title={props.getUser.data.getSingleUser.fullName}
         src={`data:image/png;base64,${props.getUser.data.getSingleUser.profilePicture}`}
       />
 

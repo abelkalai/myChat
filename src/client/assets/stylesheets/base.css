@@ -1,22 +1,19 @@
 * {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   padding: 0px;
   margin: 0px;
 }
 
-body{
-  overflow-x: hidden;
-  overflow: hidden;
-}
-
-input:focus, textarea:focus, select:focus{
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
 }
 
-button{
+button {
   padding: 2px 2px 6px 2px;
   outline: none;
-  border:none;
+  border: none;
   text-align: center;
   border-radius: 10px;
 }
@@ -32,7 +29,6 @@ button:hover {
   margin: 2.5px 2.5px;
 }
 
-
 .general-button {
   color: white;
   background-color: #00a8f3;
@@ -44,15 +40,12 @@ button:hover {
   padding-right: 5px;
 }
 
-.center{
+.center {
   text-align: center;
 }
 
-::-webkit-scrollbar {
-  width: 7.5px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: grey;
-  border-radius: 7.5px;
+@media (max-width: 48em) {
+  button {
+    padding: 1px;
+  }
 }

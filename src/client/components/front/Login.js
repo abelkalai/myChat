@@ -111,7 +111,7 @@ const Login = (props) => {
 
         {validateButton ? (
           <button
-            className="login-page-button"
+            className="login-page-validate-button"
             type="button"
             onClick={() => {
               props.setVerifyUser(verifyUser),

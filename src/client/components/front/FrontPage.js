@@ -22,6 +22,7 @@ const FrontPage = (props) => {
               <p className="front-page-info-about">
                 MyChat enables users to message one another
               </p>
+              
             </div>
             <div className="front-page-content">
               <Switch>

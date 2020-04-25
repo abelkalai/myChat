@@ -28,6 +28,7 @@ const Home = (props) => {
             <span className="home-image-container">
               {userImage.loading ? (
                 <img
+                  alt={userInfo.fullName}
                   className="home-image"
                   src="../../../assets/images/profilePlaceholder.png"
                 />

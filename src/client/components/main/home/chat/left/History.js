@@ -86,6 +86,11 @@ const History = (props) => {
             >
               <div className="chat-history-img-container">
                 <img
+                  alt={
+                    convo.members[0]._id != props.userInfo._id
+                      ? convo.members[0].fullName
+                      : convo.members[1].fullName
+                  }
                   className="chat-history-wrapper-img"
                   src={`data:image/png;base64,${
                     convo.members[0]._id != props.userInfo._id

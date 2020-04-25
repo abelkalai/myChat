@@ -19,7 +19,7 @@
 
 .front-page {
   display: grid;
-  grid-template-columns: 35% 65%;
+  grid-template-columns: 40% 60%;
   text-align: center;
 }
 
@@ -36,7 +36,9 @@
   border-bottom-left-radius: 15px;
   color: white;
   background-color: #00a8f3;
-  padding: 20px 20px;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 
 .front-page-header {
@@ -46,7 +48,7 @@
 
 .front-page-content {
   margin-top: 10px;
-  padding: 20px 20px;
+  padding: 20px;
 }
 
 .front-page-form {
@@ -66,22 +68,103 @@
   border-top: none;
   border-left: none;
   border-right: none;
-  max-width: 70%;
 }
 
+.front-page-back-button {
+  font-size: 16px;
+  color: #696969;
+  text-decoration: none;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 10px;
+  margin-right: 7px;
+  background-color: #f1f0f0;
+  border-color: #f1f0f0;
+  width: 20%;
+}
+
+.front-page-submit-button {
+  font-size: 16px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #00a8f3;
+  color: white;
+  margin-top: 10px;
+  width: 20%;
+}
+
+.front-page-submit-button:hover {
+  background-color: darkblue;
+  border-color: darkblue;
+}
+
+
 @media (max-width: 48em) {
+  .front-page-container {
+    margin-top: 10%;
+    width: 80vw;
+  }
+
   .front-page {
     display: block;
+  }
+
+  .front-page h1 {
+    font-size: 32px;
+  }
+
+  .front-page h3{
+    display: none;
+  }
+
+  .front-page-header{
+    margin-top: 1px;
+    margin-bottom: 1px;
   }
 
   .front-page-info {
     border-top-left-radius: 15px;
     border-bottom-left-radius: 0px;
     border-top-right-radius: 15px;
+    padding-top: 2.5px;
+    padding-bottom: 5px;
   }
 
   .front-page-info-about {
-    margin-top: 20px;
+    display: none;
   }
 
+  .front-page-content {
+    margin-top: 2.5px;
+    padding: 5px;
+    padding-bottom: 10px;
+  }
+
+  .front-page-content p{
+    font-size: 16px;
+  }
+
+  .front-page-form {
+    margin-top: 0px;
+  }
+
+  .input-front-page-form {
+    font-size: 16px;
+  }
+
+  .front-page-back-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    width: 60%;
+  }
+
+  .front-page-submit-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7.5px;
+    width: 30%;
+  }
 }

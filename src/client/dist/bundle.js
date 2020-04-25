@@ -25034,7 +25034,7 @@ function _defineProperty(e,r,n){return r in e?Object.defineProperty(e,r,{value:n
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "* {\r\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\nbody{\r\n  overflow-x: hidden;\r\n  overflow: hidden;\r\n}\r\n\r\ninput:focus, textarea:focus, select:focus{\r\n  outline: none;\r\n}\r\n\r\nbutton{\r\n  padding: 2px 2px 6px 2px;\r\n  outline: none;\r\n  border:none;\r\n  text-align: center;\r\n  border-radius: 10px;\r\n}\r\n\r\nbutton:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n  font-size: 16px;\r\n  font-weight: bold;\r\n  margin: 2.5px 2.5px;\r\n}\r\n\r\n\r\n.general-button {\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  border-color: #00a8f3;\r\n  margin-top: 7.5px;\r\n  font-size: 16px;\r\n  border-radius: 10px;\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n}\r\n\r\n.center{\r\n  text-align: center;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 7.5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  background: grey;\r\n  border-radius: 7.5px;\r\n}", ""]);
+exports.push([module.i, "* {\r\n  font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\ninput:focus,\r\ntextarea:focus,\r\nselect:focus {\r\n  outline: none;\r\n}\r\n\r\nbutton {\r\n  padding: 2px 2px 6px 2px;\r\n  outline: none;\r\n  border: none;\r\n  text-align: center;\r\n  border-radius: 10px;\r\n}\r\n\r\nbutton:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n  font-size: 16px;\r\n  font-weight: bold;\r\n  margin: 2.5px 2.5px;\r\n}\r\n\r\n.general-button {\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  border-color: #00a8f3;\r\n  margin-top: 7.5px;\r\n  font-size: 16px;\r\n  border-radius: 10px;\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n@media (max-width: 48em) {\r\n  button {\r\n    padding: 1px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25052,25 +25052,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".confirmation-back-to-login {\r\n  color: white;\r\n  background-color: #4ebee6;\r\n  margin-top: 10px;\r\n  font-size: 16px;\r\n  width: 35%;\r\n}\r\n", ""]);
-// Exports
-module.exports = exports;
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/client/assets/stylesheets/components/front/forgotPage.css":
-/*!*************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/client/assets/stylesheets/components/front/forgotPage.css ***!
-  \*************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-exports = ___CSS_LOADER_API_IMPORT___(false);
-// Module
-exports.push([module.i, ".forgot-page-back-button {\r\n  font-size: 16px;\r\n  color: #696969;\r\n  text-decoration: none;\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  margin-top: 10px;\r\n  margin-right: 7px;\r\n  background-color: #f1f0f0;\r\n  border-color: #f1f0f0;\r\n  width: 20%;\r\n}\r\n\r\n\r\n.forgot-page-submit-button {\r\n  font-size: 16px;\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n  margin-top: 10px;\r\n  width: 20%;\r\n}\r\n\r\n.forgot-page-submit-button:hover{\r\n  background-color: darkblue;\r\n  border-color: darkblue;\r\n}\r\n", ""]);
+exports.push([module.i, ".confirmation-container{\r\n  margin-top: 7.5%;\r\n}\r\n\r\n.confirmation-back-to-login {\r\n  color: white;\r\n  background-color: #4ebee6;\r\n  margin-top: 10px;\r\n  font-size: 16px;\r\n  width: 35%;\r\n}\r\n\r\n\r\n@media (max-width: 48em) {\r\n  .confirmation-container{\r\n    margin-top: 0%;\r\n  }\r\n  .confirmation-back-to-login {\r\n    width: 60%;\r\n  }\r\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -25088,7 +25070,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".front-page-background {\r\n  background-color: #257fbd;\r\n  height: 100vh;\r\n}\r\n\r\n.front-page-wrapper {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.front-page-container {\r\n  display: inline-block;\r\n  background-color: white;\r\n  margin-top: 12.5vh;\r\n  border-radius: 15px;\r\n  width: 60vw;\r\n  left: 50%;\r\n}\r\n\r\n.front-page {\r\n  display: grid;\r\n  grid-template-columns: 35% 65%;\r\n  text-align: center;\r\n}\r\n\r\n.front-page h1 {\r\n  font-size: 40px;\r\n}\r\n\r\n.front-page-info-about {\r\n  margin-top: 60px;\r\n}\r\n\r\n.front-page-info {\r\n  border-top-left-radius: 15px;\r\n  border-bottom-left-radius: 15px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  padding: 20px 20px;\r\n}\r\n\r\n.front-page-header {\r\n  margin-top: 10px;\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.front-page-content {\r\n  margin-top: 10px;\r\n  padding: 20px 20px;\r\n}\r\n\r\n.front-page-form {\r\n  margin-top: 15px;\r\n}\r\n\r\n.front-page-form-div {\r\n  padding: 2px 2px;\r\n}\r\n\r\n.input-front-page-form {\r\n  padding: 2.5px;\r\n  padding-left: 2.5px;\r\n  margin-bottom: 2.5px;\r\n  font-size: 26px;\r\n  display: inline-block;\r\n  border-top: none;\r\n  border-left: none;\r\n  border-right: none;\r\n  max-width: 70%;\r\n}\r\n\r\n@media (max-width: 48em) {\r\n  .front-page {\r\n    display: block;\r\n  }\r\n\r\n  .front-page-info {\r\n    border-top-left-radius: 15px;\r\n    border-bottom-left-radius: 0px;\r\n    border-top-right-radius: 15px;\r\n  }\r\n\r\n  .front-page-info-about {\r\n    margin-top: 20px;\r\n  }\r\n\r\n}\r\n", ""]);
+exports.push([module.i, ".front-page-background {\r\n  background-color: #257fbd;\r\n  height: 100vh;\r\n}\r\n\r\n.front-page-wrapper {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.front-page-container {\r\n  display: inline-block;\r\n  background-color: white;\r\n  margin-top: 12.5vh;\r\n  border-radius: 15px;\r\n  width: 60vw;\r\n  left: 50%;\r\n}\r\n\r\n.front-page {\r\n  display: grid;\r\n  grid-template-columns: 40% 60%;\r\n  text-align: center;\r\n}\r\n\r\n.front-page h1 {\r\n  font-size: 40px;\r\n}\r\n\r\n.front-page-info-about {\r\n  margin-top: 60px;\r\n}\r\n\r\n.front-page-info {\r\n  border-top-left-radius: 15px;\r\n  border-bottom-left-radius: 15px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  padding: 10px;\r\n  padding-top: 20px;\r\n  padding-bottom: 40px;\r\n}\r\n\r\n.front-page-header {\r\n  margin-top: 10px;\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.front-page-content {\r\n  margin-top: 10px;\r\n  padding: 20px;\r\n}\r\n\r\n.front-page-form {\r\n  margin-top: 15px;\r\n}\r\n\r\n.front-page-form-div {\r\n  padding: 2px 2px;\r\n}\r\n\r\n.input-front-page-form {\r\n  padding: 2.5px;\r\n  padding-left: 2.5px;\r\n  margin-bottom: 2.5px;\r\n  font-size: 26px;\r\n  display: inline-block;\r\n  border-top: none;\r\n  border-left: none;\r\n  border-right: none;\r\n}\r\n\r\n.front-page-back-button {\r\n  font-size: 16px;\r\n  color: #696969;\r\n  text-decoration: none;\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  margin-top: 10px;\r\n  margin-right: 7px;\r\n  background-color: #f1f0f0;\r\n  border-color: #f1f0f0;\r\n  width: 20%;\r\n}\r\n\r\n.front-page-submit-button {\r\n  font-size: 16px;\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n  margin-top: 10px;\r\n  width: 20%;\r\n}\r\n\r\n.front-page-submit-button:hover {\r\n  background-color: darkblue;\r\n  border-color: darkblue;\r\n}\r\n\r\n\r\n@media (max-width: 48em) {\r\n  .front-page-container {\r\n    margin-top: 10%;\r\n    width: 80vw;\r\n  }\r\n\r\n  .front-page {\r\n    display: block;\r\n  }\r\n\r\n  .front-page h1 {\r\n    font-size: 32px;\r\n  }\r\n\r\n  .front-page h3{\r\n    display: none;\r\n  }\r\n\r\n  .front-page-header{\r\n    margin-top: 1px;\r\n    margin-bottom: 1px;\r\n  }\r\n\r\n  .front-page-info {\r\n    border-top-left-radius: 15px;\r\n    border-bottom-left-radius: 0px;\r\n    border-top-right-radius: 15px;\r\n    padding-top: 2.5px;\r\n    padding-bottom: 5px;\r\n  }\r\n\r\n  .front-page-info-about {\r\n    display: none;\r\n  }\r\n\r\n  .front-page-content {\r\n    margin-top: 2.5px;\r\n    padding: 5px;\r\n    padding-bottom: 10px;\r\n  }\r\n\r\n  .front-page-content p{\r\n    font-size: 16px;\r\n  }\r\n\r\n  .front-page-form {\r\n    margin-top: 0px;\r\n  }\r\n\r\n  .input-front-page-form {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .front-page-back-button {\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-top: 5px;\r\n    width: 60%;\r\n  }\r\n\r\n  .front-page-submit-button {\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-top: 7.5px;\r\n    width: 30%;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25111,7 +25093,7 @@ exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-exports.push([module.i, ".login-page-sign-up-container {\r\n  margin-top: 15px;\r\n}\r\n\r\n.input-login-username {\r\n  font-size: 26px;\r\n  padding: 2.5px;\r\n  padding-left: 25px;\r\n  margin-bottom: 2.5px;\r\n  margin-top: 5px;\r\n  display: inline-block;\r\n  border-top: none;\r\n  border-left: none;\r\n  border-right: none;\r\n  background-position: 0px 10px;\r\n  background-size: 20px 20px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  max-width: 70%;\r\n}\r\n\r\n.input-login-password {\r\n  font-size: 26px;\r\n  padding: 2.5px;\r\n  padding-left: 25px;\r\n  margin-bottom: 5px;\r\n  display: inline-block;\r\n  border-top: none;\r\n  border-left: none;\r\n  border-right: none;\r\n  background-position: 0px 12px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  background-size: 20px 20px;\r\n  background-repeat: no-repeat;\r\n  max-width: 70%;\r\n}\r\n\r\n.forgot-button {\r\n  margin-top: 15px;\r\n  border: none;\r\n  background-color: white;\r\n  color: grey;\r\n  text-decoration: underline;\r\n}\r\n\r\n.grey-text {\r\n  color: grey;\r\n}\r\n\r\n.sign-up-button {\r\n  border: none;\r\n  background-color: white;\r\n  padding-left: 0px;\r\n  color: grey;\r\n  text-decoration: underline;\r\n  font-size: 15px;\r\n}\r\n\r\n.login-page-button {\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  margin-top: 15px;\r\n  font-size: 16px;\r\n  width: 35%;\r\n}\r\n\r\n.login-page-button:hover {\r\n  background-color: darkblue;\r\n  border-color: darkblue;\r\n}\r\n\r\n.back-to-login {\r\n  margin-right: 5px;\r\n}\r\n\r\n.logo-container {\r\n  margin-top: 15px;\r\n}\r\n\r\n.logo-container img{\r\n  width: 40px;\r\n  height: 40px;\r\n}\r\n\r\n.linkedIn-logo {\r\n  margin-right: 2.5px;\r\n}\r\n\r\n.gitHub-logo {\r\n  margin-left: 2.5px;\r\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, ".login-page-sign-up-container {\r\n  margin-top: 15px;\r\n}\r\n\r\n.input-login-username {\r\n  font-size: 26px;\r\n  padding: 2.5px;\r\n  padding-left: 25px;\r\n  margin-bottom: 2.5px;\r\n  margin-top: 5px;\r\n  display: inline-block;\r\n  border-top: none;\r\n  border-left: none;\r\n  border-right: none;\r\n  background-position: 0px 10px;\r\n  background-size: 20px 20px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  max-width: 70%;\r\n}\r\n\r\n.input-login-password {\r\n  font-size: 26px;\r\n  padding: 2.5px;\r\n  padding-left: 25px;\r\n  margin-bottom: 5px;\r\n  display: inline-block;\r\n  border-top: none;\r\n  border-left: none;\r\n  border-right: none;\r\n  background-position: 0px 12px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  background-size: 20px 20px;\r\n  background-repeat: no-repeat;\r\n  max-width: 70%;\r\n}\r\n\r\n.forgot-button {\r\n  margin-top: 15px;\r\n  border: none;\r\n  background-color: white;\r\n  color: grey;\r\n  text-decoration: underline;\r\n}\r\n\r\n.grey-text {\r\n  color: grey;\r\n}\r\n\r\n.sign-up-button {\r\n  border: none;\r\n  background-color: white;\r\n  padding-left: 0px;\r\n  color: grey;\r\n  text-decoration: underline;\r\n  font-size: 15px;\r\n}\r\n\r\n.login-page-button {\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  margin-top: 15px;\r\n  font-size: 16px;\r\n  width: 35%;\r\n}\r\n\r\n.login-page-validate-button {\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  margin-top: 15px;\r\n  font-size: 16px;\r\n  width: 35%;\r\n}\r\n\r\n.login-page-button:hover {\r\n  background-color: darkblue;\r\n  border-color: darkblue;\r\n}\r\n\r\n.back-to-login {\r\n  margin-right: 5px;\r\n}\r\n\r\n.logo-container {\r\n  margin-top: 20px;\r\n}\r\n\r\n.logo-container img {\r\n  width: 40px;\r\n  height: 40px;\r\n}\r\n\r\n.linkedIn-logo {\r\n  margin-right: 2.5px;\r\n}\r\n\r\n.gitHub-logo {\r\n  margin-left: 2.5px;\r\n}\r\n\r\n@media (max-width: 48em) {\r\n  .login-page-sign-up-container {\r\n    margin-top: 5px;\r\n  }\r\n\r\n  .input-login-username {\r\n    margin-top: 0px;\r\n    font-size: 20px;\r\n    background-position: 0px 6px;\r\n  }\r\n  .input-login-password {\r\n    margin-top: 0px;\r\n    font-size: 20px;\r\n    background-position: 0px 8px;\r\n  }\r\n\r\n  .forgot-button {\r\n    margin-top: 2.5px;\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n  }\r\n\r\n  .login-page-button {\r\n    margin-top: 10px;\r\n    font-size: 16px;\r\n    width: 50%;\r\n  }\r\n\r\n  .logo-container {\r\n    margin-top: 7.5px;\r\n  }\r\n\r\n  .login-page-validate-button {\r\n    margin-top: 7.5px;\r\n    width: 50%;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25129,7 +25111,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".bold {\r\n  font-weight: bold;\r\n}\r\n\r\n.input-sign-up-form {\r\n  padding: 2.5px;\r\n  padding-left: 2.5px;\r\n  margin-bottom: 2.5px;\r\n  font-size: 22px;\r\n  display: inline-block;\r\n  border-top: none;\r\n  border-left: none;\r\n  border-right: none;\r\n  max-width: 70%;\r\n}\r\n\r\n.sign-up-back-button {\r\n  font-size: 14px;\r\n  color: #696969;\r\n  margin-top: 10px;\r\n  margin-right: 7px;\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  background-color: #f1f0f0;\r\n  width: 25%;\r\n}\r\n\r\n.sign-up-submit-button {\r\n  font-size: 14px;\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n  margin-top: 10px;\r\n  width: 10%;\r\n}\r\n\r\n\r\n.confirm-code-button {\r\n  font-size: 14px;\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n  margin-top: 10px;\r\n  width: 40%;\r\n}\r\n\r\n.sign-up-submit-button:hover {\r\n  background-color: darkblue;\r\n  border-color: darkblue;\r\n}\r\n\r\n.validate-info-container{\r\n  margin: 7.5px 7.5px;\r\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, ".bold {\r\n  font-weight: bold;\r\n}\r\n\r\n.input-sign-up-form {\r\n  padding: 2.5px;\r\n  padding-left: 2.5px;\r\n  margin-bottom: 2.5px;\r\n  font-size: 22px;\r\n  display: inline-block;\r\n  border-top: none;\r\n  border-left: none;\r\n  border-right: none;\r\n  max-width: 70%;\r\n}\r\n\r\n.confirm-code-button {\r\n  font-size: 14px;\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n  margin-top: 10px;\r\n  width: 40%;\r\n}\r\n\r\n.sign-up-submit-button:hover {\r\n  background-color: darkblue;\r\n  border-color: darkblue;\r\n}\r\n\r\n.validate-info-container {\r\n  margin: 7.5px 7.5px;\r\n}\r\n\r\n@media (max-width: 48em) {\r\n  .sign-up-content input{\r\n    font-size: 16px;\r\n  }\r\n  .sign-up-content h2{\r\n    font-size: 16px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25150,7 +25132,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../../../images/sear
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-exports.push([module.i, ".chat-main {\r\n  display: grid;\r\n  grid-template-columns: 27.5% 72.5%;\r\n  width: 100%;\r\n  font-size: 18px;\r\n}\r\n\r\n.chat-left {\r\n  border-right: 1px solid #dcdcdc;\r\n}\r\n\r\n.chat-search-container {\r\n  font-size: 18px;\r\n  padding-top: 1vh;\r\n  padding-left: 12.5px;\r\n}\r\n\r\n.searchContacts {\r\n  padding: 10px;\r\n  background-position: 2.5px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 30px;\r\n  width: 87.5%;\r\n  border-radius: 10px;\r\n}\r\n\r\n.chat-search {\r\n  display: inline-block;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  width: 95%;\r\n  padding-top: 10px;\r\n  padding-left: 10px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n}\r\n\r\n.chat-search div {\r\n  padding: 5px;\r\n  border-radius: 5px;\r\n  text-decoration: none;\r\n  display: grid;\r\n  grid-template-columns: 9.25% 90.75%;\r\n}\r\n\r\n.chat-search div:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-search img {\r\n  grid-column: 1;\r\n  width: 30px;\r\n  height: 30px;\r\n  padding-top: 5px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-search-name{\r\n  grid-column: 2;\r\n  padding-top: 12.5px;\r\n}\r\n\r\n.chat-display-parent {\r\n  display: grid;\r\n  grid-template-columns: 66% 34%;\r\n}\r\n\r\n.chat-display-default{\r\n  padding-left: 10px;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".chat-main {\r\n  display: grid;\r\n  grid-template-columns: 27.5% 72.5%;\r\n  width: 100%;\r\n  font-size: 18px;\r\n}\r\n\r\n.chat-left {\r\n  border-right: 1px solid #dcdcdc;\r\n}\r\n\r\n.chat-search-container {\r\n  font-size: 18px;\r\n  padding-top: 1vh;\r\n  padding-left: 12.5px;\r\n}\r\n\r\n.searchContacts {\r\n  padding: 10px;\r\n  background-position: 2.5px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 30px;\r\n  width: 87.5%;\r\n  border-radius: 10px;\r\n}\r\n\r\n.chat-search {\r\n  display: inline-block;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  width: 95%;\r\n  padding-top: 10px;\r\n  padding-left: 10px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n}\r\n\r\n.chat-search div {\r\n  padding: 5px;\r\n  border-radius: 5px;\r\n  text-decoration: none;\r\n  display: grid;\r\n  grid-template-columns: 9.25% 90.75%;\r\n}\r\n\r\n.chat-search div:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-search img {\r\n  grid-column: 1;\r\n  width: 30px;\r\n  height: 30px;\r\n  padding-top: 5px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-search-name{\r\n  grid-column: 2;\r\n  padding-top: 12.5px;\r\n}\r\n\r\n.chat-display-parent {\r\n  display: grid;\r\n  grid-template-columns: 66% 34%;\r\n}\r\n\r\n.chat-display-default{\r\n  padding-left: 10px;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 7.5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  background: grey;\r\n  border-radius: 7.5px;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25235,7 +25217,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_
 var ___CSS_LOADER_URL_REPLACEMENT_4___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_4___);
 var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___);
 // Module
-exports.push([module.i, ".banner {\r\n  background-color: #00a8f3;\r\n  padding-bottom: 5px;\r\n  display: flex;\r\n  height: 7.5vh;\r\n}\r\n\r\n.home-title {\r\n  color: white;\r\n  font-size: 44px;\r\n  cursor: pointer;\r\n  padding-left: 15px;\r\n  margin-bottom: 10000px;\r\n}\r\n\r\n.user-container {\r\n  margin-top: 7.5px;\r\n  display: inline-block;\r\n  margin-left: 76.5%;\r\n}\r\n\r\n.user {\r\n  color: white;\r\n  margin-top: 5px;\r\n  font-size: 24px;\r\n  display: flex;\r\n}\r\n\r\n.home-image-container {\r\n  padding-right: 5px;\r\n}\r\n\r\n.home-image {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.dropdown {\r\n  margin-top: 5px;\r\n  font-size: 24px;\r\n  display: inline-block;\r\n}\r\n\r\n.link {\r\n  text-decoration: none;\r\n  color: black;\r\n}\r\n\r\n.dropdown:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-content {\r\n  font-size: 18px;\r\n  display: block;\r\n  position: absolute;\r\n  color: black;\r\n  background-color: white;\r\n  min-width: 100px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  padding: 10px 10px;\r\n  border-radius: 10px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-content div {\r\n  padding: 10px 10px;\r\n  border-radius: 8px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.dropdown-profile {\r\n  background-position: 2.5px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-left: 5px;\r\n}\r\n\r\n.dropdown-profile:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-profile-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-position: 2.5px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-settings:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  padding-left: 22.5px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-position: 2.5px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-logout:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  padding-left: 23.5px;\r\n}\r\n", ""]);
+exports.push([module.i, ".banner {\r\n  background-color: #00a8f3;\r\n  padding-bottom: 5px;\r\n}\r\n\r\n.home-title {\r\n  color: white;\r\n  font-size: 44px;\r\n  cursor: pointer;\r\n  padding-left: 15px;\r\n  display: inline-block;\r\n}\r\n\r\n.user-container {\r\n  margin-top: 7.5px;\r\n  display: inline-block;\r\n  margin-left: 76.5%;\r\n}\r\n\r\n.user {\r\n  color: white;\r\n  margin-top: 5px;\r\n  font-size: 24px;\r\n}\r\n\r\n.home-image-container {\r\n  padding-right: 5px;\r\n}\r\n\r\n.home-image {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.dropdown {\r\n  margin-top: 5px;\r\n  font-size: 24px;\r\n  display: inline-block;\r\n}\r\n\r\n.link {\r\n  text-decoration: none;\r\n  color: black;\r\n}\r\n\r\n.dropdown:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-content {\r\n  font-size: 18px;\r\n  display: block;\r\n  position: absolute;\r\n  color: black;\r\n  background-color: white;\r\n  min-width: 100px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  padding: 10px 10px;\r\n  border-radius: 10px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-content div {\r\n  padding: 10px 10px;\r\n  border-radius: 8px;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\n\r\n.dropdown-profile {\r\n  background-position: 2.5px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  padding-left: 5px;\r\n}\r\n\r\n.dropdown-profile:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-profile-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-position: 2.5px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-settings:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  padding-left: 22.5px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-position: 2.5px 6px;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-logout:hover {\r\n  color: white;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 6px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  padding-left: 23.5px;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -87113,37 +87095,6 @@ module.exports = exported;
 
 /***/ }),
 
-/***/ "./src/client/assets/stylesheets/components/front/forgotPage.css":
-/*!***********************************************************************!*\
-  !*** ./src/client/assets/stylesheets/components/front/forgotPage.css ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var api = __webpack_require__(/*! ../../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-            var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader/dist/cjs.js!./forgotPage.css */ "./node_modules/css-loader/dist/cjs.js!./src/client/assets/stylesheets/components/front/forgotPage.css");
-
-            content = content.__esModule ? content.default : content;
-
-            if (typeof content === 'string') {
-              content = [[module.i, content, '']];
-            }
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = api(content, options);
-
-var exported = content.locals ? content.locals : {};
-
-
-
-module.exports = exported;
-
-/***/ }),
-
 /***/ "./src/client/assets/stylesheets/components/front/frontPage.css":
 /*!**********************************************************************!*\
   !*** ./src/client/assets/stylesheets/components/front/frontPage.css ***!
@@ -87549,7 +87500,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var Confirmation = function Confirmation(props) {
   document.title = "Confirm | Mychat";
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " ", props.confirmMsg), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "confirmation-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " ", props.confirmMsg), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/",
     className: "link"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -87578,8 +87531,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Confirmation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Confirmation */ "./src/client/components/front/Confirmation.js");
 /* harmony import */ var _graphqlDocuments_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../graphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var _assets_stylesheets_components_front_forgotPage_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../assets/stylesheets/components/front/forgotPage.css */ "./src/client/assets/stylesheets/components/front/forgotPage.css");
-/* harmony import */ var _assets_stylesheets_components_front_forgotPage_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_front_forgotPage_css__WEBPACK_IMPORTED_MODULE_6__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -87591,7 +87542,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 
 
 
@@ -87638,10 +87588,10 @@ var Forgot = function Forgot(props) {
       to: "/",
       className: "link"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "forgot-page-back-button",
+      className: "front-page-back-button",
       type: "button"
     }, "Back to Login")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "forgot-page-submit-button",
+      className: "front-page-submit-button",
       type: "submit"
     }, "Submit")))));
   };
@@ -87975,7 +87925,7 @@ var Login = function Login(props) {
       className: "login-page-button",
       type: "submit"
     }, "Login"))), validateButton ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "login-page-button",
+      className: "login-page-validate-button",
       type: "button",
       onClick: function onClick() {
         props.setVerifyUser(verifyUser), props.setVerifyEmail(verifyEmail), setPage("validate");
@@ -88174,7 +88124,7 @@ var Signup = function Signup(props) {
   }();
 
   var signUpForm = function signUpForm() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " Signup for an account!"), emailError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " Signup "), emailError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
       className: "error"
     }, " ", emailError, " ") : null, userError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
       className: "error"
@@ -88243,10 +88193,10 @@ var Signup = function Signup(props) {
       to: "/",
       className: "link"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "sign-up-back-button",
+      className: "front-page-back-button",
       type: "button"
     }, "Back to Login")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "sign-up-submit-button",
+      className: "front-page-submit-button",
       type: "submit"
     }, "Signup"))))));
   };
@@ -88272,7 +88222,7 @@ var Signup = function Signup(props) {
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "confirm-code-button",
       type: "submit"
-    }, "Confirm Confirmation Code"))));
+    }, "Confirm"))));
   };
 
   var confirmEmail = /*#__PURE__*/function () {
@@ -88298,9 +88248,9 @@ var Signup = function Signup(props) {
 
               if (result.data.validateAccount === "Account verified") {
                 setPage("signUpConfirm");
-                setConfirmMsg("Email Successfully Confirmed");
+                setConfirmMsg("Email Confirmed");
               } else {
-                setValidateError("Invalid Validation Code");
+                setValidateError("Invalid Code");
               }
 
             case 7:
@@ -88316,7 +88266,9 @@ var Signup = function Signup(props) {
     };
   }();
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "sign-up-content"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/signup",
     render: function render() {
@@ -88465,6 +88417,7 @@ var Profile = function Profile(props) {
     className: "profile-image",
     src: "../../../assets/images/profilePlaceholder.png"
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    alt: props.userInfo.fullName,
     className: "profile-image",
     src: "data:image/png;base64,".concat(props.userImage.data.getImage)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, props.userInfo.fullName), !showUploadForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -89538,6 +89491,7 @@ var Home = function Home(props) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "home-image-container"
     }, userImage.loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      alt: userInfo.fullName,
       className: "home-image",
       src: "../../../assets/images/profilePlaceholder.png"
     }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -89956,6 +89910,7 @@ var History = function History(props) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chat-history-img-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        alt: convo.members[0]._id != props.userInfo._id ? convo.members[0].fullName : convo.members[1].fullName,
         className: "chat-history-wrapper-img",
         src: "data:image/png;base64,".concat(convo.members[0]._id != props.userInfo._id ? convo.members[0].profilePicture : convo.members[1].profilePicture)
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -90002,6 +89957,8 @@ var About = function About(props) {
     className: "chat-display-about"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, props.getUser.data.getSingleUser.fullName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "chat-display-about-img",
+    alt: props.getUser.data.getSingleUser.fullName,
+    title: props.getUser.data.getSingleUser.fullName,
     src: "data:image/png;base64,".concat(props.getUser.data.getSingleUser.profilePicture)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "About "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-about-content"

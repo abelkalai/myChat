@@ -28,6 +28,7 @@ const Profile = (props) => {
         />
       ) : (
         <img
+          alt={props.userInfo.fullName}
           className="profile-image"
           src={`data:image/png;base64,${props.userImage.data.getImage}`}
         />

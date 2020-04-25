@@ -1,8 +1,6 @@
 .banner {
   background-color: #00a8f3;
   padding-bottom: 5px;
-  display: flex;
-  height: 7.5vh;
 }
 
 .home-title {
@@ -10,7 +8,7 @@
   font-size: 44px;
   cursor: pointer;
   padding-left: 15px;
-  margin-bottom: 10000px;
+  display: inline-block;
 }
 
 .user-container {
@@ -23,7 +21,6 @@
   color: white;
   margin-top: 5px;
   font-size: 24px;
-  display: flex;
 }
 
 .home-image-container {

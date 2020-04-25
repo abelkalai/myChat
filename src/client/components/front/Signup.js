@@ -59,8 +59,8 @@ const Signup = (props) => {
 
   const signUpForm = () => {
     return (
-      <div>
-        <h1> Signup for an account!</h1>
+      <Fragment>
+        <h1> Signup </h1>
         {emailError ? <h2 className="error"> {emailError} </h2> : null}
         {userError ? <h2 className="error"> {userError} </h2> : null}
         {passwordError ? <h2 className="error">{passwordError}</h2> : null}
@@ -128,18 +128,18 @@ const Signup = (props) => {
               </div>
               <div>
                 <Link to="/" className="link">
-                  <button className="sign-up-back-button" type="button">
+                  <button className="front-page-back-button" type="button">
                     Back to Login
                   </button>
                 </Link>
-                <button className="sign-up-submit-button" type="submit">
+                <button className="front-page-submit-button" type="submit">
                   Signup
                 </button>
               </div>
             </div>
           </form>
         </div>
-      </div>
+      </Fragment>
     );
   };
 
@@ -173,7 +173,7 @@ const Signup = (props) => {
           ></input>
           <div>
             <button className="confirm-code-button" type="submit">
-              Confirm Confirmation Code
+              Confirm
             </button>
           </div>
         </form>
@@ -190,14 +190,14 @@ const Signup = (props) => {
     });
     if (result.data.validateAccount === "Account verified") {
       setPage("signUpConfirm");
-      setConfirmMsg("Email Successfully Confirmed");
+      setConfirmMsg("Email Confirmed");
     } else {
-      setValidateError("Invalid Validation Code");
+      setValidateError("Invalid Code");
     }
   };
 
   return (
-    <Fragment>
+    <div className="sign-up-content">
       <Route exact path="/signup" render={() => signUpForm()} />
       {page === "signUpValidate" && <Redirect to="/signup/validate" />}
       <Route path="/signup/validate" render={() => signUpValidate()} />
@@ -207,7 +207,7 @@ const Signup = (props) => {
         path="/signup/confirm"
         render={() => <Confirmation confirmMsg={confirmMsg} />}
       />
-    </Fragment>
+    </div>
   );
 };
 

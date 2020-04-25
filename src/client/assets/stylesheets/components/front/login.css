@@ -64,6 +64,14 @@
   width: 35%;
 }
 
+.login-page-validate-button {
+  color: white;
+  background-color: #00a8f3;
+  margin-top: 15px;
+  font-size: 16px;
+  width: 35%;
+}
+
 .login-page-button:hover {
   background-color: darkblue;
   border-color: darkblue;
@@ -74,10 +82,10 @@
 }
 
 .logo-container {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
-.logo-container img{
+.logo-container img {
   width: 40px;
   height: 40px;
 }
@@ -90,4 +98,41 @@
   margin-left: 2.5px;
 }
 
+@media (max-width: 48em) {
+  .login-page-sign-up-container {
+    margin-top: 5px;
+  }
 
+  .input-login-username {
+    margin-top: 0px;
+    font-size: 20px;
+    background-position: 0px 6px;
+  }
+  .input-login-password {
+    margin-top: 0px;
+    font-size: 20px;
+    background-position: 0px 8px;
+  }
+
+  .forgot-button {
+    margin-top: 2.5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .login-page-button {
+    margin-top: 10px;
+    font-size: 16px;
+    width: 50%;
+  }
+
+  .logo-container {
+    margin-top: 7.5px;
+  }
+
+  .login-page-validate-button {
+    margin-top: 7.5px;
+    width: 50%;
+  }
+}

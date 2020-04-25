@@ -73,3 +73,11 @@
   padding-left: 10px;
 }
 
+::-webkit-scrollbar {
+  width: 7.5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 7.5px;
+}

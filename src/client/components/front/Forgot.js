@@ -4,7 +4,6 @@ import { useFieldInput } from "../hooks/customHooks";
 import Confirmation from "./Confirmation";
 import { CHECK_EMAIL } from "../../graphqlDocuments/user";
 import { useLazyQuery } from "@apollo/react-hooks";
-import "../../assets/stylesheets/components/front/forgotPage.css";
 
 const Forgot = (props) => {
   document.title = `Forgot ${props.type} | MyChat`;
@@ -35,11 +34,11 @@ const Forgot = (props) => {
             </div>
             <div>
               <Link to="/" className="link">
-                <button className="forgot-page-back-button" type="button">
+                <button className="front-page-back-button" type="button">
                   Back to Login
                 </button>
               </Link>
-              <button className="forgot-page-submit-button" type="submit">
+              <button className="front-page-submit-button" type="submit">
                 Submit
               </button>
             </div>
