@@ -4,12 +4,12 @@
 }
 
 .chat-display-chat-container {
-  min-height: 83vh;
+  min-height: 82.5vh;
 }
 
 .chat-display-chat {
-  margin-top: 5px;
-  max-height: 83vh;
+  margin-top: 1vh;
+  max-height: 82.5vh;
   overflow-x: hidden;
   overflow-y: auto;
   display: flex;
@@ -20,7 +20,6 @@
   display: flex;
   margin-top: 15px;
   margin-left: 15px;
-  width: 100%;
 }
 
 .chat-display-chat-message-field {
@@ -28,7 +27,8 @@
   padding-left: 5px;
   font-size: 18px;
   border-radius: 5px;
-  width: 90%;
+  width: 92.5%;
+  max-height: 5%;
 }
 
 .chat-display-chat-message-image {

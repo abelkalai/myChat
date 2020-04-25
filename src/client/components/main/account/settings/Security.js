@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect } from "react";
 import EditPassword from "./editSettings/EditPassword";
 import "../../../../assets/stylesheets/components/main/settings.css";
 
@@ -12,7 +12,7 @@ const Security = (props) => {
   const [sendHome, setSendHome] = useState(false);
 
   return (
-    <div className="main-right">
+    <div>
       {sendHome && <Redirect to="/" />}
       <h1 className="settings-divider-container">Security </h1>
       <div className="settings-divider-inside-single">

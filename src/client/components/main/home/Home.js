@@ -17,7 +17,7 @@ const Home = (props) => {
   const userImage = useQuery(GET_IMAGE, { variables: { _id: userInfo._id } });
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const topBanner = () => {
+  const banner = () => {
     return (
       <div className="banner">
         <Link to="/home" className="link">
@@ -84,7 +84,7 @@ const Home = (props) => {
 
   return (
     <Fragment>
-      {topBanner()}
+      {banner()}
       <Switch>
         <Route
           exact

@@ -9,9 +9,17 @@ import {
 
 import ChatMessage from "./ChatMessage";
 import About from "./About";
-import {GET_SINGLE_USER} from "../../../../../graphqlDocuments/user"
-import {GET_MESSAGES, NEW_MESSAGE, READ_MESSAGE, SEND_MESSAGE} from "../../../../../graphqlDocuments/message"
-import {GET_CONVERSATIONS, UPDATED_CONVO} from "../../../../../graphqlDocuments/conversation"
+import { GET_SINGLE_USER } from "../../../../../graphqlDocuments/user";
+import {
+  GET_MESSAGES,
+  NEW_MESSAGE,
+  READ_MESSAGE,
+  SEND_MESSAGE,
+} from "../../../../../graphqlDocuments/message";
+import {
+  GET_CONVERSATIONS,
+  UPDATED_CONVO,
+} from "../../../../../graphqlDocuments/conversation";
 
 const ChatDisplay = (props) => {
   if (props.convoHistory.loading) {
@@ -79,7 +87,7 @@ const ChatDisplay = (props) => {
   });
 
   const apolloClient = useApolloClient();
-  
+
   const updateMsgCache = (newMsg) => {
     if (
       (newMsg.senderID === props.userInfo._id ||
@@ -108,7 +116,6 @@ const ChatDisplay = (props) => {
       messageContainer.scrollTop = messageContainer.scrollHeight;
     }
   };
-
 
 
   const updateConvoCache = async (convo) => {
@@ -143,7 +150,6 @@ const ChatDisplay = (props) => {
       });
     }
   };
-
 
   const sendMessage = async (event) => {
     event.preventDefault();

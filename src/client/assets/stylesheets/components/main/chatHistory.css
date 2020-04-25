@@ -1,7 +1,7 @@
 .no-history-div{
   margin-top: 5px;
   margin-left: 15px;
-  height: 83vh;
+  height: 82.5vh;
 }
 
 .chat-history-container {
@@ -9,7 +9,7 @@
   margin: 10px 5px 0 5px;
   overflow-x: hidden;
   overflow-y: auto;
-  height: 83vh;
+  height: 82.5vh;
 }
 
 .chat-history-wrapper-current {

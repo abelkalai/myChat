@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useFieldInput } from "../../../../hooks/customHooks";
 import { useMutation } from "@apollo/react-hooks";
-import {CHANGE_PASSWORD} from "../../../../../graphqlDocuments/user"
+import { CHANGE_PASSWORD } from "../../../../../graphqlDocuments/user";
 
 const EditPassword = (props) => {
   const [changePassword] = useMutation(CHANGE_PASSWORD);
@@ -17,29 +17,27 @@ const EditPassword = (props) => {
       setNewPasswordError("Passwords do not match");
       return;
     }
-    setNewPasswordError(null);
+
     let _id = props.userInfo._id;
     let currentPassword = currentPasswordField.value;
     let newPassword = newPasswordField.value;
     let result = await changePassword({
       variables: { _id, currentPassword, newPassword },
     });
-    if (result.data.changePassword === "Incorrect Current password") {
-      setCurrentPasswordError("Wrong Current Password");
-      return;
+
+    setCurrentPasswordError(result.data.changePassword[0]);
+
+    setNewPasswordError(result.data.changePassword[1]);
+   
+    if (!result.data.changePassword[0] && !result.data.changePassword[1]) {
+      setTimeout(() => {
+        props.setActiveUser(null);
+        props.setIgnoreCookie(true),
+          (document.cookie =
+            "token=;expires = Thu, 01 Jan 1970 00:00:00 GMT; path=/;"),
+          setSendHome(true);
+      }, 150);
     }
-    setCurrentPasswordError(null);
-    if (result.data.changePassword === "You're currently using this password") {
-      setNewPasswordError("You're currently using this password");
-      return;
-    }
-    setTimeout(() => {
-      props.setActiveUser(null);
-      props.setIgnoreCookie(true),
-        (document.cookie =
-          "token=;expires = Thu, 01 Jan 1970 00:00:00 GMT; path=/;"),
-        setSendHome(true);
-    }, 150);
   };
 
   return (

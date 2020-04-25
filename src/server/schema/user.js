@@ -70,7 +70,7 @@ const userTypeDefs = gql`
       _id: String!
       currentPassword: String!
       newPassword: String!
-    ): String!
+    ): [String]
   }
 `;
 
@@ -271,14 +271,22 @@ const userResolvers = {
 
     changePassword: async (root, args) => {
       user = await User.findById(args._id);
-      if (!(await bcrypt.compare(args.currentPassword, user.password))) {
-        return "Incorrect Current password";
-      } else if (await bcrypt.compare(args.newPassword, user.password)) {
-        return "You're currently using this password";
+      let result = [];
+
+      (await bcrypt.compare(args.currentPassword, user.password))
+        ? result.push(null)
+        : result.push("Incorrect Current password");
+
+      (await bcrypt.compare(args.newPassword, user.password))
+        ? result.push("You're currently using this password")
+        : result.push(null);
+
+      if (result[0] && result[1]) {
+        return result;
       }
       let hashPassword = await bcrypt.hash(args.newPassword, 10);
       await User.findByIdAndUpdate(args._id, { password: hashPassword });
-      return "Success";
+      return result;
     },
   },
 };

@@ -102,8 +102,8 @@ const History = (props) => {
 
               <div className="chat-history-content">
                 {convo.lastSender === props.userInfo._id ? "You: " : null}
-                {convo.lastMessage.length > 22
-                  ? `${convo.lastMessage.slice(0, 16)}...`
+                {convo.lastMessage.length > 26
+                  ? `${convo.lastMessage.slice(0, 26)}...`
                   : convo.lastMessage}
                 <span className="chat-history-time">
                   <div>{adjustTime(convo.lastMessageTime, false)}</div>

@@ -33,26 +33,24 @@ const Login = (props) => {
         document.cookie = `token=${
           result.data.login.Token
         }; expires= ${date.toGMTString()} path = /;`;
+        props.setActiveUser(result.data.login.User);
+        props.setIgnoreCookie(false);
+      } else if (
+        result.data.login.errorList === "Please confirm your email to login"
+      ) {
+        setLoginError(result.data.login.errorList);
+        setVerifyEmail(result.data.login.email);
+        setVerifyUser(username);
+        showValidateButton(true);
       } else {
         setLoginError(result.data.login.errorList);
-        if (
-          result.data.login.errorList ===
-          "Please confirm your email to login"
-        ) {
-          setVerifyEmail(result.data.login.email);
-          setVerifyUser(username);
-          showValidateButton(true);
-        }
-        return;
       }
-      props.setActiveUser(result.data.login.User);
-      props.setIgnoreCookie(false);
     };
 
     return (
       <Fragment>
-        <h1> Account Login</h1>
-        <div className="new-account-container">
+        <h1>Log In</h1>
+        <div className="login-page-sign-up-container">
           <span className="grey-text">{"Don't have an account? "}</span>
           <button
             className="sign-up-button"
@@ -64,11 +62,7 @@ const Login = (props) => {
             Sign up Now!
           </button>
         </div>
-        {validateButton ? (
-          <h2 className="error">
-            Your account is not validated, please click the "validate email" button
-          </h2>
-        ) : null}
+        {loginError ? <h2 className="error">{loginError}</h2> : null}
         <form className="front-page-form" onSubmit={submitLogin}>
           <div className="front-page-form-div">
             <input
@@ -79,7 +73,6 @@ const Login = (props) => {
               onChange={usernameField.onChange}
               required
             />
-            {loginError ? <span className="error"> {loginError} </span> : null}
           </div>
           <div className="front-page-form-div">
             <input
@@ -90,7 +83,6 @@ const Login = (props) => {
               required
               type="password"
             />
-            {loginError ? <span className="error"> {loginError} </span> : null}
           </div>
           <button
             type="button"
@@ -119,7 +111,7 @@ const Login = (props) => {
 
         {validateButton ? (
           <button
-          className = "login-page-button"
+            className="login-page-button"
             type="button"
             onClick={() => {
               props.setVerifyUser(verifyUser),
@@ -130,6 +122,34 @@ const Login = (props) => {
             Validate Email
           </button>
         ) : null}
+        <div className="logo-container">
+          <a
+            href="https://www.linkedin.com/in/abelkalai/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {/*Image source: linkedin blue style logo png from freepnglogos.com */}
+            <img
+              className="linkedIn-logo"
+              src="../../assets/logos/linkedIn.png"
+              title="https://www.linkedin.com/in/abelkalai/"
+              alt="LinkedIn"
+            />
+          </a>
+          <a
+            href="https://github.com/abelkalai"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {/*Image source: https://www.stickpng.com/img/icons-logos-emojis/tech-companies/github-logo */}
+            <img
+              className="gitHub-logo"
+              src="../../assets/logos/gitHub.png"
+              title="https://github.com/abelkalai"
+              alt="GitHub"
+            />
+          </a>
+        </div>
       </Fragment>
     );
   };

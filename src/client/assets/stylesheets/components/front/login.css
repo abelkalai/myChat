@@ -1,73 +1,93 @@
-.new-account-container{
-    margin: 2.5px 5px;
+.login-page-sign-up-container {
+  margin-top: 15px;
 }
 
-.input-login-username{
-    font-size: 20px;
-    padding: 2.5px;
-    padding-left: 25px;
-    margin-bottom: 2.5px;
-    margin-top: 5px;
-    display: inline-block;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    background-position: 0px 2px;
-    background-size: 20px 20px;
-    background-image: url("../../../images/user.png");
-    background-repeat: no-repeat;
-  }
-  
-  .input-login-password{
-    font-size: 20px;
-    padding: 2.5px;
-    padding-left: 25px;
-    margin-bottom: 5px;
-    display: inline-block;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    background-position: 0px 4px;
-    background-image: url("../../../images/password.png");
-    background-size: 20px 20px;
-    background-repeat: no-repeat;
-  }
-  
-  .forgot-button{
-    border: none;
-    background-color: white;
-    color: grey;
-    text-decoration: underline;
-  }
-  
-  .grey-text{
-    color:grey
-  }
+.input-login-username {
+  font-size: 26px;
+  padding: 2.5px;
+  padding-left: 25px;
+  margin-bottom: 2.5px;
+  margin-top: 5px;
+  display: inline-block;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-position: 0px 10px;
+  background-size: 20px 20px;
+  background-image: url("../../../images/user.png");
+  background-repeat: no-repeat;
+  max-width: 70%;
+}
 
-  .sign-up-button{
-    border: none;
-    background-color: white;
-    padding-left: 0px;
-    color: grey;
-    text-decoration: underline;
-    font-size: 15px;
-  }
-  
-  .login-page-button{
-    color: white;
-    background-color: #4ebee6;
-    border-color: #4ebee6;
-    margin-top: 10px;
-    font-size: 16px;
-    border-radius: 10px;
-    width: 35%;
-  }
+.input-login-password {
+  font-size: 26px;
+  padding: 2.5px;
+  padding-left: 25px;
+  margin-bottom: 5px;
+  display: inline-block;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-position: 0px 12px;
+  background-image: url("../../../images/password.png");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  max-width: 70%;
+}
 
-  .login-page-button:hover{
-    background-color: darkblue;
-    border-color: darkblue;
-  }
-  
-  .back-to-login{
-    margin-right: 5px;
-  }
+.forgot-button {
+  margin-top: 15px;
+  border: none;
+  background-color: white;
+  color: grey;
+  text-decoration: underline;
+}
+
+.grey-text {
+  color: grey;
+}
+
+.sign-up-button {
+  border: none;
+  background-color: white;
+  padding-left: 0px;
+  color: grey;
+  text-decoration: underline;
+  font-size: 15px;
+}
+
+.login-page-button {
+  color: white;
+  background-color: #00a8f3;
+  margin-top: 15px;
+  font-size: 16px;
+  width: 35%;
+}
+
+.login-page-button:hover {
+  background-color: darkblue;
+  border-color: darkblue;
+}
+
+.back-to-login {
+  margin-right: 5px;
+}
+
+.logo-container {
+  margin-top: 15px;
+}
+
+.logo-container img{
+  width: 40px;
+  height: 40px;
+}
+
+.linkedIn-logo {
+  margin-right: 2.5px;
+}
+
+.gitHub-logo {
+  margin-left: 2.5px;
+}
+
+

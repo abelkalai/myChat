@@ -20,6 +20,7 @@ const Forgot = (props) => {
     return (
       <div className="center">
         <h1> Forgot {props.type}</h1>
+        {error ? <h2 className="error">{error}</h2> : null}
         <div>
           <form className="front-page-form" onSubmit={emailCall}>
             <div className="front-page-form-div">
@@ -31,7 +32,6 @@ const Forgot = (props) => {
                 type="email"
                 required
               />
-              {error ? <span className="error">{error}</span> : null}
             </div>
             <div>
               <Link to="/" className="link">

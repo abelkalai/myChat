@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import {EDIT_IMAGE, GET_IMAGE} from "../../../../../graphqlDocuments/user"
+import { EDIT_IMAGE, GET_IMAGE } from "../../../../../graphqlDocuments/user";
 import { useMutation } from "@apollo/react-hooks";
 import imageCompression from "browser-image-compression";
 
 const EditPicture = (props) => {
   const [uploadFile, setUploadFile] = useState(null);
+  const [uploadError, setUploadError] = useState(null);
   const [editImage] = useMutation(EDIT_IMAGE, {
     update: (store, { data }) => {
       store.writeQuery({
@@ -17,32 +18,41 @@ const EditPicture = (props) => {
 
   const uploadFileEventHandler = async (event) => {
     event.preventDefault();
-    if (!uploadFile) return;
-    let newFile = await await imageCompression(uploadFile, {
-      maxSizeMB: 0.05,
-      maxWidthOrHeight: 1920,
-    });
-    const reader = new FileReader();
-    reader.readAsDataURL(newFile);
-    reader.onload = async () => {
-      let _id = props.userInfo._id;
-      let result = await reader.result;
-      let image = result.substring(result.indexOf(",") + 1);
-      await editImage({ variables: { _id, image } });
-    };
-    props.setShowUploadForm(false);
+    if (uploadFile) {
+      let newFile = await await imageCompression(uploadFile, {
+        maxSizeMB: 0.05,
+        maxWidthOrHeight: 1920,
+      });
+      const reader = new FileReader();
+      reader.readAsDataURL(newFile);
+      reader.onload = async () => {
+        let _id = props.userInfo._id;
+        let result = await reader.result;
+        let image = result.substring(result.indexOf(",") + 1);
+        await editImage({ variables: { _id, image } });
+      };
+      props.setShowUploadForm(false);
+    } else {
+      setUploadError("No file chosen")
+    }
   };
 
   return (
     <div>
-      <div className= "profile-upload-input-div">
+      <div className="profile-upload-input-div">
+        {uploadError ? <h2 className="error">{uploadError}</h2> : null}
         <input
-        
           type="file"
+          name="file"
+          id="file"
+          className="inputfile"
           onChange={() => {
             setUploadFile(event.target.files[0]);
           }}
         />
+        <label className="file-upload-label" htmlFor="file">
+          Upload Profile Picture
+        </label>
       </div>
       <div>
         <div className="profile-button-container">
@@ -51,7 +61,7 @@ const EditPicture = (props) => {
             className="change-button"
             onClick={uploadFileEventHandler}
           >
-            Upload Profile Picture
+            Save
           </button>
 
           <button

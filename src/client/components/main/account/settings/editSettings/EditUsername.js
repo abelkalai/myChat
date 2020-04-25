@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useFieldInput } from "../../../../hooks/customHooks";
 import { useMutation } from "@apollo/react-hooks";
-import {CHANGE_USERNAME} from "../../../../../graphqlDocuments/user"
+import { CHANGE_USERNAME } from "../../../../../graphqlDocuments/user";
 
 const EditUsername = (props) => {
   const [changeUserName] = useMutation(CHANGE_USERNAME);
@@ -40,7 +40,7 @@ const EditUsername = (props) => {
           value={userField.value}
           onChange={userField.onChange}
         />
-        {userError ?<span className="error">{userError}</span> : null}
+        {userError ? <span className="error">{userError}</span> : null}
       </div>
       <div>
         <button className="settings-save-changes" type="submit">

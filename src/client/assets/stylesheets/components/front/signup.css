@@ -2,6 +2,18 @@
   font-weight: bold;
 }
 
+.input-sign-up-form {
+  padding: 2.5px;
+  padding-left: 2.5px;
+  margin-bottom: 2.5px;
+  font-size: 22px;
+  display: inline-block;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  max-width: 70%;
+}
+
 .sign-up-back-button {
   font-size: 14px;
   color: #696969;
@@ -10,19 +22,28 @@
   padding-left: 5px;
   padding-right: 5px;
   background-color: #f1f0f0;
-  border-color: #f1f0f0;
-  border-radius: 10px;
+  width: 25%;
 }
 
 .sign-up-submit-button {
   font-size: 14px;
   padding-left: 5px;
   padding-right: 5px;
-  background-color: #4ebee6;
-  border-color: #4ebee6;
+  background-color: #00a8f3;
   color: white;
   margin-top: 10px;
-  border-radius: 10px;
+  width: 10%;
+}
+
+
+.confirm-code-button {
+  font-size: 14px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #00a8f3;
+  color: white;
+  margin-top: 10px;
+  width: 40%;
 }
 
 .sign-up-submit-button:hover {
@@ -33,3 +54,5 @@
 .validate-info-container{
   margin: 7.5px 7.5px;
 }
+
+

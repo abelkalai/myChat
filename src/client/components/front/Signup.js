@@ -26,9 +26,12 @@ const Signup = (props) => {
 
   const submit = async (event) => {
     event.preventDefault();
-    passwordField.value != confirmpasswordField.value
-      ? setPasswordError("Passwords don't match")
-      : setPasswordError(null);
+    if (passwordField.value != confirmpasswordField.value) {
+      setPasswordError("Passwords don't match");
+      return;
+    } else {
+      setPasswordError(null);
+    }
 
     let firstName = firstNameField.value;
     let lastName = lastNameSign.value;
@@ -47,9 +50,6 @@ const Signup = (props) => {
     });
 
     if (!result.data.addUser.errorList) {
-      setUserError(null);
-      setEmailError(null);
-      setPasswordError(null);
       setPage("signUpValidate");
     } else {
       setUserError(result.data.addUser.errorList[0]);
@@ -61,11 +61,14 @@ const Signup = (props) => {
     return (
       <div>
         <h1> Signup for an account!</h1>
+        {emailError ? <h2 className="error"> {emailError} </h2> : null}
+        {userError ? <h2 className="error"> {userError} </h2> : null}
+        {passwordError ? <h2 className="error">{passwordError}</h2> : null}
         <div className="sign-up">
           <form className="front-page-form" onSubmit={submit}>
             <div className="front-page-form-div">
               <input
-                className="input-front-page-form"
+                className="input-sign-up-form"
                 placeholder="First Name"
                 type="text"
                 value={firstNameField.value}
@@ -75,7 +78,7 @@ const Signup = (props) => {
             </div>
             <div className="front-page-form-div">
               <input
-                className="input-front-page-form"
+                className="input-sign-up-form"
                 placeholder="Last Name"
                 type="text"
                 value={lastNameSign.value}
@@ -85,53 +88,43 @@ const Signup = (props) => {
             </div>
             <div className="front-page-form-div">
               <input
-                className="input-front-page-form"
+                className="input-sign-up-form"
                 placeholder="Email"
                 value={emailField.value}
                 onChange={emailField.onChange}
                 type="email"
                 required
               />
-              {emailError ? (
-                <span className="error"> {emailError} </span>
-              ) : null}
             </div>
             <div className="front-page-form-div">
               <input
-                className="input-front-page-form"
+                className="input-sign-up-form"
                 placeholder="Username"
                 type="text"
                 value={usernameField.value}
                 onChange={usernameField.onChange}
                 required
               />
-              {userError ? <span className="error"> {userError} </span> : null}
               <div className="front-page-form-div">
                 <input
-                  className="input-front-page-form"
+                  className="input-sign-up-form"
                   placeholder="Password"
                   value={passwordField.value}
                   onChange={passwordField.onChange}
                   type="password"
                   required
                 />
-                {passwordError ? (
-                  <span className="error">{passwordError}</span>
-                ) : null}
               </div>
 
               <div className="front-page-form-div">
                 <input
-                  className="input-front-page-form"
+                  className="input-sign-up-form"
                   placeholder="Confirm Password"
                   value={confirmpasswordField.value}
                   onChange={confirmpasswordField.onChange}
                   type="password"
                   required
                 />
-                {passwordError ? (
-                  <span className="error"> {passwordError} </span>
-                ) : null}
               </div>
               <div>
                 <Link to="/" className="link">
@@ -154,12 +147,12 @@ const Signup = (props) => {
     return (
       <Fragment>
         {!props.verifyUser && !props.fromLogin && <Redirect to="/" />}
-        <h2>{`Thanks for signing up your username is ${
+        <h2>{`Thanks for signing up your username is: ${
           props.verifyUser ? props.verifyUser : usernameField.value
         }`}</h2>
         <div className="validate-info-container">
           <p>
-            Please check your email at:
+            {"Please check your email at "}
             <span className="bold">
               {props.verifyEmail ? props.verifyEmail : emailField.value}
             </span>
@@ -170,6 +163,7 @@ const Signup = (props) => {
           </p>
         </div>
         <form className="front-page-form" onSubmit={confirmEmail}>
+          {<h2 className="error"> {validateError} </h2>}
           <input
             className="input-front-page-form"
             placeholder="Confirmation Code"
@@ -177,9 +171,8 @@ const Signup = (props) => {
             value={validationCodeField.value}
             onChange={validationCodeField.onChange}
           ></input>
-          {<span className="error"> {validateError} </span>}
           <div>
-            <button className="sign-up-submit-button" type="submit">
+            <button className="confirm-code-button" type="submit">
               Confirm Confirmation Code
             </button>
           </div>

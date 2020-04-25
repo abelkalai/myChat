@@ -4,11 +4,9 @@
   font-size: 22px;
   display: grid;
   grid-template-columns: 22.5% 70%;
-  grid-template-areas: "left right";
 }
 
 .main-left {
-  grid-area: left;
   width: 95%;
 }
 
@@ -57,10 +55,6 @@
   background-color: #f1f0f0;
 }
 
-.main-right {
-  grid-area: right;
-}
-
 .main-right input {
   margin-left: 7.5px;
   border-radius: 1px;
@@ -102,27 +96,35 @@
 .settings-save-changes {
   color: white;
   background-color: #00a8f3;
-  border-color: #00a8f3;
   margin-top: 7.5px;
   margin-right: 5px;
   margin-left: 20.75%;
-  border-radius: 2.5px;
+  width: 10%;
 }
 
 .settings-cancel-changes {
   color: #696969;
   margin-top: 7.5px;
   background-color: #f1f0f0;
-  border-color:  #f1f0f0;
-  border-radius: 2.5px;
+  width: 10%;
 }
 
 .settings-form{
   margin-top: 5px;
 }
 
-.label-settings-form, .input-settings-form {
+.label-settings-form{
   display: inline-block;
+  margin-bottom: 5px;
+}
+
+.input-settings-form {
+  display: inline-block;
+  margin-left: 5px;
+  padding-left: 2.5px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 5px;
 }
 
 .label-settings-form {
@@ -136,4 +138,8 @@
 
 .input-settings-form + .input-settings-form {
   float: right;
+}
+
+.error{
+  margin-left: 5px;
 }

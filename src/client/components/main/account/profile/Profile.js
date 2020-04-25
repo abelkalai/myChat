@@ -35,7 +35,7 @@ const Profile = (props) => {
       <h1>{props.userInfo.fullName}</h1>
       {!showUploadForm ? (
         <button
-          className="change-button"
+          className="update-change-button"
           onClick={() => {
             setShowUploadForm(true);
           }}
