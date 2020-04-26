@@ -32,7 +32,7 @@ const EditAbout = (props) => {
       />
       <div className="profile-button-container">
         <button className="change-button" type="submit">
-          Save Changes
+          Save 
         </button>
         <button
           className="cancel-button"

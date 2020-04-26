@@ -2,20 +2,8 @@
   margin-top: 7.5%;
 }
 
-.confirmation-back-to-login {
-  color: white;
-  background-color: #4ebee6;
-  margin-top: 10px;
-  font-size: 16px;
-  width: 35%;
-}
-
-
 @media (max-width: 48em) {
   .confirmation-container{
     margin-top: 0%;
-  }
-  .confirmation-back-to-login {
-    width: 60%;
   }
 }

@@ -6,7 +6,6 @@ import EditAbout from "./editProfile/EditAbout";
 import { useFieldInput } from "./../../../hooks/customHooks";
 import "../../../../assets/stylesheets/components/main/profile.css";
 
-
 const Profile = (props) => {
   document.title = "Profile | MyChat";
   const [showUploadForm, setShowUploadForm] = useState(null);
@@ -36,7 +35,7 @@ const Profile = (props) => {
       <h1>{props.userInfo.fullName}</h1>
       {!showUploadForm ? (
         <button
-          className="update-change-button"
+          className="update-profile-pic-button"
           onClick={() => {
             setShowUploadForm(true);
           }}
@@ -60,12 +59,12 @@ const Profile = (props) => {
             setShowAboutForm(true);
           }}
         >
-          Edit About
+          Edit
         </button>
       ) : null}
       {aboutUser.loading ? (
         <img
-          className="about-img-placeholder"
+          className="about-placeholder"
           src="../../../assets/images/aboutPlaceholder.png"
         />
       ) : (

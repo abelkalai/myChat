@@ -281,7 +281,7 @@ const userResolvers = {
         ? result.push("You're currently using this password")
         : result.push(null);
 
-      if (result[0] && result[1]) {
+      if (result[0] || result[1]) {
         return result;
       }
       let hashPassword = await bcrypt.hash(args.newPassword, 10);

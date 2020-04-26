@@ -1,6 +1,7 @@
 .banner {
   background-color: #00a8f3;
   padding-bottom: 5px;
+  position: relative;
 }
 
 .home-title {
@@ -11,61 +12,98 @@
   display: inline-block;
 }
 
-.user-container {
+.user-wrapper {
+  float: right;
+  margin-right: 25px;
   margin-top: 7.5px;
-  display: inline-block;
-  margin-left: 76.5%;
+  position: relative;
 }
 
 .user {
+  display: flex;
   color: white;
-  margin-top: 5px;
   font-size: 24px;
+  align-items: center;
+  position: inherit;
 }
 
-.home-image-container {
+.user-image-wrapper {
+  display: flex;
+  align-items: center;
   padding-right: 5px;
+  position: inherit;
 }
 
-.home-image {
+.user-image {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  position: inherit;
+}
+
+.user-name{
+  position: inherit;
+}
+
+.dropdown-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+  position: inherit;
 }
 
 .dropdown {
-  margin-top: 5px;
-  font-size: 24px;
+  margin-top: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: white;
+  position: inherit;
+}
+
+.dropdown img {
+  margin-top: 2.5px;
+  width: 20px;
+  height: 20px;
+  position: inherit;
+}
+
+
+.dropdown:hover {
+  cursor: pointer;
+  background-color: #dcdcdc;
+}
+
+
+.dropdown-content {
+  right: 0px;
+  margin-top: 100px;
+  font-size: 18px;
   display: inline-block;
+  position: absolute;
+  color: black;
+  background-color: white;
+  min-width: 110px;
+  box-shadow: 0px 5px 5px 0px black;
+  padding:  10px;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.dropdown-content div {
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: block;
 }
 
 .link {
   text-decoration: none;
   color: black;
-}
-
-.dropdown:hover {
-  cursor: pointer;
-}
-
-.dropdown-content {
-  font-size: 18px;
-  display: block;
-  position: absolute;
-  color: black;
-  background-color: white;
-  min-width: 100px;
-  box-shadow: 0px 5px 5px 0px black;
-  padding: 10px 10px;
-  border-radius: 10px;
-  z-index: 1;
-}
-
-.dropdown-content div {
-  padding: 10px 10px;
-  border-radius: 8px;
-  text-decoration: none;
-  display: block;
 }
 
 .dropdown-profile {
@@ -124,4 +162,34 @@
 
 .dropdown-logout-content {
   padding-left: 23.5px;
+}
+
+@media (max-width: 912px) {
+  .user-wrapper {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 48em) {
+  .home-title {
+    font-size: 32px;
+    padding-left: 5px;
+  }
+  .user-wrapper {
+    margin-top: 2.5px;
+  }
+
+  .user {
+    font-size: 22px;
+  }
+
+  .dropdown {
+    margin-top: 0px;
+  }
+}
+
+@media (max-width: 300px) {
+  .user-image,.user-name{
+    display: none;
+  }
 }

@@ -37,7 +37,7 @@
   color: white;
   background-color: #00a8f3;
   padding: 10px;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 40px;
 }
 
@@ -48,7 +48,8 @@
 
 .front-page-content {
   margin-top: 10px;
-  padding: 20px;
+  padding: 10px;
+  padding-bottom: 20px;
 }
 
 .front-page-form {
@@ -63,7 +64,7 @@
   padding: 2.5px;
   padding-left: 2.5px;
   margin-bottom: 2.5px;
-  font-size: 26px;
+  font-size: 22px;
   display: inline-block;
   border-top: none;
   border-left: none;
@@ -80,7 +81,7 @@
   margin-right: 7px;
   background-color: #f1f0f0;
   border-color: #f1f0f0;
-  width: 20%;
+  width: 130px;
 }
 
 .front-page-submit-button {
@@ -90,7 +91,7 @@
   background-color: #00a8f3;
   color: white;
   margin-top: 10px;
-  width: 20%;
+  width: 80px;
 }
 
 .front-page-submit-button:hover {
@@ -98,6 +99,28 @@
   border-color: darkblue;
 }
 
+@media (max-width: 912px) {
+  .front-page-content p {
+    font-size: 16px;
+  }
+
+  .input-front-page-form {
+    font-size: 16px;
+  }
+  .front-page-back-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+  }
+
+  .front-page-submit-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7.5px;
+  }
+}
 
 @media (max-width: 48em) {
   .front-page-container {
@@ -113,11 +136,11 @@
     font-size: 32px;
   }
 
-  .front-page h3{
+  .front-page h3 {
     display: none;
   }
 
-  .front-page-header{
+  .front-page-header {
     margin-top: 1px;
     margin-bottom: 1px;
   }
@@ -140,7 +163,7 @@
     padding-bottom: 10px;
   }
 
-  .front-page-content p{
+  .front-page-content p {
     font-size: 16px;
   }
 
@@ -157,7 +180,6 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
-    width: 60%;
   }
 
   .front-page-submit-button {
@@ -165,6 +187,5 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 7.5px;
-    width: 30%;
   }
 }

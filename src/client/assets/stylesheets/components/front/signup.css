@@ -2,18 +2,6 @@
   font-weight: bold;
 }
 
-.input-sign-up-form {
-  padding: 2.5px;
-  padding-left: 2.5px;
-  margin-bottom: 2.5px;
-  font-size: 22px;
-  display: inline-block;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  max-width: 70%;
-}
-
 .confirm-code-button {
   font-size: 14px;
   padding-left: 5px;
@@ -21,12 +9,7 @@
   background-color: #00a8f3;
   color: white;
   margin-top: 10px;
-  width: 40%;
-}
-
-.sign-up-submit-button:hover {
-  background-color: darkblue;
-  border-color: darkblue;
+  width: 90px;
 }
 
 .validate-info-container {
@@ -34,10 +17,10 @@
 }
 
 @media (max-width: 48em) {
-  .sign-up-content input{
+  .sign-up-content input {
     font-size: 16px;
   }
-  .sign-up-content h2{
+  .sign-up-content h2 {
     font-size: 16px;
   }
 }

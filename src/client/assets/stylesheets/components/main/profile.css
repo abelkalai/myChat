@@ -12,9 +12,43 @@
   border-radius: 50%;
 }
 
+.profile-upload-input-div {
+  display: flex;
+  justify-content: center;
+  margin: 4px 4px;
+}
+
+.inputfile {
+  display: none;
+}
+
+.file-upload-label {
+  color: white;
+  padding: 5px;
+  background-color: #00a8f3;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-upload-label img {
+  height: 20px;
+  width: 20px;
+  margin-top: 1px;
+  padding-right: 4px;
+}
+
+.file-upload-label span {
+  margin-top: 1.5px;
+  padding-right: 2px;
+}
+
 .about-text-area {
-  height: 30vh;
-  width: 35vw;
+  height: 25vh;
+  width: 40vw;
   resize: none;
   margin-top: 5px;
   padding-top: 2.5px;
@@ -24,28 +58,23 @@
   overflow-y: auto;
 }
 
-.about-img-placeholder {
+.about-placeholder {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  height: 30vh;
-  width: 35vw;
+  height: 25vh;
+  width: 40vw;
 }
 
 .profile-about-wrapper {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  max-height: 30vh;
-  max-width: 35vw;
+  height: 25vh;
+  width: 40vw;
   text-align: center;
   word-wrap: break-word;
   overflow-y: auto;
-}
-
-.profile-upload-input-div {
-  display: block;
-  margin: 4px 4px;
 }
 
 .change-button {
@@ -54,16 +83,16 @@
   background-color: #00a8f3;
   margin-top: 7.5px;
   margin-bottom: 5px;
-  width: 7.5%;
+  width: 45px;
 }
 
-.update-change-button {
+.update-profile-pic-button {
   font-size: 16px;
   color: white;
   background-color: #00a8f3;
   margin-top: 7.5px;
   margin-bottom: 5px;
-  width: 12.5%;
+  width: 175px;
 }
 
 .cancel-button {
@@ -73,24 +102,13 @@
   margin-top: 7.5px;
   margin-left: 5px;
   margin-bottom: 5px;
-  width: 7.5%;
+  width: 55px;
 }
 
-.inputfile {
-  display: none;
+@media (max-width: 912px) {
+  .profile-image {
+    width: 200px;
+    height: 200px;
+  }
 }
 
-.file-upload-label {
-  display: inline-block;
-  color: white;
-  padding: 7.5px;
-  padding-left: 31px;
-  background-color: #00a8f3;
-  border-radius: 10px;
-  width: 10%;
-  cursor: pointer;
-  background-position: 10px 7.5px;
-  background-size: 20px 20px;
-  background-image: url("../../../images/upload.png");
-  background-repeat: no-repeat;
-}

@@ -26,16 +26,13 @@ const EditPassword = (props) => {
     });
 
     setCurrentPasswordError(result.data.changePassword[0]);
-
     setNewPasswordError(result.data.changePassword[1]);
-   
     if (!result.data.changePassword[0] && !result.data.changePassword[1]) {
       setTimeout(() => {
         props.setActiveUser(null);
         props.setIgnoreCookie(true),
           (document.cookie =
-            "token=;expires = Thu, 01 Jan 1970 00:00:00 GMT; path=/;"),
-          setSendHome(true);
+            "token=;expires = Thu, 01 Jan 1970 00:00:00 GMT; path=/;")
       }, 150);
     }
   };

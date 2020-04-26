@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { EDIT_IMAGE, GET_IMAGE } from "../../../../../graphqlDocuments/user";
 import { useMutation } from "@apollo/react-hooks";
 import imageCompression from "browser-image-compression";
@@ -33,14 +33,14 @@ const EditPicture = (props) => {
       };
       props.setShowUploadForm(false);
     } else {
-      setUploadError("No file chosen")
+      setUploadError("No file chosen");
     }
   };
 
   return (
-    <div>
+    <Fragment>
+      {uploadError ? <h2 className="error">{uploadError}</h2> : null}
       <div className="profile-upload-input-div">
-        {uploadError ? <h2 className="error">{uploadError}</h2> : null}
         <input
           type="file"
           name="file"
@@ -51,7 +51,8 @@ const EditPicture = (props) => {
           }}
         />
         <label className="file-upload-label" htmlFor="file">
-          Upload Profile Picture
+          <img src="../../../../../assets/images/upload.png" />
+          <span>Upload Profile Picture</span>
         </label>
       </div>
       <div>
@@ -75,7 +76,7 @@ const EditPicture = (props) => {
           </button>
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 

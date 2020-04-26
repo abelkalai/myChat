@@ -68,7 +68,7 @@ const Signup = (props) => {
           <form className="front-page-form" onSubmit={submit}>
             <div className="front-page-form-div">
               <input
-                className="input-sign-up-form"
+                className="input-front-page-form"
                 placeholder="First Name"
                 type="text"
                 value={firstNameField.value}
@@ -78,7 +78,7 @@ const Signup = (props) => {
             </div>
             <div className="front-page-form-div">
               <input
-                className="input-sign-up-form"
+                className="input-front-page-form"
                 placeholder="Last Name"
                 type="text"
                 value={lastNameSign.value}
@@ -88,7 +88,7 @@ const Signup = (props) => {
             </div>
             <div className="front-page-form-div">
               <input
-                className="input-sign-up-form"
+                className="input-front-page-form"
                 placeholder="Email"
                 value={emailField.value}
                 onChange={emailField.onChange}
@@ -98,7 +98,7 @@ const Signup = (props) => {
             </div>
             <div className="front-page-form-div">
               <input
-                className="input-sign-up-form"
+                className="input-front-page-form"
                 placeholder="Username"
                 type="text"
                 value={usernameField.value}
@@ -107,7 +107,7 @@ const Signup = (props) => {
               />
               <div className="front-page-form-div">
                 <input
-                  className="input-sign-up-form"
+                  className="input-front-page-form"
                   placeholder="Password"
                   value={passwordField.value}
                   onChange={passwordField.onChange}
@@ -118,7 +118,7 @@ const Signup = (props) => {
 
               <div className="front-page-form-div">
                 <input
-                  className="input-sign-up-form"
+                  className="input-front-page-form"
                   placeholder="Confirm Password"
                   value={confirmpasswordField.value}
                   onChange={confirmpasswordField.onChange}
