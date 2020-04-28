@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import ChatSearch from "./left/ChatSearch";
 import ChatDisplay from "./right/ChatDisplay";
-import {GET_CONVERSATIONS} from "../../../../graphqlDocuments/conversation"
+import {GET_CONVERSATIONS} from "GraphqlDocuments/conversation"
 import { useQuery } from "@apollo/react-hooks";
 import ChatDisplayPlaceholder from "./right/placeholders/ChatDisplayPlaceholder";
-import "../../../../assets/stylesheets/components/main/chat.css";
+import "MainStylesheets/chat.css";
 
 const ChatContainer = (props) => {
   const [fromSearch, setFromSearch] = useState(false);

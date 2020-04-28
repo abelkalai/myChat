@@ -1,13 +1,12 @@
 import React, { useState, Fragment } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_IMAGE } from "../../../graphqlDocuments/user";
+import { GET_IMAGE } from "GraphqlDocuments/user";
 import Banner from "./banner/Banner";
 import ChatContainer from "./chat/ChatContainer";
-import Profile from "../account/profile/Profile";
-import Settings from "../account/settings/Settings";
-import InvalidLink from "../../../utils/InvalidLink";
-import "../../../assets/stylesheets/components/main/home.css";
+import Profile from "Account/profile/Profile";
+import Settings from "Account/settings/Settings";
+import InvalidLink from "Utilities/InvalidLink";
 
 const Home = (props) => {
   const [userInfo, setUserInfo] = useState(
@@ -24,6 +23,7 @@ const Home = (props) => {
         setIgnoreCookie={props.setIgnoreCookie}
         setActiveUser={props.setActiveUser}
         userImage={userImage}
+        windowWidth={props.windowWidth}
       />
       <Switch>
         <Route
@@ -41,7 +41,12 @@ const Home = (props) => {
         <Route
           exact
           path="/home"
-          render={() => <ChatContainer userInfo={userInfo} />}
+          render={() => (
+            <ChatContainer
+              userInfo={userInfo}
+              windowWidth={props.windowWidth}
+            />
+          )}
         />
         <Route
           exact
@@ -61,8 +66,7 @@ const Home = (props) => {
             <Settings
               userInfo={userInfo}
               setUserInfo={setUserInfo}
-              setIgnoreCookie={props.setIgnoreCookie}
-              setActiveUser={props.setActiveUser}
+              windowWidth={props.windowWidth}
             />
           )}
         />

@@ -1,13 +1,13 @@
 import React from "react";
-import { useFieldInput } from "../../../../hooks/customHooks";
+import { useFieldInput } from "Hooks/customHooks";
 import { useMutation } from "@apollo/react-hooks";
-import {CHANGE_NAME} from "../../../../../graphqlDocuments/user"
+import {CHANGE_NAME} from "GraphqlDocuments/user"
 
 const EditName = (props) => {
   const [changeName] = useMutation(CHANGE_NAME);
   const firstNamefield = useFieldInput(props.userInfo.firstName);
   const lastNameField = useFieldInput(props.userInfo.lastName);
-
+  
   const changeNameCallBack = async (event) => {
     event.preventDefault();
     let _id = props.userInfo._id;

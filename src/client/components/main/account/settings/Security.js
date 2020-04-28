@@ -1,9 +1,8 @@
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import EditPassword from "./editSettings/EditPassword";
 import "../../../../assets/stylesheets/components/main/settings.css";
 
 const Security = (props) => {
-
   useEffect(() => {
     props.setActiveTab("security");
   }, []);
@@ -14,11 +13,12 @@ const Security = (props) => {
   return (
     <div>
       {sendHome && <Redirect to="/" />}
-      <h1 className="settings-divider-container">Security </h1>
+      <div className="settings-divider-container">
+        <h1>Security </h1>
+      </div>
       <div className="settings-divider-inside-single">
-        <span className="bold-text">Change Password </span>(You'll be required to re-login upon changing your
-        password)
-        {showPasswordForm ? null :(
+        <span className="bold-text">Change Password </span>
+        {showPasswordForm ? null : (
           <span
             className="change"
             onClick={() => {

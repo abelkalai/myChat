@@ -1,9 +1,9 @@
-.confirmation-container{
+.confirmation-container {
   margin-top: 7.5%;
 }
 
-@media (max-width: 48em) {
-  .confirmation-container{
+@media (max-width: 768px) {
+  .confirmation-container {
     margin-top: 0%;
   }
 }

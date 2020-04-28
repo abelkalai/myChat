@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import EditName from "./editSettings/EditName";
 import EditUsername from "./editSettings/EditUsername";
 import "../../../../assets/stylesheets/components/main/settings.css";
@@ -64,7 +64,9 @@ const General = (props) => {
 
   return (
     <div>
-      <h1 className="settings-divider-container">General Settings</h1>
+      <div className="settings-divider-container">
+        <h1>General Settings</h1>
+      </div>
       {nameSection()}
       {usernameSection()}
       <div className="settings-divider-inside-single">

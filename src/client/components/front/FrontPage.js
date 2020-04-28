@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Login from "./Login";
 import Forgot from "./Forgot";
 import Signup from "./Signup";
-import InvalidLink from "../../utils/InvalidLink";
-import "../../assets/stylesheets/components/front/frontPage.css";
+import InvalidLink from "Utilities/InvalidLink";
+import "FrontStylesheets/frontPage.css";
 
 const FrontPage = (props) => {
   const [verifyUser, setVerifyUser] = useState(null);
@@ -18,11 +18,12 @@ const FrontPage = (props) => {
           <div className="front-page">
             <div className="front-page-info">
               <h1 className="front-page-header">MyChat</h1>
-              <h3> Enabling Connections</h3>
-              <p className="front-page-info-about">
-                MyChat enables users to message one another
-              </p>
-              
+                <Fragment>
+                  <h3> Enabling Connections</h3>
+                  <p className="front-page-info-about">
+                    MyChat enables users to message one another
+                  </p>
+                </Fragment>
             </div>
             <div className="front-page-content">
               <Switch>

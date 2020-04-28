@@ -1,17 +1,15 @@
 const mongoose = require("mongoose");
-const { ApolloServer} = require("apollo-server-express");
+const { ApolloServer } = require("apollo-server-express");
 const { createServer } = require("http");
 const User = require("./models/user");
 const config = require("../../utils/config");
 const express = require("express");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
-const { merge } = require("lodash")
+const { merge } = require("lodash");
 
 const MONGODB_URI = config.MONGODB_URI;
 const JWT_SECRET_KEY = config.JSON_SECRET_KEY;
-;
-
 const { userTypeDefs, userResolvers } = require("./schema/user");
 const { messageTypeDefs, messageResolvers } = require("./schema/message");
 const {
@@ -55,6 +53,11 @@ const app = express();
 const path = require("path");
 
 app.use(cors());
+
+/* Enable Path Shortcuts*/
+app.use("/logos", express.static(__dirname + "/../client/assets/logos"));
+app.use("/images", express.static(__dirname + "/../client/assets/images"));
+
 app.use("/", express.static(__dirname + "/../client/"));
 app.get("/", function (response) {
   response.sendFile(path.join(__dirname + "/../client/index.html"));

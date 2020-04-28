@@ -38,13 +38,14 @@ button:hover {
   border-radius: 10px;
   padding-left: 5px;
   padding-right: 5px;
+  width: 130px;
 }
 
 .center {
   text-align: center;
 }
 
-@media (max-width: 48em) {
+@media (max-width: 768px) {
   button {
     padding: 1px;
   }

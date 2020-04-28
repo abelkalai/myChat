@@ -110,5 +110,15 @@
     width: 200px;
     height: 200px;
   }
-}
 
+  .profile-about-wrapper {
+    width: 80vw;
+  }
+
+  .about-placeholder {
+    width: 80vw;
+  }
+  .about-text-area {
+    width: 80vw;
+  }
+}

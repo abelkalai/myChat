@@ -1,12 +1,14 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { useFieldInput } from "../hooks/customHooks";
+import { useFieldInput } from "Hooks/customHooks";
 import Confirmation from "./Confirmation";
-import { CHECK_EMAIL } from "../../graphqlDocuments/user";
+import { CHECK_EMAIL } from "GraphqlDocuments/user";
 import { useLazyQuery } from "@apollo/react-hooks";
 
 const Forgot = (props) => {
-  document.title = `Forgot ${props.type} | MyChat`;
+  useEffect(() => {
+    document.title = `Forgot ${props.type} | MyChat`;
+  },[]);
   const emailForm = useFieldInput("");
   const [error, setError] = useState(null);
   const [emailCheck] = useLazyQuery(CHECK_EMAIL, {

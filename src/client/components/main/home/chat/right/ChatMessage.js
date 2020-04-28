@@ -1,7 +1,7 @@
 import React from "react";
 import MessagePlaceholder from "./placeholders/MessagePlaceholder";
-import adjustTime from "../../../../../utils/adjustTime"
-import "../../../../../assets/stylesheets/components/main/chatMessage.css";
+import adjustTime from "Utilities/adjustTime"
+import "MainStylesheets/chatMessage.css";
 
 const ChatMessage = (props) => {
   if (!props.getMessages.data.getMessages) {

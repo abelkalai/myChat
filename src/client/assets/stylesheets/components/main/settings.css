@@ -39,6 +39,7 @@
 .general-settings-image {
   width: 30px;
   height: 30px;
+  margin-top: 2.5px;
 }
 
 .security-content {
@@ -49,17 +50,11 @@
 .security-settings-image {
   width: 30px;
   height: 30px;
+  margin-top: 2.5px;
 }
 
 .settings-tab:hover {
   background-color: #f1f0f0;
-}
-
-.main-right input {
-  margin-left: 7.5px;
-  border-radius: 1px;
-  padding-left: 2px;
-  font-size: 16px;
 }
 
 .change {
@@ -94,28 +89,35 @@
 }
 
 .settings-save-changes {
+  font-size: 16px;
   color: white;
   background-color: #00a8f3;
   margin-top: 7.5px;
   margin-right: 5px;
-  margin-left: 20.75%;
-  width: 100px;
+  width: 120px;
 }
 
 .settings-cancel-changes {
+  font-size: 16px;
   color: #696969;
   margin-top: 7.5px;
   background-color: #f1f0f0;
   width: 70px;
 }
 
-.settings-form{
-  margin-top: 5px;
+.settings-form {
+  margin-top: 10px;
 }
 
-.label-settings-form{
+.label-settings-form,
+.label-settings-form-password {
   display: inline-block;
   margin-bottom: 5px;
+  width: 115px;
+}
+
+.label-settings-form-password {
+  width: 225px;
 }
 
 .input-settings-form {
@@ -125,21 +127,70 @@
   border-radius: 5px;
   font-size: 16px;
   margin-bottom: 5px;
+  width: 200px;
 }
 
-.label-settings-form {
-  width: 30%;
-  text-align: right;
-}
-
-.label-settings-form + .input-settings-form {
-  width: 20%;
-}
-
-.input-settings-form + .input-settings-form {
-  float: right;
-}
-
-.error{
+.error {
   margin-left: 5px;
+}
+
+.success {
+  color: green;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 2.5px;
+  margin-bottom: 7.5px;
+}
+
+.settings-hamburger-menu {
+  z-index: 1;
+  display: none;
+  position: absolute;
+  margin-top: 7px;
+}
+
+.settings-hamburger-menu img {
+  width: 30px;
+  height: 30px;
+}
+
+@media (max-width: 950px) {
+  .main-settings {
+    display: block;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 0px;
+  }
+  .main-settings h1 {
+    margin-left: 35px;
+    font-size: 32px;
+  }
+
+  .settings-hamburger-menu {
+    display: inline;
+  }
+
+  .settings-divider-inside,
+  .settings-divider-inside-single {
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-settings{
+    font-size: 18px;
+  }
+  .main-settings h1 {
+    font-size: 28px;
+    margin-left: 27.5px;
+  }
+
+  .change{
+    font-size: 18px;
+  }
+
+  .settings-hamburger-menu img {
+    width: 25px;
+    height: 25px;
+  }
 }

@@ -17,7 +17,7 @@
   height: 35px;
 }
 
-.chat-display-about h1{
+.chat-display-about h1 {
   margin-bottom: 10px;
 }
 
@@ -40,4 +40,10 @@
   overflow-y: auto;
   max-width: 360px;
   max-height: 42.5vh;
+}
+
+@media (max-width: 950px) {
+  .chat-display-about {
+    display: none;
+  }
 }

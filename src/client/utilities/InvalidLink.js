@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import "../assets/stylesheets/components/front/frontPage.css";
 const InvalidLink = (props) => {
-  document.title = "Page Not Found | MyChat";
+  useEffect(() => {
+    document.title = "Page Not Found | MyChat";
+  },[]);
   return (
     <div className="center">
       <h1>Whoops! This page isn't avaliable.</h1>
@@ -11,14 +13,7 @@ const InvalidLink = (props) => {
         button below.
       </p>
       <Link to={props.type === "Login" ? "/" : "/home"}>
-        <button
-          className={
-            props.type === "Login"
-              ? "forgot-page-submit-button"
-              : "general-button"
-          }
-          type="button"
-        >
+        <button className="general-button" type="button">
           {`Back to ${props.type}`}
         </button>
       </Link>

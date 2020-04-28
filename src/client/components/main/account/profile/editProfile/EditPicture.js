@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { EDIT_IMAGE, GET_IMAGE } from "../../../../../graphqlDocuments/user";
+import { EDIT_IMAGE, GET_IMAGE } from "GraphqlDocuments/user";
 import { useMutation } from "@apollo/react-hooks";
 import imageCompression from "browser-image-compression";
 
@@ -51,7 +51,7 @@ const EditPicture = (props) => {
           }}
         />
         <label className="file-upload-label" htmlFor="file">
-          <img src="../../../../../assets/images/upload.png" />
+          <img src="images/upload.png" />
           <span>Upload Profile Picture</span>
         </label>
       </div>

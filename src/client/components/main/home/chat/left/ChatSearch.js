@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import History from "./History";
 import { useFieldInput } from "../../../../hooks/customHooks";
-import { SEARCH_USER } from "../../../../../graphqlDocuments/user";
+import { SEARCH_USER } from "GraphqlDocuments/user";
 import { useLazyQuery } from "@apollo/react-hooks";
 
 const ChatSearch = (props) => {

@@ -9,12 +9,12 @@ const MessagePlaceholder = () => {
         {i % 2 === 0 ? (
           <img
             className="msg-placeholder-img-me"
-            src="../../../../assets/images/contentPlaceholder.png"
+            src="images/contentPlaceholder.png"
           />
         ) : (
           <img
             className="msg-placeholder-img-contact"
-            src="../../../../assets/images/contentPlaceholder.png"
+            src="images/contentPlaceholder.png"
           />
         )}
       </div>

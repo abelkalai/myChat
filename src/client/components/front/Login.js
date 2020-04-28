@@ -1,12 +1,14 @@
-import React, { useState, Fragment } from "react";
-import { useFieldInput } from "../hooks/customHooks";
+import React, { useState, useEffect, Fragment } from "react";
+import { useFieldInput } from "Hooks/customHooks";
 import { Redirect } from "react-router-dom";
-import { LOGIN } from "../../graphqlDocuments/user";
+import { LOGIN } from "GraphqlDocuments/user.js";
 import { useMutation } from "@apollo/react-hooks";
-import "../../assets/stylesheets/components/front/login.css";
+import "FrontStylesheets/login.css";
 
 const Login = (props) => {
-  document.title = "Login | MyChat";
+  useEffect(() => {
+    document.title = "Login | MyChat";
+  },[]);
   const [loginQuery] = useMutation(LOGIN);
   const [loginError, setLoginError] = useState(null);
   const [validateButton, showValidateButton] = useState(false);
@@ -25,7 +27,6 @@ const Login = (props) => {
       let result = await loginQuery({
         variables: { username, password },
       });
-
       if (!result.data.login.errorList) {
         setLoginError(null);
         let date = new Date();
@@ -131,7 +132,7 @@ const Login = (props) => {
             {/*Image source: linkedin blue style logo png from freepnglogos.com */}
             <img
               className="linkedIn-logo"
-              src="../../assets/logos/linkedIn.png"
+              src="logos/linkedIn.png"
               title="https://www.linkedin.com/in/abelkalai/"
               alt="LinkedIn"
             />
@@ -144,7 +145,7 @@ const Login = (props) => {
             {/*Image source: https://www.stickpng.com/img/icons-logos-emojis/tech-companies/github-logo */}
             <img
               className="gitHub-logo"
-              src="../../assets/logos/gitHub.png"
+              src="logos/gitHub.png"
               title="https://github.com/abelkalai"
               alt="GitHub"
             />

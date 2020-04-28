@@ -1,15 +1,21 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import FrontPage from "./front/FrontPage";
 import Home from "./main/home/Home";
 import { useQuery } from "@apollo/react-hooks";
-import { LOGGED_IN } from "../graphqlDocuments/user";
-import { AppRoute } from "../utils/utilRoute";
-import "../assets/stylesheets/base.css";
+import { LOGGED_IN } from "GraphqlDocuments/user";
+import { AppRoute } from "Utilities/utilRoute";
+import "BaseStylesheet/base.css";
 
 const App = () => {
   const loggedInQuery = useQuery(LOGGED_IN);
   const [ignoreCookie, setIgnoreCookie] = useState(false);
   const [activeUser, setActiveUser] = useState(null);
+  const [windowWidth, setWindowWidth] = useState(window.visualViewport.width);
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setWindowWidth(window.visualViewport.width);
+    });
+  }, []);
 
   return (
     !loggedInQuery.loading && (
@@ -28,11 +34,12 @@ const App = () => {
           }
           home={
             <Home
+              loggedIn={loggedInQuery.data.loggedIn}
               ignoreCookie={ignoreCookie}
               setIgnoreCookie={setIgnoreCookie}
-              loggedIn={loggedInQuery.data.loggedIn}
               activeUser={activeUser}
               setActiveUser={setActiveUser}
+              windowWidth={windowWidth}
             />
           }
         />

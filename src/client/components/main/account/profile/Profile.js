@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import {GET_ABOUT} from "../../../../graphqlDocuments/user"
+import { GET_ABOUT } from "GraphqlDocuments/user";
 import EditPicture from "./editProfile/EditPicture";
 import EditAbout from "./editProfile/EditAbout";
-import { useFieldInput } from "./../../../hooks/customHooks";
-import "../../../../assets/stylesheets/components/main/profile.css";
+import { useFieldInput } from "Hooks/customHooks";
+import "MainStylesheets/profile.css";
 
 const Profile = (props) => {
-  document.title = "Profile | MyChat";
+  useEffect(() => {
+    document.title = "Profile | MyChat";
+  });
   const [showUploadForm, setShowUploadForm] = useState(null);
   const [showAboutForm, setShowAboutForm] = useState(false);
   const aboutField = useFieldInput("");
@@ -23,7 +25,7 @@ const Profile = (props) => {
       {props.userImage.loading ? (
         <img
           className="profile-image"
-          src="../../../assets/images/profilePlaceholder.png"
+          src="images/profilePlaceholder.png"
         />
       ) : (
         <img
@@ -65,7 +67,7 @@ const Profile = (props) => {
       {aboutUser.loading ? (
         <img
           className="about-placeholder"
-          src="../../../assets/images/aboutPlaceholder.png"
+          src="images/aboutPlaceholder.png"
         />
       ) : (
         !showAboutForm && (

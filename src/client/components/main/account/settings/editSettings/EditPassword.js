@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useFieldInput } from "../../../../hooks/customHooks";
+import { useFieldInput } from "Hooks/customHooks";
 import { useMutation } from "@apollo/react-hooks";
-import { CHANGE_PASSWORD } from "../../../../../graphqlDocuments/user";
+import { CHANGE_PASSWORD } from "GraphqlDocuments/user";
 
 const EditPassword = (props) => {
   const [changePassword] = useMutation(CHANGE_PASSWORD);
@@ -10,9 +10,11 @@ const EditPassword = (props) => {
   const newPasswordConfirmField = useFieldInput("");
   const [currentPasswordError, setCurrentPasswordError] = useState(null);
   const [newPasswordError, setNewPasswordError] = useState(null);
+  const [success, setSuccess] = useState(false);
 
   const changePasswordCallBack = async (event) => {
     event.preventDefault();
+    setSuccess(false);
     if (newPasswordField.value != newPasswordConfirmField.value) {
       setNewPasswordError("Passwords do not match");
       return;
@@ -28,19 +30,22 @@ const EditPassword = (props) => {
     setCurrentPasswordError(result.data.changePassword[0]);
     setNewPasswordError(result.data.changePassword[1]);
     if (!result.data.changePassword[0] && !result.data.changePassword[1]) {
-      setTimeout(() => {
-        props.setActiveUser(null);
-        props.setIgnoreCookie(true),
-          (document.cookie =
-            "token=;expires = Thu, 01 Jan 1970 00:00:00 GMT; path=/;")
-      }, 150);
+      setSuccess(true);
+      currentPasswordField.clear();
+      newPasswordField.clear();
+      newPasswordConfirmField.clear();
     }
   };
 
   return (
     <form className="settings-form" onSubmit={changePasswordCallBack}>
+      {success ? (
+        <div className="success">Password Change Successful!</div>
+      ) : null}
       <div>
-        <label className="label-settings-form"> Current Password</label>
+        <label className="label-settings-form-password">
+          <span>Current Password</span>
+        </label>
         <input
           className="input-settings-form "
           required
@@ -51,7 +56,9 @@ const EditPassword = (props) => {
         {<span className="error">{currentPasswordError}</span>}
       </div>
       <div>
-        <label className="label-settings-form"> New Password</label>
+        <label className="label-settings-form-password">
+          <span> New Password </span>
+        </label>
         <input
           className="input-settings-form "
           required
@@ -64,7 +71,10 @@ const EditPassword = (props) => {
         ) : null}
       </div>
       <div>
-        <label className="label-settings-form"> Confirm New Password</label>
+        <label className="label-settings-form-password">
+          {" "}
+          <span>Confirm New Password</span>
+        </label>
         <input
           className="input-settings-form "
           required

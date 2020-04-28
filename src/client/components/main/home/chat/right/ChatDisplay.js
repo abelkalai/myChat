@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useFieldInput } from "../../../../hooks/customHooks";
+import { useFieldInput } from "Hooks/customHooks";
 import {
   useApolloClient,
   useQuery,
@@ -9,17 +9,17 @@ import {
 
 import ChatMessage from "./ChatMessage";
 import About from "./About";
-import { GET_SINGLE_USER } from "../../../../../graphqlDocuments/user";
+import { GET_SINGLE_USER } from "GraphqlDocuments/user";
 import {
   GET_MESSAGES,
   NEW_MESSAGE,
   READ_MESSAGE,
   SEND_MESSAGE,
-} from "../../../../../graphqlDocuments/message";
+} from "GraphqlDocuments/message";
 import {
   GET_CONVERSATIONS,
   UPDATED_CONVO,
-} from "../../../../../graphqlDocuments/conversation";
+} from "GraphqlDocuments/conversation";
 
 const ChatDisplay = (props) => {
   if (props.convoHistory.loading) {
@@ -36,7 +36,7 @@ const ChatDisplay = (props) => {
       }
       props.setCurrentConvo(props.convoHistory.data.getConversations[0]._id);
     }
-  });
+  },[props.convoHistory,props.currentChat]);
 
   const messageField = useFieldInput("");
 
@@ -195,7 +195,7 @@ const ChatDisplay = (props) => {
           <input
             className="chat-display-chat-message-image"
             type="image"
-            src="../../../../assets/images/send.png"
+            src="images/send.png"
           />
         </form>
       </div>

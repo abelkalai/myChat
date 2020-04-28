@@ -1,50 +1,50 @@
-import React, { Fragment } from "react";
-import adjustTime from "../../../../../utils/adjustTime";
-import "../../../../../assets/stylesheets/components/main/chatHistory.css";
+import React, { Fragment, useEffect } from "react";
+import adjustTime from "Utilities/adjustTime";
+import "MainStylesheets/chatHistory.css";
 
 const History = (props) => {
-  const arr = [];
-  for (let i = 0; i < 11; i++) {
-    arr.push(
-      <div key={`Hist${i}`}>
-        <div className="chat-history-wrapper">
-          <div className="chat-history-img-container">
-            <img
-              className="chat-history-wrapper-img"
-              src="../../../../assets/images/profilePlaceholder.png"
-            />
-          </div>
-          <div className="chat-history-name-header">
-            <img
-              className="chat-history-name-header-placeholder"
-              src="../../../../assets/images/contentPlaceholder.png"
-            />
-          </div>
-          <div className="chat-history-content">
-            <img
-              className="chat-history-content-placeholder"
-              src="../../../../assets/images/contentPlaceholder.png"
-            />
+  if (props.convoHistory.loading) {
+    const arr = [];
+    for (let i = 0; i < 11; i++) {
+      arr.push(
+        <div key={`Hist${i}`}>
+          <div className="chat-history-wrapper">
+            <div className="chat-history-img-container">
+              <img
+                className="chat-history-wrapper-img"
+                src="images/profilePlaceholder.png"
+              />
+            </div>
+            <div className="chat-history-name-header">
+              <img
+                className="chat-history-name-header-placeholder"
+                src="images/contentPlaceholder.png"
+              />
+            </div>
+            <div className="chat-history-content">
+              <img
+                className="chat-history-content-placeholder"
+                src="images/contentPlaceholder.png"
+              />
+            </div>
           </div>
         </div>
-      </div>
-    );
-  }
-  if (props.convoHistory.loading) {
+      );
+    }
     return (
       <div className="chat-history-container">
         {arr.map((element) => element)}
       </div>
     );
   }
+  useEffect(() => {
+    let unreadMsgs = props.convoHistory.data.getConversations.filter(
+      (convo) => convo.unread && convo.lastSender != props.userInfo._id
+    ).length;
 
-  let unreadMsgs = props.convoHistory.data.getConversations.filter(
-    (convo) => convo.unread && convo.lastSender != props.userInfo._id
-  ).length;
-
-  document.title =
-    unreadMsgs > 0 ? `(${unreadMsgs}) Unread Messages | MyChat` : "MyChat";
-
+    document.title =
+      unreadMsgs > 0 ? `(${unreadMsgs}) Unread Messages | MyChat` : "MyChat";
+  }, [props.convoHistory]);
   const displayHistory = () => {
     if (props.convoHistory.data.getConversations.length === 0) {
       return (

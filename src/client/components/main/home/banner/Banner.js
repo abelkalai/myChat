@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
+import "MainStylesheets/banner.css";
 
 const Banner = (props) => {
   const [showDropdown, setShowDropdown] = useState(false);
-  document.addEventListener("click", (event) => {
-    if (
-      event.target.id === "dropdown" ||
-      event.target.id === "dropdown-menu-img"
-    ) {
-      setShowDropdown(!showDropdown);
-    } else if (showDropdown) {
-      setShowDropdown(false);
-    }
-  });
+
+  useEffect(() => {
+    const toggleDropdown = (event) => {
+      if (
+        event.target.id === "dropdown" ||
+        event.target.id === "dropdown-menu-img"
+      ) {
+        setShowDropdown(!showDropdown);
+      } else if (
+        event.target.id === "dropdown-logout" ||
+        event.target.id === "dropdown-logout-name"
+      ) {
+        document.removeEventListener("click", toggleDropdown);
+      } else {
+        setShowDropdown(false);
+      }
+    };
+    document.addEventListener("click", toggleDropdown);
+  }, []);
+
   const logOut = async (event) => {
     event.preventDefault();
     document.cookie =
@@ -24,30 +35,34 @@ const Banner = (props) => {
   return (
     <div className="banner">
       <Link to="/home" className="link">
-        <div className="home-title">MyChat</div>
+        <div className="banner-title">MyChat</div>
       </Link>
       <div className="user-wrapper">
         <div className="user">
-          <span className="user-image-wrapper">
-            {props.userImage.loading ? (
-              <img
-                alt={props.userInfo.fullName}
-                className="user-image"
-                src="../../../assets/images/profilePlaceholder.png"
-              />
-            ) : (
-              <img
-                className="user-image"
-                src={`data:image/png;base64,${props.userImage.data.getImage}`}
-              />
-            )}
-          </span>
-          <span className="user-name">{props.userInfo.firstName}</span>
+          {props.windowWidth > 400 ? (
+            <Fragment>
+              <span className="user-image-wrapper">
+                {props.userImage.loading ? (
+                  <img
+                    alt={props.userInfo.fullName}
+                    className="user-image"
+                    src="images/profilePlaceholder.png"
+                  />
+                ) : (
+                  <img
+                    className="user-image"
+                    src={`data:image/png;base64,${props.userImage.data.getImage}`}
+                  />
+                )}
+              </span>
+              <span className="user-name">{props.userInfo.firstName}</span>
+            </Fragment>
+          ) : null}
           <span className="dropdown-wrapper">
             <span id="dropdown" className="dropdown">
               <img
                 id="dropdown-menu-img"
-                src="../../../../assets/images/dropdown.png"
+                src="images/dropdown.png"
               />
             </span>
           </span>
@@ -63,8 +78,17 @@ const Banner = (props) => {
                   <span className="dropdown-settings-content">Settings</span>
                 </div>
               </Link>
-              <div className="dropdown-logout" onClick={logOut}>
-                <span className="dropdown-logout-content">Log Out</span>
+              <div
+                id="dropdown-logout"
+                className="dropdown-logout"
+                onClick={logOut}
+              >
+                <span
+                  id="dropdown-logout-name"
+                  className="dropdown-logout-content"
+                >
+                  Log Out
+                </span>
               </div>
             </span>
           )}

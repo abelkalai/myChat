@@ -4,7 +4,7 @@
   position: relative;
 }
 
-.home-title {
+.banner-title {
   color: white;
   font-size: 44px;
   cursor: pointer;
@@ -35,13 +35,13 @@
 }
 
 .user-image {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   position: inherit;
 }
 
-.user-name{
+.user-name {
   position: inherit;
 }
 
@@ -72,12 +72,10 @@
   position: inherit;
 }
 
-
 .dropdown:hover {
   cursor: pointer;
   background-color: #dcdcdc;
 }
-
 
 .dropdown-content {
   right: 0px;
@@ -89,7 +87,7 @@
   background-color: white;
   min-width: 110px;
   box-shadow: 0px 5px 5px 0px black;
-  padding:  10px;
+  padding: 10px;
   border-radius: 10px;
   z-index: 2;
 }
@@ -99,6 +97,7 @@
   border-radius: 8px;
   text-decoration: none;
   display: block;
+  cursor: pointer;
 }
 
 .link {
@@ -108,14 +107,14 @@
 
 .dropdown-profile {
   background-position: 2.5px 6px;
-  background-image: url("../../../images/profile.png");
+  background-image: url("/images/profile.png");
   background-repeat: no-repeat;
   padding-left: 5px;
 }
 
 .dropdown-profile:hover {
   color: white;
-  background-image: url("../../../images/profileWhite.png");
+  background-image: url("/images/profileWhite.png");
   background-repeat: no-repeat;
   background-color: #00a8f3;
   background-position: 2.5px 6px;
@@ -128,13 +127,13 @@
 
 .dropdown-settings {
   background-position: 2.5px 6px;
-  background-image: url("../../../images/settings.png");
+  background-image: url("/images/settings.png");
   background-repeat: no-repeat;
 }
 
 .dropdown-settings:hover {
   color: white;
-  background-image: url("../../../images/settingsWhite.png");
+  background-image: url("/images/settingsWhite.png");
   background-repeat: no-repeat;
   background-color: #00a8f3;
   background-position: 2.5px 6px;
@@ -147,13 +146,13 @@
 
 .dropdown-logout {
   background-position: 2.5px 6px;
-  background-image: url("../../../images/logout.png");
+  background-image: url("/images/logout.png");
   background-repeat: no-repeat;
 }
 
 .dropdown-logout:hover {
   color: white;
-  background-image: url("../../../images/logoutWhite.png");
+  background-image: url("/images/logoutWhite.png");
   background-repeat: no-repeat;
   background-color: #00a8f3;
   background-position: 2.5px 6px;
@@ -170,8 +169,8 @@
   }
 }
 
-@media (max-width: 48em) {
-  .home-title {
+@media (max-width: 768px) {
+  .banner-title {
     font-size: 32px;
     padding-left: 5px;
   }
@@ -188,8 +187,3 @@
   }
 }
 
-@media (max-width: 300px) {
-  .user-image,.user-name{
-    display: none;
-  }
-}

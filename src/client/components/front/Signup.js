@@ -1,13 +1,15 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Link, Redirect, Route } from "react-router-dom";
-import { ADD_USER, VALIDATE_ACCOUNT } from "../../graphqlDocuments/user";
+import { ADD_USER, VALIDATE_ACCOUNT } from "GraphqlDocuments/user";
 import { useMutation } from "@apollo/react-hooks";
-import { useFieldInput } from "../hooks/customHooks";
+import { useFieldInput } from "Hooks/customHooks";
 import Confirmation from "./Confirmation";
-import "../../assets/stylesheets/components/front/signup.css";
+import "FrontStylesheets/signup.css";
 
 const Signup = (props) => {
-  document.title = "Signup | MyChat";
+  useEffect(() => {
+    document.title = "Signup | MyChat";
+  },[]);
   const [addUser] = useMutation(ADD_USER);
   const [validateAccount] = useMutation(VALIDATE_ACCOUNT);
   const [userError, setUserError] = useState(null);
@@ -159,7 +161,7 @@ const Signup = (props) => {
           </p>
           <p>
             {`Please don't leave this page until you have confirmed your email
-            address.`}
+            address. If you leave, you can validate your email upon logging in.`}
           </p>
         </div>
         <form className="front-page-form" onSubmit={confirmEmail}>
