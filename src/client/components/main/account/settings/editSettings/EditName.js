@@ -1,18 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFieldInput } from "Hooks/customHooks";
 import { useMutation } from "@apollo/react-hooks";
-import {CHANGE_NAME} from "GraphqlDocuments/user"
+import { CHANGE_NAME } from "GraphqlDocuments/user";
 
 const EditName = (props) => {
   const [changeName] = useMutation(CHANGE_NAME);
+  const [nameError, setNameError] = useState(null);
   const firstNamefield = useFieldInput(props.userInfo.firstName);
   const lastNameField = useFieldInput(props.userInfo.lastName);
-  
+
   const changeNameCallBack = async (event) => {
     event.preventDefault();
     let _id = props.userInfo._id;
     let firstName = firstNamefield.value;
     let lastName = lastNameField.value;
+    if ((firstName + lastName).length > 26) {
+      setNameError("Full Name too long");
+      return;
+    }
+    else{
+      setNameError(null)
+    }
     await changeName({
       variables: { _id, firstName, lastName },
     });
@@ -26,6 +34,7 @@ const EditName = (props) => {
 
   return (
     <form className="settings-form" onSubmit={changeNameCallBack}>
+      {nameError ? <span className="error">{nameError}</span> : null}
       <div>
         <label className="label-settings-form"> First Name</label>
         <input

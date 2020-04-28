@@ -10,6 +10,10 @@ const EditUsername = (props) => {
 
   const changeUserCallBack = async (event) => {
     event.preventDefault();
+    if(userField.value.length > 32){
+      setUserError("Username too long");
+      return;
+    }
     if (userField.value === props.userInfo.username) {
       setUserError("You're currently using this username");
       return;
@@ -22,8 +26,9 @@ const EditUsername = (props) => {
     if (result.data.changeUserName != "Success") {
       setUserError(result.data.changeUserName);
       return;
+    } else {
+      setUserError(null);
     }
-    setUserError(null);
     props.setUserInfo({
       ...props.userInfo,
       username,
@@ -32,6 +37,7 @@ const EditUsername = (props) => {
 
   return (
     <form className="settings-form" onSubmit={changeUserCallBack}>
+      {userError ? <span className="error">{userError}</span> : null}
       <div>
         <label className="label-settings-form"> Username</label>
         <input
@@ -40,7 +46,6 @@ const EditUsername = (props) => {
           value={userField.value}
           onChange={userField.onChange}
         />
-        {userError ? <span className="error">{userError}</span> : null}
       </div>
       <div>
         <button className="settings-save-changes" type="submit">

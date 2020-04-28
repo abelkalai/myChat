@@ -15,7 +15,7 @@
 .profile-upload-input-div {
   display: flex;
   justify-content: center;
-  margin: 4px 4px;
+  margin: 4px;
 }
 
 .inputfile {
@@ -47,7 +47,7 @@
 }
 
 .about-text-area {
-  height: 25vh;
+  height: 32.5vh;
   width: 40vw;
   resize: none;
   margin-top: 5px;
@@ -62,7 +62,7 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  height: 25vh;
+  height: 32.5vh;
   width: 40vw;
 }
 
@@ -70,7 +70,7 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  height: 25vh;
+  height: 32.5vh;
   width: 40vw;
   text-align: center;
   word-wrap: break-word;
@@ -83,7 +83,7 @@
   background-color: #00a8f3;
   margin-top: 7.5px;
   margin-bottom: 5px;
-  width: 45px;
+  width: 60px;
 }
 
 .update-profile-pic-button {
@@ -102,7 +102,7 @@
   margin-top: 7.5px;
   margin-left: 5px;
   margin-bottom: 5px;
-  width: 55px;
+  width: 60px;
 }
 
 @media (max-width: 912px) {

@@ -24,9 +24,10 @@ button:hover {
 
 .error {
   color: red;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
-  margin: 2.5px 2.5px;
+  margin-top: 5px;
+  margin-bottom: 7.5px;
 }
 
 .general-button {
@@ -48,5 +49,11 @@ button:hover {
 @media (max-width: 768px) {
   button {
     padding: 1px;
+  }
+
+  .error {
+    font-size: 16px;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
   }
 }

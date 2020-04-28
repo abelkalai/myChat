@@ -25041,7 +25041,7 @@ function _defineProperty(e,r,n){return r in e?Object.defineProperty(e,r,{value:n
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "* {\r\n  font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\ninput:focus,\r\ntextarea:focus,\r\nselect:focus {\r\n  outline: none;\r\n}\r\n\r\nbutton {\r\n  padding: 2px;\r\n  outline: none;\r\n  border: none;\r\n  text-align: center;\r\n  border-radius: 10px;\r\n}\r\n\r\nbutton:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n  font-size: 16px;\r\n  font-weight: bold;\r\n  margin: 2.5px 2.5px;\r\n}\r\n\r\n.general-button {\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  border-color: #00a8f3;\r\n  margin-top: 7.5px;\r\n  font-size: 16px;\r\n  border-radius: 10px;\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  width: 130px;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n@media (max-width: 768px) {\r\n  button {\r\n    padding: 1px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, "* {\r\n  font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\ninput:focus,\r\ntextarea:focus,\r\nselect:focus {\r\n  outline: none;\r\n}\r\n\r\nbutton {\r\n  padding: 2px;\r\n  outline: none;\r\n  border: none;\r\n  text-align: center;\r\n  border-radius: 10px;\r\n}\r\n\r\nbutton:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n  font-size: 20px;\r\n  font-weight: bold;\r\n  margin-top: 5px;\r\n  margin-bottom: 7.5px;\r\n}\r\n\r\n.general-button {\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  border-color: #00a8f3;\r\n  margin-top: 7.5px;\r\n  font-size: 16px;\r\n  border-radius: 10px;\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  width: 130px;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n@media (max-width: 768px) {\r\n  button {\r\n    padding: 1px;\r\n  }\r\n\r\n  .error {\r\n    font-size: 16px;\r\n    margin-top: 2.5px;\r\n    margin-bottom: 2.5px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25113,7 +25113,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".bold {\r\n  font-weight: bold;\r\n}\r\n\r\n.confirm-code-button {\r\n  font-size: 14px;\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n  margin-top: 10px;\r\n  width: 90px;\r\n}\r\n\r\n.validate-info-container {\r\n  margin: 7.5px 7.5px;\r\n}\r\n\r\n@media (max-width: 768p) {\r\n  .sign-up-content input {\r\n    font-size: 16px;\r\n  }\r\n  .sign-up-content h2 {\r\n    font-size: 16px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".bold {\r\n  font-weight: bold;\r\n}\r\n\r\n.confirm-code-button {\r\n  font-size: 14px;\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n  margin-top: 10px;\r\n  width: 90px;\r\n}\r\n\r\n.validate-info-container {\r\n  margin: 7.5px;\r\n}\r\n\r\n@media (max-width: 768p) {\r\n  .sign-up-content input {\r\n    font-size: 16px;\r\n  }\r\n  .sign-up-content h2 {\r\n    font-size: 16px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25167,7 +25167,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".chat-display-default {\r\n  padding: 10px 0 0 5px;\r\n}\r\n\r\n.chat-display-about {\r\n  border-left: 1px solid #dcdcdc;\r\n  grid-area: \"about\";\r\n  text-align: center;\r\n}\r\n\r\n.chat-about-name-placeholder {\r\n  display: block;\r\n  margin: 1vh 1vh;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 300px;\r\n  height: 35px;\r\n}\r\n\r\n.chat-display-about h1 {\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.chat-display-about-img {\r\n  width: 225px;\r\n  height: 225px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-about-content-placeholder {\r\n  width: 360px;\r\n  height: 350px;\r\n}\r\n\r\n.chat-display-about-content {\r\n  margin-top: 10px;\r\n  display: inline-block;\r\n  word-wrap: break-word;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  max-width: 360px;\r\n  max-height: 42.5vh;\r\n}\r\n\r\n@media (max-width: 950px) {\r\n  .chat-display-about {\r\n    display: none;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".chat-display-default {\r\n  padding: 10px 0 0 5px;\r\n}\r\n\r\n.chat-display-about {\r\n  border-left: 1px solid #dcdcdc;\r\n  text-align: center;\r\n}\r\n\r\n.chat-about-name-placeholder {\r\n  display: block;\r\n  margin: 1vh 1vh;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 350px;\r\n  height: 35px;\r\n}\r\n\r\n.chat-display-about h1 {\r\n  margin-bottom: 10px;\r\n  font-size: 22px;\r\n}\r\n\r\n.chat-display-about-img {\r\n  width: 175px;\r\n  height: 175px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-about-content-placeholder {\r\n  width: 360px;\r\n  height: 350px;\r\n}\r\n\r\n.chat-display-about-content {\r\n  margin-top: 10px;\r\n  display: inline-block;\r\n  word-wrap: break-word;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  max-width: 360px;\r\n  max-height: 47.5vh;\r\n}\r\n\r\n@media (max-width: 950px) {\r\n  .chat-display-about {\r\n    display: none;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25185,7 +25185,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".no-history-div{\r\n  margin-top: 5px;\r\n  margin-left: 15px;\r\n  height: 82.5vh;\r\n}\r\n\r\n.chat-history-container {\r\n  padding-left: 5px;\r\n  margin: 10px 5px 0 5px;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  height: 82.5vh;\r\n}\r\n\r\n.chat-history-wrapper-current {\r\n  display: grid;\r\n  margin-right: 5px;\r\n  grid-template-columns: 11.5% 88.5%;\r\n  grid-auto-rows: 22.5px;\r\n  padding: 5px 5px;\r\n  margin-bottom: 5px;\r\n  cursor: pointer;\r\n  border-radius: 5px;\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.chat-history-wrapper {\r\n  display: grid;\r\n  margin-right: 5px;\r\n  grid-template-columns: 11.5% 88.5%;\r\n  grid-auto-rows: 22.5px;\r\n  padding: 5px 5px;\r\n  margin-bottom: 5px;\r\n  cursor: pointer;\r\n  border-radius: 5px;\r\n}\r\n\r\n.chat-history-unread {\r\n  font-weight: bold;\r\n}\r\n\r\n.chat-history-wrapper-img {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-history-img-container {\r\n  grid-column: 1;\r\n}\r\n\r\n.chat-history-name-header {\r\n  grid-column: 2;\r\n  grid-row: 1;\r\n}\r\n\r\n.chat-history-time {\r\n  float: right;\r\n  padding-right: 10px;\r\n}\r\n\r\n.chat-history-placeholder {\r\n  width: 20vw;\r\n  height: 10vh;\r\n}\r\n\r\n.chat-history-name-header-placeholder {\r\n  height: 2.5vh;\r\n  width: 5vw;\r\n}\r\n\r\n.chat-history-content-placeholder {\r\n  height: 2.5vh;\r\n  width: 20vw;\r\n}\r\n\r\n.chat-history-content {\r\n  grid-column: 2;\r\n  grid-row: 2;\r\n}\r\n\r\n\r\n\r\n", ""]);
+exports.push([module.i, ".no-history-div{\r\n  margin-top: 5px;\r\n  margin-left: 15px;\r\n  height: 82.5vh;\r\n}\r\n\r\n.chat-history-container {\r\n  padding-left: 5px;\r\n  margin: 10px 5px 0 5px;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  height: 82.5vh;\r\n}\r\n\r\n.chat-history-wrapper-current {\r\n  display: grid;\r\n  margin-right: 5px;\r\n  grid-template-columns: 11.5% 88.5%;\r\n  grid-auto-rows: 22.5px;\r\n  padding: 5px;\r\n  margin-bottom: 5px;\r\n  cursor: pointer;\r\n  border-radius: 5px;\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.chat-history-wrapper {\r\n  display: grid;\r\n  margin-right: 5px;\r\n  grid-template-columns: 11.5% 88.5%;\r\n  grid-auto-rows: 22.5px;\r\n  padding: 5px;\r\n  margin-bottom: 5px;\r\n  cursor: pointer;\r\n  border-radius: 5px;\r\n}\r\n\r\n.chat-history-unread {\r\n  font-weight: bold;\r\n}\r\n\r\n.chat-history-wrapper-img {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-history-img-container {\r\n  grid-column: 1;\r\n}\r\n\r\n.chat-history-name-header {\r\n  grid-column: 2;\r\n  grid-row: 1;\r\n}\r\n\r\n.chat-history-time {\r\n  float: right;\r\n  padding-right: 10px;\r\n}\r\n\r\n.chat-history-placeholder {\r\n  width: 20vw;\r\n  height: 10vh;\r\n}\r\n\r\n.chat-history-name-header-placeholder {\r\n  height: 2.5vh;\r\n  width: 5vw;\r\n}\r\n\r\n.chat-history-content-placeholder {\r\n  height: 2.5vh;\r\n  width: 20vw;\r\n}\r\n\r\n.chat-history-content {\r\n  grid-column: 2;\r\n  grid-row: 2;\r\n}\r\n\r\n\r\n\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25203,7 +25203,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".chat-display-chat-parent {\r\n  grid-area: \"chat\";\r\n  position: relative;\r\n}\r\n\r\n.chat-display-chat-container {\r\n  min-height: 82.5vh;\r\n}\r\n\r\n.chat-display-chat {\r\n  margin-top: 1vh;\r\n  max-height: 82.5vh;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  display: flex;\r\n  flex-direction: column-reverse;\r\n}\r\n\r\n.chat-display-chat-send-message-form {\r\n  display: flex;\r\n  margin-top: 15px;\r\n  margin-left: 15px;\r\n}\r\n\r\n.chat-display-chat-message-field {\r\n  padding: 2.5px;\r\n  padding-left: 5px;\r\n  font-size: 18px;\r\n  border-radius: 5px;\r\n  width: 92.5%;\r\n  max-height: 5%;\r\n}\r\n\r\n.chat-display-chat-message-image {\r\n  margin-left: 2px;\r\n  margin-bottom: 2px;\r\n}\r\n\r\n.msg-placeholder-msg-field {\r\n  height: 25px;\r\n  width: 45vw;\r\n}\r\n\r\n.msg-placeholder-img-me {\r\n  float: right;\r\n  width: 35vh;\r\n  height: 3vh;\r\n  padding: 6px 6px;\r\n  margin-right: 4px;\r\n}\r\n\r\n.msg-placeholder-img-contact {\r\n  float: left;\r\n  width: 35vh;\r\n  height: 3vh;\r\n  padding: 6px 6px;\r\n}\r\n\r\n.chat-message-wrapper {\r\n  font-size: 18px;\r\n  display: inline-block;\r\n  padding: 3px 3px;\r\n}\r\n\r\n.chat-my-message {\r\n  color: white;\r\n  background-color: #0099ff;\r\n  padding: 6px 10px 6px 10px;\r\n  float: right;\r\n  max-width: 60%;\r\n  margin-right: 8px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-contact-message {\r\n  background-color: #f1f0f0;\r\n  padding: 6px 10px 6px 10px;\r\n  float: left;\r\n  max-width: 60%;\r\n  margin-left: 4px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n", ""]);
+exports.push([module.i, ".chat-display-chat-parent {\r\n  position: relative;\r\n}\r\n\r\n.chat-display-chat-container {\r\n  min-height: 82.5vh;\r\n}\r\n\r\n.chat-display-chat {\r\n  margin-top: 1vh;\r\n  max-height: 82.5vh;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  display: flex;\r\n  flex-direction: column-reverse;\r\n}\r\n\r\n.chat-display-chat-send-message-form {\r\n  display: flex;\r\n  margin-top: 15px;\r\n  margin-left: 15px;\r\n}\r\n\r\n.chat-display-chat-message-field {\r\n  padding: 2.5px;\r\n  padding-left: 5px;\r\n  font-size: 18px;\r\n  border-radius: 5px;\r\n  width: 92.5%;\r\n  max-height: 5%;\r\n}\r\n\r\n.chat-display-chat-message-image {\r\n  margin-left: 2px;\r\n  margin-bottom: 2px;\r\n}\r\n\r\n.msg-placeholder-msg-field {\r\n  height: 25px;\r\n  width: 45vw;\r\n}\r\n\r\n.msg-placeholder-img-me {\r\n  float: right;\r\n  width: 35vh;\r\n  height: 3vh;\r\n  padding: 6px;\r\n  margin-right: 4px;\r\n}\r\n\r\n.msg-placeholder-img-contact {\r\n  float: left;\r\n  width: 35vh;\r\n  height: 3vh;\r\n  padding: 6px;\r\n}\r\n\r\n.chat-message-wrapper {\r\n  font-size: 18px;\r\n  display: inline-block;\r\n  padding: 3p;;\r\n}\r\n\r\n.chat-my-message {\r\n  color: white;\r\n  background-color: #0099ff;\r\n  padding: 6px 10px 6px 10px;\r\n  float: right;\r\n  max-width: 60%;\r\n  margin-right: 8px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-contact-message {\r\n  background-color: #f1f0f0;\r\n  padding: 6px 10px 6px 10px;\r\n  float: left;\r\n  max-width: 60%;\r\n  margin-left: 4px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25221,7 +25221,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".profile-main {\r\n  margin-top: 2vh;\r\n  text-align: center;\r\n}\r\n\r\n.profile-image {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 225px;\r\n  height: 225px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.profile-upload-input-div {\r\n  display: flex;\r\n  justify-content: center;\r\n  margin: 4px 4px;\r\n}\r\n\r\n.inputfile {\r\n  display: none;\r\n}\r\n\r\n.file-upload-label {\r\n  color: white;\r\n  padding: 5px;\r\n  background-color: #00a8f3;\r\n  border-radius: 10px;\r\n  cursor: pointer;\r\n  width: 190px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n}\r\n\r\n.file-upload-label img {\r\n  height: 20px;\r\n  width: 20px;\r\n  margin-top: 1px;\r\n  padding-right: 4px;\r\n}\r\n\r\n.file-upload-label span {\r\n  margin-top: 1.5px;\r\n  padding-right: 2px;\r\n}\r\n\r\n.about-text-area {\r\n  height: 25vh;\r\n  width: 40vw;\r\n  resize: none;\r\n  margin-top: 5px;\r\n  padding-top: 2.5px;\r\n  padding-left: 5px;\r\n  border-radius: 10px;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n}\r\n\r\n.about-placeholder {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  height: 25vh;\r\n  width: 40vw;\r\n}\r\n\r\n.profile-about-wrapper {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  height: 25vh;\r\n  width: 40vw;\r\n  text-align: center;\r\n  word-wrap: break-word;\r\n  overflow-y: auto;\r\n}\r\n\r\n.change-button {\r\n  font-size: 16px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  margin-top: 7.5px;\r\n  margin-bottom: 5px;\r\n  width: 45px;\r\n}\r\n\r\n.update-profile-pic-button {\r\n  font-size: 16px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  margin-top: 7.5px;\r\n  margin-bottom: 5px;\r\n  width: 175px;\r\n}\r\n\r\n.cancel-button {\r\n  font-size: 16px;\r\n  color: #696969;\r\n  background-color: #f1f0f0;\r\n  margin-top: 7.5px;\r\n  margin-left: 5px;\r\n  margin-bottom: 5px;\r\n  width: 55px;\r\n}\r\n\r\n@media (max-width: 912px) {\r\n  .profile-image {\r\n    width: 200px;\r\n    height: 200px;\r\n  }\r\n\r\n  .profile-about-wrapper {\r\n    width: 80vw;\r\n  }\r\n\r\n  .about-placeholder {\r\n    width: 80vw;\r\n  }\r\n  .about-text-area {\r\n    width: 80vw;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".profile-main {\r\n  margin-top: 2vh;\r\n  text-align: center;\r\n}\r\n\r\n.profile-image {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 225px;\r\n  height: 225px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.profile-upload-input-div {\r\n  display: flex;\r\n  justify-content: center;\r\n  margin: 4px;\r\n}\r\n\r\n.inputfile {\r\n  display: none;\r\n}\r\n\r\n.file-upload-label {\r\n  color: white;\r\n  padding: 5px;\r\n  background-color: #00a8f3;\r\n  border-radius: 10px;\r\n  cursor: pointer;\r\n  width: 190px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n}\r\n\r\n.file-upload-label img {\r\n  height: 20px;\r\n  width: 20px;\r\n  margin-top: 1px;\r\n  padding-right: 4px;\r\n}\r\n\r\n.file-upload-label span {\r\n  margin-top: 1.5px;\r\n  padding-right: 2px;\r\n}\r\n\r\n.about-text-area {\r\n  height: 32.5vh;\r\n  width: 40vw;\r\n  resize: none;\r\n  margin-top: 5px;\r\n  padding-top: 2.5px;\r\n  padding-left: 5px;\r\n  border-radius: 10px;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n}\r\n\r\n.about-placeholder {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  height: 32.5vh;\r\n  width: 40vw;\r\n}\r\n\r\n.profile-about-wrapper {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  height: 32.5vh;\r\n  width: 40vw;\r\n  text-align: center;\r\n  word-wrap: break-word;\r\n  overflow-y: auto;\r\n}\r\n\r\n.change-button {\r\n  font-size: 16px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  margin-top: 7.5px;\r\n  margin-bottom: 5px;\r\n  width: 60px;\r\n}\r\n\r\n.update-profile-pic-button {\r\n  font-size: 16px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  margin-top: 7.5px;\r\n  margin-bottom: 5px;\r\n  width: 175px;\r\n}\r\n\r\n.cancel-button {\r\n  font-size: 16px;\r\n  color: #696969;\r\n  background-color: #f1f0f0;\r\n  margin-top: 7.5px;\r\n  margin-left: 5px;\r\n  margin-bottom: 5px;\r\n  width: 60px;\r\n}\r\n\r\n@media (max-width: 912px) {\r\n  .profile-image {\r\n    width: 200px;\r\n    height: 200px;\r\n  }\r\n\r\n  .profile-about-wrapper {\r\n    width: 80vw;\r\n  }\r\n\r\n  .about-placeholder {\r\n    width: 80vw;\r\n  }\r\n  .about-text-area {\r\n    width: 80vw;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25239,7 +25239,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".main-settings {\r\n  margin-left: 65px;\r\n  margin-top: 10px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 22.5% 70%;\r\n}\r\n\r\n.main-left {\r\n  width: 95%;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-active-tab {\r\n  background-color: #ecf2fe;\r\n  margin: 10px 10px;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  display: flex;\r\n}\r\n\r\n.settings-tab {\r\n  margin: 10px 10px;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  display: flex;\r\n}\r\n\r\n.general-content {\r\n  padding-left: 8.5px;\r\n  padding-top: 2.5px;\r\n}\r\n\r\n.general-settings-image {\r\n  width: 30px;\r\n  height: 30px;\r\n  margin-top: 2.5px;\r\n}\r\n\r\n.security-content {\r\n  padding-left: 8.5px;\r\n  padding-top: 2.5px;\r\n}\r\n\r\n.security-settings-image {\r\n  width: 30px;\r\n  height: 30px;\r\n  margin-top: 2.5px;\r\n}\r\n\r\n.settings-tab:hover {\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.change {\r\n  font-size: 20px;\r\n  float: right;\r\n  color: blue;\r\n  border: none;\r\n}\r\n\r\n.change:hover {\r\n  text-decoration: underline;\r\n  cursor: pointer;\r\n}\r\n\r\n.bold-text {\r\n  font-weight: bold;\r\n  margin-right: 10px;\r\n}\r\n\r\n.settings-divider-container {\r\n  border-bottom: 1px solid black;\r\n}\r\n\r\n.settings-divider-inside {\r\n  border-bottom: 1px solid #dcdcdc;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-divider-inside-single {\r\n  border-bottom: 1px solid black;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-save-changes {\r\n  font-size: 16px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  margin-top: 7.5px;\r\n  margin-right: 5px;\r\n  width: 120px;\r\n}\r\n\r\n.settings-cancel-changes {\r\n  font-size: 16px;\r\n  color: #696969;\r\n  margin-top: 7.5px;\r\n  background-color: #f1f0f0;\r\n  width: 70px;\r\n}\r\n\r\n.settings-form {\r\n  margin-top: 10px;\r\n}\r\n\r\n.label-settings-form,\r\n.label-settings-form-password {\r\n  display: inline-block;\r\n  margin-bottom: 5px;\r\n  width: 115px;\r\n}\r\n\r\n.label-settings-form-password {\r\n  width: 225px;\r\n}\r\n\r\n.input-settings-form {\r\n  display: inline-block;\r\n  margin-left: 5px;\r\n  padding-left: 2.5px;\r\n  border-radius: 5px;\r\n  font-size: 16px;\r\n  margin-bottom: 5px;\r\n  width: 200px;\r\n}\r\n\r\n.error {\r\n  margin-left: 5px;\r\n}\r\n\r\n.success {\r\n  color: green;\r\n  font-size: 20px;\r\n  font-weight: bold;\r\n  margin-top: 2.5px;\r\n  margin-bottom: 7.5px;\r\n}\r\n\r\n.settings-hamburger-menu {\r\n  z-index: 1;\r\n  display: none;\r\n  position: absolute;\r\n  margin-top: 7px;\r\n}\r\n\r\n.settings-hamburger-menu img {\r\n  width: 30px;\r\n  height: 30px;\r\n}\r\n\r\n@media (max-width: 950px) {\r\n  .main-settings {\r\n    display: block;\r\n    margin-left: 5px;\r\n    margin-right: 5px;\r\n    margin-top: 0px;\r\n  }\r\n  .main-settings h1 {\r\n    margin-left: 35px;\r\n    font-size: 32px;\r\n  }\r\n\r\n  .settings-hamburger-menu {\r\n    display: inline;\r\n  }\r\n\r\n  .settings-divider-inside,\r\n  .settings-divider-inside-single {\r\n    margin-right: 5px;\r\n  }\r\n}\r\n\r\n@media (max-width: 768px) {\r\n  .main-settings{\r\n    font-size: 18px;\r\n  }\r\n  .main-settings h1 {\r\n    font-size: 28px;\r\n    margin-left: 27.5px;\r\n  }\r\n\r\n  .change{\r\n    font-size: 18px;\r\n  }\r\n\r\n  .settings-hamburger-menu img {\r\n    width: 25px;\r\n    height: 25px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".main-settings {\r\n  margin-left: 65px;\r\n  margin-top: 10px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 22.5% 70%;\r\n}\r\n\r\n.main-left {\r\n  width: 95%;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-active-tab {\r\n  background-color: #ecf2fe;\r\n  margin: 10px;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  display: flex;\r\n}\r\n\r\n.settings-tab {\r\n  margin: 10px;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  display: flex;\r\n}\r\n\r\n.general-content {\r\n  padding-left: 8.5px;\r\n  padding-top: 2.5px;\r\n}\r\n\r\n.general-settings-image {\r\n  width: 30px;\r\n  height: 30px;\r\n  margin-top: 2.5px;\r\n}\r\n\r\n.security-content {\r\n  padding-left: 8.5px;\r\n  padding-top: 2.5px;\r\n}\r\n\r\n.security-settings-image {\r\n  width: 30px;\r\n  height: 30px;\r\n  margin-top: 2.5px;\r\n}\r\n\r\n.settings-tab:hover {\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.change {\r\n  font-size: 20px;\r\n  float: right;\r\n  color: blue;\r\n  border: none;\r\n}\r\n\r\n.change:hover {\r\n  text-decoration: underline;\r\n  cursor: pointer;\r\n}\r\n\r\n.bold-text {\r\n  font-weight: bold;\r\n  margin-right: 10px;\r\n}\r\n\r\n.settings-divider-container {\r\n  border-bottom: 1px solid black;\r\n}\r\n\r\n.settings-divider-inside {\r\n  border-bottom: 1px solid #dcdcdc;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-divider-inside-single {\r\n  border-bottom: 1px solid black;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-save-changes {\r\n  font-size: 16px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  margin-top: 7.5px;\r\n  margin-right: 5px;\r\n  width: 120px;\r\n}\r\n\r\n.settings-cancel-changes {\r\n  font-size: 16px;\r\n  color: #696969;\r\n  margin-top: 7.5px;\r\n  background-color: #f1f0f0;\r\n  width: 70px;\r\n}\r\n\r\n.settings-form {\r\n  margin-top: 5px;\r\n}\r\n\r\n.label-settings-form,\r\n.label-settings-form-password {\r\n  display: inline-block;\r\n  margin-bottom: 5px;\r\n  width: 115px;\r\n}\r\n\r\n.label-settings-form-password {\r\n  width: 235px;\r\n}\r\n\r\n.input-settings-form {\r\n  display: inline-block;\r\n  margin-left: 5px;\r\n  padding-left: 2.5px;\r\n  border-radius: 5px;\r\n  font-size: 16px;\r\n  margin-bottom: 5px;\r\n  width: 225px;\r\n}\r\n\r\n.success {\r\n  color: green;\r\n  font-size: 20px;\r\n  font-weight: bold;\r\n  margin-top: 2.5px;\r\n  margin-bottom: 7.5px;\r\n}\r\n\r\n.settings-hamburger-menu {\r\n  z-index: 1;\r\n  display: none;\r\n  position: absolute;\r\n  margin-top: 7px;\r\n}\r\n\r\n.settings-hamburger-menu img {\r\n  width: 30px;\r\n  height: 30px;\r\n}\r\n\r\n@media (max-width: 950px) {\r\n  .main-settings {\r\n    display: block;\r\n    margin-left: 5px;\r\n    margin-right: 5px;\r\n    margin-top: 0px;\r\n  }\r\n  .main-settings h1 {\r\n    margin-left: 35px;\r\n    font-size: 32px;\r\n  }\r\n\r\n  .settings-hamburger-menu {\r\n    display: inline;\r\n  }\r\n\r\n  .settings-divider-inside,\r\n  .settings-divider-inside-single {\r\n    margin-right: 5px;\r\n  }\r\n}\r\n\r\n@media (max-width: 768px) {\r\n  .main-settings{\r\n    font-size: 18px;\r\n  }\r\n  .main-settings h1 {\r\n    font-size: 28px;\r\n    margin-left: 27.5px;\r\n  }\r\n\r\n  .change{\r\n    font-size: 18px;\r\n  }\r\n\r\n  .settings-hamburger-menu img {\r\n    width: 25px;\r\n    height: 25px;\r\n  }\r\n}\r\n\r\n@media (max-width: 450px) {\r\n  .main-settings{\r\n    font-size: 16px;\r\n  }\r\n  .change{\r\n    font-size: 16px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -87978,31 +87978,36 @@ var Signup = function Signup(props) {
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState4 = _slicedToArray(_useState3, 2),
-      emailError = _useState4[0],
-      setEmailError = _useState4[1];
+      nameError = _useState4[0],
+      setNameError = _useState4[1];
 
   var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState6 = _slicedToArray(_useState5, 2),
-      validateError = _useState6[0],
-      setValidateError = _useState6[1];
+      emailError = _useState6[0],
+      setEmailError = _useState6[1];
 
   var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState8 = _slicedToArray(_useState7, 2),
-      passwordError = _useState8[0],
-      setPasswordError = _useState8[1];
+      validateError = _useState8[0],
+      setValidateError = _useState8[1];
 
   var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState10 = _slicedToArray(_useState9, 2),
-      confirmMsg = _useState10[0],
-      setConfirmMsg = _useState10[1];
+      passwordError = _useState10[0],
+      setPasswordError = _useState10[1];
 
-  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("signUpForm"),
+  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState12 = _slicedToArray(_useState11, 2),
-      page = _useState12[0],
-      setPage = _useState12[1];
+      confirmMsg = _useState12[0],
+      setConfirmMsg = _useState12[1];
+
+  var _useState13 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("signUpForm"),
+      _useState14 = _slicedToArray(_useState13, 2),
+      page = _useState14[0],
+      setPage = _useState14[1];
 
   var firstNameField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
-  var lastNameSign = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
+  var lastNameField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
   var emailField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
   var usernameField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
   var passwordField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
@@ -88018,24 +88023,38 @@ var Signup = function Signup(props) {
             case 0:
               event.preventDefault();
 
-              if (!(passwordField.value != confirmpasswordField.value)) {
+              if (passwordField.value != confirmpasswordField.value) {
+                setPasswordError("Passwords don't match");
+              } else {
+                setPasswordError(null);
+              }
+
+              if (usernameField.value.length > 32) {
+                setUserError("Username too long");
+              } else {
+                setUserError(null);
+              }
+
+              if ((firstNameField.value + lastNameField.value).length > 26) {
+                setNameError("Full Name too long");
+              } else {
+                setNameError(null);
+              }
+
+              if (!(passwordError || userError || nameError)) {
                 _context.next = 6;
                 break;
               }
 
-              setPasswordError("Passwords don't match");
               return _context.abrupt("return");
 
             case 6:
-              setPasswordError(null);
-
-            case 7:
               firstName = firstNameField.value;
-              lastName = lastNameSign.value;
+              lastName = lastNameField.value;
               email = emailField.value;
               username = usernameField.value;
               password = passwordField.value;
-              _context.next = 14;
+              _context.next = 13;
               return addUser({
                 variables: {
                   firstName: firstName,
@@ -88046,7 +88065,7 @@ var Signup = function Signup(props) {
                 }
               });
 
-            case 14:
+            case 13:
               result = _context.sent;
 
               if (!result.data.addUser.errorList) {
@@ -88056,7 +88075,7 @@ var Signup = function Signup(props) {
                 setEmailError(result.data.addUser.errorList[1]);
               }
 
-            case 16:
+            case 15:
             case "end":
               return _context.stop();
           }
@@ -88070,13 +88089,17 @@ var Signup = function Signup(props) {
   }();
 
   var signUpForm = function signUpForm() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " Signup "), emailError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " Signup "), passwordError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
       className: "error"
-    }, " ", emailError, " ") : null, userError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    }, passwordError) : null, nameError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
       className: "error"
-    }, " ", userError, " ") : null, passwordError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    }, nameError) : null, userError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
       className: "error"
-    }, passwordError) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, " ", userError, " ") : null, emailError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      className: "error"
+    }, " ", emailError, " ") : null, emailError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      className: "error"
+    }, " ", emailError, " ") : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "sign-up"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       className: "front-page-form",
@@ -88096,8 +88119,8 @@ var Signup = function Signup(props) {
       className: "input-front-page-form",
       placeholder: "Last Name",
       type: "text",
-      value: lastNameSign.value,
-      onChange: lastNameSign.onChange,
+      value: lastNameField.value,
+      onChange: lastNameField.onChange,
       required: true
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "front-page-form-div"
@@ -89010,6 +89033,11 @@ var EditName = function EditName(props) {
       _useMutation2 = _slicedToArray(_useMutation, 1),
       changeName = _useMutation2[0];
 
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      nameError = _useState2[0],
+      setNameError = _useState2[1];
+
   var firstNamefield = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])(props.userInfo.firstName);
   var lastNameField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])(props.userInfo.lastName);
 
@@ -89025,7 +89053,20 @@ var EditName = function EditName(props) {
               _id = props.userInfo._id;
               firstName = firstNamefield.value;
               lastName = lastNameField.value;
-              _context.next = 6;
+
+              if (!((firstName + lastName).length > 26)) {
+                _context.next = 9;
+                break;
+              }
+
+              setNameError("Full Name too long");
+              return _context.abrupt("return");
+
+            case 9:
+              setNameError(null);
+
+            case 10:
+              _context.next = 12;
               return changeName({
                 variables: {
                   _id: _id,
@@ -89034,14 +89075,14 @@ var EditName = function EditName(props) {
                 }
               });
 
-            case 6:
+            case 12:
               props.setUserInfo(_objectSpread({}, props.userInfo, {
                 firstName: firstName,
                 lastName: lastName,
                 fullName: "".concat(firstName, " ").concat(lastName)
               }));
 
-            case 7:
+            case 13:
             case "end":
               return _context.stop();
           }
@@ -89057,7 +89098,9 @@ var EditName = function EditName(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: "settings-form",
     onSubmit: changeNameCallBack
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+  }, nameError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "error"
+  }, nameError) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     className: "label-settings-form"
   }, " First Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     className: "input-settings-form",
@@ -89208,7 +89251,11 @@ var EditPassword = function EditPassword(props) {
     onSubmit: changePasswordCallBack
   }, success ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "success"
-  }, "Password Change Successful!") : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+  }, "Password Change Successful!") : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "error"
+  }, currentPasswordError), newPasswordError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "error"
+  }, newPasswordError) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     className: "label-settings-form-password"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Current Password")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     className: "input-settings-form ",
@@ -89216,9 +89263,7 @@ var EditPassword = function EditPassword(props) {
     type: "password",
     value: currentPasswordField.value,
     onChange: currentPasswordField.onChange
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "error"
-  }, currentPasswordError)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     className: "label-settings-form-password"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " New Password ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     className: "input-settings-form ",
@@ -89226,19 +89271,15 @@ var EditPassword = function EditPassword(props) {
     type: "password",
     value: newPasswordField.value,
     onChange: newPasswordField.onChange
-  }), newPasswordError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "error"
-  }, newPasswordError) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     className: "label-settings-form-password"
-  }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Confirm New Password")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Confirm New Password")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     className: "input-settings-form ",
     required: true,
     type: "password",
     value: newPasswordConfirmField.value,
     onChange: newPasswordConfirmField.onChange
-  }), newPasswordError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "error"
-  }, newPasswordError) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "settings-save-changes",
     type: "submit"
   }, "Save Changes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -89316,18 +89357,27 @@ var EditUsername = function EditUsername(props) {
             case 0:
               event.preventDefault();
 
-              if (!(userField.value === props.userInfo.username)) {
+              if (!(userField.value.length > 32)) {
                 _context.next = 4;
+                break;
+              }
+
+              setUserError("Username too long");
+              return _context.abrupt("return");
+
+            case 4:
+              if (!(userField.value === props.userInfo.username)) {
+                _context.next = 7;
                 break;
               }
 
               setUserError("You're currently using this username");
               return _context.abrupt("return");
 
-            case 4:
+            case 7:
               _id = props.userInfo._id;
               username = userField.value;
-              _context.next = 8;
+              _context.next = 11;
               return changeUserName({
                 variables: {
                   _id: _id,
@@ -89335,24 +89385,26 @@ var EditUsername = function EditUsername(props) {
                 }
               });
 
-            case 8:
+            case 11:
               result = _context.sent;
 
               if (!(result.data.changeUserName != "Success")) {
-                _context.next = 12;
+                _context.next = 17;
                 break;
               }
 
               setUserError(result.data.changeUserName);
               return _context.abrupt("return");
 
-            case 12:
+            case 17:
               setUserError(null);
+
+            case 18:
               props.setUserInfo(_objectSpread({}, props.userInfo, {
                 username: username
               }));
 
-            case 14:
+            case 19:
             case "end":
               return _context.stop();
           }
@@ -89368,16 +89420,16 @@ var EditUsername = function EditUsername(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: "settings-form",
     onSubmit: changeUserCallBack
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+  }, userError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "error"
+  }, userError) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     className: "label-settings-form"
   }, " Username"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     className: "input-settings-form",
     required: true,
     value: userField.value,
     onChange: userField.onChange
-  }), userError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "error"
-  }, userError) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "settings-save-changes",
     type: "submit"
   }, "Save Changes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -89590,7 +89642,7 @@ var Banner = function Banner(props) {
     className: "user-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "user"
-  }, props.windowWidth > 400 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, props.windowWidth > 450 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "user-image-wrapper"
   }, props.userImage.loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     alt: props.userInfo.fullName,
@@ -89997,7 +90049,7 @@ var About = function About(props) {
     alt: props.getUser.data.getSingleUser.fullName,
     title: props.getUser.data.getSingleUser.fullName,
     src: "data:image/png;base64,".concat(props.getUser.data.getSingleUser.profilePicture)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "About "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "About "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-about-content"
   }, props.getUser.data.getSingleUser.about));
 };

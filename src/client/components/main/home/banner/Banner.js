@@ -39,7 +39,7 @@ const Banner = (props) => {
       </Link>
       <div className="user-wrapper">
         <div className="user">
-          {props.windowWidth > 400 ? (
+          {props.windowWidth > 450 ? (
             <Fragment>
               <span className="user-image-wrapper">
                 {props.userImage.loading ? (

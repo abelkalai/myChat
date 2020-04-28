@@ -18,14 +18,14 @@
 
 .settings-active-tab {
   background-color: #ecf2fe;
-  margin: 10px 10px;
+  margin: 10px;
   padding: 10px;
   border-radius: 10px;
   display: flex;
 }
 
 .settings-tab {
-  margin: 10px 10px;
+  margin: 10px;
   padding: 10px;
   border-radius: 10px;
   display: flex;
@@ -106,7 +106,7 @@
 }
 
 .settings-form {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .label-settings-form,
@@ -117,7 +117,7 @@
 }
 
 .label-settings-form-password {
-  width: 225px;
+  width: 235px;
 }
 
 .input-settings-form {
@@ -127,11 +127,7 @@
   border-radius: 5px;
   font-size: 16px;
   margin-bottom: 5px;
-  width: 200px;
-}
-
-.error {
-  margin-left: 5px;
+  width: 225px;
 }
 
 .success {
@@ -192,5 +188,14 @@
   .settings-hamburger-menu img {
     width: 25px;
     height: 25px;
+  }
+}
+
+@media (max-width: 450px) {
+  .main-settings{
+    font-size: 16px;
+  }
+  .change{
+    font-size: 16px;
   }
 }

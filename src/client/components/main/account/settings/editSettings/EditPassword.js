@@ -42,6 +42,10 @@ const EditPassword = (props) => {
       {success ? (
         <div className="success">Password Change Successful!</div>
       ) : null}
+      {<div className="error">{currentPasswordError}</div>}
+      {newPasswordError ? (
+        <div className="error">{newPasswordError}</div>
+      ) : null}
       <div>
         <label className="label-settings-form-password">
           <span>Current Password</span>
@@ -53,7 +57,6 @@ const EditPassword = (props) => {
           value={currentPasswordField.value}
           onChange={currentPasswordField.onChange}
         />
-        {<span className="error">{currentPasswordError}</span>}
       </div>
       <div>
         <label className="label-settings-form-password">
@@ -66,13 +69,9 @@ const EditPassword = (props) => {
           value={newPasswordField.value}
           onChange={newPasswordField.onChange}
         />
-        {newPasswordError ? (
-          <span className="error">{newPasswordError}</span>
-        ) : null}
       </div>
       <div>
         <label className="label-settings-form-password">
-          {" "}
           <span>Confirm New Password</span>
         </label>
         <input
@@ -82,9 +81,6 @@ const EditPassword = (props) => {
           value={newPasswordConfirmField.value}
           onChange={newPasswordConfirmField.onChange}
         />
-        {newPasswordError ? (
-          <span className="error">{newPasswordError}</span>
-        ) : null}
       </div>
       <div>
         <button className="settings-save-changes" type="submit">

@@ -9,17 +9,18 @@ import "FrontStylesheets/signup.css";
 const Signup = (props) => {
   useEffect(() => {
     document.title = "Signup | MyChat";
-  },[]);
+  }, []);
   const [addUser] = useMutation(ADD_USER);
   const [validateAccount] = useMutation(VALIDATE_ACCOUNT);
   const [userError, setUserError] = useState(null);
+  const [nameError, setNameError] = useState(null);
   const [emailError, setEmailError] = useState(null);
   const [validateError, setValidateError] = useState(null);
   const [passwordError, setPasswordError] = useState(null);
   const [confirmMsg, setConfirmMsg] = useState(null);
   const [page, setPage] = useState("signUpForm");
   const firstNameField = useFieldInput("");
-  const lastNameSign = useFieldInput("");
+  const lastNameField = useFieldInput("");
   const emailField = useFieldInput("");
   const usernameField = useFieldInput("");
   const passwordField = useFieldInput("");
@@ -30,13 +31,26 @@ const Signup = (props) => {
     event.preventDefault();
     if (passwordField.value != confirmpasswordField.value) {
       setPasswordError("Passwords don't match");
-      return;
     } else {
       setPasswordError(null);
     }
 
+    if (usernameField.value.length > 32) {
+      setUserError("Username too long");
+    } else {
+      setUserError(null);
+    }
+    if ((firstNameField.value + lastNameField.value).length > 26) {
+      setNameError("Full Name too long");
+    } else {
+      setNameError(null);
+    }
+
+    if (passwordError || userError || nameError) {
+      return;
+    }
     let firstName = firstNameField.value;
-    let lastName = lastNameSign.value;
+    let lastName = lastNameField.value;
     let email = emailField.value;
     let username = usernameField.value;
     let password = passwordField.value;
@@ -63,9 +77,11 @@ const Signup = (props) => {
     return (
       <Fragment>
         <h1> Signup </h1>
-        {emailError ? <h2 className="error"> {emailError} </h2> : null}
-        {userError ? <h2 className="error"> {userError} </h2> : null}
         {passwordError ? <h2 className="error">{passwordError}</h2> : null}
+        {nameError ? <h2 className="error">{nameError}</h2> : null}
+        {userError ? <h2 className="error"> {userError} </h2> : null}
+        {emailError ? <h2 className="error"> {emailError} </h2> : null}
+        {emailError ? <h2 className="error"> {emailError} </h2> : null}
         <div className="sign-up">
           <form className="front-page-form" onSubmit={submit}>
             <div className="front-page-form-div">
@@ -83,8 +99,8 @@ const Signup = (props) => {
                 className="input-front-page-form"
                 placeholder="Last Name"
                 type="text"
-                value={lastNameSign.value}
-                onChange={lastNameSign.onChange}
+                value={lastNameField.value}
+                onChange={lastNameField.onChange}
                 required
               />
             </div>

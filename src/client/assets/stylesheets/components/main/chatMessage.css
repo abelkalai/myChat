@@ -1,5 +1,4 @@
 .chat-display-chat-parent {
-  grid-area: "chat";
   position: relative;
 }
 
@@ -45,7 +44,7 @@
   float: right;
   width: 35vh;
   height: 3vh;
-  padding: 6px 6px;
+  padding: 6px;
   margin-right: 4px;
 }
 
@@ -53,13 +52,13 @@
   float: left;
   width: 35vh;
   height: 3vh;
-  padding: 6px 6px;
+  padding: 6px;
 }
 
 .chat-message-wrapper {
   font-size: 18px;
   display: inline-block;
-  padding: 3px 3px;
+  padding: 3p;;
 }
 
 .chat-my-message {
