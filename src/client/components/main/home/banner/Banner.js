@@ -51,7 +51,7 @@ const Banner = (props) => {
                 ) : (
                   <img
                     className="user-image"
-                    src={`data:image/png;base64,${props.userImage.data.getImage}`}
+                    src={`data:image/png;base64,${props.userImage.data.getProfilePicture}`}
                   />
                 )}
               </span>

@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { useFieldInput } from "Hooks/customHooks";
 import Confirmation from "./Confirmation";
-import { CHECK_EMAIL } from "GraphqlDocuments/user";
+import { FORGOT_CREDENTIAL } from "GraphqlDocuments/user";
 import { useLazyQuery } from "@apollo/react-hooks";
 
 const Forgot = (props) => {
@@ -11,9 +11,9 @@ const Forgot = (props) => {
   },[]);
   const emailForm = useFieldInput("");
   const [error, setError] = useState(null);
-  const [emailCheck] = useLazyQuery(CHECK_EMAIL, {
+  const [forgotCredential] = useLazyQuery(FORGOT_CREDENTIAL, {
     onCompleted: (data) => {
-      setError(data.checkEmail);
+      setError(data.forgotCredential);
     },
   });
 
@@ -54,7 +54,7 @@ const Forgot = (props) => {
     event.preventDefault();
     let email = emailForm.value;
     let type = props.type;
-    emailCheck({ variables: { email, type } });
+    forgotCredential({ variables: { email, type } });
   };
 
   return (

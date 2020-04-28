@@ -54,7 +54,6 @@ const ChatSearch = (props) => {
     searchQuery({
       variables: {
         _id: props.userInfo._id,
-        type: "contact",
         search: event.target.value,
       },
     });

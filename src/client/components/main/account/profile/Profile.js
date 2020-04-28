@@ -23,15 +23,12 @@ const Profile = (props) => {
   return (
     <div className="profile-main">
       {props.userImage.loading ? (
-        <img
-          className="profile-image"
-          src="images/profilePlaceholder.png"
-        />
+        <img className="profile-image" src="images/profilePlaceholder.png" />
       ) : (
         <img
           alt={props.userInfo.fullName}
           className="profile-image"
-          src={`data:image/png;base64,${props.userImage.data.getImage}`}
+          src={`data:image/png;base64,${props.userImage.data.getProfilePicture}`}
         />
       )}
       <h1>{props.userInfo.fullName}</h1>
@@ -65,10 +62,7 @@ const Profile = (props) => {
         </button>
       ) : null}
       {aboutUser.loading ? (
-        <img
-          className="about-placeholder"
-          src="images/aboutPlaceholder.png"
-        />
+        <img className="about-placeholder" src="images/aboutPlaceholder.png" />
       ) : (
         !showAboutForm && (
           <div className="profile-about-wrapper">{aboutUser.data.getAbout}</div>

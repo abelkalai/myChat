@@ -12,49 +12,25 @@ const Signup = (props) => {
   }, []);
   const [addUser] = useMutation(ADD_USER);
   const [validateAccount] = useMutation(VALIDATE_ACCOUNT);
-  const [userError, setUserError] = useState(null);
-  const [nameError, setNameError] = useState(null);
-  const [emailError, setEmailError] = useState(null);
-  const [validateError, setValidateError] = useState(null);
-  const [passwordError, setPasswordError] = useState(null);
-  const [confirmMsg, setConfirmMsg] = useState(null);
+  const [errors, setErrors] = useState([]);
   const [page, setPage] = useState("signUpForm");
   const firstNameField = useFieldInput("");
   const lastNameField = useFieldInput("");
   const emailField = useFieldInput("");
   const usernameField = useFieldInput("");
   const passwordField = useFieldInput("");
-  const confirmpasswordField = useFieldInput("");
+  const passwordConfirmField = useFieldInput("");
   const validationCodeField = useFieldInput("");
 
   const submit = async (event) => {
     event.preventDefault();
-    if (passwordField.value != confirmpasswordField.value) {
-      setPasswordError("Passwords don't match");
-    } else {
-      setPasswordError(null);
-    }
-
-    if (usernameField.value.length > 32) {
-      setUserError("Username too long");
-    } else {
-      setUserError(null);
-    }
-    if ((firstNameField.value + lastNameField.value).length > 26) {
-      setNameError("Full Name too long");
-    } else {
-      setNameError(null);
-    }
-
-    if (passwordError || userError || nameError) {
-      return;
-    }
     let firstName = firstNameField.value;
     let lastName = lastNameField.value;
     let email = emailField.value;
     let username = usernameField.value;
     let password = passwordField.value;
-
+    let passwordConfirm = passwordConfirmField.value;
+    
     let result = await addUser({
       variables: {
         firstName,
@@ -62,14 +38,13 @@ const Signup = (props) => {
         email,
         username,
         password,
+        passwordConfirm,
       },
     });
-
-    if (!result.data.addUser.errorList) {
+    setErrors(result.data.addUser.errorList);
+    if (result.data.addUser.errorList.length === 0) {
+      setErrors([]);
       setPage("signUpValidate");
-    } else {
-      setUserError(result.data.addUser.errorList[0]);
-      setEmailError(result.data.addUser.errorList[1]);
     }
   };
 
@@ -77,11 +52,13 @@ const Signup = (props) => {
     return (
       <Fragment>
         <h1> Signup </h1>
-        {passwordError ? <h2 className="error">{passwordError}</h2> : null}
-        {nameError ? <h2 className="error">{nameError}</h2> : null}
-        {userError ? <h2 className="error"> {userError} </h2> : null}
-        {emailError ? <h2 className="error"> {emailError} </h2> : null}
-        {emailError ? <h2 className="error"> {emailError} </h2> : null}
+        {errors.length > 0
+          ? errors.map((error) => (
+              <h2 key={error} className="error">
+                {error}
+              </h2>
+            ))
+          : null}
         <div className="sign-up">
           <form className="front-page-form" onSubmit={submit}>
             <div className="front-page-form-div">
@@ -138,8 +115,8 @@ const Signup = (props) => {
                 <input
                   className="input-front-page-form"
                   placeholder="Confirm Password"
-                  value={confirmpasswordField.value}
-                  onChange={confirmpasswordField.onChange}
+                  value={passwordConfirmField.value}
+                  onChange={passwordConfirmField.onChange}
                   type="password"
                   required
                 />
@@ -176,12 +153,17 @@ const Signup = (props) => {
             </span>
           </p>
           <p>
-            {`Please don't leave this page until you have confirmed your email
-            address. If you leave, you can validate your email upon logging in.`}
+            {`If you leave this page, you can validate your email upon logging in.`}
           </p>
         </div>
-        <form className="front-page-form" onSubmit={confirmEmail}>
-          {<h2 className="error"> {validateError} </h2>}
+        <form className="front-page-form" onSubmit={validateEmail}>
+          {errors.length > 0
+            ? errors.map((error) => (
+                <h2 key={error} className="error">
+                  {error}
+                </h2>
+              ))
+            : null}
           <input
             className="input-front-page-form"
             placeholder="Confirmation Code"
@@ -199,18 +181,17 @@ const Signup = (props) => {
     );
   };
 
-  const confirmEmail = async (event) => {
+  const validateEmail = async (event) => {
     event.preventDefault();
     let validationCode = validationCodeField.value;
     let username = props.verifyUser ? props.verifyUser : usernameField.value;
     let result = await validateAccount({
       variables: { username, validationCode },
     });
-    if (result.data.validateAccount === "Account verified") {
+    if (result.data.validateAccount.length === 0) {
       setPage("signUpConfirm");
-      setConfirmMsg("Email Confirmed");
     } else {
-      setValidateError("Invalid Code");
+      setErrors(result.data.validateAccount);
     }
   };
 
@@ -223,7 +204,7 @@ const Signup = (props) => {
       <Route
         exact
         path="/signup/confirm"
-        render={() => <Confirmation confirmMsg={confirmMsg} />}
+        render={() => <Confirmation confirmMsg={"confirmMsg"} />}
       />
     </div>
   );

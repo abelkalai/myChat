@@ -9,7 +9,7 @@ import {
 
 import ChatMessage from "./ChatMessage";
 import About from "./About";
-import { GET_SINGLE_USER } from "GraphqlDocuments/user";
+import { GET_USER } from "GraphqlDocuments/user";
 import {
   GET_MESSAGES,
   NEW_MESSAGE,
@@ -65,7 +65,7 @@ const ChatDisplay = (props) => {
       props.setMessageLoading(false);
     },
   });
-  const getUser = useQuery(GET_SINGLE_USER, {
+  const getUser = useQuery(GET_USER, {
     variables: { _id: props.currentChat },
     onCompleted: () => {
       props.setAboutLoading(false);

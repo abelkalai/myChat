@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { EDIT_IMAGE, GET_IMAGE } from "GraphqlDocuments/user";
+import { EDIT_IMAGE, GET_PROFILE_PICTURE } from "GraphqlDocuments/user";
 import { useMutation } from "@apollo/react-hooks";
 import imageCompression from "browser-image-compression";
 
@@ -9,7 +9,7 @@ const EditPicture = (props) => {
   const [editImage] = useMutation(EDIT_IMAGE, {
     update: (store, { data }) => {
       store.writeQuery({
-        query: GET_IMAGE,
+        query: GET_PROFILE_PICTURE,
         variables: { _id: props.userInfo._id },
         data: { getImage: data.editImage },
       });

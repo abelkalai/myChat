@@ -40,6 +40,7 @@ export const ADD_USER = gql`
     $email: String!
     $username: String!
     $password: String!
+    $passwordConfirm: String!
   ) {
     addUser(
       firstName: $firstName
@@ -47,6 +48,7 @@ export const ADD_USER = gql`
       email: $email
       username: $username
       password: $password
+      passwordConfirm: $passwordConfirm
     ) {
       User {
         firstName
@@ -64,15 +66,15 @@ export const VALIDATE_ACCOUNT = gql`
   }
 `;
 
-export const CHECK_EMAIL = gql`
-  query checkEmail($email: String, $type: String) {
-    checkEmail(email: $email, type: $type)
+export const FORGOT_CREDENTIAL = gql`
+  query forgotCredetial($email: String, $type: String) {
+    forgotCredential(email: $email, type: $type)
   }
 `;
 
-export const GET_IMAGE = gql`
-  query getImage($_id: String!) {
-    getImage(_id: $_id)
+export const GET_PROFILE_PICTURE = gql`
+  query getProfilePicture($_id: String!) {
+    getProfilePicture(_id: $_id)
   }
 `;
 
@@ -111,18 +113,20 @@ export const CHANGE_PASSWORD = gql`
     $_id: String!
     $currentPassword: String!
     $newPassword: String!
+    $newPasswordConfirm: String!
   ) {
     changePassword(
       _id: $_id
       currentPassword: $currentPassword
       newPassword: $newPassword
+      newPasswordConfirm: $newPasswordConfirm
     )
   }
 `;
 
 export const SEARCH_USER = gql`
-  query searchUser($_id: String!, $type: String!, $search: String!) {
-    searchUser(_id: $_id, type: $type, search: $search) {
+  query searchUser($_id: String!, $search: String!) {
+    searchUser(_id: $_id, search: $search) {
       _id
       fullName
       profilePicture
@@ -130,9 +134,9 @@ export const SEARCH_USER = gql`
   }
 `;
 
-export const GET_SINGLE_USER = gql`
-query getSingleUser($_id: String!) {
-  getSingleUser(_id: $_id) {
+export const GET_USER = gql`
+query getUser($_id: String!) {
+  getUser(_id: $_id) {
     _id
     fullName
     profilePicture

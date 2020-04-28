@@ -8,28 +8,23 @@ const EditPassword = (props) => {
   const currentPasswordField = useFieldInput("");
   const newPasswordField = useFieldInput("");
   const newPasswordConfirmField = useFieldInput("");
-  const [currentPasswordError, setCurrentPasswordError] = useState(null);
-  const [newPasswordError, setNewPasswordError] = useState(null);
+  const [errors, setErrors] = useState([]);
   const [success, setSuccess] = useState(false);
 
   const changePasswordCallBack = async (event) => {
     event.preventDefault();
     setSuccess(false);
-    if (newPasswordField.value != newPasswordConfirmField.value) {
-      setNewPasswordError("Passwords do not match");
-      return;
-    }
 
     let _id = props.userInfo._id;
     let currentPassword = currentPasswordField.value;
     let newPassword = newPasswordField.value;
+    let newPasswordConfirm = newPasswordConfirmField.value;
     let result = await changePassword({
-      variables: { _id, currentPassword, newPassword },
+      variables: { _id, currentPassword, newPassword, newPasswordConfirm },
     });
 
-    setCurrentPasswordError(result.data.changePassword[0]);
-    setNewPasswordError(result.data.changePassword[1]);
-    if (!result.data.changePassword[0] && !result.data.changePassword[1]) {
+    setErrors(result.data.changePassword);
+    if (result.data.changePassword.length === 0) {
       setSuccess(true);
       currentPasswordField.clear();
       newPasswordField.clear();
@@ -42,10 +37,15 @@ const EditPassword = (props) => {
       {success ? (
         <div className="success">Password Change Successful!</div>
       ) : null}
-      {<div className="error">{currentPasswordError}</div>}
-      {newPasswordError ? (
-        <div className="error">{newPasswordError}</div>
-      ) : null}
+      {errors.length > 0
+        ? errors.map((error) => (
+            <div key={error}>
+              <span className="error">
+                {error}
+              </span>
+            </div>
+          ))
+        : null}
       <div>
         <label className="label-settings-form-password">
           <span>Current Password</span>

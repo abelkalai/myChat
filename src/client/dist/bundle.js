@@ -12247,7 +12247,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorLink", function() { return ErrorLink; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onError", function() { return onError; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var apollo_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! apollo-link */ "./node_modules/apollo-link/lib/bundle.esm.js");
+/* harmony import */ var apollo_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! apollo-link */ "./node_modules/apollo-link-error/node_modules/apollo-link/lib/bundle.esm.js");
 
 
 
@@ -12330,6 +12330,252 @@ var ErrorLink = (function (_super) {
     return ErrorLink;
 }(apollo_link__WEBPACK_IMPORTED_MODULE_1__["ApolloLink"]));
 
+
+//# sourceMappingURL=bundle.esm.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/apollo-link-error/node_modules/apollo-link/lib/bundle.esm.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/apollo-link-error/node_modules/apollo-link/lib/bundle.esm.js ***!
+  \***********************************************************************************/
+/*! exports provided: Observable, getOperationName, ApolloLink, concat, createOperation, empty, execute, from, fromError, fromPromise, makePromise, split, toPromise */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApolloLink", function() { return ApolloLink; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "concat", function() { return concat; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createOperation", function() { return createOperation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "empty", function() { return empty; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "execute", function() { return execute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "from", function() { return from; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fromError", function() { return fromError; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fromPromise", function() { return fromPromise; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makePromise", function() { return makePromise; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "split", function() { return split; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toPromise", function() { return toPromise; });
+/* harmony import */ var zen_observable_ts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! zen-observable-ts */ "./node_modules/apollo-link-error/node_modules/zen-observable-ts/lib/bundle.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Observable", function() { return zen_observable_ts__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var apollo_utilities__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-utilities */ "./node_modules/apollo-utilities/lib/bundle.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getOperationName", function() { return apollo_utilities__WEBPACK_IMPORTED_MODULE_3__["getOperationName"]; });
+
+
+
+
+
+
+
+
+function validateOperation(operation) {
+    var OPERATION_FIELDS = [
+        'query',
+        'operationName',
+        'variables',
+        'extensions',
+        'context',
+    ];
+    for (var _i = 0, _a = Object.keys(operation); _i < _a.length; _i++) {
+        var key = _a[_i];
+        if (OPERATION_FIELDS.indexOf(key) < 0) {
+            throw  false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_1__["InvariantError"]("illegal argument: " + key);
+        }
+    }
+    return operation;
+}
+var LinkError = (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__extends"])(LinkError, _super);
+    function LinkError(message, link) {
+        var _this = _super.call(this, message) || this;
+        _this.link = link;
+        return _this;
+    }
+    return LinkError;
+}(Error));
+function isTerminating(link) {
+    return link.request.length <= 1;
+}
+function toPromise(observable) {
+    var completed = false;
+    return new Promise(function (resolve, reject) {
+        observable.subscribe({
+            next: function (data) {
+                if (completed) {
+                     false || ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"].warn("Promise Wrapper does not support multiple results from Observable");
+                }
+                else {
+                    completed = true;
+                    resolve(data);
+                }
+            },
+            error: reject,
+        });
+    });
+}
+var makePromise = toPromise;
+function fromPromise(promise) {
+    return new zen_observable_ts__WEBPACK_IMPORTED_MODULE_0__["default"](function (observer) {
+        promise
+            .then(function (value) {
+            observer.next(value);
+            observer.complete();
+        })
+            .catch(observer.error.bind(observer));
+    });
+}
+function fromError(errorValue) {
+    return new zen_observable_ts__WEBPACK_IMPORTED_MODULE_0__["default"](function (observer) {
+        observer.error(errorValue);
+    });
+}
+function transformOperation(operation) {
+    var transformedOperation = {
+        variables: operation.variables || {},
+        extensions: operation.extensions || {},
+        operationName: operation.operationName,
+        query: operation.query,
+    };
+    if (!transformedOperation.operationName) {
+        transformedOperation.operationName =
+            typeof transformedOperation.query !== 'string'
+                ? Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_3__["getOperationName"])(transformedOperation.query)
+                : '';
+    }
+    return transformedOperation;
+}
+function createOperation(starting, operation) {
+    var context = Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, starting);
+    var setContext = function (next) {
+        if (typeof next === 'function') {
+            context = Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, context, next(context));
+        }
+        else {
+            context = Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, context, next);
+        }
+    };
+    var getContext = function () { return (Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, context)); };
+    Object.defineProperty(operation, 'setContext', {
+        enumerable: false,
+        value: setContext,
+    });
+    Object.defineProperty(operation, 'getContext', {
+        enumerable: false,
+        value: getContext,
+    });
+    Object.defineProperty(operation, 'toKey', {
+        enumerable: false,
+        value: function () { return getKey(operation); },
+    });
+    return operation;
+}
+function getKey(operation) {
+    var query = operation.query, variables = operation.variables, operationName = operation.operationName;
+    return JSON.stringify([operationName, query, variables]);
+}
+
+function passthrough(op, forward) {
+    return forward ? forward(op) : zen_observable_ts__WEBPACK_IMPORTED_MODULE_0__["default"].of();
+}
+function toLink(handler) {
+    return typeof handler === 'function' ? new ApolloLink(handler) : handler;
+}
+function empty() {
+    return new ApolloLink(function () { return zen_observable_ts__WEBPACK_IMPORTED_MODULE_0__["default"].of(); });
+}
+function from(links) {
+    if (links.length === 0)
+        return empty();
+    return links.map(toLink).reduce(function (x, y) { return x.concat(y); });
+}
+function split(test, left, right) {
+    var leftLink = toLink(left);
+    var rightLink = toLink(right || new ApolloLink(passthrough));
+    if (isTerminating(leftLink) && isTerminating(rightLink)) {
+        return new ApolloLink(function (operation) {
+            return test(operation)
+                ? leftLink.request(operation) || zen_observable_ts__WEBPACK_IMPORTED_MODULE_0__["default"].of()
+                : rightLink.request(operation) || zen_observable_ts__WEBPACK_IMPORTED_MODULE_0__["default"].of();
+        });
+    }
+    else {
+        return new ApolloLink(function (operation, forward) {
+            return test(operation)
+                ? leftLink.request(operation, forward) || zen_observable_ts__WEBPACK_IMPORTED_MODULE_0__["default"].of()
+                : rightLink.request(operation, forward) || zen_observable_ts__WEBPACK_IMPORTED_MODULE_0__["default"].of();
+        });
+    }
+}
+var concat = function (first, second) {
+    var firstLink = toLink(first);
+    if (isTerminating(firstLink)) {
+         false || ts_invariant__WEBPACK_IMPORTED_MODULE_1__["invariant"].warn(new LinkError("You are calling concat on a terminating link, which will have no effect", firstLink));
+        return firstLink;
+    }
+    var nextLink = toLink(second);
+    if (isTerminating(nextLink)) {
+        return new ApolloLink(function (operation) {
+            return firstLink.request(operation, function (op) { return nextLink.request(op) || zen_observable_ts__WEBPACK_IMPORTED_MODULE_0__["default"].of(); }) || zen_observable_ts__WEBPACK_IMPORTED_MODULE_0__["default"].of();
+        });
+    }
+    else {
+        return new ApolloLink(function (operation, forward) {
+            return (firstLink.request(operation, function (op) {
+                return nextLink.request(op, forward) || zen_observable_ts__WEBPACK_IMPORTED_MODULE_0__["default"].of();
+            }) || zen_observable_ts__WEBPACK_IMPORTED_MODULE_0__["default"].of());
+        });
+    }
+};
+var ApolloLink = (function () {
+    function ApolloLink(request) {
+        if (request)
+            this.request = request;
+    }
+    ApolloLink.prototype.split = function (test, left, right) {
+        return this.concat(split(test, left, right || new ApolloLink(passthrough)));
+    };
+    ApolloLink.prototype.concat = function (next) {
+        return concat(this, next);
+    };
+    ApolloLink.prototype.request = function (operation, forward) {
+        throw  false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_1__["InvariantError"]('request is not implemented');
+    };
+    ApolloLink.empty = empty;
+    ApolloLink.from = from;
+    ApolloLink.split = split;
+    ApolloLink.execute = execute;
+    return ApolloLink;
+}());
+function execute(link, operation) {
+    return (link.request(createOperation(operation.context, transformOperation(validateOperation(operation)))) || zen_observable_ts__WEBPACK_IMPORTED_MODULE_0__["default"].of());
+}
+
+
+//# sourceMappingURL=bundle.esm.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/apollo-link-error/node_modules/zen-observable-ts/lib/bundle.esm.js":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/apollo-link-error/node_modules/zen-observable-ts/lib/bundle.esm.js ***!
+  \*****************************************************************************************/
+/*! exports provided: default, Observable */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Observable", function() { return Observable; });
+/* harmony import */ var zen_observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! zen-observable */ "./node_modules/zen-observable/index.js");
+/* harmony import */ var zen_observable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(zen_observable__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Observable = zen_observable__WEBPACK_IMPORTED_MODULE_0___default.a;
+
+/* harmony default export */ __webpack_exports__["default"] = (Observable);
 
 //# sourceMappingURL=bundle.esm.js.map
 
@@ -25077,7 +25323,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".front-page-background {\r\n  background-color: #257fbd;\r\n  height: 100vh;\r\n}\r\n\r\n.front-page-wrapper {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.front-page-container {\r\n  display: inline-block;\r\n  background-color: white;\r\n  margin-top: 12.5vh;\r\n  border-radius: 15px;\r\n  width: 60vw;\r\n  left: 50%;\r\n}\r\n\r\n.front-page {\r\n  display: grid;\r\n  grid-template-columns: 40% 60%;\r\n  text-align: center;\r\n}\r\n\r\n.front-page h1 {\r\n  font-size: 40px;\r\n}\r\n\r\n.front-page-info {\r\n  border-top-left-radius: 15px;\r\n  border-bottom-left-radius: 15px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  padding: 10px;\r\n  padding-top: 10px;\r\n  padding-bottom: 40px;\r\n}\r\n\r\n.front-page-info-about {\r\n  margin-top: 60px;\r\n}\r\n\r\n.front-page-header {\r\n  margin-top: 10px;\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.front-page-content {\r\n  margin-top: 10px;\r\n  padding: 10px;\r\n  padding-bottom: 20px;\r\n}\r\n\r\n.front-page-form {\r\n  margin-top: 15px;\r\n}\r\n\r\n.front-page-form-div {\r\n  padding: 2px 2px;\r\n}\r\n\r\n.input-front-page-form {\r\n  padding: 2.5px;\r\n  padding-left: 2.5px;\r\n  margin-bottom: 2.5px;\r\n  font-size: 22px;\r\n  display: inline-block;\r\n  border-top: none;\r\n  border-left: none;\r\n  border-right: none;\r\n}\r\n\r\n.front-page-back-button {\r\n  font-size: 16px;\r\n  color: #696969;\r\n  text-decoration: none;\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  margin-top: 10px;\r\n  margin-right: 7px;\r\n  background-color: #f1f0f0;\r\n  border-color: #f1f0f0;\r\n  width: 130px;\r\n}\r\n\r\n.front-page-submit-button {\r\n  font-size: 16px;\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n  margin-top: 10px;\r\n  width: 80px;\r\n}\r\n\r\n.front-page-submit-button:hover {\r\n  background-color: darkblue;\r\n  border-color: darkblue;\r\n}\r\n\r\n@media (max-width: 912px) {\r\n  .front-page-content p {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .input-front-page-form {\r\n    font-size: 16px;\r\n  }\r\n  .front-page-back-button {\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-top: 5px;\r\n  }\r\n\r\n  .front-page-submit-button {\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-top: 7.5px;\r\n  }\r\n}\r\n\r\n@media (max-width: 768px) {\r\n  .front-page-container {\r\n    margin-top: 10%;\r\n    width: 80vw;\r\n  }\r\n\r\n  .front-page {\r\n    display: block;\r\n  }\r\n\r\n  .front-page h1 {\r\n    font-size: 32px;\r\n  }\r\n\r\n  .front-page h3 {\r\n    margin-top: 0px;\r\n  }\r\n\r\n  .front-page-header {\r\n    margin-top: 1px;\r\n    margin-bottom: 0px;\r\n  }\r\n\r\n  .front-page-info {\r\n    border-top-left-radius: 15px;\r\n    border-bottom-left-radius: 0px;\r\n    border-top-right-radius: 15px;\r\n    padding-top: 2.5px;\r\n    padding-bottom: 5px;\r\n  }\r\n  .front-page-info-about {\r\n    margin-top: 2.5px;\r\n  }\r\n\r\n  .front-page-content {\r\n    margin-top: 2.5px;\r\n    padding: 5px;\r\n    padding-bottom: 10px;\r\n  }\r\n\r\n  .front-page-content p {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .front-page-form {\r\n    margin-top: 0px;\r\n  }\r\n\r\n  .input-front-page-form {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .front-page-back-button {\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-top: 5px;\r\n  }\r\n\r\n  .front-page-submit-button {\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-top: 7.5px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".front-page-background {\r\n  background-color: #257fbd;\r\n  height: 100vh;\r\n}\r\n\r\n.front-page-wrapper {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.front-page-container {\r\n  display: inline-block;\r\n  background-color: white;\r\n  margin-top: 12.5vh;\r\n  border-radius: 15px;\r\n  width: 60vw;\r\n  left: 50%;\r\n}\r\n\r\n.front-page {\r\n  display: grid;\r\n  grid-template-columns: 40% 60%;\r\n  text-align: center;\r\n}\r\n\r\n.front-page h1 {\r\n  font-size: 40px;\r\n}\r\n\r\n.front-page-info {\r\n  border-top-left-radius: 15px;\r\n  border-bottom-left-radius: 15px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  padding: 10px;\r\n  padding-top: 10px;\r\n  padding-bottom: 40px;\r\n}\r\n\r\n.front-page-info-about {\r\n  margin-top: 60px;\r\n}\r\n\r\n.front-page-header {\r\n  margin-top: 10px;\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.front-page-content {\r\n  margin-top: 10px;\r\n  padding: 10px;\r\n  padding-bottom: 20px;\r\n}\r\n\r\n.front-page-form {\r\n  margin-top: 15px;\r\n}\r\n\r\n.front-page-form-div {\r\n  padding: 2px 2px;\r\n}\r\n\r\n.input-front-page-form {\r\n  padding: 2.5px;\r\n  padding-left: 2.5px;\r\n  margin-bottom: 2.5px;\r\n  font-size: 22px;\r\n  display: inline-block;\r\n  border-top: none;\r\n  border-left: none;\r\n  border-right: none;\r\n}\r\n\r\n.front-page-back-button {\r\n  font-size: 16px;\r\n  color: #696969;\r\n  text-decoration: none;\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  margin-top: 10px;\r\n  margin-right: 7px;\r\n  background-color: #f1f0f0;\r\n  border-color: #f1f0f0;\r\n  width: 130px;\r\n}\r\n\r\n.front-page-submit-button {\r\n  font-size: 16px;\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n  margin-top: 10px;\r\n  width: 80px;\r\n}\r\n\r\n.front-page-submit-button:hover {\r\n  background-color: darkblue;\r\n  border-color: darkblue;\r\n}\r\n\r\n@media (max-width: 912px) {\r\n  .front-page-content p {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .input-front-page-form {\r\n    font-size: 16px;\r\n  }\r\n  .front-page-back-button {\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-top: 5px;\r\n  }\r\n\r\n  .front-page-submit-button {\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-top: 7.5px;\r\n  }\r\n}\r\n\r\n@media (max-width: 768px) {\r\n  .front-page-container {\r\n    margin-top: 5%;\r\n    width: 80vw;\r\n  }\r\n\r\n  .front-page {\r\n    display: block;\r\n  }\r\n\r\n  .front-page h1 {\r\n    font-size: 32px;\r\n  }\r\n\r\n  .front-page h3 {\r\n    margin-top: 0px;\r\n  }\r\n\r\n  .front-page-header {\r\n    margin-top: 1px;\r\n    margin-bottom: 0px;\r\n  }\r\n\r\n  .front-page-info {\r\n    border-top-left-radius: 15px;\r\n    border-bottom-left-radius: 0px;\r\n    border-top-right-radius: 15px;\r\n    padding-top: 2.5px;\r\n    padding-bottom: 5px;\r\n  }\r\n  .front-page-info-about {\r\n    margin-top: 2.5px;\r\n  }\r\n\r\n  .front-page-content {\r\n    margin-top: 2.5px;\r\n    padding: 5px;\r\n    padding-bottom: 10px;\r\n  }\r\n\r\n  .front-page-content p {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .front-page-form {\r\n    margin-top: 0px;\r\n  }\r\n\r\n  .input-front-page-form {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .front-page-back-button {\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-top: 5px;\r\n  }\r\n\r\n  .front-page-submit-button {\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-top: 7.5px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25203,7 +25449,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".chat-display-chat-parent {\r\n  position: relative;\r\n}\r\n\r\n.chat-display-chat-container {\r\n  min-height: 82.5vh;\r\n}\r\n\r\n.chat-display-chat {\r\n  margin-top: 1vh;\r\n  max-height: 82.5vh;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  display: flex;\r\n  flex-direction: column-reverse;\r\n}\r\n\r\n.chat-display-chat-send-message-form {\r\n  display: flex;\r\n  margin-top: 15px;\r\n  margin-left: 15px;\r\n}\r\n\r\n.chat-display-chat-message-field {\r\n  padding: 2.5px;\r\n  padding-left: 5px;\r\n  font-size: 18px;\r\n  border-radius: 5px;\r\n  width: 92.5%;\r\n  max-height: 5%;\r\n}\r\n\r\n.chat-display-chat-message-image {\r\n  margin-left: 2px;\r\n  margin-bottom: 2px;\r\n}\r\n\r\n.msg-placeholder-msg-field {\r\n  height: 25px;\r\n  width: 45vw;\r\n}\r\n\r\n.msg-placeholder-img-me {\r\n  float: right;\r\n  width: 35vh;\r\n  height: 3vh;\r\n  padding: 6px;\r\n  margin-right: 4px;\r\n}\r\n\r\n.msg-placeholder-img-contact {\r\n  float: left;\r\n  width: 35vh;\r\n  height: 3vh;\r\n  padding: 6px;\r\n}\r\n\r\n.chat-message-wrapper {\r\n  font-size: 18px;\r\n  display: inline-block;\r\n  padding: 3p;;\r\n}\r\n\r\n.chat-my-message {\r\n  color: white;\r\n  background-color: #0099ff;\r\n  padding: 6px 10px 6px 10px;\r\n  float: right;\r\n  max-width: 60%;\r\n  margin-right: 8px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-contact-message {\r\n  background-color: #f1f0f0;\r\n  padding: 6px 10px 6px 10px;\r\n  float: left;\r\n  max-width: 60%;\r\n  margin-left: 4px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n", ""]);
+exports.push([module.i, ".chat-display-chat-parent {\r\n  position: relative;\r\n}\r\n\r\n.chat-display-chat-container {\r\n  min-height: 82.5vh;\r\n}\r\n\r\n.chat-display-chat {\r\n  margin-top: 1vh;\r\n  max-height: 82.5vh;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  display: flex;\r\n  flex-direction: column-reverse;\r\n}\r\n\r\n.chat-display-chat-send-message-form {\r\n  display: flex;\r\n  margin-top: 15px;\r\n  margin-left: 15px;\r\n}\r\n\r\n.chat-display-chat-message-field {\r\n  padding: 2.5px;\r\n  padding-left: 5px;\r\n  font-size: 18px;\r\n  border-radius: 5px;\r\n  width: 92.5%;\r\n  max-height: 5%;\r\n}\r\n\r\n.chat-display-chat-message-image {\r\n  margin-left: 2px;\r\n  margin-bottom: 2px;\r\n}\r\n\r\n.msg-placeholder-msg-field {\r\n  height: 25px;\r\n  width: 45vw;\r\n}\r\n\r\n.msg-placeholder-img-me {\r\n  float: right;\r\n  width: 35vh;\r\n  height: 3vh;\r\n  padding: 6px;\r\n  margin-right: 4px;\r\n}\r\n\r\n.msg-placeholder-img-contact {\r\n  float: left;\r\n  width: 35vh;\r\n  height: 3vh;\r\n  padding: 6px;\r\n}\r\n\r\n.chat-message-wrapper {\r\n  font-size: 18px;\r\n  display: inline-block;\r\n  padding: 3px;\r\n}\r\n\r\n.chat-my-message {\r\n  color: white;\r\n  background-color: #0099ff;\r\n  padding: 6px 10px 6px 10px;\r\n  float: right;\r\n  max-width: 60%;\r\n  margin-right: 8px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-contact-message {\r\n  background-color: #f1f0f0;\r\n  padding: 6px 10px 6px 10px;\r\n  float: left;\r\n  max-width: 60%;\r\n  margin-left: 4px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -87501,13 +87747,13 @@ var Forgot = function Forgot(props) {
       error = _useState2[0],
       setError = _useState2[1];
 
-  var _useLazyQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_5__["useLazyQuery"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_4__["CHECK_EMAIL"], {
+  var _useLazyQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_5__["useLazyQuery"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_4__["FORGOT_CREDENTIAL"], {
     onCompleted: function onCompleted(data) {
-      setError(data.checkEmail);
+      setError(data.forgotCredential);
     }
   }),
       _useLazyQuery2 = _slicedToArray(_useLazyQuery, 1),
-      emailCheck = _useLazyQuery2[0];
+      forgotCredential = _useLazyQuery2[0];
 
   var forgotForm = function forgotForm() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -87542,7 +87788,7 @@ var Forgot = function Forgot(props) {
     event.preventDefault();
     var email = emailForm.value;
     var type = props.type;
-    emailCheck({
+    forgotCredential({
       variables: {
         email: email,
         type: type
@@ -87746,28 +87992,23 @@ var Login = function Login(props) {
       loginError = _useState2[0],
       setLoginError = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState4 = _slicedToArray(_useState3, 2),
-      validateButton = _useState4[0],
-      showValidateButton = _useState4[1];
+      verifyUser = _useState4[0],
+      setVerifyUser = _useState4[1];
 
   var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState6 = _slicedToArray(_useState5, 2),
-      verifyUser = _useState6[0],
-      setVerifyUser = _useState6[1];
-
-  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
-      _useState8 = _slicedToArray(_useState7, 2),
-      verifyEmail = _useState8[0],
-      setVerifyEmail = _useState8[1];
+      verifyEmail = _useState6[0],
+      setVerifyEmail = _useState6[1];
 
   var usernameField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])("");
   var passwordField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])("");
 
-  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("login"),
-      _useState10 = _slicedToArray(_useState9, 2),
-      page = _useState10[0],
-      setPage = _useState10[1];
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("login"),
+      _useState8 = _slicedToArray(_useState7, 2),
+      page = _useState8[0],
+      setPage = _useState8[1];
 
   var loginForm = function loginForm() {
     var submitLogin = /*#__PURE__*/function () {
@@ -87802,7 +88043,6 @@ var Login = function Login(props) {
                   setLoginError(result.data.login.errorList);
                   setVerifyEmail(result.data.login.email);
                   setVerifyUser(username);
-                  showValidateButton(true);
                 } else {
                   setLoginError(result.data.login.errorList);
                 }
@@ -87868,7 +88108,7 @@ var Login = function Login(props) {
     }, "Forgot Password?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "login-page-button",
       type: "submit"
-    }, "Login"))), validateButton ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    }, "Login"))), loginError === "Please confirm your email to login" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "login-page-validate-button",
       type: "button",
       onClick: function onClick() {
@@ -87971,111 +88211,60 @@ var Signup = function Signup(props) {
       _useMutation4 = _slicedToArray(_useMutation3, 1),
       validateAccount = _useMutation4[0];
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState2 = _slicedToArray(_useState, 2),
-      userError = _useState2[0],
-      setUserError = _useState2[1];
+      errors = _useState2[0],
+      setErrors = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("signUpForm"),
       _useState4 = _slicedToArray(_useState3, 2),
-      nameError = _useState4[0],
-      setNameError = _useState4[1];
-
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
-      _useState6 = _slicedToArray(_useState5, 2),
-      emailError = _useState6[0],
-      setEmailError = _useState6[1];
-
-  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
-      _useState8 = _slicedToArray(_useState7, 2),
-      validateError = _useState8[0],
-      setValidateError = _useState8[1];
-
-  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
-      _useState10 = _slicedToArray(_useState9, 2),
-      passwordError = _useState10[0],
-      setPasswordError = _useState10[1];
-
-  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
-      _useState12 = _slicedToArray(_useState11, 2),
-      confirmMsg = _useState12[0],
-      setConfirmMsg = _useState12[1];
-
-  var _useState13 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("signUpForm"),
-      _useState14 = _slicedToArray(_useState13, 2),
-      page = _useState14[0],
-      setPage = _useState14[1];
+      page = _useState4[0],
+      setPage = _useState4[1];
 
   var firstNameField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
   var lastNameField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
   var emailField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
   var usernameField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
   var passwordField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
-  var confirmpasswordField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
+  var passwordConfirmField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
   var validationCodeField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__["useFieldInput"])("");
 
   var submit = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
-      var firstName, lastName, email, username, password, result;
+      var firstName, lastName, email, username, password, passwordConfirm, result;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               event.preventDefault();
-
-              if (passwordField.value != confirmpasswordField.value) {
-                setPasswordError("Passwords don't match");
-              } else {
-                setPasswordError(null);
-              }
-
-              if (usernameField.value.length > 32) {
-                setUserError("Username too long");
-              } else {
-                setUserError(null);
-              }
-
-              if ((firstNameField.value + lastNameField.value).length > 26) {
-                setNameError("Full Name too long");
-              } else {
-                setNameError(null);
-              }
-
-              if (!(passwordError || userError || nameError)) {
-                _context.next = 6;
-                break;
-              }
-
-              return _context.abrupt("return");
-
-            case 6:
               firstName = firstNameField.value;
               lastName = lastNameField.value;
               email = emailField.value;
               username = usernameField.value;
               password = passwordField.value;
-              _context.next = 13;
+              passwordConfirm = passwordConfirmField.value;
+              _context.next = 9;
               return addUser({
                 variables: {
                   firstName: firstName,
                   lastName: lastName,
                   email: email,
                   username: username,
-                  password: password
+                  password: password,
+                  passwordConfirm: passwordConfirm
                 }
               });
 
-            case 13:
+            case 9:
               result = _context.sent;
+              setErrors(result.data.addUser.errorList);
 
-              if (!result.data.addUser.errorList) {
+              if (result.data.addUser.errorList.length === 0) {
+                setErrors([]);
                 setPage("signUpValidate");
-              } else {
-                setUserError(result.data.addUser.errorList[0]);
-                setEmailError(result.data.addUser.errorList[1]);
               }
 
-            case 15:
+            case 12:
             case "end":
               return _context.stop();
           }
@@ -88089,17 +88278,12 @@ var Signup = function Signup(props) {
   }();
 
   var signUpForm = function signUpForm() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " Signup "), passwordError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-      className: "error"
-    }, passwordError) : null, nameError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-      className: "error"
-    }, nameError) : null, userError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-      className: "error"
-    }, " ", userError, " ") : null, emailError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-      className: "error"
-    }, " ", emailError, " ") : null, emailError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-      className: "error"
-    }, " ", emailError, " ") : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, " Signup "), errors.length > 0 ? errors.map(function (error) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        key: error,
+        className: "error"
+      }, error);
+    }) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "sign-up"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       className: "front-page-form",
@@ -88154,8 +88338,8 @@ var Signup = function Signup(props) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       className: "input-front-page-form",
       placeholder: "Confirm Password",
-      value: confirmpasswordField.value,
-      onChange: confirmpasswordField.onChange,
+      value: passwordConfirmField.value,
+      onChange: passwordConfirmField.onChange,
       type: "password",
       required: true
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -88177,12 +88361,15 @@ var Signup = function Signup(props) {
       className: "validate-info-container"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Please check your email at ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "bold"
-    }, props.verifyEmail ? props.verifyEmail : emailField.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Please don't leave this page until you have confirmed your email\n            address. If you leave, you can validate your email upon logging in.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    }, props.verifyEmail ? props.verifyEmail : emailField.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "If you leave this page, you can validate your email upon logging in.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       className: "front-page-form",
-      onSubmit: confirmEmail
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-      className: "error"
-    }, " ", validateError, " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      onSubmit: validateEmail
+    }, errors.length > 0 ? errors.map(function (error) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        key: error,
+        className: "error"
+      }, error);
+    }) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       className: "input-front-page-form",
       placeholder: "Confirmation Code",
       type: "text",
@@ -88194,7 +88381,7 @@ var Signup = function Signup(props) {
     }, "Confirm"))));
   };
 
-  var confirmEmail = /*#__PURE__*/function () {
+  var validateEmail = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(event) {
       var validationCode, username, result;
       return regeneratorRuntime.wrap(function _callee2$(_context2) {
@@ -88215,11 +88402,10 @@ var Signup = function Signup(props) {
             case 5:
               result = _context2.sent;
 
-              if (result.data.validateAccount === "Account verified") {
+              if (result.data.validateAccount.length === 0) {
                 setPage("signUpConfirm");
-                setConfirmMsg("Email Confirmed");
               } else {
-                setValidateError("Invalid Code");
+                setErrors(result.data.validateAccount);
               }
 
             case 7:
@@ -88230,7 +88416,7 @@ var Signup = function Signup(props) {
       }, _callee2);
     }));
 
-    return function confirmEmail(_x2) {
+    return function validateEmail(_x2) {
       return _ref2.apply(this, arguments);
     };
   }();
@@ -88257,7 +88443,7 @@ var Signup = function Signup(props) {
     path: "/signup/confirm",
     render: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Confirmation__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        confirmMsg: confirmMsg
+        confirmMsg: "confirmMsg"
       });
     }
   }));
@@ -88390,7 +88576,7 @@ var Profile = function Profile(props) {
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     alt: props.userInfo.fullName,
     className: "profile-image",
-    src: "data:image/png;base64,".concat(props.userImage.data.getImage)
+    src: "data:image/png;base64,".concat(props.userImage.data.getProfilePicture)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, props.userInfo.fullName), !showUploadForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "update-profile-pic-button",
     onClick: function onClick() {
@@ -88584,7 +88770,7 @@ var EditPicture = function EditPicture(props) {
     update: function update(store, _ref) {
       var data = _ref.data;
       store.writeQuery({
-        query: GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_1__["GET_IMAGE"],
+        query: GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_1__["GET_PROFILE_PICTURE"],
         variables: {
           _id: props.userInfo._id
         },
@@ -89033,17 +89219,17 @@ var EditName = function EditName(props) {
       _useMutation2 = _slicedToArray(_useMutation, 1),
       changeName = _useMutation2[0];
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState2 = _slicedToArray(_useState, 2),
-      nameError = _useState2[0],
-      setNameError = _useState2[1];
+      errors = _useState2[0],
+      setErrors = _useState2[1];
 
   var firstNamefield = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])(props.userInfo.firstName);
   var lastNameField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])(props.userInfo.lastName);
 
   var changeNameCallBack = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
-      var _id, firstName, lastName;
+      var _id, firstName, lastName, result;
 
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
@@ -89053,20 +89239,7 @@ var EditName = function EditName(props) {
               _id = props.userInfo._id;
               firstName = firstNamefield.value;
               lastName = lastNameField.value;
-
-              if (!((firstName + lastName).length > 26)) {
-                _context.next = 9;
-                break;
-              }
-
-              setNameError("Full Name too long");
-              return _context.abrupt("return");
-
-            case 9:
-              setNameError(null);
-
-            case 10:
-              _context.next = 12;
+              _context.next = 6;
               return changeName({
                 variables: {
                   _id: _id,
@@ -89075,14 +89248,19 @@ var EditName = function EditName(props) {
                 }
               });
 
-            case 12:
-              props.setUserInfo(_objectSpread({}, props.userInfo, {
-                firstName: firstName,
-                lastName: lastName,
-                fullName: "".concat(firstName, " ").concat(lastName)
-              }));
+            case 6:
+              result = _context.sent;
+              setErrors(result.data.changeName);
 
-            case 13:
+              if (result.data.changeName.length === 0) {
+                props.setUserInfo(_objectSpread({}, props.userInfo, {
+                  firstName: firstName,
+                  lastName: lastName,
+                  fullName: "".concat(firstName, " ").concat(lastName)
+                }));
+              }
+
+            case 9:
             case "end":
               return _context.stop();
           }
@@ -89098,9 +89276,13 @@ var EditName = function EditName(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: "settings-form",
     onSubmit: changeNameCallBack
-  }, nameError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "error"
-  }, nameError) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+  }, errors.length > 0 ? errors.map(function (error) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      key: error
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "error"
+    }, error));
+  }) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     className: "label-settings-form"
   }, " First Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     className: "input-settings-form",
@@ -89174,24 +89356,19 @@ var EditPassword = function EditPassword(props) {
   var newPasswordField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])("");
   var newPasswordConfirmField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])("");
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState2 = _slicedToArray(_useState, 2),
-      currentPasswordError = _useState2[0],
-      setCurrentPasswordError = _useState2[1];
+      errors = _useState2[0],
+      setErrors = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       _useState4 = _slicedToArray(_useState3, 2),
-      newPasswordError = _useState4[0],
-      setNewPasswordError = _useState4[1];
-
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState6 = _slicedToArray(_useState5, 2),
-      success = _useState6[0],
-      setSuccess = _useState6[1];
+      success = _useState4[0],
+      setSuccess = _useState4[1];
 
   var changePasswordCallBack = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
-      var _id, currentPassword, newPassword, result;
+      var _id, currentPassword, newPassword, newPasswordConfirm, result;
 
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
@@ -89199,41 +89376,32 @@ var EditPassword = function EditPassword(props) {
             case 0:
               event.preventDefault();
               setSuccess(false);
-
-              if (!(newPasswordField.value != newPasswordConfirmField.value)) {
-                _context.next = 5;
-                break;
-              }
-
-              setNewPasswordError("Passwords do not match");
-              return _context.abrupt("return");
-
-            case 5:
               _id = props.userInfo._id;
               currentPassword = currentPasswordField.value;
               newPassword = newPasswordField.value;
-              _context.next = 10;
+              newPasswordConfirm = newPasswordConfirmField.value;
+              _context.next = 8;
               return changePassword({
                 variables: {
                   _id: _id,
                   currentPassword: currentPassword,
-                  newPassword: newPassword
+                  newPassword: newPassword,
+                  newPasswordConfirm: newPasswordConfirm
                 }
               });
 
-            case 10:
+            case 8:
               result = _context.sent;
-              setCurrentPasswordError(result.data.changePassword[0]);
-              setNewPasswordError(result.data.changePassword[1]);
+              setErrors(result.data.changePassword);
 
-              if (!result.data.changePassword[0] && !result.data.changePassword[1]) {
+              if (result.data.changePassword.length === 0) {
                 setSuccess(true);
                 currentPasswordField.clear();
                 newPasswordField.clear();
                 newPasswordConfirmField.clear();
               }
 
-            case 14:
+            case 11:
             case "end":
               return _context.stop();
           }
@@ -89251,11 +89419,13 @@ var EditPassword = function EditPassword(props) {
     onSubmit: changePasswordCallBack
   }, success ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "success"
-  }, "Password Change Successful!") : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "error"
-  }, currentPasswordError), newPasswordError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "error"
-  }, newPasswordError) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+  }, "Password Change Successful!") : null, errors.length > 0 ? errors.map(function (error) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      key: error
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "error"
+    }, error));
+  }) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     className: "label-settings-form-password"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Current Password")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     className: "input-settings-form ",
@@ -89342,10 +89512,10 @@ var EditUsername = function EditUsername(props) {
 
   var userField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])(props.userInfo.username);
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState2 = _slicedToArray(_useState, 2),
-      userError = _useState2[0],
-      setUserError = _useState2[1];
+      errors = _useState2[0],
+      setErrors = _useState2[1];
 
   var changeUserCallBack = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
@@ -89356,28 +89526,9 @@ var EditUsername = function EditUsername(props) {
           switch (_context.prev = _context.next) {
             case 0:
               event.preventDefault();
-
-              if (!(userField.value.length > 32)) {
-                _context.next = 4;
-                break;
-              }
-
-              setUserError("Username too long");
-              return _context.abrupt("return");
-
-            case 4:
-              if (!(userField.value === props.userInfo.username)) {
-                _context.next = 7;
-                break;
-              }
-
-              setUserError("You're currently using this username");
-              return _context.abrupt("return");
-
-            case 7:
               _id = props.userInfo._id;
               username = userField.value;
-              _context.next = 11;
+              _context.next = 5;
               return changeUserName({
                 variables: {
                   _id: _id,
@@ -89385,26 +89536,17 @@ var EditUsername = function EditUsername(props) {
                 }
               });
 
-            case 11:
+            case 5:
               result = _context.sent;
+              setErrors(result.data.changeUserName);
 
-              if (!(result.data.changeUserName != "Success")) {
-                _context.next = 17;
-                break;
+              if (result.data.changeUserName.length === 0) {
+                props.setUserInfo(_objectSpread({}, props.userInfo, {
+                  username: username
+                }));
               }
 
-              setUserError(result.data.changeUserName);
-              return _context.abrupt("return");
-
-            case 17:
-              setUserError(null);
-
-            case 18:
-              props.setUserInfo(_objectSpread({}, props.userInfo, {
-                username: username
-              }));
-
-            case 19:
+            case 8:
             case "end":
               return _context.stop();
           }
@@ -89420,9 +89562,13 @@ var EditUsername = function EditUsername(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: "settings-form",
     onSubmit: changeUserCallBack
-  }, userError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "error"
-  }, userError) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+  }, errors.length > 0 ? errors.map(function (error) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      key: error
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "error"
+    }, error));
+  }) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     className: "label-settings-form"
   }, " Username"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     className: "input-settings-form",
@@ -89491,7 +89637,7 @@ var Home = function Home(props) {
       userInfo = _useState2[0],
       setUserInfo = _useState2[1];
 
-  var userImage = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__["GET_IMAGE"], {
+  var userImage = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__["GET_PROFILE_PICTURE"], {
     variables: {
       _id: userInfo._id
     }
@@ -89650,7 +89796,7 @@ var Banner = function Banner(props) {
     src: "images/profilePlaceholder.png"
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "user-image",
-    src: "data:image/png;base64,".concat(props.userImage.data.getImage)
+    src: "data:image/png;base64,".concat(props.userImage.data.getProfilePicture)
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "user-name"
   }, props.userInfo.firstName)) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -89883,7 +90029,6 @@ var ChatSearch = function ChatSearch(props) {
     searchQuery({
       variables: {
         _id: props.userInfo._id,
-        type: "contact",
         search: event.target.value
       }
     });
@@ -90038,20 +90183,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var About = function About(props) {
-  if (!props.getUser.data.getSingleUser) {
+  if (!props.getUser.data.getUser) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_placeholders_AboutPlaceholder__WEBPACK_IMPORTED_MODULE_1__["default"], null);
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-about"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, props.getUser.data.getSingleUser.fullName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, props.getUser.data.getUser.fullName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "chat-display-about-img",
-    alt: props.getUser.data.getSingleUser.fullName,
-    title: props.getUser.data.getSingleUser.fullName,
-    src: "data:image/png;base64,".concat(props.getUser.data.getSingleUser.profilePicture)
+    alt: props.getUser.data.getUser.fullName,
+    title: props.getUser.data.getUser.fullName,
+    src: "data:image/png;base64,".concat(props.getUser.data.getUser.profilePicture)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "About "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-about-content"
-  }, props.getUser.data.getSingleUser.about));
+  }, props.getUser.data.getUser.about));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (About);
@@ -90187,7 +90332,7 @@ var ChatDisplay = function ChatDisplay(props) {
       props.setMessageLoading(false);
     }
   });
-  var getUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_5__["GET_SINGLE_USER"], {
+  var getUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_5__["GET_USER"], {
     variables: {
       _id: props.currentChat
     },
@@ -90701,7 +90846,7 @@ var NEW_MESSAGE = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateOb
 /*!*********************************************!*\
   !*** ./src/client/graphqlDocuments/user.js ***!
   \*********************************************/
-/*! exports provided: LOGGED_IN, LOGIN, ADD_USER, VALIDATE_ACCOUNT, CHECK_EMAIL, GET_IMAGE, EDIT_IMAGE, GET_ABOUT, EDIT_ABOUT, CHANGE_NAME, CHANGE_USERNAME, CHANGE_PASSWORD, SEARCH_USER, GET_SINGLE_USER */
+/*! exports provided: LOGGED_IN, LOGIN, ADD_USER, VALIDATE_ACCOUNT, FORGOT_CREDENTIAL, GET_PROFILE_PICTURE, EDIT_IMAGE, GET_ABOUT, EDIT_ABOUT, CHANGE_NAME, CHANGE_USERNAME, CHANGE_PASSWORD, SEARCH_USER, GET_USER */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -90710,8 +90855,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN", function() { return LOGIN; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_USER", function() { return ADD_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VALIDATE_ACCOUNT", function() { return VALIDATE_ACCOUNT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHECK_EMAIL", function() { return CHECK_EMAIL; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_IMAGE", function() { return GET_IMAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORGOT_CREDENTIAL", function() { return FORGOT_CREDENTIAL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_PROFILE_PICTURE", function() { return GET_PROFILE_PICTURE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EDIT_IMAGE", function() { return EDIT_IMAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_ABOUT", function() { return GET_ABOUT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EDIT_ABOUT", function() { return EDIT_ABOUT; });
@@ -90719,11 +90864,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHANGE_USERNAME", function() { return CHANGE_USERNAME; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHANGE_PASSWORD", function() { return CHANGE_PASSWORD; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_USER", function() { return SEARCH_USER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_SINGLE_USER", function() { return GET_SINGLE_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_USER", function() { return GET_USER; });
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
 function _templateObject14() {
-  var data = _taggedTemplateLiteral(["\nquery getSingleUser($_id: String!) {\n  getSingleUser(_id: $_id) {\n    _id\n    fullName\n    profilePicture\n    about\n  }\n}\n"]);
+  var data = _taggedTemplateLiteral(["\nquery getUser($_id: String!) {\n  getUser(_id: $_id) {\n    _id\n    fullName\n    profilePicture\n    about\n  }\n}\n"]);
 
   _templateObject14 = function _templateObject14() {
     return data;
@@ -90733,7 +90878,7 @@ function _templateObject14() {
 }
 
 function _templateObject13() {
-  var data = _taggedTemplateLiteral(["\n  query searchUser($_id: String!, $type: String!, $search: String!) {\n    searchUser(_id: $_id, type: $type, search: $search) {\n      _id\n      fullName\n      profilePicture\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query searchUser($_id: String!, $search: String!) {\n    searchUser(_id: $_id, search: $search) {\n      _id\n      fullName\n      profilePicture\n    }\n  }\n"]);
 
   _templateObject13 = function _templateObject13() {
     return data;
@@ -90743,7 +90888,7 @@ function _templateObject13() {
 }
 
 function _templateObject12() {
-  var data = _taggedTemplateLiteral(["\n  mutation changePassword(\n    $_id: String!\n    $currentPassword: String!\n    $newPassword: String!\n  ) {\n    changePassword(\n      _id: $_id\n      currentPassword: $currentPassword\n      newPassword: $newPassword\n    )\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  mutation changePassword(\n    $_id: String!\n    $currentPassword: String!\n    $newPassword: String!\n    $newPasswordConfirm: String!\n  ) {\n    changePassword(\n      _id: $_id\n      currentPassword: $currentPassword\n      newPassword: $newPassword\n      newPasswordConfirm: $newPasswordConfirm\n    )\n  }\n"]);
 
   _templateObject12 = function _templateObject12() {
     return data;
@@ -90803,7 +90948,7 @@ function _templateObject7() {
 }
 
 function _templateObject6() {
-  var data = _taggedTemplateLiteral(["\n  query getImage($_id: String!) {\n    getImage(_id: $_id)\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query getProfilePicture($_id: String!) {\n    getProfilePicture(_id: $_id)\n  }\n"]);
 
   _templateObject6 = function _templateObject6() {
     return data;
@@ -90813,7 +90958,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n  query checkEmail($email: String, $type: String) {\n    checkEmail(email: $email, type: $type)\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query forgotCredetial($email: String, $type: String) {\n    forgotCredential(email: $email, type: $type)\n  }\n"]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -90833,7 +90978,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  mutation addUser(\n    $firstName: String!\n    $lastName: String!\n    $email: String!\n    $username: String!\n    $password: String!\n  ) {\n    addUser(\n      firstName: $firstName\n      lastName: $lastName\n      email: $email\n      username: $username\n      password: $password\n    ) {\n      User {\n        firstName\n        lastName\n        email\n      }\n      errorList\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  mutation addUser(\n    $firstName: String!\n    $lastName: String!\n    $email: String!\n    $username: String!\n    $password: String!\n    $passwordConfirm: String!\n  ) {\n    addUser(\n      firstName: $firstName\n      lastName: $lastName\n      email: $email\n      username: $username\n      password: $password\n      passwordConfirm: $passwordConfirm\n    ) {\n      User {\n        firstName\n        lastName\n        email\n      }\n      errorList\n    }\n  }\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -90869,8 +91014,8 @@ var LOGGED_IN = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObje
 var LOGIN = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject2());
 var ADD_USER = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject3());
 var VALIDATE_ACCOUNT = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject4());
-var CHECK_EMAIL = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject5());
-var GET_IMAGE = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject6());
+var FORGOT_CREDENTIAL = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject5());
+var GET_PROFILE_PICTURE = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject6());
 var EDIT_IMAGE = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject7());
 var GET_ABOUT = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject8());
 var EDIT_ABOUT = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject9());
@@ -90878,7 +91023,7 @@ var CHANGE_NAME = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateOb
 var CHANGE_USERNAME = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject11());
 var CHANGE_PASSWORD = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject12());
 var SEARCH_USER = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject13());
-var GET_SINGLE_USER = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject14());
+var GET_USER = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject14());
 
 /***/ }),
 

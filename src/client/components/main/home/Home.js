@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_IMAGE } from "GraphqlDocuments/user";
+import { GET_PROFILE_PICTURE } from "GraphqlDocuments/user";
 import Banner from "./banner/Banner";
 import ChatContainer from "./chat/ChatContainer";
 import Profile from "Account/profile/Profile";
@@ -12,10 +12,9 @@ const Home = (props) => {
   const [userInfo, setUserInfo] = useState(
     props.activeUser ? props.activeUser : props.loggedIn
   );
-  const userImage = useQuery(GET_IMAGE, {
+  const userImage = useQuery(GET_PROFILE_PICTURE, {
     variables: { _id: userInfo._id },
   });
-
   return (
     <Fragment>
       <Banner

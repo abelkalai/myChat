@@ -10,12 +10,12 @@ const { merge } = require("lodash");
 
 const MONGODB_URI = config.MONGODB_URI;
 const JWT_SECRET_KEY = config.JSON_SECRET_KEY;
-const { userTypeDefs, userResolvers } = require("./schema/user");
-const { messageTypeDefs, messageResolvers } = require("./schema/message");
+const { userTypeDefs, userResolvers } = require("./schema/userSchema");
+const { messageTypeDefs, messageResolvers } = require("./schema/messageSchema");
 const {
   conversationTypeDefs,
   conversationResolvers,
-} = require("./schema/conversation");
+} = require("./schema/conversationSchema");
 
 mongoose
   .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })

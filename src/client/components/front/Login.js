@@ -8,10 +8,9 @@ import "FrontStylesheets/login.css";
 const Login = (props) => {
   useEffect(() => {
     document.title = "Login | MyChat";
-  },[]);
+  }, []);
   const [loginQuery] = useMutation(LOGIN);
   const [loginError, setLoginError] = useState(null);
-  const [validateButton, showValidateButton] = useState(false);
   const [verifyUser, setVerifyUser] = useState(null);
   const [verifyEmail, setVerifyEmail] = useState(null);
   const usernameField = useFieldInput("");
@@ -42,7 +41,6 @@ const Login = (props) => {
         setLoginError(result.data.login.errorList);
         setVerifyEmail(result.data.login.email);
         setVerifyUser(username);
-        showValidateButton(true);
       } else {
         setLoginError(result.data.login.errorList);
       }
@@ -110,7 +108,7 @@ const Login = (props) => {
           </div>
         </form>
 
-        {validateButton ? (
+        {loginError === "Please confirm your email to login" ? (
           <button
             className="login-page-validate-button"
             type="button"

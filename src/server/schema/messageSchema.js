@@ -89,13 +89,8 @@ const messageResolvers = {
       args.time = time;
       args.conversationID = updateConvo._id;
       let message = new Message({ ...args });
+      await message.save();
 
-      try {
-        await message.save();
-      } catch (error) {
-        return "Could not send message";
-      }
-  
       let senderID = mongoose.mongo.ObjectId(args.senderID);
       let receiverID = mongoose.mongo.ObjectId(args.receiverID);
       let conversations = await Conversation.aggregate([

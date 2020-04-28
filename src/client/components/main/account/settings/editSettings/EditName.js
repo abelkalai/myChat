@@ -5,7 +5,7 @@ import { CHANGE_NAME } from "GraphqlDocuments/user";
 
 const EditName = (props) => {
   const [changeName] = useMutation(CHANGE_NAME);
-  const [nameError, setNameError] = useState(null);
+  const [errors, setErrors] = useState([]);
   const firstNamefield = useFieldInput(props.userInfo.firstName);
   const lastNameField = useFieldInput(props.userInfo.lastName);
 
@@ -14,27 +14,29 @@ const EditName = (props) => {
     let _id = props.userInfo._id;
     let firstName = firstNamefield.value;
     let lastName = lastNameField.value;
-    if ((firstName + lastName).length > 26) {
-      setNameError("Full Name too long");
-      return;
-    }
-    else{
-      setNameError(null)
-    }
-    await changeName({
+    let result = await changeName({
       variables: { _id, firstName, lastName },
     });
-    props.setUserInfo({
-      ...props.userInfo,
-      firstName,
-      lastName,
-      fullName: `${firstName} ${lastName}`,
-    });
+    setErrors(result.data.changeName);
+    if (result.data.changeName.length === 0) {
+      props.setUserInfo({
+        ...props.userInfo,
+        firstName,
+        lastName,
+        fullName: `${firstName} ${lastName}`,
+      });
+    }
   };
 
   return (
     <form className="settings-form" onSubmit={changeNameCallBack}>
-      {nameError ? <span className="error">{nameError}</span> : null}
+      {errors.length > 0
+        ? errors.map((error) => (
+            <div key={error}>
+              <span className="error">{error}</span>
+            </div>
+          ))
+        : null}
       <div>
         <label className="label-settings-form"> First Name</label>
         <input
