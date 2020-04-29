@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { useFieldInput } from "Hooks/customHooks";
 import {
   useApolloClient,
@@ -7,8 +7,6 @@ import {
   useSubscription,
 } from "@apollo/react-hooks";
 
-import ChatMessage from "./ChatMessage";
-import About from "./About";
 import { GET_USER } from "GraphqlDocuments/user";
 import {
   GET_MESSAGES,
@@ -21,24 +19,20 @@ import {
   UPDATED_CONVO,
 } from "GraphqlDocuments/conversation";
 
+import ChatDisplayPlaceholder from "./placeholders/ChatDisplayPlaceholder";
+import ChatMessage from "./ChatMessage";
+import About from "./About";
+import DefaultChat from "./placeholders/DefaultChat";
+
 const ChatDisplay = (props) => {
   if (props.convoHistory.loading) {
-    return null;
+    return <ChatDisplayPlaceholder />;
   }
-
-  useEffect(() => {
-    if (
-      props.convoHistory.data.getConversations.length != 0 &&
-      !props.currentChat
-    ) {
-      for (let ele of props.convoHistory.data.getConversations[0].members) {
-        if (ele._id != props.userInfo._id) props.setCurrentChat(ele._id);
-      }
-      props.setCurrentConvo(props.convoHistory.data.getConversations[0]._id);
-    }
-  },[props.convoHistory,props.currentChat]);
-
+  const apolloClient = useApolloClient();
+  const [messageLoading, setMessageLoading] = useState(true);
+  const [aboutLoading, setAboutLoading] = useState(true);
   const messageField = useFieldInput("");
+  const [sendMessageQuery] = useMutation(SEND_MESSAGE);
 
   const [readMsg] = useMutation(READ_MESSAGE, {
     update: (store, { data }) => {
@@ -58,17 +52,16 @@ const ChatDisplay = (props) => {
     },
   });
 
-  const [sendMessageQuery] = useMutation(SEND_MESSAGE);
   const getMessages = useQuery(GET_MESSAGES, {
     variables: { senderID: props.userInfo._id, receiverID: props.currentChat },
     onCompleted: () => {
-      props.setMessageLoading(false);
+      setMessageLoading(false);
     },
   });
   const getUser = useQuery(GET_USER, {
     variables: { _id: props.currentChat },
     onCompleted: () => {
-      props.setAboutLoading(false);
+      setAboutLoading(false);
     },
   });
 
@@ -85,8 +78,6 @@ const ChatDisplay = (props) => {
       updateConvoCache(subscriptionData.data.updatedConvo);
     },
   });
-
-  const apolloClient = useApolloClient();
 
   const updateMsgCache = (newMsg) => {
     if (
@@ -116,7 +107,6 @@ const ChatDisplay = (props) => {
       messageContainer.scrollTop = messageContainer.scrollHeight;
     }
   };
-
 
   const updateConvoCache = async (convo) => {
     if (
@@ -202,23 +192,11 @@ const ChatDisplay = (props) => {
     );
   };
 
-  const defaultChatDisplay = () => {
-    return (
-      <div className="chat-display-default">
-        <h1>Hi, Welcome to MyChat</h1>
-        <p>
-          To get started, enter a name from the contact list to the left to
-          start messaging!
-        </p>
-      </div>
-    );
-  };
-
-  return props.messageLoading || props.aboutLoading ? null : (
+  return messageLoading || aboutLoading ? (
+    <ChatDisplayPlaceholder />
+  ) : (
     <div className="chat-display-parent">
-      {!props.currentChat &&
-        props.convoHistory.data.getConversations.length === 0 &&
-        defaultChatDisplay()}
+      {props.convoHistory.data.getConversations.length === 0 && <DefaultChat />}
       {props.currentChat && chat()}
       {props.currentChat && <About getUser={getUser} />}
     </div>

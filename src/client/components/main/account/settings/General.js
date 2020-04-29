@@ -70,7 +70,10 @@ const General = (props) => {
       {nameSection()}
       {usernameSection()}
       <div className="settings-divider-inside-single">
-        <span className="bold-text">Email </span> {`${props.userInfo.email}`}
+        <span className="bold-text">Email </span>{" "}
+        {props.userInfo.email.length > 30
+          ? `${props.userInfo.email.slice(0, 30)}...`
+          : props.userInfo.email}
       </div>
     </div>
   );

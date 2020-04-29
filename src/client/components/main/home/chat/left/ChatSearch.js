@@ -76,7 +76,6 @@ const ChatSearch = (props) => {
             userInfo={props.userInfo}
             convoHistory={props.getConvoQuery}
             setCurrentChat={props.setCurrentChat}
-            setFromSearch={props.setFromSearch}
             currentConvo={props.currentConvo}
             setCurrentConvo={props.setCurrentConvo}
           />

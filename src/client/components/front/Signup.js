@@ -204,7 +204,7 @@ const Signup = (props) => {
       <Route
         exact
         path="/signup/confirm"
-        render={() => <Confirmation confirmMsg={"confirmMsg"} />}
+        render={() => <Confirmation confirmMsg={"Email Confirmed!"} />}
       />
     </div>
   );

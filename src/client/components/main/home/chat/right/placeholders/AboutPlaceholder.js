@@ -13,7 +13,7 @@ const AboutPlaceholder = () =>{
             src="images/profilePlaceholder.png"
           />
   
-          <h2>About </h2>
+          <h1>About </h1>
   
           <img
             className="chat-about-content-placeholder"

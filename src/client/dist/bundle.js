@@ -25413,7 +25413,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".chat-display-default {\r\n  padding: 10px 0 0 5px;\r\n}\r\n\r\n.chat-display-about {\r\n  border-left: 1px solid #dcdcdc;\r\n  text-align: center;\r\n}\r\n\r\n.chat-about-name-placeholder {\r\n  display: block;\r\n  margin: 1vh 1vh;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 350px;\r\n  height: 35px;\r\n}\r\n\r\n.chat-display-about h1 {\r\n  margin-bottom: 10px;\r\n  font-size: 22px;\r\n}\r\n\r\n.chat-display-about-img {\r\n  width: 175px;\r\n  height: 175px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-about-content-placeholder {\r\n  width: 360px;\r\n  height: 350px;\r\n}\r\n\r\n.chat-display-about-content {\r\n  margin-top: 10px;\r\n  display: inline-block;\r\n  word-wrap: break-word;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  max-width: 360px;\r\n  max-height: 47.5vh;\r\n}\r\n\r\n@media (max-width: 950px) {\r\n  .chat-display-about {\r\n    display: none;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".chat-display-default {\r\n  padding: 10px 0 0 5px;\r\n}\r\n\r\n.chat-display-about {\r\n  border-left: 1px solid #dcdcdc;\r\n  text-align: center;\r\n}\r\n\r\n.chat-about-name-placeholder {\r\n  display: block;\r\n  margin-bottom: 5px;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 350px;\r\n  height: 27.5px;\r\n  margin-top: 1px;\r\n}\r\n\r\n.chat-display-about h1 {\r\n  margin-bottom: 5px;\r\n  font-size: 22px;\r\n}\r\n\r\n.chat-display-about-img {\r\n  width: 175px;\r\n  height: 175px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-about-content-placeholder {\r\n  width: 360px;\r\n  height: 350px;\r\n}\r\n\r\n.chat-display-about-content {\r\n  display: inline-block;\r\n  word-wrap: break-word;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  max-width: 360px;\r\n  max-height: 47.5vh;\r\n}\r\n\r\n\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -88443,7 +88443,7 @@ var Signup = function Signup(props) {
     path: "/signup/confirm",
     render: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Confirmation__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        confirmMsg: "confirmMsg"
+        confirmMsg: "Email Confirmed!"
       });
     }
   }));
@@ -88979,7 +88979,7 @@ var General = function General(props) {
     className: "settings-divider-inside-single"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "bold-text"
-  }, "Email "), " ", "".concat(props.userInfo.email)));
+  }, "Email "), " ", props.userInfo.email.length > 30 ? "".concat(props.userInfo.email.slice(0, 30), "...") : props.userInfo.email));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (General);
@@ -89852,9 +89852,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _right_ChatDisplay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./right/ChatDisplay */ "./src/client/components/main/home/chat/right/ChatDisplay.js");
 /* harmony import */ var GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! GraphqlDocuments/conversation */ "./src/client/graphqlDocuments/conversation.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var _right_placeholders_ChatDisplayPlaceholder__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./right/placeholders/ChatDisplayPlaceholder */ "./src/client/components/main/home/chat/right/placeholders/ChatDisplayPlaceholder.js");
-/* harmony import */ var MainStylesheets_chat_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! MainStylesheets/chat.css */ "./src/client/assets/stylesheets/components/main/chat.css");
-/* harmony import */ var MainStylesheets_chat_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(MainStylesheets_chat_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var MainStylesheets_chat_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! MainStylesheets/chat.css */ "./src/client/assets/stylesheets/components/main/chat.css");
+/* harmony import */ var MainStylesheets_chat_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(MainStylesheets_chat_css__WEBPACK_IMPORTED_MODULE_5__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -89874,36 +89873,31 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 var ChatContainer = function ChatContainer(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
       _useState2 = _slicedToArray(_useState, 2),
-      fromSearch = _useState2[0],
-      setFromSearch = _useState2[1];
+      currentConvo = _useState2[0],
+      setCurrentConvo = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
       _useState4 = _slicedToArray(_useState3, 2),
-      currentConvo = _useState4[0],
-      setCurrentConvo = _useState4[1];
+      currentChat = _useState4[0],
+      setCurrentChat = _useState4[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("search"),
       _useState6 = _slicedToArray(_useState5, 2),
-      currentChat = _useState6[0],
-      setCurrentChat = _useState6[1];
-
-  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
-      _useState8 = _slicedToArray(_useState7, 2),
-      messageLoading = _useState8[0],
-      setMessageLoading = _useState8[1];
-
-  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
-      _useState10 = _slicedToArray(_useState9, 2),
-      aboutLoading = _useState10[0],
-      setAboutLoading = _useState10[1];
+      mobileDisplay = _useState6[0],
+      setMobileDisplay = _useState6[1];
 
   var getConvoQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__["useQuery"])(GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_3__["GET_CONVERSATIONS"], {
     variables: {
       _id: props.userInfo._id
+    },
+    onCompleted: function onCompleted(data) {
+      if (data.getConversations.length > 0) {
+        setCurrentChat(data.getConversations[0].members[0]._id != props.userInfo._id ? data.getConversations[0].members[0]._id : data.getConversations[0].members[1]._id);
+        setCurrentConvo(data.getConversations[0]._id);
+      }
     }
   });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -89912,22 +89906,21 @@ var ChatContainer = function ChatContainer(props) {
     userInfo: props.userInfo,
     setCurrentChat: setCurrentChat,
     getConvoQuery: getConvoQuery,
-    setFromSearch: setFromSearch,
     currentConvo: currentConvo,
-    setCurrentConvo: setCurrentConvo
-  }), (getConvoQuery.loading || messageLoading || aboutLoading) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_right_placeholders_ChatDisplayPlaceholder__WEBPACK_IMPORTED_MODULE_5__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_right_ChatDisplay__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    setCurrentConvo: setCurrentConvo,
+    windowWidth: props.windowWidth,
+    mobileDisplay: mobileDisplay,
+    setMobileDisplay: setMobileDisplay
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_right_ChatDisplay__WEBPACK_IMPORTED_MODULE_2__["default"], {
     userInfo: props.userInfo,
     currentChat: currentChat,
     setCurrentChat: setCurrentChat,
-    fromSearch: fromSearch,
-    setFromSearch: setFromSearch,
     convoHistory: getConvoQuery,
     currentConvo: currentConvo,
     setCurrentConvo: setCurrentConvo,
-    messageLoading: messageLoading,
-    setMessageLoading: setMessageLoading,
-    aboutLoading: aboutLoading,
-    setAboutLoading: setAboutLoading
+    windowWidth: props.windowWidth,
+    mobileDisplay: mobileDisplay,
+    setMobileDisplay: setMobileDisplay
   }));
 };
 
@@ -90047,7 +90040,6 @@ var ChatSearch = function ChatSearch(props) {
     userInfo: props.userInfo,
     convoHistory: props.getConvoQuery,
     setCurrentChat: props.setCurrentChat,
-    setFromSearch: props.setFromSearch,
     currentConvo: props.currentConvo,
     setCurrentConvo: props.setCurrentConvo
   })));
@@ -90216,11 +90208,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var _ChatMessage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ChatMessage */ "./src/client/components/main/home/chat/right/ChatMessage.js");
-/* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./About */ "./src/client/components/main/home/chat/right/About.js");
-/* harmony import */ var GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! GraphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
-/* harmony import */ var GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! GraphqlDocuments/message */ "./src/client/graphqlDocuments/message.js");
-/* harmony import */ var GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! GraphqlDocuments/conversation */ "./src/client/graphqlDocuments/conversation.js");
+/* harmony import */ var GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! GraphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
+/* harmony import */ var GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! GraphqlDocuments/message */ "./src/client/graphqlDocuments/message.js");
+/* harmony import */ var GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! GraphqlDocuments/conversation */ "./src/client/graphqlDocuments/conversation.js");
+/* harmony import */ var _placeholders_ChatDisplayPlaceholder__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./placeholders/ChatDisplayPlaceholder */ "./src/client/components/main/home/chat/right/placeholders/ChatDisplayPlaceholder.js");
+/* harmony import */ var _ChatMessage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ChatMessage */ "./src/client/components/main/home/chat/right/ChatMessage.js");
+/* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./About */ "./src/client/components/main/home/chat/right/About.js");
+/* harmony import */ var _placeholders_DefaultChat__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./placeholders/DefaultChat */ "./src/client/components/main/home/chat/right/placeholders/DefaultChat.js");
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -90243,15 +90237,15 @@ function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArra
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 
 
@@ -90264,35 +90258,32 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 var ChatDisplay = function ChatDisplay(props) {
   if (props.convoHistory.loading) {
-    return null;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_placeholders_ChatDisplayPlaceholder__WEBPACK_IMPORTED_MODULE_6__["default"], null);
   }
 
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    if (props.convoHistory.data.getConversations.length != 0 && !props.currentChat) {
-      var _iterator = _createForOfIteratorHelper(props.convoHistory.data.getConversations[0].members),
-          _step;
+  var apolloClient = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useApolloClient"])();
 
-      try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var ele = _step.value;
-          if (ele._id != props.userInfo._id) props.setCurrentChat(ele._id);
-        }
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
-      }
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
+      _useState2 = _slicedToArray(_useState, 2),
+      messageLoading = _useState2[0],
+      setMessageLoading = _useState2[1];
 
-      props.setCurrentConvo(props.convoHistory.data.getConversations[0]._id);
-    }
-  }, [props.convoHistory, props.currentChat]);
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
+      _useState4 = _slicedToArray(_useState3, 2),
+      aboutLoading = _useState4[0],
+      setAboutLoading = _useState4[1];
+
   var messageField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])("");
 
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_6__["READ_MESSAGE"], {
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_4__["SEND_MESSAGE"]),
+      _useMutation2 = _slicedToArray(_useMutation, 1),
+      sendMessageQuery = _useMutation2[0];
+
+  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_4__["READ_MESSAGE"], {
     update: function update(store, _ref) {
       var data = _ref.data;
       var convoCache = store.readQuery({
-        query: GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_7__["GET_CONVERSATIONS"],
+        query: GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_5__["GET_CONVERSATIONS"],
         variables: {
           _id: props.userInfo._id
         }
@@ -90306,7 +90297,7 @@ var ChatDisplay = function ChatDisplay(props) {
         }) : convo;
       });
       store.writeQuery({
-        query: GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_7__["GET_CONVERSATIONS"],
+        query: GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_5__["GET_CONVERSATIONS"],
         variables: {
           _id: props.userInfo._id
         },
@@ -90316,50 +90307,45 @@ var ChatDisplay = function ChatDisplay(props) {
       });
     }
   }),
-      _useMutation2 = _slicedToArray(_useMutation, 1),
-      readMsg = _useMutation2[0];
-
-  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_6__["SEND_MESSAGE"]),
       _useMutation4 = _slicedToArray(_useMutation3, 1),
-      sendMessageQuery = _useMutation4[0];
+      readMsg = _useMutation4[0];
 
-  var getMessages = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_6__["GET_MESSAGES"], {
+  var getMessages = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_4__["GET_MESSAGES"], {
     variables: {
       senderID: props.userInfo._id,
       receiverID: props.currentChat
     },
     onCompleted: function onCompleted() {
-      props.setMessageLoading(false);
+      setMessageLoading(false);
     }
   });
-  var getUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_5__["GET_USER"], {
+  var getUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__["GET_USER"], {
     variables: {
       _id: props.currentChat
     },
     onCompleted: function onCompleted() {
-      props.setAboutLoading(false);
+      setAboutLoading(false);
     }
   });
-  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_6__["NEW_MESSAGE"], {
+  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_4__["NEW_MESSAGE"], {
     fetchPolicy: "no-cache",
     onSubscriptionData: function onSubscriptionData(_ref2) {
       var subscriptionData = _ref2.subscriptionData;
       updateMsgCache(subscriptionData.data.newMessage);
     }
   });
-  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_7__["UPDATED_CONVO"], {
+  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useSubscription"])(GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_5__["UPDATED_CONVO"], {
     fetchPolicy: "no-cache",
     onSubscriptionData: function onSubscriptionData(_ref3) {
       var subscriptionData = _ref3.subscriptionData;
       updateConvoCache(subscriptionData.data.updatedConvo);
     }
   });
-  var apolloClient = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useApolloClient"])();
 
   var updateMsgCache = function updateMsgCache(newMsg) {
     if ((newMsg.senderID === props.userInfo._id || newMsg.receiverID === props.userInfo._id) && newMsg.conversationID === props.currentConvo) {
       var msgStore = apolloClient.readQuery({
-        query: GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_6__["GET_MESSAGES"],
+        query: GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_4__["GET_MESSAGES"],
         variables: {
           senderID: props.userInfo._id,
           receiverID: props.currentChat
@@ -90370,7 +90356,7 @@ var ChatDisplay = function ChatDisplay(props) {
 
       newMsgArray.unshift(newMsg);
       apolloClient.writeQuery({
-        query: GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_6__["GET_MESSAGES"],
+        query: GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_4__["GET_MESSAGES"],
         variables: {
           senderID: props.userInfo._id,
           receiverID: props.currentChat
@@ -90415,7 +90401,7 @@ var ChatDisplay = function ChatDisplay(props) {
 
             case 6:
               convoStore = apolloClient.readQuery({
-                query: GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_7__["GET_CONVERSATIONS"],
+                query: GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_5__["GET_CONVERSATIONS"],
                 variables: {
                   _id: props.userInfo._id
                 }
@@ -90426,7 +90412,7 @@ var ChatDisplay = function ChatDisplay(props) {
               });
               copy.unshift(convo);
               apolloClient.writeQuery({
-                query: GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_7__["GET_CONVERSATIONS"],
+                query: GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_5__["GET_CONVERSATIONS"],
                 variables: {
                   _id: props.userInfo._id
                 },
@@ -90535,7 +90521,7 @@ var ChatDisplay = function ChatDisplay(props) {
   var chat = function chat() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "chat-display-chat-parent"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatMessage__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatMessage__WEBPACK_IMPORTED_MODULE_7__["default"], {
       getMessages: getMessages,
       userInfo: props.userInfo
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -90556,15 +90542,9 @@ var ChatDisplay = function ChatDisplay(props) {
     })));
   };
 
-  var defaultChatDisplay = function defaultChatDisplay() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "chat-display-default"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hi, Welcome to MyChat"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "To get started, enter a name from the contact list to the left to start messaging!"));
-  };
-
-  return props.messageLoading || props.aboutLoading ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return messageLoading || aboutLoading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_placeholders_ChatDisplayPlaceholder__WEBPACK_IMPORTED_MODULE_6__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-parent"
-  }, !props.currentChat && props.convoHistory.data.getConversations.length === 0 && defaultChatDisplay(), props.currentChat && chat(), props.currentChat && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_About__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, props.convoHistory.data.getConversations.length === 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_placeholders_DefaultChat__WEBPACK_IMPORTED_MODULE_9__["default"], null), props.currentChat && chat(), props.currentChat && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_About__WEBPACK_IMPORTED_MODULE_8__["default"], {
     getUser: getUser
   }));
 };
@@ -90648,7 +90628,7 @@ var AboutPlaceholder = function AboutPlaceholder() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "chat-display-about-img",
     src: "images/profilePlaceholder.png"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "About "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "About "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "chat-about-content-placeholder",
     src: "images/contentPlaceholder.png"
   }));
@@ -90684,6 +90664,29 @@ var ChatDisplayPlaceholder = function ChatDisplayPlaceholder() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ChatDisplayPlaceholder);
+
+/***/ }),
+
+/***/ "./src/client/components/main/home/chat/right/placeholders/DefaultChat.js":
+/*!********************************************************************************!*\
+  !*** ./src/client/components/main/home/chat/right/placeholders/DefaultChat.js ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var DefaultChat = function DefaultChat() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "chat-display-default"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hi, Welcome to MyChat"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "To get started, enter a name from the contact list to the left to start messaging!"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (DefaultChat);
 
 /***/ }),
 
@@ -91064,7 +91067,7 @@ var domainName = window.location.hostname; // If running locally use `ws:// ${do
 
 var port = 4000;
 var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_6__["WebSocketLink"]({
-  uri: "ws://".concat(domainName, ":").concat(port, "/graphql"),
+  uri: "wss://".concat(domainName, "/graphql"),
   options: {
     reconnect: true,
     lazy: true
