@@ -2,7 +2,7 @@
   margin-top: 7.5%;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .confirmation-container {
     margin-top: 0%;
   }

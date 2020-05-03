@@ -1,6 +1,6 @@
-const confirmEmail = (fullName, code) => {
+const verifyEmail = (fullName, code) => {
   return `<p> Hi ${fullName}, </p> 
-            <p> Please provide this verification code <b> ${code} </b> to MyChat to validate your email! </p>
+            <p> Please provide this verification code <b> ${code} </b> to MyChat to verify your email! </p>
             <p> Best Regards, </p>
             <p> The MyChat Team </p> 
             <p> <br> Please do not respond to this email, it is a no-reply email address</p>`;
@@ -22,4 +22,4 @@ const forgotPassEmail = (fullName, password) => {
             <p> <br> Please do not respond to this email, it is a no-reply email address</p>`;
 };
 
-module.exports = { confirmEmail, forgotUserEmail, forgotPassEmail };
+module.exports = { verifyEmail, forgotUserEmail, forgotPassEmail };

@@ -42,8 +42,7 @@
 }
 
 .front-page-header {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px 0 10px 0;
 }
 
 .front-page-content {
@@ -75,10 +74,8 @@
   font-size: 16px;
   color: #696969;
   text-decoration: none;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-top: 10px;
-  margin-right: 7px;
+  margin: 10px 7px 0 0;
+  padding: 0 5px 0 5px;
   background-color: #f1f0f0;
   border-color: #f1f0f0;
   width: 130px;
@@ -86,8 +83,7 @@
 
 .front-page-submit-button {
   font-size: 16px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 0 5px 0 5px;
   background-color: #00a8f3;
   color: white;
   margin-top: 10px;
@@ -109,22 +105,18 @@
   }
   .front-page-back-button {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px;
+    margin: 5px auto 0 auto;
   }
 
   .front-page-submit-button {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 7.5px;
+    margin: 7.5px auto 0 auto;
   }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .front-page-container {
-    margin-top: 5%;
+    margin-top: 7.5%;
     width: 80vw;
   }
 
@@ -146,9 +138,9 @@
   }
 
   .front-page-info {
+    border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 0px;
-    border-top-right-radius: 15px;
     padding-top: 2.5px;
     padding-bottom: 5px;
   }

@@ -1,0 +1,49 @@
+.chat-main {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  font-size: 18px;
+}
+
+
+.link{
+  text-decoration: none;
+  color: black;
+  pointer-events: inherit;
+}
+
+.link-flex {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex: 1 1 1px;
+}
+
+.linkActive {
+  pointer-events : none !important;
+}
+
+.pointer-wrapper{
+  cursor: pointer;
+}
+
+.pointer-wrapper-bold{
+  cursor: pointer;
+  font-weight: bold;
+
+}
+::-webkit-scrollbar {
+  width: 7.5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 7.5px;
+}
+
+@media screen and (max-width: 768px) {
+  .chat-main {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 50px);
+  }
+}

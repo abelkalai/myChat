@@ -1,5 +1,4 @@
 import React from "react";
-
 const DefaultChat = () => {
   return (
     <div className="chat-display-default">

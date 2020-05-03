@@ -5,7 +5,7 @@ const { DEFAULT_IMAGE } = require("../images/imageStore");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const generator = require("generate-password");
-
+const mongoose = require("mongoose");
 const mailService = require("../services/emailService");
 
 const JWT_SECRET_KEY = config.JSON_SECRET_KEY;
@@ -20,7 +20,7 @@ const userTypeDefs = gql`
     username: String
     confirmed: Boolean
     profilePicture: String
-    validationCode: String
+    verifcationCode: String
     about: String
   }
 
@@ -40,7 +40,7 @@ const userTypeDefs = gql`
     getAbout(_id: String!): String
     getProfilePicture(_id: String!): String
     searchUser(_id: String!, search: String!): [User]
-    getUser(_id: String!): User
+    getUser(_id: String!, myID: String!): User
   }
 
   type loginResp {
@@ -61,7 +61,7 @@ const userTypeDefs = gql`
     ): addUserResponse
 
     login(username: String!, password: String!): loginResp
-    validateAccount(username: String!, validationCode: String!): [String]
+    verifyEmail(email: String!, verificationCode: String!): [String]
     editAbout(_id: String!, about: String!): String!
     editImage(_id: String!, image: String!): String!
     changeName(_id: String!, firstName: String!, lastName: String!): [String]
@@ -95,22 +95,24 @@ const userResolvers = {
     },
 
     forgotCredential: async (root, args) => {
-      let user = await User.findOne({ email: args.email.toLowerCase() });
-      let result = user ? "validEmail" : "No associated email found";
+      let user = await User.find({
+        email: { $regex: new RegExp(`^${args.email}`, "i") },
+      }).limit(1);
+      let result = user.length > 0 ? "validEmail" : "No associated email found";
       if (result === "validEmail") {
         if (args.type === "Username") {
           await mailService.sendEmail("USERNAME", {
-            toFullName: user.fullName,
-            toEmail: user.email,
-            username: user.username,
+            toFullName: user[0].fullName,
+            toEmail: user[0].email,
+            username: user[0].username,
           });
         } else if (args.type === "Password") {
           let newPass = generator.generate({ length: 8, numbers: true });
           let bcryptPass = await bcrypt.hash(newPass, 10);
-          await User.findByIdAndUpdate(user._id, { password: bcryptPass });
+          await User.findByIdAndUpdate(user[0]._id, { password: bcryptPass });
           await mailService.sendEmail("PASSWORD", {
-            toFullName: user.fullName,
-            toEmail: user.email,
+            toFullName: user[0].fullName,
+            toEmail: user[0].email,
             password: newPass,
           });
         }
@@ -121,10 +123,9 @@ const userResolvers = {
     searchUser: async (root, args) => {
       if (!args.search) return [];
       let regSearch = `\W*((?i)${args.search}(?-i))\W*`;
-      let _id = args._id;
 
       let searchResult = await User.find({
-        _id: { $ne: _id },
+        _id: { $ne: args._id },
         fullName: { $regex: regSearch },
         confirmed: true,
       });
@@ -132,9 +133,17 @@ const userResolvers = {
     },
 
     getUser: async (root, args) => {
-      if (!args._id) return null;
-      let user = await User.findById(args._id);
-      return user;
+      if (!mongoose.isValidObjectId(args._id)) {
+        return null;
+      }
+      if (!(await User.exists({ _id: args._id }))) {
+        return null;
+      }
+
+      let user = await User.find({
+        $and: [{ _id: args._id }, { _id: { $ne: args.myID } }],
+      }).limit(1);
+      return user[0];
     },
   },
   Mutation: {
@@ -144,41 +153,33 @@ const userResolvers = {
       args.confirmed = false;
       args.about = "";
       args.profilePicture = DEFAULT_IMAGE;
-      args.username = args.username.toLowerCase();
-      args.email = args.email.toLowerCase();
       const verificationCode = generator.generate({ length: 8, numbers: true });
-      args.validationCode = await bcrypt.hash(verificationCode, 10);
+      args.verifcationCode = await bcrypt.hash(verificationCode, 10);
       let user = new User({ ...args });
       let errors = [];
 
-      if(args.password != args.passwordConfirm){
-        errors.push("Passwords don't match")
-      }
-      if(args.username.length > 32){
-        errors.push("Username too long")
-      }
-      if(args.fullName.length > 26){
-        errors.push("Full Name too long")
+      if (args.password != args.passwordConfirm) {
+        errors.push("Passwords don't match");
       }
       if (
         (await User.collection.countDocuments({
-          username: args.username,
+          username: { $regex: new RegExp(`^${args.username}`, "i") },
         })) > 0
       ) {
-        errors.push("User Already Used");
+        errors.push("Username already used");
       }
 
       if (
         (await User.collection.countDocuments({
-          email: args.email,
+          email: { $regex: new RegExp(`^${args.email}`, "i") },
         })) > 0
       ) {
-        errors.push("Email Already Used");
+        errors.push("Email already used");
       }
-   
+
       if (errors.length === 0) {
         await user.save();
-        await mailService.sendEmail("CONFIRM", {
+        await mailService.sendEmail("VERIFY", {
           toFullName: args.fullName,
           toEmail: args.email,
           code: verificationCode,
@@ -190,56 +191,60 @@ const userResolvers = {
     },
 
     login: async (root, args) => {
-      const user = await User.findOne({
-        username: args.username.toLowerCase().replace(/ /g, ""),
-      });
-
-      if (!(await bcrypt.compare(args.password, user.password))) {
+      const user = await User.find({
+        username: { $regex: new RegExp(`^${args.username}`, "i") },
+      }).limit(1);
+      if (user.length === 0) {
         return { errorList: "Username or Password is incorrect" };
-      } else if (!user.confirmed) {
+      }
+      if (!(await bcrypt.compare(args.password, user[0].password))) {
+        return { errorList: "Username or Password is incorrect" };
+      } else if (!user[0].confirmed) {
         let verificationCode = generator.generate({
           length: 8,
           numbers: true,
         });
-        let validationCodeHash = await bcrypt.hash(verificationCode, 10);
-        await User.findByIdAndUpdate(user._id, {
-          validationCode: validationCodeHash,
+        let verificationCodeHash = await bcrypt.hash(verificationCode, 10);
+        await User.findByIdAndUpdate(user[0]._id, {
+          verificationCode: verificationCodeHash,
         });
-        await mailService.sendEmail("CONFIRM", {
-          toFullName: user.fullName,
-          toEmail: user.email,
+        await mailService.sendEmail("VERIFY", {
+          toFullName: user[0].fullName,
+          toEmail: user[0].email,
           code: verificationCode,
         });
         return {
-          email: user.email,
-          errorList: "Please confirm your email to login",
+          email: user[0].email,
+          errorList: "Please verify your email to login",
         };
       }
       const userSign = {
-        _id: user._id,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        fullName: user.fullName,
-        username: user.username,
-        email: user.email,
-        confirmed: user.confirmed,
+        _id: user[0]._id,
+        firstName: user[0].firstName,
+        lastName: user[0].lastName,
+        fullName: user[0].fullName,
+        username: user[0].username,
+        email: user[0].email,
+        confirmed: user[0].confirmed,
       };
       return {
-        User: user,
+        User: user[0],
         Token: jwt.sign(userSign, JWT_SECRET_KEY),
         errorList: null,
       };
     },
 
-    validateAccount: async (root, args) => {
-      const user = await User.findOne({ username: args.username });
+    verifyEmail: async (root, args) => {
+      const user = await User.find({
+        email: { $regex: new RegExp(`^${args.email}`, "i") },
+      }).limit(1);
       if (
-        !(await bcrypt.compare(args.validationCode.trim(), user.validationCode))
+        !(await bcrypt.compare(args.verificationCode, user[0].verificationCode))
       ) {
-        return ["Invalid Validation Code"];
+        return ["Invalid Verification Code"];
       } else {
-        await User.findByIdAndUpdate(user._id, {
-          validationCode: null,
+        await User.findByIdAndUpdate(user[0]._id, {
+          verifcaitonCode: null,
           confirmed: true,
         });
         return [];
@@ -247,7 +252,7 @@ const userResolvers = {
     },
 
     editAbout: async (root, args) => {
-      await User.findByIdAndUpdate(args._id, { about: args.about.trim() });
+      await User.findByIdAndUpdate(args._id, { about: args.about });
       return args.about;
     },
 
@@ -259,9 +264,6 @@ const userResolvers = {
     changeName: async (root, args) => {
       let errors = [];
       let fullName = `${args.firstName} ${args.lastName}`;
-      if (fullName.length > 26) {
-        errors.push("Combined Name too long");
-      }
       if (errors.length === 0) {
         await User.findByIdAndUpdate(args._id, {
           firstName: args.firstName,
@@ -276,17 +278,16 @@ const userResolvers = {
       let errors = [];
       if (
         (await User.collection.countDocuments({
-          username: args.username,
+          username: { $regex: new RegExp(`^${args.username}`, "i") },
         })) > 0
       ) {
         errors.push("Username is already in use");
       }
-      if (args.username.length > 32) {
-        errors.push("Username too long");
-      }
 
       if (errors.length == 0) {
-        await User.findByIdAndUpdate(args._id, { username: args.username });
+        await User.findByIdAndUpdate(args._id, {
+          username: args.username,
+        });
       }
       return errors;
     },

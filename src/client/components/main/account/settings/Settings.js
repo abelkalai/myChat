@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import General from "./General";
 import Security from "./Security";
-import { Link, Route } from "react-router-dom";
-import "../../../../assets/stylesheets/components/main/settings.css";
+import { NavLink, Route } from "react-router-dom";
+import "MainStylesheets/settings.css";
 
 const Settings = (props) => {
   useEffect(() => {
@@ -27,11 +27,15 @@ const Settings = (props) => {
           )}
         </div>
       ) : null}
-      {props.windowWidth > 950 || (props.windowWidth <= 950 && !openMenu) ? (
-        <div className="main-left">
+      {props.windowWidth > 950 || !openMenu ? (
+        <div className="main-settings-left">
           <h1>Settings</h1>
           <div className="settings-dropdown">
-            <Link to="/home/settings/general" className="link">
+            <NavLink
+              to="/home/settings/general"
+              className="link"
+              activeClassName="linkActive"
+            >
               <div
                 className={
                   activeTab === "general"
@@ -46,10 +50,14 @@ const Settings = (props) => {
                   className="general-settings-image"
                   src="images/generalSettings.png"
                 />
-                <span className="general-content">General</span>
+                <div className="general-content">General</div>
               </div>
-            </Link>
-            <Link to="/home/settings/security" className="link">
+            </NavLink>
+            <NavLink
+              to="/home/settings/security"
+              className="link"
+              activeClassName="linkActive"
+            >
               <div
                 className={
                   activeTab === "security"
@@ -64,14 +72,14 @@ const Settings = (props) => {
                   className="security-settings-image"
                   src="images/securitySettings.png"
                 />
-                <span className="security-content">Security </span>
+                <div className="security-content">Security </div>
               </div>
-            </Link>
+            </NavLink>
           </div>
         </div>
       ) : null}
 
-      {props.windowWidth > 950 || (props.windowWidth <= 950 && openMenu) ? (
+      {props.windowWidth > 950 || openMenu ? (
         <div className="main-right">
           <Route
             path="/home/settings/general"

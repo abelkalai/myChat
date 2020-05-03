@@ -4,14 +4,15 @@ import { useMutation } from "@apollo/react-hooks";
 import { CHANGE_USERNAME } from "GraphqlDocuments/user";
 
 const EditUsername = (props) => {
-  const [changeUserName] = useMutation(CHANGE_USERNAME);
-  const userField = useFieldInput(props.userInfo.username);
   const [errors, setErrors] = useState([]);
-
+  const [success, setSuccess] = useState(false);
+  const userField = useFieldInput(props.userInfo.username);
+  const [changeUserName] = useMutation(CHANGE_USERNAME);
+  
   const changeUserCallBack = async (event) => {
     event.preventDefault();
     let _id = props.userInfo._id;
-    let username = userField.value;
+    let username = userField.value.trim();
     let result = await changeUserName({
       variables: { _id, username },
     });
@@ -21,11 +22,14 @@ const EditUsername = (props) => {
         ...props.userInfo,
         username,
       });
+      setSuccess(true)
+      setTimeout(()=>{setSuccess(false)},2000)
     }
   };
 
   return (
     <form className="settings-form" onSubmit={changeUserCallBack}>
+      {success ? <div className="success">Username Change Successful!</div> : null}
       {errors.length > 0
         ? errors.map((error) => (
             <div key={error}>

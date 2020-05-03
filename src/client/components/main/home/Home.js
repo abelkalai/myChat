@@ -32,14 +32,14 @@ const Home = (props) => {
             "/forgotUsername",
             "/forgotPassword",
             "/signup",
-            "/signup/validate",
+            "/signup/verify",
             "/signup/confirm",
           ]}
-          render={() => <Redirect to="/home" />}
+          render={() => <Redirect to="/home/messages" />}
         />
         <Route
           exact
-          path="/home"
+          path={["/home/messages", "/home/messages/:id"]}
           render={() => (
             <ChatContainer
               userInfo={userInfo}

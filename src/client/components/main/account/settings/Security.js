@@ -20,7 +20,7 @@ const Security = (props) => {
         <span className="bold-text">Change Password </span>
         {showPasswordForm ? null : (
           <span
-            className="change"
+            className="change-edit-password"
             onClick={() => {
               setShowPasswordForm(true);
             }}

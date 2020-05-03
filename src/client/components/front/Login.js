@@ -21,7 +21,7 @@ const Login = (props) => {
   const loginForm = () => {
     const submitLogin = async (event) => {
       event.preventDefault();
-      let username = usernameField.value;
+      let username = usernameField.value.trim();
       let password = passwordField.value;
       let result = await loginQuery({
         variables: { username, password },
@@ -29,14 +29,14 @@ const Login = (props) => {
       if (!result.data.login.errorList) {
         setLoginError(null);
         let date = new Date();
-        date.setDate(date.getDate() + 7);
+        date.setDate(date.getDate() + 365);
         document.cookie = `token=${
           result.data.login.Token
         }; expires= ${date.toGMTString()} path = /;`;
         props.setActiveUser(result.data.login.User);
         props.setIgnoreCookie(false);
       } else if (
-        result.data.login.errorList === "Please confirm your email to login"
+        result.data.login.errorList === "Please verify your email to login"
       ) {
         setLoginError(result.data.login.errorList);
         setVerifyEmail(result.data.login.email);
@@ -108,17 +108,17 @@ const Login = (props) => {
           </div>
         </form>
 
-        {loginError === "Please confirm your email to login" ? (
+        {loginError === "Please verify your email to login" ? (
           <button
-            className="login-page-validate-button"
+            className="login-page-verify-button"
             type="button"
             onClick={() => {
               props.setVerifyUser(verifyUser),
                 props.setVerifyEmail(verifyEmail),
-                setPage("validate");
+                setPage("verify");
             }}
           >
-            Validate Email
+            Verify Email
           </button>
         ) : null}
         <div className="logo-container">
@@ -159,7 +159,7 @@ const Login = (props) => {
       {page === "forgotUsername" && <Redirect push to="/forgotUsername" />}
       {page === "forgotPassword" && <Redirect push to="/forgotPassword" />}
       {page === "signup" && <Redirect push to="/signup" />}
-      {page === "validate" && <Redirect push to="/signup/validate" />}
+      {page === "verify" && <Redirect push to="/signup/verify" />}
     </Fragment>
   );
 };

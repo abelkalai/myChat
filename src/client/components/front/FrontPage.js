@@ -18,25 +18,16 @@ const FrontPage = (props) => {
           <div className="front-page">
             <div className="front-page-info">
               <h1 className="front-page-header">MyChat</h1>
-                <Fragment>
-                  <h3> Enabling Connections</h3>
-                  <p className="front-page-info-about">
-                    MyChat enables users to message one another
-                  </p>
-                </Fragment>
+              <Fragment>
+                <h3> Enabling Connections</h3>
+                <p className="front-page-info-about">
+                  MyChat enables users to message one another
+                </p>
+              </Fragment>
             </div>
             <div className="front-page-content">
               <Switch>
-                <Route
-                  exact
-                  path={[
-                    "/home",
-                    "/home/profile",
-                    "/home/settings/general",
-                    "/home/settings/security",
-                  ]}
-                  render={() => <Redirect to="/" />}
-                />
+                <Route path={["/home"]} render={() => <Redirect to="/" />} />
                 <Route
                   exact
                   path="/"
@@ -67,7 +58,7 @@ const FrontPage = (props) => {
 
                 <Route
                   exact
-                  path={["/signup", "/signup/validate", "/signup/confirm"]}
+                  path={["/signup", "/signup/verify", "/signup/confirm"]}
                   render={() => (
                     <Signup
                       verifyUser={verifyUser}

@@ -1,8 +1,10 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import History from "./History";
 import { useFieldInput } from "../../../../hooks/customHooks";
 import { SEARCH_USER } from "GraphqlDocuments/user";
 import { useLazyQuery } from "@apollo/react-hooks";
+import "MainStylesheets/chat/chatSearch.css";
 
 const ChatSearch = (props) => {
   const [searchActive, setSearchActive] = useState(false);
@@ -14,41 +16,46 @@ const ChatSearch = (props) => {
     },
   });
 
-  const selectUser = (id) => {
+  const selectUser = () => {
     event.preventDefault();
     searchField.clear();
     setSearchActive(false);
-    let userInConvoHistory = props.getConvoQuery.data.getConversations.filter(
-      (convo) => convo.members.filter((member) => member._id === id).length > 0
-    );
-    props.setCurrentConvo(
-      userInConvoHistory.length > 0 ? userInConvoHistory[0]._id : null
-    );
-    props.setCurrentChat(id);
+    if (props.windowWidth <= 768) {
+      props.setMobileDisplay("chat");
+    }
   };
 
-  const userDropdown = () => {
+  const chatSearchResults = () => {
     if (searchResult.length === 0 || props.getConvoQuery.loading) {
       return null;
     }
     return (
-      <div className="chat-search">
+      <div className="chat-search-results">
         {searchResult.map((user) => (
-          <div
-            key={user._id}
-            onClick={() => {
-              selectUser(user._id);
-            }}
-          >
-            <img src={`data:image/png;base64,${user.profilePicture}`} />
-            <span className="chat-search-name">{user.fullName}</span>
+          <div key={`search_${user._id}`} className="pointer-wrapper">
+            <NavLink
+              exact
+              to={`/home/messages/${user._id}`}
+              className="link"
+              activeClassName="linkActive"
+            >
+              <div
+                className="chat-search-results-container"
+                onClick={() => {
+                  selectUser();
+                }}
+              >
+                <img src={`data:image/png;base64,${user.profilePicture}`} />
+                <div className="chat-search-results-name">{user.fullName}</div>
+              </div>
+            </NavLink>
           </div>
         ))}
       </div>
     );
   };
 
-  const search = (event) => {
+  const searchContact = (event) => {
     searchField.manualChange(event.target.value);
     setSearchActive(event.target.value ? true : false);
     searchQuery({
@@ -59,30 +66,30 @@ const ChatSearch = (props) => {
     });
   };
 
-  return (
-    <Fragment>
-      <div className="chat-left">
-        <div className="chat-search-container">
-          <input
-            value={searchField.value}
-            className="searchContacts"
-            placeholder="Search MyChat..."
-            onChange={search}
-          />
-        </div>
-        {searchActive && userDropdown()}
-        {!searchActive && (
-          <History
-            userInfo={props.userInfo}
-            convoHistory={props.getConvoQuery}
-            setCurrentChat={props.setCurrentChat}
-            currentConvo={props.currentConvo}
-            setCurrentConvo={props.setCurrentConvo}
-          />
-        )}
+  return props.windowWidth > 768 || props.mobileDisplay === "search" ? (
+    <div className="chat-left">
+      <div className="chat-search-container">
+        <input
+          value={searchField.value}
+          className="search-contacts-input"
+          placeholder="Search MyChat..."
+          onChange={searchContact}
+        />
       </div>
-    </Fragment>
-  );
+      {searchActive && chatSearchResults()}
+      {!searchActive && (
+        <History
+          userInfo={props.userInfo}
+          convoHistory={props.getConvoQuery}
+          setCurrentChat={props.setCurrentChat}
+          currentConvo={props.currentConvo}
+          setCurrentConvo={props.setCurrentConvo}
+          windowWidth={props.windowWidth}
+          setMobileDisplay={props.setMobileDisplay}
+        />
+      )}
+    </div>
+  ) : null;
 };
 
 export default ChatSearch;

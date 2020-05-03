@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Link, Redirect, Route } from "react-router-dom";
-import { ADD_USER, VALIDATE_ACCOUNT } from "GraphqlDocuments/user";
+import { ADD_USER, VERIFY_EMAIL } from "GraphqlDocuments/user";
 import { useMutation } from "@apollo/react-hooks";
 import { useFieldInput } from "Hooks/customHooks";
 import Confirmation from "./Confirmation";
@@ -11,7 +11,7 @@ const Signup = (props) => {
     document.title = "Signup | MyChat";
   }, []);
   const [addUser] = useMutation(ADD_USER);
-  const [validateAccount] = useMutation(VALIDATE_ACCOUNT);
+  const [verifyEmail] = useMutation(VERIFY_EMAIL);
   const [errors, setErrors] = useState([]);
   const [page, setPage] = useState("signUpForm");
   const firstNameField = useFieldInput("");
@@ -20,14 +20,14 @@ const Signup = (props) => {
   const usernameField = useFieldInput("");
   const passwordField = useFieldInput("");
   const passwordConfirmField = useFieldInput("");
-  const validationCodeField = useFieldInput("");
+  const verificationCodeField = useFieldInput("");
 
-  const submit = async (event) => {
+  const signup = async (event) => {
     event.preventDefault();
     let firstName = firstNameField.value;
     let lastName = lastNameField.value;
-    let email = emailField.value;
-    let username = usernameField.value;
+    let email = emailField.value.trim();
+    let username = usernameField.value.trim();
     let password = passwordField.value;
     let passwordConfirm = passwordConfirmField.value;
     
@@ -44,7 +44,7 @@ const Signup = (props) => {
     setErrors(result.data.addUser.errorList);
     if (result.data.addUser.errorList.length === 0) {
       setErrors([]);
-      setPage("signUpValidate");
+      setPage("signUpVerify");
     }
   };
 
@@ -60,7 +60,7 @@ const Signup = (props) => {
             ))
           : null}
         <div className="sign-up">
-          <form className="front-page-form" onSubmit={submit}>
+          <form className="front-page-form" onSubmit={signup}>
             <div className="front-page-form-div">
               <input
                 className="input-front-page-form"
@@ -138,14 +138,14 @@ const Signup = (props) => {
     );
   };
 
-  const signUpValidate = () => {
+  const signUpVerify = () => {
     return (
       <Fragment>
         {!props.verifyUser && !props.fromLogin && <Redirect to="/" />}
         <h2>{`Thanks for signing up your username is: ${
           props.verifyUser ? props.verifyUser : usernameField.value
         }`}</h2>
-        <div className="validate-info-container">
+        <div className="verify-info-container">
           <p>
             {"Please check your email at "}
             <span className="bold">
@@ -153,10 +153,10 @@ const Signup = (props) => {
             </span>
           </p>
           <p>
-            {`If you leave this page, you can validate your email upon logging in.`}
+            {`If you leave this page, you can verify your email upon logging in.`}
           </p>
         </div>
-        <form className="front-page-form" onSubmit={validateEmail}>
+        <form className="front-page-form" onSubmit={verifyEmailEvent}>
           {errors.length > 0
             ? errors.map((error) => (
                 <h2 key={error} className="error">
@@ -168,8 +168,8 @@ const Signup = (props) => {
             className="input-front-page-form"
             placeholder="Confirmation Code"
             type="text"
-            value={validationCodeField.value}
-            onChange={validationCodeField.onChange}
+            value={verificationCodeField.value}
+            onChange={verificationCodeField.onChange}
           ></input>
           <div>
             <button className="confirm-code-button" type="submit">
@@ -181,25 +181,25 @@ const Signup = (props) => {
     );
   };
 
-  const validateEmail = async (event) => {
+  const verifyEmailEvent = async (event) => {
     event.preventDefault();
-    let validationCode = validationCodeField.value;
-    let username = props.verifyUser ? props.verifyUser : usernameField.value;
-    let result = await validateAccount({
-      variables: { username, validationCode },
+    let verificationCode = verificationCodeField.value;
+    let email = props.verifyEmail ? props.verifyEmail : emailField.value;
+    let result = await verifyEmail({
+      variables: { email, verificationCode },
     });
-    if (result.data.validateAccount.length === 0) {
+    if (result.data.verifyEmail.length === 0) {
       setPage("signUpConfirm");
     } else {
-      setErrors(result.data.validateAccount);
+      setErrors(result.data.verifyEmail);
     }
   };
 
   return (
     <div className="sign-up-content">
       <Route exact path="/signup" render={() => signUpForm()} />
-      {page === "signUpValidate" && <Redirect to="/signup/validate" />}
-      <Route path="/signup/validate" render={() => signUpValidate()} />
+      {page === "signUpVerify" && <Redirect to="/signup/verify" />}
+      <Route path="/signup/verify" render={() => signUpVerify()} />
       {page === "signUpConfirm" && <Redirect to="/signup/confirm" />}
       <Route
         exact

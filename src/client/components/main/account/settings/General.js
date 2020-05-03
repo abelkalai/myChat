@@ -12,9 +12,17 @@ const General = (props) => {
 
   const nameSection = () => {
     return (
-      <div className="settings-divider-inside">
+      <div
+        className={
+          !showNameForm
+            ? "settings-divider-inside-flex"
+            : "settings-divider-inside"
+        }
+      >
         <span className="bold-text">Name </span>
-        {!showNameForm ? `${props.userInfo.fullName}` : null}
+        {!showNameForm ? (
+          <div className="settings-info">{props.userInfo.fullName} </div>
+        ) : null}
         {!showNameForm ? (
           <span
             className="change"
@@ -38,9 +46,18 @@ const General = (props) => {
 
   const usernameSection = () => {
     return (
-      <div className="settings-divider-inside">
+      <div
+        className={
+          !showUserForm
+            ? "settings-divider-inside-flex"
+            : "settings-divider-inside"
+        }
+      >
         <span className="bold-text"> Username </span>
-        {`${props.userInfo.username}`}
+
+        {!showUserForm ? (
+          <span className="settings-info">{props.userInfo.username}</span>
+        ) : null}
         {!showUserForm ? (
           <span
             className="change"
@@ -63,17 +80,15 @@ const General = (props) => {
   };
 
   return (
-    <div>
+    <div className="settings-general-id">
       <div className="settings-divider-container">
         <h1>General Settings</h1>
       </div>
       {nameSection()}
       {usernameSection()}
-      <div className="settings-divider-inside-single">
-        <span className="bold-text">Email </span>{" "}
-        {props.userInfo.email.length > 30
-          ? `${props.userInfo.email.slice(0, 30)}...`
-          : props.userInfo.email}
+      <div className="settings-divider-inside-single-flex">
+        <span className="bold-text">Email </span>
+        <div className="settings-info">{props.userInfo.email}</div>
       </div>
     </div>
   );

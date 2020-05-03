@@ -1,31 +1,34 @@
 import React, { Fragment, useEffect } from "react";
+import { NavLink, useParams } from "react-router-dom";
 import adjustTime from "Utilities/adjustTime";
-import "MainStylesheets/chatHistory.css";
+import "MainStylesheets/chat/chatHistory.css";
 
 const History = (props) => {
   if (props.convoHistory.loading) {
     const arr = [];
     for (let i = 0; i < 11; i++) {
       arr.push(
-        <div key={`Hist${i}`}>
-          <div className="chat-history-wrapper">
-            <div className="chat-history-img-container">
+        <div key={`Hist${i}`} className="chat-history-wrapper">
+          <div className="chat-history-info-wrapper">
+            <div className="chat-history-img-wrapper">
               <img
-                className="chat-history-wrapper-img"
+                className="chat-history-img"
                 src="images/profilePlaceholder.png"
               />
             </div>
-            <div className="chat-history-name-header">
-              <img
-                className="chat-history-name-header-placeholder"
-                src="images/contentPlaceholder.png"
-              />
-            </div>
-            <div className="chat-history-content">
-              <img
-                className="chat-history-content-placeholder"
-                src="images/contentPlaceholder.png"
-              />
+            <div className="chat-history-words-wrapper">
+              <div className="chat-history-name-header-wrapper">
+                <img
+                  className="chat-history-name-header-placeholder"
+                  src="images/contentPlaceholder.png"
+                />
+              </div>
+              <div className="">
+                <img
+                  className="chat-history-content-placeholder"
+                  src="images/contentPlaceholder.png"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -45,6 +48,7 @@ const History = (props) => {
     document.title =
       unreadMsgs > 0 ? `(${unreadMsgs}) Unread Messages | MyChat` : "MyChat";
   }, [props.convoHistory]);
+
   const displayHistory = () => {
     if (props.convoHistory.data.getConversations.length === 0) {
       return (
@@ -55,11 +59,10 @@ const History = (props) => {
       );
     }
 
-    const changeChat = (members, convoID) => {
-      let id =
-        members[0]._id != props.userInfo._id ? members[0]._id : members[1]._id;
-      props.setCurrentChat(id);
-      props.setCurrentConvo(convoID);
+    const changeChat = () => {
+      if (props.windowWidth <= 768) {
+        props.setMobileDisplay("chat");
+      }
     };
 
     return (
@@ -69,52 +72,66 @@ const History = (props) => {
             key={convo._id}
             className={
               convo.unread && convo.lastSender != props.userInfo._id
-                ? "chat-history-unread"
-                : null
+                ? "pointer-wrapper-bold"
+                : "pointer-wrapper"
             }
           >
-            <div
-              key={convo._id}
-              className={
-                convo._id === props.currentConvo
-                  ? "chat-history-wrapper-current"
-                  : "chat-history-wrapper"
-              }
-              onClick={() => {
-                changeChat(convo.members, convo._id);
-              }}
+            <NavLink
+              exact
+              to={`/home/messages/${
+                convo.members[0]._id != props.userInfo._id
+                  ? convo.members[0]._id
+                  : convo.members[1]._id
+              }`}
+              className="link-flex"
+              activeClassName="linkActive"
             >
-              <div className="chat-history-img-container">
-                <img
-                  alt={
-                    convo.members[0]._id != props.userInfo._id
-                      ? convo.members[0].fullName
-                      : convo.members[1].fullName
-                  }
-                  className="chat-history-wrapper-img"
-                  src={`data:image/png;base64,${
-                    convo.members[0]._id != props.userInfo._id
-                      ? convo.members[0].profilePicture
-                      : convo.members[1].profilePicture
-                  }`}
-                />
-              </div>
-              <div className="chat-history-name-header">
-                {convo.members[0]._id != props.userInfo._id
-                  ? convo.members[0].fullName
-                  : convo.members[1].fullName}
-              </div>
+              <div
+                key={convo._id}
+                className={
+                  convo._id === props.currentConvo && props.windowWidth > 768
+                    ? "chat-history-wrapper-current"
+                    : "chat-history-wrapper"
+                }
+                onClick={() => {
+                  changeChat();
+                }}
+              >
+                <div className="chat-history-info-wrapper">
+                  <img
+                    alt={
+                      convo.members[0]._id != props.userInfo._id
+                        ? convo.members[0].fullName
+                        : convo.members[1].fullName
+                    }
+                    className="chat-history-img"
+                    src={`data:image/png;base64,${
+                      convo.members[0]._id != props.userInfo._id
+                        ? convo.members[0].profilePicture
+                        : convo.members[1].profilePicture
+                    }`}
+                  />
 
-              <div className="chat-history-content">
-                {convo.lastSender === props.userInfo._id ? "You: " : null}
-                {convo.lastMessage.length > 26
-                  ? `${convo.lastMessage.slice(0, 26)}...`
-                  : convo.lastMessage}
-                <span className="chat-history-time">
-                  <div>{adjustTime(convo.lastMessageTime, false)}</div>
-                </span>
+                  <div className="chat-history-words-wrapper">
+                    <div className="chat-history-overflow-name-header">
+                      {convo.members[0]._id != props.userInfo._id
+                        ? convo.members[0].fullName
+                        : convo.members[1].fullName}
+                    </div>
+
+                    <div className="chat-history-overflow-message">
+                      {convo.lastSender === props.userInfo._id ? "You: " : null}
+
+                      {convo.lastMessage}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="chat-history-timestamp">
+                  <span> {adjustTime(convo.lastMessageTime, false)}</span>
+                </div>
               </div>
-            </div>
+            </NavLink>
           </div>
         ))}
       </div>

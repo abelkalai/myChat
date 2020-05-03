@@ -1,27 +1,26 @@
 .main-settings {
-  margin-left: 65px;
-  margin-top: 10px;
+  margin: 10px 7.5% 0 65px;
   font-size: 22px;
   display: grid;
-  grid-template-columns: 22.5% 70%;
+  grid-template-columns: 25% 75%;
 }
 
-.main-left {
+.main-settings-left {
   width: 95%;
 }
 
 .settings-dropdown {
   font-size: 22px;
   margin: 15px 0 0 40px;
-  cursor: pointer;
 }
 
 .settings-active-tab {
   background-color: #ecf2fe;
   margin: 10px;
-  padding: 10px;
   border-radius: 10px;
+  padding: 10px;
   display: flex;
+  pointer-events: none;
 }
 
 .settings-tab {
@@ -31,51 +30,75 @@
   display: flex;
 }
 
-.general-content {
-  padding-left: 8.5px;
-  padding-top: 2.5px;
-}
-
-.general-settings-image {
-  width: 30px;
-  height: 30px;
-  margin-top: 2.5px;
-}
-
-.security-content {
-  padding-left: 8.5px;
-  padding-top: 2.5px;
-}
-
-.security-settings-image {
-  width: 30px;
-  height: 30px;
-  margin-top: 2.5px;
-}
-
 .settings-tab:hover {
   background-color: #f1f0f0;
 }
 
-.change {
-  font-size: 20px;
-  float: right;
-  color: blue;
-  border: none;
+.general-content,
+.security-content {
+  display: flex;
+  padding: 2.5px 0 0 8.5px;
+  pointer-events: none;
 }
 
+.general-settings-image,
+.security-settings-image {
+  width: 30px;
+  height: 30px;
+  margin-top: 2.5px;
+  pointer-events: none;
+}
+
+.change {
+  font-size: 20px;
+  margin-left: auto;
+  color: blue;
+  border: none;
+  cursor: pointer;
+}
 .change:hover {
   text-decoration: underline;
   cursor: pointer;
 }
 
+.change-edit-password {
+  font-size: 20px;
+  margin-left: auto;
+  color: blue;
+  border: none;
+  float: right;
+  cursor: pointer;
+}
+
 .bold-text {
   font-weight: bold;
-  margin-right: 10px;
+}
+
+.settings-info {
+  width: 600px;
+  margin: 0 10px 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
 }
 
 .settings-divider-container {
   border-bottom: 1px solid black;
+}
+
+.settings-divider-inside-flex {
+  border-bottom: 1px solid hsl(0, 0%, 86%);
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.settings-divider-inside-single-flex {
+  border-bottom: 1px solid black;
+  padding: 15px;
+  display: flex;
+  align-items: center;
 }
 
 .settings-divider-inside {
@@ -92,8 +115,7 @@
   font-size: 16px;
   color: white;
   background-color: #00a8f3;
-  margin-top: 7.5px;
-  margin-right: 5px;
+  margin: 7.5px 5px 0 0;
   width: 120px;
 }
 
@@ -134,13 +156,12 @@
   color: green;
   font-size: 20px;
   font-weight: bold;
-  margin-top: 2.5px;
-  margin-bottom: 7.5px;
+  margin: 2.5px 0 7.5px 0;
 }
 
 .settings-hamburger-menu {
   z-index: 1;
-  display: none;
+  display: inline-block;
   position: absolute;
   margin-top: 7px;
 }
@@ -153,17 +174,11 @@
 @media (max-width: 950px) {
   .main-settings {
     display: block;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 0px;
+    margin: 0 5px 0 5px;
   }
   .main-settings h1 {
     margin-left: 35px;
     font-size: 32px;
-  }
-
-  .settings-hamburger-menu {
-    display: inline;
   }
 
   .settings-divider-inside,
@@ -172,8 +187,8 @@
   }
 }
 
-@media (max-width: 768px) {
-  .main-settings{
+@media screen and (max-width: 768px) {
+  .main-settings {
     font-size: 18px;
   }
   .main-settings h1 {
@@ -181,7 +196,7 @@
     margin-left: 27.5px;
   }
 
-  .change{
+  .change {
     font-size: 18px;
   }
 
@@ -191,11 +206,15 @@
   }
 }
 
-@media (max-width: 450px) {
-  .main-settings{
+@media screen and (max-width: 450px) {
+  .main-settings {
     font-size: 16px;
   }
-  .change{
+  .change {
     font-size: 16px;
+  }
+
+  .settings-info {
+    max-width: 200px;
   }
 }

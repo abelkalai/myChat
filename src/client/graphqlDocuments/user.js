@@ -60,9 +60,9 @@ export const ADD_USER = gql`
   }
 `;
 
-export const VALIDATE_ACCOUNT = gql`
-  mutation validateAccount($username: String!, $validationCode: String!) {
-    validateAccount(username: $username, validationCode: $validationCode)
+export const VERIFY_EMAIL = gql`
+  mutation verifyEmail($email: String!, $verificationCode: String!) {
+    verifyEmail(email: $email, verificationCode: $verificationCode)
   }
 `;
 
@@ -135,12 +135,12 @@ export const SEARCH_USER = gql`
 `;
 
 export const GET_USER = gql`
-query getUser($_id: String!) {
-  getUser(_id: $_id) {
-    _id
-    fullName
-    profilePicture
-    about
+  query getUser($_id: String!, $myID: String!) {
+    getUser(_id: $_id, myID: $myID) {
+      _id
+      fullName
+      profilePicture
+      about
+    }
   }
-}
 `;

@@ -3,9 +3,9 @@ import React, { Fragment } from "react";
 const MessagePlaceholder = () => {
   const arr = [];
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 20; i++) {
     arr.push(
-      <div key={`Msg${i}`} className="chat-message-wrapper">
+      <div key={`msgPlaceholder_${i}`} className="chat-message-wrapper">
         {i % 2 === 0 ? (
           <img
             className="msg-placeholder-img-me"

@@ -55,12 +55,12 @@ const messageResolvers = {
       return args._id;
     },
     sendMessage: async (root, args) => {
-      let existingConvo = await Conversation.findOne({
+      let existingConvo = await Conversation.find({
         members: { $all: [args.senderID, args.receiverID] },
-      });
+      }).limit(1);
 
       let time = new Date();
-      if (!existingConvo) {
+      if (existingConvo.length === 0) {
         let newConvo = new Conversation({
           members: [args.senderID, args.receiverID],
           lastSender: args.senderID,
@@ -83,11 +83,11 @@ const messageResolvers = {
         );
       }
 
-      let updateConvo = await Conversation.findOne({
+      let updateConvo = await Conversation.find({
         members: { $all: [args.senderID, args.receiverID] },
-      });
+      }).limit(1);
       args.time = time;
-      args.conversationID = updateConvo._id;
+      args.conversationID = updateConvo[0]._id;
       let message = new Message({ ...args });
       await message.save();
 

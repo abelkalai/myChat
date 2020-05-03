@@ -1,0 +1,17 @@
+.chat-display-parent {
+  display: grid;
+  grid-template-columns: 66% 34%;
+}
+
+.chat-display-default {
+  padding-left: 10px;
+  border-left: 1px solid #dcdcdc;
+  height: calc(100vh - 75px);
+}
+
+@media screen and (max-width: 768px) {
+  .chat-display-parent {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -5,7 +5,7 @@ import { ApolloProvider } from "react-apollo";
 import { ApolloClient, InMemoryCache, HttpLink, split } from "apollo-boost";
 import { getMainDefinition } from "apollo-utilities";
 import { WebSocketLink } from "@apollo/link-ws";
-import { HashRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 
 require("babel-polyfill");
 
@@ -45,7 +45,7 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <Router>
+    <Router basename={`${location.pathname}#`}>
       <App />
     </Router>
   </ApolloProvider>,

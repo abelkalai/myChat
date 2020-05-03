@@ -6,6 +6,7 @@ import { CHANGE_NAME } from "GraphqlDocuments/user";
 const EditName = (props) => {
   const [changeName] = useMutation(CHANGE_NAME);
   const [errors, setErrors] = useState([]);
+  const [success, setSuccess] = useState(false);
   const firstNamefield = useFieldInput(props.userInfo.firstName);
   const lastNameField = useFieldInput(props.userInfo.lastName);
 
@@ -25,11 +26,16 @@ const EditName = (props) => {
         lastName,
         fullName: `${firstName} ${lastName}`,
       });
+      setSuccess(true);
+      setTimeout(()=>{setSuccess(false)},2000)
     }
   };
 
   return (
     <form className="settings-form" onSubmit={changeNameCallBack}>
+      {success ? (
+        <div className="success">Name Change Successful!</div>
+      ) : null}
       {errors.length > 0
         ? errors.map((error) => (
             <div key={error}>

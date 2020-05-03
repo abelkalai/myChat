@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 const {
-  confirmEmail,
+  verifyEmail,
   forgotUserEmail,
   forgotPassEmail,
 } = require("./emailTemplates");
@@ -48,12 +48,12 @@ const sendEmail = (type, options) => {
 
   let mailOptions;
   switch (type) {
-    case "CONFIRM":
+    case "VERIFY":
       mailOptions = {
         from: `"My Chat" <${emailUsername}>`,
         to: `${options.toFullName} <${options.toEmail}>`,
         subject: "Welcome to MyChat | Email Validation",
-        html: confirmEmail(options.toFullName, options.code),
+        html: verifyEmail(options.toFullName, options.code),
       };
       break;
     case "USERNAME":

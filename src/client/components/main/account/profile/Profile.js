@@ -31,7 +31,7 @@ const Profile = (props) => {
           src={`data:image/png;base64,${props.userImage.data.getProfilePicture}`}
         />
       )}
-      <h1>{props.userInfo.fullName}</h1>
+      <h1 className="profile-name">{props.userInfo.fullName}</h1>
       {!showUploadForm ? (
         <button
           className="update-profile-pic-button"

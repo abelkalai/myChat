@@ -1,0 +1,52 @@
+.chat-display-default {
+  padding: 10px 0 0 5px;
+}
+
+.chat-display-about {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  flex: 1 1 1px;
+}
+
+.chat-about-name-placeholder {
+  display: flex;
+  width: 85%;
+  height: 27.5px;
+  margin-top: 2.5px;
+}
+
+.chat-display-about h1 {
+  font-size: 22px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 85%;
+}
+
+.chat-display-about-img {
+  margin-top: 5px;
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+}
+
+.chat-about-content-placeholder {
+  width: 85%;
+  height: 90%;
+  margin-bottom: 10%;
+}
+
+.chat-display-about-content {
+  margin-top: 7.5px;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-width: 85%;
+  margin-bottom: 10%;
+  flex: 1 1 1px;
+}

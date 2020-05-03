@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "../assets/stylesheets/components/front/frontPage.css";
 const InvalidLink = (props) => {
   useEffect(() => {
@@ -12,7 +12,7 @@ const InvalidLink = (props) => {
         The link you followed may be broken. Please try again or follow the
         button below.
       </p>
-      <Link to={props.type === "Login" ? "/" : "/home"}>
+      <Link to={props.type === "Login" ? "/" : "/home/messages"}>
         <button className="general-button" type="button">
           {`Back to ${props.type}`}
         </button>

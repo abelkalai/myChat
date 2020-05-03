@@ -39,7 +39,7 @@ const User = new mongoose.Schema({
     required: true,
     defaultValue: false
   },
-  validationCode: {
+  verificationCode: {
     type: String
   },
   profilePicture:{

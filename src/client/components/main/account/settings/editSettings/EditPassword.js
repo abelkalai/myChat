@@ -25,10 +25,11 @@ const EditPassword = (props) => {
 
     setErrors(result.data.changePassword);
     if (result.data.changePassword.length === 0) {
-      setSuccess(true);
       currentPasswordField.clear();
       newPasswordField.clear();
       newPasswordConfirmField.clear();
+      setSuccess(true);
+      setTimeout(()=>{setSuccess(false)},2000)
     }
   };
 
