@@ -25377,7 +25377,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".banner {\r\n  background-color: #00a8f3;\r\n  padding-bottom: 5px;\r\n  position: relative;\r\n  max-height: 65px;\r\n}\r\n\r\n.banner-title {\r\n  color: white;\r\n  font-size: 44px;\r\n  cursor: pointer;\r\n  padding-left: 15px;\r\n  display: inline-block;\r\n}\r\n\r\n.banner-title:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.banner-link {\r\n  color: white;\r\n  text-decoration: none;\r\n}\r\n\r\n.dropdown-nav-link {\r\n  color: inherit;\r\n  text-decoration: none;\r\n}\r\n.user-wrapper {\r\n  float: right;\r\n  margin-right: 25px;\r\n  margin-top: 12px;\r\n  position: relative;\r\n}\r\n\r\n.user {\r\n  display: flex;\r\n  color: white;\r\n  font-size: 24px;\r\n  align-items: center;\r\n  position: inherit;\r\n}\r\n\r\n.user-image {\r\n  width: 35px;\r\n  height: 35px;\r\n  border-radius: 50%;\r\n  position: inherit;\r\n}\r\n\r\n.user-name {\r\n  margin: 0 7.5px 0 7.5px;\r\n  position: inherit;\r\n  display: inline-block;\r\n  max-width: 225px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n.dropdown-wrapper {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  margin-left: 5px;\r\n  position: inherit;\r\n}\r\n\r\n.dropdown {\r\n  margin-top: 2px;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 35px;\r\n  width: 35px;\r\n  border-radius: 50%;\r\n  color: black;\r\n  background-color: white;\r\n  position: inherit;\r\n}\r\n\r\n.dropdown img {\r\n  margin-top: 2.5px;\r\n  width: 20px;\r\n  height: 20px;\r\n  position: inherit;\r\n}\r\n\r\n.dropdown:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.dropdown-content {\r\n  right: 0px;\r\n  margin-top: 100px;\r\n  font-size: 18px;\r\n  display: inline-block;\r\n  position: absolute;\r\n  color: black;\r\n  background-color: white;\r\n  min-width: 110px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  z-index: 2;\r\n}\r\n\r\n.dropdown-content div {\r\n  padding: 10px;\r\n  border-radius: 8px;\r\n  text-decoration: none;\r\n  display: block;\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-profile {\r\n  background-position: 2.5px 8px;\r\n  background-image: url(\"/images/profile.png\");\r\n  background-repeat: no-repeat;\r\n  padding-left: 5px;\r\n\r\n}\r\n\r\n.dropdown-profile:hover {\r\n  color: white;\r\n  background-image: url(\"/images/profileWhite.png\");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 8px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-profile-content {\r\n  padding-left: 20px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-position: 2.5px 7px;\r\n  background-image: url(\"/images/settings.png\");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-settings:hover {\r\n  color: white;\r\n  background-image: url(\"/images/settingsWhite.png\");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 7px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  padding-left: 22.5px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-position: 2.5px 7px;\r\n  background-image: url(\"/images/logout.png\");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-logout:hover {\r\n  color: white;\r\n  background-image: url(\"/images/logoutWhite.png\");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 7px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  padding-left: 23.5px;\r\n}\r\n\r\n@media screen and (max-width: 912px) {\r\n  .user-wrapper {\r\n    margin-right: 10px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .banner-title {\r\n    font-size: 32px;\r\n    padding-left: 5px;\r\n  }\r\n  .user-wrapper {\r\n    margin-top: 4.5px;\r\n  }\r\n\r\n  .user {\r\n    font-size: 22px;\r\n  }\r\n\r\n  .dropdown {\r\n    margin-top: 0px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".banner {\r\n  background-color: #00a8f3;\r\n  padding-bottom: 5px;\r\n  position: relative;\r\n  max-height: 65px;\r\n}\r\n\r\n.banner-title {\r\n  color: white;\r\n  font-size: 44px;\r\n  cursor: pointer;\r\n  padding-left: 15px;\r\n  display: inline-block;\r\n}\r\n\r\n.banner-title:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.banner-link {\r\n  color: white;\r\n  text-decoration: none;\r\n}\r\n\r\n.user-wrapper {\r\n  float: right;\r\n  margin-right: 25px;\r\n  margin-top: 12px;\r\n  position: relative;\r\n}\r\n\r\n.user {\r\n  display: flex;\r\n  color: white;\r\n  font-size: 24px;\r\n  align-items: center;\r\n  position: inherit;\r\n}\r\n\r\n.user-image {\r\n  width: 35px;\r\n  height: 35px;\r\n  border-radius: 50%;\r\n  position: inherit;\r\n}\r\n\r\n.user-name {\r\n  margin: 0 7.5px 0 7.5px;\r\n  position: inherit;\r\n  display: inline-block;\r\n  max-width: 225px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n.dropdown-wrapper {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  margin-left: 5px;\r\n  position: inherit;\r\n}\r\n\r\n.dropdown {\r\n  margin-top: 2px;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 35px;\r\n  width: 35px;\r\n  border-radius: 50%;\r\n  color: black;\r\n  background-color: white;\r\n  position: inherit;\r\n}\r\n\r\n.dropdown img {\r\n  margin-top: 2.5px;\r\n  width: 20px;\r\n  height: 20px;\r\n  position: inherit;\r\n}\r\n\r\n.dropdown:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.dropdown-content {\r\n  right: 0px;\r\n  margin-top: 100px;\r\n  font-size: 18px;\r\n  display: inline-block;\r\n  position: absolute;\r\n  color: black;\r\n  background-color: white;\r\n  min-width: 110px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  z-index: 2;\r\n}\r\n\r\n.dropdown-profile,.dropdown-settings,.dropdown-logout {\r\n  padding: 10px;\r\n  border-radius: 8px;\r\n  text-decoration: none;\r\n  display: block;\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-profile {\r\n  background-position: 2.5px 8px;\r\n  background-image: url(\"/images/profile.png\");\r\n  background-repeat: no-repeat;\r\n  padding-left: 5px;\r\n\r\n}\r\n\r\n.dropdown-profile-content {\r\n  margin-left: 27.5px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-position: 2.5px 7px;\r\n  background-image: url(\"/images/settings.png\");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  margin-left: 22.5px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-position: 2.5px 7px;\r\n  background-image: url(\"/images/logout.png\");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  margin-left: 23.5px;\r\n}\r\n\r\n@media screen and (max-width: 912px) {\r\n  .user-wrapper {\r\n    margin-right: 10px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .banner-title {\r\n    font-size: 32px;\r\n    padding-left: 5px;\r\n  }\r\n  .user-wrapper {\r\n    margin-top: 4.5px;\r\n  }\r\n\r\n  .user {\r\n    font-size: 22px;\r\n  }\r\n\r\n  .dropdown {\r\n    margin-top: 0px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25395,7 +25395,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".chat-main {\r\n  display: grid;\r\n  grid-template-columns: 30% 70%;\r\n  font-size: 18px;\r\n}\r\n\r\n\r\n.link{\r\n  text-decoration: none;\r\n  color: black;\r\n  pointer-events: inherit;\r\n}\r\n\r\n.link-flex {\r\n  text-decoration: none;\r\n  color: black;\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n}\r\n\r\n.linkActive {\r\n  pointer-events : none !important;\r\n}\r\n\r\n.pointer-wrapper{\r\n  cursor: pointer;\r\n}\r\n\r\n.pointer-wrapper-bold{\r\n  cursor: pointer;\r\n  font-weight: bold;\r\n\r\n}\r\n::-webkit-scrollbar {\r\n  width: 7.5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  background: grey;\r\n  border-radius: 7.5px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .chat-main {\r\n    display: flex;\r\n    flex-direction: column;\r\n    height: calc(100vh - 50px);\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".chat-main {\r\n  display: grid;\r\n  grid-template-columns: 30% 70%;\r\n  font-size: 18px;\r\n}\r\n\r\n.link {\r\n  text-decoration: none;\r\n  color: black;\r\n}\r\n\r\n.link-flex {\r\n  text-decoration: none;\r\n  color: black;\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n}\r\n\r\n.linkActive {\r\n  pointer-events: none;\r\n}\r\n\r\n.pointer-wrapper {\r\n  cursor: pointer;\r\n}\r\n\r\n.pointer-wrapper-dropdown {\r\n  border-radius: 5px;\r\n  cursor: pointer;\r\n}\r\n.pointer-wrapper-dropdown:hover {\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.pointer-wrapper-bold {\r\n  cursor: pointer;\r\n  font-weight: bold;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 7.5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  background: grey;\r\n  border-radius: 7.5px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .chat-main {\r\n    display: flex;\r\n    flex-direction: column;\r\n    height: calc(100vh - 50px);\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25521,7 +25521,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".main-settings {\r\n  margin: 10px 7.5% 0 65px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 25% 75%;\r\n}\r\n\r\n.main-settings-left {\r\n  width: 95%;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n}\r\n\r\n.settings-active-tab {\r\n  background-color: #ecf2fe;\r\n  margin: 10px;\r\n  border-radius: 10px;\r\n  padding: 10px;\r\n  display: flex;\r\n  pointer-events: none;\r\n}\r\n\r\n.settings-tab {\r\n  margin: 10px;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  display: flex;\r\n}\r\n\r\n.settings-tab:hover {\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.general-content,\r\n.security-content {\r\n  display: flex;\r\n  padding: 2.5px 0 0 8.5px;\r\n  pointer-events: none;\r\n}\r\n\r\n.general-settings-image,\r\n.security-settings-image {\r\n  width: 30px;\r\n  height: 30px;\r\n  margin-top: 2.5px;\r\n  pointer-events: none;\r\n}\r\n\r\n.change {\r\n  font-size: 20px;\r\n  margin-left: auto;\r\n  color: blue;\r\n  border: none;\r\n  cursor: pointer;\r\n}\r\n.change:hover {\r\n  text-decoration: underline;\r\n  cursor: pointer;\r\n}\r\n\r\n.change-edit-password {\r\n  font-size: 20px;\r\n  margin-left: auto;\r\n  color: blue;\r\n  border: none;\r\n  float: right;\r\n  cursor: pointer;\r\n}\r\n\r\n.bold-text {\r\n  font-weight: bold;\r\n}\r\n\r\n.settings-info {\r\n  width: 600px;\r\n  margin: 0 10px 0 10px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  display: inline-block;\r\n}\r\n\r\n.settings-divider-container {\r\n  border-bottom: 1px solid black;\r\n}\r\n\r\n.settings-divider-inside-flex {\r\n  border-bottom: 1px solid hsl(0, 0%, 86%);\r\n  padding: 15px;\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.settings-divider-inside-single-flex {\r\n  border-bottom: 1px solid black;\r\n  padding: 15px;\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.settings-divider-inside {\r\n  border-bottom: 1px solid #dcdcdc;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-divider-inside-single {\r\n  border-bottom: 1px solid black;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-save-changes {\r\n  font-size: 16px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  margin: 7.5px 5px 0 0;\r\n  width: 120px;\r\n}\r\n\r\n.settings-cancel-changes {\r\n  font-size: 16px;\r\n  color: #696969;\r\n  margin-top: 7.5px;\r\n  background-color: #f1f0f0;\r\n  width: 70px;\r\n}\r\n\r\n.settings-form {\r\n  margin-top: 5px;\r\n}\r\n\r\n.label-settings-form,\r\n.label-settings-form-password {\r\n  display: inline-block;\r\n  margin-bottom: 5px;\r\n  width: 115px;\r\n}\r\n\r\n.label-settings-form-password {\r\n  width: 235px;\r\n}\r\n\r\n.input-settings-form {\r\n  display: inline-block;\r\n  margin-left: 5px;\r\n  padding-left: 2.5px;\r\n  border-radius: 5px;\r\n  font-size: 16px;\r\n  margin-bottom: 5px;\r\n  width: 225px;\r\n}\r\n\r\n.success {\r\n  color: green;\r\n  font-size: 20px;\r\n  font-weight: bold;\r\n  margin: 2.5px 0 7.5px 0;\r\n}\r\n\r\n.settings-hamburger-menu {\r\n  z-index: 1;\r\n  display: inline-block;\r\n  position: absolute;\r\n  margin-top: 7px;\r\n}\r\n\r\n.settings-hamburger-menu img {\r\n  width: 30px;\r\n  height: 30px;\r\n}\r\n\r\n@media (max-width: 950px) {\r\n  .main-settings {\r\n    display: block;\r\n    margin: 0 5px 0 5px;\r\n  }\r\n  .main-settings h1 {\r\n    margin-left: 35px;\r\n    font-size: 32px;\r\n  }\r\n\r\n  .settings-divider-inside,\r\n  .settings-divider-inside-single {\r\n    margin-right: 5px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .main-settings {\r\n    font-size: 18px;\r\n  }\r\n  .main-settings h1 {\r\n    font-size: 28px;\r\n    margin-left: 27.5px;\r\n  }\r\n\r\n  .change {\r\n    font-size: 18px;\r\n  }\r\n\r\n  .settings-hamburger-menu img {\r\n    width: 25px;\r\n    height: 25px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 450px) {\r\n  .main-settings {\r\n    font-size: 16px;\r\n  }\r\n  .change {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .settings-info {\r\n    max-width: 200px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".main-settings {\r\n  margin: 10px 7.5% 0 65px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 25% 75%;\r\n}\r\n\r\n.main-settings-left {\r\n  width: 95%;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n}\r\n\r\n.settings-active-tab {\r\n  background-color: #ecf2fe;\r\n  margin: 10px;\r\n  border-radius: 10px;\r\n  padding: 10px;\r\n  display: flex;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-tab {\r\n  margin: 10px;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  display: flex;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-tab:hover {\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.general-content,\r\n.security-content {\r\n  display: flex;\r\n  padding: 2.5px 0 0 8.5px;\r\n}\r\n\r\n.general-settings-image,\r\n.security-settings-image {\r\n  width: 30px;\r\n  height: 30px;\r\n  margin-top: 2.5px;\r\n}\r\n\r\n.change {\r\n  font-size: 20px;\r\n  margin-left: auto;\r\n  color: blue;\r\n  border: none;\r\n  cursor: pointer;\r\n}\r\n.change:hover {\r\n  text-decoration: underline;\r\n  cursor: pointer;\r\n}\r\n\r\n.change-edit-password {\r\n  font-size: 20px;\r\n  margin-left: auto;\r\n  color: blue;\r\n  border: none;\r\n  float: right;\r\n  cursor: pointer;\r\n}\r\n\r\n.bold-text {\r\n  font-weight: bold;\r\n}\r\n\r\n.settings-info {\r\n  width: 600px;\r\n  margin: 0 10px 0 10px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  display: inline-block;\r\n}\r\n\r\n.settings-divider-container {\r\n  border-bottom: 1px solid black;\r\n}\r\n\r\n.settings-divider-inside-flex {\r\n  border-bottom: 1px solid hsl(0, 0%, 86%);\r\n  padding: 15px;\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.settings-divider-inside-single-flex {\r\n  border-bottom: 1px solid black;\r\n  padding: 15px;\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.settings-divider-inside {\r\n  border-bottom: 1px solid #dcdcdc;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-divider-inside-single {\r\n  border-bottom: 1px solid black;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-save-changes {\r\n  font-size: 16px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  margin: 7.5px 5px 0 0;\r\n  width: 120px;\r\n}\r\n\r\n.settings-cancel-changes {\r\n  font-size: 16px;\r\n  color: #696969;\r\n  margin-top: 7.5px;\r\n  background-color: #f1f0f0;\r\n  width: 70px;\r\n}\r\n\r\n.settings-form {\r\n  margin-top: 5px;\r\n}\r\n\r\n.label-settings-form,\r\n.label-settings-form-password {\r\n  display: inline-block;\r\n  margin-bottom: 5px;\r\n  width: 115px;\r\n}\r\n\r\n.label-settings-form-password {\r\n  width: 235px;\r\n}\r\n\r\n.input-settings-form {\r\n  display: inline-block;\r\n  margin-left: 5px;\r\n  padding-left: 2.5px;\r\n  border-radius: 5px;\r\n  font-size: 16px;\r\n  margin-bottom: 5px;\r\n  width: 225px;\r\n}\r\n\r\n.success {\r\n  color: green;\r\n  font-size: 20px;\r\n  font-weight: bold;\r\n  margin: 2.5px 0 7.5px 0;\r\n}\r\n\r\n.settings-hamburger-menu {\r\n  z-index: 1;\r\n  display: inline-block;\r\n  position: absolute;\r\n  margin-top: 7px;\r\n}\r\n\r\n.settings-hamburger-menu img {\r\n  width: 30px;\r\n  height: 30px;\r\n}\r\n\r\n@media (max-width: 950px) {\r\n  .main-settings {\r\n    display: block;\r\n    margin: 0 5px 0 5px;\r\n  }\r\n  .main-settings h1 {\r\n    margin-left: 35px;\r\n    font-size: 32px;\r\n  }\r\n\r\n  .settings-divider-inside,\r\n  .settings-divider-inside-single {\r\n    margin-right: 5px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .main-settings {\r\n    font-size: 18px;\r\n  }\r\n  .main-settings h1 {\r\n    font-size: 28px;\r\n    margin-left: 27.5px;\r\n  }\r\n\r\n  .change {\r\n    font-size: 18px;\r\n  }\r\n\r\n  .settings-hamburger-menu img {\r\n    width: 25px;\r\n    height: 25px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 450px) {\r\n  .main-settings {\r\n    font-size: 16px;\r\n  }\r\n  .change {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .settings-info {\r\n    max-width: 200px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -89004,8 +89004,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _editSettings_EditName__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editSettings/EditName */ "./src/client/components/main/account/settings/editSettings/EditName.js");
 /* harmony import */ var _editSettings_EditUsername__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./editSettings/EditUsername */ "./src/client/components/main/account/settings/editSettings/EditUsername.js");
-/* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/settings.css */ "./src/client/assets/stylesheets/components/main/settings.css");
-/* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var MainStylesheets_settings_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! MainStylesheets/settings.css */ "./src/client/assets/stylesheets/components/main/settings.css");
+/* harmony import */ var MainStylesheets_settings_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(MainStylesheets_settings_css__WEBPACK_IMPORTED_MODULE_3__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -89105,8 +89105,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _editSettings_EditPassword__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editSettings/EditPassword */ "./src/client/components/main/account/settings/editSettings/EditPassword.js");
-/* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../assets/stylesheets/components/main/settings.css */ "./src/client/assets/stylesheets/components/main/settings.css");
-/* harmony import */ var _assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_stylesheets_components_main_settings_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var MainStylesheets_settings_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! MainStylesheets/settings.css */ "./src/client/assets/stylesheets/components/main/settings.css");
+/* harmony import */ var MainStylesheets_settings_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(MainStylesheets_settings_css__WEBPACK_IMPORTED_MODULE_2__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -89228,6 +89228,8 @@ var Settings = function Settings(props) {
     className: "main-settings-left"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Settings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "settings-dropdown"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "pointer-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["NavLink"], {
     to: "/home/settings/general",
     className: "link",
@@ -89242,7 +89244,9 @@ var Settings = function Settings(props) {
     src: "images/generalSettings.png"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "general-content"
-  }, "General"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["NavLink"], {
+  }, "General")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "pointer-wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["NavLink"], {
     to: "/home/settings/security",
     className: "link",
     activeClassName: "linkActive"
@@ -89256,9 +89260,10 @@ var Settings = function Settings(props) {
     src: "images/securitySettings.png"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "security-content"
-  }, "Security "))))) : null, props.windowWidth > 950 || openMenu ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Security ")))))) : null, props.windowWidth > 950 || openMenu ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main-right"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    exact: true,
     path: "/home/settings/general",
     render: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_General__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -89268,6 +89273,7 @@ var Settings = function Settings(props) {
       });
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    exact: true,
     path: "/home/settings/security",
     render: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Security__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -89946,30 +89952,36 @@ var Banner = function Banner(props) {
     src: "images/dropdown.png"
   }))), showDropdown ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "dropdown-content"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "pointer-wrapper-dropdown"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
     to: "/home/profile",
-    className: "dropdown-nav-link",
+    className: "link",
     activeClassName: "linkActive"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "dropdown-profile"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "dropdown-profile-content"
-  }, "Profile"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+  }, "Profile")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "pointer-wrapper-dropdown"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
     to: "/home/settings/general",
-    className: "dropdown-nav-link",
+    className: "link",
     activeClassName: "linkActive"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "dropdown-settings"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "dropdown-settings-content"
-  }, "Settings"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Settings")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "pointer-wrapper-dropdown"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "dropdown-logout",
     className: "dropdown-logout",
     onClick: logOut
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     id: "dropdown-logout-name",
     className: "dropdown-logout-content"
-  }, "Log Out"))) : null)));
+  }, "Log Out")))) : null)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Banner);
@@ -90781,6 +90793,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ChatMessage = function ChatMessage(props) {
+  if (props.getMessages.loading) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "chat-display-chat-container"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "messageContainer",
+      className: "chat-display-chat"
+    }));
+  }
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-chat-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -91276,7 +91297,7 @@ var domainName = window.location.hostname; // If running locally use `ws:// ${do
 
 var port = 4000;
 var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_6__["WebSocketLink"]({
-  uri: "wss://".concat(domainName, "/graphql"),
+  uri: "ws://".concat(domainName, ":").concat(port, "/graphql"),
   options: {
     reconnect: true,
     lazy: true

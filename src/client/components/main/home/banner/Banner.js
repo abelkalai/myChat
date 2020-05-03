@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "MainStylesheets/banner.css";
 
 const Banner = (props) => {
@@ -72,35 +72,41 @@ const Banner = (props) => {
           </span>
           {showDropdown ? (
             <span className="dropdown-content">
-              <NavLink
-                to="/home/profile"
-                className="dropdown-nav-link"
-                activeClassName="linkActive"
-              >
-                <div className="dropdown-profile">
-                  <span className="dropdown-profile-content">Profile</span>
-                </div>
-              </NavLink>
-              <NavLink
-                to="/home/settings/general"
-                className="dropdown-nav-link"
-                activeClassName="linkActive"
-              >
-                <div className="dropdown-settings">
-                  <span className="dropdown-settings-content">Settings</span>
-                </div>
-              </NavLink>
-              <div
-                id="dropdown-logout"
-                className="dropdown-logout"
-                onClick={logOut}
-              >
-                <span
-                  id="dropdown-logout-name"
-                  className="dropdown-logout-content"
+              <div className="pointer-wrapper-dropdown">
+                <NavLink
+                  to="/home/profile"
+                  className="link"
+                  activeClassName="linkActive"
                 >
-                  Log Out
-                </span>
+                  <div className="dropdown-profile">
+                    <span className="dropdown-profile-content">Profile</span>
+                  </div>
+                </NavLink>
+              </div>
+              <div className="pointer-wrapper-dropdown">
+                <NavLink
+                  to="/home/settings/general"
+                  className="link"
+                  activeClassName="linkActive"
+                >
+                  <div className="dropdown-settings">
+                    <span className="dropdown-settings-content">Settings</span>
+                  </div>
+                </NavLink>
+              </div>
+              <div className="pointer-wrapper-dropdown">
+                <div
+                  id="dropdown-logout"
+                  className="dropdown-logout"
+                  onClick={logOut}
+                >
+                  <span
+                    id="dropdown-logout-name"
+                    className="dropdown-logout-content"
+                  >
+                    Log Out
+                  </span>
+                </div>
               </div>
             </span>
           ) : null}

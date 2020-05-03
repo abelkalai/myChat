@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EditPassword from "./editSettings/EditPassword";
-import "../../../../assets/stylesheets/components/main/settings.css";
+import "MainStylesheets/settings.css";
 
 const Security = (props) => {
   useEffect(() => {

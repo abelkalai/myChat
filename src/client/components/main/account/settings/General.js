@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import EditName from "./editSettings/EditName";
 import EditUsername from "./editSettings/EditUsername";
-import "../../../../assets/stylesheets/components/main/settings.css";
+import "MainStylesheets/settings.css";
 
 const General = (props) => {
   const [showNameForm, setShowNameForm] = useState(false);

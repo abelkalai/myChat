@@ -31,50 +31,55 @@ const Settings = (props) => {
         <div className="main-settings-left">
           <h1>Settings</h1>
           <div className="settings-dropdown">
-            <NavLink
-              to="/home/settings/general"
-              className="link"
-              activeClassName="linkActive"
-            >
-              <div
-                className={
-                  activeTab === "general"
-                    ? "settings-active-tab"
-                    : "settings-tab"
-                }
-                onClick={() => {
-                  setOpenMenu(true);
-                }}
+            <div className="pointer-wrapper">
+              <NavLink
+                to="/home/settings/general"
+                className="link"
+                activeClassName="linkActive"
               >
-                <img
-                  className="general-settings-image"
-                  src="images/generalSettings.png"
-                />
-                <div className="general-content">General</div>
-              </div>
-            </NavLink>
-            <NavLink
-              to="/home/settings/security"
-              className="link"
-              activeClassName="linkActive"
-            >
-              <div
-                className={
-                  activeTab === "security"
-                    ? "settings-active-tab"
-                    : "settings-tab"
-                }
-                onClick={() => {
-                  setOpenMenu(true);
-                }}
+                <div
+                  className={
+                    activeTab === "general"
+                      ? "settings-active-tab"
+                      : "settings-tab"
+                  }
+                  onClick={() => {
+                    setOpenMenu(true);
+                  }}
+                >
+                  <img
+                    className="general-settings-image"
+                    src="images/generalSettings.png"
+                  />
+                  <div className="general-content">General</div>
+                </div>
+              </NavLink>
+            </div>
+
+            <div className="pointer-wrapper">
+              <NavLink
+                to="/home/settings/security"
+                className="link"
+                activeClassName="linkActive"
               >
-                <img
-                  className="security-settings-image"
-                  src="images/securitySettings.png"
-                />
-                <div className="security-content">Security </div>
-              </div>
-            </NavLink>
+                <div
+                  className={
+                    activeTab === "security"
+                      ? "settings-active-tab"
+                      : "settings-tab"
+                  }
+                  onClick={() => {
+                    setOpenMenu(true);
+                  }}
+                >
+                  <img
+                    className="security-settings-image"
+                    src="images/securitySettings.png"
+                  />
+                  <div className="security-content">Security </div>
+                </div>
+              </NavLink>
+            </div>
           </div>
         </div>
       ) : null}
@@ -82,6 +87,7 @@ const Settings = (props) => {
       {props.windowWidth > 950 || openMenu ? (
         <div className="main-right">
           <Route
+            exact
             path="/home/settings/general"
             render={() => (
               <General
@@ -92,6 +98,7 @@ const Settings = (props) => {
             )}
           />
           <Route
+            exact
             path="/home/settings/security"
             render={() => (
               <Security userInfo={props.userInfo} setActiveTab={setActiveTab} />

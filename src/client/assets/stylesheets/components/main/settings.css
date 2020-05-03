@@ -20,7 +20,7 @@
   border-radius: 10px;
   padding: 10px;
   display: flex;
-  pointer-events: none;
+  cursor: pointer;
 }
 
 .settings-tab {
@@ -28,6 +28,7 @@
   padding: 10px;
   border-radius: 10px;
   display: flex;
+  cursor: pointer;
 }
 
 .settings-tab:hover {
@@ -38,7 +39,6 @@
 .security-content {
   display: flex;
   padding: 2.5px 0 0 8.5px;
-  pointer-events: none;
 }
 
 .general-settings-image,
@@ -46,7 +46,6 @@
   width: 30px;
   height: 30px;
   margin-top: 2.5px;
-  pointer-events: none;
 }
 
 .change {

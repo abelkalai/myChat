@@ -2,6 +2,13 @@ import React from "react";
 import adjustTime from "Utilities/adjustTime";
 import "MainStylesheets/chat/chatMessage.css";
 const ChatMessage = (props) => {
+  if (props.getMessages.loading) {
+    return (
+      <div className="chat-display-chat-container">
+        <div id="messageContainer" className="chat-display-chat"></div>
+      </div>
+    );
+  }
   return (
     <div className="chat-display-chat-container">
       <div id="messageContainer" className="chat-display-chat">

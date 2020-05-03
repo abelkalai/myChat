@@ -4,11 +4,9 @@
   font-size: 18px;
 }
 
-
-.link{
+.link {
   text-decoration: none;
   color: black;
-  pointer-events: inherit;
 }
 
 .link-flex {
@@ -19,18 +17,26 @@
 }
 
 .linkActive {
-  pointer-events : none !important;
+  pointer-events: none;
 }
 
-.pointer-wrapper{
+.pointer-wrapper {
   cursor: pointer;
 }
 
-.pointer-wrapper-bold{
+.pointer-wrapper-dropdown {
+  border-radius: 5px;
+  cursor: pointer;
+}
+.pointer-wrapper-dropdown:hover {
+  background-color: #f1f0f0;
+}
+
+.pointer-wrapper-bold {
   cursor: pointer;
   font-weight: bold;
-
 }
+
 ::-webkit-scrollbar {
   width: 7.5px;
 }
