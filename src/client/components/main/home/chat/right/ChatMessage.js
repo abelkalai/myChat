@@ -4,8 +4,8 @@ import "MainStylesheets/chat/chatMessage.css";
 const ChatMessage = (props) => {
   if (props.getMessages.loading) {
     return (
-      <div className="chat-display-chat-container">
-        <div id="messageContainer" className="chat-display-chat"></div>
+      <div className="chat-display-chat-container-loading">
+        <img  className="loading" src="gifs/loading.gif" />
       </div>
     );
   }

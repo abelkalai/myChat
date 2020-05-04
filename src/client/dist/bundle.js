@@ -25377,7 +25377,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".banner {\r\n  background-color: #00a8f3;\r\n  padding-bottom: 5px;\r\n  position: relative;\r\n  max-height: 65px;\r\n}\r\n\r\n.banner-title {\r\n  color: white;\r\n  font-size: 44px;\r\n  cursor: pointer;\r\n  padding-left: 15px;\r\n  display: inline-block;\r\n}\r\n\r\n.banner-title:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.banner-link {\r\n  color: white;\r\n  text-decoration: none;\r\n}\r\n\r\n.user-wrapper {\r\n  float: right;\r\n  margin-right: 25px;\r\n  margin-top: 12px;\r\n  position: relative;\r\n}\r\n\r\n.user {\r\n  display: flex;\r\n  color: white;\r\n  font-size: 24px;\r\n  align-items: center;\r\n  position: inherit;\r\n}\r\n\r\n.user-image {\r\n  width: 35px;\r\n  height: 35px;\r\n  border-radius: 50%;\r\n  position: inherit;\r\n}\r\n\r\n.user-name {\r\n  margin: 0 7.5px 0 7.5px;\r\n  position: inherit;\r\n  display: inline-block;\r\n  max-width: 225px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n.dropdown-wrapper {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  margin-left: 5px;\r\n  position: inherit;\r\n}\r\n\r\n.dropdown {\r\n  margin-top: 2px;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 35px;\r\n  width: 35px;\r\n  border-radius: 50%;\r\n  color: black;\r\n  background-color: white;\r\n  position: inherit;\r\n}\r\n\r\n.dropdown img {\r\n  margin-top: 2.5px;\r\n  width: 20px;\r\n  height: 20px;\r\n  position: inherit;\r\n}\r\n\r\n.dropdown:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.dropdown-content {\r\n  right: 0px;\r\n  margin-top: 100px;\r\n  font-size: 18px;\r\n  display: inline-block;\r\n  position: absolute;\r\n  color: black;\r\n  background-color: white;\r\n  min-width: 110px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  z-index: 2;\r\n}\r\n\r\n.dropdown-profile,.dropdown-settings,.dropdown-logout {\r\n  padding: 10px;\r\n  border-radius: 8px;\r\n  text-decoration: none;\r\n  display: block;\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-profile {\r\n  background-position: 2.5px 8px;\r\n  background-image: url(\"/images/profile.png\");\r\n  background-repeat: no-repeat;\r\n  padding-left: 5px;\r\n\r\n}\r\n\r\n.dropdown-profile-content {\r\n  margin-left: 27.5px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-position: 2.5px 7px;\r\n  background-image: url(\"/images/settings.png\");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  margin-left: 22.5px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-position: 2.5px 7px;\r\n  background-image: url(\"/images/logout.png\");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  margin-left: 23.5px;\r\n}\r\n\r\n@media screen and (max-width: 912px) {\r\n  .user-wrapper {\r\n    margin-right: 10px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .banner-title {\r\n    font-size: 32px;\r\n    padding-left: 5px;\r\n  }\r\n  .user-wrapper {\r\n    margin-top: 4.5px;\r\n  }\r\n\r\n  .user {\r\n    font-size: 22px;\r\n  }\r\n\r\n  .dropdown {\r\n    margin-top: 0px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".banner {\r\n  background-color: #00a8f3;\r\n  padding-bottom: 5px;\r\n  position: relative;\r\n  max-height: 65px;\r\n}\r\n\r\n.banner-title {\r\n  color: white;\r\n  font-size: 44px;\r\n  cursor: pointer;\r\n  padding-left: 15px;\r\n  display: inline-block;\r\n}\r\n\r\n.banner-title:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.banner-link {\r\n  color: white;\r\n  text-decoration: none;\r\n}\r\n\r\n.user-wrapper {\r\n  float: right;\r\n  margin-right: 25px;\r\n  margin-top: 12px;\r\n  position: relative;\r\n}\r\n\r\n.user {\r\n  display: flex;\r\n  color: white;\r\n  font-size: 24px;\r\n  align-items: center;\r\n  position: inherit;\r\n}\r\n\r\n.user-image {\r\n  width: 35px;\r\n  height: 35px;\r\n  border-radius: 50%;\r\n  position: inherit;\r\n}\r\n\r\n.user-name {\r\n  margin: 0 7.5px 0 7.5px;\r\n  position: inherit;\r\n  display: inline-block;\r\n  max-width: 225px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n.dropdown-wrapper {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  margin-left: 5px;\r\n  position: inherit;\r\n}\r\n\r\n.dropdown {\r\n  margin-top: 2px;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 35px;\r\n  width: 35px;\r\n  border-radius: 50%;\r\n  color: black;\r\n  background-color: white;\r\n  position: inherit;\r\n}\r\n\r\n.dropdown img {\r\n  margin-top: 2.5px;\r\n  width: 20px;\r\n  height: 20px;\r\n  position: inherit;\r\n}\r\n\r\n.dropdown:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.dropdown-content {\r\n  right: 0px;\r\n  margin-top: 100px;\r\n  font-size: 18px;\r\n  display: inline-block;\r\n  position: absolute;\r\n  color: black;\r\n  background-color: white;\r\n  min-width: 110px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  z-index: 2;\r\n}\r\n\r\n.dropdown-profile,\r\n.dropdown-settings,\r\n.dropdown-logout {\r\n  padding: 10px;\r\n  border-radius: 8px;\r\n  text-decoration: none;\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-profile {\r\n  background-position: 2.5px 8px;\r\n  background-image: url(\"/images/profile.png\");\r\n  background-repeat: no-repeat;\r\n  padding-left: 5px;\r\n}\r\n.dropdown-profile:hover {\r\n  color: white;\r\n  background-image: url(\"/images/profileWhite.png\");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 8px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-profile-content {\r\n  margin-left: 30px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-position: 2.5px 7px;\r\n  background-image: url(\"/images/settings.png\");\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-settings:hover {\r\n  color: white;\r\n  background-image: url(\"/images/settingsWhite.png\");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 7px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  margin-left: 22.5px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-position: 2.5px 7px;\r\n  background-image: url(\"/images/logout.png\");\r\n  background-repeat: no-repeat;\r\n}\r\n.dropdown-logout:hover {\r\n  color: white;\r\n  background-image: url(\"/images/logoutWhite.png\");\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  background-position: 2.5px 7px;\r\n  z-index: 1;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  margin-left: 23.5px;\r\n}\r\n\r\n@media screen and (max-width: 912px) {\r\n  .user-wrapper {\r\n    margin-right: 10px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .banner-title {\r\n    font-size: 32px;\r\n    padding-left: 5px;\r\n  }\r\n  .user-wrapper {\r\n    margin-top: 4.5px;\r\n  }\r\n\r\n  .user {\r\n    font-size: 22px;\r\n  }\r\n\r\n  .dropdown {\r\n    margin-top: 0px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25395,7 +25395,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".chat-main {\r\n  display: grid;\r\n  grid-template-columns: 30% 70%;\r\n  font-size: 18px;\r\n}\r\n\r\n.link {\r\n  text-decoration: none;\r\n  color: black;\r\n}\r\n\r\n.link-flex {\r\n  text-decoration: none;\r\n  color: black;\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n}\r\n\r\n.linkActive {\r\n  pointer-events: none;\r\n}\r\n\r\n.pointer-wrapper {\r\n  cursor: pointer;\r\n}\r\n\r\n.pointer-wrapper-dropdown {\r\n  border-radius: 5px;\r\n  cursor: pointer;\r\n}\r\n.pointer-wrapper-dropdown:hover {\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.pointer-wrapper-bold {\r\n  cursor: pointer;\r\n  font-weight: bold;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 7.5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  background: grey;\r\n  border-radius: 7.5px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .chat-main {\r\n    display: flex;\r\n    flex-direction: column;\r\n    height: calc(100vh - 50px);\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".chat-main {\r\n  display: grid;\r\n  grid-template-columns: 30% 70%;\r\n  font-size: 18px;\r\n}\r\n\r\n.link {\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  align-items: center;\r\n  text-decoration: none;\r\n  color: inherit;\r\n  min-width: 0;\r\n}\r\n\r\n.linkActive {\r\n  pointer-events: none;\r\n}\r\n\r\n.loading{\r\n  display: flex;\r\n  width: 50px;\r\n  height: 50px;\r\n}\r\n\r\n.pointer-wrapper {\r\n  cursor: pointer;\r\n}\r\n\r\n.pointer-wrapper-bold {\r\n  cursor: pointer;\r\n  font-weight: bold;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 7.5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  background: grey;\r\n  border-radius: 7.5px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .chat-main {\r\n    display: flex;\r\n    flex-direction: column;\r\n    height: calc(100vh - 50px);\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25449,7 +25449,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".no-history-div {\r\n  margin-top: 5px;\r\n  margin-left: 15px;\r\n  overflow-y: auto;\r\n  flex: 1 1 1px;\r\n}\r\n\r\n.chat-history-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex: 1 1 1px;\r\n  margin: 10px 5px 0 5px;\r\n  padding-left: 5px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n  font-size: 16px;\r\n}\r\n\r\n.chat-history-wrapper-current {\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex: 1 1 1px;\r\n  margin: 0 5px 5px 0;\r\n  padding: 5px;\r\n  cursor: pointer;\r\n  border-radius: 5px;\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.chat-history-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex: 1 1 1px;\r\n  margin: 0 5px 5px 0;\r\n  padding: 5px;\r\n  cursor: pointer;\r\n  border-radius: 5px;\r\n}\r\n\r\n.chat-history-info-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  flex: 1 1 1px;\r\n  min-width: 0;\r\n}\r\n\r\n.chat-history-img {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-history-words-wrapper {\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex: 1 1 1px; \r\n  max-width: 67.5%;\r\n  margin-left: 2.5px;\r\n}\r\n\r\n.chat-history-overflow-name-header {\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n.chat-history-overflow-message {\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n.chat-history-timestamp {\r\n  display: flex;\r\n  margin-left: auto;\r\n  margin-top: auto;\r\n  white-space: nowrap;\r\n}\r\n\r\n\r\n.chat-history-words-wrapper-placeholder {\r\n  flex-direction: column;\r\n  display: flex;\r\n  margin-left: 2.5px;\r\n}\r\n\r\n.chat-history-name-header-placeholder {\r\n  width: 30%;\r\n  height: 15px;\r\n}\r\n\r\n.chat-history-content-placeholder {\r\n  width: 100%;\r\n  height: 15px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .no-history-div {\r\n    margin-top: 5px;\r\n    margin-left: 15px;\r\n    overflow-y: auto;\r\n    flex: 1 1 1px;\r\n  }\r\n  \r\n  .chat-history-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    flex: 1 1 1px;\r\n    margin: 10px 5px 0 5px;\r\n    padding-left: 5px;\r\n    overflow-y: auto;\r\n    overflow-x: hidden;\r\n    font-size: 16px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".no-history-div {\r\n  margin-top: 5px;\r\n  margin-left: 15px;\r\n  overflow-y: auto;\r\n  flex: 1 1 1px;\r\n}\r\n\r\n.chat-history-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex: 1 1 1px;\r\n  margin: 10px 5px 0 5px;\r\n  padding-left: 5px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n  font-size: 16px;\r\n}\r\n\r\n.chat-history-unread {\r\n  font-weight: bold;\r\n}\r\n\r\n.chat-history-wrapper-current {\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex: 1 1 1px;\r\n  margin: 0 5px 5px 0;\r\n  padding: 5px;\r\n  cursor: pointer;\r\n  border-radius: 5px;\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.chat-history-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex: 1 1 1px;\r\n  margin: 0 5px 5px 0;\r\n  padding: 5px;\r\n  cursor: pointer;\r\n  border-radius: 5px;\r\n}\r\n\r\n.chat-history-info-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  flex: 1 1 1px;\r\n  min-width: 0;\r\n}\r\n\r\n.chat-history-img {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-history-words-wrapper {\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex: 1 1 1px; \r\n  max-width: 67.5%;\r\n  margin-left: 2.5px;\r\n}\r\n\r\n.chat-history-overflow-name-header {\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n.chat-history-overflow-message {\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n.chat-history-timestamp {\r\n  display: flex;\r\n  margin-left: auto;\r\n  margin-top: auto;\r\n  white-space: nowrap;\r\n}\r\n\r\n\r\n.chat-history-words-wrapper-placeholder {\r\n  flex-direction: column;\r\n  display: flex;\r\n  margin-left: 2.5px;\r\n}\r\n\r\n.chat-history-name-header-placeholder {\r\n  width: 30%;\r\n  height: 15px;\r\n}\r\n\r\n.chat-history-content-placeholder {\r\n  width: 100%;\r\n  height: 15px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .no-history-div {\r\n    margin-top: 5px;\r\n    margin-left: 15px;\r\n    overflow-y: auto;\r\n    flex: 1 1 1px;\r\n  }\r\n  \r\n  .chat-history-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    flex: 1 1 1px;\r\n    margin: 10px 5px 0 5px;\r\n    padding-left: 5px;\r\n    overflow-y: auto;\r\n    overflow-x: hidden;\r\n    font-size: 16px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25467,7 +25467,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".chat-display-chat-parent {\r\n  display: flex;\r\n  flex-direction: column;\r\n  border-left: 1px solid #dcdcdc;\r\n  border-right: 1px solid #dcdcdc;\r\n}\r\n\r\n.chat-display-chat-container {\r\n  height: calc(100vh - 135px);\r\n  display: inline-flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.chat-display-chat {\r\n  max-height: calc(100vh - 135px);\r\n  margin-top: 5px;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  display: flex;\r\n  flex-direction: column-reverse;\r\n}\r\n\r\n.chat-message-wrapper {\r\n  font-size: 18px;\r\n  display: inline-block;\r\n  padding: 3px;\r\n}\r\n\r\n.chat-my-message {\r\n  color: white;\r\n  background-color: #0099ff;\r\n  padding: 6px 10px 6px 10px;\r\n  float: right;\r\n  max-width: 60%;\r\n  margin-right: 8px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-contact-message {\r\n  float: left;\r\n  background-color: #f1f0f0;\r\n  margin-left: 4px;\r\n  padding: 6px 10px 6px 10px;\r\n  max-width: 60%;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-display-chat-send-message-form {\r\n  display: flex;\r\n  min-width: 0;\r\n  max-width: 100%;\r\n  margin: 15px 5px 20px 10px;\r\n  flex: 1 1 1px;\r\n}\r\n\r\n.chat-display-chat-message-field {\r\n  display: flex;\r\n  padding: 2.5px;\r\n  padding-left: 5px;\r\n  font-size: 18px;\r\n  border-radius: 5px;\r\n  width: 100%;\r\n  height: 27.5px;\r\n  align-items: center;\r\n}\r\n\r\n.chat-display-chat-send-message-form-img {\r\n  max-width: 100%;\r\n  margin-left: 2px;\r\n  margin-bottom: 2px;\r\n  width: 27px;\r\n  height: 34.5px;\r\n}\r\n\r\n.msg-placeholder-msg-field {\r\n  display: flex;\r\n  width: 95%;\r\n  margin-left: 2px;\r\n  margin-bottom: 2px;\r\n  height: 30px;\r\n}\r\n\r\n.msg-placeholder-img-me {\r\n  float: right;\r\n  width: 45%;\r\n  height: 25px;\r\n  margin-right: 4px;\r\n  padding: 6px;\r\n}\r\n\r\n.msg-placeholder-img-contact {\r\n  float: left;\r\n  width: 45%;\r\n  height: 25px;\r\n  padding: 6px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .chat-display-chat-parent {\r\n    border-left: none;\r\n    border-right: none;\r\n  }\r\n  .chat-display-chat-send-message-form {\r\n    margin-bottom: 0px;\r\n    margin-left: 10px;\r\n  }\r\n\r\n  .chat-display-chat-container {\r\n    height: calc(100vh - 110px);\r\n  }\r\n\r\n  .chat-display-chat {\r\n    max-height: calc(100vh - 110px);\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".chat-display-chat-parent {\r\n  display: flex;\r\n  flex-direction: column;\r\n  border-left: 1px solid #dcdcdc;\r\n  border-right: 1px solid #dcdcdc;\r\n  min-width: 0;\r\n}\r\n\r\n.chat-display-chat-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  height: calc(100vh - 135px);\r\n}\r\n\r\n.chat-display-chat-container-loading{\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: calc(100vh - 135px);\r\n}\r\n\r\n.chat-display-chat {\r\n  max-height: calc(100vh - 135px);\r\n  margin-top: 5px;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  display: flex;\r\n\r\n  flex-direction: column-reverse;\r\n}\r\n\r\n.chat-message-wrapper {\r\n  font-size: 18px;\r\n  display: inline-block;\r\n  padding: 3px;\r\n}\r\n\r\n.chat-my-message {\r\n  color: white;\r\n  background-color: #0099ff;\r\n  padding: 6px 10px 6px 10px;\r\n  float: right;\r\n  max-width: 60%;\r\n  margin-right: 8px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-contact-message {\r\n  float: left;\r\n  background-color: #f1f0f0;\r\n  margin-left: 4px;\r\n  padding: 6px 10px 6px 10px;\r\n  max-width: 60%;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-display-chat-send-message-form {\r\n  display: flex;\r\n  min-width: 0;\r\n  max-width: 100%;\r\n  margin: 15px 5px 20px 10px;\r\n  flex: 1 1 1px;\r\n}\r\n\r\n.chat-display-chat-message-field {\r\n  display: flex;\r\n  padding: 2.5px;\r\n  padding-left: 5px;\r\n  font-size: 18px;\r\n  border-radius: 5px;\r\n  width: 100%;\r\n  height: 27.5px;\r\n  align-items: center;\r\n}\r\n\r\n.chat-display-chat-send-message-form-img {\r\n  max-width: 100%;\r\n  margin-left: 2px;\r\n  margin-bottom: 2px;\r\n  width: 27px;\r\n  height: 34.5px;\r\n}\r\n\r\n.msg-placeholder-msg-field {\r\n  display: flex;\r\n  width: 95%;\r\n  margin-left: 2px;\r\n  margin-bottom: 2px;\r\n  height: 30px;\r\n}\r\n\r\n.msg-placeholder-img-me {\r\n  float: right;\r\n  width: 45%;\r\n  height: 25px;\r\n  margin-right: 4px;\r\n  padding: 6px;\r\n}\r\n\r\n.msg-placeholder-img-contact {\r\n  float: left;\r\n  width: 45%;\r\n  height: 25px;\r\n  padding: 6px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .chat-display-chat-parent {\r\n    border-left: none;\r\n    border-right: none;\r\n  }\r\n  .chat-display-chat-send-message-form {\r\n    margin-bottom: 0px;\r\n    margin-left: 10px;\r\n  }\r\n\r\n  .chat-display-chat-container {\r\n    height: calc(100vh - 110px);\r\n  }\r\n\r\n  .chat-display-chat {\r\n    max-height: calc(100vh - 110px);\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25485,7 +25485,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".chat-left {\r\n  display: flex;\r\n  flex-direction: column;\r\n  min-width: 0;\r\n}\r\n\r\n.chat-search-container {\r\n  font-size: 18px;\r\n  margin: 5px 10px 0 12.5px;\r\n  display: flex;\r\n  min-width: 0;\r\n}\r\n\r\n.search-contacts-input {\r\n  padding: 5px;\r\n  background-position: 2.5px;\r\n  background-image: url(\"/images/search.png\");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 30px;\r\n  border-radius: 10px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-search-results {\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex: 1 1 1px;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  max-width: 95%;\r\n  max-height: 100%;\r\n  margin: 10px 0 0 10px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n  min-width: 0;\r\n  min-height: 0;\r\n}\r\n\r\n.chat-search-results-container {\r\n  display: flex;\r\n  flex-direction: row;\r\n  margin: 2.5px 0 2.5px 0;\r\n  padding: 5px;\r\n  border-radius: 5px;\r\n  align-items: center;\r\n  min-width: 0;\r\n}\r\n\r\n.chat-search-results-container:hover {\r\n  cursor: pointer;\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-search-results img {\r\n  width: 30px;\r\n  height: 30px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-search-results-name {\r\n  margin-left: 3.5px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .chat-left {\r\n    flex: 1 1 1px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".chat-left {\r\n  display: flex;\r\n  flex-direction: column;\r\n  min-width: 0;\r\n}\r\n\r\n.chat-search-container {\r\n  font-size: 18px;\r\n  margin: 5px 10px 0 12.5px;\r\n  display: flex;\r\n  min-width: 0;\r\n}\r\n\r\n.search-contacts-input {\r\n  padding: 5px;\r\n  background-position: 2.5px;\r\n  background-image: url(\"/images/search.png\");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 30px;\r\n  border-radius: 10px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-search-results {\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex: 1 1 1px;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  max-width: 95%;\r\n  max-height: 100%;\r\n  margin: 10px 0 0 10px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n  min-width: 0;\r\n  min-height: 0;\r\n}\r\n\r\n.chat-search-results-container {\r\n  display: flex;\r\n  flex-direction: row;\r\n  margin: 2.5px 0 2.5px 0;\r\n  padding: 5px;\r\n  border-radius: 5px;\r\n  align-items: center;\r\n  min-width: 0;\r\n  cursor: pointer;\r\n}\r\n\r\n.chat-search-results-container:hover {\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-search-results img {\r\n  width: 30px;\r\n  height: 30px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-search-results-name {\r\n  margin-left: 3.5px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .chat-left {\r\n    flex: 1 1 1px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25521,7 +25521,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".main-settings {\r\n  margin: 10px 7.5% 0 65px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 25% 75%;\r\n}\r\n\r\n.main-settings-left {\r\n  width: 95%;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n}\r\n\r\n.settings-active-tab {\r\n  background-color: #ecf2fe;\r\n  margin: 10px;\r\n  border-radius: 10px;\r\n  padding: 10px;\r\n  display: flex;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-tab {\r\n  margin: 10px;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  display: flex;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-tab:hover {\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.general-content,\r\n.security-content {\r\n  display: flex;\r\n  padding: 2.5px 0 0 8.5px;\r\n}\r\n\r\n.general-settings-image,\r\n.security-settings-image {\r\n  width: 30px;\r\n  height: 30px;\r\n  margin-top: 2.5px;\r\n}\r\n\r\n.change {\r\n  font-size: 20px;\r\n  margin-left: auto;\r\n  color: blue;\r\n  border: none;\r\n  cursor: pointer;\r\n}\r\n.change:hover {\r\n  text-decoration: underline;\r\n  cursor: pointer;\r\n}\r\n\r\n.change-edit-password {\r\n  font-size: 20px;\r\n  margin-left: auto;\r\n  color: blue;\r\n  border: none;\r\n  float: right;\r\n  cursor: pointer;\r\n}\r\n\r\n.bold-text {\r\n  font-weight: bold;\r\n}\r\n\r\n.settings-info {\r\n  width: 600px;\r\n  margin: 0 10px 0 10px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  display: inline-block;\r\n}\r\n\r\n.settings-divider-container {\r\n  border-bottom: 1px solid black;\r\n}\r\n\r\n.settings-divider-inside-flex {\r\n  border-bottom: 1px solid hsl(0, 0%, 86%);\r\n  padding: 15px;\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.settings-divider-inside-single-flex {\r\n  border-bottom: 1px solid black;\r\n  padding: 15px;\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.settings-divider-inside {\r\n  border-bottom: 1px solid #dcdcdc;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-divider-inside-single {\r\n  border-bottom: 1px solid black;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-save-changes {\r\n  font-size: 16px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  margin: 7.5px 5px 0 0;\r\n  width: 120px;\r\n}\r\n\r\n.settings-cancel-changes {\r\n  font-size: 16px;\r\n  color: #696969;\r\n  margin-top: 7.5px;\r\n  background-color: #f1f0f0;\r\n  width: 70px;\r\n}\r\n\r\n.settings-form {\r\n  margin-top: 5px;\r\n}\r\n\r\n.label-settings-form,\r\n.label-settings-form-password {\r\n  display: inline-block;\r\n  margin-bottom: 5px;\r\n  width: 115px;\r\n}\r\n\r\n.label-settings-form-password {\r\n  width: 235px;\r\n}\r\n\r\n.input-settings-form {\r\n  display: inline-block;\r\n  margin-left: 5px;\r\n  padding-left: 2.5px;\r\n  border-radius: 5px;\r\n  font-size: 16px;\r\n  margin-bottom: 5px;\r\n  width: 225px;\r\n}\r\n\r\n.success {\r\n  color: green;\r\n  font-size: 20px;\r\n  font-weight: bold;\r\n  margin: 2.5px 0 7.5px 0;\r\n}\r\n\r\n.settings-hamburger-menu {\r\n  z-index: 1;\r\n  display: inline-block;\r\n  position: absolute;\r\n  margin-top: 7px;\r\n}\r\n\r\n.settings-hamburger-menu img {\r\n  width: 30px;\r\n  height: 30px;\r\n}\r\n\r\n@media (max-width: 950px) {\r\n  .main-settings {\r\n    display: block;\r\n    margin: 0 5px 0 5px;\r\n  }\r\n  .main-settings h1 {\r\n    margin-left: 35px;\r\n    font-size: 32px;\r\n  }\r\n\r\n  .settings-divider-inside,\r\n  .settings-divider-inside-single {\r\n    margin-right: 5px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .main-settings {\r\n    font-size: 18px;\r\n  }\r\n  .main-settings h1 {\r\n    font-size: 28px;\r\n    margin-left: 27.5px;\r\n  }\r\n\r\n  .change {\r\n    font-size: 18px;\r\n  }\r\n\r\n  .settings-hamburger-menu img {\r\n    width: 25px;\r\n    height: 25px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 450px) {\r\n  .main-settings {\r\n    font-size: 16px;\r\n  }\r\n  .change {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .settings-info {\r\n    max-width: 200px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".main-settings {\r\n  margin: 10px 7.5% 0 65px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 25% 75%;\r\n}\r\n\r\n.main-settings-left {\r\n  width: 95%;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n}\r\n\r\n.settings-active-tab {\r\n  background-color: #ecf2fe;\r\n  margin: 10px;\r\n  border-radius: 10px;\r\n  padding: 10px;\r\n  display: flex;\r\n  cursor: pointer;\r\n}\r\n\r\n\r\n.settings-tab {\r\n  margin: 10px;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  display: flex;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-tab:hover {\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.general-content,\r\n.security-content {\r\n  display: flex;\r\n  padding: 2.5px 0 0 8.5px;\r\n  pointer-events: inherit;\r\n}\r\n\r\n.general-settings-image,\r\n.security-settings-image {\r\n  width: 30px;\r\n  height: 30px;\r\n  margin-top: 2.5px;\r\n  pointer-events: inherit;\r\n}\r\n\r\n.change {\r\n  font-size: 20px;\r\n  margin-left: auto;\r\n  color: blue;\r\n  border: none;\r\n  cursor: pointer;\r\n}\r\n.change:hover {\r\n  text-decoration: underline;\r\n  cursor: pointer;\r\n}\r\n\r\n.change-edit-password {\r\n  font-size: 20px;\r\n  margin-left: auto;\r\n  color: blue;\r\n  border: none;\r\n  float: right;\r\n  cursor: pointer;\r\n}\r\n\r\n.bold-text {\r\n  font-weight: bold;\r\n}\r\n\r\n.settings-info {\r\n  width: 600px;\r\n  margin: 0 10px 0 10px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  display: inline-block;\r\n}\r\n\r\n.settings-divider-container {\r\n  border-bottom: 1px solid black;\r\n}\r\n\r\n.settings-divider-inside-flex {\r\n  border-bottom: 1px solid hsl(0, 0%, 86%);\r\n  padding: 15px;\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.settings-divider-inside-single-flex {\r\n  border-bottom: 1px solid black;\r\n  padding: 15px;\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.settings-divider-inside {\r\n  border-bottom: 1px solid #dcdcdc;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-divider-inside-single {\r\n  border-bottom: 1px solid black;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-save-changes {\r\n  font-size: 16px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  margin: 7.5px 5px 0 0;\r\n  width: 120px;\r\n}\r\n\r\n.settings-cancel-changes {\r\n  font-size: 16px;\r\n  color: #696969;\r\n  margin-top: 7.5px;\r\n  background-color: #f1f0f0;\r\n  width: 70px;\r\n}\r\n\r\n.settings-form {\r\n  margin-top: 5px;\r\n}\r\n\r\n.label-settings-form,\r\n.label-settings-form-password {\r\n  display: inline-block;\r\n  margin-bottom: 5px;\r\n  width: 115px;\r\n}\r\n\r\n.label-settings-form-password {\r\n  width: 235px;\r\n}\r\n\r\n.input-settings-form {\r\n  display: inline-block;\r\n  margin-left: 5px;\r\n  padding-left: 2.5px;\r\n  border-radius: 5px;\r\n  font-size: 16px;\r\n  margin-bottom: 5px;\r\n  width: 225px;\r\n}\r\n\r\n.success {\r\n  color: green;\r\n  font-size: 20px;\r\n  font-weight: bold;\r\n  margin: 2.5px 0 7.5px 0;\r\n}\r\n\r\n.settings-hamburger-menu {\r\n  z-index: 1;\r\n  display: inline-block;\r\n  position: absolute;\r\n  margin-top: 7px;\r\n}\r\n\r\n.settings-hamburger-menu img {\r\n  width: 30px;\r\n  height: 30px;\r\n}\r\n\r\n@media (max-width: 950px) {\r\n  .main-settings {\r\n    display: block;\r\n    margin: 0 5px 0 5px;\r\n  }\r\n  .main-settings h1 {\r\n    margin-left: 35px;\r\n    font-size: 32px;\r\n  }\r\n\r\n  .settings-divider-inside,\r\n  .settings-divider-inside-single {\r\n    margin-right: 5px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .main-settings {\r\n    font-size: 18px;\r\n  }\r\n  .main-settings h1 {\r\n    font-size: 28px;\r\n    margin-left: 27.5px;\r\n  }\r\n\r\n  .change {\r\n    font-size: 18px;\r\n  }\r\n\r\n  .settings-hamburger-menu img {\r\n    width: 25px;\r\n    height: 25px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 450px) {\r\n  .main-settings {\r\n    font-size: 16px;\r\n  }\r\n  .change {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .settings-info {\r\n    max-width: 200px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -89229,38 +89229,36 @@ var Settings = function Settings(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Settings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "settings-dropdown"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "pointer-wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["NavLink"], {
-    to: "/home/settings/general",
-    className: "link",
-    activeClassName: "linkActive"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: activeTab === "general" ? "settings-active-tab" : "settings-tab",
     onClick: function onClick() {
       setOpenMenu(true);
     }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["NavLink"], {
+    exact: true,
+    to: "/home/settings/general",
+    className: "link",
+    activeClassName: "linkActive"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "general-settings-image",
     src: "images/generalSettings.png"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "general-content"
-  }, "General")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "pointer-wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["NavLink"], {
-    to: "/home/settings/security",
-    className: "link",
-    activeClassName: "linkActive"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "General"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: activeTab === "security" ? "settings-active-tab" : "settings-tab",
     onClick: function onClick() {
       setOpenMenu(true);
     }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["NavLink"], {
+    exact: true,
+    to: "/home/settings/security",
+    className: "link",
+    activeClassName: "linkActive"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "security-settings-image",
     src: "images/securitySettings.png"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "security-content"
-  }, "Security ")))))) : null, props.windowWidth > 950 || openMenu ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Security "))))) : null, props.windowWidth > 950 || openMenu ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main-right"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
     exact: true,
@@ -89953,23 +89951,21 @@ var Banner = function Banner(props) {
   }))), showDropdown ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "dropdown-content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "pointer-wrapper-dropdown"
+    className: "dropdown-profile"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
     to: "/home/profile",
     className: "link",
     activeClassName: "linkActive"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "dropdown-profile"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "dropdown-profile-content"
-  }, "Profile")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Profile"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "pointer-wrapper-dropdown"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "dropdown-settings"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
     to: "/home/settings/general",
     className: "link",
     activeClassName: "linkActive"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "dropdown-settings"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "dropdown-settings-content"
   }, "Settings")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -90090,10 +90086,8 @@ var ChatContainer = function ChatContainer(props) {
     className: "chat-main"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_left_ChatSearch__WEBPACK_IMPORTED_MODULE_1__["default"], {
     userInfo: props.userInfo,
-    setCurrentChat: setCurrentChat,
     getConvoQuery: getConvoQuery,
     currentConvo: currentConvo,
-    setCurrentConvo: setCurrentConvo,
     windowWidth: props.windowWidth,
     mobileDisplay: mobileDisplay,
     setMobileDisplay: setMobileDisplay
@@ -90198,22 +90192,20 @@ var ChatSearch = function ChatSearch(props) {
     }, searchResult.map(function (user) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: "search_".concat(user._id),
-        className: "pointer-wrapper"
+        className: "chat-search-results-container",
+        onClick: function onClick() {
+          selectUser();
+        }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
         exact: true,
         to: "/home/messages/".concat(user._id),
         className: "link",
         activeClassName: "linkActive"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "chat-search-results-container",
-        onClick: function onClick() {
-          selectUser();
-        }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "data:image/png;base64,".concat(user.profilePicture)
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chat-search-results-name"
-      }, user.fullName))));
+      }, user.fullName)));
     }));
   };
 
@@ -90240,9 +90232,7 @@ var ChatSearch = function ChatSearch(props) {
   })), searchActive && chatSearchResults(), !searchActive && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_History__WEBPACK_IMPORTED_MODULE_2__["default"], {
     userInfo: props.userInfo,
     convoHistory: props.getConvoQuery,
-    setCurrentChat: props.setCurrentChat,
     currentConvo: props.currentConvo,
-    setCurrentConvo: props.setCurrentConvo,
     windowWidth: props.windowWidth,
     setMobileDisplay: props.setMobileDisplay
   })) : null;
@@ -90334,18 +90324,18 @@ var History = function History(props) {
     }, props.convoHistory.data.getConversations.map(function (convo) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: convo._id,
-        className: convo.unread && convo.lastSender != props.userInfo._id ? "pointer-wrapper-bold" : "pointer-wrapper"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-        exact: true,
-        to: "/home/messages/".concat(convo.members[0]._id != props.userInfo._id ? convo.members[0]._id : convo.members[1]._id),
-        className: "link-flex",
-        activeClassName: "linkActive"
+        className: convo.unread && convo.lastSender != props.userInfo._id ? "chat-history-unread" : null
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: convo._id,
         className: convo._id === props.currentConvo && props.windowWidth > 768 ? "chat-history-wrapper-current" : "chat-history-wrapper",
         onClick: function onClick() {
           changeChat();
         }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+        exact: true,
+        to: "/home/messages/".concat(convo.members[0]._id != props.userInfo._id ? convo.members[0]._id : convo.members[1]._id),
+        className: "link",
+        activeClassName: "linkActive"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chat-history-info-wrapper"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -90795,10 +90785,10 @@ __webpack_require__.r(__webpack_exports__);
 var ChatMessage = function ChatMessage(props) {
   if (props.getMessages.loading) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "chat-display-chat-container"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "messageContainer",
-      className: "chat-display-chat"
+      className: "chat-display-chat-container-loading"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      className: "loading",
+      src: "gifs/loading.gif"
     }));
   }
 

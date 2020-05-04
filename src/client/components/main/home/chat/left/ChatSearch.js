@@ -32,22 +32,21 @@ const ChatSearch = (props) => {
     return (
       <div className="chat-search-results">
         {searchResult.map((user) => (
-          <div key={`search_${user._id}`} className="pointer-wrapper">
+          <div
+            key={`search_${user._id}`}
+            className="chat-search-results-container"
+            onClick={() => {
+              selectUser();
+            }}
+          >
             <NavLink
               exact
               to={`/home/messages/${user._id}`}
               className="link"
               activeClassName="linkActive"
             >
-              <div
-                className="chat-search-results-container"
-                onClick={() => {
-                  selectUser();
-                }}
-              >
-                <img src={`data:image/png;base64,${user.profilePicture}`} />
-                <div className="chat-search-results-name">{user.fullName}</div>
-              </div>
+              <img src={`data:image/png;base64,${user.profilePicture}`} />
+              <div className="chat-search-results-name">{user.fullName}</div>
             </NavLink>
           </div>
         ))}
@@ -81,9 +80,7 @@ const ChatSearch = (props) => {
         <History
           userInfo={props.userInfo}
           convoHistory={props.getConvoQuery}
-          setCurrentChat={props.setCurrentChat}
           currentConvo={props.currentConvo}
-          setCurrentConvo={props.setCurrentConvo}
           windowWidth={props.windowWidth}
           setMobileDisplay={props.setMobileDisplay}
         />

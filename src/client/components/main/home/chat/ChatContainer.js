@@ -13,14 +13,14 @@ const ChatContainer = (props) => {
   const [badUserID, setBadUserID] = useState(false);
   const routerHistory = useHistory();
   const { id } = useParams();
-  const[userLoading, setUserLoading] = useState(true)
+  const [userLoading, setUserLoading] = useState(true);
   const getConvoQuery = useQuery(GET_CONVERSATIONS, {
     variables: { _id: props.userInfo._id },
   });
   useEffect(() => {
-    if (badUserID && id===undefined) {
+    if (badUserID && id === undefined) {
       setBadUserID(false);
-      setUserLoading(true)
+      setUserLoading(true);
     }
   }, [id]);
   useEffect(() => {
@@ -51,10 +51,8 @@ const ChatContainer = (props) => {
     <div className="chat-main">
       <ChatSearch
         userInfo={props.userInfo}
-        setCurrentChat={setCurrentChat}
         getConvoQuery={getConvoQuery}
         currentConvo={currentConvo}
-        setCurrentConvo={setCurrentConvo}
         windowWidth={props.windowWidth}
         mobileDisplay={mobileDisplay}
         setMobileDisplay={setMobileDisplay}

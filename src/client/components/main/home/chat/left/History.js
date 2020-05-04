@@ -72,30 +72,30 @@ const History = (props) => {
             key={convo._id}
             className={
               convo.unread && convo.lastSender != props.userInfo._id
-                ? "pointer-wrapper-bold"
-                : "pointer-wrapper"
+                ? "chat-history-unread"
+                : null
             }
           >
-            <NavLink
-              exact
-              to={`/home/messages/${
-                convo.members[0]._id != props.userInfo._id
-                  ? convo.members[0]._id
-                  : convo.members[1]._id
-              }`}
-              className="link-flex"
-              activeClassName="linkActive"
+            <div
+              key={convo._id}
+              className={
+                convo._id === props.currentConvo && props.windowWidth > 768
+                  ? "chat-history-wrapper-current"
+                  : "chat-history-wrapper"
+              }
+              onClick={() => {
+                changeChat();
+              }}
             >
-              <div
-                key={convo._id}
-                className={
-                  convo._id === props.currentConvo && props.windowWidth > 768
-                    ? "chat-history-wrapper-current"
-                    : "chat-history-wrapper"
-                }
-                onClick={() => {
-                  changeChat();
-                }}
+              <NavLink
+                exact
+                to={`/home/messages/${
+                  convo.members[0]._id != props.userInfo._id
+                    ? convo.members[0]._id
+                    : convo.members[1]._id
+                }`}
+                className="link"
+                activeClassName="linkActive"
               >
                 <div className="chat-history-info-wrapper">
                   <img
@@ -130,8 +130,8 @@ const History = (props) => {
                 <div className="chat-history-timestamp">
                   <span> {adjustTime(convo.lastMessageTime, false)}</span>
                 </div>
-              </div>
-            </NavLink>
+              </NavLink>
+            </div>
           </div>
         ))}
       </div>

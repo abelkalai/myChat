@@ -57,6 +57,7 @@ app.use(cors());
 /* Enable Path Shortcuts*/
 app.use("/logos", express.static(__dirname + "/../client/assets/logos"));
 app.use("/images", express.static(__dirname + "/../client/assets/images"));
+app.use("/gifs", express.static(__dirname + "/../client/assets/gifs"));
 
 app.use("/", express.static(__dirname + "/../client/"));
 app.get("/", function (response) {

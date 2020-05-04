@@ -3,12 +3,20 @@
   flex-direction: column;
   border-left: 1px solid #dcdcdc;
   border-right: 1px solid #dcdcdc;
+  min-width: 0;
 }
 
 .chat-display-chat-container {
-  height: calc(100vh - 135px);
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
+  height: calc(100vh - 135px);
+}
+
+.chat-display-chat-container-loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 135px);
 }
 
 .chat-display-chat {
@@ -17,6 +25,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   display: flex;
+
   flex-direction: column-reverse;
 }
 

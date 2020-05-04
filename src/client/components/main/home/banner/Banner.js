@@ -72,27 +72,25 @@ const Banner = (props) => {
           </span>
           {showDropdown ? (
             <span className="dropdown-content">
-              <div className="pointer-wrapper-dropdown">
+              <div className="dropdown-profile">
                 <NavLink
                   to="/home/profile"
                   className="link"
                   activeClassName="linkActive"
                 >
-                  <div className="dropdown-profile">
-                    <span className="dropdown-profile-content">Profile</span>
-                  </div>
+                  <span className="dropdown-profile-content">Profile</span>
                 </NavLink>
               </div>
               <div className="pointer-wrapper-dropdown">
-                <NavLink
-                  to="/home/settings/general"
-                  className="link"
-                  activeClassName="linkActive"
-                >
-                  <div className="dropdown-settings">
+                <div className="dropdown-settings">
+                  <NavLink
+                    to="/home/settings/general"
+                    className="link"
+                    activeClassName="linkActive"
+                  >
                     <span className="dropdown-settings-content">Settings</span>
-                  </div>
-                </NavLink>
+                  </NavLink>
+                </div>
               </div>
               <div className="pointer-wrapper-dropdown">
                 <div

@@ -16,6 +16,10 @@
   font-size: 16px;
 }
 
+.chat-history-unread {
+  font-weight: bold;
+}
+
 .chat-history-wrapper-current {
   display: flex;
   flex-direction: row;

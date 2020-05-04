@@ -5,31 +5,26 @@
 }
 
 .link {
-  text-decoration: none;
-  color: black;
-}
-
-.link-flex {
-  text-decoration: none;
-  color: black;
   display: flex;
   flex: 1 1 1px;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  min-width: 0;
 }
 
 .linkActive {
   pointer-events: none;
 }
 
-.pointer-wrapper {
-  cursor: pointer;
+.loading{
+  display: flex;
+  width: 50px;
+  height: 50px;
 }
 
-.pointer-wrapper-dropdown {
-  border-radius: 5px;
+.pointer-wrapper {
   cursor: pointer;
-}
-.pointer-wrapper-dropdown:hover {
-  background-color: #f1f0f0;
 }
 
 .pointer-wrapper-bold {
