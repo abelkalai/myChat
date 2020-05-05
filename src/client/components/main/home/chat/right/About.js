@@ -27,7 +27,9 @@ const About = (props) => {
         src={`data:image/png;base64,${props.getUser.data.getUser.profilePicture}`}
       />
 
-      <h1>{props.getUser.data.getUser.fullName}</h1>
+      <div className="chat-display-about-name-header">
+        {props.getUser.data.getUser.fullName}
+      </div>
 
       <h3>About </h3>
 

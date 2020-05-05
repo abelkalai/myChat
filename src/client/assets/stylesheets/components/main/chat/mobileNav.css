@@ -4,7 +4,7 @@
   border-bottom: 1px solid #dcdcdc;
   min-width: 0;
   align-items: center;
-  padding: 3.5px 0 3.5px 0;
+  padding: 5px 0 5px 0;
 }
 
 .mobile-nav-back-img {
@@ -13,8 +13,8 @@
   margin-left: 5px;
 }
 .mobile-nav-user-img{
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   margin-left: 5px;
 }
@@ -29,7 +29,7 @@
   flex: 1 1 1px;
   align-items: center;
   margin-left: 5px;
-  max-width: 100%;
+  max-width: 95%;
   min-width: 0;
 }
 

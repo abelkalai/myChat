@@ -14,14 +14,22 @@
   margin-top: 2.5px;
 }
 
-.chat-display-about h1 {
+.chat-display-about-name-header{
   font-size: 22px;
+  font-weight: bold;
   align-self: center;
+  max-width: 85%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 85%;
 }
+
+.overflow-content{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 
 .chat-display-about h3 {
   align-self: center;
@@ -39,20 +47,19 @@
   width: 85%;
   height: 90%;
   align-self: center;
-  margin-bottom: 10%;
+  margin-bottom: 5px;
 }
 
 .chat-display-about-content {
   margin-top: 7.5px;
-  display: flex;
   flex-direction: column;
-  word-wrap: break-word;
+  max-width: 85%;
+  margin-bottom: 5px;
+  align-self: center;
   overflow-x: hidden;
   overflow-y: auto;
-  max-width: 85%;
-  margin-bottom: 10%;
-  align-self: center;
   flex: 1 1 1px;
+  word-wrap: break-word;
 }
 
 .mobile-nav-about-img {
@@ -60,5 +67,12 @@
   height: 30px;
   margin: 5px 0 0 5px;
   position: absolute;
+}
+
+@media screen and (max-height: 400px){
+  .chat-display-about-img {
+    width: 150px;
+    height: 150px;
+  }
 }
 
