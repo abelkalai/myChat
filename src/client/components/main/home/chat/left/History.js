@@ -65,7 +65,9 @@ const History = (props) => {
                 : null
             }
             onClick={() => {
-              props.setMobileDisplay("messages");
+              if (props.windowWidth <= 768) {
+                props.setMobileDisplay("messages");
+              }
             }}
           >
             <div

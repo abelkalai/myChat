@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "MainStylesheets/chat/MobileNav.css";
 
 const MobileNav = (props) => {
-  const [showLoading, setShowLoading] = useState(true);
+  const [showLoading, setShowLoading] = useState(props.fromAbout ? false : true);
+  useEffect(() => {
+    props.setFromAbout(false);
+  }, []);
   setTimeout(() => {
     setShowLoading(false);
   }, 100);

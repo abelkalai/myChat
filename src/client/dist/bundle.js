@@ -25431,7 +25431,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".chat-display-about {\r\n  display: flex;\r\n  flex-direction: column;\r\n  min-width: 0;\r\n  min-height: 0;\r\n  flex: 1 1 1px;\r\n}\r\n\r\n.chat-about-name-placeholder {\r\n  display: flex;\r\n  align-self: center;\r\n  width: 85%;\r\n  height: 27.5px;\r\n  margin-top: 2.5px;\r\n}\r\n\r\n.chat-display-about h1 {\r\n  font-size: 22px;\r\n  align-self: center;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  max-width: 85%;\r\n}\r\n\r\n.chat-display-about h3 {\r\n  align-self: center;\r\n}\r\n\r\n.chat-display-about-img {\r\n  margin-top: 5px;\r\n  width: 175px;\r\n  height: 175px;\r\n  border-radius: 50%;\r\n  align-self: center;\r\n}\r\n\r\n.chat-about-content-placeholder {\r\n  width: 85%;\r\n  height: 90%;\r\n  align-self: center;\r\n  margin-bottom: 10%;\r\n}\r\n\r\n.chat-display-about-content {\r\n  margin-top: 7.5px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  word-wrap: break-word;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  max-width: 85%;\r\n  margin-bottom: 10%;\r\n  align-self: center;\r\n  flex: 1 1 1px;\r\n}\r\n\r\n.mobile-nav-about-img {\r\n  width: 20px;\r\n  height: 30px;\r\n  margin: 5px 0 0 5px;\r\n  position: absolute;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".chat-display-about {\r\n  display: flex;\r\n  flex-direction: column;\r\n  min-width: 0;\r\n  min-height: 0;\r\n  flex: 1 1 1px;\r\n}\r\n\r\n.chat-about-name-placeholder {\r\n  display: flex;\r\n  align-self: center;\r\n  width: 85%;\r\n  height: 27.5px;\r\n  margin-top: 2.5px;\r\n}\r\n\r\n.chat-display-about h1 {\r\n  font-size: 22px;\r\n  align-self: center;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  max-width: 85%;\r\n}\r\n\r\n.chat-display-about h3 {\r\n  align-self: center;\r\n}\r\n\r\n.chat-display-about-img {\r\n  margin-top: 10px;\r\n  width: 175px;\r\n  height: 175px;\r\n  border-radius: 50%;\r\n  align-self: center;\r\n}\r\n\r\n.chat-about-content-placeholder {\r\n  width: 85%;\r\n  height: 90%;\r\n  align-self: center;\r\n  margin-bottom: 10%;\r\n}\r\n\r\n.chat-display-about-content {\r\n  margin-top: 7.5px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  word-wrap: break-word;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  max-width: 85%;\r\n  margin-bottom: 10%;\r\n  align-self: center;\r\n  flex: 1 1 1px;\r\n}\r\n\r\n.mobile-nav-about-img {\r\n  width: 20px;\r\n  height: 30px;\r\n  margin: 5px 0 0 5px;\r\n  position: absolute;\r\n}\r\n\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -90207,6 +90207,10 @@ var ChatSearch = function ChatSearch(props) {
     event.preventDefault();
     searchField.clear();
     setSearchActive(false);
+
+    if (props.windowWidth <= 768) {
+      props.setMobileDisplay("messages");
+    }
   };
 
   var chatSearchResults = function chatSearchResults() {
@@ -90340,7 +90344,9 @@ var History = function History(props) {
         key: convo._id,
         className: convo.unread && convo.lastSender != props.userInfo._id ? "chat-history-unread" : null,
         onClick: function onClick() {
-          props.setMobileDisplay("messages");
+          if (props.windowWidth <= 768) {
+            props.setMobileDisplay("messages");
+          }
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: convo._id,
@@ -90396,6 +90402,9 @@ var About = function About(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_placeholders_AboutPlaceholder__WEBPACK_IMPORTED_MODULE_1__["default"], null);
   }
 
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    props.setFromAbout(true);
+  }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-about"
   }, props.windowWidth <= 768 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -90489,6 +90498,11 @@ var ChatDisplay = function ChatDisplay(props) {
   var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_5__["SEND_MESSAGE"]),
       _useMutation2 = _slicedToArray(_useMutation, 1),
       sendMessageQuery = _useMutation2[0];
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      fromAbout = _useState2[0],
+      setFromAbout = _useState2[1];
 
   var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_5__["READ_MESSAGE"], {
     update: function update(store, _ref) {
@@ -90751,7 +90765,9 @@ var ChatDisplay = function ChatDisplay(props) {
       currentChat: props.currentChat,
       setMobileDisplay: props.setMobileDisplay,
       getUser: getUser,
-      windowWidth: props.windowWidth
+      windowWidth: props.windowWidth,
+      fromAbout: fromAbout,
+      setFromAbout: setFromAbout
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       onSubmit: sendMessage,
       className: "chat-display-chat-send-message-form"
@@ -90780,7 +90796,8 @@ var ChatDisplay = function ChatDisplay(props) {
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, (props.windowWidth > 768 || props.mobileDisplay === "messages") && chat(), (props.windowWidth > 768 || props.mobileDisplay === "about") && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_About__WEBPACK_IMPORTED_MODULE_9__["default"], {
     getUser: getUser,
     setMobileDisplay: props.setMobileDisplay,
-    windowWidth: props.windowWidth
+    windowWidth: props.windowWidth,
+    setFromAbout: setFromAbout
   })));
 };
 
@@ -90829,12 +90846,26 @@ var ChatMessage = function ChatMessage(props) {
   setTimeout(function () {
     setShowLoading(false);
   }, 100);
+
+  if (!props.getUser.data.getUser) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "chat-display-chat-container"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "chat-display-chat-loading-wrapper"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      className: "loading",
+      src: "gifs/loading.gif"
+    })));
+  }
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-chat-container"
   }, props.windowWidth <= 768 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mobileNav_MobileNav__WEBPACK_IMPORTED_MODULE_2__["default"], {
     setMobileDisplay: props.setMobileDisplay,
     getMessages: props.getMessages,
-    getUser: props.getUser
+    getUser: props.getUser,
+    fromAbout: props.fromAbout,
+    setFromAbout: props.setFromAbout
   }) : null, props.getMessages.loading || props.getUser.loading || showLoading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-chat-loading-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -90890,11 +90921,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var MobileNav = function MobileNav(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(props.fromAbout ? false : true),
       _useState2 = _slicedToArray(_useState, 2),
       showLoading = _useState2[0],
       setShowLoading = _useState2[1];
 
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    props.setFromAbout(false);
+  }, []);
   setTimeout(function () {
     setShowLoading(false);
   }, 100);
@@ -91398,7 +91432,7 @@ var domainName = window.location.hostname; // If running locally use `ws:// ${do
 
 var port = 4000;
 var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_6__["WebSocketLink"]({
-  uri: "ws://".concat(domainName, ":").concat(port, "/graphql"),
+  uri: "wss://".concat(domainName, "/graphql"),
   options: {
     reconnect: true,
     lazy: true

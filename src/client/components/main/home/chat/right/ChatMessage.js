@@ -9,6 +9,16 @@ const ChatMessage = (props) => {
     setShowLoading(false);
   }, 100);
 
+  if (!props.getUser.data.getUser) {
+    return (
+      <div className="chat-display-chat-container">
+        <div className="chat-display-chat-loading-wrapper">
+          <img className="loading" src="gifs/loading.gif" />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="chat-display-chat-container">
       {props.windowWidth <= 768 ? (
@@ -16,6 +26,8 @@ const ChatMessage = (props) => {
           setMobileDisplay={props.setMobileDisplay}
           getMessages={props.getMessages}
           getUser={props.getUser}
+          fromAbout={props.fromAbout}
+          setFromAbout={props.setFromAbout}
         />
       ) : null}
       {props.getMessages.loading || props.getUser.loading || showLoading ? (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AboutPlaceholder from "./placeholders/AboutPlaceholder";
 import "MainStylesheets/chat/chatAbout.css";
 
@@ -6,6 +6,9 @@ const About = (props) => {
   if (!props.getUser.data.getUser) {
     return <AboutPlaceholder />;
   }
+  useEffect(() => {
+    props.setFromAbout(true);
+  }, []);
   return (
     <div className="chat-display-about">
       {props.windowWidth <= 768 ? (

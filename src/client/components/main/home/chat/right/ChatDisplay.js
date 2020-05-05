@@ -1,4 +1,4 @@
-import React, { Fragment} from "react";
+import React, { Fragment, useState} from "react";
 import { Redirect } from "react-router-dom";
 import { useFieldInput } from "Hooks/customHooks";
 import {
@@ -29,6 +29,7 @@ const ChatDisplay = (props) => {
   const apolloClient = useApolloClient();
   const messageField = useFieldInput("");
   const [sendMessageQuery] = useMutation(SEND_MESSAGE);
+  const [fromAbout, setFromAbout] = useState(false)
   const [readMsg] = useMutation(READ_MESSAGE, {
     update: (store, { data }) => {
       let convoCache = store.readQuery({
@@ -181,6 +182,8 @@ const ChatDisplay = (props) => {
           setMobileDisplay={props.setMobileDisplay}
           getUser={getUser}
           windowWidth={props.windowWidth}
+          fromAbout={fromAbout}
+          setFromAbout={setFromAbout}
         />
 
         <form
@@ -231,6 +234,7 @@ const ChatDisplay = (props) => {
               getUser={getUser}
               setMobileDisplay={props.setMobileDisplay}
               windowWidth={props.windowWidth}
+              setFromAbout={setFromAbout}
             />
           )}
         </Fragment>
