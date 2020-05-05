@@ -3,6 +3,7 @@
   flex-direction: column;
   border-left: 1px solid #dcdcdc;
   border-right: 1px solid #dcdcdc;
+  flex: 1 1 1px;
   min-width: 0;
 }
 
@@ -108,15 +109,12 @@
   padding: 6px;
 }
 
-.mobile-time-time-stamp{
-
-}
 
 @media screen and (max-width: 768px) {
-  .chat-display-chat-send-message-form {
+  /* .chat-display-chat-send-message-form {
     margin-bottom: 0px;
     margin-left: 10px;
-  }
+  } */
 
   .chat-display-chat-container,
   .chat-display-chat-container-loading {
