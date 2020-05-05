@@ -20,9 +20,7 @@ const ChatSearch = (props) => {
     event.preventDefault();
     searchField.clear();
     setSearchActive(false);
-    if (props.windowWidth <= 768) {
-      props.setMobileDisplay("chat");
-    }
+
   };
 
   const chatSearchResults = () => {

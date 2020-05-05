@@ -1,6 +1,7 @@
 .chat-left {
   display: flex;
   flex-direction: column;
+  flex: 1 1 1px;
   min-width: 0;
 }
 
@@ -66,8 +67,9 @@
   text-overflow: ellipsis;
 }
 
-@media screen and (max-width: 768px) {
-  .chat-left {
-    flex: 1 1 1px;
+@media screen and (max-width: 768px){
+  .chat-search-container{
+    margin-left: 5px;
+    margin-right: 5px;
   }
 }

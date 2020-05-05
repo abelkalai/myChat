@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import EditPassword from "./editSettings/EditPassword";
 import "MainStylesheets/settings.css";
 
@@ -8,11 +8,9 @@ const Security = (props) => {
   }, []);
 
   const [showPasswordForm, setShowPasswordForm] = useState(false);
-  const [sendHome, setSendHome] = useState(false);
 
-  return (
-    <div>
-      {sendHome && <Redirect to="/" />}
+  return props.windowWidth > 950 || !props.openMenu ? (
+    <Fragment>
       <div className="settings-divider-container">
         <h1>Security </h1>
       </div>
@@ -30,7 +28,6 @@ const Security = (props) => {
         )}
         {showPasswordForm && (
           <EditPassword
-            setSendHome={setSendHome}
             userInfo={props.userInfo}
             setActiveUser={props.setActiveUser}
             setIgnoreCookie={props.setIgnoreCookie}
@@ -38,8 +35,8 @@ const Security = (props) => {
           />
         )}
       </div>
-    </div>
-  );
+    </Fragment>
+  ) : null;
 };
 
 export default Security;

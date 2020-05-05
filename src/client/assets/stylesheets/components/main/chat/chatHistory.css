@@ -41,26 +41,20 @@
   border-radius: 5px;
 }
 
-.chat-history-info-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex: 1 1 1px;
-  min-width: 0;
-}
-
 .chat-history-img {
   width: 40px;
   height: 40px;
   border-radius: 90%;
+  align-self: center;
 }
 
 .chat-history-words-wrapper {
   display: flex;
   flex-direction: column;
-  flex: 1 1 1px; 
+  flex: 1 1 1px;
   max-width: 67.5%;
   margin-left: 2.5px;
+  align-self: center;
 }
 
 .chat-history-overflow-name-header {
@@ -77,11 +71,9 @@
 
 .chat-history-timestamp {
   display: flex;
-  margin-left: auto;
-  margin-top: auto;
+  margin: auto 0 0 auto;
   white-space: nowrap;
 }
-
 
 .chat-history-words-wrapper-placeholder {
   flex-direction: column;
@@ -91,30 +83,21 @@
 
 .chat-history-name-header-placeholder {
   width: 30%;
-  height: 15px;
+  height: 20px;
 }
 
 .chat-history-content-placeholder {
-  width: 100%;
-  height: 15px;
+  width: 125%;
+  height: 20px;
 }
 
 @media screen and (max-width: 768px) {
   .no-history-div {
-    margin-top: 5px;
-    margin-left: 15px;
-    overflow-y: auto;
-    flex: 1 1 1px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
-  
   .chat-history-container {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 1px;
-    margin: 10px 5px 0 5px;
-    padding-left: 5px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    font-size: 16px;
+    margin-left: 0px;
+    padding-left: 0px;
   }
 }

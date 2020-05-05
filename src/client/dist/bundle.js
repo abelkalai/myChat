@@ -25287,7 +25287,7 @@ function _defineProperty(e,r,n){return r in e?Object.defineProperty(e,r,{value:n
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "* {\r\n  font-family: Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif;\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\n\r\ninput:focus,\r\ntextarea:focus,\r\nselect:focus {\r\n  outline: none;\r\n}\r\n\r\nbutton {\r\n  padding: 2px;\r\n  outline: none;\r\n  border: none;\r\n  text-align: center;\r\n  border-radius: 10px;\r\n}\r\n\r\nbutton:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n  font-size: 20px;\r\n  font-weight: bold;\r\n  margin: 5px 0 7.5px 0;\r\n}\r\n\r\n.general-button {\r\n  width: 130px;\r\n  margin-top: 7.5px;\r\n  padding: 0 5px 0 5px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  border-color: #00a8f3;\r\n  font-size: 16px;\r\n  border-radius: 10px;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n@media (max-width: 768px) {\r\n  button {\r\n    padding: 1px;\r\n  }\r\n\r\n  .error {\r\n    font-size: 16px;\r\n    margin: 2.5px 0 2.5px 0;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, "* {\r\n  font-family: Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif;\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\n\r\ninput:focus,\r\ntextarea:focus,\r\nselect:focus {\r\n  outline: none;\r\n}\r\n\r\nbutton {\r\n  padding: 2px;\r\n  outline: none;\r\n  border: none;\r\n  text-align: center;\r\n  border-radius: 10px;\r\n}\r\n\r\nbutton:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n  font-size: 20px;\r\n  font-weight: bold;\r\n  margin: 5px 0 7.5px 0;\r\n}\r\n\r\n.general-button {\r\n  width: 130px;\r\n  margin-top: 7.5px;\r\n  padding: 0 5px 0 5px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  border-color: #00a8f3;\r\n  font-size: 16px;\r\n  border-radius: 10px;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n.frontpage-link{\r\n  text-decoration: none;\r\n}\r\n\r\n@media (max-width: 768px) {\r\n  button {\r\n    padding: 1px;\r\n  }\r\n\r\n  .error {\r\n    font-size: 16px;\r\n    margin: 2.5px 0 2.5px 0;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25323,7 +25323,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".front-page-background {\r\n  background-color: #257fbd;\r\n  height: 100vh;\r\n}\r\n\r\n.front-page-wrapper {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.front-page-container {\r\n  display: inline-block;\r\n  background-color: white;\r\n  margin-top: 12.5vh;\r\n  border-radius: 15px;\r\n  width: 60vw;\r\n  left: 50%;\r\n}\r\n\r\n.front-page {\r\n  display: grid;\r\n  grid-template-columns: 40% 60%;\r\n  text-align: center;\r\n}\r\n\r\n.front-page h1 {\r\n  font-size: 40px;\r\n}\r\n\r\n.front-page-info {\r\n  border-top-left-radius: 15px;\r\n  border-bottom-left-radius: 15px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  padding: 10px;\r\n  padding-top: 10px;\r\n  padding-bottom: 40px;\r\n}\r\n\r\n.front-page-info-about {\r\n  margin-top: 60px;\r\n}\r\n\r\n.front-page-header {\r\n  margin: 10px 0 10px 0;\r\n}\r\n\r\n.front-page-content {\r\n  margin-top: 10px;\r\n  padding: 10px;\r\n  padding-bottom: 20px;\r\n}\r\n\r\n.front-page-form {\r\n  margin-top: 15px;\r\n}\r\n\r\n.front-page-form-div {\r\n  padding: 2px 2px;\r\n}\r\n\r\n.input-front-page-form {\r\n  padding: 2.5px;\r\n  padding-left: 2.5px;\r\n  margin-bottom: 2.5px;\r\n  font-size: 22px;\r\n  display: inline-block;\r\n  border-top: none;\r\n  border-left: none;\r\n  border-right: none;\r\n}\r\n\r\n.front-page-back-button {\r\n  font-size: 16px;\r\n  color: #696969;\r\n  text-decoration: none;\r\n  margin: 10px 7px 0 0;\r\n  padding: 0 5px 0 5px;\r\n  background-color: #f1f0f0;\r\n  border-color: #f1f0f0;\r\n  width: 130px;\r\n}\r\n\r\n.front-page-submit-button {\r\n  font-size: 16px;\r\n  padding: 0 5px 0 5px;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n  margin-top: 10px;\r\n  width: 80px;\r\n}\r\n\r\n.front-page-submit-button:hover {\r\n  background-color: darkblue;\r\n  border-color: darkblue;\r\n}\r\n\r\n@media (max-width: 912px) {\r\n  .front-page-content p {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .input-front-page-form {\r\n    font-size: 16px;\r\n  }\r\n  .front-page-back-button {\r\n    display: block;\r\n    margin: 5px auto 0 auto;\r\n  }\r\n\r\n  .front-page-submit-button {\r\n    display: block;\r\n    margin: 7.5px auto 0 auto;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .front-page-container {\r\n    margin-top: 7.5%;\r\n    width: 80vw;\r\n  }\r\n\r\n  .front-page {\r\n    display: block;\r\n  }\r\n\r\n  .front-page h1 {\r\n    font-size: 32px;\r\n  }\r\n\r\n  .front-page h3 {\r\n    margin-top: 0px;\r\n  }\r\n\r\n  .front-page-header {\r\n    margin-top: 1px;\r\n    margin-bottom: 0px;\r\n  }\r\n\r\n  .front-page-info {\r\n    border-top-right-radius: 15px;\r\n    border-top-left-radius: 15px;\r\n    border-bottom-left-radius: 0px;\r\n    padding-top: 2.5px;\r\n    padding-bottom: 5px;\r\n  }\r\n  .front-page-info-about {\r\n    margin-top: 2.5px;\r\n  }\r\n\r\n  .front-page-content {\r\n    margin-top: 2.5px;\r\n    padding: 5px;\r\n    padding-bottom: 10px;\r\n  }\r\n\r\n  .front-page-content p {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .front-page-form {\r\n    margin-top: 0px;\r\n  }\r\n\r\n  .input-front-page-form {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .front-page-back-button {\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-top: 5px;\r\n  }\r\n\r\n  .front-page-submit-button {\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-top: 7.5px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".front-page-background {\r\n  background-color: #257fbd;\r\n  height: 100vh;\r\n}\r\n\r\n.front-page-wrapper {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.front-page-container {\r\n  display: inline-block;\r\n  background-color: white;\r\n  margin-top: 7.5vh;\r\n  border-radius: 15px;\r\n  width: 60vw;\r\n  left: 50%;\r\n}\r\n\r\n.front-page {\r\n  display: grid;\r\n  grid-template-columns: 40% 60%;\r\n  text-align: center;\r\n}\r\n\r\n.front-page h1 {\r\n  font-size: 40px;\r\n}\r\n\r\n.front-page-info {\r\n  border-top-left-radius: 15px;\r\n  border-bottom-left-radius: 15px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  padding: 10px;\r\n  padding-top: 10px;\r\n  padding-bottom: 40px;\r\n}\r\n\r\n.front-page-info-about {\r\n  margin-top: 60px;\r\n}\r\n\r\n.front-page-header {\r\n  margin: 10px 0 10px 0;\r\n}\r\n\r\n.front-page-content {\r\n  margin-top: 10px;\r\n  padding: 10px;\r\n  padding-bottom: 20px;\r\n}\r\n\r\n.front-page-form {\r\n  margin-top: 15px;\r\n}\r\n\r\n.front-page-form-div {\r\n  padding: 2px 2px;\r\n}\r\n\r\n.input-front-page-form {\r\n  padding: 2.5px;\r\n  padding-left: 2.5px;\r\n  margin-bottom: 2.5px;\r\n  font-size: 22px;\r\n  display: inline-block;\r\n  border-top: none;\r\n  border-left: none;\r\n  border-right: none;\r\n}\r\n\r\n.front-page-back-button {\r\n  font-size: 16px;\r\n  color: #696969;\r\n  text-decoration: none;\r\n  margin: 10px 7px 0 0;\r\n  padding: 0 5px 0 5px;\r\n  background-color: #f1f0f0;\r\n  border-color: #f1f0f0;\r\n  width: 130px;\r\n}\r\n\r\n.front-page-submit-button {\r\n  font-size: 16px;\r\n  padding: 0 5px 0 5px;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n  margin-top: 10px;\r\n  width: 80px;\r\n}\r\n\r\n.front-page-submit-button:hover {\r\n  background-color: darkblue;\r\n  border-color: darkblue;\r\n}\r\n\r\n@media (max-width: 912px) {\r\n  .front-page-content p {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .input-front-page-form {\r\n    font-size: 16px;\r\n  }\r\n  .front-page-back-button {\r\n    display: block;\r\n    margin: 5px auto 0 auto;\r\n  }\r\n\r\n  .front-page-submit-button {\r\n    display: block;\r\n    margin: 7.5px auto 0 auto;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .front-page-container {\r\n    margin-top: 7.5%;\r\n    width: 80vw;\r\n  }\r\n\r\n  .front-page {\r\n    display: block;\r\n  }\r\n\r\n  .front-page h1 {\r\n    font-size: 32px;\r\n  }\r\n\r\n  .front-page h3 {\r\n    margin-top: 0px;\r\n  }\r\n\r\n  .front-page-header {\r\n    margin-top: 1px;\r\n    margin-bottom: 0px;\r\n  }\r\n\r\n  .front-page-info {\r\n    border-top-right-radius: 15px;\r\n    border-top-left-radius: 15px;\r\n    border-bottom-left-radius: 0px;\r\n    padding-top: 2.5px;\r\n    padding-bottom: 5px;\r\n  }\r\n  .front-page-info-about {\r\n    margin-top: 2.5px;\r\n  }\r\n\r\n  .front-page-content {\r\n    margin-top: 2.5px;\r\n    padding: 5px;\r\n    padding-bottom: 10px;\r\n  }\r\n\r\n  .front-page-content p {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .front-page-form {\r\n    margin-top: 0px;\r\n  }\r\n\r\n  .input-front-page-form {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .front-page-back-button {\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-top: 5px;\r\n  }\r\n\r\n  .front-page-submit-button {\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-top: 7.5px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25384,6 +25384,24 @@ module.exports = exports;
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/client/assets/stylesheets/components/main/chat/MobileNav.css":
+/*!****************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/client/assets/stylesheets/components/main/chat/MobileNav.css ***!
+  \****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".mobile-nav-header {\r\n  display: flex;\r\n  flex-direction: row;\r\n  border-bottom: 1px solid #dcdcdc;\r\n  min-width: 0;\r\n  align-items: center;\r\n  padding: 3.5px 0 3.5px 0;\r\n}\r\n\r\n.mobile-nav-back-img {\r\n  width: 20px;\r\n  height: 30px;\r\n  margin-left: 5px;\r\n}\r\n.mobile-nav-user-img{\r\n  width: 30px;\r\n  height: 30px;\r\n  border-radius: 50%;\r\n  margin-left: 5px;\r\n}\r\n\r\n.mobile-nav-user-placeholder-img{\r\n  width: 80%;\r\n  height: 20px;\r\n}\r\n\r\n.mobile-nav-user-name-wrapper{\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  align-items: center;\r\n  margin-left: 5px;\r\n  max-width: 100%;\r\n  min-width: 0;\r\n}\r\n\r\n.mobile-nav-user-name{\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n.mobile-nav-info-img {\r\n  width: 30px;\r\n  height: 30px;\r\n  margin-left: auto;\r\n  margin-right: 5px;\r\n}\r\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/client/assets/stylesheets/components/main/chat/chat.css":
 /*!***********************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/client/assets/stylesheets/components/main/chat/chat.css ***!
@@ -25395,7 +25413,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".chat-main {\r\n  display: grid;\r\n  grid-template-columns: 30% 70%;\r\n  font-size: 18px;\r\n}\r\n\r\n.link {\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  align-items: center;\r\n  text-decoration: none;\r\n  color: inherit;\r\n  min-width: 0;\r\n}\r\n\r\n.linkActive {\r\n  pointer-events: none;\r\n}\r\n\r\n.loading{\r\n  display: flex;\r\n  width: 50px;\r\n  height: 50px;\r\n}\r\n\r\n.pointer-wrapper {\r\n  cursor: pointer;\r\n}\r\n\r\n.pointer-wrapper-bold {\r\n  cursor: pointer;\r\n  font-weight: bold;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 7.5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  background: grey;\r\n  border-radius: 7.5px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .chat-main {\r\n    display: flex;\r\n    flex-direction: column;\r\n    height: calc(100vh - 50px);\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".chat-main {\r\n  display: grid;\r\n  grid-template-columns: 30% 70%;\r\n  font-size: 18px;\r\n}\r\n\r\n.link {\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  align-items: center;\r\n  text-decoration: none;\r\n  color: inherit;\r\n  min-width: 0;\r\n}\r\n\r\n.linkActive {\r\n  pointer-events: none;\r\n}\r\n\r\n.loading{\r\n  width: 50px;\r\n  height: 50px;\r\n}\r\n\r\n.pointer-wrapper {\r\n  cursor: pointer;\r\n}\r\n\r\n.pointer-wrapper-bold {\r\n  cursor: pointer;\r\n  font-weight: bold;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 7.5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  background: grey;\r\n  border-radius: 7.5px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .chat-main {\r\n    display: flex;\r\n    flex-direction: column;\r\n    height: calc(100vh - 50px);\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25413,7 +25431,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".chat-display-default {\r\n  padding: 10px 0 0 5px;\r\n}\r\n\r\n.chat-display-about {\r\n  align-items: center;\r\n  display: flex;\r\n  flex-direction: column;\r\n  min-width: 0;\r\n  min-height: 0;\r\n  flex: 1 1 1px;\r\n}\r\n\r\n.chat-about-name-placeholder {\r\n  display: flex;\r\n  width: 85%;\r\n  height: 27.5px;\r\n  margin-top: 2.5px;\r\n}\r\n\r\n.chat-display-about h1 {\r\n  font-size: 22px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  max-width: 85%;\r\n}\r\n\r\n.chat-display-about-img {\r\n  margin-top: 5px;\r\n  width: 175px;\r\n  height: 175px;\r\n  border-radius: 50%;\r\n}\r\n\r\n.chat-about-content-placeholder {\r\n  width: 85%;\r\n  height: 90%;\r\n  margin-bottom: 10%;\r\n}\r\n\r\n.chat-display-about-content {\r\n  margin-top: 7.5px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  word-wrap: break-word;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  max-width: 85%;\r\n  margin-bottom: 10%;\r\n  flex: 1 1 1px;\r\n}\r\n", ""]);
+exports.push([module.i, ".chat-display-about {\r\n  display: flex;\r\n  flex-direction: column;\r\n  min-width: 0;\r\n  min-height: 0;\r\n  flex: 1 1 1px;\r\n}\r\n\r\n.chat-about-name-placeholder {\r\n  display: flex;\r\n  align-self: center;\r\n  width: 85%;\r\n  height: 27.5px;\r\n  margin-top: 2.5px;\r\n}\r\n\r\n.chat-display-about h1 {\r\n  font-size: 22px;\r\n  align-self: center;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  max-width: 85%;\r\n}\r\n\r\n.chat-display-about h3 {\r\n  align-self: center;\r\n}\r\n\r\n.chat-display-about-img {\r\n  margin-top: 5px;\r\n  width: 175px;\r\n  height: 175px;\r\n  border-radius: 50%;\r\n  align-self: center;\r\n}\r\n\r\n.chat-about-content-placeholder {\r\n  width: 85%;\r\n  height: 90%;\r\n  align-self: center;\r\n  margin-bottom: 10%;\r\n}\r\n\r\n.chat-display-about-content {\r\n  margin-top: 7.5px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  word-wrap: break-word;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  max-width: 85%;\r\n  margin-bottom: 10%;\r\n  align-self: center;\r\n  flex: 1 1 1px;\r\n}\r\n\r\n.mobile-nav-about-img {\r\n  width: 20px;\r\n  height: 30px;\r\n  margin: 5px 0 0 5px;\r\n  position: absolute;\r\n}\r\n\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25431,7 +25449,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".chat-display-parent {\r\n  display: grid;\r\n  grid-template-columns: 66% 34%;\r\n}\r\n\r\n.chat-display-default {\r\n  padding-left: 10px;\r\n  border-left: 1px solid #dcdcdc;\r\n  height: calc(100vh - 75px);\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .chat-display-parent {\r\n    display: flex;\r\n    flex-direction: column;\r\n  }\r\n}", ""]);
+exports.push([module.i, ".chat-display-parent {\r\n  display: grid;\r\n  grid-template-columns: 66% 34%;\r\n}\r\n\r\n.chat-display-default {\r\n  padding-left: 10px;\r\n  border-left: 1px solid #dcdcdc;\r\n  height: calc(100vh - 75px);\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .chat-display-parent {\r\n    display: flex;\r\n    flex-direction: column;\r\n    flex: 1 1 1px;\r\n    min-width: 0;\r\n  }\r\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -25449,7 +25467,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".no-history-div {\r\n  margin-top: 5px;\r\n  margin-left: 15px;\r\n  overflow-y: auto;\r\n  flex: 1 1 1px;\r\n}\r\n\r\n.chat-history-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex: 1 1 1px;\r\n  margin: 10px 5px 0 5px;\r\n  padding-left: 5px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n  font-size: 16px;\r\n}\r\n\r\n.chat-history-unread {\r\n  font-weight: bold;\r\n}\r\n\r\n.chat-history-wrapper-current {\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex: 1 1 1px;\r\n  margin: 0 5px 5px 0;\r\n  padding: 5px;\r\n  cursor: pointer;\r\n  border-radius: 5px;\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.chat-history-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex: 1 1 1px;\r\n  margin: 0 5px 5px 0;\r\n  padding: 5px;\r\n  cursor: pointer;\r\n  border-radius: 5px;\r\n}\r\n\r\n.chat-history-info-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  flex: 1 1 1px;\r\n  min-width: 0;\r\n}\r\n\r\n.chat-history-img {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-history-words-wrapper {\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex: 1 1 1px; \r\n  max-width: 67.5%;\r\n  margin-left: 2.5px;\r\n}\r\n\r\n.chat-history-overflow-name-header {\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n.chat-history-overflow-message {\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n.chat-history-timestamp {\r\n  display: flex;\r\n  margin-left: auto;\r\n  margin-top: auto;\r\n  white-space: nowrap;\r\n}\r\n\r\n\r\n.chat-history-words-wrapper-placeholder {\r\n  flex-direction: column;\r\n  display: flex;\r\n  margin-left: 2.5px;\r\n}\r\n\r\n.chat-history-name-header-placeholder {\r\n  width: 30%;\r\n  height: 15px;\r\n}\r\n\r\n.chat-history-content-placeholder {\r\n  width: 100%;\r\n  height: 15px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .no-history-div {\r\n    margin-top: 5px;\r\n    margin-left: 15px;\r\n    overflow-y: auto;\r\n    flex: 1 1 1px;\r\n  }\r\n  \r\n  .chat-history-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    flex: 1 1 1px;\r\n    margin: 10px 5px 0 5px;\r\n    padding-left: 5px;\r\n    overflow-y: auto;\r\n    overflow-x: hidden;\r\n    font-size: 16px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".no-history-div {\r\n  margin-top: 5px;\r\n  margin-left: 15px;\r\n  overflow-y: auto;\r\n  flex: 1 1 1px;\r\n}\r\n\r\n.chat-history-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex: 1 1 1px;\r\n  margin: 10px 5px 0 5px;\r\n  padding-left: 5px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n  font-size: 16px;\r\n}\r\n\r\n.chat-history-unread {\r\n  font-weight: bold;\r\n}\r\n\r\n.chat-history-wrapper-current {\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex: 1 1 1px;\r\n  margin: 0 5px 5px 0;\r\n  padding: 5px;\r\n  cursor: pointer;\r\n  border-radius: 5px;\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.chat-history-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex: 1 1 1px;\r\n  margin: 0 5px 5px 0;\r\n  padding: 5px;\r\n  cursor: pointer;\r\n  border-radius: 5px;\r\n}\r\n\r\n.chat-history-img {\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 90%;\r\n  align-self: center;\r\n}\r\n\r\n.chat-history-words-wrapper {\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex: 1 1 1px;\r\n  max-width: 67.5%;\r\n  margin-left: 2.5px;\r\n  align-self: center;\r\n}\r\n\r\n.chat-history-overflow-name-header {\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n.chat-history-overflow-message {\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n.chat-history-timestamp {\r\n  display: flex;\r\n  margin: auto 0 0 auto;\r\n  white-space: nowrap;\r\n}\r\n\r\n.chat-history-words-wrapper-placeholder {\r\n  flex-direction: column;\r\n  display: flex;\r\n  margin-left: 2.5px;\r\n}\r\n\r\n.chat-history-name-header-placeholder {\r\n  width: 30%;\r\n  height: 20px;\r\n}\r\n\r\n.chat-history-content-placeholder {\r\n  width: 125%;\r\n  height: 20px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .no-history-div {\r\n    margin-left: 5px;\r\n    margin-right: 5px;\r\n  }\r\n  .chat-history-container {\r\n    margin-left: 0px;\r\n    padding-left: 0px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25467,7 +25485,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".chat-display-chat-parent {\r\n  display: flex;\r\n  flex-direction: column;\r\n  border-left: 1px solid #dcdcdc;\r\n  border-right: 1px solid #dcdcdc;\r\n  min-width: 0;\r\n}\r\n\r\n.chat-display-chat-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  height: calc(100vh - 135px);\r\n}\r\n\r\n.chat-display-chat-container-loading{\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: calc(100vh - 135px);\r\n}\r\n\r\n.chat-display-chat {\r\n  max-height: calc(100vh - 135px);\r\n  margin-top: 5px;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  display: flex;\r\n\r\n  flex-direction: column-reverse;\r\n}\r\n\r\n.chat-message-wrapper {\r\n  font-size: 18px;\r\n  display: inline-block;\r\n  padding: 3px;\r\n}\r\n\r\n.chat-my-message {\r\n  color: white;\r\n  background-color: #0099ff;\r\n  padding: 6px 10px 6px 10px;\r\n  float: right;\r\n  max-width: 60%;\r\n  margin-right: 8px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-contact-message {\r\n  float: left;\r\n  background-color: #f1f0f0;\r\n  margin-left: 4px;\r\n  padding: 6px 10px 6px 10px;\r\n  max-width: 60%;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-display-chat-send-message-form {\r\n  display: flex;\r\n  min-width: 0;\r\n  max-width: 100%;\r\n  margin: 15px 5px 20px 10px;\r\n  flex: 1 1 1px;\r\n}\r\n\r\n.chat-display-chat-message-field {\r\n  display: flex;\r\n  padding: 2.5px;\r\n  padding-left: 5px;\r\n  font-size: 18px;\r\n  border-radius: 5px;\r\n  width: 100%;\r\n  height: 27.5px;\r\n  align-items: center;\r\n}\r\n\r\n.chat-display-chat-send-message-form-img {\r\n  max-width: 100%;\r\n  margin-left: 2px;\r\n  margin-bottom: 2px;\r\n  width: 27px;\r\n  height: 34.5px;\r\n}\r\n\r\n.msg-placeholder-msg-field {\r\n  display: flex;\r\n  width: 95%;\r\n  margin-left: 2px;\r\n  margin-bottom: 2px;\r\n  height: 30px;\r\n}\r\n\r\n.msg-placeholder-img-me {\r\n  float: right;\r\n  width: 45%;\r\n  height: 25px;\r\n  margin-right: 4px;\r\n  padding: 6px;\r\n}\r\n\r\n.msg-placeholder-img-contact {\r\n  float: left;\r\n  width: 45%;\r\n  height: 25px;\r\n  padding: 6px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .chat-display-chat-parent {\r\n    border-left: none;\r\n    border-right: none;\r\n  }\r\n  .chat-display-chat-send-message-form {\r\n    margin-bottom: 0px;\r\n    margin-left: 10px;\r\n  }\r\n\r\n  .chat-display-chat-container {\r\n    height: calc(100vh - 110px);\r\n  }\r\n\r\n  .chat-display-chat {\r\n    max-height: calc(100vh - 110px);\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".chat-display-chat-parent {\r\n  display: flex;\r\n  flex-direction: column;\r\n  border-left: 1px solid #dcdcdc;\r\n  border-right: 1px solid #dcdcdc;\r\n  min-width: 0;\r\n}\r\n\r\n.chat-display-chat-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  height: calc(100vh - 135px);\r\n}\r\n\r\n.chat-display-chat-loading-wrapper {\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  align-items: center;\r\n  justify-content: center;\r\n}\r\n\r\n.chat-display-chat {\r\n  max-height: calc(100vh - 135px);\r\n  margin-top: 5px;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  display: flex;\r\n  flex-direction: column-reverse;\r\n}\r\n\r\n.chat-message-wrapper {\r\n  font-size: 18px;\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  width: 100%;\r\n  padding: 3px;\r\n}\r\n\r\n.chat-my-message {\r\n  margin-left: auto;\r\n  max-width: 60%;\r\n  margin-right: 8px;\r\n  color: white;\r\n  background-color: #0099ff;\r\n  padding: 6px 10px 6px 10px;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-contact-message {\r\n  margin-right: auto;\r\n  background-color: #f1f0f0;\r\n  margin-left: 4px;\r\n  padding: 6px 10px 6px 10px;\r\n  max-width: 60%;\r\n  border-radius: 15px;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-display-chat-send-message-form {\r\n  display: flex;\r\n  min-width: 0;\r\n  max-width: 100%;\r\n  margin: 15px 5px 20px 10px;\r\n  flex: 1 1 1px;\r\n}\r\n\r\n.chat-display-chat-message-field {\r\n  display: flex;\r\n  padding: 2.5px;\r\n  padding-left: 5px;\r\n  font-size: 18px;\r\n  border-radius: 5px;\r\n  width: 100%;\r\n  height: 27.5px;\r\n  align-items: center;\r\n}\r\n\r\n.chat-display-chat-send-message-form-img {\r\n  max-width: 100%;\r\n  margin-left: 2px;\r\n  margin-bottom: 2px;\r\n  width: 27px;\r\n  height: 34.5px;\r\n}\r\n\r\n.msg-placeholder-msg-field {\r\n  display: flex;\r\n  width: 95%;\r\n  margin-left: 2px;\r\n  margin-bottom: 2px;\r\n  height: 30px;\r\n}\r\n\r\n.msg-placeholder-img-me {\r\n  margin-left: auto;\r\n  width: 45%;\r\n  height: 25px;\r\n  margin-right: 4px;\r\n  padding: 6px;\r\n}\r\n\r\n.msg-placeholder-img-contact {\r\n  margin-right: auto;\r\n  width: 45%;\r\n  height: 25px;\r\n  padding: 6px;\r\n}\r\n\r\n.mobile-time-time-stamp{\r\n\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .chat-display-chat-send-message-form {\r\n    margin-bottom: 0px;\r\n    margin-left: 10px;\r\n  }\r\n\r\n  .chat-display-chat-container,\r\n  .chat-display-chat-container-loading {\r\n    height: calc(100vh - 110px);\r\n  }\r\n\r\n  .chat-display-chat {\r\n    max-height: calc(100vh - 110px);\r\n    margin-top: 2.5px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25485,7 +25503,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".chat-left {\r\n  display: flex;\r\n  flex-direction: column;\r\n  min-width: 0;\r\n}\r\n\r\n.chat-search-container {\r\n  font-size: 18px;\r\n  margin: 5px 10px 0 12.5px;\r\n  display: flex;\r\n  min-width: 0;\r\n}\r\n\r\n.search-contacts-input {\r\n  padding: 5px;\r\n  background-position: 2.5px;\r\n  background-image: url(\"/images/search.png\");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 30px;\r\n  border-radius: 10px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-search-results {\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex: 1 1 1px;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  max-width: 95%;\r\n  max-height: 100%;\r\n  margin: 10px 0 0 10px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n  min-width: 0;\r\n  min-height: 0;\r\n}\r\n\r\n.chat-search-results-container {\r\n  display: flex;\r\n  flex-direction: row;\r\n  margin: 2.5px 0 2.5px 0;\r\n  padding: 5px;\r\n  border-radius: 5px;\r\n  align-items: center;\r\n  min-width: 0;\r\n  cursor: pointer;\r\n}\r\n\r\n.chat-search-results-container:hover {\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-search-results img {\r\n  width: 30px;\r\n  height: 30px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-search-results-name {\r\n  margin-left: 3.5px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .chat-left {\r\n    flex: 1 1 1px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".chat-left {\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex: 1 1 1px;\r\n  min-width: 0;\r\n}\r\n\r\n.chat-search-container {\r\n  font-size: 18px;\r\n  margin: 5px 10px 0 12.5px;\r\n  display: flex;\r\n  min-width: 0;\r\n}\r\n\r\n.search-contacts-input {\r\n  padding: 5px;\r\n  background-position: 2.5px;\r\n  background-image: url(\"/images/search.png\");\r\n  background-repeat: no-repeat;\r\n  font-size: 16px;\r\n  padding-left: 30px;\r\n  border-radius: 10px;\r\n  width: 100%;\r\n}\r\n\r\n.chat-search-results {\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex: 1 1 1px;\r\n  font-size: 18px;\r\n  color: black;\r\n  background-color: white;\r\n  max-width: 95%;\r\n  max-height: 100%;\r\n  margin: 10px 0 0 10px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n  min-width: 0;\r\n  min-height: 0;\r\n}\r\n\r\n.chat-search-results-container {\r\n  display: flex;\r\n  flex-direction: row;\r\n  margin: 2.5px 0 2.5px 0;\r\n  padding: 5px;\r\n  border-radius: 5px;\r\n  align-items: center;\r\n  min-width: 0;\r\n  cursor: pointer;\r\n}\r\n\r\n.chat-search-results-container:hover {\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.chat-search-results img {\r\n  width: 30px;\r\n  height: 30px;\r\n  border-radius: 90%;\r\n}\r\n\r\n.chat-search-results-name {\r\n  margin-left: 3.5px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n@media screen and (max-width: 768px){\r\n  .chat-search-container{\r\n    margin-left: 5px;\r\n    margin-right: 5px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25521,7 +25539,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".main-settings {\r\n  margin: 10px 7.5% 0 65px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 25% 75%;\r\n}\r\n\r\n.main-settings-left {\r\n  width: 95%;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n}\r\n\r\n.settings-active-tab {\r\n  background-color: #ecf2fe;\r\n  margin: 10px;\r\n  border-radius: 10px;\r\n  padding: 10px;\r\n  display: flex;\r\n  cursor: pointer;\r\n}\r\n\r\n\r\n.settings-tab {\r\n  margin: 10px;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  display: flex;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-tab:hover {\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.general-content,\r\n.security-content {\r\n  display: flex;\r\n  padding: 2.5px 0 0 8.5px;\r\n  pointer-events: inherit;\r\n}\r\n\r\n.general-settings-image,\r\n.security-settings-image {\r\n  width: 30px;\r\n  height: 30px;\r\n  margin-top: 2.5px;\r\n  pointer-events: inherit;\r\n}\r\n\r\n.change {\r\n  font-size: 20px;\r\n  margin-left: auto;\r\n  color: blue;\r\n  border: none;\r\n  cursor: pointer;\r\n}\r\n.change:hover {\r\n  text-decoration: underline;\r\n  cursor: pointer;\r\n}\r\n\r\n.change-edit-password {\r\n  font-size: 20px;\r\n  margin-left: auto;\r\n  color: blue;\r\n  border: none;\r\n  float: right;\r\n  cursor: pointer;\r\n}\r\n\r\n.bold-text {\r\n  font-weight: bold;\r\n}\r\n\r\n.settings-info {\r\n  width: 600px;\r\n  margin: 0 10px 0 10px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  display: inline-block;\r\n}\r\n\r\n.settings-divider-container {\r\n  border-bottom: 1px solid black;\r\n}\r\n\r\n.settings-divider-inside-flex {\r\n  border-bottom: 1px solid hsl(0, 0%, 86%);\r\n  padding: 15px;\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.settings-divider-inside-single-flex {\r\n  border-bottom: 1px solid black;\r\n  padding: 15px;\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.settings-divider-inside {\r\n  border-bottom: 1px solid #dcdcdc;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-divider-inside-single {\r\n  border-bottom: 1px solid black;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-save-changes {\r\n  font-size: 16px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  margin: 7.5px 5px 0 0;\r\n  width: 120px;\r\n}\r\n\r\n.settings-cancel-changes {\r\n  font-size: 16px;\r\n  color: #696969;\r\n  margin-top: 7.5px;\r\n  background-color: #f1f0f0;\r\n  width: 70px;\r\n}\r\n\r\n.settings-form {\r\n  margin-top: 5px;\r\n}\r\n\r\n.label-settings-form,\r\n.label-settings-form-password {\r\n  display: inline-block;\r\n  margin-bottom: 5px;\r\n  width: 115px;\r\n}\r\n\r\n.label-settings-form-password {\r\n  width: 235px;\r\n}\r\n\r\n.input-settings-form {\r\n  display: inline-block;\r\n  margin-left: 5px;\r\n  padding-left: 2.5px;\r\n  border-radius: 5px;\r\n  font-size: 16px;\r\n  margin-bottom: 5px;\r\n  width: 225px;\r\n}\r\n\r\n.success {\r\n  color: green;\r\n  font-size: 20px;\r\n  font-weight: bold;\r\n  margin: 2.5px 0 7.5px 0;\r\n}\r\n\r\n.settings-hamburger-menu {\r\n  z-index: 1;\r\n  display: inline-block;\r\n  position: absolute;\r\n  margin-top: 7px;\r\n}\r\n\r\n.settings-hamburger-menu img {\r\n  width: 30px;\r\n  height: 30px;\r\n}\r\n\r\n@media (max-width: 950px) {\r\n  .main-settings {\r\n    display: block;\r\n    margin: 0 5px 0 5px;\r\n  }\r\n  .main-settings h1 {\r\n    margin-left: 35px;\r\n    font-size: 32px;\r\n  }\r\n\r\n  .settings-divider-inside,\r\n  .settings-divider-inside-single {\r\n    margin-right: 5px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .main-settings {\r\n    font-size: 18px;\r\n  }\r\n  .main-settings h1 {\r\n    font-size: 28px;\r\n    margin-left: 27.5px;\r\n  }\r\n\r\n  .change {\r\n    font-size: 18px;\r\n  }\r\n\r\n  .settings-hamburger-menu img {\r\n    width: 25px;\r\n    height: 25px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 450px) {\r\n  .main-settings {\r\n    font-size: 16px;\r\n  }\r\n  .change {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .settings-info {\r\n    max-width: 200px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".main-settings {\r\n  margin: 10px 7.5% 0 65px;\r\n  font-size: 22px;\r\n  display: grid;\r\n  grid-template-columns: 25% 75%;\r\n}\r\n\r\n.main-settings-left {\r\n  width: 95%;\r\n}\r\n\r\n.settings-dropdown {\r\n  font-size: 22px;\r\n  margin: 15px 0 0 40px;\r\n}\r\n\r\n.settings-active-tab {\r\n  background-color: #ecf2fe;\r\n  margin: 10px;\r\n  border-radius: 10px;\r\n  padding: 10px;\r\n  display: flex;\r\n  cursor: pointer;\r\n}\r\n\r\n\r\n.settings-tab {\r\n  margin: 10px;\r\n  padding: 10px;\r\n  border-radius: 10px;\r\n  display: flex;\r\n  cursor: pointer;\r\n}\r\n\r\n.settings-tab:hover {\r\n  background-color: #f1f0f0;\r\n}\r\n\r\n.general-content,\r\n.security-content {\r\n  display: flex;\r\n  padding: 2.5px 0 0 8.5px;\r\n  pointer-events: inherit;\r\n}\r\n\r\n.general-settings-image,\r\n.security-settings-image {\r\n  width: 30px;\r\n  height: 30px;\r\n  margin-top: 2.5px;\r\n  pointer-events: inherit;\r\n}\r\n\r\n.change {\r\n  font-size: 20px;\r\n  margin-left: auto;\r\n  color: blue;\r\n  border: none;\r\n  cursor: pointer;\r\n}\r\n.change:hover {\r\n  text-decoration: underline;\r\n  cursor: pointer;\r\n}\r\n\r\n.change-edit-password {\r\n  font-size: 20px;\r\n  margin-left: auto;\r\n  color: blue;\r\n  border: none;\r\n  float: right;\r\n  cursor: pointer;\r\n}\r\n\r\n.bold-text {\r\n  font-weight: bold;\r\n}\r\n\r\n.settings-info {\r\n  width: 600px;\r\n  margin: 0 10px 0 10px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  display: inline-block;\r\n}\r\n\r\n.settings-divider-container {\r\n  border-bottom: 1px solid black;\r\n}\r\n\r\n.settings-divider-inside-flex {\r\n  border-bottom: 1px solid hsl(0, 0%, 86%);\r\n  padding: 15px;\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.settings-divider-inside-single-flex {\r\n  border-bottom: 1px solid black;\r\n  padding: 15px;\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n\r\n.settings-divider-inside {\r\n  border-bottom: 1px solid #dcdcdc;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-divider-inside-single {\r\n  border-bottom: 1px solid black;\r\n  padding: 15px;\r\n}\r\n\r\n.settings-save-changes {\r\n  font-size: 16px;\r\n  color: white;\r\n  background-color: #00a8f3;\r\n  margin: 7.5px 5px 0 0;\r\n  width: 120px;\r\n}\r\n\r\n.settings-cancel-changes {\r\n  font-size: 16px;\r\n  color: #696969;\r\n  margin-top: 7.5px;\r\n  background-color: #f1f0f0;\r\n  width: 70px;\r\n}\r\n\r\n.settings-form {\r\n  margin-top: 5px;\r\n}\r\n\r\n.label-settings-form,\r\n.label-settings-form-password {\r\n  display: inline-block;\r\n  margin-bottom: 5px;\r\n  width: 115px;\r\n}\r\n\r\n.label-settings-form-password {\r\n  width: 235px;\r\n}\r\n\r\n.input-settings-form {\r\n  display: inline-block;\r\n  margin-left: 5px;\r\n  padding-left: 2.5px;\r\n  border-radius: 5px;\r\n  font-size: 16px;\r\n  margin-bottom: 5px;\r\n  width: 225px;\r\n}\r\n\r\n.success {\r\n  color: green;\r\n  font-size: 20px;\r\n  font-weight: bold;\r\n  margin: 2.5px 0 7.5px 0;\r\n}\r\n\r\n.settings-hamburger-menu {\r\n  z-index: 1;\r\n  display: inline-block;\r\n  position: absolute;\r\n  margin-top: 7px;\r\n}\r\n\r\n.settings-hamburger-menu img {\r\n  width: 30px;\r\n  height: 30px;\r\n}\r\n\r\n@media (max-width: 950px) {\r\n  .main-settings {\r\n    display: block;\r\n    margin: 0 5px 0 5px;\r\n  }\r\n  .main-settings h1 {\r\n    margin-left: 35px;\r\n    font-size: 32px;\r\n  }\r\n\r\n  .settings-divider-inside,\r\n  .settings-divider-inside-single {\r\n    margin-right: 5px;\r\n  }\r\n  .settings-form{\r\n    text-align: center;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .main-settings {\r\n    font-size: 18px;\r\n  }\r\n  .main-settings h1 {\r\n    font-size: 28px;\r\n    margin-left: 27.5px;\r\n  }\r\n\r\n  .change {\r\n    font-size: 18px;\r\n  }\r\n\r\n  .settings-hamburger-menu img {\r\n    width: 25px;\r\n    height: 25px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 450px) {\r\n  .main-settings {\r\n    font-size: 16px;\r\n  }\r\n  .change {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .settings-info {\r\n    max-width: 200px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -87428,6 +87446,37 @@ module.exports = exported;
 
 /***/ }),
 
+/***/ "./src/client/assets/stylesheets/components/main/chat/MobileNav.css":
+/*!**************************************************************************!*\
+  !*** ./src/client/assets/stylesheets/components/main/chat/MobileNav.css ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../../../../../node_modules/css-loader/dist/cjs.js!./MobileNav.css */ "./node_modules/css-loader/dist/cjs.js!./src/client/assets/stylesheets/components/main/chat/MobileNav.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
+
+/***/ }),
+
 /***/ "./src/client/assets/stylesheets/components/main/chat/chat.css":
 /*!*********************************************************************!*\
   !*** ./src/client/assets/stylesheets/components/main/chat/chat.css ***!
@@ -87872,7 +87921,7 @@ var Forgot = function Forgot(props) {
       required: true
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/",
-      className: "link"
+      className: "frontpage-link"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "front-page-back-button",
       type: "button"
@@ -88441,7 +88490,7 @@ var Signup = function Signup(props) {
       required: true
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/",
-      className: "link"
+      className: "frontpage-link"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "front-page-back-button",
       type: "button"
@@ -88452,7 +88501,7 @@ var Signup = function Signup(props) {
   };
 
   var signUpVerify = function signUpVerify() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, !props.verifyUser && !props.fromLogin && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, !props.verifyUser && !usernameField.value && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
       to: "/"
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Thanks for signing up your username is: ".concat(props.verifyUser ? props.verifyUser : usernameField.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "verify-info-container"
@@ -89037,56 +89086,45 @@ var General = function General(props) {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     props.setActiveTab("general");
   }, []);
-
-  var nameSection = function nameSection() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: !showNameForm ? "settings-divider-inside-flex" : "settings-divider-inside"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "bold-text"
-    }, "Name "), !showNameForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "settings-info"
-    }, props.userInfo.fullName, " ") : null, !showNameForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "change",
-      onClick: function onClick() {
-        setShowNameForm(true);
-      }
-    }, "Edit") : null, showNameForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editSettings_EditName__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      userInfo: props.userInfo,
-      setUserInfo: props.setUserInfo,
-      setShowNameForm: setShowNameForm
-    }));
-  };
-
-  var usernameSection = function usernameSection() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: !showUserForm ? "settings-divider-inside-flex" : "settings-divider-inside"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "bold-text"
-    }, " Username "), !showUserForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "settings-info"
-    }, props.userInfo.username) : null, !showUserForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "change",
-      onClick: function onClick() {
-        setShowUserForm(true);
-      }
-    }, "Edit") : null, showUserForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editSettings_EditUsername__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      userInfo: props.userInfo,
-      setUserInfo: props.setUserInfo,
-      setShowUserForm: setShowUserForm
-    }));
-  };
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "settings-general-id"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return props.windowWidth > 950 || !props.openMenu ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "settings-divider-container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "General Settings")), nameSection(), usernameSection(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "General Settings")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: !showUserForm ? "settings-divider-inside-flex" : "settings-divider-inside"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "bold-text"
+  }, " Username "), !showUserForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "settings-info"
+  }, props.userInfo.username) : null, !showUserForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "change",
+    onClick: function onClick() {
+      setShowUserForm(true);
+    }
+  }, "Edit") : null, showUserForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editSettings_EditUsername__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    userInfo: props.userInfo,
+    setUserInfo: props.setUserInfo,
+    setShowUserForm: setShowUserForm
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: !showNameForm ? "settings-divider-inside-flex" : "settings-divider-inside"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "bold-text"
+  }, "Name "), !showNameForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "settings-info"
+  }, props.userInfo.fullName, " ") : null, !showNameForm ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "change",
+    onClick: function onClick() {
+      setShowNameForm(true);
+    }
+  }, "Edit") : null, showNameForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editSettings_EditName__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    userInfo: props.userInfo,
+    setUserInfo: props.setUserInfo,
+    setShowNameForm: setShowNameForm
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "settings-divider-inside-single-flex"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "bold-text"
   }, "Email "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "settings-info"
-  }, props.userInfo.email)));
+  }, props.userInfo.email))) : null;
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (General);
@@ -89133,14 +89171,7 @@ var Security = function Security(props) {
       showPasswordForm = _useState2[0],
       setShowPasswordForm = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      sendHome = _useState4[0],
-      setSendHome = _useState4[1];
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, sendHome && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Redirect, {
-    to: "/"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return props.windowWidth > 950 || !props.openMenu ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "settings-divider-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Security ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "settings-divider-inside-single"
@@ -89152,12 +89183,11 @@ var Security = function Security(props) {
       setShowPasswordForm(true);
     }
   }, "Edit"), showPasswordForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_editSettings_EditPassword__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    setSendHome: setSendHome,
     userInfo: props.userInfo,
     setActiveUser: props.setActiveUser,
     setIgnoreCookie: props.setIgnoreCookie,
     setShowPasswordForm: setShowPasswordForm
-  })));
+  }))) : null;
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Security);
@@ -89203,12 +89233,12 @@ var Settings = function Settings(props) {
     document.title = "Settings | MyChat";
   }, []);
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("general"),
       _useState2 = _slicedToArray(_useState, 2),
       activeTab = _useState2[0],
       setActiveTab = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       _useState4 = _slicedToArray(_useState3, 2),
       openMenu = _useState4[0],
       setOpenMenu = _useState4[1];
@@ -89221,20 +89251,19 @@ var Settings = function Settings(props) {
       setOpenMenu(!openMenu);
     }
   }, openMenu ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "images/hamburgerMenuOpen.png"
-  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "images/hamburgerMenuClose.png"
-  })) : null, props.windowWidth > 950 || !openMenu ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "images/hamburgerMenuOpen.png"
+  })) : null, props.windowWidth > 950 || openMenu ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main-settings-left"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Settings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "settings-dropdown"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: activeTab === "general" ? "settings-active-tab" : "settings-tab",
     onClick: function onClick() {
-      setOpenMenu(true);
+      setOpenMenu(false);
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["NavLink"], {
-    exact: true,
     to: "/home/settings/general",
     className: "link",
     activeClassName: "linkActive"
@@ -89246,10 +89275,9 @@ var Settings = function Settings(props) {
   }, "General"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: activeTab === "security" ? "settings-active-tab" : "settings-tab",
     onClick: function onClick() {
-      setOpenMenu(true);
+      setOpenMenu(false);
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["NavLink"], {
-    exact: true,
     to: "/home/settings/security",
     className: "link",
     activeClassName: "linkActive"
@@ -89258,28 +89286,32 @@ var Settings = function Settings(props) {
     src: "images/securitySettings.png"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "security-content"
-  }, "Security "))))) : null, props.windowWidth > 950 || openMenu ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Security "))))) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main-right"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
     exact: true,
-    path: "/home/settings/general",
+    path: ["/home/settings/general", "/home/settings/general/mobileMenu"],
     render: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_General__WEBPACK_IMPORTED_MODULE_1__["default"], {
         userInfo: props.userInfo,
         setUserInfo: props.setUserInfo,
-        setActiveTab: setActiveTab
+        setActiveTab: setActiveTab,
+        windowWidth: props.windowWidth,
+        openMenu: openMenu
       });
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
     exact: true,
-    path: "/home/settings/security",
+    path: ["/home/settings/security", "/home/settings/security/mobileMenu"],
     render: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Security__WEBPACK_IMPORTED_MODULE_2__["default"], {
         userInfo: props.userInfo,
-        setActiveTab: setActiveTab
+        setActiveTab: setActiveTab,
+        windowWidth: props.windowWidth,
+        openMenu: openMenu
       });
     }
-  })) : null);
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Settings);
@@ -90043,7 +90075,7 @@ var ChatContainer = function ChatContainer(props) {
       badUserID = _useState8[0],
       setBadUserID = _useState8[1];
 
-  var routerHistory = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["useHistory"])();
+  var browserHistory = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["useHistory"])();
 
   var _useParams = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["useParams"])(),
       id = _useParams.id;
@@ -90070,7 +90102,7 @@ var ChatContainer = function ChatContainer(props) {
         var contactId = getConvoQuery.data.getConversations[0].members[0]._id != props.userInfo._id ? getConvoQuery.data.getConversations[0].members[0]._id : getConvoQuery.data.getConversations[0].members[1]._id;
         setCurrentChat(contactId);
         setCurrentConvo(getConvoQuery.data.getConversations[0]._id);
-        routerHistory.replace("/home/messages/".concat(contactId));
+        browserHistory.replace("/home/messages/".concat(contactId));
       } else if (id != undefined) {
         setCurrentChat(id);
         var userInConvoHistory = getConvoQuery.data.getConversations.filter(function (convo) {
@@ -90094,7 +90126,6 @@ var ChatContainer = function ChatContainer(props) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_right_ChatDisplay__WEBPACK_IMPORTED_MODULE_2__["default"], {
     userInfo: props.userInfo,
     currentChat: currentChat,
-    setCurrentChat: setCurrentChat,
     convoHistory: getConvoQuery,
     currentConvo: currentConvo,
     setCurrentConvo: setCurrentConvo,
@@ -90176,10 +90207,6 @@ var ChatSearch = function ChatSearch(props) {
     event.preventDefault();
     searchField.clear();
     setSearchActive(false);
-
-    if (props.windowWidth <= 768) {
-      props.setMobileDisplay("chat");
-    }
   };
 
   var chatSearchResults = function chatSearchResults() {
@@ -90268,28 +90295,21 @@ var History = function History(props) {
 
     for (var i = 0; i < 11; i++) {
       arr.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        key: "Hist".concat(i),
+        key: "Hist".concat(i)
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chat-history-wrapper"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "chat-history-info-wrapper"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "chat-history-img-wrapper"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "chat-history-img",
         src: "images/profilePlaceholder.png"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chat-history-words-wrapper"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "chat-history-name-header-wrapper"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "chat-history-name-header-placeholder",
         src: "images/contentPlaceholder.png"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: ""
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "chat-history-content-placeholder",
         src: "images/contentPlaceholder.png"
-      }))))));
+      })))));
     }
 
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -90313,31 +90333,23 @@ var History = function History(props) {
       }, "You don't have any history of conversations please type a name above to get started");
     }
 
-    var changeChat = function changeChat() {
-      if (props.windowWidth <= 768) {
-        props.setMobileDisplay("chat");
-      }
-    };
-
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "chat-history-container"
     }, props.convoHistory.data.getConversations.map(function (convo) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: convo._id,
-        className: convo.unread && convo.lastSender != props.userInfo._id ? "chat-history-unread" : null
+        className: convo.unread && convo.lastSender != props.userInfo._id ? "chat-history-unread" : null,
+        onClick: function onClick() {
+          props.setMobileDisplay("messages");
+        }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: convo._id,
-        className: convo._id === props.currentConvo && props.windowWidth > 768 ? "chat-history-wrapper-current" : "chat-history-wrapper",
-        onClick: function onClick() {
-          changeChat();
-        }
+        className: convo._id === props.currentConvo ? "chat-history-wrapper-current" : "chat-history-wrapper"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
         exact: true,
         to: "/home/messages/".concat(convo.members[0]._id != props.userInfo._id ? convo.members[0]._id : convo.members[1]._id),
         className: "link",
         activeClassName: "linkActive"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "chat-history-info-wrapper"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         alt: convo.members[0]._id != props.userInfo._id ? convo.members[0].fullName : convo.members[1].fullName,
         className: "chat-history-img",
@@ -90348,7 +90360,7 @@ var History = function History(props) {
         className: "chat-history-overflow-name-header"
       }, convo.members[0]._id != props.userInfo._id ? convo.members[0].fullName : convo.members[1].fullName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chat-history-overflow-message"
-      }, convo.lastSender === props.userInfo._id ? "You: " : null, convo.lastMessage))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, convo.lastSender === props.userInfo._id ? "You: " : null, convo.lastMessage)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chat-history-timestamp"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " ", Object(Utilities_adjustTime__WEBPACK_IMPORTED_MODULE_2__["default"])(convo.lastMessageTime, false))))));
     }));
@@ -90386,12 +90398,18 @@ var About = function About(props) {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-about"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  }, props.windowWidth <= 768 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "mobile-nav-about-img",
+    onClick: function onClick() {
+      props.setMobileDisplay("messages");
+    },
+    src: "images/back.png"
+  }) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "chat-display-about-img",
     alt: props.getUser.data.getUser.fullName,
     title: props.getUser.data.getUser.fullName,
     src: "data:image/png;base64,".concat(props.getUser.data.getUser.profilePicture)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, props.getUser.data.getUser.fullName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, props.getUser.data.getUser.fullName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "About "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-about-content"
   }, props.getUser.data.getUser.about));
 };
@@ -90684,22 +90702,22 @@ var ChatDisplay = function ChatDisplay(props) {
 
   var readMessage = /*#__PURE__*/function () {
     var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(event) {
-      var currentChat;
+      var currentChatID;
       return regeneratorRuntime.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
               event.preventDefault();
-              currentChat = props.convoHistory.data.getConversations.filter(function (convo) {
+              currentChatID = props.convoHistory.data.getConversations.filter(function (convo) {
                 return convo._id === props.currentConvo;
               });
 
-              if (!(currentChat.length != 0)) {
+              if (!(currentChatID.length != 0)) {
                 _context3.next = 6;
                 break;
               }
 
-              if (!(currentChat[0].lastSender != props.userInfo._id)) {
+              if (!(currentChatID[0].lastSender != props.userInfo._id)) {
                 _context3.next = 6;
                 break;
               }
@@ -90730,7 +90748,10 @@ var ChatDisplay = function ChatDisplay(props) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatMessage__WEBPACK_IMPORTED_MODULE_8__["default"], {
       getMessages: getMessages,
       userInfo: props.userInfo,
-      currentChat: props.currentChat
+      currentChat: props.currentChat,
+      setMobileDisplay: props.setMobileDisplay,
+      getUser: getUser,
+      windowWidth: props.windowWidth
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       onSubmit: sendMessage,
       className: "chat-display-chat-send-message-form"
@@ -90750,13 +90771,16 @@ var ChatDisplay = function ChatDisplay(props) {
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "chat-display-parent"
+    className: props.windowWidth > 768 || props.mobileDisplay === "messages" || props.mobileDisplay === "about" ? "chat-display-parent" : null
   }, props.badUserID && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
     to: "/home/messages"
   }), props.userLoading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_placeholders_ChatDisplayPlaceholder__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    convoHistory: props.convoHistory
-  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, (props.windowWidth > 768 || props.mobileDisplay === "chat") && chat(), (props.windowWidth > 768 || props.mobileDisplay === "about") && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_About__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    getUser: getUser
+    convoHistory: props.convoHistory,
+    windowWidth: props.windowWidth
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, (props.windowWidth > 768 || props.mobileDisplay === "messages") && chat(), (props.windowWidth > 768 || props.mobileDisplay === "about") && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_About__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    getUser: getUser,
+    setMobileDisplay: props.setMobileDisplay,
+    windowWidth: props.windowWidth
   })));
 };
 
@@ -90776,47 +90800,134 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var Utilities_adjustTime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! Utilities/adjustTime */ "./src/client/utilities/adjustTime.js");
-/* harmony import */ var MainStylesheets_chat_chatMessage_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! MainStylesheets/chat/chatMessage.css */ "./src/client/assets/stylesheets/components/main/chat/chatMessage.css");
-/* harmony import */ var MainStylesheets_chat_chatMessage_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(MainStylesheets_chat_chatMessage_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _mobileNav_MobileNav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mobileNav/MobileNav */ "./src/client/components/main/home/chat/right/mobileNav/MobileNav.js");
+/* harmony import */ var MainStylesheets_chat_chatMessage_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! MainStylesheets/chat/chatMessage.css */ "./src/client/assets/stylesheets/components/main/chat/chatMessage.css");
+/* harmony import */ var MainStylesheets_chat_chatMessage_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(MainStylesheets_chat_chatMessage_css__WEBPACK_IMPORTED_MODULE_3__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
 
 var ChatMessage = function ChatMessage(props) {
-  if (props.getMessages.loading) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "chat-display-chat-container-loading"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-      className: "loading",
-      src: "gifs/loading.gif"
-    }));
-  }
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
+      _useState2 = _slicedToArray(_useState, 2),
+      showLoading = _useState2[0],
+      setShowLoading = _useState2[1];
 
+  setTimeout(function () {
+    setShowLoading(false);
+  }, 100);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-chat-container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.windowWidth <= 768 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mobileNav_MobileNav__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    setMobileDisplay: props.setMobileDisplay,
+    getMessages: props.getMessages,
+    getUser: props.getUser
+  }) : null, props.getMessages.loading || props.getUser.loading || showLoading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "chat-display-chat-loading-wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "loading",
+    src: "gifs/loading.gif"
+  })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "messageContainer",
     className: "chat-display-chat"
   }, props.getMessages.data.getMessages.map(function (message) {
-    return message.senderID === props.userInfo._id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: message._id,
       className: "chat-message-wrapper"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }, message.senderID === props.userInfo._id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       title: Object(Utilities_adjustTime__WEBPACK_IMPORTED_MODULE_1__["default"])(message.time, true),
-      key: message._id,
       className: "chat-my-message"
-    }, message.content)) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      key: message._id,
-      className: "chat-message-wrapper"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }, message.content) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       title: Object(Utilities_adjustTime__WEBPACK_IMPORTED_MODULE_1__["default"])(message.time, true),
-      key: message._id,
       className: "chat-contact-message"
     }, message.content));
   })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ChatMessage);
+
+/***/ }),
+
+/***/ "./src/client/components/main/home/chat/right/mobileNav/MobileNav.js":
+/*!***************************************************************************!*\
+  !*** ./src/client/components/main/home/chat/right/mobileNav/MobileNav.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var MainStylesheets_chat_MobileNav_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! MainStylesheets/chat/MobileNav.css */ "./src/client/assets/stylesheets/components/main/chat/MobileNav.css");
+/* harmony import */ var MainStylesheets_chat_MobileNav_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(MainStylesheets_chat_MobileNav_css__WEBPACK_IMPORTED_MODULE_1__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+var MobileNav = function MobileNav(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
+      _useState2 = _slicedToArray(_useState, 2),
+      showLoading = _useState2[0],
+      setShowLoading = _useState2[1];
+
+  setTimeout(function () {
+    setShowLoading(false);
+  }, 100);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "mobile-nav-header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "mobile-nav-back-img",
+    onClick: function onClick() {
+      props.setMobileDisplay("search");
+    },
+    src: "images/back.png"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "mobile-nav-user-img",
+    alt: props.getUser.data.getUser.fullName,
+    title: props.getUser.data.getUser.fullName,
+    src: props.getUser.loading || showLoading ? "images/profilePlaceholder.png" : "data:image/png;base64,".concat(props.getUser.data.getUser.profilePicture)
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "mobile-nav-user-name-wrapper"
+  }, props.getUser.loading || showLoading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "mobile-nav-user-placeholder-img",
+    src: "images/contentPlaceholder.png"
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "mobile-nav-user-name"
+  }, props.getUser.data.getUser.fullName)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "mobile-nav-info-img",
+    onClick: function onClick() {
+      props.setMobileDisplay("about");
+    },
+    src: "images/info.png"
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (MobileNav);
 
 /***/ }),
 
@@ -90873,14 +90984,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var ChatDisplayPlaceholder = function ChatDisplayPlaceholder(props) {
   if (props.convoHistory.loading) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    return props.windowWidth > 950 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "chat-display-chat-parent"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MessagePlaceholder__WEBPACK_IMPORTED_MODULE_1__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AboutPlaceholder__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MessagePlaceholder__WEBPACK_IMPORTED_MODULE_1__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AboutPlaceholder__WEBPACK_IMPORTED_MODULE_2__["default"], null)) : null;
   }
 
-  return props.convoHistory.data.getConversations.length === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DefaultChat__WEBPACK_IMPORTED_MODULE_3__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return props.convoHistory.data.getConversations.length === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DefaultChat__WEBPACK_IMPORTED_MODULE_3__["default"], null) : props.windowWidth > 950 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "chat-display-chat-parent"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MessagePlaceholder__WEBPACK_IMPORTED_MODULE_1__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AboutPlaceholder__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MessagePlaceholder__WEBPACK_IMPORTED_MODULE_1__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AboutPlaceholder__WEBPACK_IMPORTED_MODULE_2__["default"], null)) : null;
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ChatDisplayPlaceholder);

@@ -187,6 +187,9 @@
   .settings-divider-inside-single {
     margin-right: 5px;
   }
+  .settings-form{
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 768px) {

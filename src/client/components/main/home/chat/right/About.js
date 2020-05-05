@@ -8,13 +8,25 @@ const About = (props) => {
   }
   return (
     <div className="chat-display-about">
+      {props.windowWidth <= 768 ? (
+        <img
+          className="mobile-nav-about-img"
+          onClick={() => {
+            props.setMobileDisplay("messages");
+          }}
+          src="images/back.png"
+        />
+      ) : null}
       <img
         className="chat-display-about-img"
         alt={props.getUser.data.getUser.fullName}
         title={props.getUser.data.getUser.fullName}
         src={`data:image/png;base64,${props.getUser.data.getUser.profilePicture}`}
       />
+
       <h1>{props.getUser.data.getUser.fullName}</h1>
+
+      <h3>About </h3>
 
       <div className="chat-display-about-content">
         {props.getUser.data.getUser.about}

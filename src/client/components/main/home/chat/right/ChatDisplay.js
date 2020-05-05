@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment} from "react";
 import { Redirect } from "react-router-dom";
 import { useFieldInput } from "Hooks/customHooks";
 import {
@@ -161,11 +161,11 @@ const ChatDisplay = (props) => {
 
   const readMessage = async (event) => {
     event.preventDefault();
-    let currentChat = props.convoHistory.data.getConversations.filter(
+    let currentChatID = props.convoHistory.data.getConversations.filter(
       (convo) => convo._id === props.currentConvo
     );
-    if (currentChat.length != 0) {
-      if (currentChat[0].lastSender != props.userInfo._id) {
+    if (currentChatID.length != 0) {
+      if (currentChatID[0].lastSender != props.userInfo._id) {
         await readMsg({ variables: { _id: props.currentConvo } });
       }
     }
@@ -178,6 +178,9 @@ const ChatDisplay = (props) => {
           getMessages={getMessages}
           userInfo={props.userInfo}
           currentChat={props.currentChat}
+          setMobileDisplay={props.setMobileDisplay}
+          getUser={getUser}
+          windowWidth={props.windowWidth}
         />
 
         <form
@@ -204,16 +207,31 @@ const ChatDisplay = (props) => {
   };
 
   return (
-    <div className="chat-display-parent">
+    <div
+      className={
+        props.windowWidth > 768 ||
+        props.mobileDisplay === "messages" ||
+        props.mobileDisplay === "about"
+          ? "chat-display-parent"
+          : null
+      }
+    >
       {props.badUserID && <Redirect to="/home/messages" />}
       {props.userLoading ? (
-        <ChatDisplayPlaceholder convoHistory={props.convoHistory} />
+        <ChatDisplayPlaceholder
+          convoHistory={props.convoHistory}
+          windowWidth={props.windowWidth}
+        />
       ) : (
         <Fragment>
-          {(props.windowWidth > 768 || props.mobileDisplay === "chat") &&
+          {(props.windowWidth > 768 || props.mobileDisplay === "messages") &&
             chat()}
           {(props.windowWidth > 768 || props.mobileDisplay === "about") && (
-            <About getUser={getUser} />
+            <About
+              getUser={getUser}
+              setMobileDisplay={props.setMobileDisplay}
+              windowWidth={props.windowWidth}
+            />
           )}
         </Fragment>
       )}

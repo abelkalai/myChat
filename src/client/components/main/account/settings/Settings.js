@@ -8,8 +8,8 @@ const Settings = (props) => {
   useEffect(() => {
     document.title = "Settings | MyChat";
   }, []);
-  const [activeTab, setActiveTab] = useState(null);
-  const [openMenu, setOpenMenu] = useState(true);
+  const [activeTab, setActiveTab] = useState("general");
+  const [openMenu, setOpenMenu] = useState(false);
 
   return (
     <div className="main-settings">
@@ -21,13 +21,13 @@ const Settings = (props) => {
           }}
         >
           {openMenu ? (
-            <img src="images/hamburgerMenuOpen.png" />
-          ) : (
             <img src="images/hamburgerMenuClose.png" />
+          ) : (
+            <img src="images/hamburgerMenuOpen.png" />
           )}
         </div>
       ) : null}
-      {props.windowWidth > 950 || !openMenu ? (
+      {props.windowWidth > 950 || openMenu ? (
         <div className="main-settings-left">
           <h1>Settings</h1>
           <div className="settings-dropdown">
@@ -36,11 +36,10 @@ const Settings = (props) => {
                 activeTab === "general" ? "settings-active-tab" : "settings-tab"
               }
               onClick={() => {
-                setOpenMenu(true);
+                setOpenMenu(false);
               }}
             >
               <NavLink
-                exact
                 to="/home/settings/general"
                 className="link"
                 activeClassName="linkActive"
@@ -60,11 +59,10 @@ const Settings = (props) => {
                   : "settings-tab"
               }
               onClick={() => {
-                setOpenMenu(true);
+                setOpenMenu(false);
               }}
             >
               <NavLink
-                exact
                 to="/home/settings/security"
                 className="link"
                 activeClassName="linkActive"
@@ -80,28 +78,36 @@ const Settings = (props) => {
         </div>
       ) : null}
 
-      {props.windowWidth > 950 || openMenu ? (
-        <div className="main-right">
-          <Route
-            exact
-            path="/home/settings/general"
-            render={() => (
-              <General
-                userInfo={props.userInfo}
-                setUserInfo={props.setUserInfo}
-                setActiveTab={setActiveTab}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/home/settings/security"
-            render={() => (
-              <Security userInfo={props.userInfo} setActiveTab={setActiveTab} />
-            )}
-          />
-        </div>
-      ) : null}
+      <div className="main-right">
+        <Route
+          exact
+          path={["/home/settings/general", "/home/settings/general/mobileMenu"]}
+          render={() => (
+            <General
+              userInfo={props.userInfo}
+              setUserInfo={props.setUserInfo}
+              setActiveTab={setActiveTab}
+              windowWidth={props.windowWidth}
+              openMenu={openMenu}
+            />
+          )}
+        />
+        <Route
+          exact
+          path={[
+            "/home/settings/security",
+            "/home/settings/security/mobileMenu",
+          ]}
+          render={() => (
+            <Security
+              userInfo={props.userInfo}
+              setActiveTab={setActiveTab}
+              windowWidth={props.windowWidth}
+              openMenu={openMenu}
+            />
+          )}
+        />
+      </div>
     </div>
   );
 };

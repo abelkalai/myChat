@@ -45,6 +45,10 @@ button:hover {
   text-align: center;
 }
 
+.frontpage-link{
+  text-decoration: none;
+}
+
 @media (max-width: 768px) {
   button {
     padding: 1px;

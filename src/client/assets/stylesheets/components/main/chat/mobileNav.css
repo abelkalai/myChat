@@ -1,0 +1,47 @@
+.mobile-nav-header {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #dcdcdc;
+  min-width: 0;
+  align-items: center;
+  padding: 3.5px 0 3.5px 0;
+}
+
+.mobile-nav-back-img {
+  width: 20px;
+  height: 30px;
+  margin-left: 5px;
+}
+.mobile-nav-user-img{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+.mobile-nav-user-placeholder-img{
+  width: 80%;
+  height: 20px;
+}
+
+.mobile-nav-user-name-wrapper{
+  display: flex;
+  flex: 1 1 1px;
+  align-items: center;
+  margin-left: 5px;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.mobile-nav-user-name{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobile-nav-info-img {
+  width: 30px;
+  height: 30px;
+  margin-left: auto;
+  margin-right: 5px;
+}

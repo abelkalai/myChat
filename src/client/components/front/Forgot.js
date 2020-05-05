@@ -35,7 +35,7 @@ const Forgot = (props) => {
               />
             </div>
             <div>
-              <Link to="/" className="link">
+              <Link to="/" className="frontpage-link">
                 <button className="front-page-back-button" type="button">
                   Back to Login
                 </button>

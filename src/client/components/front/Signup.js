@@ -30,7 +30,7 @@ const Signup = (props) => {
     let username = usernameField.value.trim();
     let password = passwordField.value;
     let passwordConfirm = passwordConfirmField.value;
-    
+
     let result = await addUser({
       variables: {
         firstName,
@@ -122,7 +122,7 @@ const Signup = (props) => {
                 />
               </div>
               <div>
-                <Link to="/" className="link">
+                <Link to="/" className="frontpage-link">
                   <button className="front-page-back-button" type="button">
                     Back to Login
                   </button>
@@ -141,7 +141,7 @@ const Signup = (props) => {
   const signUpVerify = () => {
     return (
       <Fragment>
-        {!props.verifyUser && !props.fromLogin && <Redirect to="/" />}
+        {!props.verifyUser && !usernameField.value && <Redirect to="/" />}
         <h2>{`Thanks for signing up your username is: ${
           props.verifyUser ? props.verifyUser : usernameField.value
         }`}</h2>

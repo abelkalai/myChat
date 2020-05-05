@@ -11,7 +11,7 @@ const ChatContainer = (props) => {
   const [currentChat, setCurrentChat] = useState("");
   const [mobileDisplay, setMobileDisplay] = useState("search");
   const [badUserID, setBadUserID] = useState(false);
-  const routerHistory = useHistory();
+  const browserHistory = useHistory();
   const { id } = useParams();
   const [userLoading, setUserLoading] = useState(true);
   const getConvoQuery = useQuery(GET_CONVERSATIONS, {
@@ -33,7 +33,7 @@ const ChatContainer = (props) => {
             : getConvoQuery.data.getConversations[0].members[1]._id;
         setCurrentChat(contactId);
         setCurrentConvo(getConvoQuery.data.getConversations[0]._id);
-        routerHistory.replace(`/home/messages/${contactId}`);
+        browserHistory.replace(`/home/messages/${contactId}`);
       } else if (id != undefined) {
         setCurrentChat(id);
         let userInConvoHistory = getConvoQuery.data.getConversations.filter(
@@ -61,7 +61,6 @@ const ChatContainer = (props) => {
       <ChatDisplay
         userInfo={props.userInfo}
         currentChat={currentChat}
-        setCurrentChat={setCurrentChat}
         convoHistory={getConvoQuery}
         currentConvo={currentConvo}
         setCurrentConvo={setCurrentConvo}

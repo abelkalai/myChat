@@ -148,22 +148,20 @@ const userResolvers = {
   },
   Mutation: {
     addUser: async (root, args) => {
-      args.password = await bcrypt.hash(args.password, 10);
       args.fullName = `${args.firstName} ${args.lastName}`;
       args.confirmed = false;
       args.about = "";
       args.profilePicture = DEFAULT_IMAGE;
       const verificationCode = generator.generate({ length: 8, numbers: true });
-      args.verifcationCode = await bcrypt.hash(verificationCode, 10);
-      let user = new User({ ...args });
-      let errors = [];
 
+      let errors = [];
+      console.log(args.password, args.passwordConfirm);
       if (args.password != args.passwordConfirm) {
         errors.push("Passwords don't match");
       }
       if (
         (await User.collection.countDocuments({
-          username: { $regex: new RegExp(`^${args.username}`, "i") },
+          username: { $regex: new RegExp(`^${args.username}$`, "i") },
         })) > 0
       ) {
         errors.push("Username already used");
@@ -171,12 +169,13 @@ const userResolvers = {
 
       if (
         (await User.collection.countDocuments({
-          email: { $regex: new RegExp(`^${args.email}`, "i") },
+          email: { $regex: new RegExp(`^${args.email}$`, "i") },
         })) > 0
       ) {
         errors.push("Email already used");
       }
-
+      args.password = await bcrypt.hash(args.password, 10);
+      let user = new User({ ...args });
       if (errors.length === 0) {
         await user.save();
         await mailService.sendEmail("VERIFY", {
@@ -192,7 +191,7 @@ const userResolvers = {
 
     login: async (root, args) => {
       const user = await User.find({
-        username: { $regex: new RegExp(`^${args.username}`, "i") },
+        username: { $regex: new RegExp(`^${args.username}$`, "i") },
       }).limit(1);
       if (user.length === 0) {
         return { errorList: "Username or Password is incorrect" };
@@ -236,7 +235,7 @@ const userResolvers = {
 
     verifyEmail: async (root, args) => {
       const user = await User.find({
-        email: { $regex: new RegExp(`^${args.email}`, "i") },
+        email: { $regex: new RegExp(`^${args.email}$`, "i") },
       }).limit(1);
       if (
         !(await bcrypt.compare(args.verificationCode, user[0].verificationCode))
@@ -278,7 +277,7 @@ const userResolvers = {
       let errors = [];
       if (
         (await User.collection.countDocuments({
-          username: { $regex: new RegExp(`^${args.username}`, "i") },
+          username: { $regex: new RegExp(`^${args.username}$`, "i") },
         })) > 0
       ) {
         errors.push("Username is already in use");
