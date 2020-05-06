@@ -2,7 +2,7 @@ import React, { useState, Fragment } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_PROFILE_PICTURE } from "GraphqlDocuments/user";
-import Banner from "./banner/Banner";
+import Banner from "./Banner";
 import ChatContainer from "./chat/ChatContainer";
 import Profile from "Account/profile/Profile";
 import Settings from "Account/settings/Settings";

@@ -1,16 +1,16 @@
 .profile-main {
-  margin-top: 5px;
   display: flex;
   flex-direction: column;
+  margin-top: 5px;
   align-items: center;
   text-align: center;
 }
 
 .profile-name {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   max-width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .profile-image {
@@ -22,8 +22,8 @@
 
 .profile-upload-input-div {
   display: flex;
-  justify-content: center;
   margin: 4px;
+  justify-content: center;
 }
 
 .inputfile {
@@ -31,21 +31,21 @@
 }
 
 .file-upload-label {
-  color: white;
+  cursor: pointer;
+  display: flex;
+  border-radius: 10px;
+  width: 190px;
   padding: 5px;
   background-color: #00a8f3;
-  border-radius: 10px;
-  cursor: pointer;
-  width: 190px;
-  display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
 }
 
 .file-upload-label img {
-  height: 20px;
-  width: 20px;
   margin-top: 1px;
+  width: 20px;
+  height: 20px;
   padding-right: 4px;
 }
 
@@ -55,60 +55,56 @@
 }
 
 .about-text-area {
+  margin-top: 5px;
   width: 40vw;
   height: 32.5vh;
-  resize: none;
-  margin-top: 5px;
-  padding-top: 2.5px;
-  padding-left: 5px;
+  padding: 2.5px 0 0 5px;
   border-radius: 10px;
+  resize: none;
   overflow-x: hidden;
   overflow-y: auto;
+  
 }
 
 .about-placeholder {
+  display: block;
+  margin: 0 auto 0 auto;
   width: 40vw;
   height: 32.5vh;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .profile-about-wrapper {
+  display: block;
+  margin: 2.5px auto 0 auto;
   width: 40vw;
   height: 32.5vh;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  overflow-y: auto;
   text-align: center;
   word-wrap: break-word;
-  overflow-y: auto;
 }
 
 .update-profile-pic-button {
+  margin: 7.5px 0 2.5px;
+  width: 175px;
+  background-color: #00a8f3;
   font-size: 16px;
   color: white;
-  background-color: #00a8f3;
-  margin-top: 7.5px;
-  margin-bottom: 2.5px;
-  width: 175px;
 }
 
 .change-button {
+  margin-top: 5px;
+  width: 60px;
+  background-color: #00a8f3;
   font-size: 16px;
   color: white;
-  background-color: #00a8f3;
-  margin-top: 7.5px;
-  width: 60px;
 }
 
 .cancel-button {
+  margin: 7.5px 0 0 5px;
+  width: 60px;
+  background-color: #f1f0f0;
   font-size: 16px;
   color: #696969;
-  background-color: #f1f0f0;
-  margin-top: 7.5px;
-  margin-left: 5px;
-  width: 60px;
 }
 
 @media screen and (max-width: 912px) {

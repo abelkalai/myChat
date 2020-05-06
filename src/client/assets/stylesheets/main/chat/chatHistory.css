@@ -1,10 +1,3 @@
-.no-history-div {
-  margin-top: 5px;
-  margin-left: 15px;
-  overflow-y: auto;
-  flex: 1 1 1px;
-}
-
 .chat-history-container {
   display: flex;
   flex-direction: column;
@@ -26,9 +19,9 @@
   flex: 1 1 1px;
   margin: 0 5px 5px 0;
   padding: 5px;
-  cursor: pointer;
   border-radius: 5px;
   background-color: #f1f0f0;
+  cursor: pointer;
 }
 
 .chat-history-wrapper {
@@ -37,24 +30,24 @@
   flex: 1 1 1px;
   margin: 0 5px 5px 0;
   padding: 5px;
-  cursor: pointer;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .chat-history-img {
+  align-self: center;
+  border-radius: 90%;
   width: 40px;
   height: 40px;
-  border-radius: 90%;
-  align-self: center;
 }
 
 .chat-history-words-wrapper {
+  align-self: center;
   display: flex;
   flex-direction: column;
   flex: 1 1 1px;
-  max-width: 62.5%;
   margin-left: 2.5px;
-  align-self: center;
+  max-width: 62.5%;
 }
 
 .chat-history-overflow-name-header {

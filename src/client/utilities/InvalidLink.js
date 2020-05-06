@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
-import "../assets/stylesheets/components/front/frontPage.css";
+import { Link} from "react-router-dom";
+import "FrontStylesheets/frontPage.css";
 const InvalidLink = (props) => {
   useEffect(() => {
     document.title = "Page Not Found | MyChat";

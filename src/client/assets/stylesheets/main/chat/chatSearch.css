@@ -6,47 +6,46 @@
 }
 
 .chat-search-container {
-  font-size: 18px;
-  margin: 5px 10px 0 12.5px;
   display: flex;
+  margin: 5px 10px 0 12.5px;
   min-width: 0;
+  font-size: 18px;
 }
 
 .search-contacts-input {
-  padding: 5px;
-  background-position: 2.5px;
-  background-image: url("/images/search.png");
-  background-repeat: no-repeat;
-  font-size: 16px;
-  padding-left: 30px;
+  padding: 5px 5px 5px 30px;
   border-radius: 10px;
   width: 100%;
+  background-image: url("/images/search.png");
+  background-position: 2.5px;
+  background-repeat: no-repeat;
+  font-size: 16px;
 }
 
 .chat-search-results {
   display: flex;
   flex-direction: column;
   flex: 1 1 1px;
-  font-size: 18px;
-  color: black;
-  background-color: white;
-  max-width: 95%;
-  max-height: 100%;
   margin: 10px 0 0 10px;
-  overflow-y: auto;
-  overflow-x: hidden;
   min-width: 0;
+  max-width: 95%;
   min-height: 0;
+  max-height: 100%;
+  background-color: white;
+  font-size: 18px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: black;
 }
 
 .chat-search-results-container {
   display: flex;
   flex-direction: row;
   margin: 2.5px 0 2.5px 0;
-  padding: 5px;
   border-radius: 5px;
-  align-items: center;
   min-width: 0;
+  padding: 5px;
+  align-items: center;
   cursor: pointer;
 }
 
@@ -55,15 +54,15 @@
 }
 
 .chat-search-results img {
+  border-radius: 90%;
   width: 30px;
   height: 30px;
-  border-radius: 90%;
 }
 
 .chat-search-results-name {
   margin-left: 3.5px;
-  white-space: nowrap;
   overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
 }
 

@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import EditPassword from "./editSettings/EditPassword";
+import EditPassword from "./EditPassword";
 import "MainStylesheets/settings.css";
 
 const Security = (props) => {

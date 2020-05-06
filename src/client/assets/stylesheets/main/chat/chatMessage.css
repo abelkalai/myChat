@@ -15,72 +15,67 @@
 .chat-display-chat-loading-wrapper {
   display: flex;
   flex: 1 1 1px;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .chat-display-chat {
-  max-height: calc(100vh - 135px);
-  margin-top: 5px;
-  overflow-x: hidden;
-  overflow-y: auto;
   display: flex;
   flex-direction: column-reverse;
+  margin-top: 5px;
+  max-height: calc(100vh - 135px);
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .chat-message-wrapper {
-  font-size: 18px;
   display: flex;
   flex-direction: row;
-  align-items: center;
   width: 100%;
   padding: 3px;
+  font-size: 18px;
+  align-items: center;
 }
 
 .chat-my-message {
-  margin-left: auto;
-  max-width: 60%;
-  margin-right: 8px;
-  color: white;
-  background-color: #0099ff;
-  padding: 6px 10px 6px 10px;
+  margin: 0 8px 0 auto;
   border-radius: 15px;
+  max-width: 60%;
+  padding: 6px 10px 6px 10px;
+  background-color: #0099ff;
   word-wrap: break-word;
+  color: white;
 }
 
 .chat-contact-message {
-  margin-right: auto;
-  background-color: #f1f0f0;
-  margin-left: 4px;
-  padding: 6px 10px 6px 10px;
-  max-width: 60%;
+  margin: 0 auto 0 4px;
   border-radius: 15px;
+  max-width: 60%;
+  padding: 6px 10px 6px 10px;
+  background-color: #f1f0f0;
   word-wrap: break-word;
 }
 
 .chat-display-chat-send-message-form {
   display: flex;
+  flex: 1 1 1px;
+  margin: 15px 5px 20px 10px;
   min-width: 0;
   max-width: 100%;
-  margin: 15px 5px 20px 10px;
-  flex: 1 1 1px;
 }
 
 .chat-display-chat-message-field {
   display: flex;
-  padding: 2.5px;
-  padding-left: 5px;
-  font-size: 18px;
+  padding: 2.5px 2.5px 2.5px 5px;
   border-radius: 5px;
   width: 100%;
   height: 27.5px;
+  font-size: 18px;
   align-items: center;
 }
 
 .chat-display-chat-send-message-form-img {
-  max-width: 100%;
-  margin-left: 2px;
-  margin-bottom: 2px;
+  margin: 0 0 2px 2px;
   width: 27px;
   height: 34.5px;
 }
@@ -94,10 +89,9 @@
 }
 
 .msg-placeholder-img-me {
-  margin-left: auto;
+  margin: 0 4px 0 auto;
   width: 45%;
   height: 25px;
-  margin-right: 4px;
   padding: 6px;
 }
 
@@ -107,7 +101,6 @@
   height: 25px;
   padding: 6px;
 }
-
 
 @media screen and (max-width: 768px) {
   .chat-display-chat-send-message-form {
@@ -120,7 +113,7 @@
   }
 
   .chat-display-chat {
-    max-height: calc(100vh - 110px);
     margin-top: 2.5px;
+    max-height: calc(100vh - 110px);
   }
 }

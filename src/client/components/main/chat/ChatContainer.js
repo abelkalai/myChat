@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ChatSearch from "./left/ChatSearch";
-import ChatDisplay from "./right/ChatDisplay";
+import ChatSearch from "./ChatSearch";
+import ChatDisplay from "./ChatDisplay";
 import { useHistory, useParams } from "react-router-dom";
 import { GET_CONVERSATIONS } from "GraphqlDocuments/conversation";
 import { useQuery } from "@apollo/react-hooks";

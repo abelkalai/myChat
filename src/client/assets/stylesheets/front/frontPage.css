@@ -1,8 +1,6 @@
-.front-page-background{
-  background-color: #257fbd;
+.front-page-background {
   height: 100vh;
-  width: 100vw;
-  position: absolute;
+  background-color: #257fbd;
 }
 
 .front-page-wrapper {
@@ -11,12 +9,12 @@
 }
 
 .front-page-container {
+  left: 50%;
   display: inline-block;
-  background-color: white;
   margin-top: 7.5vh;
   border-radius: 15px;
   width: 60vw;
-  left: 50%;
+  background-color: white;
 }
 
 .front-page {
@@ -32,11 +30,9 @@
 .front-page-info {
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
-  color: white;
+  padding: 10px 10px 40px 10px;
   background-color: #00a8f3;
-  padding: 10px;
-  padding-top: 10px;
-  padding-bottom: 40px;
+  color: white;
 }
 
 .front-page-info-about {
@@ -49,8 +45,7 @@
 
 .front-page-content {
   margin-top: 10px;
-  padding: 10px;
-  padding-bottom: 20px;
+  padding: 10px 10px 20px 10px;
 }
 
 .front-page-form {
@@ -62,39 +57,37 @@
 }
 
 .input-front-page-form {
-  padding: 2.5px;
-  padding-left: 2.5px;
-  margin-bottom: 2.5px;
-  font-size: 22px;
   display: inline-block;
   border-top: none;
-  border-left: none;
   border-right: none;
+  border-left: none;
+  padding: 2.5px;
+  font-size: 22px;
 }
 
 .front-page-back-button {
-  font-size: 16px;
-  color: #696969;
-  text-decoration: none;
   margin: 10px 7px 0 0;
-  padding: 0 5px 0 5px;
-  background-color: #f1f0f0;
-  border-color: #f1f0f0;
   width: 130px;
+  padding: 0 5px 0 5px;
+  border-color: #f1f0f0;
+  background-color: #f1f0f0;
+  font-size: 16px;
+  text-decoration: none;
+  color: #696969;
 }
 
 .front-page-submit-button {
-  font-size: 16px;
-  padding: 0 5px 0 5px;
-  background-color: #00a8f3;
-  color: white;
   margin-top: 10px;
   width: 80px;
+  padding: 0 5px 0 5px;
+  background-color: #00a8f3;
+  font-size: 16px;
+  color: white;
 }
 
 .front-page-submit-button:hover {
-  background-color: darkblue;
   border-color: darkblue;
+  background-color: darkblue;
 }
 
 @media (max-width: 912px) {
@@ -170,15 +163,15 @@
 
   .front-page-back-button {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 5px;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .front-page-submit-button {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 7.5px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }

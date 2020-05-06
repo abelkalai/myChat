@@ -3,12 +3,12 @@
 }
 
 .confirm-code-button {
-  font-size: 14px;
   margin-top: 10px;
+  width: 90px;
   padding: 0 5px 0 5px;
   background-color: #00a8f3;
+  font-size: 14px;
   color: white;
-  width: 90px;
 }
 
 .verify-info-container {

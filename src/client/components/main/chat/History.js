@@ -45,16 +45,7 @@ const History = (props) => {
   }, [props.convoHistory]);
 
   const displayHistory = () => {
-    if (props.convoHistory.data.getConversations.length === 0) {
-      return (
-        <div className="no-history-div">
-          You don't have any history of conversations please type a name above
-          to get started
-        </div>
-      );
-    }
-
-    return (
+    return props.convoHistory.data.getConversations.length > 0 ? (
       <div className="chat-history-container">
         {props.convoHistory.data.getConversations.map((convo) => (
           <div
@@ -124,7 +115,7 @@ const History = (props) => {
           </div>
         ))}
       </div>
-    );
+    ) : null;
   };
 
   return <Fragment>{displayHistory()}</Fragment>;

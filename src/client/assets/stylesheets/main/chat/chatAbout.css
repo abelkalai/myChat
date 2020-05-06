@@ -1,78 +1,75 @@
 .chat-display-about {
   display: flex;
   flex-direction: column;
+  flex: 1 1 1px;
   min-width: 0;
   min-height: 0;
-  flex: 1 1 1px;
 }
 
 .chat-about-name-placeholder {
   display: flex;
-  align-self: center;
+  margin-top: 2.5px;
   width: 85%;
   height: 27.5px;
-  margin-top: 2.5px;
+  align-self: center;
 }
 
-.chat-display-about-name-header{
-  font-size: 22px;
-  font-weight: bold;
+.chat-display-about-name-header {
   align-self: center;
   max-width: 85%;
+  font-size: 22px;
+  font-weight: bold;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.overflow-content{
+.overflow-content {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 
 .chat-display-about h3 {
   align-self: center;
 }
 
 .chat-display-about-img {
+  align-self: center;
   margin-top: 10px;
+  border-radius: 50%;
   width: 175px;
   height: 175px;
-  border-radius: 50%;
-  align-self: center;
 }
 
 .chat-about-content-placeholder {
-  width: 85%;
-  height: 90%;
   align-self: center;
   margin-bottom: 5px;
+  width: 85%;
+  height: 90%;
 }
 
 .chat-display-about-content {
-  margin-top: 7.5px;
-  flex-direction: column;
-  max-width: 85%;
-  margin-bottom: 5px;
   align-self: center;
-  overflow-x: hidden;
-  overflow-y: auto;
+  flex-direction: column;
   flex: 1 1 1px;
+  margin: 7.5px 0 5px;
+  max-width: 85%;
+  overflow-y: auto;
+  text-align: center;
   word-wrap: break-word;
 }
 
 .mobile-nav-about-img {
+  position: absolute;
   width: 20px;
   height: 30px;
   margin: 5px 0 0 5px;
-  position: absolute;
 }
 
-@media screen and (max-height: 400px){
+@media screen and (max-height: 400px) {
   .chat-display-about-img {
     width: 150px;
     height: 150px;
   }
 }
-

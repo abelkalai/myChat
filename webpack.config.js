@@ -14,11 +14,11 @@ module.exports = {
       BaseStylesheet: path.resolve(__dirname, "src/client/assets/stylesheets/"),
       FrontStylesheets: path.resolve(
         __dirname,
-        "src/client/assets/stylesheets/components/front/"
+        "src/client/assets/stylesheets/front/"
       ),
       MainStylesheets: path.resolve(
         __dirname,
-        "src/client/assets/stylesheets/components/main/"
+        "src/client/assets/stylesheets/main/"
       ),
     },
   },

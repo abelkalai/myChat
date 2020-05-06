@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_ABOUT } from "GraphqlDocuments/user";
-import EditPicture from "./editProfile/EditPicture";
-import EditAbout from "./editProfile/EditAbout";
+import EditPicture from "./EditPicture";
+import EditAbout from "./EditAbout";
 import { useFieldInput } from "Hooks/customHooks";
 import "MainStylesheets/profile.css";
 

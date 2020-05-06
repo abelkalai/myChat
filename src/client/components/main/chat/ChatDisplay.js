@@ -1,4 +1,4 @@
-import React, { Fragment, useState} from "react";
+import React, { Fragment, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { useFieldInput } from "Hooks/customHooks";
 import {
@@ -24,12 +24,13 @@ import ChatDisplayPlaceholder from "./placeholders/ChatDisplayPlaceholder";
 import ChatMessage from "./ChatMessage";
 import About from "./About";
 import "MainStylesheets/chat/chatDisplay.css";
+import { get } from "http";
 
 const ChatDisplay = (props) => {
   const apolloClient = useApolloClient();
   const messageField = useFieldInput("");
   const [sendMessageQuery] = useMutation(SEND_MESSAGE);
-  const [fromAbout, setFromAbout] = useState(false)
+  const [fromAbout, setFromAbout] = useState(false);
   const [readMsg] = useMutation(READ_MESSAGE, {
     update: (store, { data }) => {
       let convoCache = store.readQuery({
@@ -50,7 +51,7 @@ const ChatDisplay = (props) => {
 
   const getMessages = useQuery(GET_MESSAGES, {
     variables: { senderID: props.userInfo._id, receiverID: props.currentChat },
-    skip: props.convoHistory.loading
+    skip: props.convoHistory.loading,
   });
   const getUser = useQuery(GET_USER, {
     variables: { _id: props.currentChat, myID: props.userInfo._id },
@@ -83,22 +84,28 @@ const ChatDisplay = (props) => {
         newMsg.receiverID === props.userInfo._id) &&
       newMsg.conversationID === props.currentConvo
     ) {
-      const msgStore = apolloClient.readQuery({
-        query: GET_MESSAGES,
-        variables: {
-          senderID: props.userInfo._id,
-          receiverID: props.currentChat,
-        },
-      });
+      let newMsgArray = [];
+      if (getMessages.data.getMessages) {
+        const msgStore = apolloClient.readQuery({
+          query: GET_MESSAGES,
+          variables: {
+            senderID: props.userInfo._id,
+            receiverID: props.currentChat,
+          },
+        });
+        newMsgArray = [...msgStore.getMessages];
+      }
       let scrollToBottom = false;
       const messageContainer = document.getElementById("messageContainer");
-      if (
-        messageContainer.scrollTop ===
-        messageContainer.scrollHeight - messageContainer.offsetHeight
-      ) {
-        scrollToBottom = true;
+      if (messageContainer != null) {
+        if (
+          messageContainer.scrollTop ===
+          messageContainer.scrollHeight - messageContainer.offsetHeight
+        ) {
+          scrollToBottom = true;
+        }
       }
-      let newMsgArray = [...msgStore.getMessages];
+
       newMsgArray.unshift(newMsg);
       apolloClient.writeQuery({
         query: GET_MESSAGES,

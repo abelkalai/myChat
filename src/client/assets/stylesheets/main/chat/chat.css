@@ -8,10 +8,10 @@
 .link {
   display: flex;
   flex: 1 1 1px;
+  min-width: 0;
   align-items: center;
   text-decoration: none;
   color: inherit;
-  min-width: 0;
 }
 
 .linkActive {
@@ -28,8 +28,8 @@
 }
 
 .pointer-wrapper-bold {
-  cursor: pointer;
   font-weight: bold;
+  cursor: pointer;
 }
 
 ::-webkit-scrollbar {
@@ -37,8 +37,8 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: grey;
   border-radius: 7.5px;
+  background: grey;
 }
 
 @media screen and (max-width: 768px) {

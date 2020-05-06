@@ -1,9 +1,9 @@
 .main-settings {
-  margin: 10px 7.5% 0 65px;
-  font-size: 22px;
   display: grid;
   grid-template-columns: 25% 75%;
+  margin: 10px 7.5% 0 65px;
   background-color: white;
+  font-size: 22px;
 }
 
 .main-settings-left {
@@ -11,25 +11,25 @@
 }
 
 .settings-dropdown {
-  font-size: 22px;
   margin: 15px 0 0 40px;
+  font-size: 22px;
 }
 
 .settings-active-tab {
-  background-color: #ecf2fe;
+  display: flex;
   margin: 10px;
   border-radius: 10px;
   padding: 10px;
-  display: flex;
+  background-color: #ecf2fe;
   cursor: pointer;
 }
 
 
 .settings-tab {
-  margin: 10px;
-  padding: 10px;
-  border-radius: 10px;
   display: flex;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 10px;
   cursor: pointer;
 }
 
@@ -41,7 +41,6 @@
 .security-content {
   display: flex;
   padding: 2.5px 0 0 8.5px;
-  pointer-events: inherit;
 }
 
 .general-settings-image,
@@ -49,28 +48,21 @@
   width: 30px;
   height: 30px;
   margin-top: 2.5px;
-  pointer-events: inherit;
 }
 
-.change {
-  font-size: 20px;
+.change,.change-edit-password {
   margin-left: auto;
-  color: blue;
   border: none;
+  font-size: 20px;
+  color: blue;
   cursor: pointer;
 }
-.change:hover {
+.change:hover,.change-edit-password:hover {
   text-decoration: underline;
-  cursor: pointer;
 }
 
 .change-edit-password {
-  font-size: 20px;
-  margin-left: auto;
-  color: blue;
-  border: none;
-  float: right;
-  cursor: pointer;
+  float: left;
 }
 
 .bold-text {
@@ -78,12 +70,12 @@
 }
 
 .settings-info {
-  width: 600px;
+  display: inline-block;
   margin: 0 10px 0 10px;
+  width: 600px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: inline-block;
 }
 
 .settings-divider-container {
@@ -91,43 +83,43 @@
 }
 
 .settings-divider-inside-flex {
-  border-bottom: 1px solid hsl(0, 0%, 86%);
-  padding: 15px;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid hsl(0, 0%, 86%);
+  padding: 15px;
 }
 
 .settings-divider-inside-single-flex {
-  border-bottom: 1px solid black;
-  padding: 15px;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid black;
+  padding: 15px;
 }
 
 .settings-divider-inside {
-  border-bottom: 1px solid #dcdcdc;
   padding: 15px;
+  border-bottom: 1px solid #dcdcdc;
 }
 
 .settings-divider-inside-single {
-  border-bottom: 1px solid black;
   padding: 15px;
+  border-bottom: 1px solid black;
 }
 
 .settings-save-changes {
-  font-size: 16px;
-  color: white;
-  background-color: #00a8f3;
   margin: 7.5px 5px 0 0;
   width: 120px;
+  background-color: #00a8f3;
+  font-size: 16px;
+  color: white;
 }
 
 .settings-cancel-changes {
-  font-size: 16px;
-  color: #696969;
   margin-top: 7.5px;
   background-color: #f1f0f0;
   width: 70px;
+  font-size: 16px;
+  color: #696969;
 }
 
 .settings-form {
@@ -147,25 +139,24 @@
 
 .input-settings-form {
   display: inline-block;
-  margin-left: 5px;
-  padding-left: 2.5px;
+  margin: 0 0 5px 5px;
   border-radius: 5px;
-  font-size: 16px;
-  margin-bottom: 5px;
   width: 225px;
+  padding-left: 2.5px;
+  font-size: 16px;
 }
 
 .success {
-  color: green;
+  margin: 2.5px 0 7.5px 0;
   font-size: 20px;
   font-weight: bold;
-  margin: 2.5px 0 7.5px 0;
+  color: green;
 }
 
 .settings-hamburger-menu {
+  position: absolute;
   z-index: 1;
   display: inline-block;
-  position: absolute;
   margin-top: 7px;
 }
 
@@ -198,8 +189,8 @@
     font-size: 18px;
   }
   .main-settings h1 {
-    font-size: 28px;
     margin-left: 27.5px;
+    font-size: 28px;
   }
 
   .change {

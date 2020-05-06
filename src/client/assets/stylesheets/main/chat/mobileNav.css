@@ -3,20 +3,20 @@
   flex-direction: row;
   border-bottom: 1px solid #dcdcdc;
   min-width: 0;
-  align-items: center;
   padding: 5px 0 5px 0;
+  align-items: center;
 }
 
 .mobile-nav-back-img {
+  margin-left: 5px;
   width: 20px;
   height: 30px;
-  margin-left: 5px;
 }
 .mobile-nav-user-img{
+  margin-left: 5px;
+  border-radius: 50%;
   width: 35px;
   height: 35px;
-  border-radius: 50%;
-  margin-left: 5px;
 }
 
 .mobile-nav-user-placeholder-img{
@@ -27,10 +27,10 @@
 .mobile-nav-user-name-wrapper{
   display: flex;
   flex: 1 1 1px;
-  align-items: center;
   margin-left: 5px;
-  max-width: 95%;
   min-width: 0;
+  max-width: 95%;
+  align-items: center;
 }
 
 .mobile-nav-user-name{
@@ -40,8 +40,7 @@
 }
 
 .mobile-nav-info-img {
+  margin: 0px 5px 0 auto;
   width: 30px;
   height: 30px;
-  margin-left: auto;
-  margin-right: 5px;
 }

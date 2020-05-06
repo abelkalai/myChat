@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import FrontPage from "./front/FrontPage";
-import Home from "./main/home/Home";
+import Home from "./main/Home";
 import { useQuery } from "@apollo/react-hooks";
 import { LOGGED_IN } from "GraphqlDocuments/user";
 import { AppRoute } from "Utilities/utilRoute";

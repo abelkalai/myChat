@@ -4,9 +4,9 @@
 }
 
 .chat-display-default {
-  padding-left: 10px;
   border-left: 1px solid #dcdcdc;
-  height: calc(100vh - 75px);
+  height: calc(100vh - 65px);
+  padding-left: 10px;
 }
 
 @media screen and (max-width: 768px) {
@@ -15,5 +15,10 @@
     flex-direction: column;
     flex: 1 1 1px;
     min-width: 0;
+  }
+  .chat-display-default  {
+    border-left: none;
+    height: calc(100vh - 100px);
+    text-align: center;
   }
 }

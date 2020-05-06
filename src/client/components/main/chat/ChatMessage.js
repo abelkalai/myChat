@@ -1,6 +1,6 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import adjustTime from "Utilities/adjustTime";
-import MobileNav from "./mobileNav/MobileNav";
+import MobileNav from "./MobileNav";
 import "MainStylesheets/chat/chatMessage.css";
 
 const ChatMessage = (props) => {

@@ -1,19 +1,17 @@
 .banner {
-  background-color: #00a8f3;
-  padding-bottom: 5px;
   position: relative;
-  max-height: 65px;
+  display: flex;
+
+  padding-bottom: 5px;
+  background-color: #00a8f3;
+  align-items: center;
 }
 
 .banner-title {
-  color: white;
-  font-size: 44px;
-  cursor: pointer;
-  padding-left: 15px;
   display: inline-block;
-}
-
-.banner-title:hover {
+  padding-left: 15px;
+  font-size: 44px;
+  color: white;
   cursor: pointer;
 }
 
@@ -23,109 +21,107 @@
 }
 
 .user-wrapper {
-  float: right;
-  margin-right: 25px;
-  margin-top: 12px;
   position: relative;
+  margin: 5px 25px 0 auto;
 }
 
 .user {
+  position: inherit;
   display: flex;
-  color: white;
   font-size: 24px;
   align-items: center;
-  position: inherit;
+  color: white;
 }
 
 .user-image {
+  position: inherit;
+  border-radius: 50%;
   width: 35px;
   height: 35px;
-  border-radius: 50%;
-  position: inherit;
 }
 
 .user-name {
-  margin: 0 7.5px 0 7.5px;
   position: inherit;
   display: inline-block;
+  margin: 0 7.5px 0 7.5px;
   max-width: 225px;
-  white-space: nowrap;
   overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
 }
 
 .dropdown-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 5px;
   position: inherit;
+  display: flex;
+  margin-left: 5px;
+  align-items: center;
+  justify-content: center;
 }
 
 .dropdown {
-  margin-top: 2px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-  color: black;
-  background-color: white;
   position: inherit;
+  display: flex;
+  margin-top: 2px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .dropdown img {
+  position: inherit;
   margin-top: 2.5px;
   width: 20px;
   height: 20px;
-  position: inherit;
 }
 
 .dropdown:hover {
-  cursor: pointer;
   background-color: #dcdcdc;
 }
 
 .dropdown-content {
+  z-index: 1;
   right: 0px;
-  margin-top: 100px;
-  font-size: 18px;
-  display: inline-block;
   position: absolute;
-  color: black;
-  background-color: white;
-  min-width: 110px;
+  display: inline-block;
+  margin-top: 100px;
   box-shadow: 0px 5px 5px 0px black;
-  padding: 10px;
+  min-width: 110px;
   border-radius: 10px;
-  z-index: 2;
+  padding: 10px;
+  background-color: white;
+  font-size: 18px;
+  color: black;
 }
 
 .dropdown-profile,
 .dropdown-settings,
 .dropdown-logout {
-  padding: 10px;
-  border-radius: 8px;
-  text-decoration: none;
   display: flex;
   flex: 1 1 1px;
+  border-radius: 8px;
+  padding: 10px;
+  text-decoration: none;
   cursor: pointer;
 }
 
 .dropdown-profile {
-  background-position: 2.5px 8px;
-  background-image: url("/images/profile.png");
-  background-repeat: no-repeat;
   padding-left: 5px;
+  background-image: url("/images/profile.png");
+  background-position: 2.5px 8px;
+  background-repeat: no-repeat;
 }
 .dropdown-profile:hover {
-  color: white;
+  z-index: 1;
   background-image: url("/images/profileWhite.png");
+  background-position: 2.5px 8px;
   background-repeat: no-repeat;
   background-color: #00a8f3;
-  background-position: 2.5px 8px;
-  z-index: 1;
+  color: white;
 }
 
 .dropdown-profile-content {
@@ -133,18 +129,18 @@
 }
 
 .dropdown-settings {
-  background-position: 2.5px 7px;
   background-image: url("/images/settings.png");
+  background-position: 2.5px 7px;
   background-repeat: no-repeat;
 }
 
 .dropdown-settings:hover {
-  color: white;
+  z-index: 1;
   background-image: url("/images/settingsWhite.png");
+  background-position: 2.5px 7px;
   background-repeat: no-repeat;
   background-color: #00a8f3;
-  background-position: 2.5px 7px;
-  z-index: 1;
+  color: white;
 }
 
 .dropdown-settings-content {
@@ -152,17 +148,17 @@
 }
 
 .dropdown-logout {
-  background-position: 2.5px 7px;
   background-image: url("/images/logout.png");
+  background-position: 2.5px 7px;
   background-repeat: no-repeat;
 }
 .dropdown-logout:hover {
-  color: white;
+  z-index: 1;
   background-image: url("/images/logoutWhite.png");
+  background-position: 2.5px 7px;
   background-repeat: no-repeat;
   background-color: #00a8f3;
-  background-position: 2.5px 7px;
-  z-index: 1;
+  color: white;
 }
 
 .dropdown-logout-content {
@@ -177,8 +173,8 @@
 
 @media screen and (max-width: 768px) {
   .banner-title {
-    font-size: 32px;
     padding-left: 5px;
+    font-size: 32px;
   }
   .user-wrapper {
     margin-top: 4.5px;
