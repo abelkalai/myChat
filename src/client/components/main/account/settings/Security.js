@@ -14,7 +14,13 @@ const Security = (props) => {
       <div className="settings-divider-container">
         <h1>Security </h1>
       </div>
-      <div className="settings-divider-inside-single">
+      <div
+        className={
+          !showPasswordForm
+            ? "settings-divider-inside-single-flex"
+            : "settings-divider-inside-single"
+        }
+      >
         <span className="bold-text">Change Password </span>
         {showPasswordForm ? null : (
           <span

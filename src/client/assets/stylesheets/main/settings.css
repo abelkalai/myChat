@@ -62,7 +62,7 @@
 }
 
 .change-edit-password {
-  float: left;
+  float: right;
 }
 
 .bold-text {
@@ -193,7 +193,7 @@
     font-size: 28px;
   }
 
-  .change {
+  .change,.change-edit-password  {
     font-size: 18px;
   }
 
