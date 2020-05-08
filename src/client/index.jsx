@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App";
 import { ApolloProvider } from "react-apollo";
 import { ApolloClient, InMemoryCache, HttpLink, split } from "apollo-boost";
 import { getMainDefinition } from "apollo-utilities";
 import { WebSocketLink } from "@apollo/link-ws";
 import { BrowserRouter as Router} from "react-router-dom";
+import App from "./components/App";
 
 require("babel-polyfill");
 
@@ -19,7 +19,7 @@ const domainName = window.location.hostname;
 const port= 4000
 
 const wsLink = new WebSocketLink({
-  uri: `wss://${domainName}/graphql`,
+  uri: `ws://${domainName}/graphql`,
   options: {
     reconnect: true,
     lazy: true

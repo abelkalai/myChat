@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { EDIT_IMAGE, GET_PROFILE_PICTURE } from "GraphqlDocuments/user";
+import { EDIT_IMAGE, GET_PROFILE_PICTURE } from "GraphqlDocuments/userDocs";
 import { useMutation } from "@apollo/react-hooks";
 import imageCompression from "browser-image-compression";
 

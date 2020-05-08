@@ -1,21 +1,21 @@
 const mongoose = require("mongoose");
+const express = require("express");
+const jwt = require("jsonwebtoken");
+const cors = require("cors");
 const { ApolloServer } = require("apollo-server-express");
 const { createServer } = require("http");
-const User = require("./models/user");
-const config = require("../../utils/config");
-const express = require("express");
-const cors = require("cors");
-const jwt = require("jsonwebtoken");
 const { merge } = require("lodash");
-
-const MONGODB_URI = config.MONGODB_URI;
-const JWT_SECRET_KEY = config.JSON_SECRET_KEY;
 const { userTypeDefs, userResolvers } = require("./schema/userSchema");
 const { messageTypeDefs, messageResolvers } = require("./schema/messageSchema");
 const {
   conversationTypeDefs,
   conversationResolvers,
 } = require("./schema/conversationSchema");
+const User = require("./models/user");
+const config = require("../../config");
+
+const MONGODB_URI = config.MONGODB_URI;
+const JWT_SECRET_KEY = config.JSON_SECRET_KEY;
 
 mongoose
   .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -50,9 +50,9 @@ const apolloServer = new ApolloServer({
 });
 
 const app = express();
-const path = require("path");
-
 app.use(cors());
+
+const path = require("path");
 
 /* Enable Path Shortcuts*/
 app.use("/logos", express.static(__dirname + "/../client/assets/logos"));
@@ -66,9 +66,8 @@ app.get("/", function (response) {
 
 apolloServer.applyMiddleware({ app });
 
-const port = process.env.PORT || 4000;
 const httpServer = createServer(app);
-
 apolloServer.installSubscriptionHandlers(httpServer);
 
+const port = process.env.PORT || 4000;
 httpServer.listen({ port });

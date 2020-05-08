@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { useFieldInput } from "Hooks/customHooks";
 import { Redirect } from "react-router-dom";
-import { LOGIN } from "GraphqlDocuments/user.js";
+import { LOGIN } from "GraphqlDocuments/userDocs";
 import { useMutation } from "@apollo/react-hooks";
 import "FrontStylesheets/login.css";
 

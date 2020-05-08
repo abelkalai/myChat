@@ -1,9 +1,9 @@
 import React, { Fragment, useState, useEffect } from "react";
+import { useQuery } from "@apollo/react-hooks";
+import { LOGGED_IN } from "GraphqlDocuments/userDocs";
+import { AppRoute } from "Utilities/utilRoute";
 import FrontPage from "./front/FrontPage";
 import Home from "./main/Home";
-import { useQuery } from "@apollo/react-hooks";
-import { LOGGED_IN } from "GraphqlDocuments/user";
-import { AppRoute } from "Utilities/utilRoute";
 import "BaseStylesheet/base.css";
 
 const App = () => {

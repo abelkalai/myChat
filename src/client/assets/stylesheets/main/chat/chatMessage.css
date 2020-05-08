@@ -4,6 +4,7 @@
   border-left: 1px solid #dcdcdc;
   border-right: 1px solid #dcdcdc;
   min-width: 0;
+  height: 100%;
 }
 
 .chat-display-chat-container {

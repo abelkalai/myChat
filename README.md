@@ -1,8 +1,10 @@
 # My Chat
 
+[Live Now!](https://lit-reaches-10392.herokuapp.com/)
+
 ## About
 
-App that lets users connect and send messages to one another
+Connect with friends and family to message one another live either on desktop or mobile. MyChat enables connections for all!
 
 ## How to Use
 
@@ -17,9 +19,16 @@ App that lets users connect and send messages to one another
 
 
 ## Features
-* Password hashing with bcrypt
-* Login and Account Sign Up built from the ground up
-    * Features Email Validation, Forgot Username, Forgot Password 
-    * Can change first name, last name, username and password
+
+- Subscriptions via Websocket
+- Mobile Friendliness 
+- Password hashing with bcrypt
+- Login and Account Sign Up built from the ground up
+    - Features Email Validation, Forgot Username, Forgot Password 
+    - Can change first name, last name, username and password
 
 ## Future Plans
+
+- Group Messaging
+- Search messages for keywords
+- Send images, gifs and emojis in chat

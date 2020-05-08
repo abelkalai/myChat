@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ChatSearch from "./ChatSearch";
 import ChatDisplay from "./ChatDisplay";
 import { useHistory, useParams } from "react-router-dom";
-import { GET_CONVERSATIONS } from "GraphqlDocuments/conversation";
+import { GET_CONVERSATIONS } from "GraphqlDocuments/conversationDocs";
 import { useQuery } from "@apollo/react-hooks";
 import "MainStylesheets/chat/chat.css";
 

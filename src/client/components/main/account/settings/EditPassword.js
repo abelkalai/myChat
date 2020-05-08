@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useFieldInput } from "Hooks/customHooks";
 import { useMutation } from "@apollo/react-hooks";
-import { CHANGE_PASSWORD } from "GraphqlDocuments/user";
+import { useFieldInput } from "Hooks/customHooks";
+import { CHANGE_PASSWORD } from "GraphqlDocuments/userDocs";
 
 const EditPassword = (props) => {
   const [changePassword] = useMutation(CHANGE_PASSWORD);

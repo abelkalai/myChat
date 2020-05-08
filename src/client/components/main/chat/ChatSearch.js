@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import History from "./History";
 import { useFieldInput } from "Hooks/customHooks";
-import { SEARCH_USER } from "GraphqlDocuments/user";
+import { SEARCH_USER } from "GraphqlDocuments/userDocs";
 import { useLazyQuery } from "@apollo/react-hooks";
 import "MainStylesheets/chat/chatSearch.css";
 

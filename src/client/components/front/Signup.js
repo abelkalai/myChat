@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Link, Redirect, Route } from "react-router-dom";
-import { ADD_USER, VERIFY_EMAIL } from "GraphqlDocuments/user";
+import { ADD_USER, VERIFY_EMAIL } from "GraphqlDocuments/userDocs";
 import { useMutation } from "@apollo/react-hooks";
 import { useFieldInput } from "Hooks/customHooks";
 import Confirmation from "./Confirmation";

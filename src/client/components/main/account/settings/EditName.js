@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useFieldInput } from "Hooks/customHooks";
 import { useMutation } from "@apollo/react-hooks";
-import { CHANGE_NAME } from "GraphqlDocuments/user";
+import { useFieldInput } from "Hooks/customHooks";
+import { CHANGE_NAME } from "GraphqlDocuments/userDocs";
 
 const EditName = (props) => {
   const [changeName] = useMutation(CHANGE_NAME);

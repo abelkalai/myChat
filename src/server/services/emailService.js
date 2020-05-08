@@ -1,17 +1,18 @@
 const nodemailer = require("nodemailer");
+const { google } = require("googleapis");
 const {
   verifyEmail,
   forgotUserEmail,
   forgotPassEmail,
 } = require("./emailTemplates");
-const { google } = require("googleapis");
-const OAuth2 = google.auth.OAuth2;
-const config = require("../../../utils/config");
+const config = require("../../../config");
+
 const emailUsername = config.EMAIL_USERNAME;
 const emailPassword = config.EMAIL_PASSWORD;
 const clientID = config.CLIENT_ID;
 const clientSecret = config.CLIENT_SECRET;
 const refreshToken = config.REFRESH_TOKEN;
+const OAuth2 = google.auth.OAuth2;
 
 const sendEmail = (type, options) => {
   const oauth2Client = new OAuth2(
@@ -47,6 +48,7 @@ const sendEmail = (type, options) => {
   });
 
   let mailOptions;
+  
   switch (type) {
     case "VERIFY":
       mailOptions = {

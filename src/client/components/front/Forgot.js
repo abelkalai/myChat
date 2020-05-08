@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { useFieldInput } from "Hooks/customHooks";
 import Confirmation from "./Confirmation";
-import { FORGOT_CREDENTIAL } from "GraphqlDocuments/user";
+import { FORGOT_CREDENTIAL } from "GraphqlDocuments/userDocs";
 import { useLazyQuery } from "@apollo/react-hooks";
 
 const Forgot = (props) => {

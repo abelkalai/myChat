@@ -1,5 +1,5 @@
 import React from "react";
-import {EDIT_ABOUT} from "GraphqlDocuments/user"
+import {EDIT_ABOUT} from "GraphqlDocuments/userDocs"
 import { useMutation } from "@apollo/react-hooks";
 
 const EditAbout = (props) => {

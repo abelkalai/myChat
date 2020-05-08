@@ -27447,7 +27447,7 @@ function objectToString(o) {
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "* {\r\n  margin: 0px;\r\n  padding: 0px;\r\n  font-family: Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif;\r\n}\r\n\r\nhtml,body{\r\n  width: 100%;;\r\n  height: 100%;\r\n}\r\n\r\n\r\ninput:focus,\r\ntextarea:focus,\r\nselect:focus {\r\n  outline: none;\r\n}\r\n\r\nbutton {\r\n  border: none;\r\n  border-radius: 10px;\r\n  outline: none;\r\n  padding: 2px;\r\n  text-align: center;\r\n}\r\n\r\nbutton:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.error {\r\n  margin: 5px 0 7.5px 0;\r\n  font-size: 20px;\r\n  font-weight: bold;\r\n  color: red;\r\n}\r\n\r\n.general-button {\r\n  margin-top: 7.5px;\r\n  border-radius: 10px;\r\n  width: 130px;\r\n  padding: 0 5px 0 5px;\r\n  border-color: #00a8f3;\r\n  background-color: #00a8f3;\r\n  font-size: 16px;\r\n  color: white;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n.frontpage-link {\r\n  text-decoration: none;\r\n}\r\n\r\n@media (max-width: 768px) {\r\n  button {\r\n    padding: 1px;\r\n  }\r\n\r\n  .error {\r\n    margin: 2.5px 0 2.5px 0;\r\n    font-size: 16px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, "* {\r\n  margin: 0px;\r\n  padding: 0px;\r\n  font-family: Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif;\r\n}\r\n\r\nhtml, body{\r\n  height: 100%;\r\n  background-color: #257fbd;\r\n}\r\n\r\n#root{\r\n  height: 100%;\r\n}\r\n\r\n\r\ninput:focus,\r\ntextarea:focus,\r\nselect:focus {\r\n  outline: none;\r\n}\r\n\r\nbutton {\r\n  border: none;\r\n  border-radius: 10px;\r\n  outline: none;\r\n  padding: 2px;\r\n  text-align: center;\r\n}\r\n\r\nbutton:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.error {\r\n  margin: 5px 0 7.5px 0;\r\n  font-size: 20px;\r\n  font-weight: bold;\r\n  color: red;\r\n}\r\n\r\n.general-button {\r\n  margin-top: 7.5px;\r\n  border-radius: 10px;\r\n  width: 130px;\r\n  padding: 0 5px 0 5px;\r\n  border-color: #00a8f3;\r\n  background-color: #00a8f3;\r\n  font-size: 16px;\r\n  color: white;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n.frontpage-link {\r\n  text-decoration: none;\r\n}\r\n\r\n@media (max-width: 768px) {\r\n  button {\r\n    padding: 1px;\r\n  }\r\n\r\n  .error {\r\n    margin: 2.5px 0 2.5px 0;\r\n    font-size: 16px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -27483,7 +27483,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".front-page-background {\r\n  position: absolute;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-color: #257fbd;\r\n}\r\n\r\n.front-page-wrapper {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.front-page-container {\r\n  left: 50%;\r\n  display: inline-block;\r\n  margin-top: 7.5vh;\r\n  border-radius: 15px;\r\n  width: 60vw;\r\n  background-color: white;\r\n}\r\n\r\n.front-page {\r\n  display: grid;\r\n  grid-template-columns: 40% 60%;\r\n  text-align: center;\r\n}\r\n\r\n.front-page h1 {\r\n  font-size: 40px;\r\n}\r\n\r\n.front-page-info {\r\n  border-top-left-radius: 15px;\r\n  border-bottom-left-radius: 15px;\r\n  padding: 10px 10px 40px 10px;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n}\r\n\r\n.front-page-info-about {\r\n  margin-top: 60px;\r\n}\r\n\r\n.front-page-header {\r\n  margin: 10px 0 10px 0;\r\n}\r\n\r\n.front-page-content {\r\n  margin-top: 10px;\r\n  padding: 10px 10px 20px 10px;\r\n}\r\n\r\n.front-page-form {\r\n  margin-top: 15px;\r\n}\r\n\r\n.front-page-form-div {\r\n  padding: 2px 2px;\r\n}\r\n\r\n.input-front-page-form {\r\n  display: inline-block;\r\n  border-top: none;\r\n  border-right: none;\r\n  border-left: none;\r\n  padding: 2.5px;\r\n  font-size: 22px;\r\n}\r\n\r\n.front-page-back-button {\r\n  margin: 10px 7px 0 0;\r\n  width: 130px;\r\n  padding: 0 5px 0 5px;\r\n  border-color: #f1f0f0;\r\n  background-color: #f1f0f0;\r\n  font-size: 16px;\r\n  text-decoration: none;\r\n  color: #696969;\r\n}\r\n\r\n.front-page-submit-button {\r\n  margin-top: 10px;\r\n  width: 80px;\r\n  padding: 0 5px 0 5px;\r\n  background-color: #00a8f3;\r\n  font-size: 16px;\r\n  color: white;\r\n}\r\n\r\n.front-page-submit-button:hover {\r\n  border-color: darkblue;\r\n  background-color: darkblue;\r\n}\r\n\r\n@media (max-width: 912px) {\r\n  .front-page-content p {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .input-front-page-form {\r\n    font-size: 16px;\r\n  }\r\n  .front-page-back-button {\r\n    display: block;\r\n    margin: 5px auto 0 auto;\r\n  }\r\n\r\n  .front-page-submit-button {\r\n    display: block;\r\n    margin: 7.5px auto 0 auto;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .front-page-container {\r\n    margin-top: 7.5%;\r\n    width: 80vw;\r\n  }\r\n\r\n  .front-page {\r\n    display: block;\r\n  }\r\n\r\n  .front-page h1 {\r\n    font-size: 32px;\r\n  }\r\n\r\n  .front-page h3 {\r\n    margin-top: 0px;\r\n  }\r\n\r\n  .front-page-header {\r\n    margin-top: 1px;\r\n    margin-bottom: 0px;\r\n  }\r\n\r\n  .front-page-info {\r\n    border-top-right-radius: 15px;\r\n    border-top-left-radius: 15px;\r\n    border-bottom-left-radius: 0px;\r\n    padding-top: 2.5px;\r\n    padding-bottom: 5px;\r\n  }\r\n  .front-page-info-about {\r\n    margin-top: 2.5px;\r\n  }\r\n\r\n  .front-page-content {\r\n    margin-top: 2.5px;\r\n    padding: 5px;\r\n    padding-bottom: 10px;\r\n  }\r\n\r\n  .front-page-content p {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .front-page-form {\r\n    margin-top: 0px;\r\n  }\r\n\r\n  .input-front-page-form {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .front-page-back-button {\r\n    display: block;\r\n    margin-top: 5px;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n  }\r\n\r\n  .front-page-submit-button {\r\n    display: block;\r\n    margin-top: 7.5px;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, "/* .front-page-background {\r\n  height: 100vh;\r\n  background-color: #257fbd;\r\n} */\r\n\r\n.front-page-wrapper {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.front-page-container {\r\n  left: 50%;\r\n  display: inline-block;\r\n  margin-top: 7.5vh;\r\n  border-radius: 15px;\r\n  width: 60vw;\r\n  background-color: white;\r\n}\r\n\r\n.front-page {\r\n  display: grid;\r\n  grid-template-columns: 40% 60%;\r\n  text-align: center;\r\n}\r\n\r\n.front-page h1 {\r\n  font-size: 40px;\r\n}\r\n\r\n.front-page-info {\r\n  border-top-left-radius: 15px;\r\n  border-bottom-left-radius: 15px;\r\n  padding: 10px 10px 40px 10px;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n}\r\n\r\n.front-page-info-about {\r\n  margin-top: 60px;\r\n}\r\n\r\n.front-page-header {\r\n  margin: 10px 0 10px 0;\r\n}\r\n\r\n.front-page-content {\r\n  margin-top: 10px;\r\n  padding: 10px 10px 20px 10px;\r\n}\r\n\r\n.front-page-form {\r\n  margin-top: 15px;\r\n}\r\n\r\n.front-page-form-div {\r\n  padding: 2px 2px;\r\n}\r\n\r\n.input-front-page-form {\r\n  display: inline-block;\r\n  border-top: none;\r\n  border-right: none;\r\n  border-left: none;\r\n  padding: 2.5px;\r\n  font-size: 22px;\r\n}\r\n\r\n.front-page-back-button {\r\n  margin: 10px 7px 0 0;\r\n  width: 130px;\r\n  padding: 0 5px 0 5px;\r\n  border-color: #f1f0f0;\r\n  background-color: #f1f0f0;\r\n  font-size: 16px;\r\n  text-decoration: none;\r\n  color: #696969;\r\n}\r\n\r\n.front-page-submit-button {\r\n  margin-top: 10px;\r\n  width: 80px;\r\n  padding: 0 5px 0 5px;\r\n  background-color: #00a8f3;\r\n  font-size: 16px;\r\n  color: white;\r\n}\r\n\r\n.front-page-submit-button:hover {\r\n  border-color: darkblue;\r\n  background-color: darkblue;\r\n}\r\n\r\n@media (max-width: 912px) {\r\n  .front-page-content p {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .input-front-page-form {\r\n    font-size: 16px;\r\n  }\r\n  .front-page-back-button {\r\n    display: block;\r\n    margin: 5px auto 0 auto;\r\n  }\r\n\r\n  .front-page-submit-button {\r\n    display: block;\r\n    margin: 7.5px auto 0 auto;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .front-page-container {\r\n    margin-top: 7.5%;\r\n    width: 80vw;\r\n  }\r\n\r\n  .front-page {\r\n    display: block;\r\n  }\r\n\r\n  .front-page h1 {\r\n    font-size: 32px;\r\n  }\r\n\r\n  .front-page h3 {\r\n    margin-top: 0px;\r\n  }\r\n\r\n  .front-page-header {\r\n    margin-top: 1px;\r\n    margin-bottom: 0px;\r\n  }\r\n\r\n  .front-page-info {\r\n    border-top-right-radius: 15px;\r\n    border-top-left-radius: 15px;\r\n    border-bottom-left-radius: 0px;\r\n    padding-top: 2.5px;\r\n    padding-bottom: 5px;\r\n  }\r\n  .front-page-info-about {\r\n    margin-top: 2.5px;\r\n  }\r\n\r\n  .front-page-content {\r\n    margin-top: 2.5px;\r\n    padding: 5px;\r\n    padding-bottom: 10px;\r\n  }\r\n\r\n  .front-page-content p {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .front-page-form {\r\n    margin-top: 0px;\r\n  }\r\n\r\n  .input-front-page-form {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .front-page-back-button {\r\n    display: block;\r\n    margin-top: 5px;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n  }\r\n\r\n  .front-page-submit-button {\r\n    display: block;\r\n    margin-top: 7.5px;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -27537,7 +27537,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".banner {\r\n  position: relative;\r\n  display: flex;\r\n\r\n  padding-bottom: 5px;\r\n  background-color: #00a8f3;\r\n  align-items: center;\r\n}\r\n\r\n.banner-title {\r\n  display: inline-block;\r\n  padding-left: 15px;\r\n  font-size: 44px;\r\n  color: white;\r\n  cursor: pointer;\r\n}\r\n\r\n.banner-link {\r\n  color: white;\r\n  text-decoration: none;\r\n}\r\n\r\n.user-wrapper {\r\n  position: relative;\r\n  margin: 5px 25px 0 auto;\r\n}\r\n\r\n.user {\r\n  position: inherit;\r\n  display: flex;\r\n  font-size: 24px;\r\n  align-items: center;\r\n  color: white;\r\n}\r\n\r\n.user-image {\r\n  position: inherit;\r\n  border-radius: 50%;\r\n  width: 35px;\r\n  height: 35px;\r\n}\r\n\r\n.user-name {\r\n  position: inherit;\r\n  display: inline-block;\r\n  margin: 0 7.5px 0 7.5px;\r\n  max-width: 225px;\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n.dropdown-wrapper {\r\n  position: inherit;\r\n  display: flex;\r\n  margin-left: 5px;\r\n  align-items: center;\r\n  justify-content: center;\r\n}\r\n\r\n.dropdown {\r\n  position: inherit;\r\n  display: flex;\r\n  margin-top: 2px;\r\n  width: 35px;\r\n  height: 35px;\r\n  border-radius: 50%;\r\n  background-color: white;\r\n  color: black;\r\n  align-items: center;\r\n  justify-content: center;\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown img {\r\n  position: inherit;\r\n  margin-top: 2.5px;\r\n  width: 20px;\r\n  height: 20px;\r\n}\r\n\r\n.dropdown:hover {\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.dropdown-content {\r\n  z-index: 1;\r\n  right: 0px;\r\n  position: absolute;\r\n  display: inline-block;\r\n  margin-top: 100px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  min-width: 110px;\r\n  border-radius: 10px;\r\n  padding: 10px;\r\n  background-color: white;\r\n  font-size: 18px;\r\n  color: black;\r\n}\r\n\r\n.dropdown-profile,\r\n.dropdown-settings,\r\n.dropdown-logout {\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  border-radius: 8px;\r\n  padding: 10px;\r\n  text-decoration: none;\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-profile {\r\n  padding-left: 5px;\r\n  background-image: url(\"/images/profile.png\");\r\n  background-position: 2.5px 8px;\r\n  background-repeat: no-repeat;\r\n}\r\n.dropdown-profile:hover {\r\n  z-index: 1;\r\n  background-image: url(\"/images/profileWhite.png\");\r\n  background-position: 2.5px 8px;\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n}\r\n\r\n.dropdown-profile-content {\r\n  margin-left: 30px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-image: url(\"/images/settings.png\");\r\n  background-position: 2.5px 7px;\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-settings:hover {\r\n  z-index: 1;\r\n  background-image: url(\"/images/settingsWhite.png\");\r\n  background-position: 2.5px 7px;\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  margin-left: 22.5px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-image: url(\"/images/logout.png\");\r\n  background-position: 2.5px 7px;\r\n  background-repeat: no-repeat;\r\n}\r\n.dropdown-logout:hover {\r\n  z-index: 1;\r\n  background-image: url(\"/images/logoutWhite.png\");\r\n  background-position: 2.5px 7px;\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  margin-left: 23.5px;\r\n}\r\n\r\n@media screen and (max-width: 912px) {\r\n  .user-wrapper {\r\n    margin-right: 10px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .banner-title {\r\n    padding-left: 5px;\r\n    font-size: 32px;\r\n  }\r\n  .user-wrapper {\r\n    margin-top: 4.5px;\r\n  }\r\n\r\n  .user {\r\n    font-size: 22px;\r\n  }\r\n\r\n  .dropdown {\r\n    margin-top: 0px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".main{\r\n  height: 100%;\r\n  background-color: white;\r\n}\r\n\r\n.banner {\r\n  position: relative;\r\n  display: flex;\r\n\r\n  padding-bottom: 5px;\r\n  background-color: #00a8f3;\r\n  align-items: center;\r\n}\r\n\r\n.banner-title {\r\n  display: inline-block;\r\n  padding-left: 15px;\r\n  font-size: 44px;\r\n  color: white;\r\n  cursor: pointer;\r\n}\r\n\r\n.banner-link {\r\n  color: white;\r\n  text-decoration: none;\r\n  padding: 10\r\n}\r\n\r\n.user-wrapper {\r\n  position: relative;\r\n  margin: 5px 25px 0 auto;\r\n}\r\n\r\n.user {\r\n  position: inherit;\r\n  display: flex;\r\n  font-size: 24px;\r\n  align-items: center;\r\n  color: white;\r\n}\r\n\r\n.user-image {\r\n  position: inherit;\r\n  border-radius: 50%;\r\n  width: 35px;\r\n  height: 35px;\r\n}\r\n\r\n.user-name {\r\n  position: inherit;\r\n  display: inline-block;\r\n  margin: 0 7.5px 0 7.5px;\r\n  max-width: 225px;\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n.dropdown-wrapper {\r\n  position: inherit;\r\n  display: flex;\r\n  margin-left: 5px;\r\n  align-items: center;\r\n  justify-content: center;\r\n}\r\n\r\n.dropdown {\r\n  position: inherit;\r\n  display: flex;\r\n  margin-top: 2px;\r\n  width: 35px;\r\n  height: 35px;\r\n  border-radius: 50%;\r\n  background-color: white;\r\n  color: black;\r\n  align-items: center;\r\n  justify-content: center;\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown img {\r\n  position: inherit;\r\n  margin-top: 2.5px;\r\n  width: 20px;\r\n  height: 20px;\r\n}\r\n\r\n.dropdown:hover {\r\n  background-color: #dcdcdc;\r\n}\r\n\r\n.dropdown-content {\r\n  z-index: 1;\r\n  right: 0px;\r\n  position: absolute;\r\n  display: inline-block;\r\n  margin-top: 100px;\r\n  box-shadow: 0px 5px 5px 0px black;\r\n  min-width: 110px;\r\n  border-radius: 10px;\r\n  padding: 10px;\r\n  background-color: white;\r\n  font-size: 18px;\r\n  color: black;\r\n}\r\n\r\n.dropdown-profile,\r\n.dropdown-settings,\r\n.dropdown-logout {\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  border-radius: 8px;\r\n  padding: 10px;\r\n  text-decoration: none;\r\n  cursor: pointer;\r\n}\r\n\r\n.dropdown-profile {\r\n  padding-left: 5px;\r\n  background-image: url(\"/images/profile.png\");\r\n  background-position: 2.5px 8px;\r\n  background-repeat: no-repeat;\r\n}\r\n.dropdown-profile:hover {\r\n  z-index: 1;\r\n  background-image: url(\"/images/profileWhite.png\");\r\n  background-position: 2.5px 8px;\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n}\r\n\r\n.dropdown-profile-content {\r\n  margin-left: 30px;\r\n}\r\n\r\n.dropdown-settings {\r\n  background-image: url(\"/images/settings.png\");\r\n  background-position: 2.5px 8px;\r\n  background-repeat: no-repeat;\r\n}\r\n\r\n.dropdown-settings:hover {\r\n  z-index: 1;\r\n  background-image: url(\"/images/settingsWhite.png\");\r\n  background-position: 2.5px 7px;\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n}\r\n\r\n.dropdown-settings-content {\r\n  margin-left: 22.5px;\r\n}\r\n\r\n.dropdown-logout {\r\n  background-image: url(\"/images/logout.png\");\r\n  background-position: 2.5px 7px;\r\n  background-repeat: no-repeat;\r\n}\r\n.dropdown-logout:hover {\r\n  z-index: 1;\r\n  background-image: url(\"/images/logoutWhite.png\");\r\n  background-position: 2.5px 7px;\r\n  background-repeat: no-repeat;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n}\r\n\r\n.dropdown-logout-content {\r\n  margin-left: 23.5px;\r\n}\r\n\r\n@media screen and (max-width: 912px) {\r\n  .user-wrapper {\r\n    margin-right: 10px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .banner-title {\r\n    padding-left: 5px;\r\n    font-size: 32px;\r\n  }\r\n  .user-wrapper {\r\n    margin-top: 4.5px;\r\n  }\r\n\r\n  .user {\r\n    font-size: 22px;\r\n  }\r\n\r\n  .dropdown {\r\n    margin-top: 0px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -27573,7 +27573,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".chat-main {\r\n  display: grid;\r\n  grid-template-columns: 30% 70%;\r\n  font-size: 18px;\r\n \r\n}\r\n\r\n.link {\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  min-width: 0;\r\n  align-items: center;\r\n  text-decoration: none;\r\n  color: inherit;\r\n}\r\n\r\n.linkActive {\r\n  pointer-events: none;\r\n}\r\n\r\n.loading{\r\n  width: 50px;\r\n  height: 50px;\r\n}\r\n\r\n.pointer-wrapper {\r\n  cursor: pointer;\r\n}\r\n\r\n.pointer-wrapper-bold {\r\n  font-weight: bold;\r\n  cursor: pointer;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 7.5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  border-radius: 7.5px;\r\n  background: grey;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .chat-main {\r\n    display: flex;\r\n    flex-direction: column;\r\n    height: calc(100vh - 50px);\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".chat-main {\r\n  display: grid;\r\n  grid-template-columns: 30% 70%;\r\n  font-size: 18px;\r\n}\r\n\r\n.link {\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  min-width: 0;\r\n  align-items: center;\r\n  text-decoration: none;\r\n  color: inherit;\r\n}\r\n\r\n.linkActive {\r\n  pointer-events: none;\r\n}\r\n\r\n.loading{\r\n  width: 50px;\r\n  height: 50px;\r\n}\r\n\r\n.pointer-wrapper {\r\n  cursor: pointer;\r\n}\r\n\r\n.pointer-wrapper-bold {\r\n  font-weight: bold;\r\n  cursor: pointer;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 7.5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  border-radius: 7.5px;\r\n  background: grey;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .chat-main {\r\n    display: flex;\r\n    flex-direction: column;\r\n    height: calc(100vh - 50px);\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -27645,7 +27645,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".chat-display-chat-parent {\r\n  display: flex;\r\n  flex-direction: column;\r\n  border-left: 1px solid #dcdcdc;\r\n  border-right: 1px solid #dcdcdc;\r\n  min-width: 0;\r\n}\r\n\r\n.chat-display-chat-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  height: calc(100vh - 135px);\r\n}\r\n\r\n.chat-display-chat-loading-wrapper {\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n\r\n.chat-display-chat {\r\n  display: flex;\r\n  flex-direction: column-reverse;\r\n  margin-top: 5px;\r\n  max-height: calc(100vh - 135px);\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n}\r\n\r\n.chat-message-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  width: 100%;\r\n  padding: 3px;\r\n  font-size: 18px;\r\n  align-items: center;\r\n}\r\n\r\n.chat-my-message {\r\n  margin: 0 8px 0 auto;\r\n  border-radius: 15px;\r\n  max-width: 60%;\r\n  padding: 6px 10px 6px 10px;\r\n  background-color: #0099ff;\r\n  word-wrap: break-word;\r\n  color: white;\r\n}\r\n\r\n.chat-contact-message {\r\n  margin: 0 auto 0 4px;\r\n  border-radius: 15px;\r\n  max-width: 60%;\r\n  padding: 6px 10px 6px 10px;\r\n  background-color: #f1f0f0;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-display-chat-send-message-form {\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  margin: 15px 5px 20px 10px;\r\n  min-width: 0;\r\n  max-width: 100%;\r\n}\r\n\r\n.chat-display-chat-message-field {\r\n  display: flex;\r\n  padding: 2.5px 2.5px 2.5px 5px;\r\n  border-radius: 5px;\r\n  width: 100%;\r\n  height: 27.5px;\r\n  font-size: 18px;\r\n  align-items: center;\r\n}\r\n\r\n.chat-display-chat-send-message-form-img {\r\n  margin: 0 0 2px 2px;\r\n  width: 27px;\r\n  height: 34.5px;\r\n}\r\n\r\n.msg-placeholder-msg-field {\r\n  display: flex;\r\n  width: 95%;\r\n  margin-left: 2px;\r\n  margin-bottom: 2px;\r\n  height: 30px;\r\n}\r\n\r\n.msg-placeholder-img-me {\r\n  margin: 0 4px 0 auto;\r\n  width: 45%;\r\n  height: 25px;\r\n  padding: 6px;\r\n}\r\n\r\n.msg-placeholder-img-contact {\r\n  margin-right: auto;\r\n  width: 45%;\r\n  height: 25px;\r\n  padding: 6px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .chat-display-chat-send-message-form {\r\n    margin-left: 10px;\r\n  }\r\n\r\n  .chat-display-chat-container,\r\n  .chat-display-chat-container-loading {\r\n    height: calc(100vh - 110px);\r\n  }\r\n\r\n  .chat-display-chat {\r\n    margin-top: 2.5px;\r\n    max-height: calc(100vh - 110px);\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, ".chat-display-chat-parent {\r\n  display: flex;\r\n  flex-direction: column;\r\n  border-left: 1px solid #dcdcdc;\r\n  border-right: 1px solid #dcdcdc;\r\n  min-width: 0;\r\n  height: 100%;\r\n}\r\n\r\n.chat-display-chat-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  height: calc(100vh - 135px);\r\n}\r\n\r\n.chat-display-chat-loading-wrapper {\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n\r\n.chat-display-chat {\r\n  display: flex;\r\n  flex-direction: column-reverse;\r\n  margin-top: 5px;\r\n  max-height: calc(100vh - 135px);\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n}\r\n\r\n.chat-message-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  width: 100%;\r\n  padding: 3px;\r\n  font-size: 18px;\r\n  align-items: center;\r\n}\r\n\r\n.chat-my-message {\r\n  margin: 0 8px 0 auto;\r\n  border-radius: 15px;\r\n  max-width: 60%;\r\n  padding: 6px 10px 6px 10px;\r\n  background-color: #0099ff;\r\n  word-wrap: break-word;\r\n  color: white;\r\n}\r\n\r\n.chat-contact-message {\r\n  margin: 0 auto 0 4px;\r\n  border-radius: 15px;\r\n  max-width: 60%;\r\n  padding: 6px 10px 6px 10px;\r\n  background-color: #f1f0f0;\r\n  word-wrap: break-word;\r\n}\r\n\r\n.chat-display-chat-send-message-form {\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  margin: 15px 5px 20px 10px;\r\n  min-width: 0;\r\n  max-width: 100%;\r\n}\r\n\r\n.chat-display-chat-message-field {\r\n  display: flex;\r\n  padding: 2.5px 2.5px 2.5px 5px;\r\n  border-radius: 5px;\r\n  width: 100%;\r\n  height: 27.5px;\r\n  font-size: 18px;\r\n  align-items: center;\r\n}\r\n\r\n.chat-display-chat-send-message-form-img {\r\n  margin: 0 0 2px 2px;\r\n  width: 27px;\r\n  height: 34.5px;\r\n}\r\n\r\n.msg-placeholder-msg-field {\r\n  display: flex;\r\n  width: 95%;\r\n  margin-left: 2px;\r\n  margin-bottom: 2px;\r\n  height: 30px;\r\n}\r\n\r\n.msg-placeholder-img-me {\r\n  margin: 0 4px 0 auto;\r\n  width: 45%;\r\n  height: 25px;\r\n  padding: 6px;\r\n}\r\n\r\n.msg-placeholder-img-contact {\r\n  margin-right: auto;\r\n  width: 45%;\r\n  height: 25px;\r\n  padding: 6px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .chat-display-chat-send-message-form {\r\n    margin-left: 10px;\r\n  }\r\n\r\n  .chat-display-chat-container,\r\n  .chat-display-chat-container-loading {\r\n    height: calc(100vh - 110px);\r\n  }\r\n\r\n  .chat-display-chat {\r\n    margin-top: 2.5px;\r\n    max-height: calc(100vh - 110px);\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -96062,11 +96062,11 @@ module.exports = exported;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _front_FrontPage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./front/FrontPage */ "./src/client/components/front/FrontPage.js");
-/* harmony import */ var _main_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main/Home */ "./src/client/components/main/Home.js");
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! GraphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
-/* harmony import */ var Utilities_utilRoute__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! Utilities/utilRoute */ "./src/client/utilities/utilRoute.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
+/* harmony import */ var Utilities_utilRoute__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! Utilities/utilRoute */ "./src/client/utilities/utilRoute.js");
+/* harmony import */ var _front_FrontPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./front/FrontPage */ "./src/client/components/front/FrontPage.js");
+/* harmony import */ var _main_Home__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./main/Home */ "./src/client/components/main/Home.js");
 /* harmony import */ var BaseStylesheet_base_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! BaseStylesheet/base.css */ "./src/client/assets/stylesheets/base.css");
 /* harmony import */ var BaseStylesheet_base_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(BaseStylesheet_base_css__WEBPACK_IMPORTED_MODULE_6__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -96090,7 +96090,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var App = function App() {
-  var loggedInQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_4__["LOGGED_IN"]);
+  var loggedInQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useQuery"])(GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_2__["LOGGED_IN"]);
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -96112,17 +96112,17 @@ var App = function App() {
       setWindowWidth(window.visualViewport.width);
     });
   }, []);
-  return !loggedInQuery.loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Utilities_utilRoute__WEBPACK_IMPORTED_MODULE_5__["AppRoute"], {
+  return !loggedInQuery.loading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Utilities_utilRoute__WEBPACK_IMPORTED_MODULE_3__["AppRoute"], {
     loggedIn: loggedInQuery.data.loggedIn,
     ignoreCookie: ignoreCookie,
     activeUser: activeUser,
-    frontPage: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_front_FrontPage__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    frontPage: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_front_FrontPage__WEBPACK_IMPORTED_MODULE_4__["default"], {
       ignoreCookie: ignoreCookie,
       setIgnoreCookie: setIgnoreCookie,
       activeUser: activeUser,
       setActiveUser: setActiveUser
     }),
-    home: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_Home__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    home: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_Home__WEBPACK_IMPORTED_MODULE_5__["default"], {
       loggedIn: loggedInQuery.data.loggedIn,
       ignoreCookie: ignoreCookie,
       setIgnoreCookie: setIgnoreCookie,
@@ -96188,7 +96188,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
 /* harmony import */ var _Confirmation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Confirmation */ "./src/client/components/front/Confirmation.js");
-/* harmony import */ var GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! GraphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
+/* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -96220,7 +96220,7 @@ var Forgot = function Forgot(props) {
       error = _useState2[0],
       setError = _useState2[1];
 
-  var _useLazyQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_5__["useLazyQuery"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_4__["FORGOT_CREDENTIAL"], {
+  var _useLazyQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_5__["useLazyQuery"])(GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_4__["FORGOT_CREDENTIAL"], {
     onCompleted: function onCompleted(data) {
       setError(data.forgotCredential);
     }
@@ -96333,8 +96333,6 @@ var FrontPage = function FrontPage(props) {
       setFromLogin = _useState6[1];
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "front-page-background"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "front-page-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "front-page-container"
@@ -96403,7 +96401,7 @@ var FrontPage = function FrontPage(props) {
         type: "Login"
       });
     }
-  })))))));
+  }))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (FrontPage);
@@ -96423,7 +96421,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var GraphqlDocuments_user_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! GraphqlDocuments/user.js */ "./src/client/graphqlDocuments/user.js");
+/* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 /* harmony import */ var FrontStylesheets_login_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! FrontStylesheets/login.css */ "./src/client/assets/stylesheets/front/login.css");
 /* harmony import */ var FrontStylesheets_login_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(FrontStylesheets_login_css__WEBPACK_IMPORTED_MODULE_5__);
@@ -96455,7 +96453,7 @@ var Login = function Login(props) {
     document.title = "Login | MyChat";
   }, []);
 
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__["useMutation"])(GraphqlDocuments_user_js__WEBPACK_IMPORTED_MODULE_3__["LOGIN"]),
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__["useMutation"])(GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_3__["LOGIN"]),
       _useMutation2 = _slicedToArray(_useMutation, 1),
       loginQuery = _useMutation2[0];
 
@@ -96640,7 +96638,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! GraphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
+/* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 /* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
 /* harmony import */ var _Confirmation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Confirmation */ "./src/client/components/front/Confirmation.js");
@@ -96675,11 +96673,11 @@ var Signup = function Signup(props) {
     document.title = "Signup | MyChat";
   }, []);
 
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_2__["ADD_USER"]),
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_2__["ADD_USER"]),
       _useMutation2 = _slicedToArray(_useMutation, 1),
       addUser = _useMutation2[0];
 
-  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_2__["VERIFY_EMAIL"]),
+  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_2__["VERIFY_EMAIL"]),
       _useMutation4 = _slicedToArray(_useMutation3, 1),
       verifyEmail = _useMutation4[0];
 
@@ -97091,22 +97089,22 @@ var Banner = function Banner(props) {
     src: "images/dropdown.png"
   }))), showDropdown ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "dropdown-content"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "dropdown-profile"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
     to: "/home/profile",
     className: "link",
     activeClassName: "linkActive"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "dropdown-profile"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "dropdown-profile-content"
   }, "Profile"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "pointer-wrapper-dropdown"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "dropdown-settings"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
     to: "/home/settings/general",
     className: "link",
     activeClassName: "linkActive"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "dropdown-settings"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "dropdown-settings-content"
   }, "Settings")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -97138,7 +97136,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! GraphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
+/* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
 /* harmony import */ var _Banner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Banner */ "./src/client/components/main/Banner.js");
 /* harmony import */ var _chat_ChatContainer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./chat/ChatContainer */ "./src/client/components/main/chat/ChatContainer.js");
 /* harmony import */ var Account_profile_Profile__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! Account/profile/Profile */ "./src/client/components/main/account/profile/Profile.js");
@@ -97172,12 +97170,14 @@ var Home = function Home(props) {
       userInfo = _useState2[0],
       setUserInfo = _useState2[1];
 
-  var userImage = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__["GET_PROFILE_PICTURE"], {
+  var userImage = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_3__["GET_PROFILE_PICTURE"], {
     variables: {
       _id: userInfo._id
     }
   });
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Banner__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "main"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Banner__WEBPACK_IMPORTED_MODULE_4__["default"], {
     userInfo: userInfo,
     setIgnoreCookie: props.setIgnoreCookie,
     setActiveUser: props.setActiveUser,
@@ -97245,7 +97245,7 @@ var Home = function Home(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! GraphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
+/* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -97268,7 +97268,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var EditAbout = function EditAbout(props) {
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_1__["EDIT_ABOUT"], {
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_1__["EDIT_ABOUT"], {
     update: function update(store, _ref) {
       var data = _ref.data;
       store.writeQuery({
@@ -97356,7 +97356,7 @@ var EditAbout = function EditAbout(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! GraphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
+/* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 /* harmony import */ var browser_image_compression__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! browser-image-compression */ "./node_modules/browser-image-compression/dist/browser-image-compression.mjs");
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -97391,11 +97391,11 @@ var EditPicture = function EditPicture(props) {
       uploadError = _useState4[0],
       setUploadError = _useState4[1];
 
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_1__["EDIT_IMAGE"], {
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_1__["EDIT_IMAGE"], {
     update: function update(store, _ref) {
       var data = _ref.data;
       store.writeQuery({
-        query: GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_1__["GET_PROFILE_PICTURE"],
+        query: GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_1__["GET_PROFILE_PICTURE"],
         variables: {
           _id: props.userInfo._id
         },
@@ -97529,7 +97529,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! GraphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
+/* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
 /* harmony import */ var _EditPicture__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditPicture */ "./src/client/components/main/account/profile/EditPicture.js");
 /* harmony import */ var _EditAbout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./EditAbout */ "./src/client/components/main/account/profile/EditAbout.js");
 /* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
@@ -97571,7 +97571,7 @@ var Profile = function Profile(props) {
       setShowAboutForm = _useState4[1];
 
   var aboutField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_5__["useFieldInput"])("");
-  var aboutUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useQuery"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_2__["GET_ABOUT"], {
+  var aboutUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useQuery"])(GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_2__["GET_ABOUT"], {
     variables: {
       _id: props.userInfo._id
     },
@@ -97612,7 +97612,7 @@ var Profile = function Profile(props) {
     className: "profile-about-wrapper"
   }, aboutUser.data.getAbout), showAboutForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EditAbout__WEBPACK_IMPORTED_MODULE_4__["default"], {
     userInfo: props.userInfo,
-    getAbout: GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_2__["GET_ABOUT"],
+    getAbout: GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_2__["GET_ABOUT"],
     aboutField: aboutField,
     setShowAboutForm: setShowAboutForm
   }));
@@ -97633,9 +97633,9 @@ var Profile = function Profile(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! GraphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
+/* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -97664,7 +97664,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var EditName = function EditName(props) {
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__["CHANGE_NAME"]),
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useMutation"])(GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_3__["CHANGE_NAME"]),
       _useMutation2 = _slicedToArray(_useMutation, 1),
       changeName = _useMutation2[0];
 
@@ -97678,8 +97678,8 @@ var EditName = function EditName(props) {
       success = _useState4[0],
       setSuccess = _useState4[1];
 
-  var firstNamefield = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])(props.userInfo.firstName);
-  var lastNameField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])(props.userInfo.lastName);
+  var firstNamefield = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])(props.userInfo.firstName);
+  var lastNameField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])(props.userInfo.lastName);
 
   var changeNameCallBack = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
@@ -97783,9 +97783,9 @@ var EditName = function EditName(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! GraphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
+/* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -97808,13 +97808,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var EditPassword = function EditPassword(props) {
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__["CHANGE_PASSWORD"]),
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useMutation"])(GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_3__["CHANGE_PASSWORD"]),
       _useMutation2 = _slicedToArray(_useMutation, 1),
       changePassword = _useMutation2[0];
 
-  var currentPasswordField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])("");
-  var newPasswordField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])("");
-  var newPasswordConfirmField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])("");
+  var currentPasswordField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])("");
+  var newPasswordField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])("");
+  var newPasswordConfirmField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])("");
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState2 = _slicedToArray(_useState, 2),
@@ -97940,7 +97940,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! GraphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
+/* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -97981,7 +97981,7 @@ var EditUsername = function EditUsername(props) {
 
   var userField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])(props.userInfo.username);
 
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_3__["CHANGE_USERNAME"]),
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_3__["CHANGE_USERNAME"]),
       _useMutation2 = _slicedToArray(_useMutation, 1),
       changeUserName = _useMutation2[0];
 
@@ -98406,7 +98406,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ChatSearch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChatSearch */ "./src/client/components/main/chat/ChatSearch.js");
 /* harmony import */ var _ChatDisplay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChatDisplay */ "./src/client/components/main/chat/ChatDisplay.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! GraphqlDocuments/conversation */ "./src/client/graphqlDocuments/conversation.js");
+/* harmony import */ var GraphqlDocuments_conversationDocs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! GraphqlDocuments/conversationDocs */ "./src/client/graphqlDocuments/conversationDocs.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 /* harmony import */ var MainStylesheets_chat_chat_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! MainStylesheets/chat/chat.css */ "./src/client/assets/stylesheets/main/chat/chat.css");
 /* harmony import */ var MainStylesheets_chat_chat_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(MainStylesheets_chat_chat_css__WEBPACK_IMPORTED_MODULE_6__);
@@ -98461,7 +98461,7 @@ var ChatContainer = function ChatContainer(props) {
       userLoading = _useState10[0],
       setUserLoading = _useState10[1];
 
-  var getConvoQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_5__["useQuery"])(GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_4__["GET_CONVERSATIONS"], {
+  var getConvoQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_5__["useQuery"])(GraphqlDocuments_conversationDocs__WEBPACK_IMPORTED_MODULE_4__["GET_CONVERSATIONS"], {
     variables: {
       _id: props.userInfo._id
     }
@@ -98534,9 +98534,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! GraphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
-/* harmony import */ var GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! GraphqlDocuments/message */ "./src/client/graphqlDocuments/message.js");
-/* harmony import */ var GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! GraphqlDocuments/conversation */ "./src/client/graphqlDocuments/conversation.js");
+/* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
+/* harmony import */ var GraphqlDocuments_messageDocs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! GraphqlDocuments/messageDocs */ "./src/client/graphqlDocuments/messageDocs.js");
+/* harmony import */ var GraphqlDocuments_conversationDocs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! GraphqlDocuments/conversationDocs */ "./src/client/graphqlDocuments/conversationDocs.js");
 /* harmony import */ var _placeholders_ChatDisplayPlaceholder__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./placeholders/ChatDisplayPlaceholder */ "./src/client/components/main/chat/placeholders/ChatDisplayPlaceholder.js");
 /* harmony import */ var _ChatMessage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ChatMessage */ "./src/client/components/main/chat/ChatMessage.js");
 /* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./About */ "./src/client/components/main/chat/About.js");
@@ -98591,7 +98591,7 @@ var ChatDisplay = function ChatDisplay(props) {
   var apolloClient = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useApolloClient"])();
   var messageField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])("");
 
-  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_5__["SEND_MESSAGE"]),
+  var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(GraphqlDocuments_messageDocs__WEBPACK_IMPORTED_MODULE_5__["SEND_MESSAGE"]),
       _useMutation2 = _slicedToArray(_useMutation, 1),
       sendMessageQuery = _useMutation2[0];
 
@@ -98600,11 +98600,11 @@ var ChatDisplay = function ChatDisplay(props) {
       fromAbout = _useState2[0],
       setFromAbout = _useState2[1];
 
-  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_5__["READ_MESSAGE"], {
+  var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(GraphqlDocuments_messageDocs__WEBPACK_IMPORTED_MODULE_5__["READ_MESSAGE"], {
     update: function update(store, _ref) {
       var data = _ref.data;
       var convoCache = store.readQuery({
-        query: GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_6__["GET_CONVERSATIONS"],
+        query: GraphqlDocuments_conversationDocs__WEBPACK_IMPORTED_MODULE_6__["GET_CONVERSATIONS"],
         variables: {
           _id: props.userInfo._id
         }
@@ -98618,7 +98618,7 @@ var ChatDisplay = function ChatDisplay(props) {
         }) : convo;
       });
       store.writeQuery({
-        query: GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_6__["GET_CONVERSATIONS"],
+        query: GraphqlDocuments_conversationDocs__WEBPACK_IMPORTED_MODULE_6__["GET_CONVERSATIONS"],
         variables: {
           _id: props.userInfo._id
         },
@@ -98631,14 +98631,14 @@ var ChatDisplay = function ChatDisplay(props) {
       _useMutation4 = _slicedToArray(_useMutation3, 1),
       readMsg = _useMutation4[0];
 
-  var getMessages = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_5__["GET_MESSAGES"], {
+  var getMessages = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(GraphqlDocuments_messageDocs__WEBPACK_IMPORTED_MODULE_5__["GET_MESSAGES"], {
     variables: {
       senderID: props.userInfo._id,
       receiverID: props.currentChat
     },
     skip: props.convoHistory.loading
   });
-  var getUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_4__["GET_USER"], {
+  var getUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_4__["GET_USER"], {
     variables: {
       _id: props.currentChat,
       myID: props.userInfo._id
@@ -98652,14 +98652,14 @@ var ChatDisplay = function ChatDisplay(props) {
       }
     }
   });
-  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useSubscription"])(GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_5__["NEW_MESSAGE"], {
+  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useSubscription"])(GraphqlDocuments_messageDocs__WEBPACK_IMPORTED_MODULE_5__["NEW_MESSAGE"], {
     fetchPolicy: "no-cache",
     onSubscriptionData: function onSubscriptionData(_ref2) {
       var subscriptionData = _ref2.subscriptionData;
       updateMsgCache(subscriptionData.data.newMessage);
     }
   });
-  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useSubscription"])(GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_6__["UPDATED_CONVO"], {
+  Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useSubscription"])(GraphqlDocuments_conversationDocs__WEBPACK_IMPORTED_MODULE_6__["UPDATED_CONVO"], {
     fetchPolicy: "no-cache",
     onSubscriptionData: function onSubscriptionData(_ref3) {
       var subscriptionData = _ref3.subscriptionData;
@@ -98673,7 +98673,7 @@ var ChatDisplay = function ChatDisplay(props) {
 
       if (getMessages.data.getMessages) {
         var msgStore = apolloClient.readQuery({
-          query: GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_5__["GET_MESSAGES"],
+          query: GraphqlDocuments_messageDocs__WEBPACK_IMPORTED_MODULE_5__["GET_MESSAGES"],
           variables: {
             senderID: props.userInfo._id,
             receiverID: props.currentChat
@@ -98693,7 +98693,7 @@ var ChatDisplay = function ChatDisplay(props) {
 
       newMsgArray.unshift(newMsg);
       apolloClient.writeQuery({
-        query: GraphqlDocuments_message__WEBPACK_IMPORTED_MODULE_5__["GET_MESSAGES"],
+        query: GraphqlDocuments_messageDocs__WEBPACK_IMPORTED_MODULE_5__["GET_MESSAGES"],
         variables: {
           senderID: props.userInfo._id,
           receiverID: props.currentChat
@@ -98741,7 +98741,7 @@ var ChatDisplay = function ChatDisplay(props) {
 
             case 7:
               convoStore = apolloClient.readQuery({
-                query: GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_6__["GET_CONVERSATIONS"],
+                query: GraphqlDocuments_conversationDocs__WEBPACK_IMPORTED_MODULE_6__["GET_CONVERSATIONS"],
                 variables: {
                   _id: props.userInfo._id
                 }
@@ -98752,7 +98752,7 @@ var ChatDisplay = function ChatDisplay(props) {
               });
               copy.unshift(convo);
               apolloClient.writeQuery({
-                query: GraphqlDocuments_conversation__WEBPACK_IMPORTED_MODULE_6__["GET_CONVERSATIONS"],
+                query: GraphqlDocuments_conversationDocs__WEBPACK_IMPORTED_MODULE_6__["GET_CONVERSATIONS"],
                 variables: {
                   _id: props.userInfo._id
                 },
@@ -99008,7 +99008,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _History__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./History */ "./src/client/components/main/chat/History.js");
 /* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
-/* harmony import */ var GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! GraphqlDocuments/user */ "./src/client/graphqlDocuments/user.js");
+/* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 /* harmony import */ var MainStylesheets_chat_chatSearch_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! MainStylesheets/chat/chatSearch.css */ "./src/client/assets/stylesheets/main/chat/chatSearch.css");
 /* harmony import */ var MainStylesheets_chat_chatSearch_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(MainStylesheets_chat_chatSearch_css__WEBPACK_IMPORTED_MODULE_6__);
@@ -99045,7 +99045,7 @@ var ChatSearch = function ChatSearch(props) {
       searchResult = _useState4[0],
       setSearchResult = _useState4[1];
 
-  var _useLazyQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_5__["useLazyQuery"])(GraphqlDocuments_user__WEBPACK_IMPORTED_MODULE_4__["SEARCH_USER"], {
+  var _useLazyQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_5__["useLazyQuery"])(GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_4__["SEARCH_USER"], {
     onCompleted: function onCompleted(data) {
       setSearchResult(data.searchUser);
     }
@@ -99435,10 +99435,10 @@ var MessagePlaceholder = function MessagePlaceholder() {
 
 /***/ }),
 
-/***/ "./src/client/graphqlDocuments/conversation.js":
-/*!*****************************************************!*\
-  !*** ./src/client/graphqlDocuments/conversation.js ***!
-  \*****************************************************/
+/***/ "./src/client/graphqlDocuments/conversationDocs.js":
+/*!*********************************************************!*\
+  !*** ./src/client/graphqlDocuments/conversationDocs.js ***!
+  \*********************************************************/
 /*! exports provided: GET_CONVERSATIONS, UPDATED_CONVO */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -99476,10 +99476,10 @@ var UPDATED_CONVO = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_template
 
 /***/ }),
 
-/***/ "./src/client/graphqlDocuments/message.js":
-/*!************************************************!*\
-  !*** ./src/client/graphqlDocuments/message.js ***!
-  \************************************************/
+/***/ "./src/client/graphqlDocuments/messageDocs.js":
+/*!****************************************************!*\
+  !*** ./src/client/graphqlDocuments/messageDocs.js ***!
+  \****************************************************/
 /*! exports provided: GET_MESSAGES, READ_MESSAGE, SEND_MESSAGE, NEW_MESSAGE */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -99541,10 +99541,10 @@ var NEW_MESSAGE = graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateOb
 
 /***/ }),
 
-/***/ "./src/client/graphqlDocuments/user.js":
-/*!*********************************************!*\
-  !*** ./src/client/graphqlDocuments/user.js ***!
-  \*********************************************/
+/***/ "./src/client/graphqlDocuments/userDocs.js":
+/*!*************************************************!*\
+  !*** ./src/client/graphqlDocuments/userDocs.js ***!
+  \*************************************************/
 /*! exports provided: LOGGED_IN, LOGIN, ADD_USER, VERIFY_EMAIL, FORGOT_CREDENTIAL, GET_PROFILE_PICTURE, EDIT_IMAGE, GET_ABOUT, EDIT_ABOUT, CHANGE_NAME, CHANGE_USERNAME, CHANGE_PASSWORD, SEARCH_USER, GET_USER */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -99739,12 +99739,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/App */ "./src/client/components/App.js");
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/lib/react-apollo.esm.js");
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
-/* harmony import */ var apollo_utilities__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! apollo-utilities */ "./node_modules/apollo-utilities/lib/bundle.esm.js");
-/* harmony import */ var _apollo_link_ws__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @apollo/link-ws */ "./node_modules/@apollo/link-ws/lib/bundle.esm.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/lib/react-apollo.esm.js");
+/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-boost */ "./node_modules/apollo-boost/lib/bundle.esm.js");
+/* harmony import */ var apollo_utilities__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! apollo-utilities */ "./node_modules/apollo-utilities/lib/bundle.esm.js");
+/* harmony import */ var _apollo_link_ws__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @apollo/link-ws */ "./node_modules/@apollo/link-ws/lib/bundle.esm.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/App */ "./src/client/components/App.js");
 
 
 
@@ -99756,33 +99756,33 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__(/*! babel-polyfill */ "./node_modules/babel-polyfill/lib/index.js");
 
-var httpLink = new apollo_boost__WEBPACK_IMPORTED_MODULE_4__["HttpLink"]({
+var httpLink = new apollo_boost__WEBPACK_IMPORTED_MODULE_3__["HttpLink"]({
   uri: "/graphql"
 });
 var domainName = window.location.hostname; // If running locally use `ws:// ${domainName} ${port} /graphql` else `wss:// ${domainName} /graphql` for prod
 
 var port = 4000;
-var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_6__["WebSocketLink"]({
-  uri: "wss://".concat(domainName, "/graphql"),
+var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_5__["WebSocketLink"]({
+  uri: "ws://".concat(domainName, "/graphql"),
   options: {
     reconnect: true,
     lazy: true
   }
 });
-var splitLink = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_4__["split"])(function (_ref) {
+var splitLink = Object(apollo_boost__WEBPACK_IMPORTED_MODULE_3__["split"])(function (_ref) {
   var query = _ref.query;
-  var definition = Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_5__["getMainDefinition"])(query);
+  var definition = Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_4__["getMainDefinition"])(query);
   return definition.kind === "OperationDefinition" && definition.operation === "subscription";
 }, wsLink, httpLink);
-var client = new apollo_boost__WEBPACK_IMPORTED_MODULE_4__["ApolloClient"]({
-  cache: new apollo_boost__WEBPACK_IMPORTED_MODULE_4__["InMemoryCache"](),
+var client = new apollo_boost__WEBPACK_IMPORTED_MODULE_3__["ApolloClient"]({
+  cache: new apollo_boost__WEBPACK_IMPORTED_MODULE_3__["InMemoryCache"](),
   link: splitLink
 });
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_3__["ApolloProvider"], {
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["ApolloProvider"], {
   client: client
-}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["BrowserRouter"], {
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["BrowserRouter"], {
   basename: "".concat(location.pathname, "#")
-}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_App__WEBPACK_IMPORTED_MODULE_2__["default"], null))), document.getElementById("root"));
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_App__WEBPACK_IMPORTED_MODULE_7__["default"], null))), document.getElementById("root"));
 
 /***/ }),
 

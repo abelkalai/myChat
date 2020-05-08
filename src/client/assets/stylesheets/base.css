@@ -4,8 +4,12 @@
   font-family: Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif;
 }
 
-html,body{
-  width: 100%;;
+html, body{
+  height: 100%;
+  background-color: #257fbd;
+}
+
+#root{
   height: 100%;
 }
 

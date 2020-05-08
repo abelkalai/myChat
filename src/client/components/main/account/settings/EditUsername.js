@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useFieldInput } from "Hooks/customHooks";
 import { useMutation } from "@apollo/react-hooks";
-import { CHANGE_USERNAME } from "GraphqlDocuments/user";
+import { CHANGE_USERNAME } from "GraphqlDocuments/userDocs";
 
 const EditUsername = (props) => {
   const [errors, setErrors] = useState([]);

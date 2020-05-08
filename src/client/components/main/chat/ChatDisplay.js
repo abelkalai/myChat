@@ -8,17 +8,17 @@ import {
   useSubscription,
 } from "@apollo/react-hooks";
 
-import { GET_USER } from "GraphqlDocuments/user";
+import { GET_USER } from "GraphqlDocuments/userDocs";
 import {
   GET_MESSAGES,
   NEW_MESSAGE,
   READ_MESSAGE,
   SEND_MESSAGE,
-} from "GraphqlDocuments/message";
+} from "GraphqlDocuments/messageDocs";
 import {
   GET_CONVERSATIONS,
   UPDATED_CONVO,
-} from "GraphqlDocuments/conversation";
+} from "GraphqlDocuments/conversationDocs";
 
 import ChatDisplayPlaceholder from "./placeholders/ChatDisplayPlaceholder";
 import ChatMessage from "./ChatMessage";

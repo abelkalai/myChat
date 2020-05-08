@@ -12,7 +12,6 @@ const FrontPage = (props) => {
   const [fromLogin, setFromLogin] = useState(false);
 
   return (
-    <div className="front-page-background">
       <div className="front-page-wrapper">
         <div className="front-page-container">
           <div className="front-page">
@@ -73,7 +72,6 @@ const FrontPage = (props) => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

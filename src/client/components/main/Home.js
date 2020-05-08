@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_PROFILE_PICTURE } from "GraphqlDocuments/user";
+import { GET_PROFILE_PICTURE } from "GraphqlDocuments/userDocs";
 import Banner from "./Banner";
 import ChatContainer from "./chat/ChatContainer";
 import Profile from "Account/profile/Profile";
@@ -16,7 +16,7 @@ const Home = (props) => {
     variables: { _id: userInfo._id },
   });
   return (
-    <Fragment>
+    <div className="main">
       <Banner
         userInfo={userInfo}
         setIgnoreCookie={props.setIgnoreCookie}
@@ -71,7 +71,7 @@ const Home = (props) => {
         />
         <Route path="*" render={() => <InvalidLink type="MyChat" />} />
       </Switch>
-    </Fragment>
+    </div>
   );
 };
 

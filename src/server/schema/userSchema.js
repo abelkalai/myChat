@@ -1,6 +1,6 @@
 const { gql } = require("apollo-server-express");
 const User = require("../models/user");
-const config = require("../../../utils/config");
+const config = require("../../../config");
 const { DEFAULT_IMAGE } = require("../images/imageStore");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
