@@ -1,0 +1,191 @@
+#settings-page {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  margin: 10px 7.5% 0 65px;
+  background-color: white;
+  font-size: 22px;
+}
+
+#settings-nav-container {
+  width: 95%;
+}
+
+#settings-nav {
+  margin: 15px 0 0 40px;
+  font-size: 22px;
+}
+
+.settings-active-tab {
+  display: flex;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #ecf2fe;
+  cursor: pointer;
+}
+
+.settings-tab {
+  display: flex;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.settings-tab:hover {
+  background-color: #f1f0f0;
+}
+
+.settings-nav-text {
+  display: flex;
+  padding: 2.5px 0 0 8.5px;
+}
+
+.settings-nav-image {
+  width: 30px;
+  height: 30px;
+  margin-top: 2.5px;
+}
+
+.settings-header {
+  border-bottom: 1px solid black;
+}
+
+.settings-user-info {
+  display: inline-block;
+  margin: 0 10px 0 10px;
+  width: 600px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.settings-section-flex {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid hsl(0, 0%, 86%);
+  padding: 15px;
+}
+
+.settings-section {
+  padding: 15px;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.settings-last-section-flex {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding: 15px;
+}
+
+.settings-last-section {
+  padding: 15px;
+  border-bottom: 1px solid black;
+}
+
+.edit-button{
+  margin-left: auto;
+  border: none;
+  font-size: 20px;
+  color: blue;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  text-decoration: underline;
+}
+
+.settings-form {
+  margin-top: 5px;
+}
+
+.settings-form input{
+  display: inline-block;
+  margin: 0 0 5px 5px;
+  border-radius: 5px;
+  width: 225px;
+  padding-left: 2.5px;
+  font-size: 16px;
+}
+
+.settings-form-label {
+  display: inline-block;
+  margin-bottom: 5px;
+  width: 115px;
+}
+
+
+.settings-form-password-label {
+  display: inline-block;
+  margin-bottom: 5px;
+  width: 235px;
+}
+
+.success {
+  margin: 2.5px 0 7.5px 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: green;
+}
+
+#settings-hamburger-menu {
+  position: absolute;
+  z-index: 1;
+  display: inline-block;
+  margin-top: 7px;
+}
+
+#settings-hamburger-menu img {
+  width: 30px;
+  height: 30px;
+}
+
+@media (max-width: 950px) {
+  #settings-page {
+    display: block;
+    margin: 0 5px 0 5px;
+  }
+  #settings-page h1 {
+    margin-left: 35px;
+    font-size: 32px;
+  }
+
+  .settings-section,
+  .settings-last-section {
+    margin-right: 5px;
+  }
+  .settings-form {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #settings-page {
+    font-size: 18px;
+  }
+  #settings-page h1 {
+    margin-left: 27.5px;
+    font-size: 28px;
+  }
+  #settings-hamburger-menu img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .edit-button{
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #settings-page {
+    font-size: 16px;
+  }
+  .edit-button{
+    font-size: 16px;
+  }
+  .settings-user-info {
+    max-width: 200px;
+  }
+}

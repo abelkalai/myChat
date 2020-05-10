@@ -1,0 +1,27 @@
+#chat-container {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  font-size: 18px;
+}
+
+.loading{
+  width: 50px;
+  height: 50px;
+}
+
+::-webkit-scrollbar {
+  width: 7.5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 7.5px;
+  background: grey;
+}
+
+@media screen and (max-width: 768px) {
+  #chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}

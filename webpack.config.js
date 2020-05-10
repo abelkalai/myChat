@@ -10,15 +10,14 @@ module.exports = {
       GraphqlDocuments: path.resolve(__dirname, "src/client/graphqlDocuments/"),
       Hooks: path.resolve(__dirname, "src/client/components/hooks/"),
       Utilities: path.resolve(__dirname, "src/client/utilities/"),
-      Account: path.resolve(__dirname, "src/client/components/main/account/"),
       BaseStylesheet: path.resolve(__dirname, "src/client/assets/stylesheets/"),
-      FrontStylesheets: path.resolve(
+      LoginPageStylesheets: path.resolve(
         __dirname,
-        "src/client/assets/stylesheets/front/"
+        "src/client/assets/stylesheets/loginPage/"
       ),
-      MainStylesheets: path.resolve(
+      HomePageStylesheets: path.resolve(
         __dirname,
-        "src/client/assets/stylesheets/main/"
+        "src/client/assets/stylesheets/homePage/"
       ),
     },
   },

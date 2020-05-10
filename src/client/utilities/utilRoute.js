@@ -2,16 +2,16 @@ import React from "react";
 import { Route } from "react-router-dom";
 
 export const AppRoute = ({
-  loggedIn,
+  cookieData,
   ignoreCookie,
-  activeUser,
-  frontPage,
-  home,
+  loginData,
+  loginPage,
+  homePage,
 }) => (
   <Route
     path="/"
     render={() =>
-      (loggedIn && !ignoreCookie) || activeUser ? home : frontPage
+      (cookieData && !ignoreCookie) || loginData ? homePage : loginPage
     }
   />
 );

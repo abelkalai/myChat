@@ -1,0 +1,158 @@
+#login-page {
+  display: flex;
+  justify-content: center;
+}
+
+#login-page-container {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  margin-top: 7.5vh;
+  width: 60vw;
+  border-radius: 15px;
+  background-color: white;
+  text-align: center;
+}
+
+#login-page-container h1 {
+  font-size: 40px;
+}
+
+#login-page-info {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  padding: 10px 10px 40px 10px;
+  background-color: #00a8f3;
+  color: white;
+}
+
+#login-page-info h1 {
+  margin: 10px 0 10px 0;
+}
+
+#login-page-info p {
+  margin-top: 60px;
+}
+
+#login-page-content {
+  margin-top: 10px;
+  padding: 10px 10px 20px 10px;
+}
+
+.login-page-form {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.login-page-input {
+  display: inline-block;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  padding: 2.5px;
+  font-size: 22px;
+}
+
+.login-page-back-button {
+  margin: 10px 7px 0 0;
+  width: 130px;
+  padding: 0 5px 0 5px;
+  border-color: #f1f0f0;
+  background-color: #f1f0f0;
+  font-size: 16px;
+  text-decoration: none;
+  color: #696969;
+}
+
+.login-page-submit-button {
+  margin-top: 10px;
+  width: 80px;
+  padding: 0 5px 0 5px;
+  background-color: #00a8f3;
+  font-size: 16px;
+  color: white;
+}
+
+.login-page-submit-button:hover {
+  border-color: darkblue;
+  background-color: darkblue;
+}
+
+@media (max-width: 912px) {
+  #login-page-content p {
+    font-size: 16px;
+  }
+
+  .login-front-page-form {
+    font-size: 16px;
+  }
+  
+  .login-page-back-button {
+    display: block;
+    margin: 5px auto 0 auto;
+  }
+
+  .login-page-submit-button {
+    display: block;
+    margin: 7.5px auto 0 auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #login-page-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 7.5%;
+    width: 80vw;
+  }
+
+  #login-page-container h1 {
+    font-size: 32px;
+  }
+
+  #login-page-container h3 {
+    margin-top: 0px;
+  }
+
+  #login-page-info {
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 0px;
+    padding-top: 2.5px;
+    padding-bottom: 5px;
+  }
+  #login-page-info p {
+    margin-top: 2.5px;
+  }
+
+  #login-page-content {
+    margin-top: 2.5px;
+    padding: 5px;
+    padding-bottom: 10px;
+  }
+
+  .login-page-content p {
+    font-size: 16px;
+  }
+
+  .login-page-form {
+    margin-top: 0px;
+  }
+
+  .login-page-input {
+    font-size: 16px;
+  }
+
+  .login-page-back-button {
+    display: block;
+    margin-top: 5px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .login-page-submit-button {
+    display: block;
+    margin-top: 7.5px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { Link} from "react-router-dom";
-import "FrontStylesheets/frontPage.css";
+import { Link } from "react-router-dom";
+import "LoginPageStylesheets/loginPageContainer.css";
+
 const InvalidLink = (props) => {
   useEffect(() => {
     document.title = "Page Not Found | MyChat";
-  },[]);
+  }, []);
   return (
     <div className="center">
       <h1>Whoops! This page isn't avaliable.</h1>

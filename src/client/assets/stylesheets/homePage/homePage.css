@@ -1,0 +1,31 @@
+#home-page {
+  height: 100%;
+  background-color: white;
+}
+
+.nav-link {
+  display: flex;
+  flex: 1 1 1px;
+  min-width: 0;
+  align-items: center;
+}
+
+.active-nav-link {
+  pointer-events: none;
+}
+
+.change-button {
+  margin-top: 5px;
+  width: 60px;
+  background-color: #00a8f3;
+  font-size: 16px;
+  color: white;
+}
+
+.cancel-button {
+  margin: 7.5px 0 0 5px;
+  width: 60px;
+  background-color: #f1f0f0;
+  font-size: 16px;
+  color: #696969;
+}

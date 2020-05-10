@@ -1,0 +1,47 @@
+#mobile-nav {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #dcdcdc;
+  min-width: 0;
+  padding: 5px 0 5px 0;
+  align-items: center;
+}
+
+#mobile-nav-back-img {
+  margin-left: 5px;
+  width: 20px;
+  height: 30px;
+}
+
+#mobile-nav-user-img {
+  margin-left: 5px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+#mobile-nav-user-placeholder-img {
+  width: 80%;
+  height: 20px;
+}
+
+#mobile-nav-name-wrapper {
+  display: flex;
+  flex: 1 1 1px;
+  margin-left: 5px;
+  min-width: 0;
+  max-width: 95%;
+  align-items: center;
+}
+
+#mobile-nav-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#mobile-nav-info-img {
+  margin: 0px 5px 0 auto;
+  width: 30px;
+  height: 30px;
+}

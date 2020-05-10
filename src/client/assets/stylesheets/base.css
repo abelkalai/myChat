@@ -4,20 +4,25 @@
   font-family: Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif;
 }
 
-html, body{
+html,
+body {
   height: 100%;
   background-color: #257fbd;
 }
 
-#root{
+#root {
   height: 100%;
 }
-
 
 input:focus,
 textarea:focus,
 select:focus {
   outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 button {
@@ -39,6 +44,14 @@ button:hover {
   color: red;
 }
 
+.center {
+  text-align: center;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
 .general-button {
   margin-top: 7.5px;
   border-radius: 10px;
@@ -48,14 +61,6 @@ button:hover {
   background-color: #00a8f3;
   font-size: 16px;
   color: white;
-}
-
-.center {
-  text-align: center;
-}
-
-.frontpage-link {
-  text-decoration: none;
 }
 
 @media (max-width: 768px) {
