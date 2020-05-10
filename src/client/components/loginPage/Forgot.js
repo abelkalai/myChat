@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { useLazyQuery } from "@apollo/react-hooks";
 import { FORGOT_CREDENTIAL } from "GraphqlDocuments/userDocs";
-import { useFieldInput } from "Hooks/customHooks";
+import { useFieldInput } from "Utilities/customHooks";
 import { Link } from "react-router-dom";
 import Confirmation from "./Confirmation";
 

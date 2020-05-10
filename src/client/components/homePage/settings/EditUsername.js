@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useFieldInput } from "Hooks/customHooks";
+import { useFieldInput } from "Utilities/customHooks";
 import { useMutation } from "@apollo/react-hooks";
 import { CHANGE_USERNAME } from "GraphqlDocuments/userDocs";
 

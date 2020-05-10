@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_ABOUT } from "GraphqlDocuments/userDocs";
-import { useFieldInput } from "Hooks/customHooks";
+import { useFieldInput } from "Utilities/customHooks";
 import EditPicture from "./EditPicture";
 import EditAbout from "./EditAbout";
 import "HomePageStylesheets/profile.css";

@@ -88278,7 +88278,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
 /* harmony import */ var GraphqlDocuments_messageDocs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! GraphqlDocuments/messageDocs */ "./src/client/graphqlDocuments/messageDocs.js");
 /* harmony import */ var GraphqlDocuments_conversationDocs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! GraphqlDocuments/conversationDocs */ "./src/client/graphqlDocuments/conversationDocs.js");
-/* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
+/* harmony import */ var Utilities_customHooks__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! Utilities/customHooks */ "./src/client/utilities/customHooks.js");
 /* harmony import */ var _placeholders_ChatDisplayPlaceholder__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./placeholders/ChatDisplayPlaceholder */ "./src/client/components/homePage/chat/placeholders/ChatDisplayPlaceholder.js");
 /* harmony import */ var _Messages__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Messages */ "./src/client/components/homePage/chat/Messages.js");
 /* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./About */ "./src/client/components/homePage/chat/About.js");
@@ -88402,7 +88402,7 @@ var ChatDisplay = function ChatDisplay(props) {
       updateConvoCache(subscriptionData.data.updatedConvo);
     }
   });
-  var messageField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_6__["useFieldInput"])("");
+  var messageField = Object(Utilities_customHooks__WEBPACK_IMPORTED_MODULE_6__["useFieldInput"])("");
   var apolloClient = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useApolloClient"])();
 
   var updateMsgCache = function updateMsgCache(newMsg) {
@@ -88911,7 +88911,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 /* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
-/* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
+/* harmony import */ var Utilities_customHooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! Utilities/customHooks */ "./src/client/utilities/customHooks.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _History__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./History */ "./src/client/components/homePage/chat/History.js");
 /* harmony import */ var HomePageStylesheets_chat_search_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! HomePageStylesheets/chat/search.css */ "./src/client/assets/stylesheets/homePage/chat/search.css");
@@ -88942,7 +88942,7 @@ var Search = function Search(props) {
       searchActive = _useState2[0],
       setSearchActive = _useState2[1];
 
-  var searchField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
+  var searchField = Object(Utilities_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState4 = _slicedToArray(_useState3, 2),
@@ -89457,7 +89457,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 /* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
-/* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
+/* harmony import */ var Utilities_customHooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! Utilities/customHooks */ "./src/client/utilities/customHooks.js");
 /* harmony import */ var _EditPicture__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./EditPicture */ "./src/client/components/homePage/profile/EditPicture.js");
 /* harmony import */ var _EditAbout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./EditAbout */ "./src/client/components/homePage/profile/EditAbout.js");
 /* harmony import */ var HomePageStylesheets_profile_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! HomePageStylesheets/profile.css */ "./src/client/assets/stylesheets/homePage/profile.css");
@@ -89501,7 +89501,7 @@ var Profile = function Profile(props) {
       aboutField.manualChange(data.getAbout);
     }
   });
-  var aboutField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
+  var aboutField = Object(Utilities_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     document.title = "Profile | MyChat";
   });
@@ -89557,7 +89557,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
+/* harmony import */ var Utilities_customHooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! Utilities/customHooks */ "./src/client/utilities/customHooks.js");
 /* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -89601,8 +89601,8 @@ var EditName = function EditName(props) {
       _useMutation2 = _slicedToArray(_useMutation, 1),
       changeName = _useMutation2[0];
 
-  var firstNamefield = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])(props.userInfo.firstName);
-  var lastNameField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])(props.userInfo.lastName);
+  var firstNamefield = Object(Utilities_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])(props.userInfo.firstName);
+  var lastNameField = Object(Utilities_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])(props.userInfo.lastName);
 
   var submitNameForm = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
@@ -89705,7 +89705,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
-/* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
+/* harmony import */ var Utilities_customHooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! Utilities/customHooks */ "./src/client/utilities/customHooks.js");
 /* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -89743,9 +89743,9 @@ var EditPassword = function EditPassword(props) {
       _useMutation2 = _slicedToArray(_useMutation, 1),
       changePassword = _useMutation2[0];
 
-  var currentPasswordField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])("");
-  var newPasswordField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])("");
-  var newPasswordConfirmField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])("");
+  var currentPasswordField = Object(Utilities_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])("");
+  var newPasswordField = Object(Utilities_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])("");
+  var newPasswordConfirmField = Object(Utilities_customHooks__WEBPACK_IMPORTED_MODULE_2__["useFieldInput"])("");
 
   var submitPasswordForm = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
@@ -89856,7 +89856,7 @@ var EditPassword = function EditPassword(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
+/* harmony import */ var Utilities_customHooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! Utilities/customHooks */ "./src/client/utilities/customHooks.js");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 /* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -89897,7 +89897,7 @@ var EditUsername = function EditUsername(props) {
       success = _useState4[0],
       setSuccess = _useState4[1];
 
-  var userField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])(props.userInfo.username);
+  var userField = Object(Utilities_customHooks__WEBPACK_IMPORTED_MODULE_1__["useFieldInput"])(props.userInfo.username);
 
   var _useMutation = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_3__["CHANGE_USERNAME"]),
       _useMutation2 = _slicedToArray(_useMutation, 1),
@@ -90255,59 +90255,6 @@ var Settings = function Settings(props) {
 
 /***/ }),
 
-/***/ "./src/client/components/hooks/customHooks.js":
-/*!****************************************************!*\
-  !*** ./src/client/components/hooks/customHooks.js ***!
-  \****************************************************/
-/*! exports provided: useFieldInput */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useFieldInput", function() { return useFieldInput; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-var useFieldInput = function useFieldInput(initialValue) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(initialValue),
-      _useState2 = _slicedToArray(_useState, 2),
-      value = _useState2[0],
-      setValue = _useState2[1];
-
-  var onChange = function onChange(event) {
-    setValue(event.target.value);
-  };
-
-  var manualChange = function manualChange(value) {
-    setValue(value);
-  };
-
-  var clear = function clear() {
-    setValue("");
-  };
-
-  return {
-    value: value,
-    onChange: onChange,
-    manualChange: manualChange,
-    clear: clear
-  };
-};
-
-/***/ }),
-
 /***/ "./src/client/components/loginPage/Confirmation.js":
 /*!*********************************************************!*\
   !*** ./src/client/components/loginPage/Confirmation.js ***!
@@ -90357,7 +90304,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 /* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
-/* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
+/* harmony import */ var Utilities_customHooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! Utilities/customHooks */ "./src/client/utilities/customHooks.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _Confirmation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Confirmation */ "./src/client/components/loginPage/Confirmation.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -90393,7 +90340,7 @@ var Forgot = function Forgot(props) {
       _useLazyQuery2 = _slicedToArray(_useLazyQuery, 1),
       forgotCredential = _useLazyQuery2[0];
 
-  var emailField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
+  var emailField = Object(Utilities_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     document.title = "Forgot ".concat(props.type, " | MyChat");
   }, []);
@@ -90458,7 +90405,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 /* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
-/* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
+/* harmony import */ var Utilities_customHooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! Utilities/customHooks */ "./src/client/utilities/customHooks.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var LoginPageStylesheets_login_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! LoginPageStylesheets/login.css */ "./src/client/assets/stylesheets/loginPage/login.css");
 /* harmony import */ var LoginPageStylesheets_login_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(LoginPageStylesheets_login_css__WEBPACK_IMPORTED_MODULE_5__);
@@ -90495,8 +90442,8 @@ var Login = function Login(props) {
       _useMutation2 = _slicedToArray(_useMutation, 1),
       login = _useMutation2[0];
 
-  var usernameField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
-  var passwordField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
+  var usernameField = Object(Utilities_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
+  var passwordField = Object(Utilities_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     document.title = "Login | MyChat";
   }, []);
@@ -90753,7 +90700,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
 /* harmony import */ var GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! GraphqlDocuments/userDocs */ "./src/client/graphqlDocuments/userDocs.js");
-/* harmony import */ var Hooks_customHooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! Hooks/customHooks */ "./src/client/components/hooks/customHooks.js");
+/* harmony import */ var Utilities_customHooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! Utilities/customHooks */ "./src/client/utilities/customHooks.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _Confirmation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Confirmation */ "./src/client/components/loginPage/Confirmation.js");
 /* harmony import */ var LoginPageStylesheets_signup_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! LoginPageStylesheets/signup.css */ "./src/client/assets/stylesheets/loginPage/signup.css");
@@ -90801,13 +90748,13 @@ var Signup = function Signup(props) {
       _useMutation4 = _slicedToArray(_useMutation3, 1),
       verifyEmail = _useMutation4[0];
 
-  var firstNameField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
-  var lastNameField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
-  var emailField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
-  var usernameField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
-  var passwordField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
-  var passwordConfirmField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
-  var verificationCodeField = Object(Hooks_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
+  var firstNameField = Object(Utilities_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
+  var lastNameField = Object(Utilities_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
+  var emailField = Object(Utilities_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
+  var usernameField = Object(Utilities_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
+  var passwordField = Object(Utilities_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
+  var passwordConfirmField = Object(Utilities_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
+  var verificationCodeField = Object(Utilities_customHooks__WEBPACK_IMPORTED_MODULE_3__["useFieldInput"])("");
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     document.title = "Signup | MyChat";
   }, []);
@@ -91447,6 +91394,59 @@ var adjustTime = function adjustTime(timeStamp, showTimeOfDay) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (adjustTime);
+
+/***/ }),
+
+/***/ "./src/client/utilities/customHooks.js":
+/*!*********************************************!*\
+  !*** ./src/client/utilities/customHooks.js ***!
+  \*********************************************/
+/*! exports provided: useFieldInput */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useFieldInput", function() { return useFieldInput; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+var useFieldInput = function useFieldInput(initialValue) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(initialValue),
+      _useState2 = _slicedToArray(_useState, 2),
+      value = _useState2[0],
+      setValue = _useState2[1];
+
+  var onChange = function onChange(event) {
+    setValue(event.target.value);
+  };
+
+  var manualChange = function manualChange(value) {
+    setValue(value);
+  };
+
+  var clear = function clear() {
+    setValue("");
+  };
+
+  return {
+    value: value,
+    onChange: onChange,
+    manualChange: manualChange,
+    clear: clear
+  };
+};
 
 /***/ }),
 

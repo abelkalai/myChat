@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
-import { useFieldInput } from "Hooks/customHooks";
+import { useFieldInput } from "Utilities/customHooks";
 import { CHANGE_PASSWORD } from "GraphqlDocuments/userDocs";
 
 const EditPassword = (props) => {

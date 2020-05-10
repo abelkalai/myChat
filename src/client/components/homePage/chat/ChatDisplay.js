@@ -18,7 +18,7 @@ import {
   GET_CONVERSATIONS,
   UPDATED_CONVO,
 } from "GraphqlDocuments/conversationDocs";
-import { useFieldInput } from "Hooks/customHooks";
+import { useFieldInput } from "Utilities/customHooks";
 import ChatDisplayPlaceholder from "./placeholders/ChatDisplayPlaceholder";
 import Messages from "./Messages";
 import About from "./About";

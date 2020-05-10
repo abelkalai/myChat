@@ -8,7 +8,6 @@ module.exports = {
     extensions: [".js", ".css"],
     alias: {
       GraphqlDocuments: path.resolve(__dirname, "src/client/graphqlDocuments/"),
-      Hooks: path.resolve(__dirname, "src/client/components/hooks/"),
       Utilities: path.resolve(__dirname, "src/client/utilities/"),
       BaseStylesheet: path.resolve(__dirname, "src/client/assets/stylesheets/"),
       LoginPageStylesheets: path.resolve(
