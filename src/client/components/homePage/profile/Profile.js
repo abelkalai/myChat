@@ -11,6 +11,7 @@ const Profile = (props) => {
   const [showAboutForm, setShowAboutForm] = useState(false);
   const aboutUserQuery = useQuery(GET_ABOUT, {
     variables: { _id: props.userInfo._id },
+    fetchPolicy: "cache-and-network",
     onCompleted: (data) => {
       aboutField.manualChange(data.getAbout);
     },

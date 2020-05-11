@@ -49,6 +49,7 @@ const ChatDisplay = (props) => {
   const getUser = useQuery(GET_USER, {
     variables: { _id: props.currentChat, myID: props.userInfo._id },
     skip: !props.currentChat || props.getConvosQuery.loading,
+    fetchPolicy: "cache-and-network",
     onCompleted: (data) => {
       if (!data.getUser) {
         props.setBadUserID(true);

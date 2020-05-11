@@ -25323,7 +25323,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "#mobile-nav {\r\n  display: flex;\r\n  flex-direction: row;\r\n  border-bottom: 1px solid #dcdcdc;\r\n  min-width: 0;\r\n  padding: 5px 0 5px 0;\r\n  align-items: center;\r\n}\r\n\r\n#mobile-nav-back-img {\r\n  margin-left: 5px;\r\n  width: 20px;\r\n  height: 30px;\r\n}\r\n\r\n#mobile-nav-user-img {\r\n  margin-left: 5px;\r\n  border-radius: 50%;\r\n  width: 35px;\r\n  height: 35px;\r\n}\r\n\r\n#mobile-nav-user-placeholder-img {\r\n  width: 80%;\r\n  height: 20px;\r\n}\r\n\r\n#mobile-nav-name-wrapper {\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  margin-left: 5px;\r\n  min-width: 0;\r\n  max-width: 95%;\r\n  align-items: center;\r\n}\r\n\r\n#mobile-nav-name {\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n#mobile-nav-info-img {\r\n  margin: 0px 5px 0 auto;\r\n  width: 30px;\r\n  height: 30px;\r\n}\r\n", ""]);
+exports.push([module.i, "#mobile-nav {\r\n  display: flex;\r\n  flex-direction: row;\r\n  border-bottom: 1px solid #dcdcdc;\r\n  min-width: 0;\r\n  padding: 5px 0 5px 0;\r\n  align-items: center;\r\n}\r\n\r\n#mobile-nav-back-img {\r\n  margin-left: 5px;\r\n  width: 20px;\r\n  height: 30px;\r\n}\r\n\r\n#mobile-nav-user-img {\r\n  margin-left: 5px;\r\n  border-radius: 50%;\r\n  width: 35px;\r\n  height: 35px;\r\n}\r\n\r\n#mobile-nav-user-placeholder-img {\r\n  width: 80%;\r\n  height: 20px;\r\n}\r\n\r\n#mobile-nav-name-wrapper {\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  margin-left: 5px;\r\n  min-width: 0;\r\n  max-width: 95%;\r\n  align-items: center;\r\n}\r\n\r\n#mobile-nav-name {\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n#mobile-nav-info-img {\r\n  margin: 0px 6.5px 0 auto;\r\n  width: 30px;\r\n  height: 30px;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -88202,7 +88202,8 @@ var ChatContainer = function ChatContainer(props) {
   var getConvosQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(GraphqlDocuments_conversationDocs__WEBPACK_IMPORTED_MODULE_3__["GET_CONVERSATIONS"], {
     variables: {
       _id: props.userInfo._id
-    }
+    },
+    fetchPolicy: "cache-and-network"
   });
   var browserHistory = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useHistory"])();
 
@@ -88375,6 +88376,7 @@ var ChatDisplay = function ChatDisplay(props) {
       myID: props.userInfo._id
     },
     skip: !props.currentChat || props.getConvosQuery.loading,
+    fetchPolicy: "cache-and-network",
     onCompleted: function onCompleted(data) {
       if (!data.getUser) {
         props.setBadUserID(true);
@@ -89482,6 +89484,7 @@ var Profile = function Profile(props) {
     variables: {
       _id: props.userInfo._id
     },
+    fetchPolicy: "cache-and-network",
     onCompleted: function onCompleted(data) {
       aboutField.manualChange(data.getAbout);
     }
