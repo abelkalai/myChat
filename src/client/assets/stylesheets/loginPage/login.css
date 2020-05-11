@@ -90,16 +90,12 @@
 }
 
 @media screen and (max-width: 768px) {
-  .login-page-sign-up-container {
-    margin-top: 5px;
-  }
-
   #signup-link {
-    margin-top: 2.5px;
+    margin-top: 4.5px;
   }
 
   #login-username-field {
-    margin-top: 0px;
+    margin-top: 3.5px;
     background-position: 0px 6px;
     font-size: 20px;
   }
