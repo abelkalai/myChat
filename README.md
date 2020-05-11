@@ -1,4 +1,4 @@
-# My Chat
+# MyChat
 
 [Live Now!](https://lit-reaches-10392.herokuapp.com/)
 
