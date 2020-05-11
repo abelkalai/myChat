@@ -1,4 +1,4 @@
-# My Chat
+# MyChat
 
 [Live Now!](https://lit-reaches-10392.herokuapp.com/)
 
@@ -49,7 +49,7 @@ To let mobile users chat with one another, MyChat uses CSS media queries to adju
 
 ### Account Creation & Mangament
 
-MyChat's account creation & management are built from the ground up using password hashing and NodeMailer. User accounts are tied to their emails and this can be used if users forgot their password.
+MyChat's account creation & management are built from the ground up using password hashing and NodeMailer. User accounts are tied to their emails and can be used to retrieve credentials such as usernames or passwords.
 
 ![forgotPasswordDemo](/src/client/assets/gifs/forgotPasswordDemo.gif)
 ![forgotPasswordEmailDemo](/src/client/assets/images/forgotPasswordEmailDemo.JPG)
