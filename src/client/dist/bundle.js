@@ -88203,7 +88203,7 @@ var ChatContainer = function ChatContainer(props) {
     variables: {
       _id: props.userInfo._id
     },
-    fetchPolicy: "no-cache"
+    fetchPolicy: "network-only"
   });
   var browserHistory = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useHistory"])();
 

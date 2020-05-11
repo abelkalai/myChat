@@ -14,7 +14,7 @@ const ChatContainer = (props) => {
   const [userLoading, setUserLoading] = useState(true);
   const getConvosQuery = useQuery(GET_CONVERSATIONS, {
     variables: { _id: props.userInfo._id },
-    fetchPolicy: "no-cache",
+    fetchPolicy: "network-only",
   });
   const browserHistory = useHistory();
   const { paramId } = useParams();
