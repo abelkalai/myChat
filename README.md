@@ -52,7 +52,7 @@ To let mobile users chat with one another, MyChat uses CSS media queries to adju
 MyChat's account creation & management are built from the ground up using password hashing and NodeMailer. User accounts are tied to their emails and this can be used if users forgot their password.
 
 ![forgotPasswordDemo](/src/client/assets/gifs/forgotPasswordDemo.gif)
-![forgotPasswordEmailDemo](/src/client/assets/images/forgotPasswordEmailDemo.jpg)
+![forgotPasswordEmailDemo](/src/client/assets/images/forgotPasswordEmailDemo.JPG)
 
 ### Customizable Profile
 
