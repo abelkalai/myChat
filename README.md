@@ -44,7 +44,7 @@ useSubscription(UPDATED_CONVO, {
 
 To let mobile users chat with one another, MyChat uses CSS media queries to adjust to different screen sizes. For mobile users, the main chat page works more like a messaging app.
 
-![mobileResponsiveDemo](/src/client/assets/gifs/mobileResponsiveDemo.gif)
+![mobileResponsivenessDemo](/src/client/assets/gifs/mobileResponsivenessDemo.gif)
 
 
 ### Account Creation & Mangament
