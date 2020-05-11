@@ -91277,7 +91277,7 @@ __webpack_require__(/*! babel-polyfill */ "./node_modules/babel-polyfill/lib/ind
 var httpLink = new apollo_boost__WEBPACK_IMPORTED_MODULE_3__["HttpLink"]({
   uri: "/graphql"
 });
-var domainName = window.location.hostname; // If running locally use `ws:// ${domainName}:${port} /graphql` else `wss:// ${domainName} /graphql` for prod
+var domainName = window.location.hostname; // If running locally use `ws://${domainName}:${port}/graphql` else `wss://${domainName}/graphql` for prod
 
 var port = 4000;
 var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_5__["WebSocketLink"]({
