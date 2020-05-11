@@ -11,8 +11,8 @@ const ChatMessage = (props) => {
 
   if (!props.getUser.data.getUser) {
     return (
-      <div id="message-container">
-        <div id="message-container-loading">
+      <div id="messages-container">
+        <div id="messages-loading">
           <img className="loading" src="gifs/loading.gif" />
         </div>
       </div>
@@ -20,7 +20,7 @@ const ChatMessage = (props) => {
   }
 
   return (
-    <div id="message-container">
+    <div id="messages-container">
       {props.windowWidth <= 768 ? (
         <MobileNav
           setMobileDisplay={props.setMobileDisplay}
@@ -31,7 +31,7 @@ const ChatMessage = (props) => {
         />
       ) : null}
       {props.getMessages.loading || props.getUser.loading || showLoading ? (
-        <div id="message-container-loading">
+        <div id="messages-loading">
           <img className="loading" src="gifs/loading.gif" />
         </div>
       ) : (

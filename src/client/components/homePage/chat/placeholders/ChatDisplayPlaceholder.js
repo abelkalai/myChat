@@ -4,7 +4,7 @@ import AboutPlaceholder from "./AboutPlaceholder";
 import DefaultChat from "./DefaultChat";
 
 const ChatDisplayPlaceholder = (props) => {
-  if (props.convoHistory.loading) {
+  if (props.getConvosQuery.loading) {
     return (
       <Fragment>
         <MessagesPlaceholder />
@@ -12,7 +12,7 @@ const ChatDisplayPlaceholder = (props) => {
       </Fragment>
     );
   }
-  return props.convoHistory.data.getConversations.length === 0 ? (
+  return props.getConvosQuery.data.getConversations.length === 0 ? (
     <DefaultChat />
   ) : (
     <Fragment>

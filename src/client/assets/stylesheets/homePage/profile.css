@@ -6,7 +6,7 @@
   text-align: center;
 }
 
-.profile-image {
+#profile-image {
   display: flex;
   width: 225px;
   height: 225px;
@@ -22,7 +22,7 @@
 
 #upload-file-container {
   display: flex;
-  margin: 4px;
+  margin: 7.5px 0 4px 0;
   justify-content: center;
 }
 
@@ -63,7 +63,7 @@
   resize: none;
   overflow-x: hidden;
   overflow-y: auto;
-  
+  font-size: 16px;
 }
 
 #profile-about-placeholder {
@@ -78,6 +78,7 @@
   margin: 2.5px auto 0 auto;
   width: 40vw;
   height: 32.5vh;
+  overflow-x: hidden;
   overflow-y: auto;
   text-align: center;
   word-wrap: break-word;
@@ -91,9 +92,8 @@
   color: white;
 }
 
-
 @media screen and (max-width: 912px) {
-  .profile-image {
+  #profile-image {
     width: 200px;
     height: 200px;
   }
@@ -123,7 +123,6 @@
   }
 }
 
-
 @media screen and (max-height: 625px) {
   #profile-about-wrapper {
     height: 15vh;
@@ -149,11 +148,11 @@
 }
 
 @media screen and (max-height: 550px) {
-  .profile-image {
+  #profile-image {
     width: 150px;
     height: 150px;
   }
-  #profile-name{
+  #profile-name {
     font-size: 20px;
   }
 }

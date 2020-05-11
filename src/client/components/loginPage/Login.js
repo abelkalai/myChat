@@ -50,7 +50,11 @@ const Login = (props) => {
         </Link>
       </div>
       {error ? <h2 className="error">{error}</h2> : null}
-      <form className="login-page-form" onSubmit={submitLoginForm}>
+      <form
+        className="login-page-form"
+        autoComplete="off"
+        onSubmit={submitLoginForm}
+      >
         <div>
           <input
             id="login-username-field"

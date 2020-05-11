@@ -10,11 +10,11 @@
 }
 
 ::-webkit-scrollbar {
-  width: 7.5px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 7.5px;
+  border-radius: 5px;
   background: grey;
 }
 
@@ -22,6 +22,5 @@
   #chat-container {
     display: flex;
     flex-direction: column;
-    height: 100%;
   }
 }

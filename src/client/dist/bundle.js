@@ -25287,7 +25287,7 @@ function _defineProperty(e,r,n){return r in e?Object.defineProperty(e,r,{value:n
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "* {\r\n  margin: 0px;\r\n  padding: 0px;\r\n  font-family: Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif;\r\n}\r\n\r\nhtml,\r\nbody {\r\n  height: 100%;\r\n  background-color: #257fbd;\r\n}\r\n\r\n#root {\r\n  height: 100%;\r\n}\r\n\r\ninput:focus,\r\ntextarea:focus,\r\nselect:focus {\r\n  outline: none;\r\n}\r\n\r\na {\r\n  text-decoration: none;\r\n  color: inherit;\r\n}\r\n\r\nbutton {\r\n  border: none;\r\n  border-radius: 10px;\r\n  outline: none;\r\n  padding: 2px;\r\n  text-align: center;\r\n}\r\n\r\nbutton:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.error {\r\n  margin: 5px 0 7.5px 0;\r\n  font-size: 20px;\r\n  font-weight: bold;\r\n  color: red;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n.bold-text {\r\n  font-weight: bold;\r\n}\r\n\r\n.general-button {\r\n  margin-top: 7.5px;\r\n  border-radius: 10px;\r\n  width: 130px;\r\n  padding: 0 5px 0 5px;\r\n  border-color: #00a8f3;\r\n  background-color: #00a8f3;\r\n  font-size: 16px;\r\n  color: white;\r\n}\r\n\r\n@media (max-width: 768px) {\r\n  button {\r\n    padding: 1px;\r\n  }\r\n\r\n  .error {\r\n    margin: 2.5px 0 2.5px 0;\r\n    font-size: 16px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, "* {\r\n  margin: 0px;\r\n  padding: 0px;\r\n  font-family: Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif;\r\n}\r\n\r\nhtml,\r\nbody {\r\n  height: 100%;\r\n  background-color: #257fbd;\r\n}\r\n\r\n#root {\r\n  height: 100%;\r\n}\r\n\r\ninput:focus,\r\ntextarea:focus,\r\nselect:focus {\r\n  outline: none;\r\n}\r\n\r\na {\r\n  text-decoration: none;\r\n  color: inherit;\r\n}\r\n\r\nbutton {\r\n  border: none;\r\n  border-radius: 10px;\r\n  outline: none;\r\n  padding: 2px;\r\n  text-align: center;\r\n}\r\n\r\nbutton:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.error {\r\n  margin: 3.5px 0 7.5px 0;\r\n  font-size: 20px;\r\n  font-weight: bold;\r\n  color: red;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n.bold-text {\r\n  font-weight: bold;\r\n}\r\n\r\n.general-button {\r\n  margin-top: 20px;\r\n  border-radius: 10px;\r\n  width: 130px;\r\n  padding: 0 5px 0 5px;\r\n  border-color: #00a8f3;\r\n  background-color: #00a8f3;\r\n  font-size: 16px;\r\n  color: white;\r\n}\r\n\r\n@media (max-width: 768px) {\r\n  button {\r\n    padding: 1px;\r\n  }\r\n\r\n  .error {\r\n    margin: 2.5px 0 2.5px 0;\r\n    font-size: 16px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25341,7 +25341,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "#about {\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex: 1 1 1px;\r\n  min-width: 0;\r\n  min-height: 0;\r\n}\r\n\r\n#about h3 {\r\n  align-self: center;\r\n}\r\n\r\n#about-contact-name-placeholder {\r\n  display: flex;\r\n  margin-top: 2.5px;\r\n  width: 85%;\r\n  height: 27.5px;\r\n  align-self: center;\r\n}\r\n\r\n#about-contact-name {\r\n  align-self: center;\r\n  min-width: 0;\r\n  max-width: 85%;\r\n  font-size: 22px;\r\n  font-weight: bold;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n#about-contact-img {\r\n  align-self: center;\r\n  margin-top: 10px;\r\n  border-radius: 50%;\r\n  width: 175px;\r\n  height: 175px;\r\n}\r\n\r\n#about-content-placeholder {\r\n  align-self: center;\r\n  margin-bottom: 5px;\r\n  width: 85%;\r\n  height: 90%;\r\n}\r\n\r\n#about-content {\r\n  align-self: center;\r\n  flex-direction: column;\r\n  flex: 1 1 1px;\r\n  margin: 7.5px 0 5px;\r\n  max-width: 85%;\r\n  overflow-y: auto;\r\n  text-align: center;\r\n  word-wrap: break-word;\r\n}\r\n\r\n#mobile-nav-about-back-img {\r\n  position: absolute;\r\n  width: 20px;\r\n  height: 30px;\r\n  margin: 5px 0 0 5px;\r\n}\r\n\r\n@media screen and (max-height: 400px) {\r\n  #about-contact-img {\r\n    width: 150px;\r\n    height: 150px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, "#about {\r\n  display: flex;\r\n  flex-direction: column;\r\n  min-width: 0;\r\n  padding-bottom: 40px;\r\n}\r\n\r\n#about h3 {\r\n  align-self: center;\r\n}\r\n\r\n#about-contact-name-placeholder {\r\n  display: flex;\r\n  margin-top: 2.5px;\r\n  width: 85%;\r\n  height: 27.5px;\r\n  align-self: center;\r\n}\r\n\r\n#about-contact-name {\r\n  align-self: center;\r\n  min-width: 0;\r\n  max-width: 85%;\r\n  font-size: 22px;\r\n  font-weight: bold;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n#about-contact-img {\r\n  align-self: center;\r\n  margin-top: 10px;\r\n  border-radius: 50%;\r\n  width: 175px;\r\n  height: 175px;\r\n}\r\n\r\n#about-content-placeholder {\r\n  align-self: center;\r\n  margin-bottom: 5px;\r\n  width: 85%;\r\n  height: 70%;\r\n}\r\n\r\n#about-content {\r\n  align-self: center;\r\n  flex-direction: column;\r\n  flex: 1 1 1px;\r\n  margin: 7.5px 0 5px;\r\n  max-width: 85%;\r\n  max-height: 80%;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n  text-align: center;\r\n  word-wrap: break-word;\r\n}\r\n\r\n#mobile-nav-about-back-img {\r\n  position: absolute;\r\n  width: 20px;\r\n  height: 30px;\r\n  margin: 5px 0 0 5px;\r\n}\r\n\r\n@media (max-width: 768px) {\r\n  #about {\r\n    height: calc(100vh - 60px);\r\n    padding-bottom: 2.5px;\r\n  }\r\n  #about-contact-img {\r\n    width: 150px;\r\n    height: 150px;\r\n  }\r\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -25359,7 +25359,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "#chat-container {\r\n  display: grid;\r\n  grid-template-columns: 30% 70%;\r\n  font-size: 18px;\r\n}\r\n\r\n.loading{\r\n  width: 50px;\r\n  height: 50px;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 7.5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  border-radius: 7.5px;\r\n  background: grey;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  #chat-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    height: 100%;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, "#chat-container {\r\n  display: grid;\r\n  grid-template-columns: 30% 70%;\r\n  font-size: 18px;\r\n}\r\n\r\n.loading{\r\n  width: 50px;\r\n  height: 50px;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 5px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  border-radius: 5px;\r\n  background: grey;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  #chat-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25395,7 +25395,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "#history-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex: 1 1 1px;\r\n  margin: 10px 5px 0 5px;\r\n  padding-left: 5px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n  font-size: 16px;\r\n}\r\n\r\n.current-conversation {\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex: 1 1 1px;\r\n  margin: 0 5px 5px 0;\r\n  padding: 5px;\r\n  border-radius: 5px;\r\n  background-color: #f1f0f0;\r\n  cursor: pointer;\r\n}\r\n\r\n.conversation {\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex: 1 1 1px;\r\n  margin: 0 5px 5px 0;\r\n  padding: 5px;\r\n  border-radius: 5px;\r\n  cursor: pointer;\r\n}\r\n\r\n.history-user-img {\r\n  align-self: center;\r\n  border-radius: 90%;\r\n  width: 40px;\r\n  height: 40px;\r\n}\r\n\r\n.history-text-container {\r\n  align-self: center;\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex: 1 1 1px;\r\n  margin-left: 2.5px;\r\n  max-width: 62.5%;\r\n}\r\n\r\n.history-contact-name {\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n.history-message {\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n.history-timestamp {\r\n  display: flex;\r\n  margin: auto 0 0 auto;\r\n  white-space: nowrap;\r\n}\r\n\r\n.history-contact-name-placeholder {\r\n  width: 30%;\r\n  height: 20px;\r\n}\r\n\r\n.history-message-placeholder {\r\n  width: 125%;\r\n  height: 20px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  #history-container {\r\n    margin-left: 0px;\r\n    padding-left: 0px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, "#history-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex: 1 1 1px;\r\n  margin: 10px 5px 0 5px;\r\n  padding-left: 5px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n  font-size: 16px;\r\n}\r\n\r\n.current-conversation {\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex: 1 1 1px;\r\n  margin: 0 5px 5px 0;\r\n  padding: 5px;\r\n  border-radius: 5px;\r\n  background-color: #f1f0f0;\r\n  cursor: pointer;\r\n}\r\n\r\n.conversation {\r\n  display: flex;\r\n  flex-direction: row;\r\n  flex: 1 1 1px;\r\n  margin: 0 5px 5px 0;\r\n  padding: 5px;\r\n  border-radius: 5px;\r\n  cursor: pointer;\r\n}\r\n\r\n.history-user-img {\r\n  align-self: center;\r\n  border-radius: 90%;\r\n  width: 40px;\r\n  height: 40px;\r\n}\r\n\r\n.history-text-container {\r\n  align-self: center;\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex: 1 1 1px;\r\n  margin-left: 5px;\r\n  max-width: 62.5%;\r\n}\r\n\r\n.history-contact-name {\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n.history-message {\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n.history-timestamp {\r\n  display: flex;\r\n  margin: auto 0 0 auto;\r\n  white-space: nowrap;\r\n}\r\n\r\n.history-contact-name-placeholder {\r\n  width: 30%;\r\n  height: 20px;\r\n}\r\n\r\n.history-message-placeholder {\r\n  width: 125%;\r\n  height: 20px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  #history-container {\r\n    margin-left: 0px;\r\n    padding-left: 0px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25413,7 +25413,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "#chat-window {\r\n  display: flex;\r\n  flex-direction: column;\r\n  border-left: 1px solid #dcdcdc;\r\n  border-right: 1px solid #dcdcdc;\r\n  min-width: 0;\r\n  height: 100%;\r\n}\r\n\r\n#message-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  height: calc(100vh - 135px);\r\n}\r\n\r\n#message-container-loading {\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n\r\n#messages {\r\n  display: flex;\r\n  flex-direction: column-reverse;\r\n  margin-top: 5px;\r\n  max-height: calc(100vh - 135px);\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n}\r\n\r\n.message-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  width: 100%;\r\n  padding: 3px;\r\n  font-size: 18px;\r\n  align-items: center;\r\n}\r\n\r\n.my-message {\r\n  margin: 0 8px 0 auto;\r\n  border-radius: 15px;\r\n  max-width: 60%;\r\n  padding: 6px 10px 6px 10px;\r\n  background-color: #0099ff;\r\n  word-wrap: break-word;\r\n  color: white;\r\n}\r\n\r\n.contact-message {\r\n  margin: 0 auto 0 4px;\r\n  border-radius: 15px;\r\n  max-width: 60%;\r\n  padding: 6px 10px 6px 10px;\r\n  background-color: #f1f0f0;\r\n  word-wrap: break-word;\r\n}\r\n\r\n#message-form {\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  margin: 15px 5px 20px 10px;\r\n  min-width: 0;\r\n  max-width: 100%;\r\n}\r\n\r\n#message-form-text-field {\r\n  display: flex;\r\n  padding: 2.5px 2.5px 2.5px 5px;\r\n  border-radius: 5px;\r\n  width: 100%;\r\n  height: 27.5px;\r\n  font-size: 18px;\r\n  align-items: center;\r\n}\r\n\r\n#message-form-img {\r\n  margin: 0 0 2px 2px;\r\n  width: 27px;\r\n  height: 34.5px;\r\n}\r\n\r\n#msg-field-placeholder {\r\n  display: flex;\r\n  width: 95%;\r\n  margin-left: 2px;\r\n  margin-bottom: 2px;\r\n  height: 30px;\r\n}\r\n\r\n.my-msg-placeholder {\r\n  margin: 0 4px 0 auto;\r\n  width: 45%;\r\n  height: 25px;\r\n  padding: 6px;\r\n}\r\n\r\n.contact-msg-placeholder {\r\n  margin-right: auto;\r\n  width: 45%;\r\n  height: 25px;\r\n  padding: 6px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  #message-form {\r\n    margin-left: 10px;\r\n  }\r\n\r\n  #message-container,\r\n  #message-container-loading {\r\n    height: calc(100vh - 110px);\r\n  }\r\n\r\n  #messages {\r\n    margin-top: 2.5px;\r\n    max-height: calc(100vh - 110px);\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, "#chat-window {\r\n  display: flex;\r\n  flex-direction: column;\r\n  border-left: 1px solid #dcdcdc;\r\n  border-right: 1px solid #dcdcdc;\r\n  min-width: 0;\r\n  height: 100%;\r\n}\r\n\r\n#messages-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  height: calc(100vh - 135px);\r\n}\r\n\r\n#messages-loading {\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n\r\n#messages {\r\n  display: flex;\r\n  flex-direction: column-reverse;\r\n  margin-top: 5px;\r\n  max-height: calc(100vh - 135px);\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n}\r\n\r\n.message-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  width: 100%;\r\n  padding: 3px;\r\n  font-size: 18px;\r\n  align-items: center;\r\n}\r\n\r\n.my-message {\r\n  margin: 0 8px 0 auto;\r\n  border-radius: 15px;\r\n  max-width: 60%;\r\n  padding: 6px 10px 6px 10px;\r\n  background-color: #0099ff;\r\n  word-wrap: break-word;\r\n  color: white;\r\n}\r\n\r\n.contact-message {\r\n  margin: 0 auto 0 4px;\r\n  border-radius: 15px;\r\n  max-width: 60%;\r\n  padding: 6px 10px 6px 10px;\r\n  background-color: #f1f0f0;\r\n  word-wrap: break-word;\r\n}\r\n\r\n#message-form {\r\n  display: flex;\r\n  flex: 1 1 1px;\r\n  margin: 15px 5px 20px 10px;\r\n  min-width: 0;\r\n  max-width: 100%;\r\n}\r\n\r\n#message-form-text-field {\r\n  display: flex;\r\n  padding: 2.5px 2.5px 2.5px 5px;\r\n  border-radius: 5px;\r\n  width: 100%;\r\n  height: 27.5px;\r\n  font-size: 18px;\r\n  align-items: center;\r\n}\r\n\r\n#message-form-img {\r\n  margin: 0 0 2px 2px;\r\n  width: 27px;\r\n  height: 34.5px;\r\n}\r\n\r\n#msg-field-placeholder {\r\n  display: flex;\r\n  width: 95%;\r\n  margin-left: 2px;\r\n  margin-bottom: 2px;\r\n  height: 30px;\r\n}\r\n\r\n.my-msg-placeholder {\r\n  margin: 0 4px 0 auto;\r\n  width: 45%;\r\n  height: 25px;\r\n  padding: 6px;\r\n}\r\n\r\n.contact-msg-placeholder {\r\n  margin-right: auto;\r\n  width: 45%;\r\n  height: 25px;\r\n  padding: 6px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  #message-form {\r\n    margin-left: 10px;\r\n  }\r\n\r\n  #messages-container,\r\n  #messages-container-loading {\r\n    height: calc(100vh - 110px);\r\n  }\r\n\r\n  #messages {\r\n    margin-top: 2.5px;\r\n    max-height: calc(100vh - 110px);\r\n  }\r\n\r\n  #message-form {\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25467,7 +25467,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "#profile-page {\r\n  display: flex;\r\n  flex-direction: column;\r\n  margin-top: 5px;\r\n  align-items: center;\r\n  text-align: center;\r\n}\r\n\r\n.profile-image {\r\n  display: flex;\r\n  width: 225px;\r\n  height: 225px;\r\n  border-radius: 50%;\r\n}\r\n\r\n#profile-name {\r\n  max-width: 90%;\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n#upload-file-container {\r\n  display: flex;\r\n  margin: 4px;\r\n  justify-content: center;\r\n}\r\n\r\n#input-file {\r\n  display: none;\r\n}\r\n\r\n#file-upload-label {\r\n  cursor: pointer;\r\n  display: flex;\r\n  border-radius: 10px;\r\n  width: 190px;\r\n  padding: 5px;\r\n  background-color: #00a8f3;\r\n  align-items: center;\r\n  justify-content: center;\r\n  color: white;\r\n}\r\n\r\n#file-upload-label img {\r\n  margin-top: 1px;\r\n  width: 20px;\r\n  height: 20px;\r\n  padding-right: 4px;\r\n}\r\n\r\n#file-upload-label span {\r\n  margin-top: 1.5px;\r\n  padding-right: 2px;\r\n}\r\n\r\n#profile-about-text-area {\r\n  margin-top: 5px;\r\n  width: 40vw;\r\n  height: 32.5vh;\r\n  padding: 2.5px 0 0 5px;\r\n  border-radius: 10px;\r\n  resize: none;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  \r\n}\r\n\r\n#profile-about-placeholder {\r\n  display: block;\r\n  margin: 0 auto 0 auto;\r\n  width: 40vw;\r\n  height: 32.5vh;\r\n}\r\n\r\n#profile-about-wrapper {\r\n  display: block;\r\n  margin: 2.5px auto 0 auto;\r\n  width: 40vw;\r\n  height: 32.5vh;\r\n  overflow-y: auto;\r\n  text-align: center;\r\n  word-wrap: break-word;\r\n}\r\n\r\n#change-pic-button {\r\n  margin: 7.5px 0 2.5px;\r\n  width: 175px;\r\n  background-color: #00a8f3;\r\n  font-size: 16px;\r\n  color: white;\r\n}\r\n\r\n\r\n@media screen and (max-width: 912px) {\r\n  .profile-image {\r\n    width: 200px;\r\n    height: 200px;\r\n  }\r\n\r\n  #profile-about-placeholder {\r\n    width: 80vw;\r\n  }\r\n\r\n  #profile-about-wrapper {\r\n    width: 80vw;\r\n  }\r\n\r\n  #profile-about-text-area {\r\n    width: 80vw;\r\n  }\r\n}\r\n\r\n@media screen and (max-height: 750px) {\r\n  #profile-about-wrapper {\r\n    height: 22.5vh;\r\n  }\r\n  #profile-about-placeholder {\r\n    height: 22.5vh;\r\n  }\r\n  #profile-about-text-area {\r\n    height: 22.5vh;\r\n  }\r\n}\r\n\r\n\r\n@media screen and (max-height: 625px) {\r\n  #profile-about-wrapper {\r\n    height: 15vh;\r\n  }\r\n  #profile-about-placeholder {\r\n    height: 15vh;\r\n  }\r\n  #profile-about-text-area {\r\n    height: 15vh;\r\n  }\r\n}\r\n\r\n@media screen and (max-height: 500px) {\r\n  .profile-about-wrapper {\r\n    height: 10vh;\r\n  }\r\n  .about-placeholder {\r\n    height: 10vh;\r\n  }\r\n  .about-text-area {\r\n    height: 10vh;\r\n  }\r\n}\r\n\r\n@media screen and (max-height: 550px) {\r\n  .profile-image {\r\n    width: 150px;\r\n    height: 150px;\r\n  }\r\n  #profile-name{\r\n    font-size: 20px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, "#profile-page {\r\n  display: flex;\r\n  flex-direction: column;\r\n  margin-top: 5px;\r\n  align-items: center;\r\n  text-align: center;\r\n}\r\n\r\n#profile-image {\r\n  display: flex;\r\n  width: 225px;\r\n  height: 225px;\r\n  border-radius: 50%;\r\n}\r\n\r\n#profile-name {\r\n  max-width: 90%;\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  text-overflow: ellipsis;\r\n}\r\n\r\n#upload-file-container {\r\n  display: flex;\r\n  margin: 7.5px 0 4px 0;\r\n  justify-content: center;\r\n}\r\n\r\n#input-file {\r\n  display: none;\r\n}\r\n\r\n#file-upload-label {\r\n  cursor: pointer;\r\n  display: flex;\r\n  border-radius: 10px;\r\n  width: 190px;\r\n  padding: 5px;\r\n  background-color: #00a8f3;\r\n  align-items: center;\r\n  justify-content: center;\r\n  color: white;\r\n}\r\n\r\n#file-upload-label img {\r\n  margin-top: 1px;\r\n  width: 20px;\r\n  height: 20px;\r\n  padding-right: 4px;\r\n}\r\n\r\n#file-upload-label span {\r\n  margin-top: 1.5px;\r\n  padding-right: 2px;\r\n}\r\n\r\n#profile-about-text-area {\r\n  margin-top: 5px;\r\n  width: 40vw;\r\n  height: 32.5vh;\r\n  padding: 2.5px 0 0 5px;\r\n  border-radius: 10px;\r\n  resize: none;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  font-size: 16px;\r\n}\r\n\r\n#profile-about-placeholder {\r\n  display: block;\r\n  margin: 0 auto 0 auto;\r\n  width: 40vw;\r\n  height: 32.5vh;\r\n}\r\n\r\n#profile-about-wrapper {\r\n  display: block;\r\n  margin: 2.5px auto 0 auto;\r\n  width: 40vw;\r\n  height: 32.5vh;\r\n  overflow-x: hidden;\r\n  overflow-y: auto;\r\n  text-align: center;\r\n  word-wrap: break-word;\r\n}\r\n\r\n#change-pic-button {\r\n  margin: 7.5px 0 2.5px;\r\n  width: 175px;\r\n  background-color: #00a8f3;\r\n  font-size: 16px;\r\n  color: white;\r\n}\r\n\r\n@media screen and (max-width: 912px) {\r\n  #profile-image {\r\n    width: 200px;\r\n    height: 200px;\r\n  }\r\n\r\n  #profile-about-placeholder {\r\n    width: 80vw;\r\n  }\r\n\r\n  #profile-about-wrapper {\r\n    width: 80vw;\r\n  }\r\n\r\n  #profile-about-text-area {\r\n    width: 80vw;\r\n  }\r\n}\r\n\r\n@media screen and (max-height: 750px) {\r\n  #profile-about-wrapper {\r\n    height: 22.5vh;\r\n  }\r\n  #profile-about-placeholder {\r\n    height: 22.5vh;\r\n  }\r\n  #profile-about-text-area {\r\n    height: 22.5vh;\r\n  }\r\n}\r\n\r\n@media screen and (max-height: 625px) {\r\n  #profile-about-wrapper {\r\n    height: 15vh;\r\n  }\r\n  #profile-about-placeholder {\r\n    height: 15vh;\r\n  }\r\n  #profile-about-text-area {\r\n    height: 15vh;\r\n  }\r\n}\r\n\r\n@media screen and (max-height: 500px) {\r\n  .profile-about-wrapper {\r\n    height: 10vh;\r\n  }\r\n  .about-placeholder {\r\n    height: 10vh;\r\n  }\r\n  .about-text-area {\r\n    height: 10vh;\r\n  }\r\n}\r\n\r\n@media screen and (max-height: 550px) {\r\n  #profile-image {\r\n    width: 150px;\r\n    height: 150px;\r\n  }\r\n  #profile-name {\r\n    font-size: 20px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25503,7 +25503,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "#confirmation {\r\n  margin-top: 7.5%;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  #confirmation {\r\n    margin-top: 0%;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, "#confirmation {\r\n  margin-top: 10px;\r\n}\r\n\r\n\r\n@media screen and (max-width: 768px) {\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25521,7 +25521,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "#signup-link {\r\n  margin-top: 15px;\r\n  color: grey;\r\n}\r\n\r\n#signup-link button {\r\n  border: none;\r\n  padding-left: 0px;\r\n  background-color: white;\r\n  font-size: 15px;\r\n  text-decoration: underline;\r\n  color: grey;\r\n}\r\n\r\n#login-username-field {\r\n  display: inline-block;\r\n  margin: 5px 0 2.5px 0;\r\n  padding: 2.5px 2.5px 2.5px 25px;\r\n  max-width: 70%;\r\n  border-top: none;\r\n  border-right: none;\r\n  border-left: none;\r\n  background-image: url(\"/images/user.png\");\r\n  background-position: 0px 9px;\r\n  background-size: 20px 20px;\r\n  background-repeat: no-repeat;\r\n  font-size: 26px;\r\n}\r\n\r\n#login-password-field {\r\n  display: inline-block;\r\n  margin-bottom: 5px;\r\n  max-width: 70%;\r\n  padding: 2.5px 2.5px 2.5px 25px;\r\n  border-top: none;\r\n  border-right: none;\r\n  border-left: none;\r\n  background-image: url(\"/images/password.png\");\r\n  background-position: 0px 10px;\r\n  background-size: 20px 20px;\r\n  background-repeat: no-repeat;\r\n  font-size: 26px;\r\n}\r\n\r\n.forgot-button {\r\n  margin-top: 15px;\r\n  border: none;\r\n  background-color: white;\r\n  text-decoration: underline;\r\n  color: grey;\r\n}\r\n\r\n#login-button {\r\n  margin-top: 15px;\r\n  background-color: #00a8f3;\r\n  width: 120px;\r\n  font-size: 16px;\r\n  color: white;\r\n}\r\n\r\n#login-button:hover,\r\n#verify-button:hover {\r\n  border-color: darkblue;\r\n  background-color: darkblue;\r\n}\r\n\r\n#verify-button {\r\n  margin-top: 15px;\r\n  width: 130px;\r\n  background-color: #00a8f3;\r\n  font-size: 16px;\r\n  color: white;\r\n}\r\n\r\n#logo-container {\r\n  margin-top: 20px;\r\n}\r\n\r\n#logo-container img {\r\n  width: 40px;\r\n  height: 40px;\r\n}\r\n\r\n#linkedIn-logo {\r\n  margin-right: 2.5px;\r\n}\r\n\r\n#gitHub-logo {\r\n  margin-left: 2.5px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .login-page-sign-up-container {\r\n    margin-top: 5px;\r\n  }\r\n\r\n  #signup-link {\r\n    margin-top: 2.5px;\r\n  }\r\n\r\n  #login-username-field {\r\n    margin-top: 0px;\r\n    background-position: 0px 6px;\r\n    font-size: 20px;\r\n  }\r\n  #login-password-field {\r\n    margin-top: 0px;\r\n    background-position: 0px 8px;\r\n    font-size: 20px;\r\n  }\r\n\r\n  .forgot-button {\r\n    display: block;\r\n    margin-top: 2.5px;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n  }\r\n\r\n  #login-button {\r\n    margin-top: 10px;\r\n    font-size: 16px;\r\n  }\r\n\r\n  #verify-button {\r\n    margin-top: 7.5px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, "#signup-link {\r\n  margin-top: 15px;\r\n  color: grey;\r\n}\r\n\r\n#signup-link button {\r\n  border: none;\r\n  padding-left: 0px;\r\n  background-color: white;\r\n  font-size: 15px;\r\n  text-decoration: underline;\r\n  color: grey;\r\n}\r\n\r\n#login-username-field {\r\n  display: inline-block;\r\n  margin: 5px 0 2.5px 0;\r\n  padding: 2.5px 2.5px 2.5px 25px;\r\n  max-width: 70%;\r\n  border-top: none;\r\n  border-right: none;\r\n  border-left: none;\r\n  background-image: url(\"/images/user.png\");\r\n  background-position: 0px 9px;\r\n  background-size: 20px 20px;\r\n  background-repeat: no-repeat;\r\n  font-size: 26px;\r\n}\r\n\r\n#login-password-field {\r\n  display: inline-block;\r\n  margin-bottom: 5px;\r\n  max-width: 70%;\r\n  padding: 2.5px 2.5px 2.5px 25px;\r\n  border-top: none;\r\n  border-right: none;\r\n  border-left: none;\r\n  background-image: url(\"/images/password.png\");\r\n  background-position: 0px 10px;\r\n  background-size: 20px 20px;\r\n  background-repeat: no-repeat;\r\n  font-size: 26px;\r\n}\r\n\r\n.forgot-button {\r\n  margin-top: 15px;\r\n  border: none;\r\n  background-color: white;\r\n  text-decoration: underline;\r\n  color: grey;\r\n}\r\n\r\n#login-button {\r\n  margin-top: 15px;\r\n  background-color: #00a8f3;\r\n  width: 120px;\r\n  font-size: 16px;\r\n  color: white;\r\n}\r\n\r\n#login-button:hover,\r\n#verify-button:hover {\r\n  border-color: darkblue;\r\n  background-color: darkblue;\r\n}\r\n\r\n#verify-button {\r\n  margin-top: 10px;\r\n  width: 130px;\r\n  background-color: #00a8f3;\r\n  font-size: 16px;\r\n  color: white;\r\n}\r\n\r\n#logo-container {\r\n  margin-top: 20px;\r\n}\r\n\r\n#logo-container img {\r\n  width: 40px;\r\n  height: 40px;\r\n}\r\n\r\n#linkedIn-logo {\r\n  margin-right: 2.5px;\r\n}\r\n\r\n#gitHub-logo {\r\n  margin-left: 2.5px;\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  .login-page-sign-up-container {\r\n    margin-top: 5px;\r\n  }\r\n\r\n  #signup-link {\r\n    margin-top: 2.5px;\r\n  }\r\n\r\n  #login-username-field {\r\n    margin-top: 0px;\r\n    background-position: 0px 6px;\r\n    font-size: 20px;\r\n  }\r\n  #login-password-field {\r\n    margin-top: 0px;\r\n    background-position: 0px 8px;\r\n    font-size: 20px;\r\n  }\r\n\r\n  .forgot-button {\r\n    display: block;\r\n    margin-top: 2.5px;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n  }\r\n\r\n  #login-button {\r\n    margin-top: 10px;\r\n    font-size: 16px;\r\n  }\r\n\r\n  #verify-button {\r\n    margin-top: 7.5px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -25539,7 +25539,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "#login-page {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n#login-page-container {\r\n  display: grid;\r\n  grid-template-columns: 40% 60%;\r\n  margin-top: 7.5vh;\r\n  width: 60vw;\r\n  border-radius: 15px;\r\n  background-color: white;\r\n  text-align: center;\r\n}\r\n\r\n#login-page-container h1 {\r\n  font-size: 40px;\r\n}\r\n\r\n#login-page-info {\r\n  border-top-left-radius: 15px;\r\n  border-bottom-left-radius: 15px;\r\n  padding: 10px 10px 40px 10px;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n}\r\n\r\n#login-page-info h1 {\r\n  margin: 10px 0 10px 0;\r\n}\r\n\r\n#login-page-info p {\r\n  margin-top: 60px;\r\n}\r\n\r\n#login-page-content {\r\n  margin-top: 10px;\r\n  padding: 10px 10px 20px 10px;\r\n}\r\n\r\n.login-page-form {\r\n  margin-top: 15px;\r\n  text-align: center;\r\n}\r\n\r\n.login-page-input {\r\n  display: inline-block;\r\n  border-top: none;\r\n  border-right: none;\r\n  border-left: none;\r\n  padding: 2.5px;\r\n  font-size: 22px;\r\n}\r\n\r\n.login-page-back-button {\r\n  margin: 10px 7px 0 0;\r\n  width: 130px;\r\n  padding: 0 5px 0 5px;\r\n  border-color: #f1f0f0;\r\n  background-color: #f1f0f0;\r\n  font-size: 16px;\r\n  text-decoration: none;\r\n  color: #696969;\r\n}\r\n\r\n.login-page-submit-button {\r\n  margin-top: 10px;\r\n  width: 80px;\r\n  padding: 0 5px 0 5px;\r\n  background-color: #00a8f3;\r\n  font-size: 16px;\r\n  color: white;\r\n}\r\n\r\n.login-page-submit-button:hover {\r\n  border-color: darkblue;\r\n  background-color: darkblue;\r\n}\r\n\r\n@media (max-width: 912px) {\r\n  #login-page-content p {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .login-front-page-form {\r\n    font-size: 16px;\r\n  }\r\n  \r\n  .login-page-back-button {\r\n    display: block;\r\n    margin: 5px auto 0 auto;\r\n  }\r\n\r\n  .login-page-submit-button {\r\n    display: block;\r\n    margin: 7.5px auto 0 auto;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  #login-page-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin-top: 7.5%;\r\n    width: 80vw;\r\n  }\r\n\r\n  #login-page-container h1 {\r\n    font-size: 32px;\r\n  }\r\n\r\n  #login-page-container h3 {\r\n    margin-top: 0px;\r\n  }\r\n\r\n  #login-page-info {\r\n    border-top-right-radius: 15px;\r\n    border-top-left-radius: 15px;\r\n    border-bottom-left-radius: 0px;\r\n    padding-top: 2.5px;\r\n    padding-bottom: 5px;\r\n  }\r\n  #login-page-info p {\r\n    margin-top: 2.5px;\r\n  }\r\n\r\n  #login-page-content {\r\n    margin-top: 2.5px;\r\n    padding: 5px;\r\n    padding-bottom: 10px;\r\n  }\r\n\r\n  .login-page-content p {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .login-page-form {\r\n    margin-top: 0px;\r\n  }\r\n\r\n  .login-page-input {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .login-page-back-button {\r\n    display: block;\r\n    margin-top: 5px;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n  }\r\n\r\n  .login-page-submit-button {\r\n    display: block;\r\n    margin-top: 7.5px;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, "#login-page {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n#login-page-container {\r\n  display: grid;\r\n  grid-template-columns: 40% 60%;\r\n  margin-top: 7.5vh;\r\n  width: 60vw;\r\n  border-radius: 15px;\r\n  background-color: white;\r\n  text-align: center;\r\n}\r\n\r\n#login-page-container h1 {\r\n  font-size: 40px;\r\n}\r\n\r\n#login-page-info {\r\n  border-top-left-radius: 15px;\r\n  border-bottom-left-radius: 15px;\r\n  padding: 10px 10px 40px 10px;\r\n  background-color: #00a8f3;\r\n  color: white;\r\n}\r\n\r\n#login-page-info h1 {\r\n  margin: 10px 0 10px 0;\r\n}\r\n\r\n#login-page-info p {\r\n  margin-top: 60px;\r\n}\r\n\r\n#login-page-content {\r\n  margin-top: 10px;\r\n  padding: 10px 10px 20px 10px;\r\n}\r\n\r\n.login-page-form {\r\n  margin-top: 15px;\r\n  text-align: center;\r\n}\r\n\r\n.login-page-input {\r\n  display: inline-block;\r\n  border-top: none;\r\n  border-right: none;\r\n  border-left: none;\r\n  padding: 2.5px;\r\n  font-size: 22px;\r\n}\r\n\r\n.login-page-back-button {\r\n  margin: 15px 7px 0 0;\r\n  width: 130px;\r\n  padding: 0 5px 0 5px;\r\n  border-color: #f1f0f0;\r\n  background-color: #f1f0f0;\r\n  font-size: 16px;\r\n  text-decoration: none;\r\n  color: #696969;\r\n}\r\n\r\n.login-page-submit-button {\r\n  margin-top: 15px;\r\n  width: 80px;\r\n  padding: 0 5px 0 5px;\r\n  background-color: #00a8f3;\r\n  font-size: 16px;\r\n  color: white;\r\n}\r\n\r\n.login-page-submit-button:hover {\r\n  border-color: darkblue;\r\n  background-color: darkblue;\r\n}\r\n\r\n@media (max-width: 912px) {\r\n  #login-page-content p {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .login-front-page-form {\r\n    font-size: 16px;\r\n  }\r\n  \r\n  .login-page-back-button {\r\n    display: block;\r\n    margin: 5px auto 0 auto;\r\n  }\r\n\r\n  .login-page-submit-button {\r\n    display: block;\r\n    margin: 7.5px auto 0 auto;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 768px) {\r\n  #login-page-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    margin-top: 7.5%;\r\n    width: 80vw;\r\n  }\r\n\r\n  #login-page-container h1 {\r\n    font-size: 32px;\r\n  }\r\n\r\n  #login-page-container h3 {\r\n    margin-top: 0px;\r\n  }\r\n\r\n  #login-page-info {\r\n    border-top-right-radius: 15px;\r\n    border-top-left-radius: 15px;\r\n    border-bottom-left-radius: 0px;\r\n    padding-top: 2.5px;\r\n    padding-bottom: 5px;\r\n  }\r\n  #login-page-info p {\r\n    margin-top: 2.5px;\r\n  }\r\n\r\n  #login-page-content {\r\n    margin-top: 2.5px;\r\n    padding: 5px;\r\n    padding-bottom: 10px;\r\n  }\r\n\r\n  .login-page-content p {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .login-page-form {\r\n    margin-top: 0px;\r\n  }\r\n\r\n  .login-page-input {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .login-page-back-button {\r\n    display: block;\r\n    margin-top: 7.5px;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n  }\r\n\r\n  .login-page-submit-button {\r\n    display: block;\r\n    margin-top: 7.5px;\r\n    margin-right: auto;\r\n    margin-left: auto;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -88116,7 +88116,7 @@ var About = function About(props) {
   }, props.windowWidth <= 768 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     id: "mobile-nav-about-back-img",
     onClick: function onClick() {
-      props.setMobileDisplay("messages");
+      props.setMobileDisplay("chatWindow");
     },
     src: "images/back.png"
   }) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -88199,7 +88199,7 @@ var ChatContainer = function ChatContainer(props) {
       userLoading = _useState10[0],
       setUserLoading = _useState10[1];
 
-  var getConvoQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(GraphqlDocuments_conversationDocs__WEBPACK_IMPORTED_MODULE_3__["GET_CONVERSATIONS"], {
+  var getConvosQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(GraphqlDocuments_conversationDocs__WEBPACK_IMPORTED_MODULE_3__["GET_CONVERSATIONS"], {
     variables: {
       _id: props.userInfo._id
     }
@@ -88216,15 +88216,15 @@ var ChatContainer = function ChatContainer(props) {
     }
   }, [paramId]);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    if (!getConvoQuery.loading) {
-      if (getConvoQuery.data.getConversations.length > 0 && paramId === undefined) {
-        var contactId = getConvoQuery.data.getConversations[0].members[0]._id != props.userInfo._id ? getConvoQuery.data.getConversations[0].members[0]._id : getConvoQuery.data.getConversations[0].members[1]._id;
+    if (!getConvosQuery.loading) {
+      if (getConvosQuery.data.getConversations.length > 0 && paramId === undefined) {
+        var contactId = getConvosQuery.data.getConversations[0].members[0]._id != props.userInfo._id ? getConvosQuery.data.getConversations[0].members[0]._id : getConvosQuery.data.getConversations[0].members[1]._id;
         setCurrentChat(contactId);
-        setCurrentConvo(getConvoQuery.data.getConversations[0]._id);
+        setCurrentConvo(getConvosQuery.data.getConversations[0]._id);
         browserHistory.replace("/home/messages/".concat(contactId));
       } else if (paramId != undefined) {
         setCurrentChat(paramId);
-        var userInConvoHistory = getConvoQuery.data.getConversations.filter(function (convo) {
+        var userInConvoHistory = getConvosQuery.data.getConversations.filter(function (convo) {
           return convo.members.filter(function (member) {
             return member._id === paramId;
           }).length > 0;
@@ -88232,12 +88232,12 @@ var ChatContainer = function ChatContainer(props) {
         setCurrentConvo(userInConvoHistory.length > 0 ? userInConvoHistory[0]._id : null);
       }
     }
-  }, [getConvoQuery, paramId]);
+  }, [getConvosQuery, paramId]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "chat-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Search__WEBPACK_IMPORTED_MODULE_4__["default"], {
     userInfo: props.userInfo,
-    getConvoQuery: getConvoQuery,
+    getConvosQuery: getConvosQuery,
     currentConvo: currentConvo,
     windowWidth: props.windowWidth,
     mobileDisplay: mobileDisplay,
@@ -88245,7 +88245,7 @@ var ChatContainer = function ChatContainer(props) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ChatDisplay__WEBPACK_IMPORTED_MODULE_5__["default"], {
     userInfo: props.userInfo,
     currentChat: currentChat,
-    convoHistory: getConvoQuery,
+    getConvosQuery: getConvosQuery,
     currentConvo: currentConvo,
     setCurrentConvo: setCurrentConvo,
     windowWidth: props.windowWidth,
@@ -88339,16 +88339,10 @@ var ChatDisplay = function ChatDisplay(props) {
   var _useMutation3 = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useMutation"])(GraphqlDocuments_messageDocs__WEBPACK_IMPORTED_MODULE_4__["READ_MESSAGE"], {
     update: function update(store, _ref) {
       var data = _ref.data;
-      var convoCache = store.readQuery({
-        query: GraphqlDocuments_conversationDocs__WEBPACK_IMPORTED_MODULE_5__["GET_CONVERSATIONS"],
-        variables: {
-          _id: props.userInfo._id
-        }
-      });
 
-      var copy = _toConsumableArray(convoCache.getConversations);
+      var copy = _toConsumableArray(props.getConvosQuery.data.getConversations);
 
-      copy = copy.map(function (convo) {
+      var newConvos = copy.map(function (convo) {
         return convo._id === data.readMessage ? _objectSpread({}, convo, {
           unread: false
         }) : convo;
@@ -88359,7 +88353,7 @@ var ChatDisplay = function ChatDisplay(props) {
           _id: props.userInfo._id
         },
         data: {
-          getConversations: copy
+          getConversations: newConvos
         }
       });
     }
@@ -88372,14 +88366,15 @@ var ChatDisplay = function ChatDisplay(props) {
       senderID: props.userInfo._id,
       receiverID: props.currentChat
     },
-    skip: props.convoHistory.loading
+    fetchPolicy: "cache-and-network",
+    skip: props.getConvosQuery.loading
   });
   var getUser = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_2__["useQuery"])(GraphqlDocuments_userDocs__WEBPACK_IMPORTED_MODULE_3__["GET_USER"], {
     variables: {
       _id: props.currentChat,
       myID: props.userInfo._id
     },
-    skip: !props.currentChat || props.convoHistory.loading,
+    skip: !props.currentChat || props.getConvosQuery.loading,
     onCompleted: function onCompleted(data) {
       if (!data.getUser) {
         props.setBadUserID(true);
@@ -88410,14 +88405,7 @@ var ChatDisplay = function ChatDisplay(props) {
       var newMsgArray = [];
 
       if (getMessages.data.getMessages) {
-        var msgStore = apolloClient.readQuery({
-          query: GraphqlDocuments_messageDocs__WEBPACK_IMPORTED_MODULE_4__["GET_MESSAGES"],
-          variables: {
-            senderID: props.userInfo._id,
-            receiverID: props.currentChat
-          }
-        });
-        newMsgArray = _toConsumableArray(msgStore.getMessages);
+        newMsgArray = _toConsumableArray(getMessages.data.getMessages);
       }
 
       var scrollToBottom = false;
@@ -88449,7 +88437,7 @@ var ChatDisplay = function ChatDisplay(props) {
 
   var updateConvoCache = /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(convo) {
-      var messages, convoStore, copy;
+      var messages, copy;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -88457,7 +88445,7 @@ var ChatDisplay = function ChatDisplay(props) {
               if (!(convo.members.filter(function (member) {
                 return member._id === props.userInfo._id;
               }).length != 0)) {
-                _context.next = 12;
+                _context.next = 11;
                 break;
               }
 
@@ -88478,13 +88466,7 @@ var ChatDisplay = function ChatDisplay(props) {
               });
 
             case 7:
-              convoStore = apolloClient.readQuery({
-                query: GraphqlDocuments_conversationDocs__WEBPACK_IMPORTED_MODULE_5__["GET_CONVERSATIONS"],
-                variables: {
-                  _id: props.userInfo._id
-                }
-              });
-              copy = _toConsumableArray(convoStore.getConversations);
+              copy = _toConsumableArray(props.getConvosQuery.data.getConversations);
               copy = copy.filter(function (x) {
                 return x._id != convo._id;
               });
@@ -88499,7 +88481,7 @@ var ChatDisplay = function ChatDisplay(props) {
                 }
               });
 
-            case 12:
+            case 11:
             case "end":
               return _context.stop();
           }
@@ -88562,7 +88544,7 @@ var ChatDisplay = function ChatDisplay(props) {
           switch (_context3.prev = _context3.next) {
             case 0:
               event.preventDefault();
-              currentChatID = props.convoHistory.data.getConversations.filter(function (convo) {
+              currentChatID = props.getConvosQuery.data.getConversations.filter(function (convo) {
                 return convo._id === props.currentConvo;
               });
 
@@ -88596,7 +88578,7 @@ var ChatDisplay = function ChatDisplay(props) {
     };
   }();
 
-  var chat = function chat() {
+  var chatWindow = function chatWindow() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       id: "chat-window"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Messages__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -88610,6 +88592,7 @@ var ChatDisplay = function ChatDisplay(props) {
       setFromAbout: setFromAbout
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       id: "message-form",
+      autoComplete: "off",
       onSubmit: sendMessageEvent
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       id: "message-form-text-field",
@@ -88630,9 +88613,9 @@ var ChatDisplay = function ChatDisplay(props) {
   }, props.badUserID && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
     to: "/home/messages"
   }), props.userLoading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_placeholders_ChatDisplayPlaceholder__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    convoHistory: props.convoHistory,
+    getConvosQuery: props.getConvosQuery,
     windowWidth: props.windowWidth
-  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, (props.windowWidth > 768 || props.mobileDisplay === "messages") && chat(), (props.windowWidth > 768 || props.mobileDisplay === "about") && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_About__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, (props.windowWidth > 768 || props.mobileDisplay === "chatWindow") && chatWindow(), (props.windowWidth > 768 || props.mobileDisplay === "about") && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_About__WEBPACK_IMPORTED_MODULE_9__["default"], {
     getUser: getUser,
     setMobileDisplay: props.setMobileDisplay,
     windowWidth: props.windowWidth,
@@ -88665,7 +88648,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var History = function History(props) {
-  if (props.convoHistory.loading) {
+  if (props.getConvosQuery.loading) {
     var arr = [];
 
     for (var i = 0; i < 11; i++) {
@@ -88695,25 +88678,25 @@ var History = function History(props) {
   }
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    var unreadMsgs = props.convoHistory.data.getConversations.filter(function (convo) {
+    var unreadMsgs = props.getConvosQuery.data.getConversations.filter(function (convo) {
       return convo.unread && convo.lastSender != props.userInfo._id;
     }).length;
     document.title = unreadMsgs > 0 ? "(".concat(unreadMsgs, ") Unread Messages | MyChat") : "MyChat";
-  }, [props.convoHistory]);
-  return props.convoHistory.data.getConversations.length > 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, [props.getConvosQuery]);
+  return props.getConvosQuery.data.getConversations.length > 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "history-container"
-  }, props.convoHistory.data.getConversations.map(function (convo) {
+  }, props.getConvosQuery.data.getConversations.map(function (convo) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: convo._id,
       className: convo.unread && convo.lastSender != props.userInfo._id ? "bold-text" : null,
       onClick: function onClick() {
         if (props.windowWidth <= 768) {
-          props.setMobileDisplay("messages");
+          props.setMobileDisplay("chatWindow");
         }
       }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: convo._id,
-      className: convo._id === props.currentConvo ? "current-conversation" : "conversation"
+      className: convo._id === props.currentConvo && props.windowWidth > 768 ? "current-conversation" : "conversation"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
       exact: true,
       to: "/home/messages/".concat(convo.members[0]._id != props.userInfo._id ? convo.members[0]._id : convo.members[1]._id),
@@ -88783,9 +88766,9 @@ var ChatMessage = function ChatMessage(props) {
 
   if (!props.getUser.data.getUser) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "message-container"
+      id: "messages-container"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "message-container-loading"
+      id: "messages-loading"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       className: "loading",
       src: "gifs/loading.gif"
@@ -88793,7 +88776,7 @@ var ChatMessage = function ChatMessage(props) {
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "message-container"
+    id: "messages-container"
   }, props.windowWidth <= 768 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MobileNav__WEBPACK_IMPORTED_MODULE_2__["default"], {
     setMobileDisplay: props.setMobileDisplay,
     getMessages: props.getMessages,
@@ -88801,7 +88784,7 @@ var ChatMessage = function ChatMessage(props) {
     fromAbout: props.fromAbout,
     setFromAbout: props.setFromAbout
   }) : null, props.getMessages.loading || props.getUser.loading || showLoading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "message-container-loading"
+    id: "messages-loading"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "loading",
     src: "gifs/loading.gif"
@@ -88884,7 +88867,7 @@ var MobileNav = function MobileNav(props) {
     id: "mobile-nav-user-placeholder-img",
     src: "images/contentPlaceholder.png"
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "mobile-nav-user-name"
+    id: "mobile-nav-name"
   }, props.getUser.data.getUser.fullName)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     id: "mobile-nav-info-img",
     onClick: function onClick() {
@@ -88968,7 +88951,7 @@ var Search = function Search(props) {
   };
 
   var chatSearchResults = function chatSearchResults() {
-    if (searchResult.length === 0 || props.getConvoQuery.loading) {
+    if (searchResult.length === 0 || props.getConvosQuery.loading) {
       return null;
     }
 
@@ -89013,10 +88996,11 @@ var Search = function Search(props) {
     id: "search-bar",
     value: searchField.value,
     placeholder: "Search MyChat...",
+    autoComplete: "off",
     onChange: searchContact
   })), searchActive && chatSearchResults(), !searchActive && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_History__WEBPACK_IMPORTED_MODULE_5__["default"], {
     userInfo: props.userInfo,
-    convoHistory: props.getConvoQuery,
+    getConvosQuery: props.getConvosQuery,
     currentConvo: props.currentConvo,
     windowWidth: props.windowWidth,
     setMobileDisplay: props.setMobileDisplay
@@ -89082,11 +89066,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ChatDisplayPlaceholder = function ChatDisplayPlaceholder(props) {
-  if (props.convoHistory.loading) {
+  if (props.getConvosQuery.loading) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MessagesPlaceholder__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AboutPlaceholder__WEBPACK_IMPORTED_MODULE_2__["default"], null));
   }
 
-  return props.convoHistory.data.getConversations.length === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DefaultChat__WEBPACK_IMPORTED_MODULE_3__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MessagesPlaceholder__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AboutPlaceholder__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+  return props.getConvosQuery.data.getConversations.length === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DefaultChat__WEBPACK_IMPORTED_MODULE_3__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MessagesPlaceholder__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AboutPlaceholder__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ChatDisplayPlaceholder);
@@ -89151,7 +89135,7 @@ var MessagesPlaceholder = function MessagesPlaceholder() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "chat-window"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "message-container"
+    id: "messages-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "messages"
   }, arr.map(function (element) {
@@ -89259,7 +89243,8 @@ var EditAbout = function EditAbout(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
     id: "profile-about-text-area",
     value: props.aboutField.value,
-    onChange: props.aboutField.onChange
+    onChange: props.aboutField.onChange,
+    autoComplete: "off"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "change-button",
     type: "submit"
@@ -89414,7 +89399,7 @@ var EditPicture = function EditPicture(props) {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, uploadError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "error"
-  }, uploadError) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, uploadError) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " For best results, upload 1:1 ratio photos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "upload-file-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "file",
@@ -89636,9 +89621,6 @@ var EditName = function EditName(props) {
                   fullName: "".concat(firstName, " ").concat(lastName)
                 }));
                 setSuccess(true);
-                setTimeout(function () {
-                  setSuccess(false);
-                }, 2000);
               }
 
             case 9:
@@ -89656,6 +89638,7 @@ var EditName = function EditName(props) {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: "settings-form",
+    autoComplete: "off",
     onSubmit: submitNameForm
   }, success ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "success"
@@ -89780,9 +89763,6 @@ var EditPassword = function EditPassword(props) {
                 newPasswordField.clear();
                 newPasswordConfirmField.clear();
                 setSuccess(true);
-                setTimeout(function () {
-                  setSuccess(false);
-                }, 2000);
               }
 
             case 11:
@@ -89931,9 +89911,6 @@ var EditUsername = function EditUsername(props) {
                   username: username
                 }));
                 setSuccess(true);
-                setTimeout(function () {
-                  setSuccess(false);
-                }, 2000);
               }
 
             case 8:
@@ -89951,6 +89928,7 @@ var EditUsername = function EditUsername(props) {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: "settings-form",
+    autoComplete: "off",
     onSubmit: submitUserForm
   }, success ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "success"
@@ -90352,6 +90330,7 @@ var Forgot = function Forgot(props) {
       className: "error"
     }, queryResult) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       className: "login-page-form",
+      autoComplete: "off",
       onSubmit: forgotSubmit
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       className: "login-page-input",
@@ -90506,6 +90485,7 @@ var Login = function Login(props) {
     className: "error"
   }, error) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: "login-page-form",
+    autoComplete: "off",
     onSubmit: submitLoginForm
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     id: "login-username-field",
@@ -90642,8 +90622,8 @@ var LoginPage = function LoginPage(props) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Login__WEBPACK_IMPORTED_MODULE_2__["default"], {
         login: props.loginQuery,
         setLoginData: props.setLoginData,
-        setVerifyUser: setUserToVerify,
-        setVerifyEmail: setEmailToVerify,
+        setUserToVerify: setUserToVerify,
+        setEmailToVerify: setEmailToVerify,
         setFromLogin: setFromLogin
       });
     }
@@ -90815,7 +90795,8 @@ var Signup = function Signup(props) {
       }, error);
     }) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       className: "login-page-form",
-      onSubmit: signup
+      onSubmit: signup,
+      autoComplete: "off"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       className: "login-page-input",
       placeholder: "First Name",
@@ -90869,33 +90850,6 @@ var Signup = function Signup(props) {
     }, "Signup")))));
   };
 
-  var signUpVerify = function signUpVerify() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, !props.userToVerify && !usernameField.value && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Redirect"], {
-      to: "/"
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Thanks for signing up your username is: ".concat(props.userToVerifyUser ? props.userToVerify : usernameField.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "verify-info-container"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Please check your email at ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "bold-text"
-    }, props.emailToVerify ? props.emailToVerify : emailField.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "If you leave this page, you can verify your email upon logging in.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-      className: "login-page-form",
-      onSubmit: verifyEmailEvent
-    }, errors.length > 0 ? errors.map(function (error) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        key: error,
-        className: "error"
-      }, error);
-    }) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      className: "login-page-input",
-      placeholder: "Confirmation Code",
-      type: "text",
-      value: verificationCodeField.value,
-      onChange: verificationCodeField.onChange
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      id: "verify-code-button",
-      type: "submit"
-    }, "Confirm"))));
-  };
-
   var verifyEmailEvent = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(event) {
       var verificationCode, email, addUserResult;
@@ -90935,6 +90889,34 @@ var Signup = function Signup(props) {
       return _ref2.apply(this, arguments);
     };
   }();
+
+  var signUpVerify = function signUpVerify() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, !props.userToVerify && !usernameField.value && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Redirect"], {
+      to: "/"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Thanks for signing up your username is: ".concat(props.userToVerifyUser ? props.userToVerify : usernameField.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "verify-info-container"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Please check your email at ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "bold-text"
+    }, props.emailToVerify ? props.emailToVerify : emailField.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "If you leave this page, you can verify your email upon logging in.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      className: "login-page-form",
+      autoComplete: "off",
+      onSubmit: verifyEmailEvent
+    }, errors.length > 0 ? errors.map(function (error) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        key: error,
+        className: "error"
+      }, error);
+    }) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      className: "login-page-input",
+      placeholder: "Confirmation Code",
+      type: "text",
+      value: verificationCodeField.value,
+      onChange: verificationCodeField.onChange
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      id: "verify-code-button",
+      type: "submit"
+    }, "Confirm"))));
+  };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "sign-up-content"
@@ -91296,7 +91278,7 @@ var domainName = window.location.hostname; // If running locally use `ws:// ${do
 
 var port = 4000;
 var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_5__["WebSocketLink"]({
-  uri: "ws://".concat(domainName, ":").concat(port, "/graphql"),
+  uri: "wss://".concat(domainName, "/graphql"),
   options: {
     reconnect: true,
     lazy: true
@@ -91369,8 +91351,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var adjustTime = function adjustTime(timeStamp, showTimeOfDay) {
-  var date = new Date(parseInt(timeStamp)); //Week, year
-
+  var date = new Date(parseInt(timeStamp));
   var localTime = date.toLocaleTimeString();
   var timeToShow;
   timeToShow = "".concat(localTime.slice(0, localTime.indexOf(":") + 3), " ").concat(localTime.slice(-2)); // Different day

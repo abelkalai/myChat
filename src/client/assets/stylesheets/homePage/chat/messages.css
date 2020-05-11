@@ -7,13 +7,13 @@
   height: 100%;
 }
 
-#message-container {
+#messages-container {
   display: flex;
   flex-direction: column;
   height: calc(100vh - 135px);
 }
 
-#message-container-loading {
+#messages-loading {
   display: flex;
   flex: 1 1 1px;
   justify-content: center;
@@ -108,13 +108,18 @@
     margin-left: 10px;
   }
 
-  #message-container,
-  #message-container-loading {
+  #messages-container,
+  #messages-container-loading {
     height: calc(100vh - 110px);
   }
 
   #messages {
     margin-top: 2.5px;
     max-height: calc(100vh - 110px);
+  }
+
+  #message-form {
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }

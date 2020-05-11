@@ -4,14 +4,14 @@ import adjustTime from "Utilities/adjustTime";
 import "HomePageStylesheets/chat/history.css";
 
 const History = (props) => {
-  if (props.convoHistory.loading) {
+  if (props.getConvosQuery.loading) {
     const arr = [];
     for (let i = 0; i < 11; i++) {
       arr.push(
         <div key={`Hist${i}`}>
           <div className="conversation">
             <img
-                className="history-user-img"
+              className="history-user-img"
               src="images/profilePlaceholder.png"
             />
             <div className="history-text-container">
@@ -32,17 +32,17 @@ const History = (props) => {
     return <div id="history-container">{arr.map((element) => element)}</div>;
   }
   useEffect(() => {
-    let unreadMsgs = props.convoHistory.data.getConversations.filter(
+    let unreadMsgs = props.getConvosQuery.data.getConversations.filter(
       (convo) => convo.unread && convo.lastSender != props.userInfo._id
     ).length;
 
     document.title =
       unreadMsgs > 0 ? `(${unreadMsgs}) Unread Messages | MyChat` : "MyChat";
-  }, [props.convoHistory]);
+  }, [props.getConvosQuery]);
 
-  return props.convoHistory.data.getConversations.length > 0 ? (
+  return props.getConvosQuery.data.getConversations.length > 0 ? (
     <div id="history-container">
-      {props.convoHistory.data.getConversations.map((convo) => (
+      {props.getConvosQuery.data.getConversations.map((convo) => (
         <div
           key={convo._id}
           className={
@@ -52,14 +52,14 @@ const History = (props) => {
           }
           onClick={() => {
             if (props.windowWidth <= 768) {
-              props.setMobileDisplay("messages");
+              props.setMobileDisplay("chatWindow");
             }
           }}
         >
           <div
             key={convo._id}
             className={
-              convo._id === props.currentConvo
+              convo._id === props.currentConvo && props.windowWidth > 768
                 ? "current-conversation"
                 : "conversation"
             }

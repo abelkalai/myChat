@@ -51,7 +51,7 @@ const apolloServer = new ApolloServer({
 
 const app = express();
 app.use(cors());
-
+app.use(express.json({limit: '50mb'}));
 const path = require("path");
 
 /* Enable Path Shortcuts*/

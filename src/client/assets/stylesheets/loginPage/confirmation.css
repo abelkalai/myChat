@@ -1,9 +1,7 @@
 #confirmation {
-  margin-top: 7.5%;
+  margin-top: 10px;
 }
 
+
 @media screen and (max-width: 768px) {
-  #confirmation {
-    margin-top: 0%;
-  }
 }

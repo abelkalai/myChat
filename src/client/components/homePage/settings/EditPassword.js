@@ -28,7 +28,6 @@ const EditPassword = (props) => {
       newPasswordField.clear();
       newPasswordConfirmField.clear();
       setSuccess(true);
-      setTimeout(()=>{setSuccess(false)},2000)
     }
   };
 

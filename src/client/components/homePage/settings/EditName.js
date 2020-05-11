@@ -27,15 +27,16 @@ const EditName = (props) => {
         fullName: `${firstName} ${lastName}`,
       });
       setSuccess(true);
-      setTimeout(()=>{setSuccess(false)},2000)
     }
   };
 
   return (
-    <form className="settings-form" onSubmit={submitNameForm}>
-      {success ? (
-        <div className="success">Name Change Successful!</div>
-      ) : null}
+    <form
+      className="settings-form"
+      autoComplete="off"
+      onSubmit={submitNameForm}
+    >
+      {success ? <div className="success">Name Change Successful!</div> : null}
       {errors.length > 0
         ? errors.map((error) => (
             <div key={error}>

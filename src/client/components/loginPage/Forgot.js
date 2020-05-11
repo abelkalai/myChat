@@ -23,7 +23,11 @@ const Forgot = (props) => {
         <h1> Forgot {props.type}</h1>
         {queryResult ? <h2 className="error">{queryResult}</h2> : null}
         <div>
-          <form className="login-page-form" onSubmit={forgotSubmit}>
+          <form
+            className="login-page-form"
+            autoComplete="off"
+            onSubmit={forgotSubmit}
+          >
             <div>
               <input
                 className="login-page-input"
@@ -52,8 +56,8 @@ const Forgot = (props) => {
 
   const forgotSubmit = (event) => {
     event.preventDefault();
-    let email = emailField.value;
-    let type = props.type;
+    const email = emailField.value;
+    const type = props.type;
     forgotCredential({ variables: { email, type } });
   };
 

@@ -12,7 +12,7 @@ const ChatContainer = (props) => {
   const [mobileDisplay, setMobileDisplay] = useState("search");
   const [badUserID, setBadUserID] = useState(false);
   const [userLoading, setUserLoading] = useState(true);
-  const getConvoQuery = useQuery(GET_CONVERSATIONS, {
+  const getConvosQuery = useQuery(GET_CONVERSATIONS, {
     variables: { _id: props.userInfo._id },
   });
   const browserHistory = useHistory();
@@ -24,19 +24,19 @@ const ChatContainer = (props) => {
     }
   }, [paramId]);
   useEffect(() => {
-    if (!getConvoQuery.loading) {
-      if (getConvoQuery.data.getConversations.length > 0 && paramId === undefined) {
+    if (!getConvosQuery.loading) {
+      if (getConvosQuery.data.getConversations.length > 0 && paramId === undefined) {
         const contactId =
-          getConvoQuery.data.getConversations[0].members[0]._id !=
+          getConvosQuery.data.getConversations[0].members[0]._id !=
           props.userInfo._id
-            ? getConvoQuery.data.getConversations[0].members[0]._id
-            : getConvoQuery.data.getConversations[0].members[1]._id;
+            ? getConvosQuery.data.getConversations[0].members[0]._id
+            : getConvosQuery.data.getConversations[0].members[1]._id;
         setCurrentChat(contactId);
-        setCurrentConvo(getConvoQuery.data.getConversations[0]._id);
+        setCurrentConvo(getConvosQuery.data.getConversations[0]._id);
         browserHistory.replace(`/home/messages/${contactId}`);
       } else if (paramId != undefined) {
         setCurrentChat(paramId);
-        let userInConvoHistory = getConvoQuery.data.getConversations.filter(
+        let userInConvoHistory = getConvosQuery.data.getConversations.filter(
           (convo) =>
             convo.members.filter((member) => member._id === paramId).length > 0
         );
@@ -45,13 +45,13 @@ const ChatContainer = (props) => {
         );
       }
     }
-  }, [getConvoQuery, paramId]);
+  }, [getConvosQuery, paramId]);
 
   return (
     <div id="chat-container">
       <Search
         userInfo={props.userInfo}
-        getConvoQuery={getConvoQuery}
+        getConvosQuery={getConvosQuery}
         currentConvo={currentConvo}
         windowWidth={props.windowWidth}
         mobileDisplay={mobileDisplay}
@@ -61,7 +61,7 @@ const ChatContainer = (props) => {
       <ChatDisplay
         userInfo={props.userInfo}
         currentChat={currentChat}
-        convoHistory={getConvoQuery}
+        getConvosQuery={getConvosQuery}
         currentConvo={currentConvo}
         setCurrentConvo={setCurrentConvo}
         windowWidth={props.windowWidth}

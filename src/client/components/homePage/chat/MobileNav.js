@@ -35,7 +35,7 @@ const MobileNav = (props) => {
             src="images/contentPlaceholder.png"
           />
         ) : (
-          <div id="mobile-nav-user-name">
+          <div id="mobile-nav-name">
             {props.getUser.data.getUser.fullName}
           </div>
         )}

@@ -1,7 +1,7 @@
 import Moment from "moment";
 
 const adjustTime = (timeStamp, showTimeOfDay) => {
-  let date = new Date(parseInt(timeStamp)); //Week, year
+  let date = new Date(parseInt(timeStamp)); 
   let localTime = date.toLocaleTimeString();
   let timeToShow;
 

@@ -8,12 +8,12 @@ const EditUsername = (props) => {
   const [success, setSuccess] = useState(false);
   const userField = useFieldInput(props.userInfo.username);
   const [changeUserName] = useMutation(CHANGE_USERNAME);
-  
+
   const submitUserForm = async (event) => {
     event.preventDefault();
-     const _id = props.userInfo._id;
-     const username = userField.value.trim();
-     const changeUserResult = await changeUserName({
+    const _id = props.userInfo._id;
+    const username = userField.value.trim();
+    const changeUserResult = await changeUserName({
       variables: { _id, username },
     });
     setErrors(changeUserResult.data.changeUserName);
@@ -22,14 +22,19 @@ const EditUsername = (props) => {
         ...props.userInfo,
         username,
       });
-      setSuccess(true)
-      setTimeout(()=>{setSuccess(false)},2000)
+      setSuccess(true);
     }
   };
 
   return (
-    <form className="settings-form" onSubmit={submitUserForm}>
-      {success ? <div className="success">Username Change Successful!</div> : null}
+    <form
+      className="settings-form"
+      autoComplete="off"
+      onSubmit={submitUserForm}
+    >
+      {success ? (
+        <div className="success">Username Change Successful!</div>
+      ) : null}
       {errors.length > 0
         ? errors.map((error) => (
             <div key={error}>
@@ -39,11 +44,7 @@ const EditUsername = (props) => {
         : null}
       <div>
         <label className="settings-form-label"> Username</label>
-        <input
-          required
-          value={userField.value}
-          onChange={userField.onChange}
-        />
+        <input required value={userField.value} onChange={userField.onChange} />
       </div>
       <div>
         <button className="change-button" type="submit">

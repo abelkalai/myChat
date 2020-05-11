@@ -38,7 +38,7 @@ button:hover {
 }
 
 .error {
-  margin: 5px 0 7.5px 0;
+  margin: 3.5px 0 7.5px 0;
   font-size: 20px;
   font-weight: bold;
   color: red;
@@ -53,7 +53,7 @@ button:hover {
 }
 
 .general-button {
-  margin-top: 7.5px;
+  margin-top: 20px;
   border-radius: 10px;
   width: 130px;
   padding: 0 5px 0 5px;

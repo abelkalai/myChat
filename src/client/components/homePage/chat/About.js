@@ -17,7 +17,7 @@ const About = (props) => {
         <img
           id="mobile-nav-about-back-img"
           onClick={() => {
-            props.setMobileDisplay("messages");
+            props.setMobileDisplay("chatWindow");
           }}
           src="images/back.png"
         />

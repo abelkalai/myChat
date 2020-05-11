@@ -40,6 +40,7 @@ const EditPicture = (props) => {
   return (
     <Fragment>
       {uploadError ? <h2 className="error">{uploadError}</h2> : null}
+      <p> For best results, upload 1:1 ratio photos</p>
       <div id="upload-file-container">
         <input
           type="file"

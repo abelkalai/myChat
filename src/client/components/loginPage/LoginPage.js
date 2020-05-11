@@ -31,8 +31,8 @@ const LoginPage = (props) => {
                 <Login
                   login={props.loginQuery}
                   setLoginData={props.setLoginData}
-                  setVerifyUser={setUserToVerify}
-                  setVerifyEmail={setEmailToVerify}
+                  setUserToVerify={setUserToVerify}
+                  setEmailToVerify={setEmailToVerify}
                   setFromLogin={setFromLogin}
                 />
               )}

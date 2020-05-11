@@ -27,6 +27,7 @@ const EditAbout = (props) => {
         id="profile-about-text-area"
         value={props.aboutField.value}
         onChange={props.aboutField.onChange}
+        autoComplete="off"
       />
       <div>
         <button className="change-button" type="submit">

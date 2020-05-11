@@ -26,7 +26,7 @@ const Search = (props) => {
   };
 
   const chatSearchResults = () => {
-    if (searchResult.length === 0 || props.getConvoQuery.loading) {
+    if (searchResult.length === 0 || props.getConvosQuery.loading) {
       return null;
     }
     return (
@@ -72,6 +72,7 @@ const Search = (props) => {
           id="search-bar"
           value={searchField.value}
           placeholder="Search MyChat..."
+          autoComplete="off"
           onChange={searchContact}
         />
       </div>
@@ -79,7 +80,7 @@ const Search = (props) => {
       {!searchActive && (
         <History
           userInfo={props.userInfo}
-          convoHistory={props.getConvoQuery}
+          getConvosQuery={props.getConvosQuery}
           currentConvo={props.currentConvo}
           windowWidth={props.windowWidth}
           setMobileDisplay={props.setMobileDisplay}

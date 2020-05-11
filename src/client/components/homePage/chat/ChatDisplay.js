@@ -6,7 +6,6 @@ import {
   useMutation,
   useSubscription,
 } from "@apollo/react-hooks";
-
 import { GET_USER } from "GraphqlDocuments/userDocs";
 import {
   GET_MESSAGES,
@@ -29,29 +28,27 @@ const ChatDisplay = (props) => {
   const [sendMessage] = useMutation(SEND_MESSAGE);
   const [readMsg] = useMutation(READ_MESSAGE, {
     update: (store, { data }) => {
-      let convoCache = store.readQuery({
-        query: GET_CONVERSATIONS,
-        variables: { _id: props.userInfo._id },
-      });
-      let copy = [...convoCache.getConversations];
-      copy = copy.map((convo) =>
+      let copy = [...props.getConvosQuery.data.getConversations];
+      let newConvos = copy.map((convo) =>
         convo._id === data.readMessage ? { ...convo, unread: false } : convo
       );
       store.writeQuery({
         query: GET_CONVERSATIONS,
         variables: { _id: props.userInfo._id },
-        data: { getConversations: copy },
+        data: { getConversations: newConvos },
       });
     },
   });
 
   const getMessages = useQuery(GET_MESSAGES, {
     variables: { senderID: props.userInfo._id, receiverID: props.currentChat },
-    skip: props.convoHistory.loading,
+    fetchPolicy: "cache-and-network",
+    skip: props.getConvosQuery.loading
   });
+
   const getUser = useQuery(GET_USER, {
     variables: { _id: props.currentChat, myID: props.userInfo._id },
-    skip: !props.currentChat || props.convoHistory.loading,
+    skip: !props.currentChat || props.getConvosQuery.loading,
     onCompleted: (data) => {
       if (!data.getUser) {
         props.setBadUserID(true);
@@ -74,6 +71,7 @@ const ChatDisplay = (props) => {
       updateConvoCache(subscriptionData.data.updatedConvo);
     },
   });
+
   const messageField = useFieldInput("");
   const apolloClient = useApolloClient();
 
@@ -85,14 +83,7 @@ const ChatDisplay = (props) => {
     ) {
       let newMsgArray = [];
       if (getMessages.data.getMessages) {
-        const msgStore = apolloClient.readQuery({
-          query: GET_MESSAGES,
-          variables: {
-            senderID: props.userInfo._id,
-            receiverID: props.currentChat,
-          },
-        });
-        newMsgArray = [...msgStore.getMessages];
+        newMsgArray = [...getMessages.data.getMessages];
       }
       let scrollToBottom = false;
       const messages = document.getElementById("messages");
@@ -104,7 +95,6 @@ const ChatDisplay = (props) => {
           scrollToBottom = true;
         }
       }
-
       newMsgArray.unshift(newMsg);
       apolloClient.writeQuery({
         query: GET_MESSAGES,
@@ -131,22 +121,14 @@ const ChatDisplay = (props) => {
         document.activeElement.id === "message-form-text-field" &&
         convo._id === props.currentConvo &&
         convo.lastSender != props.userInfo._id &&
-        messages.scrollTop ===
-          messages.scrollHeight - messages.offsetHeight
+        messages.scrollTop === messages.scrollHeight - messages.offsetHeight
       ) {
         convo.unread = false;
-
         await readMsg({ variables: { _id: convo._id } });
       }
-      const convoStore = apolloClient.readQuery({
-        query: GET_CONVERSATIONS,
-        variables: { _id: props.userInfo._id },
-      });
-      let copy = [...convoStore.getConversations];
+      let copy = [...props.getConvosQuery.data.getConversations];
       copy = copy.filter((x) => x._id != convo._id);
-
       copy.unshift(convo);
-
       apolloClient.writeQuery({
         query: GET_CONVERSATIONS,
         variables: { _id: props.userInfo._id },
@@ -154,13 +136,13 @@ const ChatDisplay = (props) => {
       });
     }
   };
+
   const sendMessageEvent = async (event) => {
     event.preventDefault();
     if (messageField.value) {
       let senderID = props.userInfo._id;
       let receiverID = props.currentChat;
       let content = messageField.value;
-
       await sendMessage({ variables: { senderID, receiverID, content } });
       messageField.clear();
     }
@@ -168,7 +150,7 @@ const ChatDisplay = (props) => {
 
   const readMessage = async (event) => {
     event.preventDefault();
-    let currentChatID = props.convoHistory.data.getConversations.filter(
+    let currentChatID = props.getConvosQuery.data.getConversations.filter(
       (convo) => convo._id === props.currentConvo
     );
     if (currentChatID.length != 0) {
@@ -178,7 +160,7 @@ const ChatDisplay = (props) => {
     }
   };
 
-  const chat = () => {
+  const chatWindow = () => {
     return (
       <div id="chat-window">
         <Messages
@@ -191,8 +173,7 @@ const ChatDisplay = (props) => {
           fromAbout={fromAbout}
           setFromAbout={setFromAbout}
         />
-
-        <form id="message-form" onSubmit={sendMessageEvent}>
+        <form id="message-form" autoComplete="off" onSubmit={sendMessageEvent}>
           <input
             id="message-form-text-field"
             type="text"
@@ -201,11 +182,7 @@ const ChatDisplay = (props) => {
             onChange={messageField.onChange}
             placeholder="Type a message..."
           />
-          <input
-            id="message-form-img"
-            type="image"
-            src="images/send.png"
-          />
+          <input id="message-form-img" type="image" src="images/send.png" />
         </form>
       </div>
     );
@@ -216,13 +193,13 @@ const ChatDisplay = (props) => {
       {props.badUserID && <Redirect to="/home/messages" />}
       {props.userLoading ? (
         <ChatDisplayPlaceholder
-          convoHistory={props.convoHistory}
+          getConvosQuery={props.getConvosQuery}
           windowWidth={props.windowWidth}
         />
       ) : (
         <Fragment>
-          {(props.windowWidth > 768 || props.mobileDisplay === "messages") &&
-            chat()}
+          {(props.windowWidth > 768 || props.mobileDisplay === "chatWindow") &&
+            chatWindow()}
           {(props.windowWidth > 768 || props.mobileDisplay === "about") && (
             <About
               getUser={getUser}

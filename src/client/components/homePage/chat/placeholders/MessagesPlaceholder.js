@@ -24,7 +24,7 @@ const MessagesPlaceholder = () => {
 
   return (
     <div id="chat-window">
-      <div id="message-container">
+      <div id="messages-container">
         <div id="messages">{arr.map((element) => element)}</div>
       </div>
       <div id="message-form">

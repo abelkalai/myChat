@@ -60,7 +60,7 @@ const Signup = (props) => {
               </h2>
             ))
           : null}
-        <form className="login-page-form" onSubmit={signup}>
+        <form className="login-page-form" onSubmit={signup} autoComplete="off">
           <div>
             <input
               className="login-page-input"
@@ -137,6 +137,20 @@ const Signup = (props) => {
     );
   };
 
+  const verifyEmailEvent = async (event) => {
+    event.preventDefault();
+    const verificationCode = verificationCodeField.value;
+    const email = props.emailToVerify ? props.emailToVerify : emailField.value;
+    const addUserResult = await verifyEmail({
+      variables: { email, verificationCode },
+    });
+    if (addUserResult.data.verifyEmail.length === 0) {
+      setPage("signUpConfirm");
+    } else {
+      setErrors(addUserResult.data.verifyEmail);
+    }
+  };
+
   const signUpVerify = () => {
     return (
       <Fragment>
@@ -155,7 +169,11 @@ const Signup = (props) => {
             {`If you leave this page, you can verify your email upon logging in.`}
           </p>
         </div>
-        <form className="login-page-form" onSubmit={verifyEmailEvent}>
+        <form
+          className="login-page-form"
+          autoComplete="off"
+          onSubmit={verifyEmailEvent}
+        >
           {errors.length > 0
             ? errors.map((error) => (
                 <h2 key={error} className="error">
@@ -178,20 +196,6 @@ const Signup = (props) => {
         </form>
       </Fragment>
     );
-  };
-
-  const verifyEmailEvent = async (event) => {
-    event.preventDefault();
-    let verificationCode = verificationCodeField.value;
-    let email = props.emailToVerify ? props.emailToVerify : emailField.value;
-    let addUserResult = await verifyEmail({
-      variables: { email, verificationCode },
-    });
-    if (addUserResult.data.verifyEmail.length === 0) {
-      setPage("signUpConfirm");
-    } else {
-      setErrors(addUserResult.data.verifyEmail);
-    }
   };
 
   return (
