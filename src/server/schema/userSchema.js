@@ -148,12 +148,6 @@ const userResolvers = {
   },
   Mutation: {
     addUser: async (root, args) => {
-      args.fullName = `${args.firstName} ${args.lastName}`;
-      args.confirmed = false;
-      args.about = "";
-      args.profilePicture = DEFAULT_IMAGE;
-      const verificationCode = generator.generate({ length: 8, numbers: true });
-      args.verificationCode = await bcrypt.hash(verificationCode, 10);
       let errors = [];
       if (args.password != args.passwordConfirm) {
         errors.push("Passwords don't match");
@@ -173,19 +167,26 @@ const userResolvers = {
       ) {
         errors.push("Email already used");
       }
+      if(errors.length> 0){
+        return {errorList: errors}
+      }
+      args.fullName = `${args.firstName} ${args.lastName}`;
+      args.confirmed = false;
+      args.about = "";
+      args.profilePicture = DEFAULT_IMAGE;
+      const verificationCode = generator.generate({ length: 8, numbers: true });
+      args.verificationCode = await bcrypt.hash(verificationCode, 10);
       args.password = await bcrypt.hash(args.password, 10);
       let user = new User({ ...args });
-      if (errors.length === 0) {
+ 
         await user.save();
         await mailService.sendEmail("VERIFY", {
           toFullName: args.fullName,
           toEmail: args.email,
           code: verificationCode,
-        });
+        })
         return { User: user, errorList: errors };
-      } else {
-        return { errorList: errors };
-      }
+
     },
 
     login: async (root, args) => {
