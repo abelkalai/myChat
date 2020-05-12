@@ -18,7 +18,7 @@ const Login = (props) => {
     event.preventDefault();
     const username = usernameField.value.trim();
     const password = passwordField.value;
-    const loginResult = await login({
+    let loginResult = await login({
       variables: { username, password },
     });
     if (!loginResult.data.login.errorList) {

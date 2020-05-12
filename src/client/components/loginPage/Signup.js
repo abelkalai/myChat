@@ -140,8 +140,8 @@ const Signup = (props) => {
   const verifyEmailEvent = async (event) => {
     event.preventDefault();
     const verificationCode = verificationCodeField.value;
-    const email = props.emailToVerify ? props.emailToVerify : emailField.value;
-    const addUserResult = await verifyEmail({
+    const email = props.emailToVerify ? props.emailToVerify : emailField.value.trim();
+    let addUserResult = await verifyEmail({
       variables: { email, verificationCode },
     });
     if (addUserResult.data.verifyEmail.length === 0) {
@@ -162,7 +162,7 @@ const Signup = (props) => {
           <p>
             {"Please check your email at "}
             <span className="bold-text">
-              {props.emailToVerify ? props.emailToVerify : emailField.value}
+              {props.emailToVerify ? props.emailToVerify : emailField.value.trim()}
             </span>
           </p>
           <p>

@@ -18,7 +18,7 @@ const EditPassword = (props) => {
     const currentPassword = currentPasswordField.value;
     const newPassword = newPasswordField.value;
     const newPasswordConfirm = newPasswordConfirmField.value;
-    const changePassworedResult = await changePassword({
+    let changePassworedResult = await changePassword({
       variables: { _id, currentPassword, newPassword, newPasswordConfirm },
     });
 

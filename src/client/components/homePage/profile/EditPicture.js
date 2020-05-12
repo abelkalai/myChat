@@ -27,7 +27,7 @@ const EditPicture = (props) => {
       reader.readAsDataURL(compressedFile);
       reader.onload = async () => {
         const _id = props.userInfo._id;
-        const result = await reader.result;
+        let result = await reader.result;
         const image = result.substring(result.indexOf(",") + 1);
         await editImage({ variables: { _id, image } });
       };

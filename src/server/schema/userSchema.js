@@ -153,9 +153,8 @@ const userResolvers = {
       args.about = "";
       args.profilePicture = DEFAULT_IMAGE;
       const verificationCode = generator.generate({ length: 8, numbers: true });
-
+      args.verificationCode = await bcrypt.hash(verificationCode, 10);
       let errors = [];
-      console.log(args.password, args.passwordConfirm);
       if (args.password != args.passwordConfirm) {
         errors.push("Passwords don't match");
       }
@@ -234,17 +233,21 @@ const userResolvers = {
     },
 
     verifyEmail: async (root, args) => {
+      console.log(args);
       const user = await User.find({
         email: { $regex: new RegExp(`^${args.email}$`, "i") },
       }).limit(1);
+      console.log(
+        !(await bcrypt.compare(args.verificationCode, user[0].verificationCode))
+      );
       if (
         !(await bcrypt.compare(args.verificationCode, user[0].verificationCode))
       ) {
         return ["Invalid Verification Code"];
       } else {
         await User.findByIdAndUpdate(user[0]._id, {
-          verifcaitonCode: null,
           confirmed: true,
+          verificationCode: null
         });
         return [];
       }

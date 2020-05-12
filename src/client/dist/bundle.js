@@ -90862,7 +90862,7 @@ var Signup = function Signup(props) {
             case 0:
               event.preventDefault();
               verificationCode = verificationCodeField.value;
-              email = props.emailToVerify ? props.emailToVerify : emailField.value;
+              email = props.emailToVerify ? props.emailToVerify : emailField.value.trim();
               _context2.next = 5;
               return verifyEmail({
                 variables: {
@@ -90900,7 +90900,7 @@ var Signup = function Signup(props) {
       id: "verify-info-container"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Please check your email at ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "bold-text"
-    }, props.emailToVerify ? props.emailToVerify : emailField.value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "If you leave this page, you can verify your email upon logging in.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    }, props.emailToVerify ? props.emailToVerify : emailField.value.trim())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "If you leave this page, you can verify your email upon logging in.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       className: "login-page-form",
       autoComplete: "off",
       onSubmit: verifyEmailEvent

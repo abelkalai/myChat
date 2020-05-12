@@ -15,7 +15,7 @@ const EditName = (props) => {
     const _id = props.userInfo._id;
     const firstName = firstNamefield.value;
     const lastName = lastNameField.value;
-    const changeNameResult = await changeName({
+    let changeNameResult = await changeName({
       variables: { _id, firstName, lastName },
     });
     setErrors(changeNameResult.data.changeName);

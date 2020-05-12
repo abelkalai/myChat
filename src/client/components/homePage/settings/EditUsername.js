@@ -13,7 +13,7 @@ const EditUsername = (props) => {
     event.preventDefault();
     const _id = props.userInfo._id;
     const username = userField.value.trim();
-    const changeUserResult = await changeUserName({
+    let changeUserResult = await changeUserName({
       variables: { _id, username },
     });
     setErrors(changeUserResult.data.changeUserName);
