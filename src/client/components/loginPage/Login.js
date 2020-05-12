@@ -18,25 +18,27 @@ const Login = (props) => {
     event.preventDefault();
     const username = usernameField.value.trim();
     const password = passwordField.value;
-    let loginResult = await login({
-      variables: { username, password },
-    });
-    if (!loginResult.data.login.errorList) {
-      setError(null);
-      const date = new Date();
-      date.setDate(date.getDate() + 365);
-      document.cookie = `token=${
-        loginResult.data.login.Token
-      }; expires= ${date.toGMTString()} path = /;`;
-      props.setLoginData(loginResult.data.login.User);
-    } else if (
-      loginResult.data.login.errorList === "Please verify your email to login"
-    ) {
-      setError(loginResult.data.login.errorList);
-      props.setEmailToVerify(loginResult.data.login.email);
-      props.setUserToVerify(username);
-    } else {
-      setError(loginResult.data.login.errorList);
+    if (error != "Please verify your email to login") {
+      let loginResult = await login({
+        variables: { username, password },
+      });
+      if (!loginResult.data.login.errorList) {
+        setError(null);
+        const date = new Date();
+        date.setDate(date.getDate() + 365);
+        document.cookie = `token=${
+          loginResult.data.login.Token
+        }; expires= ${date.toGMTString()} path = /;`;
+        props.setLoginData(loginResult.data.login.User);
+      } else if (
+        loginResult.data.login.errorList === "Please verify your email to login"
+      ) {
+        setError(loginResult.data.login.errorList);
+        props.setEmailToVerify(loginResult.data.login.email);
+        props.setUserToVerify(username);
+      } else {
+        setError(loginResult.data.login.errorList);
+      }
     }
   };
 

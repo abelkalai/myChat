@@ -90440,7 +90440,13 @@ var Login = function Login(props) {
               event.preventDefault();
               username = usernameField.value.trim();
               password = passwordField.value;
-              _context.next = 5;
+
+              if (!(error != "Please verify your email to login")) {
+                _context.next = 8;
+                break;
+              }
+
+              _context.next = 6;
               return login({
                 variables: {
                   username: username,
@@ -90448,7 +90454,7 @@ var Login = function Login(props) {
                 }
               });
 
-            case 5:
+            case 6:
               loginResult = _context.sent;
 
               if (!loginResult.data.login.errorList) {
@@ -90465,7 +90471,7 @@ var Login = function Login(props) {
                 setError(loginResult.data.login.errorList);
               }
 
-            case 7:
+            case 8:
             case "end":
               return _context.stop();
           }
