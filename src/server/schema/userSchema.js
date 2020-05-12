@@ -167,8 +167,8 @@ const userResolvers = {
       ) {
         errors.push("Email already used");
       }
-      if(errors.length> 0){
-        return {errorList: errors}
+      if (errors.length > 0) {
+        return { errorList: errors };
       }
       args.fullName = `${args.firstName} ${args.lastName}`;
       args.confirmed = false;
@@ -178,15 +178,14 @@ const userResolvers = {
       args.verificationCode = await bcrypt.hash(verificationCode, 10);
       args.password = await bcrypt.hash(args.password, 10);
       let user = new User({ ...args });
- 
-        await user.save();
-        await mailService.sendEmail("VERIFY", {
-          toFullName: args.fullName,
-          toEmail: args.email,
-          code: verificationCode,
-        })
-        return { User: user, errorList: errors };
 
+      await user.save();
+      await mailService.sendEmail("VERIFY", {
+        toFullName: args.fullName,
+        toEmail: args.email,
+        code: verificationCode,
+      });
+      return { User: user, errorList: errors };
     },
 
     login: async (root, args) => {
@@ -234,13 +233,10 @@ const userResolvers = {
     },
 
     verifyEmail: async (root, args) => {
-      console.log(args);
       const user = await User.find({
         email: { $regex: new RegExp(`^${args.email}$`, "i") },
       }).limit(1);
-      console.log(
-        !(await bcrypt.compare(args.verificationCode, user[0].verificationCode))
-      );
+
       if (
         !(await bcrypt.compare(args.verificationCode, user[0].verificationCode))
       ) {
@@ -248,7 +244,7 @@ const userResolvers = {
       } else {
         await User.findByIdAndUpdate(user[0]._id, {
           confirmed: true,
-          verificationCode: null
+          verificationCode: null,
         });
         return [];
       }
