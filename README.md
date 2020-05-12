@@ -10,7 +10,7 @@ Connect with friends and family to message one another in real time either on de
 
 * React for the frontend for a single page application
 * NodeMailer to send emails for account management
-* MongoDB for the database
+* MongoDB Atlas for the database
 * GraphQL for data querying and manipulation
 * Express for the web server
 
@@ -40,12 +40,12 @@ useSubscription(UPDATED_CONVO, {
 });
 
 ```
+
 ### Mobile Responsiveness
 
 To let mobile users chat with one another, MyChat uses CSS media queries to adjust to different screen sizes. For mobile users, the main chat page works more like a messaging app.
 
 ![mobileResponsivenessDemo](/src/client/assets/gifs/mobileResponsivenessDemo.gif)
-
 
 ### Account Creation & Mangament
 
@@ -59,8 +59,9 @@ MyChat's account creation & management are built from the ground up using passwo
 MyChat lets users personalize their profiles. Users can change their bios and upload profile pictures. Pictures are compressed to save size and stored as base64 strings.
 
 ![editProfileDemo](/src/client/assets/gifs/editProfileDemo.gif)
+
 ## Future Plans
 
-- Group Messaging
-- Search messages for keywords
-- Send images, gifs and emojis over chat
+* Group Messaging
+* Search messages for keywords
+* Send images, gifs and emojis over chat
