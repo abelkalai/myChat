@@ -16,9 +16,9 @@ Connect with friends and family to message one another in real time either on de
 
 ## Features
 
-### Subscriptions
+### GraphQL Subscriptions
 
-To update messages in real time, MyChat makes use of subscriptions via WebSockets.
+To update messages in real time, MyChat makes use of GraphQL subscriptions via WebSockets.
 
 ![messagingDemo](/src/client/assets/gifs/messagingDemo.gif)
 
