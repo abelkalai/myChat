@@ -91287,7 +91287,7 @@ var domainName = window.location.hostname; // If running locally use `ws://${dom
 
 var port = 4000;
 var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_5__["WebSocketLink"]({
-  uri: "wss://".concat(domainName, "/graphql"),
+  uri: "wss://".concat(domainName, ":").concat(port, "/graphql"),
   options: {
     reconnect: true,
     lazy: true
