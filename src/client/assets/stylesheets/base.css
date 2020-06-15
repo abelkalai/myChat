@@ -33,6 +33,11 @@ button {
   text-align: center;
 }
 
+input{
+  border-color: rgb(195, 195, 195);
+  border-width: 1.5px;
+}
+
 button:hover {
   cursor: pointer;
 }

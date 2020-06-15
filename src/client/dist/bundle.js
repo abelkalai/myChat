@@ -25287,7 +25287,7 @@ function _defineProperty(e,r,n){return r in e?Object.defineProperty(e,r,{value:n
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "* {\r\n  margin: 0px;\r\n  padding: 0px;\r\n  font-family: Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif;\r\n}\r\n\r\nhtml,\r\nbody {\r\n  height: 100%;\r\n  background-color: #257fbd;\r\n}\r\n\r\n#root {\r\n  height: 100%;\r\n}\r\n\r\ninput:focus,\r\ntextarea:focus,\r\nselect:focus {\r\n  outline: none;\r\n}\r\n\r\na {\r\n  text-decoration: none;\r\n  color: inherit;\r\n}\r\n\r\nbutton {\r\n  border: none;\r\n  border-radius: 10px;\r\n  outline: none;\r\n  padding: 2px;\r\n  text-align: center;\r\n}\r\n\r\nbutton:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.error {\r\n  margin: 3.5px 0 7.5px 0;\r\n  font-size: 20px;\r\n  font-weight: bold;\r\n  color: red;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n.bold-text {\r\n  font-weight: bold;\r\n}\r\n\r\n.general-button {\r\n  margin-top: 20px;\r\n  border-radius: 10px;\r\n  width: 130px;\r\n  padding: 0 5px 0 5px;\r\n  border-color: #00a8f3;\r\n  background-color: #00a8f3;\r\n  font-size: 16px;\r\n  color: white;\r\n}\r\n\r\n@media (max-width: 768px) {\r\n  button {\r\n    padding: 1px;\r\n  }\r\n\r\n  .error {\r\n    margin: 2.5px 0 2.5px 0;\r\n    font-size: 16px;\r\n  }\r\n}\r\n", ""]);
+exports.push([module.i, "* {\r\n  margin: 0px;\r\n  padding: 0px;\r\n  font-family: Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif;\r\n}\r\n\r\nhtml,\r\nbody {\r\n  height: 100%;\r\n  background-color: #257fbd;\r\n}\r\n\r\n#root {\r\n  height: 100%;\r\n}\r\n\r\ninput:focus,\r\ntextarea:focus,\r\nselect:focus {\r\n  outline: none;\r\n}\r\n\r\na {\r\n  text-decoration: none;\r\n  color: inherit;\r\n}\r\n\r\nbutton {\r\n  border: none;\r\n  border-radius: 10px;\r\n  outline: none;\r\n  padding: 2px;\r\n  text-align: center;\r\n}\r\n\r\ninput{\r\n  border-color: rgb(195, 195, 195);\r\n  border-width: 1.5px;\r\n}\r\n\r\nbutton:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.error {\r\n  margin: 3.5px 0 7.5px 0;\r\n  font-size: 20px;\r\n  font-weight: bold;\r\n  color: red;\r\n}\r\n\r\n.center {\r\n  text-align: center;\r\n}\r\n\r\n.bold-text {\r\n  font-weight: bold;\r\n}\r\n\r\n.general-button {\r\n  margin-top: 20px;\r\n  border-radius: 10px;\r\n  width: 130px;\r\n  padding: 0 5px 0 5px;\r\n  border-color: #00a8f3;\r\n  background-color: #00a8f3;\r\n  font-size: 16px;\r\n  color: white;\r\n}\r\n\r\n@media (max-width: 768px) {\r\n  button {\r\n    padding: 1px;\r\n  }\r\n\r\n  .error {\r\n    margin: 2.5px 0 2.5px 0;\r\n    font-size: 16px;\r\n  }\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -91287,7 +91287,7 @@ var domainName = window.location.hostname; // If running locally use `ws://${dom
 
 var port = 4000;
 var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_5__["WebSocketLink"]({
-  uri: "ws://".concat(domainName, ":").concat(port, "/graphql"),
+  uri: "wss://".concat(domainName, "/graphql"),
   options: {
     reconnect: true,
     lazy: true
