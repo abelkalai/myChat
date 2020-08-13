@@ -15,32 +15,27 @@ const refreshToken = config.REFRESH_TOKEN;
 const OAuth2 = google.auth.OAuth2;
 
 const sendEmail = (type, options) => {
-  const oauth2Client = new OAuth2(
-    clientID,
-    clientSecret,
-    "https://developers.google.com/oauthplayground"
-  );
+  // const oauth2Client = new OAuth2(
+  //   clientID,
+  //   clientSecret,
+  //   "https://developers.google.com/oauthplayground"
+  // );
 
-  oauth2Client.credentials = {
-    refresh_token: refreshToken,
-  };
+  // oauth2Client.credentials = {
+  //   refresh_token: refreshToken,
+  // };
 
-  let accessToken;
-  oauth2Client.getAccessToken().then(function (value) {
-    accessToken = value.token;
-  });
+  // let accessToken;
+  // oauth2Client.getAccessToken().then(function (value) {
+  //   accessToken = value.token;
+  // });
   
   let transporter = nodemailer.createTransport({
     service: "gmail",
     host: "smtp.gmail.com",
     auth: {
-      type: "OAuth2",
       user: emailUsername,
-      password: emailPassword,
-      clientId: clientID,
-      clientSecret: clientSecret,
-      refreshToken: refreshToken,
-      accessToken: accessToken,
+      pass: emailPassword,
     },
     tls: {
       rejectUnauthorized: false,
