@@ -4,6 +4,7 @@
   "description": "App lets users message one another",
   "main": "index.js",
   "scripts": {
+    "start": "run-p client server",
     "client": "npx webpack",
     "server": "npx nodemon src/server/index.js"
   },
@@ -45,6 +46,7 @@
     "node": "^13.11.0",
     "nodemailer": "^6.4.6",
     "nodemon": "^2.0.2",
+    "npm-run-all": "^4.1.5",
     "react": "^16.13.1",
     "react-apollo": "^3.1.4",
     "react-dom": "^16.13.1",

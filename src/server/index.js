@@ -69,5 +69,5 @@ apolloServer.applyMiddleware({ app });
 const httpServer = createServer(app);
 apolloServer.installSubscriptionHandlers(httpServer);
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 httpServer.listen({ port });
