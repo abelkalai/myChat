@@ -8,7 +8,7 @@ Connect with friends and family to message one another in real time either on de
 
 ## Technologies
 
-* [React.js](https://reactjs.org/) on frontend for a single page application
+* [React.js](https://reactjs.org/) on the frontend for a single page application
 * [NodeMailer](https://nodemailer.com/about/) to send emails for account management
 * [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/efficiency?utm_source=google&utm_campaign=gs_americas_united_states_search_brand_atlas_desktop&utm_term=mongodb%20atlas&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=1718986498&gclid=CjwKCAiAq8f-BRBtEiwAGr3DgZvLHOpdKVa8PSEAWaoJXtMIYoaCBmqXo9VTRVxG1ChrV9X4dwHYxRoC108QAvD_BwE) for the database
 * [GraphQL](https://graphql.org/) for data querying and manipulation
