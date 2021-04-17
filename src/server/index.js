@@ -70,4 +70,9 @@ const httpServer = createServer(app);
 apolloServer.installSubscriptionHandlers(httpServer);
 
 const port = process.env.PORT || 3000;
-httpServer.listen({ port });
+httpServer.listen({ port }, () =>  
+  console.log(
+  `Client application ready at http:localhost:${port} |`,
+  `Backend server ready at http:localhost:${port}${apolloServer.graphqlPath}` 
+  )
+);

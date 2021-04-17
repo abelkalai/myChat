@@ -1,4 +1,5 @@
 node_modules
+.vscode
 
-#Ignore enviornment variables
+# Ignore enviornment variables
 .env
