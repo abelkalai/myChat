@@ -91285,9 +91285,9 @@ var httpLink = new apollo_boost__WEBPACK_IMPORTED_MODULE_3__["HttpLink"]({
 });
 var domainName = window.location.hostname; // If running locally use `ws://${domainName}:${port}/graphql` else `wss://${domainName}/graphql` for prod
 
-var port = 4000;
+var port = 3000;
 var wsLink = new _apollo_link_ws__WEBPACK_IMPORTED_MODULE_5__["WebSocketLink"]({
-  uri: "wss://".concat(domainName, "/graphql"),
+  uri: "ws://".concat(domainName, ":").concat(port, "/graphql"),
   options: {
     reconnect: true,
     lazy: true
@@ -91478,7 +91478,7 @@ var AppRoute = function AppRoute(_ref) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\abelk\OneDrive\Desktop\Career\Software\Github\Projects\project_2_myChat\myChat\src\client\index.jsx */"./src/client/index.jsx");
+module.exports = __webpack_require__(/*! C:\Users\abelk\OneDrive\Desktop\Career\04_Github\myChat\src\client\index.jsx */"./src/client/index.jsx");
 
 
 /***/ })
